@@ -56,7 +56,12 @@ function NewRepositoryPage() {
         onSuccess: (response) => {
           toast.success('Repository created')
           // Navigate to the new repository
-          window.location.href = `${getAppPath()}/${response.data.id}`
+          const id = response?.data?.id
+          if (id) {
+            window.location.href = `${getAppPath()}/${id}`
+          } else {
+            navigate({ to: '/' })
+          }
         },
         onError: (error) => {
           toast.error(getErrorMessage(error, 'Failed to create repository'))
