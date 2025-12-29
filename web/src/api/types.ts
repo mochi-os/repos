@@ -114,7 +114,9 @@ export interface CreateRepoRequest {
 }
 
 export interface CreateRepoResponse {
-  id: string
-  name: string
-  url: string
+  data: {
+    id: string
+    name: string
+    url: string
+  }
 }
