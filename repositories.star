@@ -276,7 +276,7 @@ def action_commits(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    ref = a.input("ref") or a.param("ref") or "HEAD"
+    ref = a.input("ref") or "HEAD"
     limit = int(a.input("limit", "50"))
     offset = int(a.input("offset", "0"))
 
@@ -292,7 +292,7 @@ def action_commit(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    sha = a.param("sha")
+    sha = a.input("sha")
     if not sha:
         return a.error(400, "Commit SHA is required")
 
@@ -311,8 +311,8 @@ def action_tree(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    ref = a.param("ref") or a.input("ref") or "HEAD"
-    path = a.param("path") or a.input("path") or ""
+    ref = a.input("ref") or "HEAD"
+    path = a.input("path") or ""
 
     tree = mochi.git.tree(repo["id"], ref, path)
     if tree == None:
@@ -333,8 +333,8 @@ def action_blob(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    ref = a.param("ref") or a.input("ref") or "HEAD"
-    path = a.param("path") or a.input("path")
+    ref = a.input("ref") or "HEAD"
+    path = a.input("path")
 
     if not path:
         return a.error(400, "Path is required")
