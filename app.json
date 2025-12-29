@@ -1,0 +1,66 @@
+// Mochi Repositories app
+// Copyright Alistair Cunningham 2025
+
+{
+	"version": "0.1",
+	"label": "app_name",
+	"classes": ["repository"],
+	"paths": ["repositories"],
+	"services": ["repositories"],
+
+	"require": {
+		"version": {"minimum": "0.3"}
+	},
+
+	"architecture": {"engine": "starlark", "version": 2},
+	"execute": ["repositories.star"],
+
+	"database": {
+		"schema": 1,
+		"file": "repositories.db",
+		"create": {"function": "database_create"}
+	},
+
+	"icons": [
+		{"action": "", "label": "app_name", "file": "images/icon.svg"}
+	],
+
+	"actions": {
+		"": {"file": "web/dist/index.html", "public": true},
+		"info": {"function": "action_info_class"},
+		"create": {"function": "action_create"},
+		"new": {"file": "web/dist/index.html"},
+		"assets": {"files": "web/dist/assets", "public": true},
+		"images": {"files": "web/dist/images", "public": true},
+
+		":repo": {"file": "web/dist/index.html", "public": true, "function": "action_info_entity", "opengraph": "action_opengraph"},
+		":repo/-/info": {"function": "action_info_entity", "public": true},
+		":repo/-/settings": {"function": "action_settings"},
+		":repo/-/settings/set": {"function": "action_settings_set"},
+		":repo/-/delete": {"function": "action_delete"},
+		":repo/-/access": {"function": "action_access_list"},
+		":repo/-/access/set": {"function": "action_access_set"},
+		":repo/-/access/revoke": {"function": "action_access_revoke"},
+
+		":repo/-/refs": {"function": "action_refs", "public": true},
+		":repo/-/branches": {"function": "action_branches", "public": true},
+		":repo/-/tags": {"function": "action_tags", "public": true},
+		":repo/-/commits": {"function": "action_commits", "public": true},
+		":repo/-/commits/:ref": {"function": "action_commits", "public": true},
+		":repo/-/commit/:sha": {"function": "action_commit", "public": true},
+		":repo/-/tree": {"function": "action_tree", "public": true},
+		":repo/-/tree/:ref/*path": {"function": "action_tree", "public": true},
+		":repo/-/blob/:ref/*path": {"function": "action_blob", "public": true},
+
+		":repo.git/*path": {"feature": "git", "public": true},
+
+		":repo/assets": {"files": "web/dist/assets", "public": true},
+		":repo/images": {"files": "web/dist/images", "public": true},
+		":repo/:path/assets": {"files": "web/dist/assets", "public": true},
+		":repo/:path/images": {"files": "web/dist/images", "public": true},
+		":repo/*path": {"file": "web/dist/index.html", "public": true},
+
+		"-/users/search": {"function": "action_users_search"},
+		"-/groups": {"function": "action_groups"}
+	}
+}
