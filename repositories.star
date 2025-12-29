@@ -61,8 +61,8 @@ def action_create(a):
     if not name:
         return a.error(400, "Name is required")
 
-    if not mochi.valid(name, "constant"):
-        return a.error(400, "Invalid repository name")
+    if len(name) > 100:
+        return a.error(400, "Name is too long (max 100 characters)")
 
     # Create entity (returns entity ID string)
     entity_id = mochi.entity.create("repository", name, "public" if public else "private", "")

@@ -42,9 +42,8 @@ function NewRepositoryPage() {
       return
     }
 
-    // Validate name format (alphanumeric, dashes, underscores)
-    if (!/^[a-zA-Z0-9_-]+$/.test(name.trim())) {
-      toast.error('Repository name can only contain letters, numbers, dashes, and underscores')
+    if (name.trim().length > 100) {
+      toast.error('Repository name is too long (max 100 characters)')
       return
     }
 
@@ -94,14 +93,11 @@ function NewRepositoryPage() {
                   <Label htmlFor="name">Repository name</Label>
                   <Input
                     id="name"
-                    placeholder="my-project"
+                    placeholder="My Project"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     autoFocus
                   />
-                  <p className="text-sm text-muted-foreground">
-                    Use lowercase letters, numbers, dashes, or underscores.
-                  </p>
                 </div>
 
                 <div className="space-y-2">
