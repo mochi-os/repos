@@ -9,7 +9,6 @@ import {
   Textarea,
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
   Switch,
@@ -83,9 +82,6 @@ function NewRepositoryPage() {
                 <FolderGit2 className="h-5 w-5" />
                 Create new repository
               </CardTitle>
-              <CardDescription>
-                A repository contains all project files, including the revision history.
-              </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -93,7 +89,7 @@ function NewRepositoryPage() {
                   <Label htmlFor="name">Repository name</Label>
                   <Input
                     id="name"
-                    placeholder="My Project"
+                    placeholder="My repository"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     autoFocus
