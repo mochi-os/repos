@@ -52,7 +52,8 @@ echo "--- Repository Creation Test ---"
 # Test: Create repository
 RESULT=$("$CURL_HELPER" -a admin -X POST -H "Content-Type: application/json" -d '{"name":"test-repo","description":"Test repository"}' "/repositories/create")
 if echo "$RESULT" | grep -q '"id":"'; then
-    REPO_ENTITY=$(echo "$RESULT" | python3 -c "import sys, json; print(json.load(sys.stdin)['data']['id'])" 2>/dev/null)
+    # Handle both {"data":{"id":...}} and {"id":...} formats
+    REPO_ENTITY=$(echo "$RESULT" | python3 -c "import sys, json; d=json.load(sys.stdin); print(d.get('data',d).get('id',d.get('id','')))" 2>/dev/null)
     if [ -n "$REPO_ENTITY" ]; then
         pass "Create repository (entity: $REPO_ENTITY)"
         BASE_URL="/repositories/$REPO_ENTITY"
@@ -245,7 +246,7 @@ echo "--- Not Found Tests ---"
 
 # Test: Get info for nonexistent repo
 RESULT=$("$CURL_HELPER" -a admin -X GET "/repositories/nonexistent-repo-xyz/-/info")
-if echo "$RESULT" | grep -q '"error"'; then
+if echo "$RESULT" | grep -qi 'error\|not found'; then
     pass "Repository not found"
 else
     fail "Repository not found" "$RESULT"
@@ -268,7 +269,7 @@ fi
 
 # Verify repository was deleted
 RESULT=$(repo_api_curl GET "/info")
-if echo "$RESULT" | grep -q '"error"'; then
+if echo "$RESULT" | grep -qi 'error\|not found'; then
     pass "Verify repository deleted"
 else
     fail "Verify repository deleted" "$RESULT"

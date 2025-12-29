@@ -3,7 +3,7 @@
 
 # Database schema
 def database_create():
-    mochi.db.exec("""
+    mochi.db.execute("""
         create table repositories (
             id text primary key not null,
             name text not null default '',
@@ -14,7 +14,7 @@ def database_create():
             updated text not null default ''
         )
     """)
-    mochi.db.exec("create index repositories_name on repositories(name)")
+    mochi.db.execute("create index repositories_name on repositories(name)")
 
 # Action: Get class info
 def action_info_class(a):
@@ -25,34 +25,34 @@ def action_info_class(a):
         "icon": mochi.app.asset("images/icon.svg"),
     })
 
+# Helper: Get repository from route parameter
+# Entity resolution uses class name "repository", not route param ":repo"
+def get_repo(a):
+    repo_id = a.input("repository")
+    if not repo_id:
+        return None
+    return mochi.db.row("select * from repositories where id = ?", repo_id)
+
 # Action: Get entity info
 def action_info_entity(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    row = mochi.db.row("select * from repositories where id = ?", repo.id)
-    if not row:
-        return a.error(404, "Repository not found")
-
     # Get repository stats
-    branches = mochi.git.branches(repo.id)
-    tags = mochi.git.tags(repo.id)
+    branches = mochi.git.branches(repo["id"])
+    tags = mochi.git.tags(repo["id"])
 
     a.json({
-        "id": repo.id,
-        "name": row["name"],
-        "description": row["description"],
-        "default_branch": row["default_branch"],
-        "size": row["size"],
-        "created": row["created"],
-        "updated": row["updated"],
+        "id": repo["id"],
+        "name": repo["name"],
+        "description": repo["description"],
+        "default_branch": repo["default_branch"],
+        "size": repo["size"],
+        "created": repo["created"],
+        "updated": repo["updated"],
         "branches": len(branches) if branches else 0,
         "tags": len(tags) if tags else 0,
-        "owner": {
-            "id": a.owner.identity.id if a.owner else "",
-            "name": a.owner.identity.name if a.owner else "",
-        } if a.owner else None,
     })
 
 # Action: Create repository
@@ -64,55 +64,51 @@ def action_create(a):
     if not name:
         return a.error(400, "Name is required")
 
-    if not mochi.valid(name, "slug"):
+    if not mochi.valid(name, "constant"):
         return a.error(400, "Invalid repository name")
 
-    # Create entity
-    entity = mochi.entity.create("repository", name, "public" if public else "private", "")
-    if not entity:
+    # Create entity (returns entity ID string)
+    entity_id = mochi.entity.create("repository", name, "public" if public else "private", "")
+    if not entity_id:
         return a.error(500, "Failed to create entity")
 
     # Initialize git repository
-    result = mochi.git.init(entity.id)
+    result = mochi.git.init(entity_id)
     if not result:
-        mochi.entity.delete(entity.id)
+        mochi.entity.delete(entity_id)
         return a.error(500, "Failed to initialize git repository")
 
     # Create database record
     now = mochi.time.now()
-    mochi.db.exec("""
+    mochi.db.execute("""
         insert into repositories (id, name, description, default_branch, created, updated)
         values (?, ?, ?, 'main', ?, ?)
-    """, entity.id, name, description, now, now)
+    """, entity_id, name, description, now, now)
 
     # Set up access control
     if a.user and a.user.identity:
-        mochi.access.allow(a.user.identity.id, "repo/" + entity.id, "*", a.user.identity.id)
+        mochi.access.allow(a.user.identity.id, "repo/" + entity_id, "*", a.user.identity.id)
 
     if public:
-        mochi.access.allow("*", "repo/" + entity.id, "read", a.user.identity.id if a.user else "")
+        mochi.access.allow("*", "repo/" + entity_id, "read", a.user.identity.id if a.user else "")
 
-    a.json({
-        "id": entity.id,
-        "name": name,
-        "url": "/" + entity.id,
-    })
+    return {"data": {"id": entity_id, "name": name, "url": "/" + entity_id}}
 
 # Action: Repository settings
 def action_settings(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_write_access(a, repo.id):
+    if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    row = mochi.db.row("select * from repositories where id = ?", repo.id)
+    row = mochi.db.row("select * from repositories where id = ?", repo["id"])
     if not row:
         return a.error(404, "Repository not found")
 
     a.json({
-        "id": repo.id,
+        "id": repo["id"],
         "name": row["name"],
         "description": row["description"],
         "default_branch": row["default_branch"],
@@ -120,11 +116,11 @@ def action_settings(a):
 
 # Action: Update repository settings
 def action_settings_set(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_write_access(a, repo.id):
+    if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     description = a.input("description")
@@ -139,61 +135,61 @@ def action_settings_set(a):
 
     if default_branch:
         # Verify branch exists
-        branches = mochi.git.branches(repo.id)
+        branches = mochi.git.branches(repo["id"])
         branch_names = [b["name"] for b in branches] if branches else []
         if default_branch not in branch_names:
             return a.error(400, "Branch does not exist")
         updates.append("default_branch = ?")
         params.append(default_branch)
-        mochi.git.branch.default.set(repo.id, default_branch)
+        mochi.git.branch.default.set(repo["id"], default_branch)
 
     if updates:
         updates.append("updated = ?")
         params.append(mochi.time.now())
-        params.append(repo.id)
-        mochi.db.exec("update repositories set " + ", ".join(updates) + " where id = ?", *params)
+        params.append(repo["id"])
+        mochi.db.execute("update repositories set " + ", ".join(updates) + " where id = ?", *params)
 
     a.json({"success": True})
 
 # Action: Delete repository
 def action_delete(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_admin_access(a, repo.id):
+    if not check_admin_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     # Delete git repository
-    mochi.git.delete(repo.id)
+    mochi.git.delete(repo["id"])
 
     # Delete database record
-    mochi.db.exec("delete from repositories where id = ?", repo.id)
+    mochi.db.execute("delete from repositories where id = ?", repo["id"])
 
     # Delete entity
-    mochi.entity.delete(repo.id)
+    mochi.entity.delete(repo["id"])
 
     a.json({"success": True})
 
 # Action: List access
 def action_access_list(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_write_access(a, repo.id):
+    if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    access = mochi.access.list.resource("repo/" + repo.id)
+    access = mochi.access.list.resource("repo/" + repo["id"])
     a.json({"access": access or []})
 
 # Action: Set access
 def action_access_set(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_admin_access(a, repo.id):
+    if not check_admin_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     subject = a.input("subject")
@@ -206,17 +202,17 @@ def action_access_set(a):
         return a.error(400, "Invalid permission")
 
     owner_id = a.user.identity.id if a.user and a.user.identity else ""
-    mochi.access.allow(subject, "repo/" + repo.id, permission, owner_id)
+    mochi.access.allow(subject, "repo/" + repo["id"], permission, owner_id)
 
     a.json({"success": True})
 
 # Action: Revoke access
 def action_access_revoke(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_admin_access(a, repo.id):
+    if not check_admin_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     subject = a.input("subject")
@@ -226,33 +222,33 @@ def action_access_revoke(a):
         return a.error(400, "Subject is required")
 
     owner_id = a.user.identity.id if a.user and a.user.identity else ""
-    mochi.access.deny(subject, "repo/" + repo.id, permission, owner_id)
+    mochi.access.deny(subject, "repo/" + repo["id"], permission, owner_id)
 
     a.json({"success": True})
 
 # Action: List refs (branches and tags)
 def action_refs(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    refs = mochi.git.refs(repo.id)
+    refs = mochi.git.refs(repo["id"])
     a.json({"refs": refs or []})
 
 # Action: List branches
 def action_branches(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    branches = mochi.git.branches(repo.id)
-    default = mochi.git.branch.default.get(repo.id)
+    branches = mochi.git.branches(repo["id"])
+    default = mochi.git.branch.default.get(repo["id"])
 
     a.json({
         "branches": branches or [],
@@ -261,46 +257,46 @@ def action_branches(a):
 
 # Action: List tags
 def action_tags(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    tags = mochi.git.tags(repo.id)
+    tags = mochi.git.tags(repo["id"])
     a.json({"tags": tags or []})
 
 # Action: List commits
 def action_commits(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     ref = a.input("ref") or a.param("ref") or "HEAD"
     limit = int(a.input("limit", "50"))
     offset = int(a.input("offset", "0"))
 
-    commits = mochi.git.commit.list(repo.id, ref, limit, offset)
+    commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
     a.json({"commits": commits or []})
 
 # Action: Get commit details
 def action_commit(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     sha = a.param("sha")
     if not sha:
         return a.error(400, "Commit SHA is required")
 
-    commit = mochi.git.commit.get(repo.id, sha)
+    commit = mochi.git.commit.get(repo["id"], sha)
     if not commit:
         return a.error(404, "Commit not found")
 
@@ -308,17 +304,17 @@ def action_commit(a):
 
 # Action: Browse tree
 def action_tree(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     ref = a.param("ref") or a.input("ref") or "HEAD"
     path = a.param("path") or a.input("path") or ""
 
-    tree = mochi.git.tree(repo.id, ref, path)
+    tree = mochi.git.tree(repo["id"], ref, path)
     if tree == None:
         return a.error(404, "Path not found")
 
@@ -330,11 +326,11 @@ def action_tree(a):
 
 # Action: Get blob content
 def action_blob(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return a.error(404, "Repository not found")
 
-    if not check_read_access(a, repo.id):
+    if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
     ref = a.param("ref") or a.input("ref") or "HEAD"
@@ -343,14 +339,14 @@ def action_blob(a):
     if not path:
         return a.error(400, "Path is required")
 
-    blob = mochi.git.blob.get(repo.id, ref, path)
+    blob = mochi.git.blob.get(repo["id"], ref, path)
     if not blob:
         return a.error(404, "File not found")
 
     # For small non-binary files, include content
     content = None
     if not blob.get("binary", False) and blob.get("size", 0) < 1024 * 1024:
-        content = mochi.git.blob.content(repo.id, ref, path)
+        content = mochi.git.blob.content(repo["id"], ref, path)
 
     a.json({
         "ref": ref,
@@ -363,11 +359,11 @@ def action_blob(a):
 
 # Action: Open Graph meta tags
 def action_opengraph(a):
-    repo = a.entity
+    repo = get_repo(a)
     if not repo:
         return None
 
-    row = mochi.db.row("select * from repositories where id = ?", repo.id)
+    row = mochi.db.row("select * from repositories where id = ?", repo["id"])
     if not row:
         return None
 
@@ -448,32 +444,17 @@ def service_can_merge(s):
 
 def check_read_access(a, repo_id):
     """Check if user has read access to repository"""
-    # Owner always has access
-    if a.owner and a.user and a.owner.id == a.user.id:
-        return True
-
-    # Check via access system (handles public/*, collaborators, etc.)
     user_id = a.user.identity.id if a.user and a.user.identity else "*"
     return mochi.access.check(user_id, "repo/" + repo_id, "read")
 
 def check_write_access(a, repo_id):
     """Check if user has write access to repository"""
-    # Owner always has access
-    if a.owner and a.user and a.owner.id == a.user.id:
-        return True
-
     if not a.user or not a.user.identity:
         return False
-
     return mochi.access.check(a.user.identity.id, "repo/" + repo_id, "write")
 
 def check_admin_access(a, repo_id):
     """Check if user has admin access to repository"""
-    # Owner always has access
-    if a.owner and a.user and a.owner.id == a.user.id:
-        return True
-
     if not a.user or not a.user.identity:
         return False
-
     return mochi.access.check(a.user.identity.id, "repo/" + repo_id, "admin")
