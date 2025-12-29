@@ -1,0 +1,153 @@
+import { useState } from 'react'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { toast } from 'sonner'
+import { FolderGit2, Plus } from 'lucide-react'
+import {
+  Button,
+  Input,
+  Label,
+  Textarea,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Checkbox,
+  usePageTitle,
+  Header,
+  Main,
+  getErrorMessage,
+  getAppPath,
+} from '@mochi/common'
+import { useCreateRepo } from '@/hooks/use-repository'
+
+export const Route = createFileRoute('/_authenticated/new')({
+  component: NewRepositoryPage,
+})
+
+function NewRepositoryPage() {
+  usePageTitle('New Repository')
+  const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [isPublic, setIsPublic] = useState(false)
+
+  const createRepo = useCreateRepo()
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!name.trim()) {
+      toast.error('Repository name is required')
+      return
+    }
+
+    // Validate name format (alphanumeric, dashes, underscores)
+    if (!/^[a-zA-Z0-9_-]+$/.test(name.trim())) {
+      toast.error('Repository name can only contain letters, numbers, dashes, and underscores')
+      return
+    }
+
+    createRepo.mutate(
+      {
+        name: name.trim(),
+        description: description.trim(),
+        public: isPublic ? 'true' : 'false',
+      },
+      {
+        onSuccess: (data) => {
+          toast.success('Repository created')
+          // Navigate to the new repository
+          window.location.href = `${getAppPath()}/${data.id}`
+        },
+        onError: (error) => {
+          toast.error(getErrorMessage(error, 'Failed to create repository'))
+        },
+      }
+    )
+  }
+
+  const handleCancel = () => {
+    navigate({ to: '/' })
+  }
+
+  return (
+    <>
+      <Header>
+        <h1 className="text-lg font-semibold">New Repository</h1>
+      </Header>
+      <Main>
+        <div className="container mx-auto max-w-lg p-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <FolderGit2 className="h-5 w-5" />
+                Create new repository
+              </CardTitle>
+              <CardDescription>
+                A repository contains all project files, including the revision history.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Repository name</Label>
+                  <Input
+                    id="name"
+                    placeholder="my-project"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    autoFocus
+                  />
+                  <p className="text-sm text-muted-foreground">
+                    Use lowercase letters, numbers, dashes, or underscores.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="description">Description (optional)</Label>
+                  <Textarea
+                    id="description"
+                    placeholder="A short description of your repository"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="public"
+                    checked={isPublic}
+                    onCheckedChange={(checked) => setIsPublic(checked === true)}
+                  />
+                  <Label htmlFor="public" className="font-normal">
+                    Public repository
+                  </Label>
+                </div>
+                <p className="text-sm text-muted-foreground ml-6">
+                  Anyone can see this repository. You choose who can commit.
+                </p>
+
+                <div className="flex gap-2 justify-end pt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handleCancel}
+                    disabled={createRepo.isPending}
+                  >
+                    Cancel
+                  </Button>
+                  <Button type="submit" disabled={createRepo.isPending}>
+                    <Plus className="mr-2 h-4 w-4" />
+                    {createRepo.isPending ? 'Creating...' : 'Create repository'}
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </Main>
+    </>
+  )
+}

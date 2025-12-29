@@ -16,14 +16,10 @@ def database_create():
     """)
     mochi.db.execute("create index repositories_name on repositories(name)")
 
-# Action: Get class info
+# Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
-    a.json({
-        "class": "repository",
-        "name": mochi.app.label("app_name"),
-        "description": mochi.app.label("app_description"),
-        "icon": mochi.app.asset("images/icon.svg"),
-    })
+    repos = mochi.db.rows("select id, name, description, default_branch, size, created, updated from repositories order by name")
+    return {"data": {"entity": False, "repositories": repos or []}}
 
 # Helper: Get repository from route parameter
 # Entity resolution uses class name "repository", not route param ":repo"
@@ -33,7 +29,7 @@ def get_repo(a):
         return None
     return mochi.db.row("select * from repositories where id = ?", repo_id)
 
-# Action: Get entity info
+# Action: Get entity info - returns repository details for entity context
 def action_info_entity(a):
     repo = get_repo(a)
     if not repo:
@@ -43,7 +39,8 @@ def action_info_entity(a):
     branches = mochi.git.branches(repo["id"])
     tags = mochi.git.tags(repo["id"])
 
-    a.json({
+    return {"data": {
+        "entity": True,
         "id": repo["id"],
         "name": repo["name"],
         "description": repo["description"],
@@ -53,7 +50,7 @@ def action_info_entity(a):
         "updated": repo["updated"],
         "branches": len(branches) if branches else 0,
         "tags": len(tags) if tags else 0,
-    })
+    }}
 
 # Action: Create repository
 def action_create(a):

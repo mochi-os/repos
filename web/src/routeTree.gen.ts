@@ -11,12 +11,20 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedTagsRouteImport } from './routes/_authenticated/tags'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
+import { Route as AuthenticatedNewRouteImport } from './routes/_authenticated/new'
+import { Route as AuthenticatedCommitsRouteImport } from './routes/_authenticated/commits'
+import { Route as AuthenticatedBranchesRouteImport } from './routes/_authenticated/branches'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
 import { Route as errors500RouteImport } from './routes/(errors)/500'
 import { Route as errors404RouteImport } from './routes/(errors)/404'
 import { Route as errors403RouteImport } from './routes/(errors)/403'
 import { Route as errors401RouteImport } from './routes/(errors)/401'
 import { Route as AuthenticatedErrorsErrorRouteImport } from './routes/_authenticated/errors/$error'
+import { Route as AuthenticatedCommitShaRouteImport } from './routes/_authenticated/commit/$sha'
+import { Route as AuthenticatedTreeRefSplatRouteImport } from './routes/_authenticated/tree/$ref/$'
+import { Route as AuthenticatedBlobRefSplatRouteImport } from './routes/_authenticated/blob/$ref/$'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -25,6 +33,31 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTagsRoute = AuthenticatedTagsRouteImport.update({
+  id: '/tags',
+  path: '/tags',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNewRoute = AuthenticatedNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCommitsRoute = AuthenticatedCommitsRouteImport.update({
+  id: '/commits',
+  path: '/commits',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedBranchesRoute = AuthenticatedBranchesRouteImport.update({
+  id: '/branches',
+  path: '/branches',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const errors503Route = errors503RouteImport.update({
@@ -58,6 +91,23 @@ const AuthenticatedErrorsErrorRoute =
     path: '/errors/$error',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedCommitShaRoute = AuthenticatedCommitShaRouteImport.update({
+  id: '/commit/$sha',
+  path: '/commit/$sha',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTreeRefSplatRoute =
+  AuthenticatedTreeRefSplatRouteImport.update({
+    id: '/tree/$ref/$',
+    path: '/tree/$ref/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedBlobRefSplatRoute =
+  AuthenticatedBlobRefSplatRouteImport.update({
+    id: '/blob/$ref/$',
+    path: '/blob/$ref/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/401': typeof errors401Route
@@ -65,8 +115,16 @@ export interface FileRoutesByFullPath {
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
+  '/branches': typeof AuthenticatedBranchesRoute
+  '/commits': typeof AuthenticatedCommitsRoute
+  '/new': typeof AuthenticatedNewRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/tags': typeof AuthenticatedTagsRoute
   '/': typeof AuthenticatedIndexRoute
+  '/commit/$sha': typeof AuthenticatedCommitShaRoute
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
+  '/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
 }
 export interface FileRoutesByTo {
   '/401': typeof errors401Route
@@ -74,8 +132,16 @@ export interface FileRoutesByTo {
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
+  '/branches': typeof AuthenticatedBranchesRoute
+  '/commits': typeof AuthenticatedCommitsRoute
+  '/new': typeof AuthenticatedNewRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/tags': typeof AuthenticatedTagsRoute
   '/': typeof AuthenticatedIndexRoute
+  '/commit/$sha': typeof AuthenticatedCommitShaRoute
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
+  '/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -85,14 +151,52 @@ export interface FileRoutesById {
   '/(errors)/404': typeof errors404Route
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
+  '/_authenticated/branches': typeof AuthenticatedBranchesRoute
+  '/_authenticated/commits': typeof AuthenticatedCommitsRoute
+  '/_authenticated/new': typeof AuthenticatedNewRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
+  '/_authenticated/tags': typeof AuthenticatedTagsRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
+  '/_authenticated/commit/$sha': typeof AuthenticatedCommitShaRoute
   '/_authenticated/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/_authenticated/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
+  '/_authenticated/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/401' | '/403' | '/404' | '/500' | '/503' | '/' | '/errors/$error'
+  fullPaths:
+    | '/401'
+    | '/403'
+    | '/404'
+    | '/500'
+    | '/503'
+    | '/branches'
+    | '/commits'
+    | '/new'
+    | '/settings'
+    | '/tags'
+    | '/'
+    | '/commit/$sha'
+    | '/errors/$error'
+    | '/blob/$ref/$'
+    | '/tree/$ref/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/401' | '/403' | '/404' | '/500' | '/503' | '/' | '/errors/$error'
+  to:
+    | '/401'
+    | '/403'
+    | '/404'
+    | '/500'
+    | '/503'
+    | '/branches'
+    | '/commits'
+    | '/new'
+    | '/settings'
+    | '/tags'
+    | '/'
+    | '/commit/$sha'
+    | '/errors/$error'
+    | '/blob/$ref/$'
+    | '/tree/$ref/$'
   id:
     | '__root__'
     | '/_authenticated'
@@ -101,8 +205,16 @@ export interface FileRouteTypes {
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
+    | '/_authenticated/branches'
+    | '/_authenticated/commits'
+    | '/_authenticated/new'
+    | '/_authenticated/settings'
+    | '/_authenticated/tags'
     | '/_authenticated/'
+    | '/_authenticated/commit/$sha'
     | '/_authenticated/errors/$error'
+    | '/_authenticated/blob/$ref/$'
+    | '/_authenticated/tree/$ref/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -128,6 +240,41 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tags': {
+      id: '/_authenticated/tags'
+      path: '/tags'
+      fullPath: '/tags'
+      preLoaderRoute: typeof AuthenticatedTagsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/new': {
+      id: '/_authenticated/new'
+      path: '/new'
+      fullPath: '/new'
+      preLoaderRoute: typeof AuthenticatedNewRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/commits': {
+      id: '/_authenticated/commits'
+      path: '/commits'
+      fullPath: '/commits'
+      preLoaderRoute: typeof AuthenticatedCommitsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/branches': {
+      id: '/_authenticated/branches'
+      path: '/branches'
+      fullPath: '/branches'
+      preLoaderRoute: typeof AuthenticatedBranchesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/(errors)/503': {
@@ -172,17 +319,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedErrorsErrorRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/commit/$sha': {
+      id: '/_authenticated/commit/$sha'
+      path: '/commit/$sha'
+      fullPath: '/commit/$sha'
+      preLoaderRoute: typeof AuthenticatedCommitShaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tree/$ref/$': {
+      id: '/_authenticated/tree/$ref/$'
+      path: '/tree/$ref/$'
+      fullPath: '/tree/$ref/$'
+      preLoaderRoute: typeof AuthenticatedTreeRefSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/blob/$ref/$': {
+      id: '/_authenticated/blob/$ref/$'
+      path: '/blob/$ref/$'
+      fullPath: '/blob/$ref/$'
+      preLoaderRoute: typeof AuthenticatedBlobRefSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedBranchesRoute: typeof AuthenticatedBranchesRoute
+  AuthenticatedCommitsRoute: typeof AuthenticatedCommitsRoute
+  AuthenticatedNewRoute: typeof AuthenticatedNewRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
+  AuthenticatedTagsRoute: typeof AuthenticatedTagsRoute
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedCommitShaRoute: typeof AuthenticatedCommitShaRoute
   AuthenticatedErrorsErrorRoute: typeof AuthenticatedErrorsErrorRoute
+  AuthenticatedBlobRefSplatRoute: typeof AuthenticatedBlobRefSplatRoute
+  AuthenticatedTreeRefSplatRoute: typeof AuthenticatedTreeRefSplatRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedBranchesRoute: AuthenticatedBranchesRoute,
+  AuthenticatedCommitsRoute: AuthenticatedCommitsRoute,
+  AuthenticatedNewRoute: AuthenticatedNewRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
+  AuthenticatedTagsRoute: AuthenticatedTagsRoute,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  AuthenticatedCommitShaRoute: AuthenticatedCommitShaRoute,
   AuthenticatedErrorsErrorRoute: AuthenticatedErrorsErrorRoute,
+  AuthenticatedBlobRefSplatRoute: AuthenticatedBlobRefSplatRoute,
+  AuthenticatedTreeRefSplatRoute: AuthenticatedTreeRefSplatRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
