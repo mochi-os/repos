@@ -12,7 +12,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Checkbox,
+  Switch,
   usePageTitle,
   Header,
   Main,
@@ -111,19 +111,17 @@ function NewRepositoryPage() {
                   />
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <Checkbox
+                <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
+                  <Label htmlFor="public" className="text-sm font-medium">
+                    Allow anyone to view repository
+                  </Label>
+                  <Switch
                     id="public"
                     checked={isPublic}
-                    onCheckedChange={(checked) => setIsPublic(checked === true)}
+                    onCheckedChange={setIsPublic}
+                    disabled={createRepo.isPending}
                   />
-                  <Label htmlFor="public" className="font-normal">
-                    Public repository
-                  </Label>
                 </div>
-                <p className="text-sm text-muted-foreground ml-6">
-                  Anyone can see this repository. You choose who can commit.
-                </p>
 
                 <div className="flex gap-2 justify-end pt-4">
                   <Button
