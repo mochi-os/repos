@@ -29,7 +29,7 @@ function NewRepositoryPage() {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [isPublic, setIsPublic] = useState(false)
+  const [isPublic, setIsPublic] = useState(true)
 
   const createRepo = useCreateRepo()
 
@@ -97,7 +97,7 @@ function NewRepositoryPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description">Description (optional)</Label>
+                  <Label htmlFor="description">Description</Label>
                   <Textarea
                     id="description"
                     placeholder="A short description of your repository"
