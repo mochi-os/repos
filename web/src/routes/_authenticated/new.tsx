@@ -15,7 +15,6 @@ import {
   Header,
   Main,
   getErrorMessage,
-  getAppPath,
   toast,
 } from '@mochi/common'
 import { useCreateRepo } from '@/hooks/use-repository'
@@ -57,9 +56,9 @@ function NewRepositoryPage() {
       {
         onSuccess: (response) => {
           toast.success('Repository created')
-          // Navigate to the new repository
-          if (response?.id) {
-            window.location.href = `${getAppPath()}/${response.id}`
+          // Navigate to the new repository entity
+          if (response?.url) {
+            window.location.href = response.url
           } else {
             navigate({ to: '/' })
           }
