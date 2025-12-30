@@ -29,6 +29,7 @@ function NewRepositoryPage() {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
+  const [allowRead, setAllowRead] = useState(true)
   const [isPublic, setIsPublic] = useState(true)
 
   const createRepo = useCreateRepo()
@@ -50,7 +51,8 @@ function NewRepositoryPage() {
       {
         name: name.trim(),
         description: description.trim(),
-        public: isPublic ? 'true' : 'false',
+        allow_read: allowRead ? 'true' : 'false',
+        privacy: isPublic ? 'public' : 'private',
       },
       {
         onSuccess: (response) => {
@@ -111,16 +113,29 @@ function NewRepositoryPage() {
                   />
                 </div>
 
-                <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
-                  <Label htmlFor="public" className="text-sm font-medium">
-                    Allow anyone to view repository
-                  </Label>
-                  <Switch
-                    id="public"
-                    checked={isPublic}
-                    onCheckedChange={setIsPublic}
-                    disabled={createRepo.isPending}
-                  />
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
+                    <Label htmlFor="allow_read" className="text-sm font-medium">
+                      Allow anyone to read repository
+                    </Label>
+                    <Switch
+                      id="allow_read"
+                      checked={allowRead}
+                      onCheckedChange={setAllowRead}
+                      disabled={createRepo.isPending}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
+                    <Label htmlFor="public" className="text-sm font-medium">
+                      Allow anyone to search for repository
+                    </Label>
+                    <Switch
+                      id="public"
+                      checked={isPublic}
+                      onCheckedChange={setIsPublic}
+                      disabled={createRepo.isPending}
+                    />
+                  </div>
                 </div>
 
                 <div className="flex gap-2 justify-end pt-4">

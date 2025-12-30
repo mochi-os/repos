@@ -18,6 +18,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Switch,
   usePageTitle,
   requestHelpers,
   getErrorMessage,
@@ -80,13 +81,20 @@ function SettingsForm({ data }: { data: InfoResponse }) {
   const queryClient = useQueryClient()
   const [description, setDescription] = useState(data.description || '')
   const [defaultBranch, setDefaultBranch] = useState(data.default_branch || 'main')
+  const [allowRead, setAllowRead] = useState(data.allow_read ?? true)
+  const [isPublic, setIsPublic] = useState(data.privacy !== 'private')
   const [confirmDelete, setConfirmDelete] = useState('')
 
   const { data: branchesData } = useBranches(data.id!)
   const branches = branchesData?.branches || []
 
   const updateSettings = useMutation({
-    mutationFn: (settings: { description?: string; default_branch?: string }) =>
+    mutationFn: (settings: {
+      description?: string
+      default_branch?: string
+      allow_read?: string
+      privacy?: string
+    }) =>
       requestHelpers.post<{ success: boolean }>(
         endpoints.repo.settingsSet(data.id!),
         settings
@@ -117,6 +125,8 @@ function SettingsForm({ data }: { data: InfoResponse }) {
     updateSettings.mutate({
       description,
       default_branch: defaultBranch,
+      allow_read: allowRead ? 'true' : 'false',
+      privacy: isPublic ? 'public' : 'private',
     })
   }
 
@@ -183,6 +193,50 @@ function SettingsForm({ data }: { data: InfoResponse }) {
               </Button>
             </div>
           </form>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Visibility</CardTitle>
+          <CardDescription>Control who can access this repository</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
+            <div className="space-y-0.5">
+              <Label htmlFor="allow_read">Allow anyone to read repository</Label>
+              <p className="text-sm text-muted-foreground">
+                When enabled, anyone can clone and browse this repository
+              </p>
+            </div>
+            <Switch
+              id="allow_read"
+              checked={allowRead}
+              onCheckedChange={setAllowRead}
+            />
+          </div>
+          <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
+            <div className="space-y-0.5">
+              <Label htmlFor="public">Allow anyone to search for repository</Label>
+              <p className="text-sm text-muted-foreground">
+                When enabled, this repository appears in search results
+              </p>
+            </div>
+            <Switch
+              id="public"
+              checked={isPublic}
+              onCheckedChange={setIsPublic}
+            />
+          </div>
+          <div className="flex justify-end">
+            <Button
+              onClick={handleSave}
+              disabled={updateSettings.isPending}
+            >
+              <Save className="h-4 w-4 mr-2" />
+              {updateSettings.isPending ? 'Saving...' : 'Save changes'}
+            </Button>
+          </div>
         </CardContent>
       </Card>
 

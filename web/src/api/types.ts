@@ -23,6 +23,8 @@ export interface InfoResponse {
   updated?: string
   branches?: number
   tags?: number
+  allow_read?: boolean
+  privacy?: string
   repositories?: Repository[]
 }
 
@@ -110,7 +112,8 @@ export interface AccessResponse {
 export interface CreateRepoRequest {
   name: string
   description?: string
-  public?: string
+  allow_read?: string
+  privacy?: string
 }
 
 export interface CreateRepoResponse {

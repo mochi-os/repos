@@ -39,6 +39,19 @@ def action_info_entity(a):
     branches = mochi.git.branches(repo["id"])
     tags = mochi.git.tags(repo["id"])
 
+    # Get entity privacy setting
+    entity_info = mochi.entity.info(repo["id"])
+    privacy = entity_info["privacy"] if entity_info else "private"
+
+    # Check if public read access is enabled
+    allow_read = False
+    access = mochi.access.list.resource("repo/" + repo["id"])
+    if access:
+        for entry in access:
+            if entry.get("subject") == "*" and entry.get("permission") == "read":
+                allow_read = True
+                break
+
     return {"data": {
         "entity": True,
         "id": repo["id"],
@@ -50,13 +63,16 @@ def action_info_entity(a):
         "updated": repo["updated"],
         "branches": len(branches) if branches else 0,
         "tags": len(tags) if tags else 0,
+        "allow_read": allow_read,
+        "privacy": privacy,
     }}
 
 # Action: Create repository
 def action_create(a):
     name = a.input("name")
     description = a.input("description", "")
-    public = a.input("public", "false") == "true"
+    allow_read = a.input("allow_read", "true") != "false"
+    privacy = a.input("privacy", "public")
 
     if not name:
         return a.error(400, "Name is required")
@@ -64,8 +80,8 @@ def action_create(a):
     if len(name) > 100:
         return a.error(400, "Name is too long (max 100 characters)")
 
-    # Create entity (returns entity ID string)
-    entity_id = mochi.entity.create("repository", name, "public" if public else "private", "")
+    # Create entity (privacy controls directory listing)
+    entity_id = mochi.entity.create("repository", name, privacy, "")
     if not entity_id:
         return a.error(500, "Failed to create entity")
 
@@ -86,7 +102,8 @@ def action_create(a):
     if a.user and a.user.identity:
         mochi.access.allow(a.user.identity.id, "repo/" + entity_id, "*", a.user.identity.id)
 
-    if public:
+    # Public read access (allow anyone to read)
+    if allow_read:
         mochi.access.allow("*", "repo/" + entity_id, "read", a.user.identity.id if a.user else "")
 
     return {"data": {"id": entity_id, "name": name, "url": "/" + entity_id}}
@@ -122,6 +139,8 @@ def action_settings_set(a):
 
     description = a.input("description")
     default_branch = a.input("default_branch")
+    allow_read = a.input("allow_read")
+    privacy = a.input("privacy")
 
     updates = []
     params = []
@@ -145,6 +164,17 @@ def action_settings_set(a):
         params.append(mochi.time.now())
         params.append(repo["id"])
         mochi.db.execute("update repositories set " + ", ".join(updates) + " where id = ?", *params)
+
+    # Update public read access
+    owner_id = a.user.identity.id if a.user and a.user.identity else ""
+    if allow_read == "true":
+        mochi.access.allow("*", "repo/" + repo["id"], "read", owner_id)
+    elif allow_read == "false":
+        mochi.access.deny("*", "repo/" + repo["id"], "read", owner_id)
+
+    # Update entity privacy (directory listing)
+    if privacy in ["public", "private"]:
+        mochi.entity.privacy.set(repo["id"], privacy)
 
     a.json({"success": True})
 
