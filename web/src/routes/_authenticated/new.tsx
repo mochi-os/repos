@@ -24,7 +24,7 @@ export const Route = createFileRoute('/_authenticated/new')({
 })
 
 function NewRepositoryPage() {
-  usePageTitle('New Repository')
+  usePageTitle('New repository')
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -55,11 +55,13 @@ function NewRepositoryPage() {
       },
       {
         onSuccess: (response) => {
+          console.log('Create response:', response)
           toast.success('Repository created')
           // Navigate to the new repository entity
           if (response?.url) {
             window.location.href = response.url
           } else {
+            console.log('No URL in response, navigating to /')
             navigate({ to: '/' })
           }
         },
@@ -77,7 +79,7 @@ function NewRepositoryPage() {
   return (
     <>
       <Header>
-        <h1 className="text-lg font-semibold">New Repository</h1>
+        <h1 className="text-lg font-semibold">Create repository</h1>
       </Header>
       <Main>
         <div className="container mx-auto max-w-lg p-6">
@@ -85,7 +87,7 @@ function NewRepositoryPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <FolderGit2 className="h-5 w-5" />
-                Create new repository
+                Create repository
               </CardTitle>
             </CardHeader>
             <CardContent>
