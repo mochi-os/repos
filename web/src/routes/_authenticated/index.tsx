@@ -72,32 +72,21 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   return (
     <>
       <Header>
-        <div className="flex items-center justify-between w-full">
-          <h1 className="text-lg font-semibold">Repositories</h1>
-          <Button asChild size="sm">
-            <Link to="/new">
-              <Plus className="h-4 w-4 mr-1" />
-              New
-            </Link>
-          </Button>
-        </div>
+        <h1 className="text-lg font-semibold">Repositories</h1>
       </Header>
       <Main>
         <div className="container mx-auto p-6">
           {!hasRepos ? (
-            <Card className="p-8 text-center">
+            <div className="p-8 text-center">
               <FolderGit2 className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-              <h2 className="text-xl font-semibold mb-2">No repositories yet</h2>
-              <p className="text-muted-foreground mb-4">
-                Create your first repository to get started.
-              </p>
+              <h2 className="text-xl font-semibold mb-4">No repositories yet</h2>
               <Button asChild>
                 <Link to="/new">
                   <Plus className="h-4 w-4 mr-2" />
-                  Create Repository
+                  Create repository
                 </Link>
               </Button>
-            </Card>
+            </div>
           ) : (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {repositories.map((repo) => (
