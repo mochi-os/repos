@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { toast } from 'sonner'
 import { FolderGit2, Plus } from 'lucide-react'
 import {
   Button,
@@ -17,6 +16,7 @@ import {
   Main,
   getErrorMessage,
   getAppPath,
+  toast,
 } from '@mochi/common'
 import { useCreateRepo } from '@/hooks/use-repository'
 
@@ -56,9 +56,8 @@ function NewRepositoryPage() {
         onSuccess: (response) => {
           toast.success('Repository created')
           // Navigate to the new repository
-          const id = response?.data?.id
-          if (id) {
-            window.location.href = `${getAppPath()}/${id}`
+          if (response?.id) {
+            window.location.href = `${getAppPath()}/${response.id}`
           } else {
             navigate({ to: '/' })
           }

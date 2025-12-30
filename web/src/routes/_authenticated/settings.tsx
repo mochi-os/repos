@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { toast } from 'sonner'
 import {
   Header,
   Main,
@@ -24,6 +23,7 @@ import {
   getErrorMessage,
   getAppPath,
   GeneralError,
+  toast,
 } from '@mochi/common'
 import { FolderGit2, Save, Trash2, AlertTriangle } from 'lucide-react'
 import endpoints from '@/api/endpoints'
