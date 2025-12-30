@@ -159,7 +159,6 @@ function SettingsForm({ data }: { data: InfoResponse }) {
               <Label htmlFor="description">Description</Label>
               <Textarea
                 id="description"
-                placeholder="A short description of your repository"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={3}

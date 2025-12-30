@@ -95,7 +95,6 @@ function NewRepositoryPage() {
                   <Label htmlFor="name">Repository name</Label>
                   <Input
                     id="name"
-                    placeholder="My repository"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     autoFocus
@@ -106,7 +105,6 @@ function NewRepositoryPage() {
                   <Label htmlFor="description">Description</Label>
                   <Textarea
                     id="description"
-                    placeholder="A short description of your repository"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     rows={3}
