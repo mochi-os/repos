@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   Header,
@@ -20,20 +20,23 @@ import {
   SelectValue,
   Switch,
   usePageTitle,
-  requestHelpers,
   getErrorMessage,
   GeneralError,
   toast,
 } from '@mochi/common'
 import { FolderGit2, Save, Trash2, AlertTriangle } from 'lucide-react'
+import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { useBranches, repoKeys } from '@/hooks/use-repository'
 
-export const Route = createFileRoute('/_authenticated/settings')({
-  loader: async () => {
-    const info = await requestHelpers.get<InfoResponse>(endpoints.repo.info)
-    return info
+export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
+  loader: async ({ params }) => {
+    const info = await reposRequest.get<InfoResponse>(
+      'info',
+      { baseURL: `/${params.repoId}/-/` }
+    )
+    return { ...info, repoId: params.repoId }
   },
   component: SettingsPage,
   errorComponent: ({ error }) => <GeneralError error={error} />,
@@ -44,27 +47,14 @@ function SettingsPage() {
 
   usePageTitle(`Settings - ${data.name}`)
 
-  if (!data.entity || !data.id) {
-    return (
-      <>
-        <Header>
-          <h1 className="text-lg font-semibold">Repository not found</h1>
-        </Header>
-        <Main>
-          <div className="p-4 text-muted-foreground">
-            This page requires a repository context.
-          </div>
-        </Main>
-      </>
-    )
-  }
-
   return (
     <>
       <Header>
         <div className="flex items-center gap-2">
           <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-lg font-semibold">{data.name}</h1>
+          <Link to="/$repoId" params={{ repoId: data.repoId }} className="text-lg font-semibold hover:underline">
+            {data.name}
+          </Link>
           <span className="text-muted-foreground">/</span>
           <span>Settings</span>
         </div>
@@ -76,7 +66,7 @@ function SettingsPage() {
   )
 }
 
-function SettingsForm({ data }: { data: InfoResponse }) {
+function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [description, setDescription] = useState(data.description || '')
@@ -85,7 +75,7 @@ function SettingsForm({ data }: { data: InfoResponse }) {
   const [isPublic, setIsPublic] = useState(data.privacy !== 'private')
   const [confirmDelete, setConfirmDelete] = useState('')
 
-  const { data: branchesData } = useBranches(data.id!)
+  const { data: branchesData } = useBranches(data.repoId)
   const branches = branchesData?.branches || []
 
   const updateSettings = useMutation({
@@ -95,9 +85,10 @@ function SettingsForm({ data }: { data: InfoResponse }) {
       allow_read?: string
       privacy?: string
     }) =>
-      requestHelpers.post<{ success: boolean }>(
-        endpoints.repo.settingsSet(data.id!),
-        settings
+      reposRequest.post<{ success: boolean }>(
+        endpoints.repo.settingsSet,
+        settings,
+        { baseURL: `/${data.repoId}/-/` }
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
@@ -110,7 +101,11 @@ function SettingsForm({ data }: { data: InfoResponse }) {
 
   const deleteRepo = useMutation({
     mutationFn: () =>
-      requestHelpers.post<{ success: boolean }>(endpoints.repo.delete(data.id!)),
+      reposRequest.post<{ success: boolean }>(
+        endpoints.repo.delete,
+        undefined,
+        { baseURL: `/${data.repoId}/-/` }
+      ),
     onSuccess: () => {
       toast.success('Repository deleted')
       void navigate({ to: '/' })

@@ -47,7 +47,7 @@ export function FileBrowser({
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [copied, setCopied] = useState(false)
 
-  const { data: branchesData, isLoading: branchesLoading } = useBranches(repoId)
+  const { data: branchesData } = useBranches(repoId)
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
 
   const branches = branchesData?.branches || []
@@ -81,28 +81,28 @@ export function FileBrowser({
         <div className="flex-1" />
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/commits">
+          <Link to="/$repoId/commits" params={{ repoId }}>
             <History className="h-4 w-4 mr-1" />
             Commits
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/branches">
+          <Link to="/$repoId/branches" params={{ repoId }}>
             <GitBranch className="h-4 w-4 mr-1" />
             Branches
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/tags">
+          <Link to="/$repoId/tags" params={{ repoId }}>
             <Tag className="h-4 w-4 mr-1" />
             Tags
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/settings">
+          <Link to="/$repoId/settings" params={{ repoId }}>
             <Settings className="h-4 w-4 mr-1" />
             Settings
           </Link>
@@ -114,28 +114,24 @@ export function FileBrowser({
         <CardDescription className="text-base">{description}</CardDescription>
       )}
 
-      {/* Branch selector */}
-      <div className="flex flex-wrap items-center gap-2">
-        <Select value={currentRef} onValueChange={setCurrentRef}>
-          <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder="Select branch" />
-          </SelectTrigger>
-          <SelectContent>
-            {branchesLoading ? (
-              <SelectItem value={currentRef} disabled>
-                Loading...
-              </SelectItem>
-            ) : (
-              branches.map((branch) => (
+      {/* Branch selector - only show if there are branches */}
+      {branches.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2">
+          <Select value={currentRef} onValueChange={setCurrentRef}>
+            <SelectTrigger className="w-[180px]">
+              <GitBranch className="h-4 w-4 mr-2" />
+              <SelectValue placeholder="Select branch" />
+            </SelectTrigger>
+            <SelectContent>
+              {branches.map((branch) => (
                 <SelectItem key={branch.name} value={branch.name}>
                   {branch.name}
                 </SelectItem>
-              ))
-            )}
-          </SelectContent>
-        </Select>
-      </div>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      )}
 
       {/* Clone URL */}
       <div className="flex items-center gap-2 p-2 bg-muted rounded-md font-mono text-sm">
@@ -189,7 +185,7 @@ export function FileBrowser({
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
-              This repository is empty
+              Empty repository
             </div>
           ) : (
             <div className="divide-y">

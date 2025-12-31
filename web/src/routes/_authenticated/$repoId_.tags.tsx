@@ -6,18 +6,20 @@ import {
   CardContent,
   Skeleton,
   usePageTitle,
-  requestHelpers,
   GeneralError,
 } from '@mochi/common'
 import { FolderGit2, Tag } from 'lucide-react'
-import endpoints from '@/api/endpoints'
+import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useTags } from '@/hooks/use-repository'
 
-export const Route = createFileRoute('/_authenticated/tags')({
-  loader: async () => {
-    const info = await requestHelpers.get<InfoResponse>(endpoints.repo.info)
-    return info
+export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
+  loader: async ({ params }) => {
+    const info = await reposRequest.get<InfoResponse>(
+      'info',
+      { baseURL: `/${params.repoId}/-/` }
+    )
+    return { ...info, repoId: params.repoId }
   },
   component: TagsPage,
   errorComponent: ({ error }) => <GeneralError error={error} />,
@@ -28,33 +30,20 @@ function TagsPage() {
 
   usePageTitle(`Tags - ${data.name}`)
 
-  if (!data.entity || !data.id) {
-    return (
-      <>
-        <Header>
-          <h1 className="text-lg font-semibold">Repository not found</h1>
-        </Header>
-        <Main>
-          <div className="p-4 text-muted-foreground">
-            This page requires a repository context.
-          </div>
-        </Main>
-      </>
-    )
-  }
-
   return (
     <>
       <Header>
         <div className="flex items-center gap-2">
           <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-lg font-semibold">{data.name}</h1>
+          <Link to="/$repoId" params={{ repoId: data.repoId }} className="text-lg font-semibold hover:underline">
+            {data.name}
+          </Link>
           <span className="text-muted-foreground">/</span>
           <span>Tags</span>
         </div>
       </Header>
       <Main>
-        <TagsList repoId={data.id} />
+        <TagsList repoId={data.repoId} />
       </Main>
     </>
   )

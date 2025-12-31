@@ -59,13 +59,13 @@ function CommitPage() {
         </div>
       </Header>
       <Main>
-        <CommitDetails repoId={data.id} sha={sha} />
+        <CommitDetails repoId={data.id} fingerprint={data.fingerprint || data.id} sha={sha} />
       </Main>
     </>
   )
 }
 
-function CommitDetails({ repoId, sha }: { repoId: string; sha: string }) {
+function CommitDetails({ repoId, fingerprint, sha }: { repoId: string; fingerprint: string; sha: string }) {
   const { data, isLoading, error } = useCommit(repoId, sha)
   const [copied, setCopied] = useState(false)
 
@@ -107,7 +107,7 @@ function CommitDetails({ repoId, sha }: { repoId: string; sha: string }) {
     <div className="space-y-4 p-4">
       <div className="flex items-center gap-2">
         <Button variant="outline" size="sm" asChild>
-          <Link to="/commits">
+          <Link to="/$repoId/commits" params={{ repoId: fingerprint }}>
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back to commits
           </Link>

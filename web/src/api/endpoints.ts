@@ -5,23 +5,22 @@ const endpoints = {
     info: '-/info',
     create: '-/create',
 
-    // Entity-level endpoints (use /-/ separator)
-    settings: (id: string) => `${id}/-/settings`,
-    settingsSet: (id: string) => `${id}/-/settings/set`,
-    delete: (id: string) => `${id}/-/delete`,
+    // Entity-level endpoints (caller should set baseURL to /{repoId}/-/)
+    settings: 'settings',
+    settingsSet: 'settings/set',
+    delete: 'delete',
     // Access control
-    access: (id: string) => `${id}/-/access`,
-    accessSet: (id: string) => `${id}/-/access/set`,
-    accessRevoke: (id: string) => `${id}/-/access/revoke`,
+    access: 'access',
+    accessSet: 'access/set',
+    accessRevoke: 'access/revoke',
     // Git operations
-    refs: (id: string) => `${id}/-/refs`,
-    branches: (id: string) => `${id}/-/branches`,
-    tags: (id: string) => `${id}/-/tags`,
-    commits: (id: string, ref?: string) => ref ? `${id}/-/commits/${ref}` : `${id}/-/commits`,
-    commit: (id: string, sha: string) => `${id}/-/commit/${sha}`,
-    tree: (id: string, ref: string, path?: string) =>
-      path ? `${id}/-/tree/${ref}/${path}` : `${id}/-/tree/${ref}`,
-    blob: (id: string, ref: string, path: string) => `${id}/-/blob/${ref}/${path}`,
+    refs: 'refs',
+    branches: 'branches',
+    tags: 'tags',
+    commits: (ref?: string) => ref ? `commits/${ref}` : 'commits',
+    commit: (sha: string) => `commit/${sha}`,
+    tree: (ref: string, path?: string) => path ? `tree/${ref}/${path}` : `tree/${ref}`,
+    blob: (ref: string, path: string) => `blob/${ref}/${path}`,
   },
   // User/group search
   users: {
