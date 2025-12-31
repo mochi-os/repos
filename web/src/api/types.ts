@@ -2,6 +2,7 @@
 
 export interface Repository {
   id: string
+  fingerprint: string
   name: string
   description: string
   default_branch: string
@@ -15,6 +16,7 @@ export interface Repository {
 export interface InfoResponse {
   entity: boolean
   id?: string
+  fingerprint?: string
   name?: string
   description?: string
   default_branch?: string
@@ -118,6 +120,7 @@ export interface CreateRepoRequest {
 
 export interface CreateRepoResponse {
   id: string
+  fingerprint: string
   name: string
   url: string
 }

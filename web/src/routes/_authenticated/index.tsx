@@ -8,18 +8,17 @@ import {
   Header,
   Main,
   usePageTitle,
-  requestHelpers,
-  getAppPath,
   GeneralError,
 } from '@mochi/common'
 import { GitBranch, Plus, FolderGit2 } from 'lucide-react'
+import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository } from '@/api/types'
 import { FileBrowser } from '@/features/repository/file-browser'
 
 export const Route = createFileRoute('/_authenticated/')({
   loader: async () => {
-    const info = await requestHelpers.get<InfoResponse>(endpoints.repo.info)
+    const info = await reposRequest.get<InfoResponse>(endpoints.repo.info)
     return info
   },
   component: IndexPage,
@@ -42,21 +41,14 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
   usePageTitle(data.name || 'Repository')
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-lg font-semibold">{data.name}</h1>
-        </div>
-      </Header>
-      <Main>
-        <FileBrowser
-          repoId={data.id!}
-          defaultBranch={data.default_branch || 'main'}
-          description={data.description}
-        />
-      </Main>
-    </>
+    <Main>
+      <FileBrowser
+        repoId={data.id!}
+        name={data.name || 'Repository'}
+        defaultBranch={data.default_branch || 'main'}
+        description={data.description}
+      />
+    </Main>
   )
 }
 
@@ -90,9 +82,10 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
           ) : (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {repositories.map((repo) => (
-                <a
+                <Link
                   key={repo.id}
-                  href={`${getAppPath()}/${repo.id}`}
+                  to="/$repoId"
+                  params={{ repoId: repo.fingerprint }}
                   className="block"
                 >
                   <Card className="transition-colors hover:bg-accent h-full">
@@ -112,7 +105,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                       </div>
                     </CardHeader>
                   </Card>
-                </a>
+                </Link>
               ))}
             </div>
           )}

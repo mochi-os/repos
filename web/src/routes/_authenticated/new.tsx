@@ -55,14 +55,12 @@ function NewRepositoryPage() {
       },
       {
         onSuccess: (response) => {
-          console.log('Create response:', response)
           toast.success('Repository created')
-          // Navigate to the new repository entity
-          if (response?.url) {
-            window.location.href = response.url
+          // Navigate to the new repository using SPA navigation
+          if (response?.fingerprint) {
+            void navigate({ to: '/$repoId', params: { repoId: response.fingerprint } })
           } else {
-            console.log('No URL in response, navigating to /')
-            navigate({ to: '/' })
+            void navigate({ to: '/' })
           }
         },
         onError: (error) => {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   Header,
@@ -22,7 +22,6 @@ import {
   usePageTitle,
   requestHelpers,
   getErrorMessage,
-  getAppPath,
   GeneralError,
   toast,
 } from '@mochi/common'
@@ -78,6 +77,7 @@ function SettingsPage() {
 }
 
 function SettingsForm({ data }: { data: InfoResponse }) {
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [description, setDescription] = useState(data.description || '')
   const [defaultBranch, setDefaultBranch] = useState(data.default_branch || 'main')
@@ -113,7 +113,7 @@ function SettingsForm({ data }: { data: InfoResponse }) {
       requestHelpers.post<{ success: boolean }>(endpoints.repo.delete(data.id!)),
     onSuccess: () => {
       toast.success('Repository deleted')
-      window.location.href = getAppPath()
+      void navigate({ to: '/' })
     },
     onError: (error) => {
       toast.error(getErrorMessage(error, 'Failed to delete repository'))

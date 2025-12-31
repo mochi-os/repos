@@ -15,6 +15,7 @@ import {
 import {
   File,
   Folder,
+  FolderGit2,
   GitBranch,
   History,
   Tag,
@@ -28,6 +29,7 @@ import type { TreeEntry } from '@/api/types'
 
 interface FileBrowserProps {
   repoId: string
+  name: string
   defaultBranch: string
   description?: string
   initialRef?: string
@@ -36,6 +38,7 @@ interface FileBrowserProps {
 
 export function FileBrowser({
   repoId,
+  name,
   defaultBranch,
   description,
   initialRef,
@@ -68,32 +71,12 @@ export function FileBrowser({
 
   return (
     <div className="space-y-4 p-4">
-      {/* Repository description and clone URL */}
-      {description && (
-        <CardDescription className="text-base">{description}</CardDescription>
-      )}
-
-      {/* Branch selector and actions */}
+      {/* Title row with name and action buttons */}
       <div className="flex flex-wrap items-center gap-2">
-        <Select value={currentRef} onValueChange={setCurrentRef}>
-          <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder="Select branch" />
-          </SelectTrigger>
-          <SelectContent>
-            {branchesLoading ? (
-              <SelectItem value={currentRef} disabled>
-                Loading...
-              </SelectItem>
-            ) : (
-              branches.map((branch) => (
-                <SelectItem key={branch.name} value={branch.name}>
-                  {branch.name}
-                </SelectItem>
-              ))
-            )}
-          </SelectContent>
-        </Select>
+        <div className="flex items-center gap-2">
+          <FolderGit2 className="h-5 w-5" />
+          <h1 className="text-xl font-semibold">{name}</h1>
+        </div>
 
         <div className="flex-1" />
 
@@ -124,6 +107,34 @@ export function FileBrowser({
             Settings
           </Link>
         </Button>
+      </div>
+
+      {/* Repository description */}
+      {description && (
+        <CardDescription className="text-base">{description}</CardDescription>
+      )}
+
+      {/* Branch selector */}
+      <div className="flex flex-wrap items-center gap-2">
+        <Select value={currentRef} onValueChange={setCurrentRef}>
+          <SelectTrigger className="w-[180px]">
+            <GitBranch className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Select branch" />
+          </SelectTrigger>
+          <SelectContent>
+            {branchesLoading ? (
+              <SelectItem value={currentRef} disabled>
+                Loading...
+              </SelectItem>
+            ) : (
+              branches.map((branch) => (
+                <SelectItem key={branch.name} value={branch.name}>
+                  {branch.name}
+                </SelectItem>
+              ))
+            )}
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Clone URL */}

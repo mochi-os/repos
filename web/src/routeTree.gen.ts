@@ -16,6 +16,7 @@ import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedNewRouteImport } from './routes/_authenticated/new'
 import { Route as AuthenticatedCommitsRouteImport } from './routes/_authenticated/commits'
 import { Route as AuthenticatedBranchesRouteImport } from './routes/_authenticated/branches'
+import { Route as AuthenticatedRepoIdRouteImport } from './routes/_authenticated/$repoId'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
 import { Route as errors500RouteImport } from './routes/(errors)/500'
 import { Route as errors404RouteImport } from './routes/(errors)/404'
@@ -58,6 +59,11 @@ const AuthenticatedCommitsRoute = AuthenticatedCommitsRouteImport.update({
 const AuthenticatedBranchesRoute = AuthenticatedBranchesRouteImport.update({
   id: '/branches',
   path: '/branches',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedRepoIdRoute = AuthenticatedRepoIdRouteImport.update({
+  id: '/$repoId',
+  path: '/$repoId',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const errors503Route = errors503RouteImport.update({
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
+  '/$repoId': typeof AuthenticatedRepoIdRoute
   '/branches': typeof AuthenticatedBranchesRoute
   '/commits': typeof AuthenticatedCommitsRoute
   '/new': typeof AuthenticatedNewRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/404': typeof errors404Route
   '/500': typeof errors500Route
   '/503': typeof errors503Route
+  '/$repoId': typeof AuthenticatedRepoIdRoute
   '/branches': typeof AuthenticatedBranchesRoute
   '/commits': typeof AuthenticatedCommitsRoute
   '/new': typeof AuthenticatedNewRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/(errors)/404': typeof errors404Route
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
+  '/_authenticated/$repoId': typeof AuthenticatedRepoIdRoute
   '/_authenticated/branches': typeof AuthenticatedBranchesRoute
   '/_authenticated/commits': typeof AuthenticatedCommitsRoute
   '/_authenticated/new': typeof AuthenticatedNewRoute
@@ -170,6 +179,7 @@ export interface FileRouteTypes {
     | '/404'
     | '/500'
     | '/503'
+    | '/$repoId'
     | '/branches'
     | '/commits'
     | '/new'
@@ -187,6 +197,7 @@ export interface FileRouteTypes {
     | '/404'
     | '/500'
     | '/503'
+    | '/$repoId'
     | '/branches'
     | '/commits'
     | '/new'
@@ -205,6 +216,7 @@ export interface FileRouteTypes {
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
+    | '/_authenticated/$repoId'
     | '/_authenticated/branches'
     | '/_authenticated/commits'
     | '/_authenticated/new'
@@ -277,6 +289,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBranchesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/$repoId': {
+      id: '/_authenticated/$repoId'
+      path: '/$repoId'
+      fullPath: '/$repoId'
+      preLoaderRoute: typeof AuthenticatedRepoIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/(errors)/503': {
       id: '/(errors)/503'
       path: '/503'
@@ -344,6 +363,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedRepoIdRoute: typeof AuthenticatedRepoIdRoute
   AuthenticatedBranchesRoute: typeof AuthenticatedBranchesRoute
   AuthenticatedCommitsRoute: typeof AuthenticatedCommitsRoute
   AuthenticatedNewRoute: typeof AuthenticatedNewRoute
@@ -357,6 +377,7 @@ interface AuthenticatedRouteRouteChildren {
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedRepoIdRoute: AuthenticatedRepoIdRoute,
   AuthenticatedBranchesRoute: AuthenticatedBranchesRoute,
   AuthenticatedCommitsRoute: AuthenticatedCommitsRoute,
   AuthenticatedNewRoute: AuthenticatedNewRoute,

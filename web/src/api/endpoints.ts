@@ -1,8 +1,11 @@
 const endpoints = {
   // Repository operations
   repo: {
-    info: 'info',
-    create: 'create',
+    // Class-level endpoints (no entity context)
+    info: '-/info',
+    create: '-/create',
+
+    // Entity-level endpoints (use /-/ separator)
     settings: (id: string) => `${id}/-/settings`,
     settingsSet: (id: string) => `${id}/-/settings/set`,
     delete: (id: string) => `${id}/-/delete`,

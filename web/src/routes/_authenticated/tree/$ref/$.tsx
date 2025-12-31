@@ -6,7 +6,6 @@ import {
   requestHelpers,
   GeneralError,
 } from '@mochi/common'
-import { FolderGit2 } from 'lucide-react'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { FileBrowser } from '@/features/repository/file-browser'
@@ -42,22 +41,15 @@ function TreePage() {
   }
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-lg font-semibold">{data.name}</h1>
-        </div>
-      </Header>
-      <Main>
-        <FileBrowser
-          repoId={data.id}
-          defaultBranch={data.default_branch || 'main'}
-          description={data.description}
-          initialRef={ref}
-          initialPath={path || ''}
-        />
-      </Main>
-    </>
+    <Main>
+      <FileBrowser
+        repoId={data.id}
+        name={data.name || 'Repository'}
+        defaultBranch={data.default_branch || 'main'}
+        description={data.description}
+        initialRef={ref}
+        initialPath={path || ''}
+      />
+    </Main>
   )
 }

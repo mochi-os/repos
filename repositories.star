@@ -19,15 +19,25 @@ def database_create():
 # Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
     repos = mochi.db.rows("select id, name, description, default_branch, size, created, updated from repositories order by name")
+    # Add fingerprint to each repository
+    if repos:
+        for repo in repos:
+            repo["fingerprint"] = mochi.entity.fingerprint(repo["id"])
     return {"data": {"entity": False, "repositories": repos or []}}
 
 # Helper: Get repository from route parameter
-# Entity resolution uses class name "repository", not route param ":repo"
+# Route parameter may be fingerprint or entity ID - resolve to entity ID first
 def get_repo(a):
-    repo_id = a.input("repository")
-    if not repo_id:
+    repo_param = a.input("repository")
+    if not repo_param:
         return None
-    return mochi.db.row("select * from repositories where id = ?", repo_id)
+
+    # Resolve fingerprint/ID to entity info
+    entity = mochi.entity.info(repo_param)
+    if not entity:
+        return None
+
+    return mochi.db.row("select * from repositories where id = ?", entity["id"])
 
 # Action: Get entity info - returns repository details for entity context
 def action_info_entity(a):
@@ -55,6 +65,7 @@ def action_info_entity(a):
     return {"data": {
         "entity": True,
         "id": repo["id"],
+        "fingerprint": mochi.entity.fingerprint(repo["id"]),
         "name": repo["name"],
         "description": repo["description"],
         "default_branch": repo["default_branch"],
@@ -106,7 +117,8 @@ def action_create(a):
     if allow_read:
         mochi.access.allow("*", "repo/" + entity_id, "read", a.user.identity.id if a.user else "")
 
-    return {"data": {"id": entity_id, "name": name, "url": "/" + entity_id}}
+    fingerprint = mochi.entity.fingerprint(entity_id)
+    return {"data": {"id": entity_id, "fingerprint": fingerprint, "name": name, "url": "/" + fingerprint}}
 
 # Action: Repository settings
 def action_settings(a):

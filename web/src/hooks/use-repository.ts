@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { requestHelpers } from '@mochi/common'
+import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type {
   InfoResponse,
@@ -29,14 +29,14 @@ export const repoKeys = {
 export function useRepoInfo() {
   return useQuery({
     queryKey: repoKeys.info(),
-    queryFn: () => requestHelpers.get<InfoResponse>(endpoints.repo.info),
+    queryFn: () => reposRequest.get<InfoResponse>(endpoints.repo.info),
   })
 }
 
 export function useBranches(repoId: string) {
   return useQuery({
     queryKey: repoKeys.branches(repoId),
-    queryFn: () => requestHelpers.get<BranchesResponse>(endpoints.repo.branches(repoId)),
+    queryFn: () => reposRequest.get<BranchesResponse>(endpoints.repo.branches(repoId)),
     enabled: !!repoId,
   })
 }
@@ -44,7 +44,7 @@ export function useBranches(repoId: string) {
 export function useTags(repoId: string) {
   return useQuery({
     queryKey: repoKeys.tags(repoId),
-    queryFn: () => requestHelpers.get<TagsResponse>(endpoints.repo.tags(repoId)),
+    queryFn: () => reposRequest.get<TagsResponse>(endpoints.repo.tags(repoId)),
     enabled: !!repoId,
   })
 }
@@ -52,7 +52,7 @@ export function useTags(repoId: string) {
 export function useCommits(repoId: string, ref?: string) {
   return useQuery({
     queryKey: repoKeys.commits(repoId, ref),
-    queryFn: () => requestHelpers.get<CommitsResponse>(endpoints.repo.commits(repoId, ref)),
+    queryFn: () => reposRequest.get<CommitsResponse>(endpoints.repo.commits(repoId, ref)),
     enabled: !!repoId,
   })
 }
@@ -60,7 +60,7 @@ export function useCommits(repoId: string, ref?: string) {
 export function useCommit(repoId: string, sha: string) {
   return useQuery({
     queryKey: repoKeys.commit(repoId, sha),
-    queryFn: () => requestHelpers.get<CommitResponse>(endpoints.repo.commit(repoId, sha)),
+    queryFn: () => reposRequest.get<CommitResponse>(endpoints.repo.commit(repoId, sha)),
     enabled: !!repoId && !!sha,
   })
 }
@@ -68,7 +68,7 @@ export function useCommit(repoId: string, sha: string) {
 export function useTree(repoId: string, ref: string, path?: string) {
   return useQuery({
     queryKey: repoKeys.tree(repoId, ref, path),
-    queryFn: () => requestHelpers.get<TreeResponse>(endpoints.repo.tree(repoId, ref, path)),
+    queryFn: () => reposRequest.get<TreeResponse>(endpoints.repo.tree(repoId, ref, path)),
     enabled: !!repoId && !!ref,
   })
 }
@@ -76,7 +76,7 @@ export function useTree(repoId: string, ref: string, path?: string) {
 export function useBlob(repoId: string, ref: string, path: string) {
   return useQuery({
     queryKey: repoKeys.blob(repoId, ref, path),
-    queryFn: () => requestHelpers.get<BlobResponse>(endpoints.repo.blob(repoId, ref, path)),
+    queryFn: () => reposRequest.get<BlobResponse>(endpoints.repo.blob(repoId, ref, path)),
     enabled: !!repoId && !!ref && !!path,
   })
 }
@@ -86,7 +86,7 @@ export function useCreateRepo() {
 
   return useMutation({
     mutationFn: (data: CreateRepoRequest) =>
-      requestHelpers.post<CreateRepoResponse>(endpoints.repo.create, data),
+      reposRequest.post<CreateRepoResponse>(endpoints.repo.create, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
@@ -97,7 +97,7 @@ export function useDeleteRepo(repoId: string) {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: () => requestHelpers.post<{ success: boolean }>(endpoints.repo.delete(repoId)),
+    mutationFn: () => reposRequest.post<{ success: boolean }>(endpoints.repo.delete(repoId)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
