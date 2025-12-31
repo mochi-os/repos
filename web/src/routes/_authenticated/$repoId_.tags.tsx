@@ -28,7 +28,7 @@ export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
 function TagsPage() {
   const data = Route.useLoaderData()
 
-  usePageTitle(`Tags - ${data.name}`)
+  usePageTitle(`${data.name} tags`)
 
   return (
     <>
@@ -88,7 +88,8 @@ function TagsList({ repoId }: { repoId: string }) {
           {tags.map((tag) => (
             <Link
               key={tag.name}
-              to={`/tree/${tag.name}` as any}
+              to="/$repoId/tree/$ref/$"
+              params={{ repoId, ref: tag.name, _splat: '' }}
               className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
             >
               <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />

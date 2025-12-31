@@ -28,7 +28,7 @@ export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
 function CommitsPage() {
   const data = Route.useLoaderData()
 
-  usePageTitle(`Commits - ${data.name}`)
+  usePageTitle(`${data.name} commits`)
 
   return (
     <>
@@ -88,7 +88,8 @@ function CommitsList({ repoId }: { repoId: string }) {
           {commits.map((commit) => (
             <Link
               key={commit.sha}
-              to={`/commit/${commit.sha}` as any}
+              to="/$repoId/commit/$sha"
+              params={{ repoId, sha: commit.sha }}
               className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
             >
               <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />

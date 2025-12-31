@@ -26,6 +26,9 @@ import { Route as AuthenticatedRepoIdCommitsRouteImport } from './routes/_authen
 import { Route as AuthenticatedRepoIdBranchesRouteImport } from './routes/_authenticated/$repoId_.branches'
 import { Route as AuthenticatedTreeRefSplatRouteImport } from './routes/_authenticated/tree/$ref/$'
 import { Route as AuthenticatedBlobRefSplatRouteImport } from './routes/_authenticated/blob/$ref/$'
+import { Route as AuthenticatedRepoIdCommitShaRouteImport } from './routes/_authenticated/$repoId_.commit.$sha'
+import { Route as AuthenticatedRepoIdTreeRefSplatRouteImport } from './routes/_authenticated/$repoId_.tree.$ref.$'
+import { Route as AuthenticatedRepoIdBlobRefSplatRouteImport } from './routes/_authenticated/$repoId_.blob.$ref.$'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -117,6 +120,24 @@ const AuthenticatedBlobRefSplatRoute =
     path: '/blob/$ref/$',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedRepoIdCommitShaRoute =
+  AuthenticatedRepoIdCommitShaRouteImport.update({
+    id: '/$repoId_/commit/$sha',
+    path: '/$repoId/commit/$sha',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRepoIdTreeRefSplatRoute =
+  AuthenticatedRepoIdTreeRefSplatRouteImport.update({
+    id: '/$repoId_/tree/$ref/$',
+    path: '/$repoId/tree/$ref/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRepoIdBlobRefSplatRoute =
+  AuthenticatedRepoIdBlobRefSplatRouteImport.update({
+    id: '/$repoId_/blob/$ref/$',
+    path: '/$repoId/blob/$ref/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/401': typeof errors401Route
@@ -133,8 +154,11 @@ export interface FileRoutesByFullPath {
   '/$repoId/tags': typeof AuthenticatedRepoIdTagsRoute
   '/commit/$sha': typeof AuthenticatedCommitShaRoute
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/$repoId/commit/$sha': typeof AuthenticatedRepoIdCommitShaRoute
   '/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
   '/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
+  '/$repoId/blob/$ref/$': typeof AuthenticatedRepoIdBlobRefSplatRoute
+  '/$repoId/tree/$ref/$': typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 export interface FileRoutesByTo {
   '/401': typeof errors401Route
@@ -151,8 +175,11 @@ export interface FileRoutesByTo {
   '/$repoId/tags': typeof AuthenticatedRepoIdTagsRoute
   '/commit/$sha': typeof AuthenticatedCommitShaRoute
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/$repoId/commit/$sha': typeof AuthenticatedRepoIdCommitShaRoute
   '/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
   '/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
+  '/$repoId/blob/$ref/$': typeof AuthenticatedRepoIdBlobRefSplatRoute
+  '/$repoId/tree/$ref/$': typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -171,8 +198,11 @@ export interface FileRoutesById {
   '/_authenticated/$repoId_/tags': typeof AuthenticatedRepoIdTagsRoute
   '/_authenticated/commit/$sha': typeof AuthenticatedCommitShaRoute
   '/_authenticated/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/_authenticated/$repoId_/commit/$sha': typeof AuthenticatedRepoIdCommitShaRoute
   '/_authenticated/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
   '/_authenticated/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
+  '/_authenticated/$repoId_/blob/$ref/$': typeof AuthenticatedRepoIdBlobRefSplatRoute
+  '/_authenticated/$repoId_/tree/$ref/$': typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,8 +221,11 @@ export interface FileRouteTypes {
     | '/$repoId/tags'
     | '/commit/$sha'
     | '/errors/$error'
+    | '/$repoId/commit/$sha'
     | '/blob/$ref/$'
     | '/tree/$ref/$'
+    | '/$repoId/blob/$ref/$'
+    | '/$repoId/tree/$ref/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/401'
@@ -209,8 +242,11 @@ export interface FileRouteTypes {
     | '/$repoId/tags'
     | '/commit/$sha'
     | '/errors/$error'
+    | '/$repoId/commit/$sha'
     | '/blob/$ref/$'
     | '/tree/$ref/$'
+    | '/$repoId/blob/$ref/$'
+    | '/$repoId/tree/$ref/$'
   id:
     | '__root__'
     | '/_authenticated'
@@ -228,8 +264,11 @@ export interface FileRouteTypes {
     | '/_authenticated/$repoId_/tags'
     | '/_authenticated/commit/$sha'
     | '/_authenticated/errors/$error'
+    | '/_authenticated/$repoId_/commit/$sha'
     | '/_authenticated/blob/$ref/$'
     | '/_authenticated/tree/$ref/$'
+    | '/_authenticated/$repoId_/blob/$ref/$'
+    | '/_authenticated/$repoId_/tree/$ref/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -362,6 +401,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBlobRefSplatRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/$repoId_/commit/$sha': {
+      id: '/_authenticated/$repoId_/commit/$sha'
+      path: '/$repoId/commit/$sha'
+      fullPath: '/$repoId/commit/$sha'
+      preLoaderRoute: typeof AuthenticatedRepoIdCommitShaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/$repoId_/tree/$ref/$': {
+      id: '/_authenticated/$repoId_/tree/$ref/$'
+      path: '/$repoId/tree/$ref/$'
+      fullPath: '/$repoId/tree/$ref/$'
+      preLoaderRoute: typeof AuthenticatedRepoIdTreeRefSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/$repoId_/blob/$ref/$': {
+      id: '/_authenticated/$repoId_/blob/$ref/$'
+      path: '/$repoId/blob/$ref/$'
+      fullPath: '/$repoId/blob/$ref/$'
+      preLoaderRoute: typeof AuthenticatedRepoIdBlobRefSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -375,8 +435,11 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedRepoIdTagsRoute: typeof AuthenticatedRepoIdTagsRoute
   AuthenticatedCommitShaRoute: typeof AuthenticatedCommitShaRoute
   AuthenticatedErrorsErrorRoute: typeof AuthenticatedErrorsErrorRoute
+  AuthenticatedRepoIdCommitShaRoute: typeof AuthenticatedRepoIdCommitShaRoute
   AuthenticatedBlobRefSplatRoute: typeof AuthenticatedBlobRefSplatRoute
   AuthenticatedTreeRefSplatRoute: typeof AuthenticatedTreeRefSplatRoute
+  AuthenticatedRepoIdBlobRefSplatRoute: typeof AuthenticatedRepoIdBlobRefSplatRoute
+  AuthenticatedRepoIdTreeRefSplatRoute: typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -389,8 +452,11 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedRepoIdTagsRoute: AuthenticatedRepoIdTagsRoute,
   AuthenticatedCommitShaRoute: AuthenticatedCommitShaRoute,
   AuthenticatedErrorsErrorRoute: AuthenticatedErrorsErrorRoute,
+  AuthenticatedRepoIdCommitShaRoute: AuthenticatedRepoIdCommitShaRoute,
   AuthenticatedBlobRefSplatRoute: AuthenticatedBlobRefSplatRoute,
   AuthenticatedTreeRefSplatRoute: AuthenticatedTreeRefSplatRoute,
+  AuthenticatedRepoIdBlobRefSplatRoute: AuthenticatedRepoIdBlobRefSplatRoute,
+  AuthenticatedRepoIdTreeRefSplatRoute: AuthenticatedRepoIdTreeRefSplatRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

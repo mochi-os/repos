@@ -29,6 +29,7 @@ import type { TreeEntry } from '@/api/types'
 
 interface FileBrowserProps {
   repoId: string
+  fingerprint: string
   name: string
   defaultBranch: string
   description?: string
@@ -38,6 +39,7 @@ interface FileBrowserProps {
 
 export function FileBrowser({
   repoId,
+  fingerprint,
   name,
   defaultBranch,
   description,
@@ -62,9 +64,10 @@ export function FileBrowser({
 
   const pathParts = initialPath ? initialPath.split('/').filter(Boolean) : []
 
+  const cloneUrl = `${window.location.origin}/${fingerprint}/git`
+
   const handleCopyCloneUrl = () => {
-    const url = `${window.location.origin}${window.location.pathname}/git`
-    navigator.clipboard.writeText(url)
+    navigator.clipboard.writeText(cloneUrl)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -81,28 +84,28 @@ export function FileBrowser({
         <div className="flex-1" />
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/$repoId/commits" params={{ repoId }}>
+          <Link to="/$repoId/commits" params={{ repoId: fingerprint }}>
             <History className="h-4 w-4 mr-1" />
             Commits
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/$repoId/branches" params={{ repoId }}>
+          <Link to="/$repoId/branches" params={{ repoId: fingerprint }}>
             <GitBranch className="h-4 w-4 mr-1" />
             Branches
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/$repoId/tags" params={{ repoId }}>
+          <Link to="/$repoId/tags" params={{ repoId: fingerprint }}>
             <Tag className="h-4 w-4 mr-1" />
             Tags
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/$repoId/settings" params={{ repoId }}>
+          <Link to="/$repoId/settings" params={{ repoId: fingerprint }}>
             <Settings className="h-4 w-4 mr-1" />
             Settings
           </Link>
@@ -136,7 +139,7 @@ export function FileBrowser({
       {/* Clone URL */}
       <div className="flex items-center gap-2 p-2 bg-muted rounded-md font-mono text-sm">
         <code className="flex-1 truncate">
-          git clone {window.location.origin}{window.location.pathname}/git
+          git clone {cloneUrl}
         </code>
         <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopyCloneUrl}>
           {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
@@ -146,8 +149,8 @@ export function FileBrowser({
       {/* Breadcrumb */}
       {pathParts.length > 0 && (
         <div className="flex items-center gap-1 text-sm">
-          <Link to="/" className="text-primary hover:underline">
-            {repoId}
+          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-primary hover:underline">
+            {name}
           </Link>
           {pathParts.map((part, index) => {
             const pathTo = pathParts.slice(0, index + 1).join('/')
@@ -158,7 +161,8 @@ export function FileBrowser({
                   <span>{part}</span>
                 ) : (
                   <Link
-                    to={`/tree/${currentRef}/${pathTo}` as any}
+                    to="/$repoId/tree/$ref/$"
+                    params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
                     className="text-primary hover:underline"
                   >
                     {part}
@@ -193,6 +197,7 @@ export function FileBrowser({
                 <FileEntry
                   key={entry.name}
                   entry={entry}
+                  fingerprint={fingerprint}
                   currentRef={currentRef}
                   basePath={initialPath}
                 />
@@ -207,21 +212,19 @@ export function FileBrowser({
 
 interface FileEntryProps {
   entry: TreeEntry
+  fingerprint: string
   currentRef: string
   basePath: string
 }
 
-function FileEntry({ entry, currentRef, basePath }: FileEntryProps) {
+function FileEntry({ entry, fingerprint, currentRef, basePath }: FileEntryProps) {
   const fullPath = basePath ? `${basePath}/${entry.name}` : entry.name
   const isDirectory = entry.type === 'tree'
 
-  const linkTo = isDirectory
-    ? `/tree/${currentRef}/${fullPath}`
-    : `/blob/${currentRef}/${fullPath}`
-
   return (
     <Link
-      to={linkTo as any}
+      to={isDirectory ? "/$repoId/tree/$ref/$" : "/$repoId/blob/$ref/$"}
+      params={{ repoId: fingerprint, ref: currentRef, _splat: fullPath }}
       className="flex items-center gap-3 px-4 py-2 hover:bg-accent transition-colors"
     >
       {isDirectory ? (

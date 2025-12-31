@@ -29,7 +29,7 @@ export const Route = createFileRoute('/_authenticated/$repoId_/branches')({
 function BranchesPage() {
   const data = Route.useLoaderData()
 
-  usePageTitle(`Branches - ${data.name}`)
+  usePageTitle(`${data.name} branches`)
 
   return (
     <>
@@ -90,7 +90,8 @@ function BranchesList({ repoId }: { repoId: string }) {
           {branches.map((branch) => (
             <Link
               key={branch.name}
-              to={`/tree/${branch.name}` as any}
+              to="/$repoId/tree/$ref/$"
+              params={{ repoId, ref: branch.name, _splat: '' }}
               className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
             >
               <GitBranch className="h-5 w-5 text-muted-foreground flex-shrink-0" />

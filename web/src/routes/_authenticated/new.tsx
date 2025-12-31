@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { FolderGit2, Plus } from 'lucide-react'
+import { Check, FolderGit2, Plus } from 'lucide-react'
 import {
   Button,
   Input,
@@ -77,15 +77,18 @@ function NewRepositoryPage() {
   return (
     <>
       <Header>
-        <h1 className="text-lg font-semibold">Create repository</h1>
+        <div className="flex items-center gap-2">
+          <Plus className="h-5 w-5" />
+          <h1 className="text-lg font-semibold">New repository</h1>
+        </div>
       </Header>
       <Main>
-        <div className="container mx-auto max-w-lg p-6">
+        <div className="mx-auto max-w-xl">
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <FolderGit2 className="h-5 w-5" />
-                Create repository
+                New repository
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -135,7 +138,7 @@ function NewRepositoryPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-2 justify-end pt-4">
+                <div className="flex gap-2">
                   <Button
                     type="button"
                     variant="outline"
@@ -144,9 +147,9 @@ function NewRepositoryPage() {
                   >
                     Cancel
                   </Button>
-                  <Button type="submit" disabled={createRepo.isPending}>
-                    <Plus className="mr-2 h-4 w-4" />
-                    {createRepo.isPending ? 'Creating...' : 'Create repository'}
+                  <Button type="submit" disabled={!name.trim() || createRepo.isPending}>
+                    <Check className="h-4 w-4" />
+                    {createRepo.isPending ? 'Creating...' : 'Create'}
                   </Button>
                 </div>
               </form>

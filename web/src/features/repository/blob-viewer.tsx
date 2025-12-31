@@ -18,11 +18,13 @@ import { useBlob } from '@/hooks/use-repository'
 
 interface BlobViewerProps {
   repoId: string
+  fingerprint: string
   ref: string
   path: string
+  name: string
 }
 
-export function BlobViewer({ repoId, ref, path }: BlobViewerProps) {
+export function BlobViewer({ repoId, fingerprint, ref, path, name }: BlobViewerProps) {
   const { data, isLoading, error } = useBlob(repoId, ref, path)
   const [copied, setCopied] = useState(false)
 
@@ -83,8 +85,8 @@ export function BlobViewer({ repoId, ref, path }: BlobViewerProps) {
     <div className="space-y-4 p-4">
       {/* Breadcrumb */}
       <div className="flex items-center gap-1 text-sm flex-wrap">
-        <Link to="/" className="text-primary hover:underline">
-          {repoId}
+        <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-primary hover:underline">
+          {name}
         </Link>
         {pathParts.map((part, index) => {
           const pathTo = pathParts.slice(0, index + 1).join('/')
@@ -96,7 +98,8 @@ export function BlobViewer({ repoId, ref, path }: BlobViewerProps) {
                 <span className="font-medium">{part}</span>
               ) : (
                 <Link
-                  to={`/tree/${ref}/${pathTo}` as any}
+                  to="/$repoId/tree/$ref/$"
+                  params={{ repoId: fingerprint, ref, _splat: pathTo }}
                   className="text-primary hover:underline"
                 >
                   {part}

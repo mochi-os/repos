@@ -4,13 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   Header,
   Main,
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
   Button,
-  Input,
   Label,
   Textarea,
   Select,
@@ -18,13 +12,20 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-  Switch,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
   usePageTitle,
   getErrorMessage,
   GeneralError,
   toast,
 } from '@mochi/common'
-import { FolderGit2, Save, Trash2, AlertTriangle } from 'lucide-react'
+import { FolderGit2, Save, Trash2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
@@ -45,7 +46,7 @@ export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
 function SettingsPage() {
   const data = Route.useLoaderData()
 
-  usePageTitle(`Settings - ${data.name}`)
+  usePageTitle(`${data.name} settings`)
 
   return (
     <>
@@ -70,21 +71,13 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [description, setDescription] = useState(data.description || '')
-  const [defaultBranch, setDefaultBranch] = useState(data.default_branch || 'main')
-  const [allowRead, setAllowRead] = useState(data.allow_read ?? true)
-  const [isPublic, setIsPublic] = useState(data.privacy !== 'private')
-  const [confirmDelete, setConfirmDelete] = useState('')
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false)
 
   const { data: branchesData } = useBranches(data.repoId)
   const branches = branchesData?.branches || []
 
-  const updateSettings = useMutation({
-    mutationFn: (settings: {
-      description?: string
-      default_branch?: string
-      allow_read?: string
-      privacy?: string
-    }) =>
+  const updateSetting = useMutation({
+    mutationFn: (settings: Record<string, string>) =>
       reposRequest.post<{ success: boolean }>(
         endpoints.repo.settingsSet,
         settings,
@@ -92,10 +85,9 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-      toast.success('Settings saved')
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, 'Failed to save settings'))
+      toast.error(getErrorMessage(error, 'Failed to save setting'))
     },
   })
 
@@ -107,6 +99,7 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
         { baseURL: `/${data.repoId}/-/` }
       ),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       toast.success('Repository deleted')
       void navigate({ to: '/' })
     },
@@ -115,160 +108,93 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
     },
   })
 
-  const handleSave = (e: React.FormEvent) => {
-    e.preventDefault()
-    updateSettings.mutate({
-      description,
-      default_branch: defaultBranch,
-      allow_read: allowRead ? 'true' : 'false',
-      privacy: isPublic ? 'public' : 'private',
-    })
+  const handleBranchChange = (value: string) => {
+    updateSetting.mutate({ default_branch: value })
   }
 
   const handleDelete = () => {
-    if (confirmDelete !== data.name) {
-      toast.error('Please type the repository name to confirm deletion')
-      return
-    }
     deleteRepo.mutate()
   }
 
   return (
-    <div className="space-y-6 p-4 max-w-2xl">
-      <Card>
-        <CardHeader>
-          <CardTitle>General</CardTitle>
-          <CardDescription>Basic repository settings</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSave} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Repository name</Label>
-              <Input id="name" value={data.name} disabled />
-              <p className="text-sm text-muted-foreground">
-                Repository names cannot be changed.
-              </p>
-            </div>
+    <div className="divide-y p-4 max-w-2xl">
+      <div className="space-y-2 py-4">
+        <Label className="text-base">Description</Label>
+        <Textarea
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          rows={3}
+        />
+        <Button
+          size="sm"
+          onClick={() => updateSetting.mutate({ description })}
+          disabled={updateSetting.isPending || description === (data.description || '')}
+        >
+          <Save className="h-4 w-4" />
+          Save
+        </Button>
+      </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                rows={3}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="default_branch">Default branch</Label>
-              <Select value={defaultBranch} onValueChange={setDefaultBranch}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select default branch" />
-                </SelectTrigger>
-                <SelectContent>
-                  {branches.length === 0 ? (
-                    <SelectItem value={defaultBranch}>{defaultBranch}</SelectItem>
-                  ) : (
-                    branches.map((branch) => (
-                      <SelectItem key={branch.name} value={branch.name}>
-                        {branch.name}
-                      </SelectItem>
-                    ))
-                  )}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="flex justify-end">
-              <Button type="submit" disabled={updateSettings.isPending}>
-                <Save className="h-4 w-4 mr-2" />
-                {updateSettings.isPending ? 'Saving...' : 'Save changes'}
-              </Button>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Visibility</CardTitle>
-          <CardDescription>Control who can access this repository</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
-            <div className="space-y-0.5">
-              <Label htmlFor="allow_read">Allow anyone to read repository</Label>
-              <p className="text-sm text-muted-foreground">
-                When enabled, anyone can clone and browse this repository
-              </p>
-            </div>
-            <Switch
-              id="allow_read"
-              checked={allowRead}
-              onCheckedChange={setAllowRead}
-            />
+      {branches.length > 0 && (
+        <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-0.5">
+            <Label className="text-base">Default branch</Label>
+            <p className="text-sm text-muted-foreground">The branch shown when viewing the repository</p>
           </div>
-          <div className="flex items-center justify-between rounded-[8px] border px-4 py-3">
-            <div className="space-y-0.5">
-              <Label htmlFor="public">Allow anyone to search for repository</Label>
-              <p className="text-sm text-muted-foreground">
-                When enabled, this repository appears in search results
-              </p>
-            </div>
-            <Switch
-              id="public"
-              checked={isPublic}
-              onCheckedChange={setIsPublic}
-            />
-          </div>
-          <div className="flex justify-end">
-            <Button
-              onClick={handleSave}
-              disabled={updateSettings.isPending}
+          <div className="w-full sm:w-48">
+            <Select
+              value={data.default_branch || 'main'}
+              onValueChange={handleBranchChange}
+              disabled={updateSetting.isPending}
             >
-              <Save className="h-4 w-4 mr-2" />
-              {updateSettings.isPending ? 'Saving...' : 'Save changes'}
-            </Button>
+              <SelectTrigger>
+                <SelectValue placeholder="Select default branch" />
+              </SelectTrigger>
+              <SelectContent>
+                {branches.map((branch) => (
+                  <SelectItem key={branch.name} value={branch.name}>
+                    {branch.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      )}
 
-      <Card className="border-destructive">
-        <CardHeader>
-          <CardTitle className="text-destructive flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5" />
-            Danger zone
-          </CardTitle>
-          <CardDescription>
-            Irreversible and destructive actions
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="confirm_delete">
-              Type <strong>{data.name}</strong> to confirm deletion
-            </Label>
-            <Input
-              id="confirm_delete"
-              placeholder={data.name}
-              value={confirmDelete}
-              onChange={(e) => setConfirmDelete(e.target.value)}
-            />
-          </div>
-          <Button
-            variant="destructive"
-            onClick={handleDelete}
-            disabled={confirmDelete !== data.name || deleteRepo.isPending}
-          >
-            <Trash2 className="h-4 w-4 mr-2" />
-            {deleteRepo.isPending ? 'Deleting...' : 'Delete repository'}
-          </Button>
+      <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-0.5">
+          <Label className="text-base">Delete repository</Label>
           <p className="text-sm text-muted-foreground">
-            This will permanently delete the repository and all its data. This action cannot be undone.
+            Permanently delete this repository and all its data
           </p>
-        </CardContent>
-      </Card>
+        </div>
+        <Button
+          variant="outline"
+          onClick={() => setShowDeleteDialog(true)}
+          disabled={deleteRepo.isPending}
+        >
+          <Trash2 className="h-4 w-4" />
+          Delete repository
+        </Button>
+      </div>
+
+      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete repository?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will permanently delete "{data.name}" and all its commits, branches, and
+              tags. This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }
