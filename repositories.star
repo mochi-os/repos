@@ -461,14 +461,18 @@ def action_opengraph(a):
 
 # Action: Search users (for access control UI)
 def action_users_search(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
     query = a.input("q", "")
-    results = mochi.directory.search(query, 10)
+    results = mochi.service.call("friends", "users/search", query)
     a.json({"results": results or []})
 
 # Action: List groups
 def action_groups(a):
-    groups = mochi.group.list()
-    a.json({"groups": groups or []})
+    if not a.user:
+        return a.error(401, "Not logged in")
+    results = mochi.service.call("friends", "groups/list")
+    a.json({"groups": results or []})
 
 # Service interface for other apps
 

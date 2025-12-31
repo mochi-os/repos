@@ -26,10 +26,10 @@ const endpoints = {
   },
   // User/group search
   users: {
-    search: '-/users/search',
+    search: 'users/search',
   },
   groups: {
-    list: '-/groups',
+    list: 'groups',
   },
 } as const
 
