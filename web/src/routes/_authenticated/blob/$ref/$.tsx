@@ -66,7 +66,13 @@ function BlobPage() {
         </div>
       </Header>
       <Main>
-        <BlobViewer repoId={data.id} ref={ref} path={path} />
+        <BlobViewer
+          repoId={data.id}
+          fingerprint={data.fingerprint || data.id}
+          name={data.name || 'Repository'}
+          ref={ref}
+          path={path}
+        />
       </Main>
     </>
   )

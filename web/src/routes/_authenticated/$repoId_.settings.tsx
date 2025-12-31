@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Header,
   Main,
@@ -24,8 +24,13 @@ import {
   getErrorMessage,
   GeneralError,
   toast,
+  cn,
+  AccessDialog,
+  AccessList,
+  type AccessLevel,
+  type AccessRule,
 } from '@mochi/common'
-import { FolderGit2, Save, Trash2 } from 'lucide-react'
+import { FolderGit2, Plus, Save, Settings, Shield, Trash2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
@@ -43,8 +48,29 @@ export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
   errorComponent: ({ error }) => <GeneralError error={error} />,
 })
 
+type TabId = 'general' | 'access'
+
+interface Tab {
+  id: TabId
+  label: string
+  icon: React.ReactNode
+}
+
+const tabs: Tab[] = [
+  { id: 'general', label: 'Settings', icon: <Settings className="h-4 w-4" /> },
+  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" /> },
+]
+
+const REPO_ACCESS_LEVELS: AccessLevel[] = [
+  { value: 'admin', label: 'Admin (full control)' },
+  { value: 'write', label: 'Write (push commits)' },
+  { value: 'read', label: 'Read only' },
+  { value: 'none', label: 'No access' },
+]
+
 function SettingsPage() {
   const data = Route.useLoaderData()
+  const [activeTab, setActiveTab] = useState<TabId>('general')
 
   usePageTitle(`${data.name} settings`)
 
@@ -60,8 +86,34 @@ function SettingsPage() {
           <span>Settings</span>
         </div>
       </Header>
-      <Main>
-        <SettingsForm data={data} />
+      <Main className="space-y-6">
+        {/* Tabs - only show for admins */}
+        {data.isAdmin && (
+          <div className="flex gap-1 border-b">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={cn(
+                  'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
+                  'border-b-2 -mb-px',
+                  activeTab === tab.id
+                    ? 'border-primary text-foreground'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                )}
+              >
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Tab content */}
+        <div className="pt-2">
+          {activeTab === 'general' && <SettingsForm data={data} />}
+          {activeTab === 'access' && data.isAdmin && <AccessTab repoId={data.repoId} />}
+        </div>
       </Main>
     </>
   )
@@ -195,6 +247,131 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+    </div>
+  )
+}
+
+function AccessTab({ repoId }: { repoId: string }) {
+  const [rules, setRules] = useState<AccessRule[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [userSearchQuery, setUserSearchQuery] = useState('')
+
+  // User search
+  const { data: userSearchData, isLoading: userSearchLoading } = useQuery({
+    queryKey: ['users', 'search', userSearchQuery],
+    queryFn: () => reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
+      endpoints.users.search,
+      { params: { q: userSearchQuery } }
+    ),
+    enabled: userSearchQuery.length >= 1,
+  })
+
+  // Groups
+  const { data: groupsData } = useQuery({
+    queryKey: ['groups', 'list'],
+    queryFn: () => reposRequest.get<{ groups: Array<{ id: string; name: string }> }>(
+      endpoints.groups.list
+    ),
+  })
+
+  const loadRules = useCallback(async () => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      const response = await reposRequest.get<{ rules: AccessRule[] }>(
+        endpoints.repo.access,
+        { baseURL: `/${repoId}/-/` }
+      )
+      setRules(response.rules ?? [])
+    } catch (err) {
+      console.error('[AccessTab] Failed to load rules', err)
+      setError(err instanceof Error ? err : new Error('Failed to load access rules'))
+    } finally {
+      setIsLoading(false)
+    }
+  }, [repoId])
+
+  useEffect(() => {
+    void loadRules()
+  }, [loadRules])
+
+  const handleAdd = async (subject: string, subjectName: string, operation: string) => {
+    try {
+      await reposRequest.post(
+        endpoints.repo.accessSet,
+        { subject, permission: operation },
+        { baseURL: `/${repoId}/-/` }
+      )
+      toast.success(`Access set for ${subjectName}`)
+      void loadRules()
+    } catch (err) {
+      console.error('[AccessTab] Failed to set access level', err)
+      toast.error(getErrorMessage(err, 'Failed to set access level'))
+      throw err
+    }
+  }
+
+  const handleRevoke = async (subject: string) => {
+    try {
+      await reposRequest.post(
+        endpoints.repo.accessRevoke,
+        { subject },
+        { baseURL: `/${repoId}/-/` }
+      )
+      toast.success('Access removed')
+      void loadRules()
+    } catch (err) {
+      console.error('[AccessTab] Failed to revoke access', err)
+      toast.error(getErrorMessage(err, 'Failed to remove access'))
+    }
+  }
+
+  const handleLevelChange = async (subject: string, operation: string) => {
+    try {
+      await reposRequest.post(
+        endpoints.repo.accessSet,
+        { subject, permission: operation },
+        { baseURL: `/${repoId}/-/` }
+      )
+      toast.success('Access level updated')
+      void loadRules()
+    } catch (err) {
+      console.error('[AccessTab] Failed to update access level', err)
+      toast.error(getErrorMessage(err, 'Failed to update access level'))
+    }
+  }
+
+  return (
+    <div className="p-4 max-w-2xl space-y-4">
+      <div className="flex justify-end">
+        <Button onClick={() => setDialogOpen(true)}>
+          <Plus className="h-4 w-4" />
+          Add
+        </Button>
+      </div>
+
+      <AccessDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        onAdd={handleAdd}
+        levels={REPO_ACCESS_LEVELS}
+        defaultLevel="read"
+        userSearchResults={userSearchData?.results ?? []}
+        userSearchLoading={userSearchLoading}
+        onUserSearch={setUserSearchQuery}
+        groups={groupsData?.groups ?? []}
+      />
+
+      <AccessList
+        rules={rules}
+        levels={REPO_ACCESS_LEVELS}
+        onLevelChange={handleLevelChange}
+        onRevoke={handleRevoke}
+        isLoading={isLoading}
+        error={error}
+      />
     </div>
   )
 }

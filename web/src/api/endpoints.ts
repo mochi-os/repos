@@ -16,6 +16,8 @@ const endpoints = {
     // Git operations
     refs: 'refs',
     branches: 'branches',
+    branchCreate: 'branches/create',
+    branchDelete: 'branches/delete',
     tags: 'tags',
     commits: (ref?: string) => ref ? `commits/${ref}` : 'commits',
     commit: (sha: string) => `commit/${sha}`,

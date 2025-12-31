@@ -44,6 +44,7 @@ function TreePage() {
     <Main>
       <FileBrowser
         repoId={data.id}
+        fingerprint={data.fingerprint || data.id}
         name={data.name || 'Repository'}
         defaultBranch={data.default_branch || 'main'}
         description={data.description}

@@ -110,3 +110,31 @@ export function useDeleteRepo(repoId: string) {
     },
   })
 }
+
+export function useCreateBranch(repoId: string) {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (data: { name: string; source: string }) =>
+      reposRequest.post<{ success: boolean; name: string }>(
+        endpoints.repo.branchCreate, data, repoBaseURL(repoId)
+      ),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: repoKeys.branches(repoId) })
+    },
+  })
+}
+
+export function useDeleteBranch(repoId: string) {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (name: string) =>
+      reposRequest.post<{ success: boolean }>(
+        endpoints.repo.branchDelete, { name }, repoBaseURL(repoId)
+      ),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: repoKeys.branches(repoId) })
+    },
+  })
+}

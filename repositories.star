@@ -76,6 +76,7 @@ def action_info_entity(a):
         "tags": len(tags) if tags else 0,
         "allow_read": allow_read,
         "privacy": privacy,
+        "isAdmin": check_admin_access(a, repo["id"]),
     }}
 
 # Action: Create repository
@@ -219,8 +220,9 @@ def action_access_list(a):
     if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    access = mochi.access.list.resource("repo/" + repo["id"])
-    a.json({"access": access or []})
+    resource = "repo/" + repo["id"]
+    rules = mochi.access.list.resource(resource)
+    a.json({"rules": rules or []})
 
 # Action: Set access
 def action_access_set(a):
@@ -293,6 +295,48 @@ def action_branches(a):
         "branches": branches or [],
         "default": default,
     })
+
+# Action: Create branch
+def action_branch_create(a):
+    repo = get_repo(a)
+    if not repo:
+        return a.error(404, "Repository not found")
+    if not check_write_access(a, repo["id"]):
+        return a.error(403, "Access denied")
+
+    name = a.input("name")
+    source = a.input("source") or "HEAD"
+
+    if not name:
+        return a.error(400, "Branch name is required")
+
+    result = mochi.git.branch.create(repo["id"], name, source)
+    if not result:
+        return a.error(400, "Failed to create branch")
+
+    a.json({"success": True, "name": name})
+
+# Action: Delete branch
+def action_branch_delete(a):
+    repo = get_repo(a)
+    if not repo:
+        return a.error(404, "Repository not found")
+    if not check_write_access(a, repo["id"]):
+        return a.error(403, "Access denied")
+
+    name = a.input("name")
+    if not name:
+        return a.error(400, "Branch name is required")
+
+    default = mochi.git.branch.default.get(repo["id"])
+    if name == default:
+        return a.error(400, "Cannot delete the default branch")
+
+    result = mochi.git.branch.delete(repo["id"], name)
+    if not result:
+        return a.error(400, "Failed to delete branch")
+
+    a.json({"success": True})
 
 # Action: List tags
 def action_tags(a):

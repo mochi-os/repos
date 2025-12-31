@@ -27,6 +27,7 @@ export interface InfoResponse {
   tags?: number
   allow_read?: boolean
   privacy?: string
+  isAdmin?: boolean
   repositories?: Repository[]
 }
 
