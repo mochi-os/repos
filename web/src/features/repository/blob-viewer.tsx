@@ -132,7 +132,11 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-1 text-sm flex-wrap">
-        <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-blue-600 dark:text-blue-400 hover:underline">
+        <Link
+          to="/$repoId/tree/$ref/$"
+          params={{ repoId: fingerprint, ref: gitRef, _splat: '' }}
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
           {name}
         </Link>
         {pathParts.map((part, index) => {

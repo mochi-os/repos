@@ -259,21 +259,25 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
                     )}
                   </div>
                 </div>
-                <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                  {branch.sha.substring(0, 7)}
-                </code>
               </Link>
-              {isAdmin && branch.name !== defaultBranch && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    onDelete(branch.name)
-                  }}
-                >
-                  <Trash2 className="h-4 w-4" />
-                </Button>
+              <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+                {branch.sha.substring(0, 7)}
+              </code>
+              {isAdmin && (
+                branch.name !== defaultBranch ? (
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      onDelete(branch.name)
+                    }}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                ) : (
+                  <div className="w-9" /> // Placeholder for alignment
+                )
               )}
             </div>
           ))}

@@ -247,7 +247,11 @@ export function FileBrowser({
       {/* Breadcrumb */}
       {pathParts.length > 0 && (
         <div className="flex items-center gap-1 text-sm">
-          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-blue-600 dark:text-blue-400 hover:underline">
+          <Link
+            to="/$repoId/tree/$ref/$"
+            params={{ repoId: fingerprint, ref: currentRef, _splat: '' }}
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
             {name}
           </Link>
           {pathParts.map((part, index) => {
@@ -404,7 +408,11 @@ export function FileTree({
       {/* Breadcrumb */}
       {pathParts.length > 0 && (
         <div className="flex items-center gap-1 text-sm">
-          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-blue-600 dark:text-blue-400 hover:underline">
+          <Link
+            to="/$repoId/tree/$ref/$"
+            params={{ repoId: fingerprint, ref: currentRef, _splat: '' }}
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
             {name}
           </Link>
           {pathParts.map((part, index) => {
