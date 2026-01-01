@@ -85,6 +85,7 @@ export function useBlob(repoId: string, ref: string, path: string) {
     queryKey: repoKeys.blob(repoId, ref, path),
     queryFn: () => reposRequest.get<BlobResponse>(endpoints.repo.blob(ref, path), repoBaseURL(repoId)),
     enabled: !!repoId && !!ref && !!path,
+    retry: false,
   })
 }
 

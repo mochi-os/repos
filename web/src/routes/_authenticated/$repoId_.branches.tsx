@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
-  Header,
   Main,
   Card,
   CardContent,
@@ -33,7 +32,8 @@ import {
   toast,
   getErrorMessage,
 } from '@mochi/common'
-import { FolderGit2, GitBranch, Plus, Trash2 } from 'lucide-react'
+import { GitBranch, Plus, Trash2 } from 'lucide-react'
+import { RepositoryNav } from '@/features/repository/repository-nav'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useBranches, useCreateBranch, useDeleteBranch } from '@/hooks/use-repository'
@@ -107,32 +107,30 @@ function BranchesPage() {
   }
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2 flex-1">
-          <FolderGit2 className="h-5 w-5" />
-          <Link to="/$repoId" params={{ repoId: data.repoId }} className="text-lg font-semibold hover:underline">
-            {data.name}
-          </Link>
-          <span className="text-muted-foreground">/</span>
-          <span>Branches</span>
-          <div className="flex-1" />
-          {data.isAdmin && (
+    <Main>
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={data.repoId}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="branches"
+          isOwner={data.isAdmin}
+        />
+        {data.isAdmin && (
+          <div className="flex justify-end">
             <Button size="sm" onClick={() => setShowCreateDialog(true)}>
               <Plus className="h-4 w-4" />
               New branch
             </Button>
-          )}
-        </div>
-      </Header>
-      <Main>
+          </div>
+        )}
         <BranchesList
           repoId={data.repoId}
           defaultBranch={defaultBranch}
           isAdmin={data.isAdmin}
           onDelete={handleDeleteClick}
         />
-      </Main>
+      </div>
 
       {/* Create branch dialog */}
       <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
@@ -195,7 +193,7 @@ function BranchesPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-    </>
+    </Main>
   )
 }
 

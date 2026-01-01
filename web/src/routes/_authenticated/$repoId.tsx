@@ -6,7 +6,7 @@ import {
 } from '@mochi/common'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { FileBrowser } from '@/features/repository/file-browser'
+import { RepositoryTabs } from '@/features/repository/repository-tabs'
 
 export const Route = createFileRoute('/_authenticated/$repoId')({
   loader: async ({ params }) => {
@@ -28,12 +28,13 @@ function RepositoryPage() {
 
   return (
     <Main>
-      <FileBrowser
+      <RepositoryTabs
         repoId={data.id || data.repoId}
         fingerprint={data.repoId}
         name={data.name || 'Repository'}
         defaultBranch={data.default_branch || 'main'}
         description={data.description}
+        isOwner={data.isAdmin}
       />
     </Main>
   )

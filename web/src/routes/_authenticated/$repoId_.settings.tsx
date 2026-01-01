@@ -1,8 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
-  Header,
   Main,
   Button,
   Label,
@@ -30,11 +29,12 @@ import {
   type AccessLevel,
   type AccessRule,
 } from '@mochi/common'
-import { FolderGit2, Plus, Save, Settings, Shield, Trash2 } from 'lucide-react'
+import { Plus, Save, Settings, Shield, Trash2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { useBranches, repoKeys } from '@/hooks/use-repository'
+import { RepositoryNav } from '@/features/repository/repository-nav'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
   loader: async ({ params }) => {
@@ -48,16 +48,16 @@ export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
   errorComponent: ({ error }) => <GeneralError error={error} />,
 })
 
-type TabId = 'general' | 'access'
+type SettingsTabId = 'general' | 'access'
 
-interface Tab {
-  id: TabId
+interface SettingsTab {
+  id: SettingsTabId
   label: string
   icon: React.ReactNode
 }
 
-const tabs: Tab[] = [
-  { id: 'general', label: 'Settings', icon: <Settings className="h-4 w-4" /> },
+const settingsTabs: SettingsTab[] = [
+  { id: 'general', label: 'General', icon: <Settings className="h-4 w-4" /> },
   { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" /> },
 ]
 
@@ -70,34 +70,32 @@ const REPO_ACCESS_LEVELS: AccessLevel[] = [
 
 function SettingsPage() {
   const data = Route.useLoaderData()
-  const [activeTab, setActiveTab] = useState<TabId>('general')
+  const [activeSettingsTab, setActiveSettingsTab] = useState<SettingsTabId>('general')
 
   usePageTitle(`${data.name} settings`)
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <Link to="/$repoId" params={{ repoId: data.repoId }} className="text-lg font-semibold hover:underline">
-            {data.name}
-          </Link>
-          <span className="text-muted-foreground">/</span>
-          <span>Settings</span>
-        </div>
-      </Header>
-      <Main className="space-y-6">
-        {/* Tabs - only show for admins */}
+    <Main>
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={data.repoId}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="settings"
+          isOwner={data.isAdmin}
+        />
+
+        {/* Settings sub-tabs - only show for admins */}
         {data.isAdmin && (
           <div className="flex gap-1 border-b">
-            {tabs.map((tab) => (
+            {settingsTabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => setActiveSettingsTab(tab.id)}
                 className={cn(
                   'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
                   'border-b-2 -mb-px',
-                  activeTab === tab.id
+                  activeSettingsTab === tab.id
                     ? 'border-primary text-foreground'
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 )}
@@ -111,11 +109,11 @@ function SettingsPage() {
 
         {/* Tab content */}
         <div className="pt-2">
-          {activeTab === 'general' && <SettingsForm data={data} />}
-          {activeTab === 'access' && data.isAdmin && <AccessTab repoId={data.repoId} />}
+          {activeSettingsTab === 'general' && <SettingsForm data={data} />}
+          {activeSettingsTab === 'access' && data.isAdmin && <AccessTab repoId={data.repoId} />}
         </div>
-      </Main>
-    </>
+      </div>
+    </Main>
   )
 }
 

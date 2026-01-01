@@ -92,6 +92,11 @@ def action_create(a):
     if len(name) > 100:
         return a.error(400, "Name is too long (max 100 characters)")
 
+    # Check for duplicate name
+    existing = mochi.db.row("select id from repositories where name = ?", name)
+    if existing:
+        return a.error(400, "A repository with that name already exists")
+
     # Create entity (privacy controls directory listing)
     entity_id = mochi.entity.create("repository", name, privacy, "")
     if not entity_id:

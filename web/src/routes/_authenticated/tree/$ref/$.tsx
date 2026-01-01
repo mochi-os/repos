@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import {
-  Header,
   Main,
   usePageTitle,
   requestHelpers,
@@ -8,7 +7,8 @@ import {
 } from '@mochi/common'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
-import { FileBrowser } from '@/features/repository/file-browser'
+import { RepositoryNav } from '@/features/repository/repository-nav'
+import { FileTree } from '@/features/repository/file-browser'
 
 export const Route = createFileRoute('/_authenticated/tree/$ref/$')({
   loader: async () => {
@@ -27,30 +27,35 @@ function TreePage() {
 
   if (!data.entity || !data.id) {
     return (
-      <>
-        <Header>
-          <h1 className="text-lg font-semibold">Repository not found</h1>
-        </Header>
-        <Main>
-          <div className="p-4 text-muted-foreground">
-            This page requires a repository context.
-          </div>
-        </Main>
-      </>
+      <Main>
+        <div className="p-4 text-muted-foreground">
+          This page requires a repository context.
+        </div>
+      </Main>
     )
   }
 
+  const fingerprint = data.fingerprint || data.id
+
   return (
     <Main>
-      <FileBrowser
-        repoId={data.id}
-        fingerprint={data.fingerprint || data.id}
-        name={data.name || 'Repository'}
-        defaultBranch={data.default_branch || 'main'}
-        description={data.description}
-        initialRef={ref}
-        initialPath={path || ''}
-      />
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={fingerprint}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="files"
+          isOwner={data.isAdmin}
+        />
+        <FileTree
+          repoId={data.id}
+          fingerprint={fingerprint}
+          name={data.name || 'Repository'}
+          defaultBranch={data.default_branch || 'main'}
+          currentRef={ref}
+          currentPath={path || ''}
+        />
+      </div>
     </Main>
   )
 }

@@ -1,9 +1,14 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import {
   Card,
   CardContent,
   Button,
   Skeleton,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from '@mochi/common'
 import {
   File,
@@ -12,21 +17,44 @@ import {
   Check,
   Download,
   FileCode,
+  GitBranch,
 } from 'lucide-react'
-import { useState } from 'react'
-import { useBlob } from '@/hooks/use-repository'
+import { useState, useEffect } from 'react'
+import { useBlob, useBranches } from '@/hooks/use-repository'
 
 interface BlobViewerProps {
   repoId: string
   fingerprint: string
-  ref: string
+  gitRef: string
   path: string
   name: string
 }
 
-export function BlobViewer({ repoId, fingerprint, ref, path, name }: BlobViewerProps) {
-  const { data, isLoading, error } = useBlob(repoId, ref, path)
+export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobViewerProps) {
+  const { data, isLoading, error } = useBlob(repoId, gitRef, path)
+  const { data: branchesData } = useBranches(repoId)
   const [copied, setCopied] = useState(false)
+  const navigate = useNavigate()
+
+  const branches = branchesData?.branches || []
+
+  // Auto-redirect to tree view if blob fails (likely a directory)
+  useEffect(() => {
+    if (!isLoading && (error || !data)) {
+      navigate({
+        to: '/$repoId/tree/$ref/$',
+        params: { repoId: fingerprint, ref: gitRef, _splat: path },
+        replace: true,
+      })
+    }
+  }, [isLoading, error, data, navigate, fingerprint, gitRef, path])
+
+  const handleBranchChange = (newRef: string) => {
+    navigate({
+      to: '/$repoId/blob/$ref/$',
+      params: { repoId: fingerprint, ref: newRef, _splat: path },
+    })
+  }
 
   const pathParts = path.split('/').filter(Boolean)
   const fileName = pathParts[pathParts.length - 1] || 'file'
@@ -53,7 +81,8 @@ export function BlobViewer({ repoId, fingerprint, ref, path, name }: BlobViewerP
 
   if (isLoading) {
     return (
-      <div className="space-y-4 p-4">
+      <div className="space-y-4">
+        <Skeleton className="h-10 w-[180px]" />
         <Skeleton className="h-8 w-64" />
         <Card>
           <CardContent className="p-4">
@@ -64,17 +93,18 @@ export function BlobViewer({ repoId, fingerprint, ref, path, name }: BlobViewerP
     )
   }
 
-  if (error) {
+  if (error || !data) {
+    // Will auto-redirect via useEffect, show loading state
     return (
-      <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load file'}
+      <div className="space-y-4">
+        <Skeleton className="h-10 w-[180px]" />
+        <Skeleton className="h-8 w-64" />
+        <Card>
+          <CardContent className="p-4">
+            <Skeleton className="h-64 w-full" />
+          </CardContent>
+        </Card>
       </div>
-    )
-  }
-
-  if (!data) {
-    return (
-      <div className="p-4 text-muted-foreground">File not found</div>
     )
   }
 
@@ -82,10 +112,27 @@ export function BlobViewer({ repoId, fingerprint, ref, path, name }: BlobViewerP
   const language = getLanguageFromFileName(fileName)
 
   return (
-    <div className="space-y-4 p-4">
+    <div className="space-y-4">
+      {/* Branch selector */}
+      {branches.length > 0 && (
+        <Select value={gitRef} onValueChange={handleBranchChange}>
+          <SelectTrigger className="w-[180px]">
+            <GitBranch className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Select branch" />
+          </SelectTrigger>
+          <SelectContent>
+            {branches.map((branch) => (
+              <SelectItem key={branch.name} value={branch.name}>
+                {branch.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-1 text-sm flex-wrap">
-        <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-primary hover:underline">
+        <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-blue-600 dark:text-blue-400 hover:underline">
           {name}
         </Link>
         {pathParts.map((part, index) => {
@@ -95,12 +142,12 @@ export function BlobViewer({ repoId, fingerprint, ref, path, name }: BlobViewerP
             <span key={pathTo} className="flex items-center gap-1">
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
               {isLast ? (
-                <span className="font-medium">{part}</span>
+                <span className="font-medium text-foreground">{part}</span>
               ) : (
                 <Link
                   to="/$repoId/tree/$ref/$"
-                  params={{ repoId: fingerprint, ref, _splat: pathTo }}
-                  className="text-primary hover:underline"
+                  params={{ repoId: fingerprint, ref: gitRef, _splat: pathTo }}
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   {part}
                 </Link>

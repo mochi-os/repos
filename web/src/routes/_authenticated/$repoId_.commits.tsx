@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
-  Header,
   Main,
   Card,
   CardContent,
@@ -8,10 +7,11 @@ import {
   usePageTitle,
   GeneralError,
 } from '@mochi/common'
-import { FolderGit2, GitCommit, User } from 'lucide-react'
+import { GitCommit, User } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useCommits } from '@/hooks/use-repository'
+import { RepositoryNav } from '@/features/repository/repository-nav'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
   loader: async ({ params }) => {
@@ -31,21 +31,18 @@ function CommitsPage() {
   usePageTitle(`${data.name} commits`)
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <Link to="/$repoId" params={{ repoId: data.repoId }} className="text-lg font-semibold hover:underline">
-            {data.name}
-          </Link>
-          <span className="text-muted-foreground">/</span>
-          <span>Commits</span>
-        </div>
-      </Header>
-      <Main>
+    <Main>
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={data.repoId}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="commits"
+          isOwner={data.isAdmin}
+        />
         <CommitsList repoId={data.repoId} />
-      </Main>
-    </>
+      </div>
+    </Main>
   )
 }
 

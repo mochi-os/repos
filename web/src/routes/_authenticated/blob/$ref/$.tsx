@@ -1,14 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 import {
-  Header,
   Main,
   usePageTitle,
   requestHelpers,
   GeneralError,
 } from '@mochi/common'
-import { FolderGit2 } from 'lucide-react'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
+import { RepositoryNav } from '@/features/repository/repository-nav'
 import { BlobViewer } from '@/features/repository/blob-viewer'
 
 export const Route = createFileRoute('/_authenticated/blob/$ref/$')({
@@ -29,51 +28,34 @@ function BlobPage() {
 
   if (!data.entity || !data.id) {
     return (
-      <>
-        <Header>
-          <h1 className="text-lg font-semibold">Repository not found</h1>
-        </Header>
-        <Main>
-          <div className="p-4 text-muted-foreground">
-            This page requires a repository context.
-          </div>
-        </Main>
-      </>
+      <Main>
+        <div className="p-4 text-muted-foreground">
+          This page requires a repository context.
+        </div>
+      </Main>
     )
   }
 
-  if (!path) {
-    return (
-      <>
-        <Header>
-          <h1 className="text-lg font-semibold">File not found</h1>
-        </Header>
-        <Main>
-          <div className="p-4 text-muted-foreground">
-            No file path specified.
-          </div>
-        </Main>
-      </>
-    )
-  }
+  const fingerprint = data.fingerprint || data.id
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-lg font-semibold">{data.name}</h1>
-        </div>
-      </Header>
-      <Main>
+    <Main>
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={fingerprint}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="files"
+          isOwner={data.isAdmin}
+        />
         <BlobViewer
           repoId={data.id}
-          fingerprint={data.fingerprint || data.id}
+          fingerprint={fingerprint}
           name={data.name || 'Repository'}
-          ref={ref}
-          path={path}
+          gitRef={ref}
+          path={path || ''}
         />
-      </Main>
-    </>
+      </div>
+    </Main>
   )
 }

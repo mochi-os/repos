@@ -14,7 +14,7 @@ import { GitBranch, Plus, FolderGit2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository } from '@/api/types'
-import { FileBrowser } from '@/features/repository/file-browser'
+import { RepositoryTabs } from '@/features/repository/repository-tabs'
 
 export const Route = createFileRoute('/_authenticated/')({
   loader: async () => {
@@ -42,12 +42,13 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
 
   return (
     <Main>
-      <FileBrowser
+      <RepositoryTabs
         repoId={data.id!}
         fingerprint={data.fingerprint || data.id!}
         name={data.name || 'Repository'}
         defaultBranch={data.default_branch || 'main'}
         description={data.description}
+        isOwner={data.isAdmin}
       />
     </Main>
   )

@@ -6,7 +6,8 @@ import {
 } from '@mochi/common'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { FileBrowser } from '@/features/repository/file-browser'
+import { RepositoryNav } from '@/features/repository/repository-nav'
+import { FileTree } from '@/features/repository/file-browser'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/tree/$ref/$')({
   loader: async ({ params }) => {
@@ -28,15 +29,23 @@ function TreePage() {
 
   return (
     <Main>
-      <FileBrowser
-        repoId={data.id || data.repoId}
-        fingerprint={data.repoId}
-        name={data.name || 'Repository'}
-        defaultBranch={data.default_branch || 'main'}
-        description={data.description}
-        initialRef={ref}
-        initialPath={path || ''}
-      />
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={data.repoId}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="files"
+          isOwner={data.isAdmin}
+        />
+        <FileTree
+          repoId={data.id || data.repoId}
+          fingerprint={data.repoId}
+          name={data.name || 'Repository'}
+          defaultBranch={data.default_branch || 'main'}
+          currentRef={ref}
+          currentPath={path || ''}
+        />
+      </div>
     </Main>
   )
 }

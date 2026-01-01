@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
-  Header,
   Main,
   Card,
   CardContent,
@@ -11,11 +10,12 @@ import {
   usePageTitle,
   GeneralError,
 } from '@mochi/common'
-import { FolderGit2, GitCommit, User, Calendar, ArrowLeft, Copy, Check } from 'lucide-react'
+import { GitCommit, User, Calendar, Copy, Check } from 'lucide-react'
 import { useState } from 'react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useCommit } from '@/hooks/use-repository'
+import { RepositoryNav } from '@/features/repository/repository-nav'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commit/$sha')({
   loader: async ({ params }) => {
@@ -36,21 +36,18 @@ function CommitPage() {
   usePageTitle(`Commit ${sha.substring(0, 7)} - ${data.name}`)
 
   return (
-    <>
-      <Header>
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <Link to="/$repoId" params={{ repoId: data.repoId }} className="text-lg font-semibold hover:underline">
-            {data.name}
-          </Link>
-          <span className="text-muted-foreground">/</span>
-          <span>Commit</span>
-        </div>
-      </Header>
-      <Main>
+    <Main>
+      <div className="p-4 space-y-4">
+        <RepositoryNav
+          fingerprint={data.repoId}
+          name={data.name || 'Repository'}
+          description={data.description}
+          activeTab="commits"
+          isOwner={data.isAdmin}
+        />
         <CommitDetails repoId={data.id || data.repoId} fingerprint={data.repoId} sha={sha} />
-      </Main>
-    </>
+      </div>
+    </Main>
   )
 }
 
@@ -93,16 +90,7 @@ function CommitDetails({ repoId, fingerprint, sha }: { repoId: string; fingerpri
   const body = messageLines.slice(1).join('\n').trim()
 
   return (
-    <div className="space-y-4 p-4">
-      <div className="flex items-center gap-2">
-        <Button variant="outline" size="sm" asChild>
-          <Link to="/$repoId/commits" params={{ repoId: fingerprint }}>
-            <ArrowLeft className="h-4 w-4 mr-1" />
-            Back to commits
-          </Link>
-        </Button>
-      </div>
-
+    <div className="space-y-4">
       <Card>
         <CardHeader>
           <div className="flex items-start justify-between gap-4">
@@ -149,7 +137,7 @@ function CommitDetails({ repoId, fingerprint, sha }: { repoId: string; fingerpri
                   key={parent}
                   to="/$repoId/commit/$sha"
                   params={{ repoId: fingerprint, sha: parent }}
-                  className="ml-2 font-mono text-primary hover:underline"
+                  className="ml-2 font-mono text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   {parent.substring(0, 7)}
                 </Link>

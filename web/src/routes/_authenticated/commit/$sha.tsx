@@ -159,7 +159,7 @@ function CommitDetails({ repoId, fingerprint, sha }: { repoId: string; fingerpri
                 <Link
                   key={parent}
                   to={`/commit/${parent}` as any}
-                  className="ml-2 font-mono text-primary hover:underline"
+                  className="ml-2 font-mono text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   {parent.substring(0, 7)}
                 </Link>

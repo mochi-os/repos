@@ -11,6 +11,16 @@ import {
   SelectTrigger,
   SelectValue,
   Skeleton,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  requestHelpers,
+  getErrorMessage,
+  toast,
 } from '@mochi/common'
 import {
   File,
@@ -23,9 +33,114 @@ import {
   Settings,
   Copy,
   Check,
+  Loader2,
+  Terminal,
 } from 'lucide-react'
 import { useTree, useBranches } from '@/hooks/use-repository'
 import type { TreeEntry } from '@/api/types'
+
+interface TokenCreateResponse {
+  token: string
+}
+
+interface CloneDialogProps {
+  repoName: string
+  fingerprint: string
+}
+
+function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
+  const [open, setOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [cloneCommand, setCloneCommand] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
+
+  const handleOpen = async (isOpen: boolean) => {
+    setOpen(isOpen)
+    if (isOpen && !cloneCommand) {
+      setIsLoading(true)
+      try {
+        const response = await requestHelpers.post<TokenCreateResponse>(
+          '/settings/user/account/token/create',
+          { name: `Clone ${repoName}` }
+        )
+        const token = response.token
+        // Build clone URL based on current location (preserves /repositories/ prefix in class context)
+        const pathname = window.location.pathname
+        const match = pathname.match(/^(\/[^/]+)\//)
+        const appPrefix = match ? match[1] : ''
+        const cloneUrl = `${window.location.origin}${appPrefix}/${fingerprint}/git`
+        // Parse the URL to insert token as password (server expects token in password field)
+        const url = new URL(cloneUrl)
+        url.username = 'x'
+        url.password = token
+        setCloneCommand(`git clone ${url.toString()}`)
+      } catch (error) {
+        toast.error(getErrorMessage(error, 'Failed to create token'))
+        setOpen(false)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+  }
+
+  const handleCopy = () => {
+    if (cloneCommand) {
+      navigator.clipboard.writeText(cloneCommand)
+      setCopied(true)
+      toast.success('Copied to clipboard')
+      setTimeout(() => setCopied(false), 2000)
+    }
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={handleOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline" size="sm">
+          <Terminal className="h-4 w-4 mr-1" />
+          Clone
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Clone repository</DialogTitle>
+          <DialogDescription>
+            Copy this command to clone the repository. A token has been created for authentication.
+          </DialogDescription>
+        </DialogHeader>
+        {isLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="h-6 w-6 animate-spin" />
+          </div>
+        ) : cloneCommand ? (
+          <div className="space-y-4">
+            <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
+              <code className="flex-1 break-all select-all">{cloneCommand}</code>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleCopy}
+                className="shrink-0"
+              >
+                {copied ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <Copy className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+            <DialogFooter>
+              <Button onClick={handleClose}>Done</Button>
+            </DialogFooter>
+          </div>
+        ) : null}
+      </DialogContent>
+    </Dialog>
+  )
+}
 
 interface FileBrowserProps {
   repoId: string
@@ -47,7 +162,6 @@ export function FileBrowser({
   initialPath = '',
 }: FileBrowserProps) {
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
-  const [copied, setCopied] = useState(false)
 
   const { data: branchesData } = useBranches(repoId)
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
@@ -63,14 +177,6 @@ export function FileBrowser({
   })
 
   const pathParts = initialPath ? initialPath.split('/').filter(Boolean) : []
-
-  const cloneUrl = `${window.location.origin}/${fingerprint}/git`
-
-  const handleCopyCloneUrl = () => {
-    navigator.clipboard.writeText(cloneUrl)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
 
   return (
     <div className="space-y-4 p-4">
@@ -110,6 +216,8 @@ export function FileBrowser({
             Settings
           </Link>
         </Button>
+
+        <CloneDialog repoName={name} fingerprint={fingerprint} />
       </div>
 
       {/* Repository description */}
@@ -136,20 +244,10 @@ export function FileBrowser({
         </div>
       )}
 
-      {/* Clone URL */}
-      <div className="flex items-center gap-2 p-2 bg-muted rounded-md font-mono text-sm">
-        <code className="flex-1 truncate">
-          git clone {cloneUrl}
-        </code>
-        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopyCloneUrl}>
-          {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-        </Button>
-      </div>
-
       {/* Breadcrumb */}
       {pathParts.length > 0 && (
         <div className="flex items-center gap-1 text-sm">
-          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-primary hover:underline">
+          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-blue-600 dark:text-blue-400 hover:underline">
             {name}
           </Link>
           {pathParts.map((part, index) => {
@@ -163,7 +261,7 @@ export function FileBrowser({
                   <Link
                     to="/$repoId/tree/$ref/$"
                     params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
-                    className="text-primary hover:underline"
+                    className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
                     {part}
                   </Link>
@@ -248,4 +346,121 @@ function formatFileSize(bytes: number): string {
   const sizes = ['B', 'KB', 'MB', 'GB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`
+}
+
+// FileTree: Simplified file browser without header (for use with RepositoryNav)
+interface FileTreeProps {
+  repoId: string
+  fingerprint: string
+  name: string
+  defaultBranch: string
+  currentRef: string
+  currentPath: string
+}
+
+export function FileTree({
+  repoId,
+  fingerprint,
+  name,
+  defaultBranch,
+  currentRef: initialRef,
+  currentPath,
+}: FileTreeProps) {
+  const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
+
+  const { data: branchesData } = useBranches(repoId)
+  const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, currentPath)
+
+  const branches = branchesData?.branches || []
+  const entries = treeData?.entries || []
+
+  const sortedEntries = [...entries].sort((a, b) => {
+    if (a.type === 'tree' && b.type !== 'tree') return -1
+    if (a.type !== 'tree' && b.type === 'tree') return 1
+    return a.name.localeCompare(b.name)
+  })
+
+  const pathParts = currentPath ? currentPath.split('/').filter(Boolean) : []
+
+  return (
+    <div className="space-y-4">
+      {/* Branch selector */}
+      {branches.length > 0 && (
+        <Select value={currentRef} onValueChange={setCurrentRef}>
+          <SelectTrigger className="w-[180px]">
+            <GitBranch className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Select branch" />
+          </SelectTrigger>
+          <SelectContent>
+            {branches.map((branch) => (
+              <SelectItem key={branch.name} value={branch.name}>
+                {branch.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+
+      {/* Breadcrumb */}
+      {pathParts.length > 0 && (
+        <div className="flex items-center gap-1 text-sm">
+          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-blue-600 dark:text-blue-400 hover:underline">
+            {name}
+          </Link>
+          {pathParts.map((part, index) => {
+            const pathTo = pathParts.slice(0, index + 1).join('/')
+            return (
+              <span key={pathTo} className="flex items-center gap-1">
+                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                {index === pathParts.length - 1 ? (
+                  <span>{part}</span>
+                ) : (
+                  <Link
+                    to="/$repoId/tree/$ref/$"
+                    params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
+                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    {part}
+                  </Link>
+                )}
+              </span>
+            )
+          })}
+        </div>
+      )}
+
+      {/* File listing */}
+      <Card>
+        <CardContent className="p-0">
+          {treeLoading ? (
+            <div className="p-4 space-y-2">
+              {[...Array(5)].map((_, i) => (
+                <Skeleton key={i} className="h-10 w-full" />
+              ))}
+            </div>
+          ) : error ? (
+            <div className="p-4 text-destructive">
+              {error instanceof Error ? error.message : 'Failed to load files'}
+            </div>
+          ) : sortedEntries.length === 0 ? (
+            <div className="p-8 text-center text-muted-foreground">
+              Empty directory
+            </div>
+          ) : (
+            <div className="divide-y">
+              {sortedEntries.map((entry) => (
+                <FileEntry
+                  key={entry.name}
+                  entry={entry}
+                  fingerprint={fingerprint}
+                  currentRef={currentRef}
+                  basePath={currentPath}
+                />
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  )
 }
