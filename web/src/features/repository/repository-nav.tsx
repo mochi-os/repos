@@ -110,7 +110,7 @@ function CloneButton({ repoName, fingerprint }: { repoName: string; fingerprint:
       try {
         const response = await requestHelpers.post<TokenCreateResponse>(
           '/settings/user/account/token/create',
-          { name: `Clone ${repoName}` }
+          { name: repoName }
         )
         const token = response.token
         const pathname = window.location.pathname

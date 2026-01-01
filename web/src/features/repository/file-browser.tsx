@@ -61,7 +61,7 @@ function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
       try {
         const response = await requestHelpers.post<TokenCreateResponse>(
           '/settings/user/account/token/create',
-          { name: `Clone ${repoName}` }
+          { name: repoName }
         )
         const token = response.token
         // Build clone URL based on current location (preserves /repositories/ prefix in class context)
@@ -287,7 +287,7 @@ export function FileBrowser({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {error instanceof Error ? error.message : 'Failed to load files'}
+              {getErrorMessage(error, 'Failed to load files')}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
@@ -396,6 +396,12 @@ export function FileTree({
             <SelectValue placeholder="Select branch" />
           </SelectTrigger>
           <SelectContent>
+            {/* Show current ref if not in branches list (e.g., tag or invalid ref) */}
+            {!branches.some(b => b.name === currentRef) && (
+              <SelectItem value={currentRef} disabled>
+                {currentRef}
+              </SelectItem>
+            )}
             {branches.map((branch) => (
               <SelectItem key={branch.name} value={branch.name}>
                 {branch.name}
@@ -448,7 +454,7 @@ export function FileTree({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {error instanceof Error ? error.message : 'Failed to load files'}
+              {getErrorMessage(error, 'Failed to load files')}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">

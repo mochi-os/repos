@@ -369,6 +369,8 @@ def action_commits(a):
     offset = int(a.input("offset", "0"))
 
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
+    if commits == None:
+        return a.error(404, "Branch or tag '%s' not found." % ref)
     a.json({"commits": commits or []})
 
 # Action: Get commit details
@@ -404,7 +406,13 @@ def action_tree(a):
 
     tree = mochi.git.tree(repo["id"], ref, path)
     if tree == None:
-        return a.error(404, "Path not found")
+        # Check if ref exists by trying to get tree at root
+        if path:
+            root_tree = mochi.git.tree(repo["id"], ref, "")
+            if root_tree == None:
+                return a.error(404, "Branch or tag '%s' not found." % ref)
+            return a.error(404, "Path '%s' not found." % path)
+        return a.error(404, "Branch or tag '%s' not found." % ref)
 
     a.json({
         "ref": ref,
@@ -429,7 +437,11 @@ def action_blob(a):
 
     blob = mochi.git.blob.get(repo["id"], ref, path)
     if not blob:
-        return a.error(404, "File not found")
+        # Check if ref exists
+        root_tree = mochi.git.tree(repo["id"], ref, "")
+        if root_tree == None:
+            return a.error(404, "Branch or tag '%s' not found." % ref)
+        return a.error(404, "File '%s' not found." % path)
 
     # For small non-binary files, include content
     content = None

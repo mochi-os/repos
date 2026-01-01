@@ -6,6 +6,7 @@ import {
   Skeleton,
   usePageTitle,
   GeneralError,
+  getErrorMessage,
 } from '@mochi/common'
 import { GitCommit, User } from 'lucide-react'
 import { reposRequest } from '@/api/request'
@@ -62,7 +63,7 @@ function CommitsList({ repoId }: { repoId: string }) {
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load commits'}
+        {getErrorMessage(error, 'Failed to load commits')}
       </div>
     )
   }

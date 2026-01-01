@@ -77,6 +77,7 @@ export function useTree(repoId: string, ref: string, path?: string) {
     queryKey: repoKeys.tree(repoId, ref, path),
     queryFn: () => reposRequest.get<TreeResponse>(endpoints.repo.tree(ref, path), repoBaseURL(repoId)),
     enabled: !!repoId && !!ref,
+    retry: false,
   })
 }
 
