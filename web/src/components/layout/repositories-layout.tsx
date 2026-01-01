@@ -33,20 +33,17 @@ export function RepositoriesLayout() {
       icon: FolderGit2,
     }
 
-    // Build bottom actions group
-    const bottomItems: NavItem[] = [
-      { title: 'New repository', url: '/new', icon: Plus },
-    ]
+    // New repository item at the end
+    const newRepoItem: NavItem = {
+      title: 'New repository',
+      url: '/new',
+      icon: Plus,
+    }
 
     const groups: SidebarData['navGroups'] = [
       {
         title: '',
-        items: [allReposItem, ...repoItems],
-      },
-      {
-        title: '',
-        separator: true,
-        items: bottomItems,
+        items: [allReposItem, ...repoItems, newRepoItem],
       },
     ]
 

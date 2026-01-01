@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { Check, FolderGit2, Plus } from 'lucide-react'
+import { FolderGit2, Plus } from 'lucide-react'
 import {
   Button,
   Input,
@@ -138,7 +138,7 @@ function NewRepositoryPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex justify-end gap-2">
                   <Button
                     type="button"
                     variant="outline"
@@ -148,8 +148,8 @@ function NewRepositoryPage() {
                     Cancel
                   </Button>
                   <Button type="submit" disabled={!name.trim() || createRepo.isPending}>
-                    <Check className="h-4 w-4" />
-                    {createRepo.isPending ? 'Creating...' : 'Create'}
+                    <Plus className="h-4 w-4" />
+                    {createRepo.isPending ? 'Creating repository...' : 'Create repository'}
                   </Button>
                 </div>
               </form>
