@@ -2,8 +2,8 @@ const endpoints = {
   // Repository operations
   repo: {
     // Class-level endpoints (no entity context)
-    info: '-/info',
-    create: '-/create',
+    info: 'info',
+    create: 'create',
 
     // Entity-level endpoints (caller should set baseURL to /{repoId}/-/)
     settings: 'settings',
