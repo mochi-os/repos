@@ -7,7 +7,7 @@ import {
 } from '@mochi/common'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
-import { RepositoryNav } from '@/features/repository/repository-nav'
+import { RepositoryHeader } from '@/features/repository/repository-header'
 import { FileTree } from '@/features/repository/file-browser'
 
 export const Route = createFileRoute('/_authenticated/tree/$ref/$')({
@@ -40,7 +40,7 @@ function TreePage() {
   return (
     <Main>
       <div className="p-4 space-y-4">
-        <RepositoryNav
+        <RepositoryHeader
           fingerprint={fingerprint}
           name={data.name || 'Repository'}
           description={data.description}

@@ -143,7 +143,7 @@ export function RepositoryTabs({
             )}
           >
             {tab.icon}
-            {tab.label}
+            <span className="hidden sm:inline">{tab.label}</span>
           </button>
         ))}
       </div>

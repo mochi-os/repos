@@ -3,6 +3,7 @@ import { Link } from '@tanstack/react-router'
 import {
   cn,
   Button,
+  CardDescription,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -19,85 +20,101 @@ import {
   GitBranch,
   Tag,
   Settings,
+  Shield,
   Download,
   Loader2,
   Copy,
   Check,
 } from 'lucide-react'
 
-export type TabId = 'files' | 'commits' | 'branches' | 'tags' | 'settings'
+export type RepositoryTabId = 'files' | 'commits' | 'branches' | 'tags' | 'settings' | 'access'
 
-interface RepositoryNavProps {
+interface Tab {
+  id: RepositoryTabId
+  label: string
+  icon: React.ReactNode
+  to: string
+  ownerOnly?: boolean
+}
+
+const tabs: Tab[] = [
+  { id: 'files', label: 'Files', icon: <FolderGit2 className="h-4 w-4" />, to: '/$repoId' },
+  { id: 'commits', label: 'Commits', icon: <History className="h-4 w-4" />, to: '/$repoId/commits' },
+  { id: 'branches', label: 'Branches', icon: <GitBranch className="h-4 w-4" />, to: '/$repoId/branches' },
+  { id: 'tags', label: 'Tags', icon: <Tag className="h-4 w-4" />, to: '/$repoId/tags' },
+  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, to: '/$repoId/settings?tab=access', ownerOnly: true },
+  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, to: '/$repoId/settings', ownerOnly: true },
+]
+
+interface RepositoryHeaderProps {
   fingerprint: string
   name: string
   description?: string
-  activeTab?: TabId
+  activeTab: RepositoryTabId
   isOwner?: boolean
 }
 
-export function RepositoryNav({ fingerprint, name, description, activeTab, isOwner }: RepositoryNavProps) {
-  const tabs = [
-    { id: 'files' as TabId, label: 'Files', icon: <FolderGit2 className="h-4 w-4" />, to: '/$repoId' as const },
-    { id: 'commits' as TabId, label: 'Commits', icon: <History className="h-4 w-4" />, to: '/$repoId/commits' as const },
-    { id: 'branches' as TabId, label: 'Branches', icon: <GitBranch className="h-4 w-4" />, to: '/$repoId/branches' as const },
-    { id: 'tags' as TabId, label: 'Tags', icon: <Tag className="h-4 w-4" />, to: '/$repoId/tags' as const },
-    { id: 'settings' as TabId, label: 'Settings', icon: <Settings className="h-4 w-4" />, to: '/$repoId/settings' as const },
-  ]
-
-  const visibleTabs = tabs.filter(tab => tab.id !== 'settings' || isOwner)
+export function RepositoryHeader({
+  fingerprint,
+  name,
+  description,
+  activeTab,
+  isOwner,
+}: RepositoryHeaderProps) {
+  const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
   return (
     <div className="space-y-4">
-      {/* Header */}
-      <div className="flex items-center gap-2">
-        <FolderGit2 className="h-5 w-5" />
-        <Link
-          to="/$repoId"
-          params={{ repoId: fingerprint }}
-          className="text-xl font-semibold hover:underline"
-        >
-          {name}
-        </Link>
+      {/* Header with name, description, and clone button */}
+      <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2">
+          <FolderGit2 className="h-5 w-5" />
+          <Link
+            to="/$repoId"
+            params={{ repoId: fingerprint }}
+            className="text-xl font-semibold hover:underline"
+          >
+            {name}
+          </Link>
+        </div>
         <div className="flex-1" />
-        <CloneButton repoName={name} fingerprint={fingerprint} />
+        <CloneDialog repoName={name} fingerprint={fingerprint} />
       </div>
 
-      {/* Description */}
       {description && (
-        <p className="text-muted-foreground">{description}</p>
+        <CardDescription className="text-base">{description}</CardDescription>
       )}
 
       {/* Tab bar */}
       <div className="flex gap-1 border-b">
-        {visibleTabs.map((tab) => {
-          const isActive = tab.id === activeTab
-          return (
-            <Link
-              key={tab.id}
-              to={tab.to}
-              params={{ repoId: fingerprint }}
-              className={cn(
-                'flex items-center gap-2 px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors',
-                isActive
-                  ? 'border-primary text-foreground'
-                  : 'border-transparent text-muted-foreground hover:text-foreground hover:border-muted-foreground/50'
-              )}
-            >
-              {tab.icon}
-              {tab.label}
-            </Link>
-          )
-        })}
+        {visibleTabs.map((tab) => (
+          <Link
+            key={tab.id}
+            to={tab.to}
+            params={{ repoId: fingerprint }}
+            className={cn(
+              'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
+              'border-b-2 -mb-px',
+              activeTab === tab.id
+                ? 'border-primary text-foreground'
+                : 'border-transparent text-muted-foreground hover:text-foreground'
+            )}
+          >
+            {tab.icon}
+            <span className="hidden sm:inline">{tab.label}</span>
+          </Link>
+        ))}
       </div>
     </div>
   )
 }
 
+// Token creation response type
 interface TokenCreateResponse {
   token: string
 }
 
-function CloneButton({ repoName, fingerprint }: { repoName: string; fingerprint: string }) {
+function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint: string }) {
   const [open, setOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [cloneCommand, setCloneCommand] = useState<string | null>(null)

@@ -18,20 +18,19 @@ export const Route = createFileRoute('/_authenticated/$repoId')({
   validateSearch: (search: Record<string, unknown>): RepoSearch => ({
     tab: validTabs.includes(search.tab as RepositoryTabId) ? (search.tab as RepositoryTabId) : undefined,
   }),
-  loader: async ({ params, location }) => {
-    console.log('[RepoIdLoader] Running with params:', params)
+  loader: async ({ params }) => {
     const repoId = params.repoId
     if (!repoId) {
       throw new Error('Repository ID is required')
     }
-    // Determine if we're in entity context (URL starts with entity ID) or app context
-    const firstSegment = location.pathname.match(/^\/([^/]+)/)?.[1] || ''
+    // Use window.location.pathname since TanStack Router's location is relative to app mount
+    const pathname = window.location.pathname
+    const firstSegment = pathname.match(/^\/([^/]+)/)?.[1] || ''
     const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
     // In entity context, don't prepend app path; in app context, include app path
     const baseURL = isEntityContext
       ? `/${repoId}/-/`
       : `/${firstSegment}/${repoId}/-/`
-    console.log('[RepoIdLoader] baseURL:', baseURL)
     const info = await reposRequest.get<InfoResponse>('info', { baseURL })
     return { ...info, repoId }
   },

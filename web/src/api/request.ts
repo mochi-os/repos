@@ -69,14 +69,54 @@ reposClient.interceptors.request.use((config) => {
   return config
 })
 
+// Extract error message from response body on error status codes
+reposClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.data) {
+      const data = error.response.data
+      // Handle JSON error response
+      if (typeof data === 'object' && 'error' in data) {
+        const newError = new Error(data.error)
+        ;(newError as Error & { status?: number }).status = error.response.status
+        return Promise.reject(newError)
+      }
+      // Handle HTML error response - extract message from <pre> tag
+      if (typeof data === 'string' && data.includes('<pre>')) {
+        const match = data.match(/<pre>([^<]+)<\/pre>/)
+        if (match) {
+          const newError = new Error(match[1])
+          ;(newError as Error & { status?: number }).status = error.response.status
+          return Promise.reject(newError)
+        }
+      }
+    }
+    return Promise.reject(error)
+  }
+)
+
 // Unwrap data envelope if present (backend returns {"data": {...}})
+// Also check for error responses and throw them
 function unwrapData<T>(responseData: unknown): T {
+  // Check for HTML response (indicates wrong URL or server error)
+  if (typeof responseData === 'string' && responseData.trim().startsWith('<!')) {
+    throw new Error('Invalid response from server')
+  }
   if (
     responseData &&
-    typeof responseData === 'object' &&
-    'data' in responseData
+    typeof responseData === 'object'
   ) {
-    return (responseData as { data: T }).data
+    // Check for error response
+    if ('error' in responseData) {
+      const errorData = responseData as { error: string; status?: number }
+      const error = new Error(errorData.error)
+      ;(error as Error & { status?: number }).status = errorData.status || 400
+      throw error
+    }
+    // Unwrap data envelope
+    if ('data' in responseData) {
+      return (responseData as { data: T }).data
+    }
   }
   return responseData as T
 }

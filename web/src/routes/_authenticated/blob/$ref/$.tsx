@@ -7,7 +7,7 @@ import {
 } from '@mochi/common'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
-import { RepositoryNav } from '@/features/repository/repository-nav'
+import { RepositoryHeader } from '@/features/repository/repository-header'
 import { BlobViewer } from '@/features/repository/blob-viewer'
 
 export const Route = createFileRoute('/_authenticated/blob/$ref/$')({
@@ -41,7 +41,7 @@ function BlobPage() {
   return (
     <Main>
       <div className="p-4 space-y-4">
-        <RepositoryNav
+        <RepositoryHeader
           fingerprint={fingerprint}
           name={data.name || 'Repository'}
           description={data.description}

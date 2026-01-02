@@ -34,7 +34,7 @@ import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { useBranches, repoKeys } from '@/hooks/use-repository'
-import { RepositoryNav } from '@/features/repository/repository-nav'
+import { RepositoryHeader } from '@/features/repository/repository-header'
 
 type SettingsTabId = 'general' | 'access'
 
@@ -46,8 +46,10 @@ export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
   validateSearch: (search: Record<string, unknown>): SettingsSearch => ({
     tab: (search.tab === 'general' || search.tab === 'access') ? search.tab : undefined,
   }),
-  loader: async ({ params, location }) => {
-    const firstSegment = location.pathname.match(/^\/([^/]+)/)?.[1] || ''
+  loader: async ({ params }) => {
+    // Use window.location.pathname since TanStack Router's location is relative to app mount
+    const pathname = window.location.pathname
+    const firstSegment = pathname.match(/^\/([^/]+)/)?.[1] || ''
     const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
     const baseURL = isEntityContext
       ? `/${params.repoId}/-/`
@@ -91,11 +93,11 @@ function SettingsPage() {
   return (
     <Main>
       <div className="p-4 space-y-4">
-        <RepositoryNav
+        <RepositoryHeader
           fingerprint={data.repoId}
           name={data.name || 'Repository'}
           description={data.description}
-          activeTab="settings"
+          activeTab={activeSettingsTab === 'access' ? 'access' : 'settings'}
           isOwner={data.isAdmin}
         />
 
@@ -115,7 +117,7 @@ function SettingsPage() {
                 )}
               >
                 {tab.icon}
-                {tab.label}
+                <span className="hidden sm:inline">{tab.label}</span>
               </button>
             ))}
           </div>

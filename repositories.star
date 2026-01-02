@@ -25,11 +25,30 @@ def action_info_class(a):
             repo["fingerprint"] = mochi.entity.fingerprint(repo["id"])
     return {"data": {"entity": False, "repositories": repos or []}}
 
+# Helper: Check if string is a valid entity identifier (fingerprint or entity ID)
+# Fingerprint: 9 chars base58, Entity ID: 50-51 chars base58
+def is_valid_identifier(s):
+    if not s:
+        return False
+    length = len(s)
+    if length != 9 and length != 50 and length != 51:
+        return False
+    # Base58 character set (excludes 0, O, I, l)
+    base58_chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
+    for i in range(length):
+        if s[i] not in base58_chars:
+            return False
+    return True
+
 # Helper: Get repository from route parameter
 # Route parameter may be fingerprint or entity ID - resolve to entity ID first
 def get_repo(a):
     repo_param = a.input("repository")
     if not repo_param:
+        return None
+
+    # Validate identifier format before calling entity.info
+    if not is_valid_identifier(repo_param):
         return None
 
     # Resolve fingerprint/ID to entity info
@@ -58,7 +77,7 @@ def action_info_entity(a):
     access = mochi.access.list.resource("repo/" + repo["id"])
     if access:
         for entry in access:
-            if entry.get("subject") == "*" and entry.get("permission") == "read":
+            if entry.get("subject") == "*" and entry.get("operation") == "read" and entry.get("grant") == 1:
                 allow_read = True
                 break
 
@@ -163,7 +182,7 @@ def action_settings_set(a):
     updates = []
     params = []
 
-    if description != None:
+    if description:
         updates.append("description = ?")
         params.append(description)
 
@@ -225,9 +244,42 @@ def action_access_list(a):
     if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
+    # Get owner - if we own this entity, use current user's info
+    owner = None
+    if mochi.entity.get(repo["id"]):
+        if a.user and a.user.identity:
+            owner = {"id": a.user.identity.id, "name": a.user.identity.name}
+
     resource = "repo/" + repo["id"]
     rules = mochi.access.list.resource(resource)
-    a.json({"rules": rules or []})
+
+    # Resolve names for rules and mark owner
+    filtered_rules = []
+    for rule in rules or []:
+        subject = rule.get("subject", "")
+        # Mark owner rules
+        if owner and subject == owner.get("id"):
+            rule["isOwner"] = True
+        # Resolve names for non-special subjects
+        if subject and subject not in ("*", "+") and not subject.startswith("#"):
+            if subject.startswith("@"):
+                # Look up group name
+                group_id = subject[1:]
+                group = mochi.group.get(group_id)
+                if group:
+                    rule["name"] = group.get("name", group_id)
+            elif mochi.valid(subject, "entity"):
+                # Try directory first (for user identities), then local entities
+                entry = mochi.directory.get(subject)
+                if entry:
+                    rule["name"] = entry.get("name", "")
+                else:
+                    entity = mochi.entity.info(subject)
+                    if entity:
+                        rule["name"] = entity.get("name", "")
+        filtered_rules.append(rule)
+
+    a.json({"rules": filtered_rules})
 
 # Action: Set access
 def action_access_set(a):
@@ -244,11 +296,22 @@ def action_access_set(a):
     if not subject or not permission:
         return a.error(400, "Subject and permission are required")
 
-    if permission not in ["read", "write", "admin", "*"]:
+    if permission not in ["read", "write", "none"]:
         return a.error(400, "Invalid permission")
 
-    owner_id = a.user.identity.id if a.user and a.user.identity else ""
-    mochi.access.allow(subject, "repo/" + repo["id"], permission, owner_id)
+    resource = "repo/" + repo["id"]
+    granter = a.user.identity.id if a.user and a.user.identity else ""
+
+    # Revoke all existing rules for this subject first
+    for op in ["read", "write", "*"]:
+        mochi.access.revoke(subject, resource, op)
+
+    # Set the new permission
+    if permission == "none":
+        # Deny all access
+        mochi.access.deny(subject, resource, "*", granter)
+    else:
+        mochi.access.allow(subject, resource, permission, granter)
 
     a.json({"success": True})
 
@@ -262,13 +325,15 @@ def action_access_revoke(a):
         return a.error(403, "Access denied")
 
     subject = a.input("subject")
-    permission = a.input("permission", "*")
 
     if not subject:
         return a.error(400, "Subject is required")
 
-    owner_id = a.user.identity.id if a.user and a.user.identity else ""
-    mochi.access.deny(subject, "repo/" + repo["id"], permission, owner_id)
+    resource = "repo/" + repo["id"]
+
+    # Remove all rules for this subject
+    for op in ["read", "write", "*"]:
+        mochi.access.revoke(subject, resource, op)
 
     a.json({"success": True})
 
@@ -548,7 +613,8 @@ def service_can_merge(s):
 
 def check_read_access(a, repo_id):
     """Check if user has read access to repository"""
-    user_id = a.user.identity.id if a.user and a.user.identity else "*"
+    # Pass None for anonymous users - "*" would be treated as a logged-in user
+    user_id = a.user.identity.id if a.user and a.user.identity else None
     return mochi.access.check(user_id, "repo/" + repo_id, "read")
 
 def check_write_access(a, repo_id):

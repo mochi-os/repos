@@ -352,7 +352,7 @@ function formatFileSize(bytes: number): string {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`
 }
 
-// FileTree: Simplified file browser without header (for use with RepositoryNav)
+// FileTree: Simplified file browser without header (for use with RepositoryHeader)
 interface FileTreeProps {
   repoId: string
   fingerprint: string
