@@ -14,10 +14,20 @@ import { GitBranch, Plus, FolderGit2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository } from '@/api/types'
-import { RepositoryTabs } from '@/features/repository/repository-tabs'
+import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repository-tabs'
+
+const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
+
+type IndexSearch = {
+  tab?: RepositoryTabId
+}
 
 export const Route = createFileRoute('/_authenticated/')({
+  validateSearch: (search: Record<string, unknown>): IndexSearch => ({
+    tab: validTabs.includes(search.tab as RepositoryTabId) ? (search.tab as RepositoryTabId) : undefined,
+  }),
   loader: async () => {
+    console.log('[IndexLoader] Running index loader')
     const info = await reposRequest.get<InfoResponse>(endpoints.repo.info)
     return info
   },
@@ -38,6 +48,13 @@ function IndexPage() {
 }
 
 function RepositoryHomePage({ data }: { data: InfoResponse }) {
+  const { tab } = Route.useSearch()
+  const navigate = Route.useNavigate()
+
+  const setActiveTab = (newTab: RepositoryTabId) => {
+    void navigate({ search: { tab: newTab }, replace: true })
+  }
+
   usePageTitle(data.name || 'Repository')
 
   return (
@@ -49,6 +66,8 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
         defaultBranch={data.default_branch || 'main'}
         description={data.description}
         isOwner={data.isAdmin}
+        activeTab={tab ?? 'files'}
+        onTabChange={setActiveTab}
       />
     </Main>
   )

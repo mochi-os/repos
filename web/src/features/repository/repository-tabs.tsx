@@ -69,12 +69,13 @@ interface TokenCreateResponse {
   token: string
 }
 
-type TabId = 'files' | 'commits' | 'branches' | 'tags' | 'settings'
+export type RepositoryTabId = 'files' | 'commits' | 'branches' | 'tags' | 'settings' | 'access'
 
 interface Tab {
-  id: TabId
+  id: RepositoryTabId
   label: string
   icon: React.ReactNode
+  ownerOnly?: boolean
 }
 
 const tabs: Tab[] = [
@@ -82,7 +83,8 @@ const tabs: Tab[] = [
   { id: 'commits', label: 'Commits', icon: <History className="h-4 w-4" /> },
   { id: 'branches', label: 'Branches', icon: <GitBranch className="h-4 w-4" /> },
   { id: 'tags', label: 'Tags', icon: <Tag className="h-4 w-4" /> },
-  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" /> },
+  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, ownerOnly: true },
+  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, ownerOnly: true },
 ]
 
 interface RepositoryTabsProps {
@@ -92,6 +94,8 @@ interface RepositoryTabsProps {
   defaultBranch: string
   description?: string
   isOwner?: boolean
+  activeTab: RepositoryTabId
+  onTabChange: (tab: RepositoryTabId) => void
 }
 
 export function RepositoryTabs({
@@ -101,11 +105,12 @@ export function RepositoryTabs({
   defaultBranch,
   description,
   isOwner,
+  activeTab,
+  onTabChange,
 }: RepositoryTabsProps) {
-  const [activeTab, setActiveTab] = useState<TabId>('files')
 
   // Filter tabs based on ownership
-  const visibleTabs = tabs.filter(tab => tab.id !== 'settings' || isOwner)
+  const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
   return (
     <div className="space-y-4 p-4">
@@ -128,7 +133,7 @@ export function RepositoryTabs({
         {visibleTabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => onTabChange(tab.id)}
             className={cn(
               'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
               'border-b-2 -mb-px',
@@ -164,12 +169,15 @@ export function RepositoryTabs({
         )}
         {activeTab === 'tags' && <TagsTab repoId={repoId} fingerprint={fingerprint} />}
         {activeTab === 'settings' && isOwner && (
-          <SettingsTab
+          <GeneralSettingsTab
             repoId={repoId}
             name={name}
             description={description}
             defaultBranch={defaultBranch}
           />
+        )}
+        {activeTab === 'access' && isOwner && (
+          <AccessSettingsTab repoId={repoId} />
         )}
       </div>
     </div>
@@ -184,18 +192,23 @@ function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint:
   const [open, setOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [cloneCommand, setCloneCommand] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
 
   const handleOpen = async (isOpen: boolean) => {
     setOpen(isOpen)
     if (isOpen && !cloneCommand) {
       setIsLoading(true)
+      setError(null)
       try {
         const response = await requestHelpers.post<TokenCreateResponse>(
           '/settings/user/account/token/create',
           { name: repoName }
         )
         const token = response.token
+        if (!token) {
+          throw new Error('No token returned')
+        }
         // Build clone URL based on current location (preserves /repositories/ prefix in class context)
         const pathname = window.location.pathname
         const match = pathname.match(/^(\/[^/]+)\//)
@@ -206,9 +219,10 @@ function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint:
         url.username = 'x'
         url.password = token
         setCloneCommand(`git clone ${url.toString()}`)
-      } catch (error) {
-        toast.error(getErrorMessage(error, 'Failed to create token'))
-        setOpen(false)
+      } catch (err) {
+        const message = getErrorMessage(err, 'Failed to create token')
+        setError(message)
+        toast.error(message)
       } finally {
         setIsLoading(false)
       }
@@ -229,12 +243,13 @@ function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint:
   }
 
   return (
-    <Dialog open={open} onOpenChange={handleOpen}>
-      <Button variant="outline" size="sm" onClick={() => setOpen(true)}>
+    <>
+      <Button variant="outline" size="sm" onClick={() => handleOpen(true)}>
         <Download className="h-4 w-4 mr-1" />
         Clone
       </Button>
-      <DialogContent>
+      <Dialog open={open} onOpenChange={handleOpen}>
+        <DialogContent>
         <DialogHeader>
           <DialogTitle>Clone repository</DialogTitle>
           <DialogDescription>
@@ -244,6 +259,13 @@ function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint:
         {isLoading ? (
           <div className="flex items-center justify-center py-8">
             <Loader2 className="h-6 w-6 animate-spin" />
+          </div>
+        ) : error ? (
+          <div className="space-y-4">
+            <p className="text-destructive text-sm">{error}</p>
+            <DialogFooter>
+              <Button onClick={handleClose}>Close</Button>
+            </DialogFooter>
           </div>
         ) : cloneCommand ? (
           <div className="space-y-4">
@@ -267,8 +289,9 @@ function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint:
             </DialogFooter>
           </div>
         ) : null}
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }
 
@@ -775,72 +798,28 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
 // ============================================================================
 
 const REPO_ACCESS_LEVELS: AccessLevel[] = [
-  { value: 'admin', label: 'Admin (full control)' },
-  { value: 'write', label: 'Write (push commits)' },
+  { value: 'write', label: 'Read and write' },
   { value: 'read', label: 'Read only' },
   { value: 'none', label: 'No access' },
 ]
 
-interface SettingsTabProps {
+interface GeneralSettingsTabProps {
   repoId: string
-  fingerprint: string
   name: string
   description?: string
   defaultBranch: string
-}
-
-function SettingsTab({ repoId, name, description: initialDescription, defaultBranch }: Omit<SettingsTabProps, 'fingerprint'>) {
-  const [settingsTab, setSettingsTab] = useState<'general' | 'access'>('general')
-
-  const settingsTabs = [
-    { id: 'general' as const, label: 'General', icon: <Settings className="h-4 w-4" /> },
-    { id: 'access' as const, label: 'Access', icon: <Shield className="h-4 w-4" /> },
-  ]
-
-  return (
-    <div className="space-y-4">
-      {/* Sub-tabs */}
-      <div className="flex gap-1 border-b">
-        {settingsTabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setSettingsTab(tab.id)}
-            className={cn(
-              'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
-              'border-b-2 -mb-px',
-              settingsTab === tab.id
-                ? 'border-primary text-foreground'
-                : 'border-transparent text-muted-foreground hover:text-foreground'
-            )}
-          >
-            {tab.icon}
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {settingsTab === 'general' && (
-        <GeneralSettingsTab
-          repoId={repoId}
-          name={name}
-          description={initialDescription}
-          defaultBranch={defaultBranch}
-        />
-      )}
-      {settingsTab === 'access' && <AccessSettingsTab repoId={repoId} />}
-    </div>
-  )
 }
 
 function GeneralSettingsTab({
   repoId,
   name,
   description: initialDescription,
-  defaultBranch,
-}: Omit<SettingsTabProps, 'fingerprint'>) {
+  defaultBranch: initialDefaultBranch,
+}: GeneralSettingsTabProps) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [description, setDescription] = useState(initialDescription || '')
+  const [selectedBranch, setSelectedBranch] = useState(initialDefaultBranch || 'main')
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
 
   const { data: branchesData } = useBranches(repoId)
@@ -854,6 +833,7 @@ function GeneralSettingsTab({
         { baseURL: `/${repoId}/-/` }
       ),
     onSuccess: () => {
+      toast.success('Settings saved')
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
     onError: (error) => {
@@ -879,6 +859,7 @@ function GeneralSettingsTab({
   })
 
   const handleBranchChange = (value: string) => {
+    setSelectedBranch(value)
     updateSetting.mutate({ default_branch: value })
   }
 
@@ -914,7 +895,7 @@ function GeneralSettingsTab({
           </div>
           <div className="w-full sm:w-48">
             <Select
-              value={defaultBranch || 'main'}
+              value={selectedBranch}
               onValueChange={handleBranchChange}
               disabled={updateSetting.isPending}
             >
@@ -976,21 +957,22 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [userSearchQuery, setUserSearchQuery] = useState('')
 
-  // User search
+  // User search - use class-level endpoint
   const { data: userSearchData, isLoading: userSearchLoading } = useQuery({
     queryKey: ['users', 'search', userSearchQuery],
     queryFn: () => reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
-      endpoints.users.search,
-      { params: { q: userSearchQuery } }
+      `${endpoints.users.search}?q=${encodeURIComponent(userSearchQuery)}`,
+      { baseURL: '/repositories/' }
     ),
     enabled: userSearchQuery.length >= 1,
   })
 
-  // Groups
+  // Groups - use class-level endpoint
   const { data: groupsData } = useQuery({
     queryKey: ['groups', 'list'],
     queryFn: () => reposRequest.get<{ groups: Array<{ id: string; name: string }> }>(
-      endpoints.groups.list
+      endpoints.groups.list,
+      { baseURL: '/repositories/' }
     ),
   })
 
@@ -1058,7 +1040,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
   }
 
   return (
-    <div className="max-w-2xl space-y-4">
+    <div className="space-y-4">
       <div className="flex justify-end">
         <Button onClick={() => setDialogOpen(true)}>
           <Plus className="h-4 w-4" />

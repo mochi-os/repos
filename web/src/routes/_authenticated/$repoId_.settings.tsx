@@ -36,19 +36,28 @@ import type { InfoResponse } from '@/api/types'
 import { useBranches, repoKeys } from '@/hooks/use-repository'
 import { RepositoryNav } from '@/features/repository/repository-nav'
 
+type SettingsTabId = 'general' | 'access'
+
+type SettingsSearch = {
+  tab?: SettingsTabId
+}
+
 export const Route = createFileRoute('/_authenticated/$repoId_/settings')({
-  loader: async ({ params }) => {
-    const info = await reposRequest.get<InfoResponse>(
-      'info',
-      { baseURL: `/${params.repoId}/-/` }
-    )
+  validateSearch: (search: Record<string, unknown>): SettingsSearch => ({
+    tab: (search.tab === 'general' || search.tab === 'access') ? search.tab : undefined,
+  }),
+  loader: async ({ params, location }) => {
+    const firstSegment = location.pathname.match(/^\/([^/]+)/)?.[1] || ''
+    const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
+    const baseURL = isEntityContext
+      ? `/${params.repoId}/-/`
+      : `/${firstSegment}/${params.repoId}/-/`
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
     return { ...info, repoId: params.repoId }
   },
   component: SettingsPage,
   errorComponent: ({ error }) => <GeneralError error={error} />,
 })
-
-type SettingsTabId = 'general' | 'access'
 
 interface SettingsTab {
   id: SettingsTabId
@@ -62,15 +71,20 @@ const settingsTabs: SettingsTab[] = [
 ]
 
 const REPO_ACCESS_LEVELS: AccessLevel[] = [
-  { value: 'admin', label: 'Admin (full control)' },
-  { value: 'write', label: 'Write (push commits)' },
+  { value: 'write', label: 'Read and write' },
   { value: 'read', label: 'Read only' },
   { value: 'none', label: 'No access' },
 ]
 
 function SettingsPage() {
   const data = Route.useLoaderData()
-  const [activeSettingsTab, setActiveSettingsTab] = useState<SettingsTabId>('general')
+  const { tab } = Route.useSearch()
+  const navigate = Route.useNavigate()
+  const activeSettingsTab = tab ?? 'general'
+
+  const setActiveSettingsTab = (newTab: SettingsTabId) => {
+    void navigate({ search: { tab: newTab }, replace: true })
+  }
 
   usePageTitle(`${data.name} settings`)
 
@@ -126,20 +140,24 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
   const { data: branchesData } = useBranches(data.repoId)
   const branches = branchesData?.branches || []
 
-  const updateSetting = useMutation({
-    mutationFn: (settings: Record<string, string>) =>
-      reposRequest.post<{ success: boolean }>(
+  const [isSaving, setIsSaving] = useState(false)
+
+  const saveSettings = async (settings: Record<string, string>) => {
+    setIsSaving(true)
+    try {
+      await reposRequest.post<{ success: boolean }>(
         endpoints.repo.settingsSet,
         settings,
         { baseURL: `/${data.repoId}/-/` }
-      ),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    },
-    onError: (error) => {
+      )
+      toast.success('Settings saved')
+      void queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+    } catch (error) {
       toast.error(getErrorMessage(error, 'Failed to save setting'))
-    },
-  })
+    } finally {
+      setIsSaving(false)
+    }
+  }
 
   const deleteRepo = useMutation({
     mutationFn: () =>
@@ -159,7 +177,7 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
   })
 
   const handleBranchChange = (value: string) => {
-    updateSetting.mutate({ default_branch: value })
+    void saveSettings({ default_branch: value })
   }
 
   const handleDelete = () => {
@@ -178,8 +196,8 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
         />
         <Button
           size="sm"
-          onClick={() => updateSetting.mutate({ description })}
-          disabled={updateSetting.isPending || description === (data.description || '')}
+          onClick={() => void saveSettings({ description })}
+          disabled={isSaving || description === (data.description || '')}
         >
           <Save className="h-4 w-4" />
           Save
@@ -196,7 +214,7 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
             <Select
               value={data.default_branch || 'main'}
               onValueChange={handleBranchChange}
-              disabled={updateSetting.isPending}
+              disabled={isSaving}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Select default branch" />
@@ -256,21 +274,22 @@ function AccessTab({ repoId }: { repoId: string }) {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [userSearchQuery, setUserSearchQuery] = useState('')
 
-  // User search
+  // User search - use class-level endpoint
   const { data: userSearchData, isLoading: userSearchLoading } = useQuery({
     queryKey: ['users', 'search', userSearchQuery],
     queryFn: () => reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
-      endpoints.users.search,
-      { params: { q: userSearchQuery } }
+      `${endpoints.users.search}?q=${encodeURIComponent(userSearchQuery)}`,
+      { baseURL: '/repositories/' }
     ),
     enabled: userSearchQuery.length >= 1,
   })
 
-  // Groups
+  // Groups - use class-level endpoint
   const { data: groupsData } = useQuery({
     queryKey: ['groups', 'list'],
     queryFn: () => reposRequest.get<{ groups: Array<{ id: string; name: string }> }>(
-      endpoints.groups.list
+      endpoints.groups.list,
+      { baseURL: '/repositories/' }
     ),
   })
 
