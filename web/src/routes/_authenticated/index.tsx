@@ -10,7 +10,7 @@ import {
   usePageTitle,
   GeneralError,
 } from '@mochi/common'
-import { GitBranch, Plus, FolderGit2 } from 'lucide-react'
+import { GitBranch, Plus, FolderGit2, Search, Globe } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository } from '@/api/types'
@@ -86,6 +86,21 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     <>
       <Header>
         <h1 className="text-lg font-semibold">Repositories</h1>
+        <div className="flex-1" />
+        <div className="flex gap-2">
+          <Button variant="outline" asChild>
+            <Link to="/search">
+              <Search className="h-4 w-4" />
+              <span className="hidden sm:inline">Find</span>
+            </Link>
+          </Button>
+          <Button asChild>
+            <Link to="/new">
+              <Plus className="h-4 w-4" />
+              <span className="hidden sm:inline">New</span>
+            </Link>
+          </Button>
+        </div>
       </Header>
       <Main>
         <div className="container mx-auto p-6">
@@ -93,12 +108,20 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             <div className="p-8 text-center">
               <FolderGit2 className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
               <h2 className="text-xl font-semibold mb-4">No repositories yet</h2>
-              <Button asChild>
-                <Link to="/new">
-                  <Plus className="h-4 w-4 mr-2" />
-                  New repository
-                </Link>
-              </Button>
+              <div className="flex justify-center gap-2">
+                <Button variant="outline" asChild>
+                  <Link to="/search">
+                    <Search className="h-4 w-4 mr-2" />
+                    Find repositories
+                  </Link>
+                </Button>
+                <Button asChild>
+                  <Link to="/new">
+                    <Plus className="h-4 w-4 mr-2" />
+                    New repository
+                  </Link>
+                </Button>
+              </div>
             </div>
           ) : (
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -114,6 +137,12 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                       <CardTitle className="flex items-center gap-2">
                         <FolderGit2 className="h-5 w-5" />
                         {repo.name}
+                        {repo.owner === 0 && (
+                          <span className="flex items-center gap-1 text-xs text-muted-foreground font-normal">
+                            <Globe className="h-3 w-3" />
+                            Subscribed
+                          </span>
+                        )}
                       </CardTitle>
                       {repo.description && (
                         <CardDescription>{repo.description}</CardDescription>
@@ -123,6 +152,11 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                           <GitBranch className="h-4 w-4" />
                           {repo.default_branch}
                         </span>
+                        {repo.owner === 0 && repo.server && repo.server.startsWith('http') && (
+                          <span className="text-xs truncate max-w-[200px]">
+                            {new URL(repo.server).hostname}
+                          </span>
+                        )}
                       </div>
                     </CardHeader>
                   </Card>

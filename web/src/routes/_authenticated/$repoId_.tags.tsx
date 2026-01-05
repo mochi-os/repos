@@ -38,11 +38,14 @@ function TagsPage() {
     <Main>
       <div className="p-4 space-y-4">
         <RepositoryHeader
-          fingerprint={data.repoId}
+          fingerprint={data.fingerprint || data.repoId}
+          repoId={data.id || data.repoId}
           name={data.name || 'Repository'}
           description={data.description}
           activeTab="tags"
           isOwner={data.isAdmin}
+          isRemote={data.remote}
+          server={data.server}
         />
         <TagsList repoId={data.repoId} />
       </div>

@@ -58,6 +58,7 @@ import {
   Loader2,
   Download,
   Shield,
+  UserMinus,
 } from 'lucide-react'
 import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, repoKeys } from '@/hooks/use-repository'
 import { reposRequest } from '@/api/request'
@@ -113,17 +114,7 @@ export function RepositoryTabs({
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
   return (
-    <div className="space-y-4 p-4">
-      {/* Header with name, description, and clone button */}
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-xl font-semibold">{name}</h1>
-        </div>
-        <div className="flex-1" />
-        <CloneDialog repoName={name} fingerprint={fingerprint} />
-      </div>
-
+    <div className="space-y-4">
       {description && (
         <CardDescription className="text-base">{description}</CardDescription>
       )}
@@ -171,6 +162,7 @@ export function RepositoryTabs({
         {activeTab === 'settings' && isOwner && (
           <GeneralSettingsTab
             repoId={repoId}
+            fingerprint={fingerprint}
             name={name}
             description={description}
             defaultBranch={defaultBranch}
@@ -188,7 +180,7 @@ export function RepositoryTabs({
 // Clone Dialog
 // ============================================================================
 
-function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint: string }) {
+export function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint: string }) {
   const [open, setOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [cloneCommand, setCloneCommand] = useState<string | null>(null)
@@ -291,6 +283,63 @@ function CloneDialog({ repoName, fingerprint }: { repoName: string; fingerprint:
         ) : null}
         </DialogContent>
       </Dialog>
+    </>
+  )
+}
+
+// ============================================================================
+// Unsubscribe Button
+// ============================================================================
+
+export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoName: string }) {
+  const navigate = useNavigate()
+  const queryClient = useQueryClient()
+  const [showDialog, setShowDialog] = useState(false)
+  const [isUnsubscribing, setIsUnsubscribing] = useState(false)
+
+  const handleUnsubscribe = async () => {
+    setIsUnsubscribing(true)
+    try {
+      await reposRequest.post('unsubscribe', { repository: repoId }, { baseURL: '/repositories/' })
+      toast.success('Unsubscribed from repository')
+      // Invalidate repository list to refresh sidebar
+      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+      void navigate({ to: '/' })
+    } catch (error) {
+      toast.error(getErrorMessage(error, 'Failed to unsubscribe'))
+    } finally {
+      setIsUnsubscribing(false)
+      setShowDialog(false)
+    }
+  }
+
+  return (
+    <>
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={() => setShowDialog(true)}
+        disabled={isUnsubscribing}
+      >
+        <UserMinus className="h-4 w-4 mr-1" />
+        Unsubscribe
+      </Button>
+      <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Unsubscribe from repository?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will remove "{repoName}" from your repository list. You can subscribe again later.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleUnsubscribe} disabled={isUnsubscribing}>
+              {isUnsubscribing ? 'Unsubscribing...' : 'Unsubscribe'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   )
 }
@@ -805,6 +854,7 @@ const REPO_ACCESS_LEVELS: AccessLevel[] = [
 
 interface GeneralSettingsTabProps {
   repoId: string
+  fingerprint: string
   name: string
   description?: string
   defaultBranch: string
@@ -812,6 +862,7 @@ interface GeneralSettingsTabProps {
 
 function GeneralSettingsTab({
   repoId,
+  fingerprint,
   name,
   description: initialDescription,
   defaultBranch: initialDefaultBranch,
@@ -868,7 +919,21 @@ function GeneralSettingsTab({
   }
 
   return (
-    <div className="divide-y max-w-2xl">
+    <div className="max-w-2xl divide-y">
+      <div className="py-4">
+        <h3 className="text-lg font-semibold mb-4">Identity</h3>
+        <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
+          <span className="text-muted-foreground">Name:</span>
+          <span>{name}</span>
+          <span className="text-muted-foreground">Entity:</span>
+          <span className="font-mono break-all text-xs">{repoId}</span>
+          <span className="text-muted-foreground">Fingerprint:</span>
+          <span className="font-mono break-all text-xs">
+            {fingerprint.match(/.{1,3}/g)?.join('-')}
+          </span>
+        </div>
+      </div>
+
       <div className="space-y-2 py-4">
         <Label className="text-base">Description</Label>
         <Textarea

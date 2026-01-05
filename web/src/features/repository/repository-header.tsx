@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import {
   cn,
   Button,
@@ -10,6 +10,14 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
   requestHelpers,
   getErrorMessage,
   toast,
@@ -25,7 +33,10 @@ import {
   Loader2,
   Copy,
   Check,
+  Globe,
+  UserMinus,
 } from 'lucide-react'
+import { useUnsubscribe } from '@/hooks/use-repository'
 
 export type RepositoryTabId = 'files' | 'commits' | 'branches' | 'tags' | 'settings' | 'access'
 
@@ -48,24 +59,47 @@ const tabs: Tab[] = [
 
 interface RepositoryHeaderProps {
   fingerprint: string
+  repoId: string
   name: string
   description?: string
   activeTab: RepositoryTabId
   isOwner?: boolean
+  isRemote?: boolean
+  server?: string
 }
 
 export function RepositoryHeader({
   fingerprint,
+  repoId,
   name,
   description,
   activeTab,
   isOwner,
+  isRemote,
+  server,
 }: RepositoryHeaderProps) {
+  const navigate = useNavigate()
+  const unsubscribe = useUnsubscribe()
+  const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
+
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
+
+  const handleUnsubscribe = () => {
+    unsubscribe.mutate(repoId, {
+      onSuccess: () => {
+        toast.success('Unsubscribed from repository')
+        void navigate({ to: '/' })
+      },
+      onError: (error) => {
+        toast.error(getErrorMessage(error, 'Failed to unsubscribe'))
+      },
+    })
+    setShowUnsubscribeDialog(false)
+  }
 
   return (
     <div className="space-y-4">
-      {/* Header with name, description, and clone button */}
+      {/* Header with name, description, and action buttons */}
       <div className="flex flex-wrap items-center gap-2">
         <div className="flex items-center gap-2">
           <FolderGit2 className="h-5 w-5" />
@@ -76,13 +110,52 @@ export function RepositoryHeader({
           >
             {name}
           </Link>
+          {isRemote && (
+            <span className="flex items-center gap-1 text-xs text-muted-foreground">
+              <Globe className="h-3 w-3" />
+              Subscribed
+            </span>
+          )}
         </div>
         <div className="flex-1" />
         <CloneDialog repoName={name} fingerprint={fingerprint} />
+        {isRemote && (
+          <>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setShowUnsubscribeDialog(true)}
+              disabled={unsubscribe.isPending}
+            >
+              <UserMinus className="h-4 w-4" />
+              <span className="hidden sm:inline">Unsubscribe</span>
+            </Button>
+            <AlertDialog open={showUnsubscribeDialog} onOpenChange={setShowUnsubscribeDialog}>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Unsubscribe from repository?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This will remove "{name}" from your repository list. You can subscribe again later.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleUnsubscribe}>Unsubscribe</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </>
+        )}
       </div>
 
       {description && (
         <CardDescription className="text-base">{description}</CardDescription>
+      )}
+
+      {isRemote && server && server.startsWith('http') && (
+        <p className="text-sm text-muted-foreground">
+          From: {new URL(server).hostname}
+        </p>
       )}
 
       {/* Tab bar */}

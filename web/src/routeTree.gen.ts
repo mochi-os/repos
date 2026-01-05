@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedSearchRouteImport } from './routes/_authenticated/search'
 import { Route as AuthenticatedNewRouteImport } from './routes/_authenticated/new'
 import { Route as AuthenticatedRepoIdRouteImport } from './routes/_authenticated/$repoId'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
@@ -37,6 +38,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSearchRoute = AuthenticatedSearchRouteImport.update({
+  id: '/search',
+  path: '/search',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedNewRoute = AuthenticatedNewRouteImport.update({
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/503': typeof errors503Route
   '/$repoId': typeof AuthenticatedRepoIdRoute
   '/new': typeof AuthenticatedNewRoute
+  '/search': typeof AuthenticatedSearchRoute
   '/': typeof AuthenticatedIndexRoute
   '/$repoId/branches': typeof AuthenticatedRepoIdBranchesRoute
   '/$repoId/commits': typeof AuthenticatedRepoIdCommitsRoute
@@ -168,6 +175,7 @@ export interface FileRoutesByTo {
   '/503': typeof errors503Route
   '/$repoId': typeof AuthenticatedRepoIdRoute
   '/new': typeof AuthenticatedNewRoute
+  '/search': typeof AuthenticatedSearchRoute
   '/': typeof AuthenticatedIndexRoute
   '/$repoId/branches': typeof AuthenticatedRepoIdBranchesRoute
   '/$repoId/commits': typeof AuthenticatedRepoIdCommitsRoute
@@ -191,6 +199,7 @@ export interface FileRoutesById {
   '/(errors)/503': typeof errors503Route
   '/_authenticated/$repoId': typeof AuthenticatedRepoIdRoute
   '/_authenticated/new': typeof AuthenticatedNewRoute
+  '/_authenticated/search': typeof AuthenticatedSearchRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/$repoId_/branches': typeof AuthenticatedRepoIdBranchesRoute
   '/_authenticated/$repoId_/commits': typeof AuthenticatedRepoIdCommitsRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/$repoId'
     | '/new'
+    | '/search'
     | '/'
     | '/$repoId/branches'
     | '/$repoId/commits'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/$repoId'
     | '/new'
+    | '/search'
     | '/'
     | '/$repoId/branches'
     | '/$repoId/commits'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/(errors)/503'
     | '/_authenticated/$repoId'
     | '/_authenticated/new'
+    | '/_authenticated/search'
     | '/_authenticated/'
     | '/_authenticated/$repoId_/branches'
     | '/_authenticated/$repoId_/commits'
@@ -294,6 +306,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/search': {
+      id: '/_authenticated/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof AuthenticatedSearchRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/new': {
@@ -428,6 +447,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedRepoIdRoute: typeof AuthenticatedRepoIdRoute
   AuthenticatedNewRoute: typeof AuthenticatedNewRoute
+  AuthenticatedSearchRoute: typeof AuthenticatedSearchRoute
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedRepoIdBranchesRoute: typeof AuthenticatedRepoIdBranchesRoute
   AuthenticatedRepoIdCommitsRoute: typeof AuthenticatedRepoIdCommitsRoute
@@ -445,6 +465,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedRepoIdRoute: AuthenticatedRepoIdRoute,
   AuthenticatedNewRoute: AuthenticatedNewRoute,
+  AuthenticatedSearchRoute: AuthenticatedSearchRoute,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedRepoIdBranchesRoute: AuthenticatedRepoIdBranchesRoute,
   AuthenticatedRepoIdCommitsRoute: AuthenticatedRepoIdCommitsRoute,

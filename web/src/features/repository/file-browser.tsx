@@ -171,8 +171,10 @@ export function FileBrowser({
 
   // Sort entries: directories first, then files
   const sortedEntries = [...entries].sort((a, b) => {
-    if (a.type === 'tree' && b.type !== 'tree') return -1
-    if (a.type !== 'tree' && b.type === 'tree') return 1
+    const aIsDir = a.type === 'tree' || a.type === 'dir'
+    const bIsDir = b.type === 'tree' || b.type === 'dir'
+    if (aIsDir && !bIsDir) return -1
+    if (!aIsDir && bIsDir) return 1
     return a.name.localeCompare(b.name)
   })
 
@@ -321,7 +323,7 @@ interface FileEntryProps {
 
 function FileEntry({ entry, fingerprint, currentRef, basePath }: FileEntryProps) {
   const fullPath = basePath ? `${basePath}/${entry.name}` : entry.name
-  const isDirectory = entry.type === 'tree'
+  const isDirectory = entry.type === 'tree' || entry.type === 'dir'
 
   return (
     <Link
@@ -378,9 +380,12 @@ export function FileTree({
   const branches = branchesData?.branches || []
   const entries = treeData?.entries || []
 
+
   const sortedEntries = [...entries].sort((a, b) => {
-    if (a.type === 'tree' && b.type !== 'tree') return -1
-    if (a.type !== 'tree' && b.type === 'tree') return 1
+    const aIsDir = a.type === 'tree' || a.type === 'dir'
+    const bIsDir = b.type === 'tree' || b.type === 'dir'
+    if (aIsDir && !bIsDir) return -1
+    if (!aIsDir && bIsDir) return 1
     return a.name.localeCompare(b.name)
   })
 

@@ -16,9 +16,10 @@
 	"execute": ["repositories.star"],
 
 	"database": {
-		"schema": 1,
+		"schema": 2,
 		"file": "repositories.db",
-		"create": {"function": "database_create"}
+		"create": {"function": "database_create"},
+		"upgrade": {"function": "database_upgrade"}
 	},
 
 	"icons": [
@@ -34,6 +35,10 @@
 		"images": {"files": "web/dist/images", "public": true},
 		"users/search": {"function": "action_users_search"},
 		"groups": {"function": "action_groups"},
+		"search": {"function": "action_search"},
+		"probe": {"function": "action_probe"},
+		"subscribe": {"function": "action_subscribe"},
+		"unsubscribe": {"function": "action_unsubscribe"},
 
 		":repository": {"file": "web/dist/index.html", "public": true, "function": "action_info_entity", "opengraph": "action_opengraph"},
 		":repository/info": {"function": "action_info_entity", "public": true},
@@ -65,5 +70,20 @@
 		":repository/:path/assets": {"files": "web/dist/assets", "public": true},
 		":repository/:path/images": {"files": "web/dist/images", "public": true},
 		":repository/*path": {"file": "web/dist/index.html", "public": true}
+	},
+
+	"events": {
+		"info": {"function": "event_info"},
+		"subscribe": {"function": "event_subscribe"},
+		"unsubscribe": {"function": "event_unsubscribe"},
+		"update": {"function": "event_update"},
+		"activity": {"function": "event_activity"},
+		"deleted": {"function": "event_deleted"},
+		"refs": {"function": "event_refs"},
+		"branches": {"function": "event_branches"},
+		"tags": {"function": "event_tags"},
+		"commits": {"function": "event_commits"},
+		"tree": {"function": "event_tree"},
+		"blob": {"function": "event_blob"}
 	}
 }

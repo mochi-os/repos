@@ -43,11 +43,14 @@ function CommitPage() {
     <Main>
       <div className="p-4 space-y-4">
         <RepositoryHeader
-          fingerprint={data.repoId}
+          fingerprint={data.fingerprint || data.repoId}
+          repoId={data.id || data.repoId}
           name={data.name || 'Repository'}
           description={data.description}
           activeTab="commits"
           isOwner={data.isAdmin}
+          isRemote={data.remote}
+          server={data.server}
         />
         <CommitDetails repoId={data.id || data.repoId} fingerprint={data.repoId} sha={sha} />
       </div>

@@ -7,6 +7,8 @@ export interface Repository {
   description: string
   default_branch: string
   size: number
+  owner: number  // 1 = locally owned, 0 = subscribed remote
+  server: string // Remote server URL (empty for local repos)
   created: string
   updated: string
   branches?: number
@@ -28,7 +30,44 @@ export interface InfoResponse {
   allow_read?: boolean
   privacy?: string
   isAdmin?: boolean
+  owner?: number
+  server?: string
+  remote?: boolean
   repositories?: Repository[]
+}
+
+// Search/subscription types
+export interface SearchResult {
+  id: string
+  fingerprint: string
+  name: string
+  class?: string
+  server?: string
+  remote?: boolean
+  description?: string
+}
+
+export interface SearchResponse {
+  results: SearchResult[]
+}
+
+export interface ProbeResponse {
+  id: string
+  name: string
+  fingerprint: string
+  description?: string
+  class: string
+  server: string
+  remote: boolean
+}
+
+export interface SubscribeResponse {
+  fingerprint: string
+  name: string
+}
+
+export interface UnsubscribeResponse {
+  success: boolean
 }
 
 export interface Branch {
@@ -81,7 +120,7 @@ export interface CommitResponse {
 
 export interface TreeEntry {
   name: string
-  type: 'blob' | 'tree'
+  type: 'blob' | 'tree' | 'dir' | 'file'
   sha: string
   size?: number
   mode?: string

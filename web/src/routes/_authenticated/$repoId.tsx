@@ -1,12 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router'
 import {
+  Header,
   Main,
   usePageTitle,
   GeneralError,
 } from '@mochi/common'
+import { FolderGit2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repository-tabs'
+import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -47,21 +49,39 @@ function RepositoryPage() {
     void navigate({ search: { tab: newTab }, replace: true })
   }
 
-  usePageTitle(data.name || 'Repository')
+  const name = data.name || 'Repository'
+
+  usePageTitle(name)
 
   return (
-    <Main>
-      <RepositoryTabs
-        key={data.repoId}
-        repoId={data.id || data.repoId}
-        fingerprint={data.repoId}
-        name={data.name || 'Repository'}
-        defaultBranch={data.default_branch || 'main'}
-        description={data.description}
-        isOwner={data.isAdmin}
-        activeTab={tab ?? 'files'}
-        onTabChange={setActiveTab}
-      />
-    </Main>
+    <>
+      <Header>
+        <div className="flex w-full items-center justify-between">
+          <div className="flex items-center gap-2">
+            <FolderGit2 className="h-5 w-5" />
+            <h1 className="text-lg font-semibold">{name}</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <CloneDialog repoName={name} fingerprint={data.repoId} />
+            {data.remote && (
+              <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
+            )}
+          </div>
+        </div>
+      </Header>
+      <Main>
+        <RepositoryTabs
+          key={data.repoId}
+          repoId={data.id || data.repoId}
+          fingerprint={data.repoId}
+          name={name}
+          defaultBranch={data.default_branch || 'main'}
+          description={data.description}
+          isOwner={data.isAdmin}
+          activeTab={tab ?? 'files'}
+          onTabChange={setActiveTab}
+        />
+      </Main>
+    </>
   )
 }

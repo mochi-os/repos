@@ -4,6 +4,10 @@ const endpoints = {
     // Class-level endpoints (no entity context)
     info: 'info',
     create: 'create',
+    search: 'search',
+    probe: 'probe',
+    subscribe: 'subscribe',
+    unsubscribe: 'unsubscribe',
 
     // Entity-level endpoints (caller should set baseURL to /{repoId}/-/)
     settings: 'settings',

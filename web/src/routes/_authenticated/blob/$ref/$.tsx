@@ -43,10 +43,13 @@ function BlobPage() {
       <div className="p-4 space-y-4">
         <RepositoryHeader
           fingerprint={fingerprint}
+          repoId={data.id}
           name={data.name || 'Repository'}
           description={data.description}
           activeTab="files"
           isOwner={data.isAdmin}
+          isRemote={data.remote}
+          server={data.server}
         />
         <BlobViewer
           repoId={data.id}

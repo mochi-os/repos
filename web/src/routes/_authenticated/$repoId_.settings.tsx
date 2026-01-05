@@ -26,6 +26,10 @@ import {
   cn,
   AccessDialog,
   AccessList,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
   type AccessLevel,
   type AccessRule,
 } from '@mochi/common'
@@ -94,11 +98,14 @@ function SettingsPage() {
     <Main>
       <div className="p-4 space-y-4">
         <RepositoryHeader
-          fingerprint={data.repoId}
+          fingerprint={data.fingerprint || data.repoId}
+          repoId={data.id || data.repoId}
           name={data.name || 'Repository'}
           description={data.description}
           activeTab={activeSettingsTab === 'access' ? 'access' : 'settings'}
           isOwner={data.isAdmin}
+          isRemote={data.remote}
+          server={data.server}
         />
 
         {/* Settings sub-tabs - only show for admins */}
@@ -187,68 +194,90 @@ function SettingsForm({ data }: { data: InfoResponse & { repoId: string } }) {
   }
 
   return (
-    <div className="divide-y p-4 max-w-2xl">
-      <div className="space-y-2 py-4">
-        <Label className="text-base">Description</Label>
-        <Textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          rows={3}
-        />
-        <Button
-          size="sm"
-          onClick={() => void saveSettings({ description })}
-          disabled={isSaving || description === (data.description || '')}
-        >
-          <Save className="h-4 w-4" />
-          Save
-        </Button>
-      </div>
-
-      {branches.length > 0 && (
-        <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="space-y-0.5">
-            <Label className="text-base">Default branch</Label>
-            <p className="text-sm text-muted-foreground">The branch shown when viewing the repository</p>
+    <div className="p-4 max-w-2xl space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>Identity</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
+            <span className="text-muted-foreground">Name:</span>
+            <span>{data.name}</span>
+            <span className="text-muted-foreground">Entity:</span>
+            <span className="font-mono break-all text-xs">{data.id || data.repoId}</span>
+            <span className="text-muted-foreground">Fingerprint:</span>
+            <span className="font-mono break-all text-xs">
+              {(data.fingerprint || data.repoId)?.match(/.{1,3}/g)?.join('-')}
+            </span>
           </div>
-          <div className="w-full sm:w-48">
-            <Select
-              value={data.default_branch || 'main'}
-              onValueChange={handleBranchChange}
-              disabled={isSaving}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent className="pt-6 space-y-4">
+          <div className="space-y-2">
+            <Label className="text-base">Description</Label>
+            <Textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={3}
+            />
+            <Button
+              size="sm"
+              onClick={() => void saveSettings({ description })}
+              disabled={isSaving || description === (data.description || '')}
             >
-              <SelectTrigger>
-                <SelectValue placeholder="Select default branch" />
-              </SelectTrigger>
-              <SelectContent>
-                {branches.map((branch) => (
-                  <SelectItem key={branch.name} value={branch.name}>
-                    {branch.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              <Save className="h-4 w-4" />
+              Save
+            </Button>
           </div>
-        </div>
-      )}
 
-      <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-0.5">
-          <Label className="text-base">Delete repository</Label>
-          <p className="text-sm text-muted-foreground">
-            Permanently delete this repository and all its data
-          </p>
-        </div>
-        <Button
-          variant="outline"
-          onClick={() => setShowDeleteDialog(true)}
-          disabled={deleteRepo.isPending}
-        >
-          <Trash2 className="h-4 w-4" />
-          Delete repository
-        </Button>
-      </div>
+          {branches.length > 0 && (
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="space-y-0.5">
+                <Label className="text-base">Default branch</Label>
+                <p className="text-sm text-muted-foreground">The branch shown when viewing the repository</p>
+              </div>
+              <div className="w-full sm:w-48">
+                <Select
+                  value={data.default_branch || 'main'}
+                  onValueChange={handleBranchChange}
+                  disabled={isSaving}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select default branch" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {branches.map((branch) => (
+                      <SelectItem key={branch.name} value={branch.name}>
+                        {branch.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="space-y-0.5">
+              <Label className="text-base">Delete repository</Label>
+              <p className="text-sm text-muted-foreground">
+                Permanently delete this repository and all its data
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              onClick={() => setShowDeleteDialog(true)}
+              disabled={deleteRepo.isPending}
+            >
+              <Trash2 className="h-4 w-4" />
+              Delete repository
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
 
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
