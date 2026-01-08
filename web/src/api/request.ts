@@ -12,6 +12,14 @@ function isEntityIdentifier(s: string): boolean {
   return /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(s) || /^[1-9A-HJ-NP-Za-km-z]{50,51}$/.test(s)
 }
 
+// Get app-level base path (class context, not entity context)
+// Always returns /<app>/ regardless of current entity context
+export function appBasePath(): string {
+  const pathname = window.location.pathname
+  const match = pathname.match(/^(\/[^/]+)/)
+  return match ? `${match[1]}/` : '/'
+}
+
 // Compute API basepath fresh (no caching) to handle navigation between contexts
 function computeApiBasepath(): string {
   const pathname = window.location.pathname

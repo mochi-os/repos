@@ -793,6 +793,60 @@ def action_groups(a):
     results = mochi.service.call("friends", "groups/list")
     a.json({"groups": results or []})
 
+# Action: Get or create authentication token for git operations
+# Returns existing token count so UI can inform user, creates new if none exist
+def action_token_get(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
+
+    # Check for existing tokens
+    tokens = mochi.token.list()
+    if tokens and len(tokens) > 0:
+        # User already has tokens - don't create more automatically
+        # Return info so UI can show appropriate message
+        a.json({"exists": True, "count": len(tokens)})
+        return
+
+    # No tokens exist - create first one
+    name = a.input("name") or "Git access"
+    token = mochi.token.create(name, [], 0)
+    if not token:
+        return a.error(500, "Failed to create token")
+
+    a.json({"exists": False, "token": token})
+
+# Action: Create a new authentication token
+def action_token_create(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
+
+    name = a.input("name") or "Git access"
+    token = mochi.token.create(name, [], 0)
+    if not token:
+        return a.error(500, "Failed to create token")
+
+    a.json({"token": token})
+
+# Action: List authentication tokens
+def action_token_list(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
+
+    tokens = mochi.token.list()
+    a.json({"tokens": tokens or []})
+
+# Action: Delete authentication token
+def action_token_delete(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
+
+    hash = a.input("hash")
+    if not hash:
+        return a.error(400, "Missing token hash")
+
+    ok = mochi.token.delete(hash)
+    a.json({"ok": ok})
+
 # Service interface for other apps
 
 def service_list(s):

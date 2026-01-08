@@ -11,16 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
   Skeleton,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-  requestHelpers,
   getErrorMessage,
-  toast,
 } from '@mochi/common'
 import {
   File,
@@ -31,116 +22,10 @@ import {
   Tag,
   ChevronRight,
   Settings,
-  Copy,
-  Check,
-  Loader2,
-  Terminal,
 } from 'lucide-react'
 import { useTree, useBranches } from '@/hooks/use-repository'
 import type { TreeEntry } from '@/api/types'
-
-interface TokenCreateResponse {
-  token: string
-}
-
-interface CloneDialogProps {
-  repoName: string
-  fingerprint: string
-}
-
-function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
-  const [open, setOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [cloneCommand, setCloneCommand] = useState<string | null>(null)
-  const [copied, setCopied] = useState(false)
-
-  const handleOpen = async (isOpen: boolean) => {
-    setOpen(isOpen)
-    if (isOpen && !cloneCommand) {
-      setIsLoading(true)
-      try {
-        const response = await requestHelpers.post<TokenCreateResponse>(
-          '/settings/user/account/token/create',
-          { name: repoName }
-        )
-        const token = response.token
-        // Build clone URL based on current location (preserves /repositories/ prefix in class context)
-        const pathname = window.location.pathname
-        const match = pathname.match(/^(\/[^/]+)\//)
-        const appPrefix = match ? match[1] : ''
-        const cloneUrl = `${window.location.origin}${appPrefix}/${fingerprint}/git`
-        // Parse the URL to insert token as password (server expects token in password field)
-        const url = new URL(cloneUrl)
-        url.username = 'x'
-        url.password = token
-        setCloneCommand(`git clone ${url.toString()}`)
-      } catch (error) {
-        toast.error(getErrorMessage(error, 'Failed to create token'))
-        setOpen(false)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-  }
-
-  const handleCopy = () => {
-    if (cloneCommand) {
-      navigator.clipboard.writeText(cloneCommand)
-      setCopied(true)
-      toast.success('Copied to clipboard')
-      setTimeout(() => setCopied(false), 2000)
-    }
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
-
-  return (
-    <Dialog open={open} onOpenChange={handleOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline" size="sm">
-          <Terminal className="h-4 w-4 mr-1" />
-          Clone
-        </Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Clone repository</DialogTitle>
-          <DialogDescription>
-            Copy this command to clone the repository. A token has been created for authentication.
-          </DialogDescription>
-        </DialogHeader>
-        {isLoading ? (
-          <div className="flex items-center justify-center py-8">
-            <Loader2 className="h-6 w-6 animate-spin" />
-          </div>
-        ) : cloneCommand ? (
-          <div className="space-y-4">
-            <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
-              <code className="flex-1 break-all select-all">{cloneCommand}</code>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleCopy}
-                className="shrink-0"
-              >
-                {copied ? (
-                  <Check className="h-4 w-4" />
-                ) : (
-                  <Copy className="h-4 w-4" />
-                )}
-              </Button>
-            </div>
-            <DialogFooter>
-              <Button onClick={handleClose}>Done</Button>
-            </DialogFooter>
-          </div>
-        ) : null}
-      </DialogContent>
-    </Dialog>
-  )
-}
+import { CloneDialog } from '@/components/clone-dialog'
 
 interface FileBrowserProps {
   repoId: string
