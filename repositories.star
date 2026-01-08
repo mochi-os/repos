@@ -60,21 +60,6 @@ def action_info_class(a):
             repo["fingerprint"] = mochi.entity.fingerprint(repo["id"])
     return {"data": {"entity": False, "repositories": repos or []}}
 
-# Helper: Check if string is a valid entity identifier (fingerprint or entity ID)
-# Fingerprint: 9 chars base58, Entity ID: 50-51 chars base58
-def is_valid_identifier(s):
-    if not s:
-        return False
-    length = len(s)
-    if length != 9 and length != 50 and length != 51:
-        return False
-    # Base58 character set (excludes 0, O, I, l)
-    base58_chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-    for i in range(length):
-        if s[i] not in base58_chars:
-            return False
-    return True
-
 # Helper: Get repository from route parameter
 # Route parameter may be fingerprint or entity ID - resolve to entity ID first
 def get_repo(a):
@@ -83,7 +68,7 @@ def get_repo(a):
         return None
 
     # Validate identifier format before calling entity.info
-    if not is_valid_identifier(repo_param):
+    if not mochi.valid(repo_param, "fingerprint") and not mochi.valid(repo_param, "entity"):
         return None
 
     # First try to find directly in database (works for both owned and subscribed repos)
@@ -118,7 +103,7 @@ def action_info_entity(a):
 
     if is_remote:
         # Fetch live data from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
         if peer:
             response = mochi.remote.request(repo["id"], "repositories", "info", {"repository": repo["id"]}, peer)
             if not response.get("error"):
@@ -269,12 +254,12 @@ def action_settings(a):
     if not row:
         return a.error(404, "Repository not found")
 
-    a.json({
+    return {"data": {
         "id": repo["id"],
         "name": row["name"],
         "description": row["description"],
         "default_branch": row["default_branch"],
-    })
+    }}
 
 # Action: Update repository settings
 def action_settings_set(a):
@@ -289,6 +274,9 @@ def action_settings_set(a):
     default_branch = a.input("default_branch")
     allow_read = a.input("allow_read")
     privacy = a.input("privacy")
+
+    if description and len(description) > 2000:
+        return a.error(400, "Description is too long (max 2000 characters)")
 
     updates = []
     params = []
@@ -330,7 +318,7 @@ def action_settings_set(a):
     if privacy in ["public", "private"]:
         mochi.entity.privacy.set(repo["id"], privacy)
 
-    a.json({"success": True})
+    return {"data": {"success": True}}
 
 # Action: Delete repository
 def action_delete(a):
@@ -357,7 +345,7 @@ def action_delete(a):
     # Delete entity
     mochi.entity.delete(repo["id"])
 
-    a.json({"success": True})
+    return {"data": {"success": True}}
 
 # Action: List access
 def action_access_list(a):
@@ -403,7 +391,7 @@ def action_access_list(a):
                         rule["name"] = entity.get("name", "")
         filtered_rules.append(rule)
 
-    a.json({"rules": filtered_rules})
+    return {"data": {"rules": filtered_rules}}
 
 # Action: Set access
 def action_access_set(a):
@@ -437,7 +425,7 @@ def action_access_set(a):
     else:
         mochi.access.allow(subject, resource, permission, granter)
 
-    a.json({"success": True})
+    return {"data": {"success": True}}
 
 # Action: Revoke access
 def action_access_revoke(a):
@@ -459,7 +447,7 @@ def action_access_revoke(a):
     for op in ["read", "write", "*"]:
         mochi.access.revoke(subject, resource, op)
 
-    a.json({"success": True})
+    return {"data": {"success": True}}
 
 # Action: List refs (branches and tags)
 def action_refs(a):
@@ -476,17 +464,17 @@ def action_refs(a):
 
     if is_remote:
         # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
         if peer:
             response = mochi.remote.request(repo["id"], "repositories", "refs", {"repository": repo["id"]}, peer)
             if not response.get("error"):
-                return a.json(response)
+                return {"data": response}
         # Fall through to return empty if remote unavailable
-        return a.json({"refs": []})
+        return {"data": {"refs": []}}
 
     # Local repository
     refs = mochi.git.refs(repo["id"])
-    a.json({"refs": refs or []})
+    return {"data": {"refs": refs or []}}
 
 # Action: List branches
 def action_branches(a):
@@ -503,22 +491,22 @@ def action_branches(a):
 
     if is_remote:
         # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
         if peer:
             response = mochi.remote.request(repo["id"], "repositories", "branches", {"repository": repo["id"]}, peer)
             if not response.get("error"):
-                return a.json(response)
+                return {"data": response}
         # Fall through to return empty if remote unavailable
-        return a.json({"branches": [], "default": repo.get("default_branch", "main")})
+        return {"data": {"branches": [], "default": repo.get("default_branch", "main")}}
 
     # Local repository
     branches = mochi.git.branches(repo["id"])
     default = mochi.git.branch.default.get(repo["id"])
 
-    a.json({
+    return {"data": {
         "branches": branches or [],
         "default": default,
-    })
+    }}
 
 # Action: Create branch
 def action_branch_create(a):
@@ -528,17 +516,19 @@ def action_branch_create(a):
     if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    name = a.input("name")
+    name = a.input("name", "").strip()
     source = a.input("source") or "HEAD"
 
     if not name:
         return a.error(400, "Branch name is required")
+    if len(name) > 256:
+        return a.error(400, "Branch name is too long")
 
     result = mochi.git.branch.create(repo["id"], name, source)
     if not result:
         return a.error(400, "Failed to create branch")
 
-    a.json({"success": True, "name": name})
+    return {"data": {"success": True, "name": name}}
 
 # Action: Delete branch
 def action_branch_delete(a):
@@ -560,7 +550,7 @@ def action_branch_delete(a):
     if not result:
         return a.error(400, "Failed to delete branch")
 
-    a.json({"success": True})
+    return {"data": {"success": True}}
 
 # Action: List tags
 def action_tags(a):
@@ -577,17 +567,17 @@ def action_tags(a):
 
     if is_remote:
         # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
         if peer:
             response = mochi.remote.request(repo["id"], "repositories", "tags", {"repository": repo["id"]}, peer)
             if not response.get("error"):
-                return a.json(response)
+                return {"data": response}
         # Fall through to return empty if remote unavailable
-        return a.json({"tags": []})
+        return {"data": {"tags": []}}
 
     # Local repository
     tags = mochi.git.tags(repo["id"])
-    a.json({"tags": tags or []})
+    return {"data": {"tags": tags or []}}
 
 # Action: List commits
 def action_commits(a):
@@ -599,8 +589,16 @@ def action_commits(a):
         return a.error(403, "Access denied")
 
     ref = a.input("ref") or "HEAD"
-    limit = int(a.input("limit", "50"))
-    offset = int(a.input("offset", "0"))
+    limit_str = a.input("limit", "50")
+    offset_str = a.input("offset", "0")
+    if not limit_str.isdigit() or not offset_str.isdigit():
+        return a.error(400, "Invalid pagination parameters")
+    limit = int(limit_str)
+    offset = int(offset_str)
+    if limit < 1 or limit > 1000:
+        limit = 50
+    if offset < 0:
+        offset = 0
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -608,7 +606,7 @@ def action_commits(a):
 
     if is_remote:
         # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
         if peer:
             response = mochi.remote.request(repo["id"], "repositories", "commits", {
                 "repository": repo["id"],
@@ -617,15 +615,15 @@ def action_commits(a):
                 "offset": str(offset)
             }, peer)
             if not response.get("error"):
-                return a.json(response)
+                return {"data": response}
         # Fall through to return empty if remote unavailable
-        return a.json({"commits": []})
+        return {"data": {"commits": []}}
 
     # Local repository
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
     if commits == None:
         return a.error(404, "Branch or tag '%s' not found." % ref)
-    a.json({"commits": commits or []})
+    return {"data": {"commits": commits or []}}
 
 # Action: Get commit details
 def action_commit(a):
@@ -644,7 +642,7 @@ def action_commit(a):
     if not commit:
         return a.error(404, "Commit not found")
 
-    a.json({"commit": commit})
+    return {"data": {"commit": commit}}
 
 # Action: Browse tree
 def action_tree(a):
@@ -665,16 +663,16 @@ def action_tree(a):
     if is_remote:
         # Fetch from remote server
         # If server is a URL, resolve to peer; if peer ID or empty, pass None for directory lookup
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None if server and server.startswith("http") else None if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
         response = mochi.remote.request(repo["id"], "repositories", "tree", {
             "repository": repo["id"],
             "ref": ref,
             "path": path
         }, peer)
         if not response.get("error"):
-            return a.json(response)
+            return {"data": response}
         # Fall through to return empty/error if remote unavailable
-        return a.json({"ref": ref, "path": path, "entries": []})
+        return {"data": {"ref": ref, "path": path, "entries": []}}
 
     # Local repository
     tree = mochi.git.tree(repo["id"], ref, path)
@@ -690,18 +688,18 @@ def action_tree(a):
         tags = mochi.git.tags(repo["id"])
         if (not branches or len(branches) == 0) and (not tags or len(tags) == 0):
             # Empty repository is normal, return success with empty entries
-            return a.json({
+            return {"data": {
                 "ref": ref,
                 "path": path,
                 "entries": [],
-            })
+            }}
         return a.error(404, "Branch or tag '%s' not found." % ref)
 
-    a.json({
+    return {"data": {
         "ref": ref,
         "path": path,
         "entries": tree or [],
-    })
+    }}
 
 # Action: Get blob content
 def action_blob(a):
@@ -732,7 +730,7 @@ def action_blob(a):
             "path": path
         }, peer)
         if not response.get("error"):
-            return a.json(response)
+            return {"data": response}
         # Fall through to error if remote unavailable
         return a.error(404, "File '%s' not found." % path)
 
@@ -750,14 +748,14 @@ def action_blob(a):
     if not blob.get("binary", False) and blob.get("size", 0) < 1024 * 1024:
         content = mochi.git.blob.content(repo["id"], ref, path)
 
-    a.json({
+    return {"data": {
         "ref": ref,
         "path": path,
         "sha": blob.get("sha", ""),
         "size": blob.get("size", 0),
         "binary": blob.get("binary", False),
         "content": content,
-    })
+    }}
 
 # Action: Open Graph meta tags
 def action_opengraph(a):
@@ -784,14 +782,14 @@ def action_users_search(a):
         return a.error(401, "Not logged in")
     query = a.input("q", "")
     results = mochi.service.call("friends", "users/search", query)
-    a.json({"results": results or []})
+    return {"data": {"results": results or []}}
 
 # Action: List groups
 def action_groups(a):
     if not a.user:
         return a.error(401, "Not logged in")
     results = mochi.service.call("friends", "groups/list")
-    a.json({"groups": results or []})
+    return {"data": {"groups": results or []}}
 
 # Action: Get or create authentication token for git operations
 # Returns existing token count so UI can inform user, creates new if none exist
@@ -804,28 +802,31 @@ def action_token_get(a):
     if tokens and len(tokens) > 0:
         # User already has tokens - don't create more automatically
         # Return info so UI can show appropriate message
-        a.json({"exists": True, "count": len(tokens)})
-        return
+        return {"data": {"exists": True, "count": len(tokens)}}
 
     # No tokens exist - create first one
-    name = a.input("name") or "Git access"
+    name = (a.input("name") or "Git access").strip()
+    if len(name) > 100:
+        return a.error(400, "Token name is too long (max 100 characters)")
     token = mochi.token.create(name, [], 0)
     if not token:
         return a.error(500, "Failed to create token")
 
-    a.json({"exists": False, "token": token})
+    return {"data": {"exists": False, "token": token}}
 
 # Action: Create a new authentication token
 def action_token_create(a):
     if not a.user:
         return a.error(401, "Not logged in")
 
-    name = a.input("name") or "Git access"
+    name = (a.input("name") or "Git access").strip()
+    if len(name) > 100:
+        return a.error(400, "Token name is too long (max 100 characters)")
     token = mochi.token.create(name, [], 0)
     if not token:
         return a.error(500, "Failed to create token")
 
-    a.json({"token": token})
+    return {"data": {"token": token}}
 
 # Action: List authentication tokens
 def action_token_list(a):
@@ -833,19 +834,19 @@ def action_token_list(a):
         return a.error(401, "Not logged in")
 
     tokens = mochi.token.list()
-    a.json({"tokens": tokens or []})
+    return {"data": {"tokens": tokens or []}}
 
 # Action: Delete authentication token
 def action_token_delete(a):
     if not a.user:
         return a.error(401, "Not logged in")
 
-    hash = a.input("hash")
-    if not hash:
-        return a.error(400, "Missing token hash")
+    hash = a.input("hash", "").strip()
+    if not hash or len(hash) > 128:
+        return a.error(400, "Invalid token hash")
 
     ok = mochi.token.delete(hash)
-    a.json({"ok": ok})
+    return {"data": {"ok": ok}}
 
 # Service interface for other apps
 
@@ -940,7 +941,7 @@ def action_search(a):
     search = a.input("search", "").strip()
     if not search:
         # Return empty results for empty search instead of error
-        return a.json({"results": []})
+        return {"data": {"results": []}}
 
     results = []
 
@@ -1136,7 +1137,7 @@ def action_subscribe(a):
     # Notify remote owner
     mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
 
-    return a.json({"fingerprint": repo_fingerprint, "name": repo_name})
+    return {"data": {"fingerprint": repo_fingerprint, "name": repo_name}}
 
 # Action: Unsubscribe from a remote repository
 def action_unsubscribe(a):
@@ -1170,7 +1171,7 @@ def action_unsubscribe(a):
     # Notify remote owner
     mochi.message.send(headers(user_id, repo_id, "unsubscribe"), {})
 
-    return a.json({"success": True})
+    return {"data": {"success": True}}
 
 # EVENT HANDLERS
 
