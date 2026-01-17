@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useEffect } from 'react'
 import {
   Header,
   Main,
@@ -9,6 +10,7 @@ import { FolderGit2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
+import { setLastRepo } from '@/hooks/use-repos-storage'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -52,6 +54,11 @@ function RepositoryPage() {
   const name = data.name || 'Repository'
 
   usePageTitle(name)
+
+  // Store last visited repository for restoration on next entry
+  useEffect(() => {
+    setLastRepo(data.repoId)
+  }, [data.repoId])
 
   return (
     <>

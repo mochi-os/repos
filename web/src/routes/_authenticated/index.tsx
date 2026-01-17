@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, Link, redirect } from '@tanstack/react-router'
+import { useEffect } from 'react'
 import {
   Button,
   Card,
@@ -15,6 +16,7 @@ import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository } from '@/api/types'
 import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repository-tabs'
+import { getLastRepo, clearLastRepo, setLastRepo } from '@/hooks/use-repos-storage'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -22,13 +24,36 @@ type IndexSearch = {
   tab?: RepositoryTabId
 }
 
+// Module-level flag to track if we've already done initial redirect check (resets on page refresh)
+let hasCheckedRedirect = false
+
 export const Route = createFileRoute('/_authenticated/')({
   validateSearch: (search: Record<string, unknown>): IndexSearch => ({
     tab: validTabs.includes(search.tab as RepositoryTabId) ? (search.tab as RepositoryTabId) : undefined,
   }),
   loader: async () => {
-    console.log('[IndexLoader] Running index loader')
     const info = await reposRequest.get<InfoResponse>(endpoints.repo.info)
+
+    // Only redirect on first load, not on subsequent navigations
+    if (hasCheckedRedirect) {
+      return info
+    }
+    hasCheckedRedirect = true
+
+    // In class context, check for last visited repository and redirect if it still exists
+    if (!info.entity) {
+      const lastRepoId = getLastRepo()
+      if (lastRepoId) {
+        const repos = info.repositories || []
+        const repoExists = repos.some(r => r.id === lastRepoId || r.fingerprint === lastRepoId)
+        if (repoExists) {
+          throw redirect({ to: '/$repoId', params: { repoId: lastRepoId } })
+        } else {
+          clearLastRepo()
+        }
+      }
+    }
+
     return info
   },
   component: IndexPage,
@@ -79,6 +104,11 @@ interface RepositoryListPageProps {
 
 function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   usePageTitle('Repositories')
+
+  // Store "all repositories" as the last location
+  useEffect(() => {
+    setLastRepo(null)
+  }, [])
 
   const hasRepos = repositories && repositories.length > 0
 

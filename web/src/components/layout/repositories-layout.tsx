@@ -26,7 +26,6 @@ export function RepositoriesLayout() {
       icon: FolderGit2,
     }))
 
-    // Build "All repositories" item
     const allReposItem: NavItem = {
       title: 'All repositories',
       url: '/',
@@ -48,7 +47,7 @@ export function RepositoriesLayout() {
     ]
 
     return { navGroups: groups }
-  }, [data])
+  }, [data, location.pathname])
 
   return <AuthenticatedLayout sidebarData={sidebarData} />
 }
