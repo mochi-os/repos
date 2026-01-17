@@ -316,7 +316,7 @@ def action_settings_set(a):
 
     # Update entity privacy (directory listing)
     if privacy in ["public", "private"]:
-        mochi.entity.privacy.set(repo["id"], privacy)
+        mochi.entity.update(repo["id"], privacy=privacy)
 
     return {"data": {"success": True}}
 
