@@ -17,6 +17,7 @@ import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository } from '@/api/types'
 import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repository-tabs'
 import { getLastRepo, clearLastRepo, setLastRepo } from '@/hooks/use-repos-storage'
+import { useSidebarContext } from '@/context/sidebar-context'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -104,6 +105,7 @@ interface RepositoryListPageProps {
 
 function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   usePageTitle('Repositories')
+  const { openSearchDialog } = useSidebarContext()
 
   // Store "all repositories" as the last location
   useEffect(() => {
@@ -118,11 +120,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         <h1 className="text-lg font-semibold">Repositories</h1>
         <div className="flex-1" />
         <div className="flex gap-2">
-          <Button variant="outline" asChild>
-            <Link to="/search">
-              <Search className="h-4 w-4" />
-              <span className="hidden sm:inline">Find</span>
-            </Link>
+          <Button variant="outline" onClick={openSearchDialog}>
+            <Search className="h-4 w-4" />
+            <span className="hidden sm:inline">Find</span>
           </Button>
           <Button asChild>
             <Link to="/new">
@@ -139,11 +139,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
               <FolderGit2 className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
               <h2 className="text-xl font-semibold mb-4">No repositories yet</h2>
               <div className="flex justify-center gap-2">
-                <Button variant="outline" asChild>
-                  <Link to="/search">
-                    <Search className="h-4 w-4 mr-2" />
-                    Find repositories
-                  </Link>
+                <Button variant="outline" onClick={openSearchDialog}>
+                  <Search className="h-4 w-4 mr-2" />
+                  Find repositories
                 </Button>
                 <Button asChild>
                   <Link to="/new">
