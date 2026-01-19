@@ -38,21 +38,25 @@ import {
   type AccessRule,
 } from '@mochi/common'
 import {
-  FolderGit2,
+  Check,
+  ChevronRight,
   File,
+  FolderGit2,
   Folder,
-  History,
   GitBranch,
   GitCommit,
-  Tag,
-  Settings,
-  ChevronRight,
+  History,
+  Loader2,
+  Pencil,
   Plus,
+  Save,
+  Settings,
+  Shield,
+  Tag,
   Trash2,
   User,
-  Save,
-  Shield,
   UserMinus,
+  X,
 } from 'lucide-react'
 import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, repoKeys } from '@/hooks/use-repository'
 import { reposRequest } from '@/api/request'
@@ -741,18 +745,28 @@ interface GeneralSettingsTabProps {
   defaultBranch: string
 }
 
+// Characters disallowed in repository names (matches backend validation)
+const DISALLOWED_NAME_CHARS = /[<>\r\n\\;"'`]/
+
 function GeneralSettingsTab({
   repoId,
   fingerprint,
-  name,
+  name: initialName,
   description: initialDescription,
   defaultBranch: initialDefaultBranch,
 }: GeneralSettingsTabProps) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const [currentName, setCurrentName] = useState(initialName || '')
   const [description, setDescription] = useState(initialDescription || '')
   const [selectedBranch, setSelectedBranch] = useState(initialDefaultBranch || 'main')
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+
+  // Inline edit state for name
+  const [isEditingName, setIsEditingName] = useState(false)
+  const [editName, setEditName] = useState(initialName || '')
+  const [isRenaming, setIsRenaming] = useState(false)
+  const [nameError, setNameError] = useState<string | null>(null)
 
   const { data: branchesData } = useBranches(repoId)
   const branches = branchesData?.branches || []
@@ -790,6 +804,54 @@ function GeneralSettingsTab({
     },
   })
 
+  const validateName = (n: string): string | null => {
+    if (!n.trim()) return 'Repository name is required'
+    if (n.length > 100) return 'Name must be 100 characters or less'
+    if (DISALLOWED_NAME_CHARS.test(n)) return 'Name cannot contain < > \\ ; " \' or ` characters'
+    return null
+  }
+
+  const handleStartEditName = () => {
+    setEditName(currentName || '')
+    setNameError(null)
+    setIsEditingName(true)
+  }
+
+  const handleCancelEditName = () => {
+    setIsEditingName(false)
+    setEditName(currentName || '')
+    setNameError(null)
+  }
+
+  const handleSaveEditName = async () => {
+    const trimmedName = editName.trim()
+    const error = validateName(trimmedName)
+    if (error) {
+      setNameError(error)
+      return
+    }
+    if (trimmedName === currentName) {
+      setIsEditingName(false)
+      return
+    }
+    setIsRenaming(true)
+    try {
+      await reposRequest.post<{ success: boolean }>(
+        endpoints.repo.rename,
+        { name: trimmedName },
+        { baseURL: `/${repoId}/-/` }
+      )
+      setCurrentName(trimmedName)
+      toast.success('Repository renamed')
+      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+      setIsEditingName(false)
+    } catch (err) {
+      toast.error(getErrorMessage(err, 'Failed to rename repository'))
+    } finally {
+      setIsRenaming(false)
+    }
+  }
+
   const handleBranchChange = (value: string) => {
     setSelectedBranch(value)
     updateSetting.mutate({ default_branch: value })
@@ -803,9 +865,65 @@ function GeneralSettingsTab({
     <div className="max-w-2xl divide-y">
       <div className="py-4">
         <h3 className="text-lg font-semibold mb-4">Identity</h3>
-        <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
+        <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 items-center">
           <span className="text-muted-foreground">Name:</span>
-          <span>{name}</span>
+          {isEditingName ? (
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <Input
+                  value={editName}
+                  onChange={(e) => {
+                    setEditName(e.target.value)
+                    setNameError(null)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') void handleSaveEditName()
+                    if (e.key === 'Escape') handleCancelEditName()
+                  }}
+                  className="h-8"
+                  disabled={isRenaming}
+                  autoFocus
+                />
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => void handleSaveEditName()}
+                  disabled={isRenaming}
+                  className="h-8 w-8 p-0"
+                >
+                  {isRenaming ? (
+                    <Loader2 className="size-4 animate-spin" />
+                  ) : (
+                    <Check className="size-4" />
+                  )}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={handleCancelEditName}
+                  disabled={isRenaming}
+                  className="h-8 w-8 p-0"
+                >
+                  <X className="size-4" />
+                </Button>
+              </div>
+              {nameError && (
+                <span className="text-sm text-destructive">{nameError}</span>
+              )}
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <span>{currentName}</span>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={handleStartEditName}
+                className="h-6 w-6 p-0"
+              >
+                <Pencil className="size-3" />
+              </Button>
+            </div>
+          )}
           <span className="text-muted-foreground">Entity:</span>
           <span className="font-mono break-all text-xs">{repoId}</span>
           <span className="text-muted-foreground">Fingerprint:</span>
@@ -882,7 +1000,7 @@ function GeneralSettingsTab({
           <AlertDialogHeader>
             <AlertDialogTitle>Delete repository?</AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete "{name}" and all its commits, branches, and
+              This will permanently delete "{currentName}" and all its commits, branches, and
               tags. This action cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>

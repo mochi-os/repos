@@ -98,7 +98,7 @@ export function FileBrowser({
         </Button>
 
         <Button variant="outline" size="sm" asChild>
-          <Link to="/$repoId/settings" params={{ repoId: fingerprint }}>
+          <Link to="/$repoId" params={{ repoId: fingerprint }} search={{ tab: 'settings' }}>
             <Settings className="h-4 w-4 mr-1" />
             Settings
           </Link>

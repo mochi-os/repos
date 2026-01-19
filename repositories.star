@@ -320,6 +320,35 @@ def action_settings_set(a):
 
     return {"data": {"success": True}}
 
+# Action: Rename repository
+def action_rename(a):
+    repo = get_repo(a)
+    if not repo:
+        return a.error(404, "Repository not found")
+
+    if not check_admin_access(a, repo["id"]):
+        return a.error(403, "Access denied")
+
+    name = a.input("name")
+    if not name or not mochi.valid(name, "name"):
+        return a.error(400, "Invalid name")
+
+    if len(name) > 100:
+        return a.error(400, "Name is too long (max 100 characters)")
+
+    # Update entity (handles directory, network publishing)
+    mochi.entity.update(repo["id"], name=name)
+
+    # Update local database
+    mochi.db.execute("update repositories set name=?, updated=? where id=?", name, mochi.time.now(), repo["id"])
+
+    # Broadcast update to subscribers
+    updated_repo = mochi.db.row("select * from repositories where id=?", repo["id"])
+    if updated_repo:
+        broadcast_update(updated_repo)
+
+    return {"data": {"success": True}}
+
 # Action: Delete repository
 def action_delete(a):
     repo = get_repo(a)
@@ -926,6 +955,10 @@ def check_admin_access(a, repo_id):
     """Check if user has admin access to repository"""
     if not a.user or not a.user.identity:
         return False
+    # Owner always has admin access
+    if mochi.entity.get(repo_id):
+        return True
+    # Check explicit admin permission
     return mochi.access.check(a.user.identity.id, "repo/" + repo_id, "admin")
 
 # Helper: Create P2P message headers

@@ -43,8 +43,8 @@ const tabs: Tab[] = [
   { id: 'commits', label: 'Commits', icon: <History className="h-4 w-4" />, to: '/$repoId/commits' },
   { id: 'branches', label: 'Branches', icon: <GitBranch className="h-4 w-4" />, to: '/$repoId/branches' },
   { id: 'tags', label: 'Tags', icon: <Tag className="h-4 w-4" />, to: '/$repoId/tags' },
-  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, to: '/$repoId/settings?tab=access', ownerOnly: true },
-  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, to: '/$repoId/settings', ownerOnly: true },
+  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, to: '/$repoId?tab=access', ownerOnly: true },
+  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, to: '/$repoId?tab=settings', ownerOnly: true },
 ]
 
 interface RepositoryHeaderProps {

@@ -12,6 +12,7 @@ const endpoints = {
     // Entity-level endpoints (caller should set baseURL to /{repoId}/-/)
     settings: 'settings',
     settingsSet: 'settings/set',
+    rename: 'rename',
     delete: 'delete',
     // Access control
     access: 'access',
