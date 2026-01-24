@@ -538,7 +538,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
         <div className="flex justify-end mb-4">
           <Button size="sm" onClick={() => setShowCreateDialog(true)}>
             <Plus className="h-4 w-4" />
-            New branch
+            Create branch
           </Button>
         </div>
       )}
@@ -630,7 +630,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
               Cancel
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : 'Create'}
+              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" />Create branch</>}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -776,7 +776,7 @@ function GeneralSettingsTab({
       reposRequest.post<{ success: boolean }>(
         endpoints.repo.settingsSet,
         settings,
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       ),
     onSuccess: () => {
       toast.success('Settings saved')
@@ -792,7 +792,7 @@ function GeneralSettingsTab({
       reposRequest.post<{ success: boolean }>(
         endpoints.repo.delete,
         undefined,
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
@@ -839,7 +839,7 @@ function GeneralSettingsTab({
       await reposRequest.post<{ success: boolean }>(
         endpoints.repo.rename,
         { name: trimmedName },
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       )
       setCurrentName(trimmedName)
       toast.success('Repository renamed')
@@ -1046,7 +1046,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     try {
       const response = await reposRequest.get<{ rules: AccessRule[] }>(
         endpoints.repo.access,
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       )
       setRules(response.rules ?? [])
     } catch (err) {
@@ -1065,7 +1065,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       await reposRequest.post(
         endpoints.repo.accessSet,
         { subject, permission: operation },
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       )
       toast.success(`Access set for ${subjectName}`)
       void loadRules()
@@ -1080,7 +1080,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       await reposRequest.post(
         endpoints.repo.accessRevoke,
         { subject },
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       )
       toast.success('Access removed')
       void loadRules()
@@ -1094,7 +1094,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       await reposRequest.post(
         endpoints.repo.accessSet,
         { subject, permission: operation },
-        { baseURL: `/${repoId}/-/` }
+        { baseURL: `/repositories/${repoId}/-/` }
       )
       toast.success('Access level updated')
       void loadRules()

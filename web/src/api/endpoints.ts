@@ -5,6 +5,7 @@ const endpoints = {
     info: 'info',
     create: 'create',
     search: 'search',
+    recommendations: 'recommendations',
     probe: 'probe',
     subscribe: 'subscribe',
     unsubscribe: 'unsubscribe',

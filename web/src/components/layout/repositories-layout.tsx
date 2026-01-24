@@ -1,27 +1,48 @@
 import { useCallback, useEffect, useMemo } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
-import { useNavigate } from '@tanstack/react-router'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useLocation, useNavigate } from '@tanstack/react-router'
 import { AuthenticatedLayout, SearchEntityDialog } from '@mochi/common'
 import type { SidebarData, NavItem } from '@mochi/common'
 import { FolderGit2, Plus, Search } from 'lucide-react'
 import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
+import { reposRequest, appBasePath } from '@/api/request'
+import endpoints from '@/api/endpoints'
+import type { RecommendationsResponse } from '@/api/types'
+import { CreateRepositoryDialog } from '@/features/repository/create-repository-dialog'
 
 function RepositoriesLayoutInner() {
   const { data, refetch } = useRepoInfo()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
+  const location = useLocation()
   const subscribe = useSubscribe()
 
   const {
     searchDialogOpen,
     openSearchDialog,
     closeSearchDialog,
+    createDialogOpen,
+    openCreateDialog,
+    closeCreateDialog,
   } = useSidebarContext()
 
   useEffect(() => {
     void refetch()
   }, [refetch])
+
+  // Recommendations query
+  const {
+    data: recommendationsData,
+    isLoading: isLoadingRecommendations,
+    isError: isRecommendationsError,
+  } = useQuery({
+    queryKey: ['repositories', 'recommendations'],
+    queryFn: () => reposRequest.get<RecommendationsResponse>(endpoints.repo.recommendations, { baseURL: appBasePath() }),
+    retry: false,
+    refetchOnWindowFocus: false,
+  })
+  const recommendations = recommendationsData?.repositories ?? []
 
   // Set of subscribed repository IDs for search dialog
   const subscribedRepoIds = useMemo(
@@ -33,9 +54,15 @@ function RepositoriesLayoutInner() {
   const handleSubscribe = useCallback(async (repoId: string) => {
     await subscribe.mutateAsync({ repository: repoId })
     queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    closeSearchDialog()
+    // Navigate to the repository to show its content
+    void navigate({ to: '/$repoId', params: { repoId } })
+  }, [subscribe, queryClient, navigate])
+
+  // Handle "All repositories" click - navigate and refresh the list
+  const handleAllReposClick = useCallback(() => {
+    queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     navigate({ to: '/' })
-  }, [subscribe, queryClient, closeSearchDialog, navigate])
+  }, [queryClient, navigate])
 
   const sidebarData: SidebarData = useMemo(() => {
     const repositories = data?.repositories ?? []
@@ -54,14 +81,15 @@ function RepositoriesLayoutInner() {
 
     const allReposItem: NavItem = {
       title: 'All repositories',
-      url: '/',
+      onClick: handleAllReposClick,
       icon: FolderGit2,
+      isActive: location.pathname === '/',
     }
 
     // Bottom items
     const bottomItems: NavItem[] = [
-      { title: 'Search repositories', icon: Search, onClick: openSearchDialog },
-      { title: 'New repository', url: '/new', icon: Plus },
+      { title: 'Find repositories', icon: Search, onClick: openSearchDialog },
+      { title: 'Create repository', icon: Plus, onClick: openCreateDialog },
     ]
 
     const groups: SidebarData['navGroups'] = [
@@ -77,7 +105,7 @@ function RepositoriesLayoutInner() {
     ]
 
     return { navGroups: groups }
-  }, [data, openSearchDialog])
+  }, [data, handleAllReposClick, openSearchDialog, openCreateDialog, location.pathname])
 
   return (
     <>
@@ -95,10 +123,21 @@ function RepositoriesLayoutInner() {
         searchEndpoint="/repositories/search"
         icon={FolderGit2}
         iconClassName="bg-purple-500/10 text-purple-600"
-        title="Search repositories"
-        description="Search for public repositories to subscribe to"
+        title="Find repositories"
         placeholder="Search by name, ID, fingerprint, or URL..."
         emptyMessage="No repositories found"
+        recommendations={recommendations}
+        isLoadingRecommendations={isLoadingRecommendations}
+        isRecommendationsError={isRecommendationsError}
+      />
+
+      {/* Create Repository Dialog */}
+      <CreateRepositoryDialog
+        open={createDialogOpen}
+        onOpenChange={(open) => {
+          if (!open) closeCreateDialog()
+        }}
+        hideTrigger
       />
     </>
   )

@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
 import { Route as AuthenticatedSearchRouteImport } from './routes/_authenticated/search'
-import { Route as AuthenticatedNewRouteImport } from './routes/_authenticated/new'
 import { Route as AuthenticatedRepoIdRouteImport } from './routes/_authenticated/$repoId'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
 import { Route as errors500RouteImport } from './routes/(errors)/500'
@@ -42,11 +41,6 @@ const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
 const AuthenticatedSearchRoute = AuthenticatedSearchRouteImport.update({
   id: '/search',
   path: '/search',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedNewRoute = AuthenticatedNewRouteImport.update({
-  id: '/new',
-  path: '/new',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedRepoIdRoute = AuthenticatedRepoIdRouteImport.update({
@@ -145,7 +139,6 @@ export interface FileRoutesByFullPath {
   '/500': typeof errors500Route
   '/503': typeof errors503Route
   '/$repoId': typeof AuthenticatedRepoIdRoute
-  '/new': typeof AuthenticatedNewRoute
   '/search': typeof AuthenticatedSearchRoute
   '/': typeof AuthenticatedIndexRoute
   '/$repoId/branches': typeof AuthenticatedRepoIdBranchesRoute
@@ -166,7 +159,6 @@ export interface FileRoutesByTo {
   '/500': typeof errors500Route
   '/503': typeof errors503Route
   '/$repoId': typeof AuthenticatedRepoIdRoute
-  '/new': typeof AuthenticatedNewRoute
   '/search': typeof AuthenticatedSearchRoute
   '/': typeof AuthenticatedIndexRoute
   '/$repoId/branches': typeof AuthenticatedRepoIdBranchesRoute
@@ -189,7 +181,6 @@ export interface FileRoutesById {
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
   '/_authenticated/$repoId': typeof AuthenticatedRepoIdRoute
-  '/_authenticated/new': typeof AuthenticatedNewRoute
   '/_authenticated/search': typeof AuthenticatedSearchRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/$repoId_/branches': typeof AuthenticatedRepoIdBranchesRoute
@@ -212,7 +203,6 @@ export interface FileRouteTypes {
     | '/500'
     | '/503'
     | '/$repoId'
-    | '/new'
     | '/search'
     | '/'
     | '/$repoId/branches'
@@ -233,7 +223,6 @@ export interface FileRouteTypes {
     | '/500'
     | '/503'
     | '/$repoId'
-    | '/new'
     | '/search'
     | '/'
     | '/$repoId/branches'
@@ -255,7 +244,6 @@ export interface FileRouteTypes {
     | '/(errors)/500'
     | '/(errors)/503'
     | '/_authenticated/$repoId'
-    | '/_authenticated/new'
     | '/_authenticated/search'
     | '/_authenticated/'
     | '/_authenticated/$repoId_/branches'
@@ -300,13 +288,6 @@ declare module '@tanstack/react-router' {
       path: '/search'
       fullPath: '/search'
       preLoaderRoute: typeof AuthenticatedSearchRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/new': {
-      id: '/_authenticated/new'
-      path: '/new'
-      fullPath: '/new'
-      preLoaderRoute: typeof AuthenticatedNewRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/$repoId': {
@@ -426,7 +407,6 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedRepoIdRoute: typeof AuthenticatedRepoIdRoute
-  AuthenticatedNewRoute: typeof AuthenticatedNewRoute
   AuthenticatedSearchRoute: typeof AuthenticatedSearchRoute
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedRepoIdBranchesRoute: typeof AuthenticatedRepoIdBranchesRoute
@@ -443,7 +423,6 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedRepoIdRoute: AuthenticatedRepoIdRoute,
-  AuthenticatedNewRoute: AuthenticatedNewRoute,
   AuthenticatedSearchRoute: AuthenticatedSearchRoute,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedRepoIdBranchesRoute: AuthenticatedRepoIdBranchesRoute,

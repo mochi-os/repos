@@ -105,7 +105,7 @@ interface RepositoryListPageProps {
 
 function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   usePageTitle('Repositories')
-  const { openSearchDialog } = useSidebarContext()
+  const { openSearchDialog, openCreateDialog } = useSidebarContext()
 
   // Store "all repositories" as the last location
   useEffect(() => {
@@ -124,11 +124,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             <Search className="h-4 w-4" />
             <span className="hidden sm:inline">Find</span>
           </Button>
-          <Button asChild>
-            <Link to="/new">
-              <Plus className="h-4 w-4" />
-              <span className="hidden sm:inline">New</span>
-            </Link>
+          <Button onClick={openCreateDialog}>
+            <Plus className="h-4 w-4" />
+            <span className="hidden sm:inline">Create</span>
           </Button>
         </div>
       </Header>
@@ -143,11 +141,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                   <Search className="h-4 w-4 mr-2" />
                   Find repositories
                 </Button>
-                <Button asChild>
-                  <Link to="/new">
-                    <Plus className="h-4 w-4 mr-2" />
-                    New repository
-                  </Link>
+                <Button onClick={openCreateDialog}>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Create repository
                 </Button>
               </div>
             </div>

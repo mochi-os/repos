@@ -164,3 +164,14 @@ export interface CreateRepoResponse {
   name: string
   url: string
 }
+
+export interface RecommendedRepository {
+  id: string
+  name: string
+  blurb: string
+  fingerprint: string
+}
+
+export interface RecommendationsResponse {
+  repositories: RecommendedRepository[]
+}

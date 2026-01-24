@@ -371,8 +371,9 @@ def action_delete(a):
     # Delete database record
     mochi.db.execute("delete from repositories where id = ?", repo["id"])
 
-    # Delete entity
-    mochi.entity.delete(repo["id"])
+    # Delete entity (only for owned repos - subscribed repos don't have a local entity)
+    if repo.get("owner", 1) == 1:
+        mochi.entity.delete(repo["id"])
 
     return {"data": {"success": True}}
 
@@ -964,6 +965,41 @@ def check_admin_access(a, repo_id):
 # Helper: Create P2P message headers
 def headers(from_id, to_id, event):
     return {"from": from_id, "to": to_id, "service": "repositories", "event": event}
+
+# Action: Get repository recommendations
+def action_recommendations(a):
+    # Gather IDs of repositories the user already has (owned + subscribed)
+    existing_ids = set()
+    repos = mochi.db.rows("select id from repositories")
+    if repos:
+        for r in repos:
+            existing_ids.add(r["id"])
+
+    # Request recommendations from the recommendations service
+    s = mochi.remote.stream("1JYmMpQU7fxvTrwHpNpiwKCgUg3odWqX7s9t1cLswSMAro5M2P", "recommendations", "list", {"type": "repository", "language": "en"})
+    if not s:
+        return {"data": {"repositories": []}}
+
+    r = s.read()
+    if not r or r.get("status") != "200":
+        return {"data": {"repositories": []}}
+
+    recommendations = []
+    items = s.read()
+    if type(items) not in ["list", "tuple"]:
+        return {"data": {"repositories": []}}
+
+    for item in items:
+        entity_id = item.get("entity", "")
+        if entity_id and entity_id not in existing_ids:
+            recommendations.append({
+                "id": entity_id,
+                "name": item.get("name", ""),
+                "blurb": item.get("blurb", ""),
+                "fingerprint": item.get("fingerprint", ""),
+            })
+    s.close()
+    return {"data": {"repositories": recommendations}}
 
 # Action: Search for repositories
 # Supports: name search, entity ID, fingerprint (with/without hyphens), URL

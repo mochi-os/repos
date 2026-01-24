@@ -51,7 +51,8 @@ function SearchPage() {
       {
         onSuccess: () => {
           toast.success(`Subscribed to ${result.name}`)
-          void navigate({ to: '/' })
+          // Navigate to the repository to show its content
+          void navigate({ to: '/$repoId', params: { repoId: result.id } })
         },
         onError: (error) => {
           toast.error(getErrorMessage(error, 'Failed to subscribe'))

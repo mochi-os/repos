@@ -127,7 +127,7 @@ function BranchesPage() {
           <div className="flex justify-end">
             <Button size="sm" onClick={() => setShowCreateDialog(true)}>
               <Plus className="h-4 w-4" />
-              New branch
+              Create branch
             </Button>
           </div>
         )}
@@ -177,7 +177,7 @@ function BranchesPage() {
               Cancel
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : 'Create'}
+              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" />Create branch</>}
             </Button>
           </DialogFooter>
         </DialogContent>
