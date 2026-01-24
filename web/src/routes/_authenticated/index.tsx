@@ -173,65 +173,55 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             </Button>
 
             {/* Recommendations Section */}
-            <hr className="my-6 w-full max-w-md border-t" />
-            <div className="w-full max-w-md">
-              <p className="text-muted-foreground mb-3 text-xs font-medium uppercase tracking-wide">
-                Recommended repositories
-              </p>
-              {isLoadingRecommendations ? (
-                <div className="flex items-center justify-center py-4">
-                  <Loader2 className="text-muted-foreground h-5 w-5 animate-spin" />
-                </div>
-              ) : isRecommendationsError ? (
-                <p className="text-muted-foreground text-sm">
-                  Unable to connect to the recommendations service
-                </p>
-              ) : recommendations.length === 0 ? (
-                <p className="text-muted-foreground text-sm">
-                  No recommendations available
-                </p>
-              ) : (
-                <div className="divide-border divide-y rounded-lg border text-left">
-                  {recommendations
-                    .filter((rec) => !subscribedRepoIds.has(rec.id))
-                    .map((rec) => {
-                      const isPending = pendingRepoId === rec.id
+            {!isRecommendationsError && recommendations.filter((rec) => !subscribedRepoIds.has(rec.id)).length > 0 && (
+              <>
+                <hr className="my-6 w-full max-w-md border-t" />
+                <div className="w-full max-w-md">
+                  <p className="text-muted-foreground mb-3 text-xs font-medium uppercase tracking-wide">
+                    Recommended repositories
+                  </p>
+                  <div className="divide-border divide-y rounded-lg border text-left">
+                    {recommendations
+                      .filter((rec) => !subscribedRepoIds.has(rec.id))
+                      .map((rec) => {
+                        const isPending = pendingRepoId === rec.id
 
-                      return (
-                        <div
-                          key={rec.id}
-                          className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-muted/50"
-                        >
-                          <div className="flex min-w-0 flex-1 items-center gap-3">
-                            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-purple-500/10">
-                              <FolderGit2 className="h-4 w-4 text-purple-600" />
-                            </div>
-                            <div className="flex min-w-0 flex-1 flex-col">
-                              <span className="truncate text-sm font-medium">{rec.name}</span>
-                              {rec.blurb && (
-                                <span className="text-muted-foreground truncate text-xs">
-                                  {rec.blurb}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          <Button
-                            size="sm"
-                            onClick={() => handleSubscribeRecommendation(rec)}
-                            disabled={isPending}
+                        return (
+                          <div
+                            key={rec.id}
+                            className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-muted/50"
                           >
-                            {isPending ? (
-                              <Loader2 className="h-4 w-4 animate-spin" />
-                            ) : (
-                              'Subscribe'
-                            )}
-                          </Button>
-                        </div>
-                      )
-                    })}
+                            <div className="flex min-w-0 flex-1 items-center gap-3">
+                              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-purple-500/10">
+                                <FolderGit2 className="h-4 w-4 text-purple-600" />
+                              </div>
+                              <div className="flex min-w-0 flex-1 flex-col">
+                                <span className="truncate text-sm font-medium">{rec.name}</span>
+                                {rec.blurb && (
+                                  <span className="text-muted-foreground truncate text-xs">
+                                    {rec.blurb}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <Button
+                              size="sm"
+                              onClick={() => handleSubscribeRecommendation(rec)}
+                              disabled={isPending}
+                            >
+                              {isPending ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                'Subscribe'
+                              )}
+                            </Button>
+                          </div>
+                        )
+                      })}
+                  </div>
                 </div>
-              )}
-            </div>
+              </>
+            )}
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
