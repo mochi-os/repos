@@ -31,6 +31,10 @@ def database_create():
     """)
     mochi.db.execute("create index subscribers_id on subscribers(id)")
 
+    # Bookmarks table - for following external repositories without subscribing
+    mochi.db.execute("create table if not exists bookmarks (id text primary key, name text not null, server text not null default '', added integer not null)")
+    mochi.db.execute("create index if not exists bookmarks_added on bookmarks(added)")
+
 # Database upgrade - called once per version from (current+1) to target
 def database_upgrade(version):
     if version == 2:
@@ -51,6 +55,11 @@ def database_upgrade(version):
         """)
         mochi.db.execute("create index if not exists subscribers_id on subscribers(id)")
 
+    if version == 3:
+        # Add bookmarks table for following external repositories without subscribing
+        mochi.db.execute("create table if not exists bookmarks (id text primary key, name text not null, server text not null default '', added integer not null)")
+        mochi.db.execute("create index if not exists bookmarks_added on bookmarks(added)")
+
 # Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
     repos = mochi.db.rows("select id, name, description, default_branch, size, owner, server, created, updated from repositories order by name")
@@ -58,7 +67,12 @@ def action_info_class(a):
     if repos:
         for repo in repos:
             repo["fingerprint"] = mochi.entity.fingerprint(repo["id"])
-    return {"data": {"entity": False, "repositories": repos or []}}
+
+    # Get bookmarks
+    bookmarks = mochi.db.rows("select id, name, server, added from bookmarks order by name")
+    bookmarks = [dict(b, fingerprint=mochi.entity.fingerprint(b["id"], False)) for b in bookmarks]
+
+    return {"data": {"entity": False, "repositories": repos or [], "bookmarks": bookmarks}}
 
 # Helper: Get repository from route parameter
 # Route parameter may be fingerprint or entity ID - resolve to entity ID first
@@ -806,6 +820,49 @@ def action_opengraph(a):
         "type": "website",
     }
 
+# BOOKMARKS
+
+# Add a bookmark to a remote repository
+def action_bookmark_add(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
+
+    target = a.input("target")
+    server = a.input("server")
+
+    if not target:
+        return a.error(400, "Target repository ID is required")
+
+    # Check not already bookmarked
+    if mochi.db.exists("select 1 from bookmarks where id=?", target):
+        return {"data": {"existing": True}}
+
+    # Fetch name from remote
+    peer = mochi.remote.peer(server) if server else None
+    info = mochi.remote.request(target, "repositories", "info", {}, peer)
+    name = info.get("name", "Unknown")
+
+    mochi.db.execute(
+        "insert into bookmarks (id, name, server, added) values (?, ?, ?, ?)",
+        target, name, server or "", mochi.time.now())
+
+    return {"data": {"id": target, "name": name}}
+
+# Remove a bookmark
+def action_bookmark_remove(a):
+    if not a.user:
+        return a.error(401, "Not logged in")
+
+    target = a.input("target")
+    if not target:
+        return a.error(400, "Target repository ID is required")
+
+    if not mochi.db.exists("select 1 from bookmarks where id=?", target):
+        return a.error(404, "Bookmark not found")
+
+    mochi.db.execute("delete from bookmarks where id=?", target)
+    return {"data": {"removed": target}}
+
 # Action: Search users (for access control UI)
 def action_users_search(a):
     if not a.user:
@@ -968,12 +1025,15 @@ def headers(from_id, to_id, event):
 
 # Action: Get repository recommendations
 def action_recommendations(a):
-    # Gather IDs of repositories the user already has (owned + subscribed)
+    # Gather IDs of repositories the user already has (owned, subscribed, or bookmarked)
     existing_ids = set()
     repos = mochi.db.rows("select id from repositories")
     if repos:
         for r in repos:
             existing_ids.add(r["id"])
+    bookmarks = mochi.db.rows("select id from bookmarks")
+    for b in bookmarks:
+        existing_ids.add(b["id"])
 
     # Request recommendations from the recommendations service
     s = mochi.remote.stream("1JYmMpQU7fxvTrwHpNpiwKCgUg3odWqX7s9t1cLswSMAro5M2P", "recommendations", "list", {"type": "repository", "language": "en"})

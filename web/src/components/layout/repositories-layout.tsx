@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, SearchEntityDialog } from '@mochi/common'
-import type { SidebarData, NavItem } from '@mochi/common'
-import { FolderGit2, Plus, Search } from 'lucide-react'
-import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
+import { AuthenticatedLayout, SearchEntityDialog, type SidebarData, type NavItem } from '@mochi/common'
+import { Bookmark, FolderGit2, Plus, Search } from 'lucide-react'
+import { useRepoInfo, useSubscribe, useAddBookmark, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
@@ -17,6 +16,7 @@ function RepositoriesLayoutInner() {
   const navigate = useNavigate()
   const location = useLocation()
   const subscribe = useSubscribe()
+  const addBookmark = useAddBookmark()
 
   const {
     searchDialogOpen,
@@ -44,10 +44,17 @@ function RepositoriesLayoutInner() {
   })
   const recommendations = recommendationsData?.repositories ?? []
 
-  // Set of subscribed repository IDs for search dialog
+  // Get repositories and bookmarks from data
+  const repositories = useMemo(() => data?.repositories ?? [], [data?.repositories])
+  const bookmarks = useMemo(() => data?.bookmarks ?? [], [data?.bookmarks])
+
+  // Set of subscribed and bookmarked repository IDs for search dialog
   const subscribedRepoIds = useMemo(
-    () => new Set((data?.repositories ?? []).flatMap((r) => [r.id, r.fingerprint].filter((x): x is string => !!x))),
-    [data?.repositories]
+    () => new Set([
+      ...repositories.flatMap((r) => [r.id, r.fingerprint].filter((x): x is string => !!x)),
+      ...bookmarks.flatMap((b: { id: string; fingerprint?: string }) => [b.id, b.fingerprint].filter((x): x is string => !!x)),
+    ]),
+    [repositories, bookmarks]
   )
 
   // Handle subscribe from search dialog
@@ -58,6 +65,13 @@ function RepositoriesLayoutInner() {
     void navigate({ to: '/$repoId', params: { repoId } })
   }, [subscribe, queryClient, navigate])
 
+  // Handle bookmark from search dialog
+  const handleBookmark = useCallback(async (repoId: string, server?: string) => {
+    await addBookmark.mutateAsync({ target: repoId, server })
+    // Navigate to the repository
+    void navigate({ to: '/$repoId', params: { repoId } })
+  }, [addBookmark, navigate])
+
   // Handle "All repositories" click - navigate and refresh the list
   const handleAllReposClick = useCallback(() => {
     queryClient.invalidateQueries({ queryKey: repoKeys.info() })
@@ -65,8 +79,6 @@ function RepositoriesLayoutInner() {
   }, [queryClient, navigate])
 
   const sidebarData: SidebarData = useMemo(() => {
-    const repositories = data?.repositories ?? []
-
     // Sort repositories alphabetically by name
     const sortedRepos = [...repositories].sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
@@ -86,6 +98,13 @@ function RepositoriesLayoutInner() {
       isActive: location.pathname === '/',
     }
 
+    // Build bookmark items
+    const bookmarkItems: NavItem[] = bookmarks.map((b: { id: string; name: string; fingerprint?: string }) => ({
+      title: b.name,
+      url: '/' + (b.fingerprint ?? b.id),
+      icon: Bookmark,
+    }))
+
     // Bottom items
     const bottomItems: NavItem[] = [
       { title: 'Find repositories', icon: Search, onClick: openSearchDialog },
@@ -97,6 +116,14 @@ function RepositoriesLayoutInner() {
         title: '',
         items: [allReposItem, ...repoItems],
       },
+      ...(bookmarkItems.length > 0
+        ? [
+            {
+              title: 'Bookmarks',
+              items: bookmarkItems,
+            },
+          ]
+        : []),
       {
         title: '',
         separator: true,
@@ -105,7 +132,7 @@ function RepositoriesLayoutInner() {
     ]
 
     return { navGroups: groups }
-  }, [data, handleAllReposClick, openSearchDialog, openCreateDialog, location.pathname])
+  }, [repositories, bookmarks, handleAllReposClick, openSearchDialog, openCreateDialog, location.pathname])
 
   return (
     <>
@@ -118,6 +145,7 @@ function RepositoriesLayoutInner() {
           if (!open) closeSearchDialog()
         }}
         onSubscribe={handleSubscribe}
+        onBookmark={handleBookmark}
         subscribedIds={subscribedRepoIds}
         entityClass="repository"
         searchEndpoint="/repositories/search"
