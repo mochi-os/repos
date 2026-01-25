@@ -129,7 +129,6 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   // Recommendations query
   const {
     data: recommendationsData,
-    isLoading: isLoadingRecommendations,
     isError: isRecommendationsError,
   } = useQuery({
     queryKey: ['repositories', 'recommendations'],
