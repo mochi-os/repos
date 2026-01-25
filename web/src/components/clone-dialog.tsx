@@ -254,7 +254,7 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
                 Save this token securely. You won't be able to see it again.
               </p>
               <DialogFooter>
-                <Button onClick={() => setOpen(false)}>Done</Button>
+                <Button variant='outline' onClick={() => setOpen(false)}>Done</Button>
               </DialogFooter>
             </div>
           )}
