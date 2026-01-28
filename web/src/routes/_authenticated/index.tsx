@@ -8,6 +8,7 @@ import {
   CardTitle,
   CardDescription,
   Main,
+  PageHeader,
   usePageTitle,
   GeneralError,
   toast,
@@ -156,12 +157,17 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   }
 
   return (
-    <Main>
-      <div className="container mx-auto p-6">
-        {!hasRepos ? (
-          <div className="flex flex-col items-center justify-center p-8 text-center">
-            <FolderGit2 className="text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50" />
-            <p className="text-muted-foreground mb-1 text-sm font-medium">Repositories</p>
+    <>
+      <PageHeader
+        title="Repositories"
+        icon={<FolderGit2 className="size-4 md:size-5" />}
+      />
+      <Main>
+        <div className="container mx-auto p-6">
+          {!hasRepos ? (
+            <div className="flex flex-col items-center justify-center p-8 text-center">
+              <FolderGit2 className="text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50" />
+              <p className="text-muted-foreground mb-1 text-sm font-medium">Repositories</p>
             <p className="text-muted-foreground mb-4 max-w-sm text-xs">
               You have no repositories yet.
             </p>
@@ -263,7 +269,8 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             ))}
           </div>
         )}
-      </div>
-    </Main>
+        </div>
+      </Main>
+    </>
   )
 }
