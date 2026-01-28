@@ -187,39 +187,3 @@ export function useUnsubscribe() {
   })
 }
 
-// Bookmark types
-interface BookmarkAddResponse {
-  id: string
-  name: string
-  existing?: boolean
-}
-
-interface BookmarkRemoveResponse {
-  removed: string
-}
-
-// Add a bookmark
-export function useAddBookmark() {
-  const queryClient = useQueryClient()
-
-  return useMutation({
-    mutationFn: (data: { target: string; server?: string }) =>
-      reposRequest.post<BookmarkAddResponse>(endpoints.repo.bookmarkAdd, data, { baseURL: '/repositories/' }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    },
-  })
-}
-
-// Remove a bookmark
-export function useRemoveBookmark() {
-  const queryClient = useQueryClient()
-
-  return useMutation({
-    mutationFn: (target: string) =>
-      reposRequest.post<BookmarkRemoveResponse>(endpoints.repo.bookmarkRemove, { target }, { baseURL: '/repositories/' }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    },
-  })
-}

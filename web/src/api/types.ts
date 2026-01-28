@@ -15,14 +15,6 @@ export interface Repository {
   tags?: number
 }
 
-export interface Bookmark {
-  id: string
-  name: string
-  server: string
-  added: number
-  fingerprint?: string
-}
-
 export interface InfoResponse {
   entity: boolean
   id?: string
@@ -42,7 +34,6 @@ export interface InfoResponse {
   server?: string
   remote?: boolean
   repositories?: Repository[]
-  bookmarks?: Bookmark[]
 }
 
 // Search/subscription types

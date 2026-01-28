@@ -7,8 +7,6 @@ const endpoints = {
     search: 'search',
     recommendations: 'recommendations',
     probe: 'probe',
-    bookmarkAdd: 'bookmark/add',
-    bookmarkRemove: 'bookmark/remove',
     subscribe: 'subscribe',
     unsubscribe: 'unsubscribe',
 

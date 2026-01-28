@@ -16,7 +16,7 @@
 	"execute": ["repositories.star"],
 
 	"database": {
-		"schema": 3,
+		"schema": 5,
 		"file": "repositories.db",
 		"create": {"function": "database_create"},
 		"upgrade": {"function": "database_upgrade"}
@@ -37,8 +37,6 @@
 		"search": {"function": "action_search"},
 		"recommendations": {"function": "action_recommendations"},
 		"probe": {"function": "action_probe"},
-		"bookmark/add": {"function": "action_bookmark_add"},
-		"bookmark/remove": {"function": "action_bookmark_remove"},
 		"subscribe": {"function": "action_subscribe"},
 		"unsubscribe": {"function": "action_unsubscribe"},
 		"token/get": {"function": "action_token_get"},
