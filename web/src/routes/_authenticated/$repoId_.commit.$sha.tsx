@@ -9,6 +9,7 @@ import {
   Skeleton,
   usePageTitle,
   GeneralError,
+  getErrorMessage,
 } from '@mochi/common'
 import { GitCommit, User, Calendar, Copy, Check } from 'lucide-react'
 import { useState } from 'react'
@@ -80,7 +81,7 @@ function CommitDetails({ repoId, fingerprint, sha }: { repoId: string; fingerpri
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load commit'}
+        {getErrorMessage(error, 'Failed to load commit')}
       </div>
     )
   }

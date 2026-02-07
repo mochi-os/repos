@@ -12,6 +12,7 @@ import {
   usePageTitle,
   GeneralError,
   toast,
+  getErrorMessage,
 } from '@mochi/common'
 import { GitBranch, Plus, FolderGit2, Globe, Loader2 } from 'lucide-react'
 import { reposRequest, appBasePath } from '@/api/request'
@@ -145,9 +146,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
       await subscribe.mutateAsync({ repository: repo.id })
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     } catch (error) {
-      toast.error('Failed to subscribe', {
-        description: error instanceof Error ? error.message : 'Unknown error',
-      })
+      toast.error(getErrorMessage(error, 'Failed to subscribe'))
       setPendingRepoId(null)
     }
   }

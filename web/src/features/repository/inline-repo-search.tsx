@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from '@tanstack/react-router'
 import { useQueryClient } from '@tanstack/react-query'
 import { Search, Loader2, FolderGit2 } from 'lucide-react'
-import { Button, Input, toast } from '@mochi/common'
+import { Button, Input, toast, getErrorMessage } from '@mochi/common'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { SearchResult, SearchResponse } from '@/api/types'
@@ -64,9 +64,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
       onRefresh?.()
       void navigate({ to: '/$repoId', params: { repoId: repo.id } })
     } catch (error) {
-      toast.error('Failed to subscribe', {
-        description: error instanceof Error ? error.message : 'Unknown error',
-      })
+      toast.error(getErrorMessage(error, 'Failed to subscribe'))
       setPendingRepoId(null)
     }
   }

@@ -327,7 +327,7 @@ function FilesTab({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {error instanceof Error ? error.message : 'Failed to load files'}
+              {getErrorMessage(error, 'Failed to load files')}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
@@ -404,7 +404,7 @@ function CommitsTab({ repoId, fingerprint }: { repoId: string; fingerprint: stri
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load commits'}
+        {getErrorMessage(error, 'Failed to load commits')}
       </div>
     )
   }
@@ -527,7 +527,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load branches'}
+        {getErrorMessage(error, 'Failed to load branches')}
       </div>
     )
   }
@@ -677,7 +677,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load tags'}
+        {getErrorMessage(error, 'Failed to load tags')}
       </div>
     )
   }

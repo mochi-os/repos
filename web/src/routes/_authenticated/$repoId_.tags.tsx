@@ -6,6 +6,7 @@ import {
   Skeleton,
   usePageTitle,
   GeneralError,
+  getErrorMessage,
 } from '@mochi/common'
 import { Tag } from 'lucide-react'
 import { reposRequest } from '@/api/request'
@@ -69,7 +70,7 @@ function TagsList({ repoId }: { repoId: string }) {
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load tags'}
+        {getErrorMessage(error, 'Failed to load tags')}
       </div>
     )
   }
