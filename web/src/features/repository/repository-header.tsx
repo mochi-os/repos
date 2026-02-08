@@ -35,6 +35,7 @@ interface Tab {
   label: string
   icon: React.ReactNode
   to: string
+  search?: Record<string, string>
   ownerOnly?: boolean
 }
 
@@ -43,8 +44,8 @@ const tabs: Tab[] = [
   { id: 'commits', label: 'Commits', icon: <History className="h-4 w-4" />, to: '/$repoId/commits' },
   { id: 'branches', label: 'Branches', icon: <GitBranch className="h-4 w-4" />, to: '/$repoId/branches' },
   { id: 'tags', label: 'Tags', icon: <Tag className="h-4 w-4" />, to: '/$repoId/tags' },
-  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, to: '/$repoId?tab=access', ownerOnly: true },
-  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, to: '/$repoId?tab=settings', ownerOnly: true },
+  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, to: '/$repoId', search: { tab: 'access' }, ownerOnly: true },
+  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, to: '/$repoId', search: { tab: 'settings' }, ownerOnly: true },
 ]
 
 interface RepositoryHeaderProps {
@@ -155,6 +156,7 @@ export function RepositoryHeader({
             key={tab.id}
             to={tab.to}
             params={{ repoId: fingerprint }}
+            search={tab.search ?? {}}
             className={cn(
               'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
               'border-b-2 -mb-px',
