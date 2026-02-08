@@ -69,7 +69,7 @@ function RepositoryPage() {
             <h1 className="text-lg font-semibold">{name}</h1>
           </div>
           <div className="flex items-center gap-2">
-            <CloneDialog repoName={name} fingerprint={data.repoId} />
+            <CloneDialog repoPath={data.path || ''} fingerprint={data.repoId} />
             {data.remote && (
               <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
             )}
@@ -82,6 +82,7 @@ function RepositoryPage() {
           repoId={data.id || data.repoId}
           fingerprint={data.repoId}
           name={name}
+          path={data.path || ''}
           defaultBranch={data.default_branch || 'main'}
           description={data.description}
           isOwner={data.isAdmin}

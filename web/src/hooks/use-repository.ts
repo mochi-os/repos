@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { reposRequest } from '@/api/request'
+import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type {
   InfoResponse,
@@ -95,7 +95,7 @@ export function useCreateRepo() {
 
   return useMutation({
     mutationFn: (data: CreateRepoRequest) =>
-      reposRequest.post<CreateRepoResponse>(endpoints.repo.create, data),
+      reposRequest.post<CreateRepoResponse>(endpoints.repo.create, data, { baseURL: appBasePath() }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },

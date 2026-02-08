@@ -104,7 +104,7 @@ export function FileBrowser({
           </Link>
         </Button>
 
-        <CloneDialog repoName={name} fingerprint={fingerprint} />
+        <CloneDialog repoPath={name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')} fingerprint={fingerprint} />
       </div>
 
       {/* Repository description */}

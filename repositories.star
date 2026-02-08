@@ -7,6 +7,7 @@ def database_create():
         create table repositories (
             id text primary key not null,
             name text not null default '',
+            path text not null default '',
             description text not null default '',
             default_branch text not null default 'main',
             size integer not null default 0,
@@ -17,6 +18,7 @@ def database_create():
         )
     """)
     mochi.db.execute("create index repositories_name on repositories(name)")
+    mochi.db.execute("create index repositories_path on repositories(path)")
     mochi.db.execute("create index repositories_owner on repositories(owner)")
 
     # Subscribers table - tracks who subscribes to local repositories
@@ -59,9 +61,25 @@ def database_upgrade(version):
     if version == 4:
         mochi.db.execute("drop table if exists bookmarks")
 
+    if version == 6:
+        mochi.db.execute("alter table repositories add column path text not null default ''")
+        mochi.db.execute("create index if not exists repositories_path on repositories(path)")
+
+# Validate path: lowercase alphanumeric + hyphens, 1-100 chars, no leading/trailing hyphens
+def valid_path(p):
+    if len(p) < 1 or len(p) > 100:
+        return False
+    allowed = "abcdefghijklmnopqrstuvwxyz0123456789-"
+    for c in p.elems():
+        if c not in allowed:
+            return False
+    if p[0] == "-" or p[-1] == "-":
+        return False
+    return True
+
 # Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
-    repos = mochi.db.rows("select id, name, description, default_branch, size, owner, server, created, updated from repositories order by name")
+    repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories order by name")
     # Add fingerprint to each repository
     if repos:
         for repo in repos:
@@ -120,9 +138,10 @@ def action_info_entity(a):
             if not response.get("error"):
                 # Update cached data
                 mochi.db.execute("""
-                    update repositories set name = ?, description = ?, default_branch = ?, updated = ?
+                    update repositories set name = ?, path = ?, description = ?, default_branch = ?, updated = ?
                     where id = ?
                 """, response.get("name", repo["name"]),
+                    response.get("path", repo.get("path", "")),
                     response.get("description", repo["description"]),
                     response.get("default_branch", repo["default_branch"]),
                     mochi.time.now(), repo["id"])
@@ -132,6 +151,7 @@ def action_info_entity(a):
                     "id": repo["id"],
                     "fingerprint": response.get("fingerprint", mochi.entity.fingerprint(repo["id"])),
                     "name": response.get("name", repo["name"]),
+                    "path": response.get("path", repo.get("path", "")),
                     "description": response.get("description", repo["description"]),
                     "default_branch": response.get("default_branch", repo["default_branch"]),
                     "size": repo["size"],
@@ -153,6 +173,7 @@ def action_info_entity(a):
             "id": repo["id"],
             "fingerprint": mochi.entity.fingerprint(repo["id"]),
             "name": repo["name"],
+            "path": repo.get("path", ""),
             "description": repo["description"],
             "default_branch": repo["default_branch"],
             "size": repo["size"],
@@ -190,6 +211,7 @@ def action_info_entity(a):
         "id": repo["id"],
         "fingerprint": mochi.entity.fingerprint(repo["id"]),
         "name": repo["name"],
+        "path": repo.get("path", ""),
         "description": repo["description"],
         "default_branch": repo["default_branch"],
         "size": repo["size"],
@@ -208,6 +230,7 @@ def action_info_entity(a):
 # Action: Create repository
 def action_create(a):
     name = a.input("name")
+    path = a.input("path", "")
     description = a.input("description", "")
     allow_read = a.input("allow_read", "true") != "false"
     privacy = a.input("privacy", "public")
@@ -218,10 +241,21 @@ def action_create(a):
     if len(name) > 100:
         return a.error(400, "Name is too long (max 100 characters)")
 
+    if not path:
+        return a.error(400, "Path is required")
+
+    if not valid_path(path):
+        return a.error(400, "Path must be lowercase letters, numbers, and hyphens (1-100 chars, no leading/trailing hyphens)")
+
     # Check for duplicate name
     existing = mochi.db.row("select id from repositories where name = ?", name)
     if existing:
         return a.error(400, "A repository with that name already exists")
+
+    # Check for duplicate path
+    existing_path = mochi.db.row("select id from repositories where path = ?", path)
+    if existing_path:
+        return a.error(400, "A repository with that path already exists")
 
     # Create entity (privacy controls directory listing)
     entity_id = mochi.entity.create("repository", name, privacy, "")
@@ -237,9 +271,9 @@ def action_create(a):
     # Create database record
     now = mochi.time.now()
     mochi.db.execute("""
-        insert into repositories (id, name, description, default_branch, created, updated)
-        values (?, ?, ?, 'main', ?, ?)
-    """, entity_id, name, description, now, now)
+        insert into repositories (id, name, path, description, default_branch, created, updated)
+        values (?, ?, ?, ?, 'main', ?, ?)
+    """, entity_id, name, path, description, now, now)
 
     # Set up access control
     if a.user and a.user.identity:
@@ -250,7 +284,7 @@ def action_create(a):
         mochi.access.allow("*", "repo/" + entity_id, "read", a.user.identity.id if a.user else "")
 
     fingerprint = mochi.entity.fingerprint(entity_id)
-    return {"data": {"id": entity_id, "fingerprint": fingerprint, "name": name, "url": "/" + fingerprint}}
+    return {"data": {"id": entity_id, "fingerprint": fingerprint, "name": name, "path": path, "url": "/" + fingerprint}}
 
 # Action: Repository settings
 def action_settings(a):
@@ -268,6 +302,7 @@ def action_settings(a):
     return {"data": {
         "id": repo["id"],
         "name": row["name"],
+        "path": row.get("path", ""),
         "description": row["description"],
         "default_branch": row["default_branch"],
     }}
@@ -281,6 +316,7 @@ def action_settings_set(a):
     if not check_write_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
+    path = a.input("path")
     description = a.input("description")
     default_branch = a.input("default_branch")
     allow_read = a.input("allow_read")
@@ -291,6 +327,15 @@ def action_settings_set(a):
 
     updates = []
     params = []
+
+    if path:
+        if not valid_path(path):
+            return a.error(400, "Path must be lowercase letters, numbers, and hyphens (1-100 chars, no leading/trailing hyphens)")
+        existing = mochi.db.row("select id from repositories where path = ? and id != ?", path, repo["id"])
+        if existing:
+            return a.error(400, "A repository with that path already exists")
+        updates.append("path = ?")
+        params.append(path)
 
     if description:
         updates.append("description = ?")
@@ -1283,6 +1328,7 @@ def event_info(e):
     e.stream.write({
         "id": repo["id"],
         "name": repo["name"],
+        "path": repo.get("path", ""),
         "description": repo["description"],
         "default_branch": repo["default_branch"],
         "fingerprint": mochi.entity.fingerprint(repo_id),
@@ -1324,6 +1370,7 @@ def event_update(e):
         return
 
     name = e.content("name")
+    path = e.content("path")
     description = e.content("description")
     default_branch = e.content("default_branch")
 
@@ -1333,6 +1380,9 @@ def event_update(e):
     if name:
         updates.append("name = ?")
         params.append(name)
+    if path:
+        updates.append("path = ?")
+        params.append(path)
     if description:
         updates.append("description = ?")
         params.append(description)
@@ -1527,7 +1577,7 @@ def broadcast_update(repo):
     for sub in subscribers:
         mochi.message.send(
             headers(repo["id"], sub["id"], "update"),
-            {"name": repo["name"], "description": repo["description"], "default_branch": repo["default_branch"]}
+            {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"]}
         )
 
 # Broadcast activity notification to all subscribers

@@ -55,7 +55,7 @@ interface TokenListResponse {
 }
 
 interface CloneDialogProps {
-  repoName: string
+  repoPath: string
   fingerprint: string
 }
 
@@ -66,7 +66,7 @@ function formatDate(timestamp: number): string {
 
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
-export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
+export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<DialogView>('loading')
   const [cloneCommand, setCloneCommand] = useState<string | null>(null)
@@ -84,8 +84,7 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
     const url = new URL(cloneUrl)
     url.username = 'none'
     url.password = token
-    const dirName = repoName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-    return `git clone ${url.toString()} ${dirName}`
+    return `git clone ${url.toString()} ${repoPath || 'repo'}`
   }
 
   const { data: tokensData, isLoading: tokensLoading } = useQuery({
@@ -146,7 +145,7 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
     try {
       const response = await reposRequest.post<TokenGetResponse>(
         'token/get',
-        { name: repoName },
+        { name: repoPath || 'repo' },
         { baseURL: appBasePath() }
       )
       setCloneCommand(buildCloneUrl(response.token))

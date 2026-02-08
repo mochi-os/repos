@@ -45,6 +45,7 @@ function BlobPage() {
           fingerprint={fingerprint}
           repoId={data.id}
           name={data.name || 'Repository'}
+          path={data.path || ''}
           description={data.description}
           activeTab="files"
           isOwner={data.isAdmin}

@@ -88,6 +88,7 @@ interface RepositoryTabsProps {
   repoId: string
   fingerprint: string
   name: string
+  path: string
   defaultBranch: string
   description?: string
   isOwner?: boolean
@@ -99,6 +100,7 @@ export function RepositoryTabs({
   repoId,
   fingerprint,
   name,
+  path,
   defaultBranch,
   description,
   isOwner,
@@ -160,6 +162,7 @@ export function RepositoryTabs({
             repoId={repoId}
             fingerprint={fingerprint}
             name={name}
+            path={path}
             description={description}
             defaultBranch={defaultBranch}
           />
@@ -741,6 +744,7 @@ interface GeneralSettingsTabProps {
   repoId: string
   fingerprint: string
   name: string
+  path: string
   description?: string
   defaultBranch: string
 }
@@ -748,16 +752,23 @@ interface GeneralSettingsTabProps {
 // Characters disallowed in repository names (matches backend validation)
 const DISALLOWED_NAME_CHARS = /[<>\r\n\\;"'`]/
 
+// Validate path: lowercase alphanumeric + hyphens, 1-100 chars, no leading/trailing hyphens
+function isValidPath(p: string): boolean {
+  return /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/.test(p) || /^[a-z0-9]$/.test(p)
+}
+
 function GeneralSettingsTab({
   repoId,
   fingerprint,
   name: initialName,
+  path: initialPath,
   description: initialDescription,
   defaultBranch: initialDefaultBranch,
 }: GeneralSettingsTabProps) {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [currentName, setCurrentName] = useState(initialName || '')
+  const [currentPath, setCurrentPath] = useState(initialPath || '')
   const [description, setDescription] = useState(initialDescription || '')
   const [selectedBranch, setSelectedBranch] = useState(initialDefaultBranch || 'main')
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
@@ -767,6 +778,12 @@ function GeneralSettingsTab({
   const [editName, setEditName] = useState(initialName || '')
   const [isRenaming, setIsRenaming] = useState(false)
   const [nameError, setNameError] = useState<string | null>(null)
+
+  // Inline edit state for path
+  const [isEditingPath, setIsEditingPath] = useState(false)
+  const [editPath, setEditPath] = useState(initialPath || '')
+  const [isSavingPath, setIsSavingPath] = useState(false)
+  const [pathError, setPathError] = useState<string | null>(null)
 
   const { data: branchesData } = useBranches(repoId)
   const branches = branchesData?.branches || []
@@ -852,6 +869,50 @@ function GeneralSettingsTab({
     }
   }
 
+  const handleStartEditPath = () => {
+    setEditPath(currentPath || '')
+    setPathError(null)
+    setIsEditingPath(true)
+  }
+
+  const handleCancelEditPath = () => {
+    setIsEditingPath(false)
+    setEditPath(currentPath || '')
+    setPathError(null)
+  }
+
+  const handleSaveEditPath = async () => {
+    const trimmedPath = editPath.trim()
+    if (!trimmedPath) {
+      setPathError('Path is required')
+      return
+    }
+    if (!isValidPath(trimmedPath)) {
+      setPathError('Lowercase letters, numbers, and hyphens only')
+      return
+    }
+    if (trimmedPath === currentPath) {
+      setIsEditingPath(false)
+      return
+    }
+    setIsSavingPath(true)
+    try {
+      await reposRequest.post<{ success: boolean }>(
+        endpoints.repo.settingsSet,
+        { path: trimmedPath },
+        { baseURL: `/repositories/${repoId}/-/` }
+      )
+      setCurrentPath(trimmedPath)
+      toast.success('Path updated')
+      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+      setIsEditingPath(false)
+    } catch (err) {
+      toast.error(getErrorMessage(err, 'Failed to update path'))
+    } finally {
+      setIsSavingPath(false)
+    }
+  }
+
   const handleBranchChange = (value: string) => {
     setSelectedBranch(value)
     updateSetting.mutate({ default_branch: value })
@@ -918,6 +979,64 @@ function GeneralSettingsTab({
                 size="sm"
                 variant="ghost"
                 onClick={handleStartEditName}
+                className="h-6 w-6 p-0"
+              >
+                <Pencil className="size-3" />
+              </Button>
+            </div>
+          )}
+          <span className="text-muted-foreground">Path:</span>
+          {isEditingPath ? (
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <Input
+                  value={editPath}
+                  onChange={(e) => {
+                    setEditPath(e.target.value)
+                    setPathError(null)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') void handleSaveEditPath()
+                    if (e.key === 'Escape') handleCancelEditPath()
+                  }}
+                  className="h-8"
+                  disabled={isSavingPath}
+                  autoFocus
+                />
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => void handleSaveEditPath()}
+                  disabled={isSavingPath}
+                  className="h-8 w-8 p-0"
+                >
+                  {isSavingPath ? (
+                    <Loader2 className="size-4 animate-spin" />
+                  ) : (
+                    <Check className="size-4" />
+                  )}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={handleCancelEditPath}
+                  disabled={isSavingPath}
+                  className="h-8 w-8 p-0"
+                >
+                  <X className="size-4" />
+                </Button>
+              </div>
+              {pathError && (
+                <span className="text-sm text-destructive">{pathError}</span>
+              )}
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <span>{currentPath}</span>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={handleStartEditPath}
                 className="h-6 w-6 p-0"
               >
                 <Pencil className="size-3" />

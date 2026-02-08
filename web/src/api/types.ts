@@ -4,6 +4,7 @@ export interface Repository {
   id: string
   fingerprint: string
   name: string
+  path: string
   description: string
   default_branch: string
   size: number
@@ -20,6 +21,7 @@ export interface InfoResponse {
   id?: string
   fingerprint?: string
   name?: string
+  path?: string
   description?: string
   default_branch?: string
   size?: number
@@ -153,6 +155,7 @@ export interface AccessResponse {
 
 export interface CreateRepoRequest {
   name: string
+  path: string
   description?: string
   allow_read?: string
   privacy?: string
@@ -162,6 +165,7 @@ export interface CreateRepoResponse {
   id: string
   fingerprint: string
   name: string
+  path: string
   url: string
 }
 

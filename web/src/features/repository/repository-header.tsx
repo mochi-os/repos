@@ -52,6 +52,7 @@ interface RepositoryHeaderProps {
   fingerprint: string
   repoId: string
   name: string
+  path: string
   description?: string
   activeTab: RepositoryTabId
   isOwner?: boolean
@@ -63,6 +64,7 @@ export function RepositoryHeader({
   fingerprint,
   repoId,
   name,
+  path,
   description,
   activeTab,
   isOwner,
@@ -109,7 +111,7 @@ export function RepositoryHeader({
           )}
         </div>
         <div className="flex-1" />
-        <CloneDialog repoName={name} fingerprint={fingerprint} />
+        <CloneDialog repoPath={path} fingerprint={fingerprint} />
         {isRemote && (
           <>
             <Button

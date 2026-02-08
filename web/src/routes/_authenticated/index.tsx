@@ -94,6 +94,7 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
         repoId={data.id!}
         fingerprint={data.fingerprint || data.id!}
         name={data.name || 'Repository'}
+        path={data.path || ''}
         defaultBranch={data.default_branch || 'main'}
         description={data.description}
         isOwner={data.isAdmin}

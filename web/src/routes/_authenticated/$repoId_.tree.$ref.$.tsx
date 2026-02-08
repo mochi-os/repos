@@ -44,6 +44,7 @@ function TreePage() {
           fingerprint={data.fingerprint || data.repoId}
           repoId={data.id || data.repoId}
           name={data.name || 'Repository'}
+          path={data.path || ''}
           description={data.description}
           activeTab="files"
           isOwner={data.isAdmin}

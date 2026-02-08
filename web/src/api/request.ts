@@ -108,7 +108,11 @@ reposClient.interceptors.response.use(
 function unwrapData<T>(responseData: unknown): T {
   // Check for HTML response (indicates wrong URL or server error)
   if (typeof responseData === 'string' && responseData.trim().startsWith('<!')) {
-    throw new Error('Invalid response from server')
+    // Try to extract a meaningful error from the HTML
+    const titleMatch = responseData.match(/<title>([^<]+)<\/title>/)
+    const preMatch = responseData.match(/<pre>([^<]+)<\/pre>/)
+    const message = preMatch?.[1] || titleMatch?.[1] || 'Server returned HTML instead of JSON (possible routing error)'
+    throw new Error(message)
   }
   if (
     responseData &&
