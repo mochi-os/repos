@@ -988,7 +988,8 @@ def service_merge(s):
     message = s.get("message", "") or "Merge branch"
     author_name = s.get("author_name", "") or "Mochi"
     author_email = s.get("author_email", "") or ""
-    return mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email)
+    method = s.get("method", "") or "merge"
+    return mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email, method)
 
 # Helper functions
 
