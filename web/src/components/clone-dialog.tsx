@@ -35,9 +35,7 @@ import {
 import { reposRequest, appBasePath } from '@/api/request'
 
 interface TokenGetResponse {
-  exists: boolean
-  count?: number
-  token?: string
+  token: string
 }
 
 interface TokenCreateResponse {
@@ -66,7 +64,7 @@ function formatDate(timestamp: number): string {
   return new Date(timestamp * 1000).toLocaleDateString()
 }
 
-type DialogView = 'loading' | 'clone' | 'existing' | 'manage' | 'create'
+type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
 export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
   const [open, setOpen] = useState(false)
@@ -84,9 +82,10 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
     const appPrefix = match ? match[1] : ''
     const cloneUrl = `${window.location.origin}${appPrefix}/${fingerprint}/git`
     const url = new URL(cloneUrl)
-    url.username = 'x'
+    url.username = 'none'
     url.password = token
-    return `git clone ${url.toString()}`
+    const dirName = repoName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    return `git clone ${url.toString()} ${dirName}`
   }
 
   const { data: tokensData, isLoading: tokensLoading } = useQuery({
@@ -150,12 +149,8 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
         { name: repoName },
         { baseURL: appBasePath() }
       )
-      if (response.exists) {
-        setView('existing')
-      } else if (response.token) {
-        setCloneCommand(buildCloneUrl(response.token))
-        setView('clone')
-      }
+      setCloneCommand(buildCloneUrl(response.token))
+      setView('clone')
     } catch (error) {
       toast.error(getErrorMessage(error, 'Failed to get token'))
       setOpen(false)
@@ -203,8 +198,6 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
 
   const getDescription = () => {
     switch (view) {
-      case 'existing':
-        return 'You already have authentication tokens. If you have previously cloned this repository, your existing credentials will work.'
       case 'manage':
         return null
       case 'create':
@@ -212,7 +205,7 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
           ? 'Save this token now. You won\'t be able to see it again.'
           : 'Create a new authentication token.'
       default:
-        return 'Copy this command to clone the repository.'
+        return null
     }
   }
 
@@ -253,24 +246,12 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
               <p className="text-sm text-muted-foreground">
                 Save this token securely. You won't be able to see it again.
               </p>
-              <DialogFooter>
-                <Button variant='outline' onClick={() => setOpen(false)}>Done</Button>
-              </DialogFooter>
-            </div>
-          )}
-
-          {view === 'existing' && (
-            <div className="space-y-4">
-              <div className="bg-muted rounded-md p-3 font-mono text-sm">
-                <code className="break-all select-all">
-                  git clone {window.location.origin}/{fingerprint}/git
-                </code>
-              </div>
-              <DialogFooter>
+              <DialogFooter className="flex-row gap-2 sm:justify-between">
                 <Button variant="outline" onClick={() => setView('manage')}>
                   <Key className="h-4 w-4" />
                   Manage tokens
                 </Button>
+                <Button variant='outline' onClick={() => setOpen(false)}>Done</Button>
               </DialogFooter>
             </div>
           )}
@@ -313,7 +294,7 @@ export function CloneDialog({ repoName, fingerprint }: CloneDialogProps) {
                 </div>
               )}
               <DialogFooter className="flex-row gap-2 sm:justify-between">
-                <Button variant="ghost" onClick={() => setView('existing')}>
+                <Button variant="ghost" onClick={() => setView('clone')}>
                   <ArrowLeft className="h-4 w-4" />
                   Back
                 </Button>

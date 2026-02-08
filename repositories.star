@@ -838,14 +838,7 @@ def action_token_get(a):
     if not a.user:
         return a.error(401, "Not logged in")
 
-    # Check for existing tokens
-    tokens = mochi.token.list()
-    if tokens and len(tokens) > 0:
-        # User already has tokens - don't create more automatically
-        # Return info so UI can show appropriate message
-        return {"data": {"exists": True, "count": len(tokens)}}
-
-    # No tokens exist - create first one
+    # Create a new token for the clone command
     name = (a.input("name") or "Git access").strip()
     if len(name) > 100:
         return a.error(400, "Token name is too long (max 100 characters)")
@@ -853,7 +846,7 @@ def action_token_get(a):
     if not token:
         return a.error(500, "Failed to create token")
 
-    return {"data": {"exists": False, "token": token}}
+    return {"data": {"token": token}}
 
 # Action: Create a new authentication token
 def action_token_create(a):
@@ -897,50 +890,60 @@ def service_list(s):
 
 def service_get(s):
     """Get repository details"""
-    repo_id = s.input("id")
+    repo_id = s.get("id", "")
     return mochi.db.row("select * from repositories where id = ?", repo_id)
 
 def service_branches(s):
     """List branches for a repository"""
-    repo_id = s.input("repo")
+    repo_id = s.get("repo", "")
     return mochi.git.branches(repo_id)
 
 def service_file(s):
     """Get file contents at a ref"""
-    repo_id = s.input("repo")
-    ref = s.input("ref") or "HEAD"
-    path = s.input("path")
+    repo_id = s.get("repo", "")
+    ref = s.get("ref", "") or "HEAD"
+    path = s.get("path", "")
     return mochi.git.blob.content(repo_id, ref, path)
 
 def service_tree(s):
     """List directory at a ref"""
-    repo_id = s.input("repo")
-    ref = s.input("ref") or "HEAD"
-    path = s.input("path") or ""
+    repo_id = s.get("repo", "")
+    ref = s.get("ref", "") or "HEAD"
+    path = s.get("path", "") or ""
     return mochi.git.tree(repo_id, ref, path)
 
 def service_commits(s):
     """List commits between two refs"""
-    repo_id = s.input("repo")
-    base = s.input("base")
-    head = s.input("head")
+    repo_id = s.get("repo", "")
+    base = s.get("base", "")
+    head = s.get("head", "")
     if base and head:
         return mochi.git.commit.between(repo_id, base, head)
     return mochi.git.commit.list(repo_id, head or "HEAD", 50, 0)
 
 def service_diff(s):
     """Get diff between refs (for PR display)"""
-    repo_id = s.input("repo")
-    base = s.input("base")
-    head = s.input("head")
+    repo_id = s.get("repo", "")
+    base = s.get("base", "")
+    head = s.get("head", "")
     return mochi.git.diff(repo_id, base, head)
 
 def service_can_merge(s):
     """Check if branches can be merged cleanly"""
-    repo_id = s.input("repo")
-    source = s.input("source")
-    target = s.input("target")
+    repo_id = s.get("repo", "")
+    source = s.get("source", "")
+    target = s.get("target", "")
     return mochi.git.merge.check(repo_id, source, target)
+
+def service_merge(s):
+    """Perform merge of source branch into target branch"""
+    repo_id = s.get("repo", "")
+    source = s.get("source", "")
+    target = s.get("target", "")
+    message = s.get("message", "") or "Merge branch"
+    author_name = s.get("author_name", "") or "Mochi"
+    author_email = s.get("author_email", "") or ""
+    return mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email)
 
 # Helper functions
 
