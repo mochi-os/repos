@@ -7,6 +7,11 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
+  ConfirmDialog,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
   Main,
   PageHeader,
   usePageTitle,
@@ -14,7 +19,7 @@ import {
   toast,
   getErrorMessage,
 } from '@mochi/common'
-import { GitBranch, Plus, FolderGit2, Globe, Loader2 } from 'lucide-react'
+import { GitBranch, Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository, RecommendationsResponse, RecommendedRepository } from '@/api/types'
@@ -22,7 +27,7 @@ import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repo
 import { getLastRepo, clearLastRepo, setLastRepo } from '@/hooks/use-repos-storage'
 import { useSidebarContext } from '@/context/sidebar-context'
 import { InlineRepoSearch } from '@/features/repository/inline-repo-search'
-import { repoKeys, useSubscribe } from '@/hooks/use-repository'
+import { repoKeys, useSubscribe, useUnsubscribe } from '@/hooks/use-repository'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -114,7 +119,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   const { openCreateDialog } = useSidebarContext()
   const queryClient = useQueryClient()
   const subscribe = useSubscribe()
+  const unsubscribe = useUnsubscribe()
   const [pendingRepoId, setPendingRepoId] = useState<string | null>(null)
+  const [unsubscribeId, setUnsubscribeId] = useState<string | null>(null)
 
   // Store "all repositories" as the last location
   useEffect(() => {
@@ -239,16 +246,34 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
               >
                 <Card className="transition-colors hover:bg-accent h-full">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <FolderGit2 className="h-5 w-5" />
-                      {repo.name}
+                    <div className="flex items-start justify-between gap-2">
+                      <CardTitle className="flex items-center gap-2">
+                        <FolderGit2 className="h-5 w-5" />
+                        {repo.name}
+                      </CardTitle>
                       {repo.owner === 0 && (
-                        <span className="flex items-center gap-1 text-xs text-muted-foreground font-normal">
-                          <Globe className="h-3 w-3" />
-                          Subscribed
-                        </span>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <button
+                              className="hover:bg-muted shrink-0 rounded p-1 transition-colors"
+                              onClick={(e) => e.preventDefault()}
+                            >
+                              <MoreHorizontal className="text-muted-foreground size-4" />
+                            </button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem
+                              onClick={(e) => {
+                                e.preventDefault()
+                                setUnsubscribeId(repo.id)
+                              }}
+                            >
+                              Unsubscribe
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                       )}
-                    </CardTitle>
+                    </div>
                     {repo.description && (
                       <CardDescription>{repo.description}</CardDescription>
                     )}
@@ -271,6 +296,24 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         )}
         </div>
       </Main>
+
+      <ConfirmDialog
+        open={!!unsubscribeId}
+        onOpenChange={(open) => { if (!open) setUnsubscribeId(null) }}
+        title="Unsubscribe"
+        desc="Are you sure you want to unsubscribe from this repository?"
+        confirmText="Unsubscribe"
+        destructive
+        isLoading={unsubscribe.isPending}
+        handleConfirm={() => {
+          if (unsubscribeId) {
+            unsubscribe.mutate(unsubscribeId, {
+              onSuccess: () => setUnsubscribeId(null),
+              onError: (error) => toast.error(getErrorMessage(error, 'Failed to unsubscribe')),
+            })
+          }
+        }}
+      />
     </>
   )
 }
