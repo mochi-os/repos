@@ -1,13 +1,10 @@
 import { useCallback, useEffect, useMemo } from 'react'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, SearchEntityDialog, type SidebarData, type NavItem } from '@mochi/common'
+import { AuthenticatedLayout, type SidebarData, type NavItem } from '@mochi/common'
 import { FolderGit2, Plus, Search } from 'lucide-react'
-import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
+import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
-import { reposRequest, appBasePath } from '@/api/request'
-import endpoints from '@/api/endpoints'
-import type { RecommendationsResponse } from '@/api/types'
 import { CreateRepositoryDialog } from '@/features/repository/create-repository-dialog'
 
 function RepositoriesLayoutInner() {
@@ -15,12 +12,8 @@ function RepositoriesLayoutInner() {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const location = useLocation()
-  const subscribe = useSubscribe()
 
   const {
-    searchDialogOpen,
-    openSearchDialog,
-    closeSearchDialog,
     createDialogOpen,
     openCreateDialog,
     closeCreateDialog,
@@ -30,37 +23,8 @@ function RepositoriesLayoutInner() {
     void refetch()
   }, [refetch])
 
-  // Recommendations query
-  const {
-    data: recommendationsData,
-    isLoading: isLoadingRecommendations,
-    isError: isRecommendationsError,
-  } = useQuery({
-    queryKey: ['repositories', 'recommendations'],
-    queryFn: () => reposRequest.get<RecommendationsResponse>(endpoints.repo.recommendations, { baseURL: appBasePath() }),
-    retry: false,
-    refetchOnWindowFocus: false,
-  })
-  const recommendations = recommendationsData?.repositories ?? []
-
   // Get repositories from data
   const repositories = useMemo(() => data?.repositories ?? [], [data?.repositories])
-
-  // Set of subscribed repository IDs for search dialog
-  const subscribedRepoIds = useMemo(
-    () => new Set(
-      repositories.flatMap((r) => [r.id, r.fingerprint].filter((x): x is string => !!x))
-    ),
-    [repositories]
-  )
-
-  // Handle subscribe from search dialog
-  const handleSubscribe = useCallback(async (repoId: string) => {
-    await subscribe.mutateAsync({ repository: repoId })
-    queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    // Navigate to the repository to show its content
-    void navigate({ to: '/$repoId', params: { repoId } })
-  }, [subscribe, queryClient, navigate])
 
   // Handle "All repositories" click - navigate and refresh the list
   const handleAllReposClick = useCallback(() => {
@@ -90,7 +54,7 @@ function RepositoriesLayoutInner() {
 
     // Bottom items
     const bottomItems: NavItem[] = [
-      { title: 'Find repositories', icon: Search, onClick: openSearchDialog },
+      { title: 'Find repositories', icon: Search, url: '/find' },
       { title: 'Create repository', icon: Plus, onClick: openCreateDialog },
     ]
 
@@ -107,31 +71,11 @@ function RepositoriesLayoutInner() {
     ]
 
     return { navGroups: groups }
-  }, [repositories, handleAllReposClick, openSearchDialog, openCreateDialog, location.pathname])
+  }, [repositories, handleAllReposClick, openCreateDialog, location.pathname])
 
   return (
     <>
       <AuthenticatedLayout sidebarData={sidebarData} />
-
-      {/* Search Repositories Dialog */}
-      <SearchEntityDialog
-        open={searchDialogOpen}
-        onOpenChange={(open) => {
-          if (!open) closeSearchDialog()
-        }}
-        onSubscribe={handleSubscribe}
-        subscribedIds={subscribedRepoIds}
-        entityClass="repository"
-        searchEndpoint="/repositories/search"
-        icon={FolderGit2}
-        iconClassName="bg-purple-500/10 text-purple-600"
-        title="Find repositories"
-        placeholder="Search by name, ID, fingerprint, or URL..."
-        emptyMessage="No repositories found"
-        recommendations={recommendations}
-        isLoadingRecommendations={isLoadingRecommendations}
-        isRecommendationsError={isRecommendationsError}
-      />
 
       {/* Create Repository Dialog */}
       <CreateRepositoryDialog

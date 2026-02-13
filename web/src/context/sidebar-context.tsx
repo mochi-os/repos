@@ -7,10 +7,6 @@ import {
 } from 'react'
 
 type SidebarContextValue = {
-  // Search dialog
-  searchDialogOpen: boolean
-  openSearchDialog: () => void
-  closeSearchDialog: () => void
   // Create dialog
   createDialogOpen: boolean
   openCreateDialog: () => void
@@ -20,16 +16,7 @@ type SidebarContextValue = {
 const SidebarContext = createContext<SidebarContextValue | null>(null)
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
-  const [searchDialogOpen, setSearchDialogOpen] = useState(false)
   const [createDialogOpen, setCreateDialogOpen] = useState(false)
-
-  const openSearchDialog = useCallback(() => {
-    setSearchDialogOpen(true)
-  }, [])
-
-  const closeSearchDialog = useCallback(() => {
-    setSearchDialogOpen(false)
-  }, [])
 
   const openCreateDialog = useCallback(() => {
     setCreateDialogOpen(true)
@@ -42,9 +29,6 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   return (
     <SidebarContext.Provider
       value={{
-        searchDialogOpen,
-        openSearchDialog,
-        closeSearchDialog,
         createDialogOpen,
         openCreateDialog,
         closeCreateDialog,

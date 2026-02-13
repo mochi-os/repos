@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
-import { Route as AuthenticatedSearchRouteImport } from './routes/_authenticated/search'
+import { Route as AuthenticatedFindRouteImport } from './routes/_authenticated/find'
 import { Route as AuthenticatedRepoIdRouteImport } from './routes/_authenticated/$repoId'
 import { Route as errors503RouteImport } from './routes/(errors)/503'
 import { Route as errors500RouteImport } from './routes/(errors)/500'
@@ -38,9 +38,9 @@ const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedSearchRoute = AuthenticatedSearchRouteImport.update({
-  id: '/search',
-  path: '/search',
+const AuthenticatedFindRoute = AuthenticatedFindRouteImport.update({
+  id: '/find',
+  path: '/find',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedRepoIdRoute = AuthenticatedRepoIdRouteImport.update({
@@ -139,7 +139,7 @@ export interface FileRoutesByFullPath {
   '/500': typeof errors500Route
   '/503': typeof errors503Route
   '/$repoId': typeof AuthenticatedRepoIdRoute
-  '/search': typeof AuthenticatedSearchRoute
+  '/find': typeof AuthenticatedFindRoute
   '/': typeof AuthenticatedIndexRoute
   '/$repoId/branches': typeof AuthenticatedRepoIdBranchesRoute
   '/$repoId/commits': typeof AuthenticatedRepoIdCommitsRoute
@@ -159,7 +159,7 @@ export interface FileRoutesByTo {
   '/500': typeof errors500Route
   '/503': typeof errors503Route
   '/$repoId': typeof AuthenticatedRepoIdRoute
-  '/search': typeof AuthenticatedSearchRoute
+  '/find': typeof AuthenticatedFindRoute
   '/': typeof AuthenticatedIndexRoute
   '/$repoId/branches': typeof AuthenticatedRepoIdBranchesRoute
   '/$repoId/commits': typeof AuthenticatedRepoIdCommitsRoute
@@ -181,7 +181,7 @@ export interface FileRoutesById {
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
   '/_authenticated/$repoId': typeof AuthenticatedRepoIdRoute
-  '/_authenticated/search': typeof AuthenticatedSearchRoute
+  '/_authenticated/find': typeof AuthenticatedFindRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/$repoId_/branches': typeof AuthenticatedRepoIdBranchesRoute
   '/_authenticated/$repoId_/commits': typeof AuthenticatedRepoIdCommitsRoute
@@ -203,7 +203,7 @@ export interface FileRouteTypes {
     | '/500'
     | '/503'
     | '/$repoId'
-    | '/search'
+    | '/find'
     | '/'
     | '/$repoId/branches'
     | '/$repoId/commits'
@@ -223,7 +223,7 @@ export interface FileRouteTypes {
     | '/500'
     | '/503'
     | '/$repoId'
-    | '/search'
+    | '/find'
     | '/'
     | '/$repoId/branches'
     | '/$repoId/commits'
@@ -244,7 +244,7 @@ export interface FileRouteTypes {
     | '/(errors)/500'
     | '/(errors)/503'
     | '/_authenticated/$repoId'
-    | '/_authenticated/search'
+    | '/_authenticated/find'
     | '/_authenticated/'
     | '/_authenticated/$repoId_/branches'
     | '/_authenticated/$repoId_/commits'
@@ -283,11 +283,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/search': {
-      id: '/_authenticated/search'
-      path: '/search'
-      fullPath: '/search'
-      preLoaderRoute: typeof AuthenticatedSearchRouteImport
+    '/_authenticated/find': {
+      id: '/_authenticated/find'
+      path: '/find'
+      fullPath: '/find'
+      preLoaderRoute: typeof AuthenticatedFindRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/$repoId': {
@@ -407,7 +407,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedRepoIdRoute: typeof AuthenticatedRepoIdRoute
-  AuthenticatedSearchRoute: typeof AuthenticatedSearchRoute
+  AuthenticatedFindRoute: typeof AuthenticatedFindRoute
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedRepoIdBranchesRoute: typeof AuthenticatedRepoIdBranchesRoute
   AuthenticatedRepoIdCommitsRoute: typeof AuthenticatedRepoIdCommitsRoute
@@ -423,7 +423,7 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedRepoIdRoute: AuthenticatedRepoIdRoute,
-  AuthenticatedSearchRoute: AuthenticatedSearchRoute,
+  AuthenticatedFindRoute: AuthenticatedFindRoute,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedRepoIdBranchesRoute: AuthenticatedRepoIdBranchesRoute,
   AuthenticatedRepoIdCommitsRoute: AuthenticatedRepoIdCommitsRoute,
