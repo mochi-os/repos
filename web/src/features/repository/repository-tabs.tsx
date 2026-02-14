@@ -788,7 +788,7 @@ function GeneralSettingsTab({
       reposRequest.post<{ success: boolean }>(
         endpoints.repo.settingsSet,
         settings,
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       ),
     onSuccess: () => {
       toast.success('Settings saved')
@@ -804,7 +804,7 @@ function GeneralSettingsTab({
       reposRequest.post<{ success: boolean }>(
         endpoints.repo.delete,
         undefined,
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
@@ -851,7 +851,7 @@ function GeneralSettingsTab({
       await reposRequest.post<{ success: boolean }>(
         endpoints.repo.rename,
         { name: trimmedName },
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setCurrentName(trimmedName)
       toast.success('Repository renamed')
@@ -895,7 +895,7 @@ function GeneralSettingsTab({
       await reposRequest.post<{ success: boolean }>(
         endpoints.repo.settingsSet,
         { path: trimmedPath },
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setCurrentPath(trimmedPath)
       toast.success('Path updated')
@@ -1160,7 +1160,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     try {
       const response = await reposRequest.get<{ rules: AccessRule[] }>(
         endpoints.repo.access,
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setRules(response.rules ?? [])
     } catch (err) {
@@ -1179,7 +1179,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       await reposRequest.post(
         endpoints.repo.accessSet,
         { subject, permission: operation },
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       toast.success(`Access set for ${subjectName}`)
       void loadRules()
@@ -1194,7 +1194,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       await reposRequest.post(
         endpoints.repo.accessRevoke,
         { subject },
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       toast.success('Access removed')
       void loadRules()
@@ -1208,7 +1208,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       await reposRequest.post(
         endpoints.repo.accessSet,
         { subject, permission: operation },
-        { baseURL: `/repositories/${repoId}/-/` }
+        { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       toast.success('Access level updated')
       void loadRules()

@@ -51,7 +51,7 @@ function FindRepositoriesPage() {
       onSubscribe={handleSubscribe}
       subscribedIds={subscribedRepoIds}
       entityClass="repository"
-      searchEndpoint="/repositories/-/search"
+      searchEndpoint={`${appBasePath()}-/search`}
       icon={FolderGit2}
       iconClassName="bg-purple-500/10 text-purple-600"
       title="Find repositories"
