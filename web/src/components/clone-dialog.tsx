@@ -33,6 +33,7 @@ import {
   Key,
 } from 'lucide-react'
 import { reposRequest, appBasePath } from '@/api/request'
+import { formatTimestamp } from '@mochi/common'
 
 interface TokenGetResponse {
   token: string
@@ -57,11 +58,6 @@ interface TokenListResponse {
 interface CloneDialogProps {
   repoPath: string
   fingerprint: string
-}
-
-function formatDate(timestamp: number): string {
-  if (!timestamp) return 'Never'
-  return new Date(timestamp * 1000).toLocaleDateString()
 }
 
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
@@ -90,7 +86,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const { data: tokensData, isLoading: tokensLoading } = useQuery({
     queryKey: ['tokens'],
     queryFn: async () => {
-      return await reposRequest.get<TokenListResponse>('token/list', {
+      return await reposRequest.get<TokenListResponse>('-/token/list', {
         baseURL: appBasePath(),
       })
     },
@@ -100,7 +96,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
       return await reposRequest.post<TokenCreateResponse>(
-        'token/create',
+        '-/token/create',
         { name },
         { baseURL: appBasePath() }
       )
@@ -117,7 +113,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
 
   const deleteMutation = useMutation({
     mutationFn: async (hash: string) => {
-      await reposRequest.post('token/delete', { hash }, { baseURL: appBasePath() })
+      await reposRequest.post('-/token/delete', { hash }, { baseURL: appBasePath() })
     },
     onSuccess: () => {
       toast.success('Token deleted')
@@ -144,7 +140,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     setView('loading')
     try {
       const response = await reposRequest.post<TokenGetResponse>(
-        'token/get',
+        '-/token/get',
         { name: repoPath || 'repo' },
         { baseURL: appBasePath() }
       )
@@ -276,8 +272,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       <div className="min-w-0 flex-1">
                         <p className="font-medium truncate">{token.name}</p>
                         <p className="text-xs text-muted-foreground">
-                          Created {formatDate(token.created)}
-                          {token.used ? ` · Last used ${formatDate(token.used)}` : ''}
+                          Created {formatTimestamp(token.created, 'Never')}
+                          {token.used ? ` · Last used ${formatTimestamp(token.used, 'Never')}` : ''}
                         </p>
                       </div>
                       <Button

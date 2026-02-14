@@ -59,9 +59,11 @@ import {
   X,
 } from 'lucide-react'
 import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, repoKeys } from '@/hooks/use-repository'
-import { reposRequest } from '@/api/request'
+import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { TreeEntry } from '@/api/types'
+import { formatGitDate, formatFileSize } from '@/lib/format'
+import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 
 // Re-export CloneDialog from shared component
 export { CloneDialog } from '@/components/clone-dialog'
@@ -188,7 +190,7 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
   const handleUnsubscribe = async () => {
     setIsUnsubscribing(true)
     try {
-      await reposRequest.post('unsubscribe', { repository: repoId }, { baseURL: '/repositories/' })
+      await reposRequest.post('-/unsubscribe', { repository: repoId }, { baseURL: appBasePath() })
       toast.success('Unsubscribed from repository')
       // Invalidate repository list to refresh sidebar
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
@@ -440,7 +442,7 @@ function CommitsTab({ repoId, fingerprint }: { repoId: string; fingerprint: stri
                 <User className="h-3 w-3" />
                 <span>{commit.author}</span>
                 <span>·</span>
-                <span>{formatDate(commit.date)}</span>
+                <span>{formatGitDate(commit.date)}</span>
               </div>
             </div>
             <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
@@ -716,7 +718,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
               )}
               {tag.tagger && tag.date && (
                 <div className="text-sm text-muted-foreground">
-                  {tag.tagger} tagged on {formatTagDate(tag.date)}
+                  {tag.tagger} tagged on {formatGitDate(tag.date)}
                 </div>
               )}
             </div>
@@ -749,13 +751,6 @@ interface GeneralSettingsTabProps {
   defaultBranch: string
 }
 
-// Characters disallowed in repository names (matches backend validation)
-const DISALLOWED_NAME_CHARS = /[<>\r\n\\;"'`]/
-
-// Validate path: lowercase alphanumeric + hyphens, 1-100 chars, no leading/trailing hyphens
-function isValidPath(p: string): boolean {
-  return /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/.test(p) || /^[a-z0-9]$/.test(p)
-}
 
 function GeneralSettingsTab({
   repoId,
@@ -1145,7 +1140,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     queryKey: ['users', 'search', userSearchQuery],
     queryFn: () => reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
       `${endpoints.users.search}?q=${encodeURIComponent(userSearchQuery)}`,
-      { baseURL: '/repositories/' }
+      { baseURL: appBasePath() }
     ),
     enabled: userSearchQuery.length >= 1,
   })
@@ -1155,7 +1150,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     queryKey: ['groups', 'list'],
     queryFn: () => reposRequest.get<{ groups: Array<{ id: string; name: string }> }>(
       endpoints.groups.list,
-      { baseURL: '/repositories/' }
+      { baseURL: appBasePath() }
     ),
   })
 
@@ -1259,42 +1254,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
 // Utility Functions
 // ============================================================================
 
-function formatFileSize(bytes: number): string {
-  if (bytes === 0) return '0 B'
-  const k = 1024
-  const sizes = ['B', 'KB', 'MB', 'GB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`
-}
-
 function getCommitTitle(message: string): string {
   const firstLine = message.split('\n')[0]
   return firstLine.length > 72 ? firstLine.substring(0, 69) + '...' : firstLine
-}
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString)
-  const now = new Date()
-  const diffMs = now.getTime() - date.getTime()
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
-
-  if (diffDays === 0) {
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
-    if (diffHours === 0) {
-      const diffMinutes = Math.floor(diffMs / (1000 * 60))
-      return diffMinutes <= 1 ? 'just now' : `${diffMinutes} minutes ago`
-    }
-    return diffHours === 1 ? '1 hour ago' : `${diffHours} hours ago`
-  }
-
-  if (diffDays === 1) return 'yesterday'
-  if (diffDays < 7) return `${diffDays} days ago`
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`
-
-  return date.toLocaleDateString()
-}
-
-function formatTagDate(dateString: string): string {
-  const date = new Date(dateString)
-  return date.toLocaleDateString()
 }

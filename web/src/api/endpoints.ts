@@ -2,13 +2,13 @@ const endpoints = {
   // Repository operations
   repo: {
     // Class-level endpoints (no entity context)
-    info: 'info',
-    create: 'create',
-    search: 'search',
-    recommendations: 'recommendations',
-    probe: 'probe',
-    subscribe: 'subscribe',
-    unsubscribe: 'unsubscribe',
+    info: '-/info',
+    create: '-/create',
+    search: '-/search',
+    recommendations: '-/recommendations',
+    probe: '-/probe',
+    subscribe: '-/subscribe',
+    unsubscribe: '-/unsubscribe',
 
     // Entity-level endpoints (caller should set baseURL to /{repoId}/-/)
     settings: 'settings',
@@ -32,10 +32,10 @@ const endpoints = {
   },
   // User/group search
   users: {
-    search: 'users/search',
+    search: '-/users/search',
   },
   groups: {
-    list: 'groups',
+    list: '-/groups',
   },
 } as const
 

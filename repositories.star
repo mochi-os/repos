@@ -65,6 +65,15 @@ def database_upgrade(version):
         mochi.db.execute("alter table repositories add column path text not null default ''")
         mochi.db.execute("create index if not exists repositories_path on repositories(path)")
 
+# Validate git SHA: 4-40 hex characters
+def valid_sha(s):
+    if len(s) < 4 or len(s) > 40:
+        return False
+    for c in s.elems():
+        if c not in "0123456789abcdefABCDEF":
+            return False
+    return True
+
 # Validate path: lowercase alphanumeric + hyphens, 1-100 chars, no leading/trailing hyphens
 def valid_path(p):
     if len(p) < 1 or len(p) > 100:
@@ -103,18 +112,18 @@ def get_repo(a):
     if repo:
         return repo
 
-    # Try by fingerprint - check all repos
-    repos = mochi.db.rows("select * from repositories")
-    for r in repos:
-        if mochi.entity.fingerprint(r["id"]) == repo_param:
-            return r
-
-    # Resolve fingerprint/ID to entity info (for local entities only)
+    # Resolve fingerprint to entity ID via entity info (fast, local entities only)
     entity = mochi.entity.info(repo_param)
     if entity:
         repo = mochi.db.row("select * from repositories where id=?", entity["id"])
         if repo:
             return repo
+
+    # Fallback: scan repos for fingerprint match (needed for remote subscribed repos)
+    repos = mochi.db.rows("select * from repositories")
+    for r in repos:
+        if mochi.entity.fingerprint(r["id"]) == repo_param:
+            return r
 
     return None
 
@@ -247,6 +256,9 @@ def action_create(a):
     if not valid_path(path):
         return a.error(400, "Path must be lowercase letters, numbers, and hyphens (1-100 chars, no leading/trailing hyphens)")
 
+    if description and len(description) > 2000:
+        return a.error(400, "Description is too long (max 2000 characters)")
+
     # Check for duplicate name
     existing = mochi.db.row("select id from repositories where name = ?", name)
     if existing:
@@ -337,7 +349,7 @@ def action_settings_set(a):
         updates.append("path = ?")
         params.append(path)
 
-    if description:
+    if a.input.exists("description"):
         updates.append("description = ?")
         params.append(description)
 
@@ -724,6 +736,9 @@ def action_commit(a):
     if not sha:
         return a.error(400, "Commit SHA is required")
 
+    if not valid_sha(sha):
+        return a.error(400, "Invalid commit SHA")
+
     commit = mochi.git.commit.get(repo["id"], sha)
     if not commit:
         return a.error(404, "Commit not found")
@@ -878,20 +893,8 @@ def action_groups(a):
     return {"data": {"groups": results or []}}
 
 # Action: Get or create authentication token for git operations
-# Returns existing token count so UI can inform user, creates new if none exist
 def action_token_get(a):
-    if not a.user:
-        return a.error(401, "Not logged in")
-
-    # Create a new token for the clone command
-    name = (a.input("name") or "Git access").strip()
-    if len(name) > 100:
-        return a.error(400, "Token name is too long (max 100 characters)")
-    token = mochi.token.create(name, [], 0)
-    if not token:
-        return a.error(500, "Failed to create token")
-
-    return {"data": {"token": token}}
+    return action_token_create(a)
 
 # Action: Create a new authentication token
 def action_token_create(a):
@@ -1089,11 +1092,11 @@ def action_search(a):
 
     # Check if search term is a fingerprint (9 chars base58)
     if mochi.valid(clean, "fingerprint"):
-        # Search directory by fingerprint
-        all_repos = mochi.directory.search("repository", "", False)
-        for entry in all_repos:
-            entry_fp = entry.get("fingerprint", "").replace("-", "")
-            if entry_fp == clean:
+        # Resolve fingerprint to entity ID, then look up in directory
+        entity = mochi.entity.info(clean)
+        if entity and entity.get("class") == "repository":
+            entry = mochi.directory.get(entity["id"])
+            if entry:
                 # Avoid duplicates if already found by ID
                 found = False
                 for r in results:
@@ -1102,7 +1105,6 @@ def action_search(a):
                         break
                 if not found:
                     results.append(entry)
-                break
 
     # Also search by name
     name_results = mochi.directory.search("repository", search, False)
@@ -1241,6 +1243,7 @@ def action_subscribe(a):
         if response.get("error"):
             return a.error(response.get("code", 502), response.get("error", "Unable to connect to server"))
         repo_name = response.get("name", "")
+        repo_path = response.get("path", "")
         repo_description = response.get("description", "")
         repo_fingerprint = response.get("fingerprint", "")
         default_branch = response.get("default_branch", "main")
@@ -1250,6 +1253,7 @@ def action_subscribe(a):
         if not directory:
             return a.error(404, "Unable to find repository in directory. Please provide the repository URL.")
         repo_name = directory.get("name", "")
+        repo_path = ""
         repo_description = ""
         repo_fingerprint = mochi.entity.fingerprint(repo_id)
         default_branch = "main"
@@ -1259,9 +1263,9 @@ def action_subscribe(a):
     # Store locally with owner=0 (subscribed)
     now = mochi.time.now()
     mochi.db.execute("""
-        insert into repositories (id, name, description, default_branch, owner, server, created, updated)
-        values (?, ?, ?, ?, 0, ?, ?, ?)
-    """, repo_id, repo_name, repo_description, default_branch, server or "", now, now)
+        insert into repositories (id, name, path, description, default_branch, owner, server, created, updated)
+        values (?, ?, ?, ?, ?, 0, ?, ?, ?)
+    """, repo_id, repo_name, repo_path, repo_description, default_branch, server or "", now, now)
 
     # Notify remote owner
     mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})

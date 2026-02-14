@@ -36,7 +36,7 @@ export const repoKeys = {
 export function useRepoInfo() {
   return useQuery({
     queryKey: repoKeys.info(),
-    queryFn: () => reposRequest.get<InfoResponse>(endpoints.repo.info, { baseURL: '/repositories/' }),
+    queryFn: () => reposRequest.get<InfoResponse>(endpoints.repo.info, { baseURL: appBasePath() }),
   })
 }
 
@@ -147,7 +147,7 @@ export function useSearchRepos(query: string) {
     queryKey: ['repositories', 'search', query],
     queryFn: () => reposRequest.get<SearchResponse>(
       `${endpoints.repo.search}?search=${encodeURIComponent(query)}`,
-      { baseURL: '/repositories/' }
+      { baseURL: appBasePath() }
     ),
     enabled: query.length >= 1,
   })
@@ -157,7 +157,7 @@ export function useSearchRepos(query: string) {
 export function useProbeRepo() {
   return useMutation({
     mutationFn: (url: string) =>
-      reposRequest.post<ProbeResponse>(endpoints.repo.probe, { url }, { baseURL: '/repositories/' }),
+      reposRequest.post<ProbeResponse>(endpoints.repo.probe, { url }, { baseURL: appBasePath() }),
   })
 }
 
@@ -167,7 +167,7 @@ export function useSubscribe() {
 
   return useMutation({
     mutationFn: (data: { repository: string; server?: string }) =>
-      reposRequest.post<SubscribeResponse>(endpoints.repo.subscribe, data, { baseURL: '/repositories/' }),
+      reposRequest.post<SubscribeResponse>(endpoints.repo.subscribe, data, { baseURL: appBasePath() }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
@@ -180,7 +180,7 @@ export function useUnsubscribe() {
 
   return useMutation({
     mutationFn: (repository: string) =>
-      reposRequest.post<UnsubscribeResponse>(endpoints.repo.unsubscribe, { repository }, { baseURL: '/repositories/' }),
+      reposRequest.post<UnsubscribeResponse>(endpoints.repo.unsubscribe, { repository }, { baseURL: appBasePath() }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },

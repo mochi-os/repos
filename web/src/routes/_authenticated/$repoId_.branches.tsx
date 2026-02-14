@@ -228,7 +228,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {error instanceof Error ? error.message : 'Failed to load branches'}
+        {getErrorMessage(error, 'Failed to load branches')}
       </div>
     )
   }

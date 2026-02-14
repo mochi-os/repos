@@ -23,8 +23,7 @@ type CreateRepositoryDialogProps = {
   hideTrigger?: boolean
 }
 
-// Characters disallowed in entity names (matches backend validation)
-const DISALLOWED_NAME_CHARS = /[<>\r\n\\;"'`]/
+import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 
 // Derive a URL-safe slug from a name
 function nameToPath(name: string): string {
@@ -32,11 +31,6 @@ function nameToPath(name: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
-}
-
-// Validate path: lowercase alphanumeric + hyphens, 1-100 chars, no leading/trailing hyphens
-function isValidPath(p: string): boolean {
-  return /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/.test(p) || /^[a-z0-9]$/.test(p)
 }
 
 export function CreateRepositoryDialog({

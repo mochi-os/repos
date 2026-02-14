@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { formatGitDate } from '@/lib/format'
 import {
   Main,
   Card,
@@ -105,7 +106,7 @@ function CommitsList({ repoId }: { repoId: string }) {
                   <User className="h-3 w-3" />
                   <span>{commit.author}</span>
                   <span>·</span>
-                  <span>{formatDate(commit.date)}</span>
+                  <span>{formatGitDate(commit.date)}</span>
                 </div>
               </div>
               <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
@@ -124,24 +125,3 @@ function getCommitTitle(message: string): string {
   return firstLine.length > 72 ? firstLine.substring(0, 69) + '...' : firstLine
 }
 
-function formatDate(dateString: string): string {
-  const date = new Date(dateString)
-  const now = new Date()
-  const diffMs = now.getTime() - date.getTime()
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
-
-  if (diffDays === 0) {
-    const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
-    if (diffHours === 0) {
-      const diffMinutes = Math.floor(diffMs / (1000 * 60))
-      return diffMinutes <= 1 ? 'just now' : `${diffMinutes} minutes ago`
-    }
-    return diffHours === 1 ? '1 hour ago' : `${diffHours} hours ago`
-  }
-
-  if (diffDays === 1) return 'yesterday'
-  if (diffDays < 7) return `${diffDays} days ago`
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`
-
-  return date.toLocaleDateString()
-}

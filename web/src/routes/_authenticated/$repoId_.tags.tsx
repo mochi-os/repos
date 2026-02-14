@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { formatGitDate } from '@/lib/format'
 import {
   Main,
   Card,
@@ -108,7 +109,7 @@ function TagsList({ repoId }: { repoId: string }) {
                 )}
                 {tag.tagger && tag.date && (
                   <div className="text-sm text-muted-foreground">
-                    {tag.tagger} tagged on {formatDate(tag.date)}
+                    {tag.tagger} tagged on {formatGitDate(tag.date)}
                   </div>
                 )}
               </div>
@@ -123,7 +124,3 @@ function TagsList({ repoId }: { repoId: string }) {
   )
 }
 
-function formatDate(dateString: string): string {
-  const date = new Date(dateString)
-  return date.toLocaleDateString()
-}
