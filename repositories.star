@@ -13,6 +13,7 @@ def database_create():
             size integer not null default 0,
             owner integer not null default 1,
             server text not null default '',
+            fingerprint text not null default '',
             created text not null default '',
             updated text not null default ''
         )
@@ -20,6 +21,7 @@ def database_create():
     mochi.db.execute("create index repositories_name on repositories(name)")
     mochi.db.execute("create index repositories_path on repositories(path)")
     mochi.db.execute("create index repositories_owner on repositories(owner)")
+    mochi.db.execute("create index repositories_fingerprint on repositories(fingerprint)")
 
     # Subscribers table - tracks who subscribes to local repositories
     mochi.db.execute("""
@@ -65,6 +67,16 @@ def database_upgrade(version):
         mochi.db.execute("alter table repositories add column path text not null default ''")
         mochi.db.execute("create index if not exists repositories_path on repositories(path)")
 
+    if version == 7:
+        # Add fingerprint column for O(1) lookups by fingerprint
+        mochi.db.execute("alter table repositories add column fingerprint text not null default ''")
+        mochi.db.execute("create index if not exists repositories_fingerprint on repositories( fingerprint )")
+        # Populate fingerprints for existing repositories
+        repos = mochi.db.rows("select id from repositories")
+        for r in repos:
+            fp = mochi.entity.fingerprint(r["id"]) or ""
+            mochi.db.execute("update repositories set fingerprint=? where id=?", fp, r["id"])
+
 # Validate git SHA: 4-40 hex characters
 def valid_sha(s):
     if len(s) < 4 or len(s) > 40:
@@ -103,29 +115,14 @@ def get_repo(a):
     if not repo_param:
         return None
 
-    # Validate identifier format before calling entity.info
-    if not mochi.valid(repo_param, "fingerprint") and not mochi.valid(repo_param, "entity"):
-        return None
-
-    # First try to find directly in database (works for both owned and subscribed repos)
+    # First try to find directly by ID
     repo = mochi.db.row("select * from repositories where id = ?", repo_param)
     if repo:
         return repo
 
-    # Resolve fingerprint to entity ID via entity info (fast, local entities only)
-    entity = mochi.entity.info(repo_param)
-    if entity:
-        repo = mochi.db.row("select * from repositories where id=?", entity["id"])
-        if repo:
-            return repo
-
-    # Fallback: scan repos for fingerprint match (needed for remote subscribed repos)
-    repos = mochi.db.rows("select * from repositories")
-    for r in repos:
-        if mochi.entity.fingerprint(r["id"]) == repo_param:
-            return r
-
-    return None
+    # Try to find by fingerprint
+    repo = mochi.db.row("select * from repositories where fingerprint = ?", repo_param)
+    return repo
 
 # Action: Get entity info - returns repository details for entity context
 def action_info_entity(a):
@@ -282,10 +279,11 @@ def action_create(a):
 
     # Create database record
     now = mochi.time.now()
+    fp = mochi.entity.fingerprint(entity_id) or ""
     mochi.db.execute("""
-        insert into repositories (id, name, path, description, default_branch, created, updated)
-        values (?, ?, ?, ?, 'main', ?, ?)
-    """, entity_id, name, path, description, now, now)
+        insert into repositories (id, name, path, description, default_branch, fingerprint, created, updated)
+        values (?, ?, ?, ?, 'main', ?, ?, ?)
+    """, entity_id, name, path, description, fp, now, now)
 
     # Set up access control
     if a.user and a.user.identity:
@@ -1262,10 +1260,11 @@ def action_subscribe(a):
 
     # Store locally with owner=0 (subscribed)
     now = mochi.time.now()
+    fp = mochi.entity.fingerprint(repo_id) or ""
     mochi.db.execute("""
-        insert into repositories (id, name, path, description, default_branch, owner, server, created, updated)
-        values (?, ?, ?, ?, ?, 0, ?, ?, ?)
-    """, repo_id, repo_name, repo_path, repo_description, default_branch, server or "", now, now)
+        insert into repositories (id, name, path, description, default_branch, owner, server, fingerprint, created, updated)
+        values (?, ?, ?, ?, ?, 0, ?, ?, ?, ?)
+    """, repo_id, repo_name, repo_path, repo_description, default_branch, server or "", fp, now, now)
 
     # Notify remote owner
     mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
@@ -1282,16 +1281,12 @@ def action_unsubscribe(a):
     if not mochi.valid(repo_id, "entity") and not mochi.valid(repo_id, "fingerprint"):
         return a.error(400, "Invalid repository ID")
 
-    # Get repository
+    # Get repository by ID or fingerprint
     repo = mochi.db.row("select * from repositories where id = ?", repo_id)
     if not repo:
-        # Try by fingerprint
-        repos = mochi.db.rows("select * from repositories")
-        for r in repos:
-            if mochi.entity.fingerprint(r["id"]) == repo_id:
-                repo = r
-                repo_id = r["id"]
-                break
+        repo = mochi.db.row("select * from repositories where fingerprint = ?", repo_id)
+        if repo:
+            repo_id = repo["id"]
     if not repo:
         return a.error(404, "Repository not found")
 
