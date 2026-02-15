@@ -347,7 +347,7 @@ def action_settings_set(a):
         updates.append("path = ?")
         params.append(path)
 
-    if a.input.exists("description"):
+    if a.input("description") != None:
         updates.append("description = ?")
         params.append(description)
 
