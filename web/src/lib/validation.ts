@@ -1,5 +1,5 @@
 // Characters disallowed in entity names (matches backend validation)
-export const DISALLOWED_NAME_CHARS = /[<>\r\n\\;"'`]/
+export const DISALLOWED_NAME_CHARS = /[<>\r\n]/
 
 // Validate path: lowercase alphanumeric + hyphens, 1-100 chars, no leading/trailing hyphens
 export function isValidPath(p: string): boolean {

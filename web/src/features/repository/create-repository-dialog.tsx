@@ -76,7 +76,7 @@ export function CreateRepositoryDialog({
 
   const nameError =
     name && DISALLOWED_NAME_CHARS.test(name)
-      ? 'Name cannot contain < > \\ ; " \' or ` characters'
+      ? 'Name cannot contain < or > characters'
       : name.length > 100
         ? 'Name must be 100 characters or less'
         : null

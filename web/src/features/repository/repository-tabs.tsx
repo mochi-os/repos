@@ -819,7 +819,7 @@ function GeneralSettingsTab({
   const validateName = (n: string): string | null => {
     if (!n.trim()) return 'Repository name is required'
     if (n.length > 100) return 'Name must be 100 characters or less'
-    if (DISALLOWED_NAME_CHARS.test(n)) return 'Name cannot contain < > \\ ; " \' or ` characters'
+    if (DISALLOWED_NAME_CHARS.test(n)) return 'Name cannot contain < or > characters'
     return null
   }
 
