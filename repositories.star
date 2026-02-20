@@ -718,6 +718,11 @@ def action_commits(a):
     # Local repository
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
     if commits == None:
+        # Check if repository is empty (no branches or tags at all)
+        branches = mochi.git.branches(repo["id"])
+        tags = mochi.git.tags(repo["id"])
+        if (not branches or len(branches) == 0) and (not tags or len(tags) == 0):
+            return {"data": {"commits": []}}
         return a.error(404, "Branch or tag '%s' not found." % ref)
     return {"data": {"commits": commits or []}}
 

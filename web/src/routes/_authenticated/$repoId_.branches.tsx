@@ -124,7 +124,7 @@ function BranchesPage() {
           isRemote={data.remote}
           server={data.server}
         />
-        {data.isAdmin && (
+        {data.isAdmin && branches.length > 0 && (
           <div className="flex justify-end">
             <Button size="sm" onClick={() => setShowCreateDialog(true)}>
               <Plus className="h-4 w-4" />
