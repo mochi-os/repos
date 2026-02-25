@@ -935,66 +935,74 @@ def action_token_delete(a):
 
 # Service interface for other apps
 
-def service_list(s):
+def service_list(s, params=None):
     """List repositories owned by current user"""
     return mochi.db.rows("select id, name, description, default_branch from repositories")
 
-def service_get(s):
+def service_get(s, params=None):
     """Get repository details"""
-    repo_id = s.get("id", "")
+    p = params or s
+    repo_id = p.get("id", "")
     return mochi.db.row("select * from repositories where id = ?", repo_id)
 
-def service_branches(s):
+def service_branches(s, params=None):
     """List branches for a repository"""
-    repo_id = s.get("repo", "")
+    p = params or s
+    repo_id = p.get("repo", "")
     return mochi.git.branches(repo_id)
 
-def service_file(s):
+def service_file(s, params=None):
     """Get file contents at a ref"""
-    repo_id = s.get("repo", "")
-    ref = s.get("ref", "") or "HEAD"
-    path = s.get("path", "")
+    p = params or s
+    repo_id = p.get("repo", "")
+    ref = p.get("ref", "") or "HEAD"
+    path = p.get("path", "")
     return mochi.git.blob.content(repo_id, ref, path)
 
-def service_tree(s):
+def service_tree(s, params=None):
     """List directory at a ref"""
-    repo_id = s.get("repo", "")
-    ref = s.get("ref", "") or "HEAD"
-    path = s.get("path", "") or ""
+    p = params or s
+    repo_id = p.get("repo", "")
+    ref = p.get("ref", "") or "HEAD"
+    path = p.get("path", "") or ""
     return mochi.git.tree(repo_id, ref, path)
 
-def service_commits(s):
+def service_commits(s, params=None):
     """List commits between two refs"""
-    repo_id = s.get("repo", "")
-    base = s.get("base", "")
-    head = s.get("head", "")
+    p = params or s
+    repo_id = p.get("repo", "")
+    base = p.get("base", "")
+    head = p.get("head", "")
     if base and head:
         return mochi.git.commit.between(repo_id, base, head)
     return mochi.git.commit.list(repo_id, head or "HEAD", 50, 0)
 
-def service_diff(s):
+def service_diff(s, params=None):
     """Get diff between refs (for PR display)"""
-    repo_id = s.get("repo", "")
-    base = s.get("base", "")
-    head = s.get("head", "")
+    p = params or s
+    repo_id = p.get("repo", "")
+    base = p.get("base", "")
+    head = p.get("head", "")
     return mochi.git.diff(repo_id, base, head)
 
-def service_can_merge(s):
+def service_can_merge(s, params=None):
     """Check if branches can be merged cleanly"""
-    repo_id = s.get("repo", "")
-    source = s.get("source", "")
-    target = s.get("target", "")
+    p = params or s
+    repo_id = p.get("repo", "")
+    source = p.get("source", "")
+    target = p.get("target", "")
     return mochi.git.merge.check(repo_id, source, target)
 
-def service_merge(s):
+def service_merge(s, params=None):
     """Perform merge of source branch into target branch"""
-    repo_id = s.get("repo", "")
-    source = s.get("source", "")
-    target = s.get("target", "")
-    message = s.get("message", "") or "Merge branch"
-    author_name = s.get("author_name", "") or "Mochi"
-    author_email = s.get("author_email", "") or ""
-    method = s.get("method", "") or "merge"
+    p = params or s
+    repo_id = p.get("repo", "")
+    source = p.get("source", "")
+    target = p.get("target", "")
+    message = p.get("message", "") or "Merge branch"
+    author_name = p.get("author_name", "") or "Mochi"
+    author_email = p.get("author_email", "") or ""
+    method = p.get("method", "") or "merge"
     return mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email, method)
 
 # Helper functions
