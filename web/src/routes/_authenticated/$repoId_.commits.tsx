@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { formatGitDate } from '@/lib/format'
+import { formatGitDate, getCommitTitle } from '@/lib/format'
 import {
   Main,
   Card,
@@ -120,8 +120,4 @@ function CommitsList({ repoId }: { repoId: string }) {
   )
 }
 
-function getCommitTitle(message: string): string {
-  const firstLine = message.split('\n')[0]
-  return firstLine.length > 72 ? firstLine.substring(0, 69) + '...' : firstLine
-}
 

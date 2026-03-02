@@ -11,8 +11,6 @@ import type {
   BlobResponse,
   CreateRepoRequest,
   CreateRepoResponse,
-  SearchResponse,
-  ProbeResponse,
   SubscribeResponse,
   UnsubscribeResponse,
 } from '@/api/types'
@@ -102,17 +100,6 @@ export function useCreateRepo() {
   })
 }
 
-export function useDeleteRepo() {
-  const queryClient = useQueryClient()
-
-  return useMutation({
-    mutationFn: () => reposRequest.post<{ success: boolean }>(endpoints.repo.delete),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    },
-  })
-}
-
 export function useCreateBranch(repoId: string) {
   const queryClient = useQueryClient()
 
@@ -138,26 +125,6 @@ export function useDeleteBranch(repoId: string) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.branches(repoId) })
     },
-  })
-}
-
-// Search for repositories
-export function useSearchRepos(query: string) {
-  return useQuery({
-    queryKey: ['repositories', 'search', query],
-    queryFn: () => reposRequest.get<SearchResponse>(
-      `${endpoints.repo.search}?search=${encodeURIComponent(query)}`,
-      { baseURL: appBasePath() }
-    ),
-    enabled: query.length >= 1,
-  })
-}
-
-// Probe a remote repository
-export function useProbeRepo() {
-  return useMutation({
-    mutationFn: (url: string) =>
-      reposRequest.post<ProbeResponse>(endpoints.repo.probe, { url }, { baseURL: appBasePath() }),
   })
 }
 

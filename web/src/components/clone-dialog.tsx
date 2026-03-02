@@ -140,7 +140,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     setView('loading')
     try {
       const response = await reposRequest.post<TokenGetResponse>(
-        '-/token/get',
+        '-/token/create',
         { name: repoPath || 'repo' },
         { baseURL: appBasePath() }
       )

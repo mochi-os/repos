@@ -40,18 +40,12 @@ import {
 import {
   Check,
   ChevronRight,
-  File,
-  FolderGit2,
-  Folder,
   GitBranch,
   GitCommit,
-  History,
   Loader2,
   Pencil,
   Plus,
   Save,
-  Settings,
-  Shield,
   Tag,
   Trash2,
   User,
@@ -61,30 +55,15 @@ import {
 import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, repoKeys } from '@/hooks/use-repository'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
-import type { TreeEntry } from '@/api/types'
-import { formatGitDate, formatFileSize } from '@/lib/format'
+
+import { FileEntry } from '@/components/file-entry'
+import { formatGitDate, getCommitTitle } from '@/lib/format'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
+import { tabs, type RepositoryTabId } from './tabs'
 
 // Re-export CloneDialog from shared component
 export { CloneDialog } from '@/components/clone-dialog'
-
-export type RepositoryTabId = 'files' | 'commits' | 'branches' | 'tags' | 'settings' | 'access'
-
-interface Tab {
-  id: RepositoryTabId
-  label: string
-  icon: React.ReactNode
-  ownerOnly?: boolean
-}
-
-const tabs: Tab[] = [
-  { id: 'files', label: 'Files', icon: <FolderGit2 className="h-4 w-4" /> },
-  { id: 'commits', label: 'Commits', icon: <History className="h-4 w-4" /> },
-  { id: 'branches', label: 'Branches', icon: <GitBranch className="h-4 w-4" /> },
-  { id: 'tags', label: 'Tags', icon: <Tag className="h-4 w-4" /> },
-  { id: 'access', label: 'Access', icon: <Shield className="h-4 w-4" />, ownerOnly: true },
-  { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" />, ownerOnly: true },
-]
+export type { RepositoryTabId }
 
 interface RepositoryTabsProps {
   repoId: string
@@ -354,38 +333,6 @@ function FilesTab({
         </CardContent>
       </Card>
     </div>
-  )
-}
-
-interface FileEntryProps {
-  entry: TreeEntry
-  fingerprint: string
-  currentRef: string
-  basePath: string
-}
-
-function FileEntry({ entry, fingerprint, currentRef, basePath }: FileEntryProps) {
-  const fullPath = basePath ? `${basePath}/${entry.name}` : entry.name
-  const isDirectory = entry.type === 'tree'
-
-  return (
-    <Link
-      to={isDirectory ? "/$repoId/tree/$ref/$" : "/$repoId/blob/$ref/$"}
-      params={{ repoId: fingerprint, ref: currentRef, _splat: fullPath }}
-      className="flex items-center gap-3 px-4 py-2 hover:bg-accent transition-colors"
-    >
-      {isDirectory ? (
-        <Folder className="h-4 w-4 text-blue-500" />
-      ) : (
-        <File className="h-4 w-4 text-muted-foreground" />
-      )}
-      <span className="flex-1 truncate">{entry.name}</span>
-      {entry.size !== undefined && entry.size > 0 && (
-        <span className="text-sm text-muted-foreground">
-          {formatFileSize(entry.size)}
-        </span>
-      )}
-    </Link>
   )
 }
 
@@ -1164,7 +1111,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       )
       setRules(response.rules ?? [])
     } catch (err) {
-      setError(err instanceof Error ? err : new Error('Failed to load access rules'))
+      setError(new Error(getErrorMessage(err, 'Failed to load access rules')))
     } finally {
       setIsLoading(false)
     }
@@ -1254,7 +1201,3 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
 // Utility Functions
 // ============================================================================
 
-function getCommitTitle(message: string): string {
-  const firstLine = message.split('\n')[0]
-  return firstLine.length > 72 ? firstLine.substring(0, 69) + '...' : firstLine
-}

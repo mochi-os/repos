@@ -98,6 +98,18 @@ def valid_path(p):
         return False
     return True
 
+# Validate git ref: alphanumeric, hyphens, dots, slashes, underscores, 1-256 chars
+def valid_ref(r):
+    if len(r) < 1 or len(r) > 256:
+        return False
+    allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._/"
+    for c in r.elems():
+        if c not in allowed:
+            return False
+    if ".." in r:
+        return False
+    return True
+
 # Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
     repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories order by name")
@@ -685,6 +697,8 @@ def action_commits(a):
         return a.error(403, "Access denied")
 
     ref = a.input("ref") or "HEAD"
+    if not valid_ref(ref):
+        return a.error(400, "Invalid ref")
     limit_str = a.input("limit", "50")
     offset_str = a.input("offset", "0")
     if not limit_str.isdigit() or not offset_str.isdigit():
@@ -758,6 +772,8 @@ def action_tree(a):
         return a.error(403, "Access denied")
 
     ref = a.input("ref") or "HEAD"
+    if not valid_ref(ref):
+        return a.error(400, "Invalid ref")
     path = a.input("path") or ""
 
     # Check if remote repository
@@ -815,6 +831,8 @@ def action_blob(a):
         return a.error(403, "Access denied")
 
     ref = a.input("ref") or "HEAD"
+    if not valid_ref(ref):
+        return a.error(400, "Invalid ref")
     path = a.input("path")
 
     if not path:
@@ -894,10 +912,6 @@ def action_groups(a):
         return a.error(401, "Not logged in")
     results = mochi.service.call("friends", "groups/list")
     return {"data": {"groups": results or []}}
-
-# Action: Get or create authentication token for git operations
-def action_token_get(a):
-    return action_token_create(a)
 
 # Action: Create a new authentication token
 def action_token_create(a):
@@ -1591,15 +1605,6 @@ def broadcast_update(repo):
         mochi.message.send(
             headers(repo["id"], sub["id"], "update"),
             {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"]}
-        )
-
-# Broadcast activity notification to all subscribers
-def broadcast_activity(repo, activity_type, details):
-    subscribers = mochi.db.rows("select id from subscribers where repository = ?", repo["id"])
-    for sub in subscribers:
-        mochi.message.send(
-            headers(repo["id"], sub["id"], "activity"),
-            {"type": activity_type, "details": details}
         )
 
 # Broadcast deletion notification to all subscribers
