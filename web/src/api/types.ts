@@ -84,7 +84,7 @@ export interface Tag {
   sha: string
   message?: string
   tagger?: string
-  date?: string
+  date?: number
 }
 
 export interface BranchesResponse {
@@ -101,7 +101,7 @@ export interface Commit {
   message: string
   author: string
   author_email?: string
-  date: string
+  date: number
   parents?: string[]
 }
 

@@ -1,9 +1,8 @@
 import { formatTimestamp } from '@mochi/common'
 
-// Format a git date string (ISO 8601) to locale date + time
-export function formatGitDate(dateString: string): string {
-  const timestamp = Math.floor(new Date(dateString).getTime() / 1000)
-  return formatTimestamp(timestamp)
+// Format a git date (Unix timestamp in seconds) to locale date + time
+export function formatGitDate(date: number): string {
+  return formatTimestamp(date)
 }
 
 // Format file size in bytes to human-readable string
