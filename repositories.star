@@ -1,5 +1,5 @@
 # Mochi Repositories app
-# Copyright Alistair Cunningham 2025
+# Copyright Alistair Cunningham 2025-2026
 
 # Database schema
 def database_create():
@@ -1117,19 +1117,15 @@ def action_search(a):
 
     # Check if search term is a fingerprint (9 chars base58)
     if mochi.valid(clean, "fingerprint"):
-        # Resolve fingerprint to entity ID, then look up in directory
-        entity = mochi.entity.info(clean)
-        if entity and entity.get("class") == "repository":
-            entry = mochi.directory.get(entity["id"])
-            if entry:
-                # Avoid duplicates if already found by ID
-                found = False
-                for r in results:
-                    if r.get("id") == entry.get("id"):
-                        found = True
-                        break
-                if not found:
-                    results.append(entry)
+        matches = mochi.directory.search("repository", "", False, fingerprint=clean)
+        for entry in matches:
+            found = False
+            for r in results:
+                if r.get("id") == entry.get("id"):
+                    found = True
+                    break
+            if not found:
+                results.append(entry)
 
     # Also search by name
     name_results = mochi.directory.search("repository", search, False)
