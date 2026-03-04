@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -46,9 +46,18 @@ export function FileBrowser({
   initialPath = '',
 }: FileBrowserProps) {
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
+  const [currentPath, setCurrentPath] = useState(initialPath)
 
   const { data: branchesData } = useBranches(repoId)
-  const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
+  const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, currentPath)
+
+  // Sync ref and path from API response (handles branch names with slashes)
+  useEffect(() => {
+    if (treeData) {
+      if (treeData.ref && treeData.ref !== currentRef) setCurrentRef(treeData.ref)
+      if (treeData.path !== undefined && treeData.path !== currentPath) setCurrentPath(treeData.path)
+    }
+  }, [treeData?.ref, treeData?.path])
 
   const branches = branchesData?.branches || []
   const entries = treeData?.entries || []
@@ -62,7 +71,7 @@ export function FileBrowser({
     return a.name.localeCompare(b.name)
   })
 
-  const pathParts = initialPath ? initialPath.split('/').filter(Boolean) : []
+  const pathParts = currentPath ? currentPath.split('/').filter(Boolean) : []
 
   return (
     <div className="space-y-4 p-4">
@@ -187,7 +196,7 @@ export function FileBrowser({
                   entry={entry}
                   fingerprint={fingerprint}
                   currentRef={currentRef}
-                  basePath={initialPath}
+                  basePath={currentPath}
                 />
               ))}
             </div>
@@ -214,16 +223,24 @@ export function FileTree({
   name,
   defaultBranch,
   currentRef: initialRef,
-  currentPath,
+  currentPath: initialPath,
 }: FileTreeProps) {
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
+  const [currentPath, setCurrentPath] = useState(initialPath)
 
   const { data: branchesData } = useBranches(repoId)
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, currentPath)
 
+  // Sync ref and path from API response (handles branch names with slashes)
+  useEffect(() => {
+    if (treeData) {
+      if (treeData.ref && treeData.ref !== currentRef) setCurrentRef(treeData.ref)
+      if (treeData.path !== undefined && treeData.path !== currentPath) setCurrentPath(treeData.path)
+    }
+  }, [treeData?.ref, treeData?.path])
+
   const branches = branchesData?.branches || []
   const entries = treeData?.entries || []
-
 
   const sortedEntries = [...entries].sort((a, b) => {
     const aIsDir = a.type === 'tree' || a.type === 'dir'

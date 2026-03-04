@@ -77,6 +77,8 @@ interface RepositoryTabsProps {
   onTabChange: (tab: RepositoryTabId) => void
 }
 
+const tabsWithBranchSelector = new Set<RepositoryTabId>(['files', 'commits'])
+
 export function RepositoryTabs({
   repoId,
   fingerprint,
@@ -88,6 +90,9 @@ export function RepositoryTabs({
   activeTab,
   onTabChange,
 }: RepositoryTabsProps) {
+  const [currentRef, setCurrentRef] = useState(defaultBranch)
+  const { data: branchesData } = useBranches(repoId)
+  const branches = branchesData?.branches || []
 
   // Filter tabs based on ownership
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
@@ -118,17 +123,34 @@ export function RepositoryTabs({
         ))}
       </div>
 
+      {/* Branch selector - shared across files/commits tabs */}
+      {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
+        <Select value={currentRef} onValueChange={setCurrentRef}>
+          <SelectTrigger className="w-[180px]">
+            <GitBranch className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Select branch" />
+          </SelectTrigger>
+          <SelectContent>
+            {branches.map((branch) => (
+              <SelectItem key={branch.name} value={branch.name}>
+                {branch.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+
       {/* Tab content */}
-      <div>
+      <div className="pt-2">
         {activeTab === 'files' && (
           <FilesTab
             repoId={repoId}
             fingerprint={fingerprint}
             name={name}
-            defaultBranch={defaultBranch}
+            currentRef={currentRef}
           />
         )}
-        {activeTab === 'commits' && <CommitsTab repoId={repoId} fingerprint={fingerprint} />}
+        {activeTab === 'commits' && <CommitsTab repoId={repoId} fingerprint={fingerprint} currentRef={currentRef} />}
         {activeTab === 'branches' && (
           <BranchesTab
             repoId={repoId}
@@ -221,8 +243,7 @@ interface FilesTabProps {
   repoId: string
   fingerprint: string
   name: string
-  defaultBranch: string
-  initialRef?: string
+  currentRef: string
   initialPath?: string
 }
 
@@ -230,16 +251,11 @@ function FilesTab({
   repoId,
   fingerprint,
   name,
-  defaultBranch,
-  initialRef,
+  currentRef,
   initialPath = '',
 }: FilesTabProps) {
-  const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
-
-  const { data: branchesData } = useBranches(repoId)
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
 
-  const branches = branchesData?.branches || []
   const entries = treeData?.entries || []
 
   // Sort entries: directories first, then files
@@ -253,25 +269,6 @@ function FilesTab({
 
   return (
     <div className="space-y-4">
-      {/* Branch selector */}
-      {branches.length > 0 && (
-        <div className="flex flex-wrap items-center gap-2">
-          <Select value={currentRef} onValueChange={setCurrentRef}>
-            <SelectTrigger className="w-[180px]">
-              <GitBranch className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Select branch" />
-            </SelectTrigger>
-            <SelectContent>
-              {branches.map((branch) => (
-                <SelectItem key={branch.name} value={branch.name}>
-                  {branch.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      )}
-
       {/* Breadcrumb */}
       {pathParts.length > 0 && (
         <div className="flex items-center gap-1 text-sm">
@@ -340,65 +337,55 @@ function FilesTab({
 // Commits Tab
 // ============================================================================
 
-function CommitsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string }) {
-  const { data, isLoading, error } = useCommits(repoId)
-
-  if (isLoading) {
-    return (
-      <div className="space-y-2">
-        {[...Array(10)].map((_, i) => (
-          <Skeleton key={i} className="h-16 w-full" />
-        ))}
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 text-destructive">
-        {getErrorMessage(error, 'Failed to load commits')}
-      </div>
-    )
-  }
-
-  const commits = data?.commits || []
-
-  if (commits.length === 0) {
-    return (
-      <div className="p-8 text-center text-muted-foreground">
-        <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p>No commits yet</p>
-      </div>
-    )
-  }
+function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
+  const { data, isLoading, error } = useCommits(repoId, currentRef)
 
   return (
-    <Card>
-      <CardContent className="p-0 divide-y">
-        {commits.map((commit) => (
-          <Link
-            key={commit.sha}
-            to="/$repoId/commit/$sha"
-            params={{ repoId: fingerprint, sha: commit.sha }}
-            className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
-          >
-            <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-            <div className="flex-1 min-w-0">
-              <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                <User className="h-3 w-3" />
-                <span>{commit.author}</span>
-                <span>·</span>
-                <span>{formatGitDate(commit.date)}</span>
-              </div>
-            </div>
-            <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-              {commit.sha.substring(0, 7)}
-            </code>
-          </Link>
-        ))}
-      </CardContent>
-    </Card>
+    <div className="space-y-4">
+      {isLoading ? (
+        <div className="space-y-2">
+          {[...Array(10)].map((_, i) => (
+            <Skeleton key={i} className="h-16 w-full" />
+          ))}
+        </div>
+      ) : error ? (
+        <div className="p-4 text-destructive">
+          {getErrorMessage(error, 'Failed to load commits')}
+        </div>
+      ) : (data?.commits || []).length === 0 ? (
+        <div className="p-8 text-center text-muted-foreground">
+          <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
+          <p>No commits yet</p>
+        </div>
+      ) : (
+        <Card>
+          <CardContent className="p-0 divide-y">
+            {(data?.commits || []).map((commit) => (
+              <Link
+                key={commit.sha}
+                to="/$repoId/commit/$sha"
+                params={{ repoId: fingerprint, sha: commit.sha }}
+                className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
+              >
+                <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+                    <User className="h-3 w-3" />
+                    <span>{commit.author}</span>
+                    <span>·</span>
+                    <span>{formatGitDate(commit.date)}</span>
+                  </div>
+                </div>
+                <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+                  {commit.sha.substring(0, 7)}
+                </code>
+              </Link>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+    </div>
   )
 }
 
@@ -487,7 +474,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
   return (
     <>
       {isOwner && (
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-end mb-2">
           <Button size="sm" onClick={() => setShowCreateDialog(true)}>
             <Plus className="h-4 w-4" />
             Create branch
@@ -866,7 +853,7 @@ function GeneralSettingsTab({
 
   return (
     <div className="max-w-2xl divide-y">
-      <div className="py-4">
+      <div className="pb-4">
         <h3 className="text-lg font-semibold mb-4">Identity</h3>
         <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 items-center">
           <span className="text-muted-foreground">Name:</span>

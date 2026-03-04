@@ -44,7 +44,7 @@ function CommitPage() {
 
   return (
     <>
-      <Header>
+      <Header className="border-b-0">
         <div className="flex items-center gap-2">
           <FolderGit2 className="h-5 w-5" />
           <h1 className="text-lg font-semibold">{data.name}</h1>
@@ -52,7 +52,7 @@ function CommitPage() {
           <span>Commit</span>
         </div>
       </Header>
-      <Main>
+      <Main spacingY="xs">
         <div className="space-y-4 p-4">
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" asChild>

@@ -110,6 +110,22 @@ def valid_ref(r):
         return False
     return True
 
+# Resolve a ref and file path from a combined path like "feature/hello-world/src/main.ts".
+# Tries progressively longer prefixes as git refs until one matches.
+def resolve_ref(repo_id, combined):
+    if not combined:
+        return ("HEAD", "")
+    parts = combined.split("/")
+    for i in range(1, len(parts) + 1):
+        candidate = "/".join(parts[:i])
+        if not valid_ref(candidate):
+            continue
+        root = mochi.git.tree(repo_id, candidate, "")
+        if root != None:
+            return (candidate, "/".join(parts[i:]))
+    # No valid ref found; return full path as ref (will produce a proper error later)
+    return (combined, "")
+
 # Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
     repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories order by name")
@@ -687,7 +703,7 @@ def action_commits(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    ref = a.input("ref") or "HEAD"
+    ref = a.input("ref", "HEAD")
     if not valid_ref(ref):
         return a.error(400, "Invalid ref")
     limit_str = a.input("limit", "50")
@@ -745,6 +761,20 @@ def action_commit(a):
     if not valid_sha(sha):
         return a.error(400, "Invalid commit SHA")
 
+    # Check if remote repository
+    is_remote = repo.get("owner", 1) == 0
+    server = repo.get("server", "")
+
+    if is_remote:
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "commit", {
+            "repository": repo["id"],
+            "sha": sha
+        }, peer)
+        if not response.get("error"):
+            return {"data": response}
+        return a.error(404, "Commit not found")
+
     commit = mochi.git.commit.get(repo["id"], sha)
     if not commit:
         return a.error(404, "Commit not found")
@@ -760,14 +790,24 @@ def action_tree(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    ref = a.input("ref") or "HEAD"
-    if not valid_ref(ref):
-        return a.error(400, "Invalid ref")
-    path = a.input("path") or ""
-
-    # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
     server = repo.get("server", "")
+
+    # Parse ref and path: catch-all "treepath" contains both, resolve which part is the ref
+    treepath = a.input("treepath", "")
+    if treepath:
+        if is_remote:
+            parts = treepath.split("/", 1)
+            ref = parts[0] if parts[0] else "HEAD"
+            path = parts[1] if len(parts) > 1 else ""
+        else:
+            ref, path = resolve_ref(repo["id"], treepath)
+    else:
+        ref = a.input("ref", "HEAD")
+        path = a.input("path", "")
+
+    if not valid_ref(ref):
+        return a.error(400, "Invalid ref")
 
     if is_remote:
         # Fetch from remote server
@@ -818,17 +858,27 @@ def action_blob(a):
     if not check_read_access(a, repo["id"]):
         return a.error(403, "Access denied")
 
-    ref = a.input("ref") or "HEAD"
+    is_remote = repo.get("owner", 1) == 0
+    server = repo.get("server", "")
+
+    # Parse ref and path: catch-all "blobpath" contains both
+    blobpath = a.input("blobpath", "")
+    if blobpath:
+        if is_remote:
+            parts = blobpath.split("/", 1)
+            ref = parts[0] if parts[0] else "HEAD"
+            path = parts[1] if len(parts) > 1 else ""
+        else:
+            ref, path = resolve_ref(repo["id"], blobpath)
+    else:
+        ref = a.input("ref", "HEAD")
+        path = a.input("path", "")
+
     if not valid_ref(ref):
         return a.error(400, "Invalid ref")
-    path = a.input("path")
 
     if not path:
         return a.error(400, "Path is required")
-
-    # Check if remote repository
-    is_remote = repo.get("owner", 1) == 0
-    server = repo.get("server", "")
 
     if is_remote:
         # Fetch from remote server
@@ -1577,6 +1627,32 @@ def event_blob(e):
         "binary": blob.get("binary", False),
         "content": content,
     })
+
+# Handle P2P request for a single commit
+def event_commit(e):
+    repo_id = e.header("to")
+    requester = e.header("from")
+
+    repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
+    if not repo:
+        e.stream.write({"error": "Repository not found", "code": 404})
+        return
+
+    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+        e.stream.write({"error": "Access denied", "code": 403})
+        return
+
+    sha = e.content("sha", "")
+    if not sha:
+        e.stream.write({"error": "Commit SHA is required", "code": 400})
+        return
+
+    commit = mochi.git.commit.get(repo_id, sha)
+    if not commit:
+        e.stream.write({"error": "Commit not found", "code": 404})
+        return
+
+    e.stream.write({"commit": commit})
 
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 

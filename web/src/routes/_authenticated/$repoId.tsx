@@ -62,7 +62,7 @@ function RepositoryPage() {
 
   return (
     <>
-      <Header>
+      <Header className="border-b-0">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <FolderGit2 className="h-5 w-5" />
@@ -76,7 +76,7 @@ function RepositoryPage() {
           </div>
         </div>
       </Header>
-      <Main>
+      <Main spacingY="xs">
         <RepositoryTabs
           key={data.repoId}
           repoId={data.id || data.repoId}

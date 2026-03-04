@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { formatGitDate, getCommitTitle } from '@/lib/format'
 import {
@@ -5,14 +6,19 @@ import {
   Card,
   CardContent,
   Skeleton,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
   usePageTitle,
   GeneralError,
   getErrorMessage,
 } from '@mochi/common'
-import { GitCommit, User } from 'lucide-react'
+import { GitBranch, GitCommit, User } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { useCommits } from '@/hooks/use-repository'
+import { useCommits, useBranches } from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
@@ -50,72 +56,81 @@ function CommitsPage() {
           isRemote={data.remote}
           server={data.server}
         />
-        <CommitsList repoId={data.repoId} />
+        <CommitsList repoId={data.repoId} defaultBranch={data.default_branch || 'main'} />
       </div>
     </Main>
   )
 }
 
-function CommitsList({ repoId }: { repoId: string }) {
-  const { data, isLoading, error } = useCommits(repoId)
+function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch: string }) {
+  const [currentRef, setCurrentRef] = useState(defaultBranch)
+  const { data: branchesData } = useBranches(repoId)
+  const { data, isLoading, error } = useCommits(repoId, currentRef)
 
-  if (isLoading) {
-    return (
-      <div className="space-y-2 p-4">
-        {[...Array(10)].map((_, i) => (
-          <Skeleton key={i} className="h-16 w-full" />
-        ))}
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 text-destructive">
-        {getErrorMessage(error, 'Failed to load commits')}
-      </div>
-    )
-  }
-
-  const commits = data?.commits || []
-
-  if (commits.length === 0) {
-    return (
-      <div className="p-8 text-center text-muted-foreground">
-        <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p>No commits yet</p>
-      </div>
-    )
-  }
+  const branches = branchesData?.branches || []
 
   return (
-    <div className="p-4">
-      <Card>
-        <CardContent className="p-0 divide-y">
-          {commits.map((commit) => (
-            <Link
-              key={commit.sha}
-              to="/$repoId/commit/$sha"
-              params={{ repoId, sha: commit.sha }}
-              className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
-            >
-              <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                  <User className="h-3 w-3" />
-                  <span>{commit.author}</span>
-                  <span>·</span>
-                  <span>{formatGitDate(commit.date)}</span>
-                </div>
-              </div>
-              <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                {commit.sha.substring(0, 7)}
-              </code>
-            </Link>
+    <div className="space-y-4">
+      {/* Branch selector */}
+      {branches.length > 0 && (
+        <Select value={currentRef} onValueChange={setCurrentRef}>
+          <SelectTrigger className="w-[180px]">
+            <GitBranch className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Select branch" />
+          </SelectTrigger>
+          <SelectContent>
+            {branches.map((branch) => (
+              <SelectItem key={branch.name} value={branch.name}>
+                {branch.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+
+      {isLoading ? (
+        <div className="space-y-2">
+          {[...Array(10)].map((_, i) => (
+            <Skeleton key={i} className="h-16 w-full" />
           ))}
-        </CardContent>
-      </Card>
+        </div>
+      ) : error ? (
+        <div className="text-destructive">
+          {getErrorMessage(error, 'Failed to load commits')}
+        </div>
+      ) : (data?.commits || []).length === 0 ? (
+        <div className="p-8 text-center text-muted-foreground">
+          <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
+          <p>No commits yet</p>
+        </div>
+      ) : (
+        <Card>
+          <CardContent className="p-0 divide-y">
+            {(data?.commits || []).map((commit) => (
+              <Link
+                key={commit.sha}
+                to="/$repoId/commit/$sha"
+                params={{ repoId, sha: commit.sha }}
+                className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
+              >
+                <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+                    <User className="h-3 w-3" />
+                    <span>{commit.author}</span>
+                    <span>·</span>
+                    <span>{formatGitDate(commit.date)}</span>
+                  </div>
+                </div>
+                <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+                  {commit.sha.substring(0, 7)}
+                </code>
+              </Link>
+            ))}
+          </CardContent>
+        </Card>
+      )}
     </div>
   )
 }

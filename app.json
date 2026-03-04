@@ -2,7 +2,7 @@
 // Copyright Alistair Cunningham 2025-2026
 
 {
-	"version": "1.19",
+	"version": "1.22",
 	"label": "app_name",
 	"classes": ["repository"],
 	"paths": ["repositories"],
@@ -59,12 +59,11 @@
 		":repository/-/branches/delete": {"function": "action_branch_delete"},
 		":repository/-/tags": {"function": "action_tags", "public": true},
 		":repository/-/commits": {"function": "action_commits", "public": true},
-		":repository/-/commits/:ref": {"function": "action_commits", "public": true},
+		":repository/-/commits/*ref": {"function": "action_commits", "public": true},
 		":repository/-/commit/:sha": {"function": "action_commit", "public": true},
 		":repository/-/tree": {"function": "action_tree", "public": true},
-		":repository/-/tree/:ref": {"function": "action_tree", "public": true},
-		":repository/-/tree/:ref/*path": {"function": "action_tree", "public": true},
-		":repository/-/blob/:ref/*path": {"function": "action_blob", "public": true},
+		":repository/-/tree/*treepath": {"function": "action_tree", "public": true},
+		":repository/-/blob/*blobpath": {"function": "action_blob", "public": true},
 
 		":repository/git/*path": {"feature": "git", "public": true},
 
@@ -86,6 +85,7 @@
 		"branches": {"function": "event_branches"},
 		"tags": {"function": "event_tags"},
 		"commits": {"function": "event_commits"},
+		"commit": {"function": "event_commit"},
 		"tree": {"function": "event_tree"},
 		"blob": {"function": "event_blob"}
 	},
