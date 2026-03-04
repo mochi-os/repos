@@ -146,44 +146,41 @@ def action_info_entity(a):
     is_remote = repo.get("owner", 1) == 0
     server = repo.get("server", "")
 
-    mochi.log.debug("action_info_entity: id=%s, owner=%s, is_remote=%s, server=%s" % (repo.get("id"), repo.get("owner"), is_remote, server))
-
     if is_remote:
-        # Fetch live data from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
-        if peer:
-            response = mochi.remote.request(repo["id"], "repositories", "info", {"repository": repo["id"]}, peer)
-            if not response.get("error"):
-                # Update cached data
-                mochi.db.execute("""
-                    update repositories set name = ?, path = ?, description = ?, default_branch = ?, updated = ?
-                    where id = ?
-                """, response.get("name", repo["name"]),
-                    response.get("path", repo.get("path", "")),
-                    response.get("description", repo["description"]),
-                    response.get("default_branch", repo["default_branch"]),
-                    mochi.time.now(), repo["id"])
+        # Fetch live data from remote server (peer=None uses directory lookup)
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "info", {"repository": repo["id"]}, peer)
+        if not response.get("error"):
+            # Update cached data
+            mochi.db.execute("""
+                update repositories set name = ?, path = ?, description = ?, default_branch = ?, updated = ?
+                where id = ?
+            """, response.get("name", repo["name"]),
+                response.get("path", repo.get("path", "")),
+                response.get("description", repo["description"]),
+                response.get("default_branch", repo["default_branch"]),
+                mochi.time.now(), repo["id"])
 
-                return {"data": {
-                    "entity": True,
-                    "id": repo["id"],
-                    "fingerprint": response.get("fingerprint", mochi.entity.fingerprint(repo["id"])),
-                    "name": response.get("name", repo["name"]),
-                    "path": response.get("path", repo.get("path", "")),
-                    "description": response.get("description", repo["description"]),
-                    "default_branch": response.get("default_branch", repo["default_branch"]),
-                    "size": repo["size"],
-                    "created": repo["created"],
-                    "updated": repo["updated"],
-                    "branches": 0,
-                    "tags": 0,
-                    "allow_read": True,
-                    "privacy": "public",
-                    "isAdmin": False,
-                    "owner": 0,
-                    "server": server,
-                    "remote": True,
-                }}
+            return {"data": {
+                "entity": True,
+                "id": repo["id"],
+                "fingerprint": response.get("fingerprint", mochi.entity.fingerprint(repo["id"])),
+                "name": response.get("name", repo["name"]),
+                "path": response.get("path", repo.get("path", "")),
+                "description": response.get("description", repo["description"]),
+                "default_branch": response.get("default_branch", repo["default_branch"]),
+                "size": repo["size"],
+                "created": repo["created"],
+                "updated": repo["updated"],
+                "branches": 0,
+                "tags": 0,
+                "allow_read": True,
+                "privacy": "public",
+                "isAdmin": False,
+                "owner": 0,
+                "server": server,
+                "remote": True,
+            }}
 
         # Fall back to cached data if remote is unavailable
         return {"data": {
@@ -571,13 +568,11 @@ def action_refs(a):
     server = repo.get("server", "")
 
     if is_remote:
-        # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
-        if peer:
-            response = mochi.remote.request(repo["id"], "repositories", "refs", {"repository": repo["id"]}, peer)
-            if not response.get("error"):
-                return {"data": response}
-        # Fall through to return empty if remote unavailable
+        # Fetch from remote server (peer=None uses directory lookup)
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "refs", {"repository": repo["id"]}, peer)
+        if not response.get("error"):
+            return {"data": response}
         return {"data": {"refs": []}}
 
     # Local repository
@@ -598,13 +593,11 @@ def action_branches(a):
     server = repo.get("server", "")
 
     if is_remote:
-        # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
-        if peer:
-            response = mochi.remote.request(repo["id"], "repositories", "branches", {"repository": repo["id"]}, peer)
-            if not response.get("error"):
-                return {"data": response}
-        # Fall through to return empty if remote unavailable
+        # Fetch from remote server (peer=None uses directory lookup)
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "branches", {"repository": repo["id"]}, peer)
+        if not response.get("error"):
+            return {"data": response}
         return {"data": {"branches": [], "default": repo.get("default_branch", "main")}}
 
     # Local repository
@@ -674,13 +667,11 @@ def action_tags(a):
     server = repo.get("server", "")
 
     if is_remote:
-        # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
-        if peer:
-            response = mochi.remote.request(repo["id"], "repositories", "tags", {"repository": repo["id"]}, peer)
-            if not response.get("error"):
-                return {"data": response}
-        # Fall through to return empty if remote unavailable
+        # Fetch from remote server (peer=None uses directory lookup)
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "tags", {"repository": repo["id"]}, peer)
+        if not response.get("error"):
+            return {"data": response}
         return {"data": {"tags": []}}
 
     # Local repository
@@ -715,18 +706,16 @@ def action_commits(a):
     server = repo.get("server", "")
 
     if is_remote:
-        # Fetch from remote server
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
-        if peer:
-            response = mochi.remote.request(repo["id"], "repositories", "commits", {
-                "repository": repo["id"],
-                "ref": ref,
-                "limit": str(limit),
-                "offset": str(offset)
-            }, peer)
-            if not response.get("error"):
-                return {"data": response}
-        # Fall through to return empty if remote unavailable
+        # Fetch from remote server (peer=None uses directory lookup)
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "commits", {
+            "repository": repo["id"],
+            "ref": ref,
+            "limit": str(limit),
+            "offset": str(offset)
+        }, peer)
+        if not response.get("error"):
+            return {"data": response}
         return {"data": {"commits": []}}
 
     # Local repository
@@ -782,8 +771,7 @@ def action_tree(a):
 
     if is_remote:
         # Fetch from remote server
-        # If server is a URL, resolve to peer; if peer ID or empty, pass None for directory lookup
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server else None
         response = mochi.remote.request(repo["id"], "repositories", "tree", {
             "repository": repo["id"],
             "ref": ref,
@@ -844,8 +832,7 @@ def action_blob(a):
 
     if is_remote:
         # Fetch from remote server
-        # If server is a URL, resolve to peer; if peer ID or empty, pass None for directory lookup
-        peer = mochi.remote.peer(server) if server and server.startswith("http") else None
+        peer = mochi.remote.peer(server) if server else None
         response = mochi.remote.request(repo["id"], "repositories", "blob", {
             "repository": repo["id"],
             "ref": ref,
@@ -1208,7 +1195,7 @@ def action_probe(a):
         # If still not found, we'll try the remote request with fingerprint
         # The remote server should handle fingerprint resolution
 
-    peer = mochi.remote.peer(server) if server and server.startswith("http") else None
+    peer = mochi.remote.peer(server) if server else None
     if not peer:
         return a.error(502, "Unable to connect to server")
 
@@ -1258,8 +1245,7 @@ def action_subscribe(a):
 
     # Get repository info from remote or directory
     if server:
-        # If server is a URL, resolve to peer; if peer ID, pass None for directory lookup
-        peer = mochi.remote.peer(server) if server.startswith("http") else None
+        peer = mochi.remote.peer(server)
         response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
         if response.get("error"):
             return a.error(response.get("code", 502), response.get("error", "Unable to connect to server"))
@@ -1521,7 +1507,7 @@ def event_commits(e):
         ref = repo.get("default_branch", "main")
 
     # Get commits
-    commits = mochi.git.commits(repo_id, ref)
+    commits = mochi.git.commit.list(repo_id, ref, 50, 0)
     e.stream.write({"ref": ref, "commits": commits or []})
 
 # Handle P2P request for repository tree
