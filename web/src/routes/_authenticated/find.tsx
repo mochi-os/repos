@@ -42,7 +42,7 @@ function FindRepositoriesPage() {
 
   const handleSubscribe = useCallback(async (repoId: string) => {
     await subscribe.mutateAsync({ repository: repoId })
-    queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+    await queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     void navigate({ to: '/$repoId', params: { repoId } })
   }, [subscribe, queryClient, navigate])
 
