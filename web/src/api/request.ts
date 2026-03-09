@@ -2,7 +2,7 @@
 // Computes API basepath fresh each request to handle both class and entity context
 
 import axios, { type AxiosRequestConfig } from 'axios'
-import { getCookie, useAuthStore } from '@mochi/common'
+import { useAuthStore, isInShell } from '@mochi/common'
 
 // Known class-level routes that should not be treated as entity IDs
 const CLASS_ROUTES = ['new', 'settings']
@@ -65,10 +65,13 @@ reposClient.interceptors.request.use((config) => {
     delete config.headers['Content-Type']
   }
 
+  // In sandboxed iframe, cookies are unavailable — always use Bearer auth only
+  if (isInShell()) {
+    config.withCredentials = false
+  }
+
   // Add auth token
-  const storeToken = useAuthStore.getState().token
-  const cookieToken = getCookie('token')
-  const token = storeToken || cookieToken
+  const token = useAuthStore.getState().token
 
   if (token) {
     config.headers.Authorization = token.startsWith('Bearer ') ? token : `Bearer ${token}`
