@@ -34,6 +34,7 @@ import {
   getErrorMessage,
   AccessDialog,
   AccessList,
+  DataChip,
   type AccessLevel,
   type AccessRule,
 } from '@mochi/common'
@@ -973,11 +974,9 @@ function GeneralSettingsTab({
             </div>
           )}
           <span className="text-muted-foreground">Entity:</span>
-          <span className="font-mono break-all text-xs">{repoId}</span>
+          <DataChip value={repoId} truncate="middle" />
           <span className="text-muted-foreground">Fingerprint:</span>
-          <span className="font-mono break-all text-xs">
-            {fingerprint.match(/.{1,3}/g)?.join('-')}
-          </span>
+          <DataChip value={fingerprint} truncate="middle" />
         </div>
       </div>
 
