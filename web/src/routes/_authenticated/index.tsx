@@ -53,7 +53,7 @@ export const Route = createFileRoute('/_authenticated/')({
 
     // In class context, check for last visited repository and redirect if it still exists
     if (!info.entity) {
-      const lastRepoId = getLastRepo()
+      const lastRepoId = await getLastRepo()
       if (lastRepoId) {
         const repos = info.repositories || []
         const repoExists = repos.some(r => r.id === lastRepoId || r.fingerprint === lastRepoId)

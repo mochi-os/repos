@@ -1,5 +1,7 @@
-// localStorage utilities for repositories app - stores last visited repo per browser
+// Shell storage utilities for repositories app - stores last visited repo
 // null means "All Repositories" view, a repo ID means a specific repository
+
+import { shellStorage } from '@mochi/common'
 
 const STORAGE_KEY = 'mochi-repos-last'
 // Special value to indicate "All Repositories" view
@@ -7,31 +9,19 @@ const ALL_REPOS = 'all'
 
 // Store last visited repository (null for "All Repositories" view)
 export function setLastRepo(repoId: string | null): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, repoId ?? ALL_REPOS)
-  } catch {
-    // Silently fail - localStorage may be unavailable
-  }
+  shellStorage.setItem(STORAGE_KEY, repoId ?? ALL_REPOS)
 }
 
 // Get last visited repository (null means "All Repositories" view)
-export function getLastRepo(): string | null {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY)
-    if (value === null || value === ALL_REPOS) {
-      return null
-    }
-    return value
-  } catch {
+export async function getLastRepo(): Promise<string | null> {
+  const value = await shellStorage.getItem(STORAGE_KEY)
+  if (value === null || value === ALL_REPOS) {
     return null
   }
+  return value
 }
 
 // Clear last repository
 export function clearLastRepo(): void {
-  try {
-    localStorage.removeItem(STORAGE_KEY)
-  } catch {
-    // Silently fail
-  }
+  shellStorage.removeItem(STORAGE_KEY)
 }
