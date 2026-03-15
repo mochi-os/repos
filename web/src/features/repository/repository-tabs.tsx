@@ -665,7 +665,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
             <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
             <div className="flex-1 min-w-0">
               <div className="font-medium">{tag.name}</div>
-              {tag.message && (
+              {tag.message && tag.message !== tag.name && (
                 <div className="text-sm text-muted-foreground truncate">
                   {tag.message}
                 </div>
