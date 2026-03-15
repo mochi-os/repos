@@ -1,4 +1,4 @@
-import { createFileRoute, Link, redirect } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -15,12 +15,13 @@ import {
   Main,
   PageHeader,
   usePageTitle,
+  useAuthStore,
   GeneralError,
   toast,
   getErrorMessage,
 } from '@mochi/common'
-import { GitBranch, Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
-import { reposRequest, appBasePath } from '@/api/request'
+import { Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
+import { reposRequest, appBasePath, isDomainRouted } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository, RecommendationsResponse, RecommendedRepository } from '@/api/types'
 import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repository-tabs'
@@ -43,7 +44,7 @@ export const Route = createFileRoute('/_authenticated/')({
     tab: validTabs.includes(search.tab as RepositoryTabId) ? (search.tab as RepositoryTabId) : undefined,
   }),
   loader: async () => {
-    const info = await reposRequest.get<InfoResponse>(endpoints.repo.info)
+    const info = await reposRequest.get<InfoResponse>(endpoints.repo.info, { baseURL: appBasePath() })
 
     // Only redirect on first load, not on subsequent navigations
     if (hasCheckedRedirect) {
@@ -52,7 +53,8 @@ export const Route = createFileRoute('/_authenticated/')({
     hasCheckedRedirect = true
 
     // In class context, check for last visited repository and redirect if it still exists
-    if (!info.entity) {
+    // Skip redirect on domain-routed pages (e.g. git.mochi-os.org/) where the listing is the main view
+    if (!info.entity && !isDomainRouted()) {
       const lastRepoId = await getLastRepo()
       if (lastRepoId) {
         const repos = info.repositories || []
@@ -122,6 +124,8 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   const unsubscribe = useUnsubscribe()
   const [pendingRepoId, setPendingRepoId] = useState<string | null>(null)
   const [unsubscribeId, setUnsubscribeId] = useState<string | null>(null)
+  const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
+  const domainRouted = useMemo(() => isDomainRouted(), [])
 
   // Store "all repositories" as the last location
   useEffect(() => {
@@ -136,7 +140,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     [repositories]
   )
 
-  // Recommendations query
+  // Recommendations query (only for logged-in users)
   const {
     data: recommendationsData,
     isError: isRecommendationsError,
@@ -145,6 +149,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     queryFn: () => reposRequest.get<RecommendationsResponse>(endpoints.repo.recommendations, { baseURL: appBasePath() }),
     retry: false,
     refetchOnWindowFocus: false,
+    enabled: isLoggedIn,
   })
   const recommendations = recommendationsData?.repositories ?? []
 
@@ -163,6 +168,12 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     queryClient.invalidateQueries({ queryKey: repoKeys.info() })
   }
 
+  // In domain-routed context, link to /<path>; otherwise use fingerprint
+  const repoLink = (repo: Repository): string => {
+    if (domainRouted && repo.path) return '/' + repo.path
+    return '/' + repo.fingerprint
+  }
+
   return (
     <>
       <PageHeader
@@ -176,16 +187,20 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
               <FolderGit2 className="text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50" />
               <p className="text-muted-foreground mb-1 text-sm font-medium">Repositories</p>
             <p className="text-muted-foreground mb-4 max-w-sm text-xs">
-              You have no repositories yet.
+              {isLoggedIn ? 'You have no repositories yet.' : 'No public repositories.'}
             </p>
-            <InlineRepoSearch subscribedIds={subscribedRepoIds} onRefresh={refreshRepos} />
-            <Button variant="outline" onClick={openCreateDialog} className="mt-4">
-              <Plus className="mr-2 h-4 w-4" />
-              Create a new repository
-            </Button>
+            {isLoggedIn && (
+              <>
+                <InlineRepoSearch subscribedIds={subscribedRepoIds} onRefresh={refreshRepos} />
+                <Button variant="outline" onClick={openCreateDialog} className="mt-4">
+                  <Plus className="mr-2 h-4 w-4" />
+                  Create a new repository
+                </Button>
+              </>
+            )}
 
-            {/* Recommendations Section */}
-            {!isRecommendationsError && recommendations.filter((rec) => !subscribedRepoIds.has(rec.id)).length > 0 && (
+            {/* Recommendations Section (logged-in only) */}
+            {isLoggedIn && !isRecommendationsError && recommendations.filter((rec) => !subscribedRepoIds.has(rec.id)).length > 0 && (
               <>
                 <hr className="my-6 w-full max-w-md border-t" />
                 <div className="w-full max-w-md">
@@ -238,10 +253,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {repositories.map((repo) => (
-              <Link
+              <a
                 key={repo.id}
-                to="/$repoId"
-                params={{ repoId: repo.fingerprint }}
+                href={repoLink(repo)}
                 className="block"
               >
                 <Card className="transition-colors hover:bg-accent h-full">
@@ -251,7 +265,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                         <FolderGit2 className="h-5 w-5" />
                         {repo.name}
                       </CardTitle>
-                      {repo.owner === 0 && (
+                      {isLoggedIn && repo.owner === 0 && (
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <button
@@ -277,20 +291,14 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                     {repo.description && (
                       <CardDescription>{repo.description}</CardDescription>
                     )}
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
-                      <span className="flex items-center gap-1">
-                        <GitBranch className="h-4 w-4" />
-                        {repo.default_branch}
-                      </span>
-                      {repo.owner === 0 && repo.server && repo.server.startsWith('http') && (
-                        <span className="text-xs truncate max-w-[200px]">
-                          {new URL(repo.server).hostname}
-                        </span>
-                      )}
-                    </div>
+                    {repo.owner === 0 && repo.server && repo.server.startsWith('http') && (
+                      <div className="text-xs text-muted-foreground mt-2 truncate max-w-[200px]">
+                        {new URL(repo.server).hostname}
+                      </div>
+                    )}
                   </CardHeader>
                 </Card>
-              </Link>
+              </a>
             ))}
           </div>
         )}

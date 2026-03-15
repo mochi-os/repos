@@ -12,6 +12,11 @@ function isEntityIdentifier(s: string): boolean {
   return /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(s) || /^[1-9A-HJ-NP-Za-km-z]{50,51}$/.test(s)
 }
 
+// Check if we're on a domain-routed page (e.g. git.mochi-os.org/feeds)
+export function isDomainRouted(): boolean {
+  return !!document.querySelector('meta[name="mochi:domain"]')
+}
+
 // Get app-level base path (class context, not entity context)
 // Always returns /<app>/ regardless of current entity context
 export function appBasePath(): string {
@@ -34,6 +39,11 @@ function computeApiBasepath(): string {
   const match = pathname.match(/^(\/[^/]+)\/([^/]+)/)
   if (match && !CLASS_ROUTES.includes(match[2]) && isEntityIdentifier(match[2])) {
     return `${match[1]}/${match[2]}/-/`
+  }
+
+  // Check for domain routing: server sets <meta name="mochi:domain"> on domain-routed pages
+  if (directMatch && document.querySelector('meta[name="mochi:domain"]')) {
+    return `/${directMatch[1]}/-/`
   }
 
   // Class context: use first segment as app path

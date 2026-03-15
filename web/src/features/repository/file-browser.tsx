@@ -48,6 +48,10 @@ export function FileBrowser({
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
+  // Sync from props when URL changes (useState only uses initial value on mount)
+  useEffect(() => { setCurrentRef(initialRef || defaultBranch) }, [initialRef, defaultBranch])
+  useEffect(() => { setCurrentPath(initialPath) }, [initialPath])
+
   const { data: branchesData } = useBranches(repoId)
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, currentPath)
 
@@ -227,6 +231,10 @@ export function FileTree({
 }: FileTreeProps) {
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
+
+  // Sync from props when URL changes (useState only uses initial value on mount)
+  useEffect(() => { setCurrentRef(initialRef || defaultBranch) }, [initialRef, defaultBranch])
+  useEffect(() => { setCurrentPath(initialPath) }, [initialPath])
 
   const { data: branchesData } = useBranches(repoId)
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, currentPath)

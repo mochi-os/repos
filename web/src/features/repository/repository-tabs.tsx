@@ -622,7 +622,26 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
     )
   }
 
-  const tags = data?.tags || []
+  const isVersion = (name: string) => name.split('.').every(p => /^\d+$/.test(p))
+  const tags = [...(data?.tags || [])].sort((a, b) => {
+    const aVer = isVersion(a.name)
+    const bVer = isVersion(b.name)
+    // Version tags before non-version tags
+    if (aVer !== bVer) return aVer ? -1 : 1
+    // Both version tags: compare by version descending
+    if (aVer) {
+      const pa = a.name.split('.').map(Number)
+      const pb = b.name.split('.').map(Number)
+      for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+        const diff = (pb[i] ?? 0) - (pa[i] ?? 0)
+        if (diff !== 0) return diff
+      }
+      return 0
+    }
+    // Both non-version: sort by date descending, then name descending
+    if (a.date && b.date && a.date !== b.date) return b.date - a.date
+    return b.name.localeCompare(a.name)
+  })
 
   if (tags.length === 0) {
     return (

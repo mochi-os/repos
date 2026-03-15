@@ -128,7 +128,20 @@ def resolve_ref(repo_id, combined):
 
 # Action: Get class info - returns list of repositories for class context
 def action_info_class(a):
-    repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories order by name")
+    is_logged_in = a.user and a.user.identity
+    if is_logged_in:
+        # Logged-in users see all repositories (owned + subscribed)
+        repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories order by name")
+    else:
+        # Anonymous users see only local repositories with public read access
+        repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories where owner=1 order by name")
+        if repos:
+            visible = []
+            for repo in repos:
+                if mochi.access.check(None, "repo/" + repo["id"], "read"):
+                    visible.append(repo)
+            repos = visible
+
     # Add fingerprint to each repository
     if repos:
         for repo in repos:

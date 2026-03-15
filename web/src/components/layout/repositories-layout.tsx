@@ -1,17 +1,20 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, type SidebarData, type NavItem } from '@mochi/common'
+import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem } from '@mochi/common'
 import { FolderGit2, Plus, Search } from 'lucide-react'
 import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
 import { CreateRepositoryDialog } from '@/features/repository/create-repository-dialog'
+import { isDomainRouted } from '@/api/request'
 
 function RepositoriesLayoutInner() {
   const { data, refetch } = useRepoInfo()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const location = useLocation()
+  const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
+  const domainRouted = useMemo(() => isDomainRouted(), [])
 
   const {
     createDialogOpen,
@@ -38,10 +41,10 @@ function RepositoriesLayoutInner() {
       a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
     )
 
-    // Build repository items - use fingerprint for shorter URLs
+    // Build repository items - use path for domain-routed URLs, fingerprint otherwise
     const repoItems: NavItem[] = sortedRepos.map((repo) => ({
       title: repo.name,
-      url: '/' + repo.fingerprint,
+      url: domainRouted && repo.path ? '/' + repo.path : '/' + repo.fingerprint,
       icon: FolderGit2,
     }))
 
@@ -52,39 +55,44 @@ function RepositoriesLayoutInner() {
       isActive: location.pathname === '/',
     }
 
-    // Bottom items
-    const bottomItems: NavItem[] = [
+    // Bottom items (logged-in only)
+    const bottomItems: NavItem[] = isLoggedIn ? [
       { title: 'Find repositories', icon: Search, url: '/find' },
       { title: 'Create repository', icon: Plus, onClick: openCreateDialog },
-    ]
+    ] : []
 
     const groups: SidebarData['navGroups'] = [
       {
         title: '',
         items: [allReposItem, ...repoItems],
       },
-      {
+    ]
+
+    if (bottomItems.length > 0) {
+      groups.push({
         title: '',
         separator: true,
         items: bottomItems,
-      },
-    ]
+      })
+    }
 
     return { navGroups: groups }
-  }, [repositories, handleAllReposClick, openCreateDialog, location.pathname])
+  }, [repositories, handleAllReposClick, openCreateDialog, location.pathname, isLoggedIn, domainRouted])
 
   return (
     <>
       <AuthenticatedLayout sidebarData={sidebarData} />
 
       {/* Create Repository Dialog */}
-      <CreateRepositoryDialog
-        open={createDialogOpen}
-        onOpenChange={(open) => {
-          if (!open) closeCreateDialog()
-        }}
-        hideTrigger
-      />
+      {isLoggedIn && (
+        <CreateRepositoryDialog
+          open={createDialogOpen}
+          onOpenChange={(open) => {
+            if (!open) closeCreateDialog()
+          }}
+          hideTrigger
+        />
+      )}
     </>
   )
 }
