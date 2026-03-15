@@ -3,10 +3,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Button,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
   ConfirmDialog,
   DropdownMenu,
   DropdownMenuContent,
@@ -251,53 +247,47 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             )}
           </div>
         ) : (
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="divide-y rounded-[10px] border">
             {repositories.map((repo) => (
               <a
                 key={repo.id}
                 href={repoLink(repo)}
-                className="block"
+                className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-accent"
               >
-                <Card className="transition-colors hover:bg-accent h-full">
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-2">
-                      <CardTitle className="flex items-center gap-2">
-                        <FolderGit2 className="h-5 w-5" />
-                        {repo.name}
-                      </CardTitle>
-                      {isLoggedIn && repo.owner === 0 && (
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <button
-                              className="hover:bg-muted shrink-0 rounded p-1 transition-colors"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <MoreHorizontal className="text-muted-foreground size-4" />
-                            </button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuItem
-                              onClick={(e) => {
-                                e.preventDefault()
-                                setUnsubscribeId(repo.id)
-                              }}
-                            >
-                              Unsubscribe
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      )}
-                    </div>
-                    {repo.description && (
-                      <CardDescription>{repo.description}</CardDescription>
-                    )}
-                    {repo.owner === 0 && repo.server && repo.server.startsWith('http') && (
-                      <div className="text-xs text-muted-foreground mt-2 truncate max-w-[200px]">
-                        {new URL(repo.server).hostname}
-                      </div>
-                    )}
-                  </CardHeader>
-                </Card>
+                <FolderGit2 className="h-5 w-5 text-muted-foreground shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium">{repo.name}</div>
+                  {repo.description && (
+                    <div className="text-sm text-muted-foreground truncate">{repo.description}</div>
+                  )}
+                </div>
+                {isLoggedIn && repo.owner === 0 && (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        className="hover:bg-muted shrink-0 rounded p-1 transition-colors"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <MoreHorizontal className="text-muted-foreground size-4" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem
+                        onClick={(e) => {
+                          e.preventDefault()
+                          setUnsubscribeId(repo.id)
+                        }}
+                      >
+                        Unsubscribe
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
+                {repo.owner === 0 && repo.server && repo.server.startsWith('http') && (
+                  <span className="text-xs text-muted-foreground shrink-0">
+                    {new URL(repo.server).hostname}
+                  </span>
+                )}
               </a>
             ))}
           </div>
