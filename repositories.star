@@ -37,45 +37,7 @@ def database_create():
 
 # Database upgrade - called once per version from (current+1) to target
 def database_upgrade(version):
-    if version == 2:
-        # Add owner and server columns for remote repository subscriptions
-        mochi.db.execute("alter table repositories add column owner integer not null default 1")
-        mochi.db.execute("alter table repositories add column server text not null default ''")
-        mochi.db.execute("create index if not exists repositories_owner on repositories(owner)")
-
-        # Create subscribers table
-        mochi.db.execute("""
-            create table if not exists subscribers (
-                repository text not null,
-                id text not null,
-                name text not null default '',
-                subscribed integer not null,
-                primary key (repository, id)
-            )
-        """)
-        mochi.db.execute("create index if not exists subscribers_id on subscribers(id)")
-
-    if version == 3:
-        # Add bookmarks table for following external repositories without subscribing
-        mochi.db.execute("create table if not exists bookmarks (id text primary key, name text not null, server text not null default '', added integer not null)")
-        mochi.db.execute("create index if not exists bookmarks_added on bookmarks(added)")
-
-    if version == 4:
-        mochi.db.execute("drop table if exists bookmarks")
-
-    if version == 6:
-        mochi.db.execute("alter table repositories add column path text not null default ''")
-        mochi.db.execute("create index if not exists repositories_path on repositories(path)")
-
-    if version == 7:
-        # Add fingerprint column for O(1) lookups by fingerprint
-        mochi.db.execute("alter table repositories add column fingerprint text not null default ''")
-        mochi.db.execute("create index if not exists repositories_fingerprint on repositories( fingerprint )")
-        # Populate fingerprints for existing repositories
-        repos = mochi.db.rows("select id from repositories")
-        for r in repos:
-            fp = mochi.entity.fingerprint(r["id"]) or ""
-            mochi.db.execute("update repositories set fingerprint=? where id=?", fp, r["id"])
+    pass
 
 # Validate git SHA: 4-40 hex characters
 def valid_sha(s):
