@@ -10,7 +10,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@mochi/common'
+} from '@mochi/web'
 import {
   File,
   ChevronRight,

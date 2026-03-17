@@ -1,7 +1,7 @@
 // Shell storage utilities for repositories app - stores last visited repo
 // null means "All Repositories" view, a repo ID means a specific repository
 
-import { shellStorage } from '@mochi/common'
+import { shellStorage } from '@mochi/web'
 
 const STORAGE_KEY = 'mochi-repos-last'
 // Special value to indicate "All Repositories" view

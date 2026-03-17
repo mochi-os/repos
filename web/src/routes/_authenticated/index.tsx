@@ -15,7 +15,7 @@ import {
   GeneralError,
   toast,
   getErrorMessage,
-} from '@mochi/common'
+} from '@mochi/web'
 import { Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
 import { reposRequest, appBasePath, isDomainRouted } from '@/api/request'
 import endpoints from '@/api/endpoints'

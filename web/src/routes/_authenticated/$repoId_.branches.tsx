@@ -31,7 +31,7 @@ import {
   AlertDialogTitle,
   toast,
   getErrorMessage,
-} from '@mochi/common'
+} from '@mochi/web'
 import { GitBranch, Plus, Trash2 } from 'lucide-react'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 import { reposRequest } from '@/api/request'

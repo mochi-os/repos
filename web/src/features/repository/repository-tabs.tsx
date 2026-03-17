@@ -37,7 +37,7 @@ import {
   DataChip,
   type AccessLevel,
   type AccessRule,
-} from '@mochi/common'
+} from '@mochi/web'
 import {
   Check,
   ChevronRight,

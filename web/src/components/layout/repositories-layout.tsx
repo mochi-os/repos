@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem } from '@mochi/common'
+import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem } from '@mochi/web'
 import { FolderGit2, Plus, Search } from 'lucide-react'
 import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'

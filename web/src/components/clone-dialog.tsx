@@ -21,7 +21,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@mochi/common'
+} from '@mochi/web'
 import {
   Download,
   Loader2,
@@ -33,7 +33,7 @@ import {
   Key,
 } from 'lucide-react'
 import { reposRequest, appBasePath } from '@/api/request'
-import { formatTimestamp } from '@mochi/common'
+import { formatTimestamp } from '@mochi/web'
 
 interface TokenGetResponse {
   token: string

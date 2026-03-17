@@ -4,7 +4,7 @@ import {
   usePageTitle,
   requestHelpers,
   GeneralError,
-} from '@mochi/common'
+} from '@mochi/web'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryHeader } from '@/features/repository/repository-header'

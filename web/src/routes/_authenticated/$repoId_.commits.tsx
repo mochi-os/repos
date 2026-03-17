@@ -14,7 +14,7 @@ import {
   usePageTitle,
   GeneralError,
   getErrorMessage,
-} from '@mochi/common'
+} from '@mochi/web'
 import { GitBranch, GitCommit, User } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'

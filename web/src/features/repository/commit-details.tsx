@@ -8,7 +8,7 @@ import {
   Button,
   Skeleton,
   getErrorMessage,
-} from '@mochi/common'
+} from '@mochi/web'
 import { GitCommit, User, Calendar, Copy, Check } from 'lucide-react'
 import { useCommit } from '@/hooks/use-repository'
 import { formatGitDate } from '@/lib/format'

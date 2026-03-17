@@ -2,7 +2,7 @@
 // Computes API basepath fresh each request to handle both class and entity context
 
 import axios, { type AxiosRequestConfig } from 'axios'
-import { useAuthStore, isInShell } from '@mochi/common'
+import { useAuthStore, isInShell } from '@mochi/web'
 
 // Known class-level routes that should not be treated as entity IDs
 const CLASS_ROUTES = ['new', 'settings']

@@ -5,7 +5,7 @@ import {
   Main,
   usePageTitle,
   GeneralError,
-} from '@mochi/common'
+} from '@mochi/web'
 import { FolderGit2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'

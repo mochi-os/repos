@@ -3,7 +3,7 @@ import {
   Main,
   usePageTitle,
   GeneralError,
-} from '@mochi/common'
+} from '@mochi/web'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryHeader } from '@/features/repository/repository-header'

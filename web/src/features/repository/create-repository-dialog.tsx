@@ -13,7 +13,7 @@ import {
   Textarea,
   toast,
   getErrorMessage,
-} from '@mochi/common'
+} from '@mochi/web'
 import { FolderGit2, Loader2, Plus } from 'lucide-react'
 import { useCreateRepo } from '@/hooks/use-repository'
 

@@ -5,7 +5,7 @@ import {
   Button,
   usePageTitle,
   GeneralError,
-} from '@mochi/common'
+} from '@mochi/web'
 import { FolderGit2, ArrowLeft } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import endpoints from '@/api/endpoints'

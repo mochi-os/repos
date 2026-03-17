@@ -12,7 +12,7 @@ import {
   SelectValue,
   Skeleton,
   getErrorMessage,
-} from '@mochi/common'
+} from '@mochi/web'
 import {
   FolderGit2,
   GitBranch,

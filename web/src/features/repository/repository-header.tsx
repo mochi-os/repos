@@ -14,7 +14,7 @@ import {
   AlertDialogTitle,
   getErrorMessage,
   toast,
-} from '@mochi/common'
+} from '@mochi/web'
 import {
   FolderGit2,
   Globe,

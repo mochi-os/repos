@@ -1,4 +1,4 @@
-import { formatTimestamp } from '@mochi/common'
+import { formatTimestamp } from '@mochi/web'
 
 // Format a git date (Unix timestamp in seconds) to locale date + time
 export function formatGitDate(date: number): string {
