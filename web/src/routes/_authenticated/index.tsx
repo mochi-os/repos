@@ -50,7 +50,8 @@ export const Route = createFileRoute('/_authenticated/')({
 
     // In class context, check for last visited repository and redirect if it still exists
     // Skip redirect on domain-routed pages (e.g. git.mochi-os.org/) where the listing is the main view
-    if (!info.entity && !isDomainRouted()) {
+    // Only for authenticated users — unauthenticated users should always see the listing
+    if (!info.entity && !isDomainRouted() && useAuthStore.getState().isAuthenticated) {
       const lastRepoId = await getLastRepo()
       if (lastRepoId) {
         const repos = info.repositories || []
@@ -123,10 +124,10 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
   const domainRouted = useMemo(() => isDomainRouted(), [])
 
-  // Store "all repositories" as the last location
+  // Store "all repositories" as the last location (authenticated users only)
   useEffect(() => {
-    setLastRepo(null)
-  }, [])
+    if (isLoggedIn) setLastRepo(null)
+  }, [isLoggedIn])
 
   const hasRepos = repositories && repositories.length > 0
 

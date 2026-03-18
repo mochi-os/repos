@@ -4,6 +4,7 @@ import {
   Header,
   Main,
   usePageTitle,
+  useAuthStore,
   GeneralError,
 } from '@mochi/web'
 import { FolderGit2 } from 'lucide-react'
@@ -55,10 +56,11 @@ function RepositoryPage() {
 
   usePageTitle(name)
 
-  // Store last visited repository for restoration on next entry
+  // Store last visited repository for restoration on next entry (authenticated users only)
+  const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
   useEffect(() => {
-    setLastRepo(data.repoId)
-  }, [data.repoId])
+    if (isLoggedIn) setLastRepo(data.repoId)
+  }, [isLoggedIn, data.repoId])
 
   return (
     <>
