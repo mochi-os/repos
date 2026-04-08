@@ -53,7 +53,7 @@ function FindRepositoriesPage() {
       entityClass="repository"
       searchEndpoint={`${appBasePath()}-/search`}
       icon={FolderGit2}
-      iconClassName="bg-purple-500/10 text-purple-600"
+      iconClassName="bg-primary/10 text-primary"
       title="Find repositories"
       placeholder="Search by name, ID, fingerprint, or URL..."
       emptyMessage="No repositories found"

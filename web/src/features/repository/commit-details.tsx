@@ -105,7 +105,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
                   key={parent}
                   to="/$repoId/commit/$sha"
                   params={{ repoId: fingerprint, sha: parent }}
-                  className="ml-2 font-mono text-blue-600 dark:text-blue-400 hover:underline"
+                  className="ml-2 font-mono text-primary hover:underline"
                 >
                   {parent.substring(0, 7)}
                 </Link>
@@ -139,7 +139,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
                       : line.startsWith('-') && !line.startsWith('---')
                         ? 'bg-red-500/10 text-red-600'
                         : line.startsWith('@@')
-                          ? 'bg-blue-500/10 text-blue-600'
+                          ? 'bg-primary/10 text-primary'
                           : ''
                   }
                 >

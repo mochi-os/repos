@@ -149,7 +149,7 @@ export function FileBrowser({
           <Link
             to="/$repoId/tree/$ref/$"
             params={{ repoId: fingerprint, ref: currentRef, _splat: '' }}
-            className="text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-primary hover:underline"
           >
             {name}
           </Link>
@@ -164,7 +164,7 @@ export function FileBrowser({
                   <Link
                     to="/$repoId/tree/$ref/$"
                     params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-primary hover:underline"
                   >
                     {part}
                   </Link>
@@ -291,7 +291,7 @@ export function FileTree({
           <Link
             to="/$repoId/tree/$ref/$"
             params={{ repoId: fingerprint, ref: currentRef, _splat: '' }}
-            className="text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-primary hover:underline"
           >
             {name}
           </Link>
@@ -306,7 +306,7 @@ export function FileTree({
                   <Link
                     to="/$repoId/tree/$ref/$"
                     params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-primary hover:underline"
                   >
                     {part}
                   </Link>

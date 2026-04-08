@@ -21,7 +21,7 @@ export function FileEntry({ entry, fingerprint, currentRef, basePath }: FileEntr
       className="flex items-center gap-3 px-4 py-2 hover:bg-accent transition-colors"
     >
       {isDirectory ? (
-        <Folder className="h-4 w-4 text-blue-500" />
+        <Folder className="h-4 w-4 text-primary" />
       ) : (
         <File className="h-4 w-4 text-muted-foreground" />
       )}

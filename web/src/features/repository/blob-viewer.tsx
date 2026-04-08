@@ -136,7 +136,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
         <Link
           to="/$repoId/tree/$ref/$"
           params={{ repoId: fingerprint, ref: gitRef, _splat: '' }}
-          className="text-blue-600 dark:text-blue-400 hover:underline"
+          className="text-primary hover:underline"
         >
           {name}
         </Link>
@@ -152,7 +152,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
                 <Link
                   to="/$repoId/tree/$ref/$"
                   params={{ repoId: fingerprint, ref: gitRef, _splat: pathTo }}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-primary hover:underline"
                 >
                   {part}
                 </Link>
