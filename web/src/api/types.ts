@@ -174,6 +174,7 @@ export interface RecommendedRepository {
   name: string
   blurb: string
   fingerprint: string
+  server: string
 }
 
 export interface RecommendationsResponse {

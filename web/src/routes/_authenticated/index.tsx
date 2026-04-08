@@ -153,7 +153,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   const handleSubscribeRecommendation = async (repo: RecommendedRepository) => {
     setPendingRepoId(repo.id)
     try {
-      await subscribe.mutateAsync({ repository: repo.id })
+      await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     } catch (error) {
       toast.error(getErrorMessage(error, 'Failed to subscribe'))
