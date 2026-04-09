@@ -915,7 +915,7 @@ def action_users_search(a):
     if not a.user:
         return a.error(401, "Not logged in")
     query = a.input("q", "")
-    results = mochi.service.call("friends", "users/search", query)
+    results = mochi.service.call("people", "users/search", query)
     return {"data": {"results": results or []}}
 
 # Action: List groups
