@@ -1,5 +1,4 @@
 import { Link, useNavigate } from '@tanstack/react-router'
-import { formatFileSize } from '@/lib/format'
 import {
   Card,
   CardContent,
@@ -10,6 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  useFormat,
 } from '@mochi/web'
 import {
   File,
@@ -36,6 +36,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   const { data: branchesData } = useBranches(repoId)
   const [copied, setCopied] = useState(false)
   const navigate = useNavigate()
+  const { formatFileSize } = useFormat()
 
   const branches = branchesData?.branches || []
 

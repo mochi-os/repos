@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { formatGitDate, getCommitTitle } from '@/lib/format'
+import { getCommitTitle } from '@/lib/format'
 import {
   Main,
   Card,
@@ -14,6 +14,7 @@ import {
   usePageTitle,
   GeneralError,
   getErrorMessage,
+  useFormat,
 } from '@mochi/web'
 import { GitBranch, GitCommit, User } from 'lucide-react'
 import { reposRequest } from '@/api/request'
@@ -63,6 +64,7 @@ function CommitsPage() {
 }
 
 function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch: string }) {
+  const { formatTimestamp } = useFormat()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
   const { data, isLoading, error } = useCommits(repoId, currentRef)
@@ -120,7 +122,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
                     <User className="h-3 w-3" />
                     <span>{commit.author}</span>
                     <span>·</span>
-                    <span>{formatGitDate(commit.date)}</span>
+                    <span>{formatTimestamp(commit.date)}</span>
                   </div>
                 </div>
                 <code className="text-sm text-muted-foreground font-mono flex-shrink-0">

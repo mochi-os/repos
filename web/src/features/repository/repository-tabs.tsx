@@ -37,6 +37,7 @@ import {
   DataChip,
   type AccessLevel,
   type AccessRule,
+  useFormat,
 } from '@mochi/web'
 import {
   Check,
@@ -58,7 +59,7 @@ import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 
 import { FileEntry } from '@/components/file-entry'
-import { formatGitDate, getCommitTitle } from '@/lib/format'
+import { getCommitTitle } from '@/lib/format'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 import { tabs, type RepositoryTabId } from './tabs'
 
@@ -339,6 +340,7 @@ function FilesTab({
 // ============================================================================
 
 function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
+  const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommits(repoId, currentRef)
 
   return (
@@ -375,7 +377,7 @@ function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; finge
                     <User className="h-3 w-3" />
                     <span>{commit.author}</span>
                     <span>·</span>
-                    <span>{formatGitDate(commit.date)}</span>
+                    <span>{formatTimestamp(commit.date)}</span>
                   </div>
                 </div>
                 <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
@@ -602,6 +604,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
 // ============================================================================
 
 function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string }) {
+  const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
   if (isLoading) {
@@ -672,7 +675,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
               )}
               {tag.tagger && tag.date && (
                 <div className="text-sm text-muted-foreground">
-                  {tag.tagger} tagged on {formatGitDate(tag.date)}
+                  {tag.tagger} tagged on {formatTimestamp(tag.date)}
                 </div>
               )}
             </div>

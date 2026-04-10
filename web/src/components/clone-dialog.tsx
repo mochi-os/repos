@@ -21,6 +21,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
+  useFormat,
 } from '@mochi/web'
 import {
   Download,
@@ -33,7 +34,6 @@ import {
   Key,
 } from 'lucide-react'
 import { reposRequest, appBasePath } from '@/api/request'
-import { formatTimestamp } from '@mochi/web'
 
 interface TokenGetResponse {
   token: string
@@ -63,6 +63,7 @@ interface CloneDialogProps {
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
 export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
+  const { formatTimestamp } = useFormat()
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<DialogView>('loading')
   const [cloneCommand, setCloneCommand] = useState<string | null>(null)

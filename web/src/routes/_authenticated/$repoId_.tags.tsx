@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { formatGitDate } from '@/lib/format'
 import {
   Main,
   Card,
@@ -8,6 +7,7 @@ import {
   usePageTitle,
   GeneralError,
   getErrorMessage,
+  useFormat,
 } from '@mochi/web'
 import { Tag } from 'lucide-react'
 import { reposRequest } from '@/api/request'
@@ -57,6 +57,7 @@ function TagsPage() {
 }
 
 function TagsList({ repoId }: { repoId: string }) {
+  const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
   if (isLoading) {
@@ -109,7 +110,7 @@ function TagsList({ repoId }: { repoId: string }) {
                 )}
                 {tag.tagger && tag.date && (
                   <div className="text-sm text-muted-foreground">
-                    {tag.tagger} tagged on {formatGitDate(tag.date)}
+                    {tag.tagger} tagged on {formatTimestamp(tag.date)}
                   </div>
                 )}
               </div>

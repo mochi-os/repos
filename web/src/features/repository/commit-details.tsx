@@ -8,10 +8,10 @@ import {
   Button,
   Skeleton,
   getErrorMessage,
+  useFormat,
 } from '@mochi/web'
 import { GitCommit, User, Calendar, Copy, Check } from 'lucide-react'
 import { useCommit } from '@/hooks/use-repository'
-import { formatGitDate } from '@/lib/format'
 
 interface CommitDetailsProps {
   repoId: string
@@ -20,6 +20,7 @@ interface CommitDetailsProps {
 }
 
 export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) {
+  const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommit(repoId, sha)
   const [copied, setCopied] = useState(false)
 
@@ -85,7 +86,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4 text-muted-foreground" />
-              <span>{formatGitDate(commit.date)}</span>
+              <span>{formatTimestamp(commit.date)}</span>
             </div>
           </div>
 

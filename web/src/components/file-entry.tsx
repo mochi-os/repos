@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { File, Folder } from 'lucide-react'
-import { formatFileSize } from '@/lib/format'
+import { useFormat } from '@mochi/web'
 import type { TreeEntry } from '@/api/types'
 
 interface FileEntryProps {
@@ -11,6 +11,7 @@ interface FileEntryProps {
 }
 
 export function FileEntry({ entry, fingerprint, currentRef, basePath }: FileEntryProps) {
+  const { formatFileSize } = useFormat()
   const fullPath = basePath ? `${basePath}/${entry.name}` : entry.name
   const isDirectory = entry.type === 'tree' || entry.type === 'dir'
 
