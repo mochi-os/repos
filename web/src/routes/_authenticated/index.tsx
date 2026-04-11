@@ -1,4 +1,4 @@
-import { createFileRoute, redirect } from '@tanstack/react-router'
+import { createFileRoute, redirect, Link } from '@tanstack/react-router'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -165,10 +165,11 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     queryClient.invalidateQueries({ queryKey: repoKeys.info() })
   }
 
-  // In domain-routed context, link to /<path>; otherwise use fingerprint
-  const repoLink = (repo: Repository): string => {
-    if (domainRouted && repo.path) return '/' + repo.path
-    return '/' + repo.fingerprint
+  // In domain-routed context, use /<path>; otherwise use fingerprint.
+  // Both resolve through the $repoId route via its info loader.
+  const repoParam = (repo: Repository): string => {
+    if (domainRouted && repo.path) return repo.path
+    return repo.fingerprint ?? repo.id
   }
 
   return (
@@ -250,9 +251,10 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         ) : (
           <div className="divide-y rounded-[10px] border">
             {repositories.map((repo) => (
-              <a
+              <Link
                 key={repo.id}
-                href={repoLink(repo)}
+                to="/$repoId"
+                params={{ repoId: repoParam(repo) }}
                 className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-accent"
               >
                 <FolderGit2 className="h-5 w-5 text-muted-foreground shrink-0" />
@@ -289,7 +291,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                     {new URL(repo.server).hostname}
                   </span>
                 )}
-              </a>
+              </Link>
             ))}
           </div>
         )}
