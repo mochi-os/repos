@@ -1,4 +1,4 @@
-import { createFileRoute, redirect, Link } from '@tanstack/react-router'
+import { createFileRoute, redirect, Link, useRouter } from '@tanstack/react-router'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -24,7 +24,7 @@ import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repo
 import { getLastRepo, clearLastRepo, setLastRepo } from '@/hooks/use-repos-storage'
 import { useSidebarContext } from '@/context/sidebar-context'
 import { InlineRepoSearch } from '@/features/repository/inline-repo-search'
-import { repoKeys, useSubscribe, useUnsubscribe } from '@/hooks/use-repository'
+import { useSubscribe, useUnsubscribe } from '@/hooks/use-repository'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -117,6 +117,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   usePageTitle('Repositories')
   const { openCreateDialog } = useSidebarContext()
   const queryClient = useQueryClient()
+  const router = useRouter()
   const subscribe = useSubscribe()
   const unsubscribe = useUnsubscribe()
   const [pendingRepoId, setPendingRepoId] = useState<string | null>(null)
@@ -154,15 +155,17 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     setPendingRepoId(repo.id)
     try {
       await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+      await queryClient.invalidateQueries({ queryKey: ['repositories', 'recommendations'] })
+      await router.invalidate()
     } catch (error) {
       toast.error(getErrorMessage(error, 'Failed to subscribe'))
+    } finally {
       setPendingRepoId(null)
     }
   }
 
   const refreshRepos = () => {
-    queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+    void router.invalidate()
   }
 
   // In domain-routed context, use /<path>; otherwise use fingerprint.
