@@ -155,6 +155,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     setPendingRepoId(repo.id)
     try {
       await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
+      toast.success('Subscribed')
       await queryClient.invalidateQueries({ queryKey: ['repositories', 'recommendations'] })
       await router.invalidate()
     } catch (error) {
@@ -312,7 +313,11 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         handleConfirm={() => {
           if (unsubscribeId) {
             unsubscribe.mutate(unsubscribeId, {
-              onSuccess: () => setUnsubscribeId(null),
+              onSuccess: () => {
+                setUnsubscribeId(null)
+                toast.success('Unsubscribed')
+                void router.invalidate()
+              },
               onError: (error) => toast.error(getErrorMessage(error, 'Failed to unsubscribe')),
             })
           }
