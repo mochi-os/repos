@@ -253,7 +253,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             )}
           </div>
         ) : (
-          <div className="divide-y rounded-[10px] border">
+          <div className="divide-y rounded-lg border">
             {repositories.map((repo) => (
               <Link
                 key={repo.id}
