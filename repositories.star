@@ -37,7 +37,23 @@ def database_create():
 
 # Database upgrade - called once per version from (current+1) to target
 def database_upgrade(version):
-    pass
+    if version == 8:
+        # Rename the access namespace from "repo/" to "repository/" so resource
+        # keys match the rest of the app's vocabulary (class "repository", URL
+        # path :repository, etc). The access table lives in the app system db,
+        # which Starlark can only reach via mochi.access.* — so iterate every
+        # known repo, copy its rules under the new key, then drop the old ones.
+        repos = mochi.db.rows("select id from repositories") or []
+        for repo in repos:
+            old = "repo/" + repo["id"]
+            new = "repository/" + repo["id"]
+            for rule in mochi.access.list.resource(old) or []:
+                granter = rule.get("granter") or ""
+                if rule.get("grant"):
+                    mochi.access.allow(rule["subject"], new, rule["operation"], granter)
+                else:
+                    mochi.access.deny(rule["subject"], new, rule["operation"], granter)
+            mochi.access.clear.resource(old)
 
 # Validate git SHA: 4-40 hex characters
 def valid_sha(s):
@@ -100,7 +116,7 @@ def action_info_class(a):
         if repos:
             visible = []
             for repo in repos:
-                if mochi.access.check(None, "repo/" + repo["id"], "read"):
+                if mochi.access.check(None, "repository/" + repo["id"], "read"):
                     visible.append(repo)
             repos = visible
 
@@ -205,7 +221,7 @@ def action_info_entity(a):
 
     # Check if public read access is enabled
     allow_read = False
-    access = mochi.access.list.resource("repo/" + repo["id"])
+    access = mochi.access.list.resource("repository/" + repo["id"])
     if access:
         for entry in access:
             if entry.get("subject") == "*" and entry.get("operation") == "read" and entry.get("grant") == 1:
@@ -287,11 +303,11 @@ def action_create(a):
 
     # Set up access control
     if a.user and a.user.identity:
-        mochi.access.allow(a.user.identity.id, "repo/" + entity_id, "*", a.user.identity.id)
+        mochi.access.allow(a.user.identity.id, "repository/" + entity_id, "*", a.user.identity.id)
 
     # Public read access (allow anyone to read)
     if allow_read:
-        mochi.access.allow("*", "repo/" + entity_id, "read", a.user.identity.id if a.user else "")
+        mochi.access.allow("*", "repository/" + entity_id, "read", a.user.identity.id if a.user else "")
 
     fingerprint = mochi.entity.fingerprint(entity_id)
     return {"data": {"id": entity_id, "fingerprint": fingerprint, "name": name, "path": path, "url": "/" + fingerprint}}
@@ -376,9 +392,9 @@ def action_settings_set(a):
     # Update public read access
     owner_id = a.user.identity.id if a.user and a.user.identity else ""
     if allow_read == "true":
-        mochi.access.allow("*", "repo/" + repo["id"], "read", owner_id)
+        mochi.access.allow("*", "repository/" + repo["id"], "read", owner_id)
     elif allow_read == "false":
-        mochi.access.deny("*", "repo/" + repo["id"], "read", owner_id)
+        mochi.access.deny("*", "repository/" + repo["id"], "read", owner_id)
 
     # Update entity privacy (directory listing)
     if privacy in ["public", "private"]:
@@ -458,7 +474,7 @@ def action_access_list(a):
         if a.user and a.user.identity:
             owner = {"id": a.user.identity.id, "name": a.user.identity.name}
 
-    resource = "repo/" + repo["id"]
+    resource = "repository/" + repo["id"]
     rules = mochi.access.list.resource(resource)
 
     # Resolve names for rules and mark owner
@@ -507,7 +523,7 @@ def action_access_set(a):
     if permission not in ["read", "write", "none"]:
         return a.error(400, "Invalid permission")
 
-    resource = "repo/" + repo["id"]
+    resource = "repository/" + repo["id"]
     granter = a.user.identity.id if a.user and a.user.identity else ""
 
     # Revoke all existing rules for this subject first
@@ -537,7 +553,7 @@ def action_access_revoke(a):
     if not subject:
         return a.error(400, "Subject is required")
 
-    resource = "repo/" + repo["id"]
+    resource = "repository/" + repo["id"]
 
     # Remove all rules for this subject
     for op in ["read", "write", "*"]:
@@ -891,6 +907,73 @@ def action_blob(a):
         "content": content,
     }}
 
+# Action: Download repository archive (zip, tar.gz, tar.bz2)
+def action_archive(a):
+    repo = get_repo(a)
+    if not repo:
+        return a.error(404, "Repository not found")
+
+    if not check_read_access(a, repo["id"]):
+        return a.error(403, "Access denied")
+
+    format = a.input("format", "")
+    if format not in ["zip", "tar.gz", "tar.bz2"]:
+        return a.error(400, "Format must be zip, tar.gz, or tar.bz2")
+
+    ref = a.input("ref", "HEAD")
+    if not valid_ref(ref):
+        return a.error(400, "Invalid ref")
+
+    content_types = {
+        "zip": "application/zip",
+        "tar.gz": "application/gzip",
+        "tar.bz2": "application/x-bzip2",
+    }
+
+    is_remote = repo.get("owner", 1) == 0
+    if is_remote:
+        # Proxy to the owning peer over P2P. The peer resolves the ref, picks
+        # the prefix, and streams archive bytes back; we relay the bytes to
+        # the browser unchanged.
+        server = repo.get("server", "")
+        peer = mochi.remote.peer(server) if server else None
+        s = mochi.remote.stream(repo["id"], "repositories", "archive", {
+            "ref": ref,
+            "format": format,
+        }, peer)
+        if not s:
+            return a.error(503, "Failed to connect to remote server")
+
+        # Header message: error or {filename, ...}
+        head = s.read()
+        if not head or head.get("error"):
+            code = head.get("code", 500) if head else 502
+            message = head.get("error", "Remote server unavailable") if head else "Remote server unavailable"
+            return a.error(code, message)
+
+        filename = head.get("filename", "archive.%s" % format)
+        a.header("Content-Type", content_types[format])
+        a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
+        a.write_from_stream(s)
+        return None
+
+    # Resolve ref to its tip commit so the prefix is content-addressable
+    commits = mochi.git.commit.list(repo["id"], ref, 1, 0)
+    if not commits:
+        return a.error(404, "Branch, tag, or commit '%s' not found" % ref)
+    sha = commits[0]["sha"]
+    short = sha[:7]
+
+    base = repo.get("path") or repo.get("name") or "repo"
+    prefix = "%s-%s" % (base, short)
+    filename = "%s.%s" % (prefix, format)
+
+    a.header("Content-Type", content_types[format])
+    a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
+
+    mochi.git.archive(repo["id"], sha, format, prefix)
+    return None
+
 # Action: Open Graph meta tags
 def action_opengraph(a):
     repo = get_repo(a)
@@ -1044,13 +1127,13 @@ def check_read_access(a, repo_id):
     # For local repositories, check access control
     # Pass None for anonymous users - "*" would be treated as a logged-in user
     user_id = a.user.identity.id if a.user and a.user.identity else None
-    return mochi.access.check(user_id, "repo/" + repo_id, "read")
+    return mochi.access.check(user_id, "repository/" + repo_id, "read")
 
 def check_write_access(a, repo_id):
     """Check if user has write access to repository"""
     if not a.user or not a.user.identity:
         return False
-    return mochi.access.check(a.user.identity.id, "repo/" + repo_id, "write")
+    return mochi.access.check(a.user.identity.id, "repository/" + repo_id, "write")
 
 def check_admin_access(a, repo_id):
     """Check if user has admin access to repository"""
@@ -1060,7 +1143,7 @@ def check_admin_access(a, repo_id):
     if mochi.entity.get(repo_id):
         return True
     # Check explicit admin permission
-    return mochi.access.check(a.user.identity.id, "repo/" + repo_id, "admin")
+    return mochi.access.check(a.user.identity.id, "repository/" + repo_id, "admin")
 
 # Helper: Create P2P message headers
 def headers(from_id, to_id, event):
@@ -1362,7 +1445,7 @@ def event_info(e):
 
     # Check read access for the requester
     requester = e.header("from")
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1468,7 +1551,7 @@ def event_refs(e):
         return
 
     # Check read access
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1488,7 +1571,7 @@ def event_branches(e):
         return
 
     # Check read access
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1509,7 +1592,7 @@ def event_tags(e):
         return
 
     # Check read access
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1529,7 +1612,7 @@ def event_commits(e):
         return
 
     # Check read access
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1554,7 +1637,7 @@ def event_tree(e):
         return
 
     # Check read access
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1580,7 +1663,7 @@ def event_blob(e):
         return
 
     # Check read access
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1620,7 +1703,7 @@ def event_commit(e):
         e.stream.write({"error": "Repository not found", "code": 404})
         return
 
-    if not mochi.access.check(requester, "repo/" + repo_id, "read"):
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
         e.stream.write({"error": "Access denied", "code": 403})
         return
 
@@ -1635,6 +1718,45 @@ def event_commit(e):
         return
 
     e.stream.write({"commit": commit})
+
+# Handle P2P request for repository archive
+def event_archive(e):
+    repo_id = e.header("to")
+    requester = e.header("from")
+
+    repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
+    if not repo:
+        e.stream.write({"error": "Repository not found", "code": 404})
+        return
+
+    if not mochi.access.check(requester, "repository/" + repo_id, "read"):
+        e.stream.write({"error": "Access denied", "code": 403})
+        return
+
+    format = e.content("format", "")
+    if format not in ["zip", "tar.gz", "tar.bz2"]:
+        e.stream.write({"error": "Format must be zip, tar.gz, or tar.bz2", "code": 400})
+        return
+
+    ref = e.content("ref", "HEAD")
+    if not valid_ref(ref):
+        e.stream.write({"error": "Invalid ref", "code": 400})
+        return
+
+    commits = mochi.git.commit.list(repo_id, ref, 1, 0)
+    if not commits:
+        e.stream.write({"error": "Branch, tag, or commit '%s' not found" % ref, "code": 404})
+        return
+    sha = commits[0]["sha"]
+    short = sha[:7]
+
+    base = repo.get("path") or repo.get("name") or "repo"
+    prefix = "%s-%s" % (base, short)
+    filename = "%s.%s" % (prefix, format)
+
+    # Header response, then raw archive bytes on the same stream
+    e.stream.write({"filename": filename, "sha": sha, "prefix": prefix})
+    mochi.git.archive(repo_id, sha, format, prefix, e.stream)
 
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 

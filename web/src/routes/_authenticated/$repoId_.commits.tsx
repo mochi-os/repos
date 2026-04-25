@@ -21,6 +21,7 @@ import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useCommits, useBranches } from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
+import { DownloadDropdown } from '@/components/download-dropdown'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
   loader: async ({ params }) => {
@@ -56,14 +57,19 @@ function CommitsPage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
+          showDownload={false}
         />
-        <CommitsList repoId={data.repoId} defaultBranch={data.default_branch || 'main'} />
+        <CommitsList
+          repoId={data.repoId}
+          fingerprint={data.fingerprint || data.repoId}
+          defaultBranch={data.default_branch || 'main'}
+        />
       </div>
     </Main>
   )
 }
 
-function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch: string }) {
+function CommitsList({ repoId, fingerprint, defaultBranch }: { repoId: string; fingerprint: string; defaultBranch: string }) {
   const { formatTimestamp } = useFormat()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
@@ -109,26 +115,31 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
         <Card>
           <CardContent className="p-0 divide-y">
             {(data?.commits || []).map((commit) => (
-              <Link
+              <div
                 key={commit.sha}
-                to="/$repoId/commit/$sha"
-                params={{ repoId, sha: commit.sha }}
                 className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
               >
-                <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                    <User className="h-3 w-3" />
-                    <span>{commit.author}</span>
-                    <span>·</span>
-                    <span>{formatTimestamp(commit.date)}</span>
+                <Link
+                  to="/$repoId/commit/$sha"
+                  params={{ repoId, sha: commit.sha }}
+                  className="flex items-start gap-4 flex-1 min-w-0"
+                >
+                  <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+                      <User className="h-3 w-3" />
+                      <span>{commit.author}</span>
+                      <span>·</span>
+                      <span>{formatTimestamp(commit.date)}</span>
+                    </div>
                   </div>
-                </div>
-                <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                  {commit.sha.substring(0, 7)}
-                </code>
-              </Link>
+                  <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+                    {commit.sha.substring(0, 7)}
+                  </code>
+                </Link>
+                <DownloadDropdown fingerprint={fingerprint} ref={commit.sha} variant="icon" />
+              </div>
             ))}
           </CardContent>
         </Card>

@@ -44,6 +44,7 @@ function CommitPage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
+          currentRef={sha}
         />
         <CommitDetails repoId={data.id || data.repoId} fingerprint={data.repoId} sha={sha} />
       </div>

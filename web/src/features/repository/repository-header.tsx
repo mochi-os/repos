@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { useUnsubscribe } from '@/hooks/use-repository'
 import { CloneDialog } from '@/components/clone-dialog'
+import { DownloadDropdown } from '@/components/download-dropdown'
 import { tabs, type RepositoryTabId } from './tabs'
 
 
@@ -35,6 +36,8 @@ interface RepositoryHeaderProps {
   isOwner?: boolean
   isRemote?: boolean
   server?: string
+  currentRef?: string
+  showDownload?: boolean
 }
 
 export function RepositoryHeader({
@@ -47,6 +50,8 @@ export function RepositoryHeader({
   isOwner,
   isRemote,
   server,
+  currentRef,
+  showDownload = true,
 }: RepositoryHeaderProps) {
   const navigate = useNavigate()
   const unsubscribe = useUnsubscribe()
@@ -89,6 +94,9 @@ export function RepositoryHeader({
         </div>
         <div className="flex-1" />
         <CloneDialog repoPath={path} fingerprint={fingerprint} />
+        {showDownload && (
+          <DownloadDropdown fingerprint={fingerprint} ref={currentRef || 'HEAD'} />
+        )}
         {isRemote && (
           <>
             <Button

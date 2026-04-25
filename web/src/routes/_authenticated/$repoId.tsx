@@ -11,6 +11,7 @@ import { FolderGit2 } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
+import { DownloadDropdown } from '@/components/download-dropdown'
 import { setLastRepo } from '@/hooks/use-repos-storage'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
@@ -72,6 +73,7 @@ function RepositoryPage() {
           </div>
           <div className="flex items-center gap-2">
             <CloneDialog repoPath={data.path || ''} fingerprint={data.repoId} />
+            <DownloadDropdown fingerprint={data.repoId} ref={data.default_branch || 'HEAD'} />
             {data.remote && (
               <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
             )}

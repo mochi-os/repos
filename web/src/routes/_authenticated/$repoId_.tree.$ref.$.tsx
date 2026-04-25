@@ -50,6 +50,7 @@ function TreePage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
+          currentRef={ref}
         />
         <FileTree
           repoId={data.id || data.repoId}

@@ -163,6 +163,27 @@ export const reposRequest = {
     const response = await reposClient.post(url, data, config)
     return unwrapData<TResponse>(response.data)
   },
+
+  // Download a binary response and trigger a browser save. Falls back to a
+  // generic filename if the server omits Content-Disposition.
+  download: async (
+    url: string,
+    fallbackFilename: string,
+    config?: Omit<AxiosRequestConfig, 'url' | 'method' | 'responseType'>
+  ): Promise<void> => {
+    const response = await reposClient.get(url, { ...config, responseType: 'blob' })
+    const cd = response.headers['content-disposition'] as string | undefined
+    const match = cd?.match(/filename="?([^";]+)"?/)
+    const filename = match?.[1] || fallbackFilename
+    const objectUrl = URL.createObjectURL(response.data as Blob)
+    const link = document.createElement('a')
+    link.href = objectUrl
+    link.download = filename
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(objectUrl)
+  },
 }
 
 export default reposRequest

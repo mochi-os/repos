@@ -2,7 +2,7 @@
 // Copyright Alistair Cunningham 2025-2026
 
 {
-	"version": "1.54",
+	"version": "2.0",
 	"label": "app_name",
 	"classes": ["repository"],
 	"paths": ["repositories"],
@@ -16,7 +16,7 @@
 	"execute": ["repositories.star"],
 
 	"database": {
-		"schema": 7,
+		"schema": 8,
 		"file": "repositories.db",
 		"create": {"function": "database_create"},
 		"upgrade": {"function": "database_upgrade"}
@@ -64,6 +64,7 @@
 		":repository/-/tree": {"function": "action_tree", "public": true},
 		":repository/-/tree/*treepath": {"function": "action_tree", "public": true},
 		":repository/-/blob/*blobpath": {"function": "action_blob", "public": true},
+		":repository/-/archive/:format": {"function": "action_archive", "public": true},
 
 		":repository/git/*path": {"feature": "git", "public": true},
 
@@ -87,7 +88,8 @@
 		"commits": {"function": "event_commits"},
 		"commit": {"function": "event_commit"},
 		"tree": {"function": "event_tree"},
-		"blob": {"function": "event_blob"}
+		"blob": {"function": "event_blob"},
+		"archive": {"function": "event_archive"}
 	},
 
 	"functions": {

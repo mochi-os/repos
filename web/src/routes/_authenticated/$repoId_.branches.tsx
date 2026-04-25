@@ -34,6 +34,7 @@ import {
 } from '@mochi/web'
 import { GitBranch, Plus, Trash2 } from 'lucide-react'
 import { RepositoryHeader } from '@/features/repository/repository-header'
+import { DownloadDropdown } from '@/components/download-dropdown'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useBranches, useCreateBranch, useDeleteBranch } from '@/hooks/use-repository'
@@ -123,6 +124,7 @@ function BranchesPage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
+          showDownload={false}
         />
         {data.isAdmin && branches.length > 0 && (
           <div className="flex justify-end">
@@ -134,6 +136,7 @@ function BranchesPage() {
         )}
         <BranchesList
           repoId={data.repoId}
+          fingerprint={data.fingerprint || data.repoId}
           defaultBranch={defaultBranch}
           isAdmin={data.isAdmin}
           onDelete={handleDeleteClick}
@@ -207,12 +210,13 @@ function BranchesPage() {
 
 interface BranchesListProps {
   repoId: string
+  fingerprint: string
   defaultBranch: string
   isAdmin?: boolean
   onDelete: (name: string) => void
 }
 
-function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesListProps) {
+function BranchesList({ repoId, fingerprint, defaultBranch, isAdmin, onDelete }: BranchesListProps) {
   const { data, isLoading, error } = useBranches(repoId)
 
   if (isLoading) {
@@ -271,6 +275,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
               <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
                 {branch.sha.substring(0, 7)}
               </code>
+              <DownloadDropdown fingerprint={fingerprint} ref={branch.name} variant="icon" />
               {isAdmin && (
                 branch.name !== defaultBranch ? (
                   <Button

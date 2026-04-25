@@ -14,6 +14,7 @@ import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useTags } from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
+import { DownloadDropdown } from '@/components/download-dropdown'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
   loader: async ({ params }) => {
@@ -49,14 +50,23 @@ function TagsPage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
+          showDownload={false}
         />
-        <TagsList repoId={data.repoId} />
+        <TagsList
+          repoId={data.repoId}
+          fingerprint={data.fingerprint || data.repoId}
+        />
       </div>
     </Main>
   )
 }
 
-function TagsList({ repoId }: { repoId: string }) {
+interface TagsListProps {
+  repoId: string
+  fingerprint: string
+}
+
+function TagsList({ repoId, fingerprint }: TagsListProps) {
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
@@ -94,30 +104,35 @@ function TagsList({ repoId }: { repoId: string }) {
       <Card>
         <CardContent className="p-0 divide-y">
           {tags.map((tag) => (
-            <Link
+            <div
               key={tag.name}
-              to="/$repoId/tree/$ref/$"
-              params={{ repoId, ref: tag.name, _splat: '' }}
               className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
             >
-              <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <div className="font-medium">{tag.name}</div>
-                {tag.message && (
-                  <div className="text-sm text-muted-foreground truncate">
-                    {tag.message}
-                  </div>
-                )}
-                {tag.tagger && tag.date && (
-                  <div className="text-sm text-muted-foreground">
-                    {tag.tagger} tagged on {formatTimestamp(tag.date)}
-                  </div>
-                )}
-              </div>
+              <Link
+                to="/$repoId/tree/$ref/$"
+                params={{ repoId, ref: tag.name, _splat: '' }}
+                className="flex items-center gap-4 flex-1 min-w-0"
+              >
+                <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium">{tag.name}</div>
+                  {tag.message && (
+                    <div className="text-sm text-muted-foreground truncate">
+                      {tag.message}
+                    </div>
+                  )}
+                  {tag.tagger && tag.date && (
+                    <div className="text-sm text-muted-foreground">
+                      {tag.tagger} tagged on {formatTimestamp(tag.date)}
+                    </div>
+                  )}
+                </div>
+              </Link>
               <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
                 {tag.sha.substring(0, 7)}
               </code>
-            </Link>
+              <DownloadDropdown fingerprint={fingerprint} ref={tag.name} variant="icon" />
+            </div>
           ))}
         </CardContent>
       </Card>
