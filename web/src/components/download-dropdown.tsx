@@ -14,9 +14,9 @@ import { reposRequest } from '@/api/request'
 type Format = 'zip' | 'tar.gz' | 'tar.bz2'
 
 const FORMATS: { format: Format; label: string }[] = [
-  { format: 'zip', label: 'ZIP' },
-  { format: 'tar.gz', label: 'tar.gz' },
   { format: 'tar.bz2', label: 'tar.bz2' },
+  { format: 'tar.gz', label: 'tar.gz' },
+  { format: 'zip', label: 'zip' },
 ]
 
 interface DownloadDropdownProps {
