@@ -179,10 +179,16 @@ export const reposRequest = {
     const link = document.createElement('a')
     link.href = objectUrl
     link.download = filename
+    link.style.display = 'none'
     document.body.appendChild(link)
     link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(objectUrl)
+    // Delay cleanup so Firefox has time to resolve the blob URL — revoking
+    // immediately races with the download and silently kills it for some
+    // formats.
+    setTimeout(() => {
+      document.body.removeChild(link)
+      URL.revokeObjectURL(objectUrl)
+    }, 1000)
   },
 }
 
