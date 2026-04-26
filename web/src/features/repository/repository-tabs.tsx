@@ -59,6 +59,7 @@ import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 
 import { FileEntry } from '@/components/file-entry'
+import { DownloadDropdown } from '@/components/download-dropdown'
 import { getCommitTitle } from '@/lib/format'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 import { tabs, type RepositoryTabId } from './tabs'
@@ -364,26 +365,31 @@ function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; finge
         <Card>
           <CardContent className="p-0 divide-y">
             {(data?.commits || []).map((commit) => (
-              <Link
+              <div
                 key={commit.sha}
-                to="/$repoId/commit/$sha"
-                params={{ repoId: fingerprint, sha: commit.sha }}
                 className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
               >
-                <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                    <User className="h-3 w-3" />
-                    <span>{commit.author}</span>
-                    <span>·</span>
-                    <span>{formatTimestamp(commit.date)}</span>
+                <Link
+                  to="/$repoId/commit/$sha"
+                  params={{ repoId: fingerprint, sha: commit.sha }}
+                  className="flex items-start gap-4 flex-1 min-w-0"
+                >
+                  <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+                      <User className="h-3 w-3" />
+                      <span>{commit.author}</span>
+                      <span>·</span>
+                      <span>{formatTimestamp(commit.date)}</span>
+                    </div>
                   </div>
-                </div>
-                <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                  {commit.sha.substring(0, 7)}
-                </code>
-              </Link>
+                  <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+                    {commit.sha.substring(0, 7)}
+                  </code>
+                </Link>
+                <DownloadDropdown ref={commit.sha} variant="icon" />
+              </div>
             ))}
           </CardContent>
         </Card>
@@ -516,6 +522,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
                     {branch.sha.substring(0, 7)}
                   </code>
                 </Link>
+                <DownloadDropdown ref={branch.name} variant="icon" />
                 {isOwner && branch.name !== actualDefault && (
                   <Button
                     variant="ghost"
@@ -659,30 +666,35 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
     <Card>
       <CardContent className="p-0 divide-y">
         {tags.map((tag) => (
-          <Link
+          <div
             key={tag.name}
-            to="/$repoId/tree/$ref/$"
-            params={{ repoId: fingerprint, ref: tag.name, _splat: '' }}
             className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
           >
-            <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-            <div className="flex-1 min-w-0">
-              <div className="font-medium">{tag.name}</div>
-              {tag.message && tag.message !== tag.name && (
-                <div className="text-sm text-muted-foreground truncate">
-                  {tag.message}
-                </div>
-              )}
-              {tag.tagger && tag.date && (
-                <div className="text-sm text-muted-foreground">
-                  {tag.tagger} tagged on {formatTimestamp(tag.date)}
-                </div>
-              )}
-            </div>
-            <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-              {tag.sha.substring(0, 7)}
-            </code>
-          </Link>
+            <Link
+              to="/$repoId/tree/$ref/$"
+              params={{ repoId: fingerprint, ref: tag.name, _splat: '' }}
+              className="flex items-center gap-4 flex-1 min-w-0"
+            >
+              <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+              <div className="flex-1 min-w-0">
+                <div className="font-medium">{tag.name}</div>
+                {tag.message && tag.message !== tag.name && (
+                  <div className="text-sm text-muted-foreground truncate">
+                    {tag.message}
+                  </div>
+                )}
+                {tag.tagger && tag.date && (
+                  <div className="text-sm text-muted-foreground">
+                    {tag.tagger} tagged on {formatTimestamp(tag.date)}
+                  </div>
+                )}
+              </div>
+              <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+                {tag.sha.substring(0, 7)}
+              </code>
+            </Link>
+            <DownloadDropdown ref={tag.name} variant="icon" />
+          </div>
         ))}
       </CardContent>
     </Card>
