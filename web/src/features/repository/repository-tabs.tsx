@@ -388,7 +388,7 @@ function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; finge
                     {commit.sha.substring(0, 7)}
                   </code>
                 </Link>
-                <DownloadDropdown ref={commit.sha} variant="icon" />
+                <DownloadDropdown gitRef={commit.sha} variant="icon" />
               </div>
             ))}
           </CardContent>
@@ -522,7 +522,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
                     {branch.sha.substring(0, 7)}
                   </code>
                 </Link>
-                <DownloadDropdown ref={branch.name} variant="icon" />
+                <DownloadDropdown gitRef={branch.name} variant="icon" />
                 {isOwner && branch.name !== actualDefault && (
                   <Button
                     variant="ghost"
@@ -693,7 +693,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
                 {tag.sha.substring(0, 7)}
               </code>
             </Link>
-            <DownloadDropdown ref={tag.name} variant="icon" />
+            <DownloadDropdown gitRef={tag.name} variant="icon" />
           </div>
         ))}
       </CardContent>

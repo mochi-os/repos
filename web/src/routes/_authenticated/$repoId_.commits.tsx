@@ -137,7 +137,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
                     {commit.sha.substring(0, 7)}
                   </code>
                 </Link>
-                <DownloadDropdown ref={commit.sha} variant="icon" />
+                <DownloadDropdown gitRef={commit.sha} variant="icon" />
               </div>
             ))}
           </CardContent>

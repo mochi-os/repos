@@ -129,7 +129,7 @@ function TagsList({ repoId }: TagsListProps) {
               <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
                 {tag.sha.substring(0, 7)}
               </code>
-              <DownloadDropdown ref={tag.name} variant="icon" />
+              <DownloadDropdown gitRef={tag.name} variant="icon" />
             </div>
           ))}
         </CardContent>

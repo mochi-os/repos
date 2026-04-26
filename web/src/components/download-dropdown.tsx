@@ -20,13 +20,13 @@ const FORMATS: { format: Format; label: string }[] = [
 ]
 
 interface DownloadDropdownProps {
-  ref: string
+  gitRef: string
   variant?: 'button' | 'icon'
   disabled?: boolean
 }
 
 export function DownloadDropdown({
-  ref,
+  gitRef,
   variant = 'button',
   disabled,
 }: DownloadDropdownProps) {
@@ -39,7 +39,7 @@ export function DownloadDropdown({
       await reposRequest.download(
         `archive/${format}`,
         `archive.${format}`,
-        { params: { ref } }
+        { params: { ref: gitRef } }
       )
     } catch (error) {
       toast.error(getErrorMessage(error, 'Failed to download archive'))
@@ -81,11 +81,7 @@ export function DownloadDropdown({
         {FORMATS.map((f) => (
           <DropdownMenuItem
             key={f.format}
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              void handleDownload(f.format)
-            }}
+            onSelect={() => void handleDownload(f.format)}
             disabled={!!busy}
           >
             {f.label}
