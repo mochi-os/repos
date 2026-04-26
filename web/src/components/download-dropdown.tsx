@@ -20,14 +20,12 @@ const FORMATS: { format: Format; label: string }[] = [
 ]
 
 interface DownloadDropdownProps {
-  fingerprint: string
   ref: string
   variant?: 'button' | 'icon'
   disabled?: boolean
 }
 
 export function DownloadDropdown({
-  fingerprint,
   ref,
   variant = 'button',
   disabled,
@@ -39,7 +37,7 @@ export function DownloadDropdown({
     setBusy(format)
     try {
       await reposRequest.download(
-        `${fingerprint}/-/archive/${format}`,
+        `archive/${format}`,
         `archive.${format}`,
         { params: { ref } }
       )

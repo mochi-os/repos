@@ -73,7 +73,7 @@ function RepositoryPage() {
           </div>
           <div className="flex items-center gap-2">
             <CloneDialog repoPath={data.path || ''} fingerprint={data.repoId} />
-            <DownloadDropdown fingerprint={data.repoId} ref={data.default_branch || 'HEAD'} />
+            <DownloadDropdown ref={data.default_branch || 'HEAD'} />
             {data.remote && (
               <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
             )}

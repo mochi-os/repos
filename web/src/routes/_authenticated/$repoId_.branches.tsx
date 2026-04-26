@@ -136,7 +136,6 @@ function BranchesPage() {
         )}
         <BranchesList
           repoId={data.repoId}
-          fingerprint={data.fingerprint || data.repoId}
           defaultBranch={defaultBranch}
           isAdmin={data.isAdmin}
           onDelete={handleDeleteClick}
@@ -210,13 +209,12 @@ function BranchesPage() {
 
 interface BranchesListProps {
   repoId: string
-  fingerprint: string
   defaultBranch: string
   isAdmin?: boolean
   onDelete: (name: string) => void
 }
 
-function BranchesList({ repoId, fingerprint, defaultBranch, isAdmin, onDelete }: BranchesListProps) {
+function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesListProps) {
   const { data, isLoading, error } = useBranches(repoId)
 
   if (isLoading) {
@@ -275,7 +273,7 @@ function BranchesList({ repoId, fingerprint, defaultBranch, isAdmin, onDelete }:
               <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
                 {branch.sha.substring(0, 7)}
               </code>
-              <DownloadDropdown fingerprint={fingerprint} ref={branch.name} variant="icon" />
+              <DownloadDropdown ref={branch.name} variant="icon" />
               {isAdmin && (
                 branch.name !== defaultBranch ? (
                   <Button

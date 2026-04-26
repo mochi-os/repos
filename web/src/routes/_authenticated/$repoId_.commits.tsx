@@ -61,7 +61,6 @@ function CommitsPage() {
         />
         <CommitsList
           repoId={data.repoId}
-          fingerprint={data.fingerprint || data.repoId}
           defaultBranch={data.default_branch || 'main'}
         />
       </div>
@@ -69,7 +68,7 @@ function CommitsPage() {
   )
 }
 
-function CommitsList({ repoId, fingerprint, defaultBranch }: { repoId: string; fingerprint: string; defaultBranch: string }) {
+function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch: string }) {
   const { formatTimestamp } = useFormat()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
@@ -138,7 +137,7 @@ function CommitsList({ repoId, fingerprint, defaultBranch }: { repoId: string; f
                     {commit.sha.substring(0, 7)}
                   </code>
                 </Link>
-                <DownloadDropdown fingerprint={fingerprint} ref={commit.sha} variant="icon" />
+                <DownloadDropdown ref={commit.sha} variant="icon" />
               </div>
             ))}
           </CardContent>

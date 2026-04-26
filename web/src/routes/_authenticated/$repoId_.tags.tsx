@@ -54,7 +54,6 @@ function TagsPage() {
         />
         <TagsList
           repoId={data.repoId}
-          fingerprint={data.fingerprint || data.repoId}
         />
       </div>
     </Main>
@@ -63,10 +62,9 @@ function TagsPage() {
 
 interface TagsListProps {
   repoId: string
-  fingerprint: string
 }
 
-function TagsList({ repoId, fingerprint }: TagsListProps) {
+function TagsList({ repoId }: TagsListProps) {
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
@@ -131,7 +129,7 @@ function TagsList({ repoId, fingerprint }: TagsListProps) {
               <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
                 {tag.sha.substring(0, 7)}
               </code>
-              <DownloadDropdown fingerprint={fingerprint} ref={tag.name} variant="icon" />
+              <DownloadDropdown ref={tag.name} variant="icon" />
             </div>
           ))}
         </CardContent>

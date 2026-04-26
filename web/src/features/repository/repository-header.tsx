@@ -95,7 +95,7 @@ export function RepositoryHeader({
         <div className="flex-1" />
         <CloneDialog repoPath={path} fingerprint={fingerprint} />
         {showDownload && (
-          <DownloadDropdown fingerprint={fingerprint} ref={currentRef || 'HEAD'} />
+          <DownloadDropdown ref={currentRef || 'HEAD'} />
         )}
         {isRemote && (
           <>
