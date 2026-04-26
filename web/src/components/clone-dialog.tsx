@@ -24,7 +24,7 @@ import {
   useFormat,
 } from '@mochi/web'
 import {
-  Download,
+  Code,
   Loader2,
   Copy,
   Check,
@@ -209,7 +209,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     <>
       <Dialog open={open} onOpenChange={handleOpen}>
         <Button variant="outline" size="sm" onClick={() => handleOpen(true)}>
-          <Download className="h-4 w-4" />
+          <Code className="h-4 w-4" />
           Clone
         </Button>
         <DialogContent>

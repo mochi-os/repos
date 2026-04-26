@@ -88,6 +88,14 @@ def valid_ref(r):
         return False
     return True
 
+# Build a filename-safe label for an archive: tag/branch name when the ref is a
+# name (so users see "repo-v1.0.zip"), short commit SHA when the ref is a raw
+# hash or HEAD. Slashes in names are flattened to hyphens.
+def archive_label(ref, sha):
+    if ref == "HEAD" or ref == "" or valid_sha(ref):
+        return sha[:7]
+    return ref.replace("/", "-")
+
 # Resolve a ref and file path from a combined path like "feature/hello-world/src/main.ts".
 # Tries progressively longer prefixes as git refs until one matches.
 def resolve_ref(repo_id, combined):
@@ -951,21 +959,27 @@ def action_archive(a):
             message = head.get("error", "Remote server unavailable") if head else "Remote server unavailable"
             return a.error(code, message)
 
-        filename = head.get("filename", "archive.%s" % format)
+        filename = head.get("filename")
+        if not filename:
+            # Peer is running an older app version that doesn't know the
+            # archive event, or returned a malformed response. Don't write a
+            # zero-byte archive — surface the failure instead.
+            return a.error(502, "Remote server does not support archive download")
+
         a.header("Content-Type", content_types[format])
         a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
         a.write_from_stream(s)
         return None
 
-    # Resolve ref to its tip commit so the prefix is content-addressable
+    # Resolve ref to its tip commit so we can fail early on bad refs
     commits = mochi.git.commit.list(repo["id"], ref, 1, 0)
     if not commits:
         return a.error(404, "Branch, tag, or commit '%s' not found" % ref)
     sha = commits[0]["sha"]
-    short = sha[:7]
 
     base = repo.get("path") or repo.get("name") or "repo"
-    prefix = "%s-%s" % (base, short)
+    label = archive_label(ref, sha)
+    prefix = "%s-%s" % (base, label)
     filename = "%s.%s" % (prefix, format)
 
     a.header("Content-Type", content_types[format])
@@ -1748,10 +1762,10 @@ def event_archive(e):
         e.stream.write({"error": "Branch, tag, or commit '%s' not found" % ref, "code": 404})
         return
     sha = commits[0]["sha"]
-    short = sha[:7]
 
     base = repo.get("path") or repo.get("name") or "repo"
-    prefix = "%s-%s" % (base, short)
+    label = archive_label(ref, sha)
+    prefix = "%s-%s" % (base, label)
     filename = "%s.%s" % (prefix, format)
 
     # Header response, then raw archive bytes on the same stream
