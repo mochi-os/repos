@@ -155,7 +155,7 @@ def get_repo(a):
 def action_info_entity(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     # Check if this is a subscribed remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -266,40 +266,40 @@ def action_create(a):
     privacy = a.input("privacy", "public")
 
     if not name:
-        return a.error(400, "Name is required")
+        return a.error_label(400, "errors.name_is_required")
 
     if len(name) > 100:
-        return a.error(400, "Name is too long (max 100 characters)")
+        return a.error_label(400, "errors.name_is_too_long_max_100_characters")
 
     if not path:
-        return a.error(400, "Path is required")
+        return a.error_label(400, "errors.path_is_required")
 
     if not valid_path(path):
-        return a.error(400, "Path must be lowercase letters, numbers, and hyphens (1-100 chars, no leading/trailing hyphens)")
+        return a.error_label(400, "errors.path_must_be_lowercase_letters_numbers_and_hyphens_1_100_cha")
 
     if description and len(description) > 2000:
-        return a.error(400, "Description is too long (max 2000 characters)")
+        return a.error_label(400, "errors.description_is_too_long_max_2000_characters")
 
     # Check for duplicate name
     existing = mochi.db.row("select id from repositories where name = ?", name)
     if existing:
-        return a.error(400, "A repository with that name already exists")
+        return a.error_label(400, "errors.a_repository_with_that_name_already_exists")
 
     # Check for duplicate path
     existing_path = mochi.db.row("select id from repositories where path = ?", path)
     if existing_path:
-        return a.error(400, "A repository with that path already exists")
+        return a.error_label(400, "errors.a_repository_with_that_path_already_exists")
 
     # Create entity (privacy controls directory listing)
     entity_id = mochi.entity.create("repository", name, privacy, "")
     if not entity_id:
-        return a.error(500, "Failed to create entity")
+        return a.error_label(500, "errors.failed_to_create_entity")
 
     # Initialize git repository
     result = mochi.git.init(entity_id)
     if not result:
         mochi.entity.delete(entity_id)
-        return a.error(500, "Failed to initialize git repository")
+        return a.error_label(500, "errors.failed_to_initialize_git_repository")
 
     # Create database record
     now = mochi.time.now()
@@ -324,14 +324,14 @@ def action_create(a):
 def action_settings(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_write_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     row = mochi.db.row("select * from repositories where id = ?", repo["id"])
     if not row:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     return {"data": {
         "id": repo["id"],
@@ -345,10 +345,10 @@ def action_settings(a):
 def action_settings_set(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_write_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     path = a.input("path")
     description = a.input("description")
@@ -357,17 +357,17 @@ def action_settings_set(a):
     privacy = a.input("privacy")
 
     if description and len(description) > 2000:
-        return a.error(400, "Description is too long (max 2000 characters)")
+        return a.error_label(400, "errors.description_is_too_long_max_2000_characters")
 
     updates = []
     params = []
 
     if path:
         if not valid_path(path):
-            return a.error(400, "Path must be lowercase letters, numbers, and hyphens (1-100 chars, no leading/trailing hyphens)")
+            return a.error_label(400, "errors.path_must_be_lowercase_letters_numbers_and_hyphens_1_100_cha")
         existing = mochi.db.row("select id from repositories where path = ? and id != ?", path, repo["id"])
         if existing:
-            return a.error(400, "A repository with that path already exists")
+            return a.error_label(400, "errors.a_repository_with_that_path_already_exists")
         updates.append("path = ?")
         params.append(path)
 
@@ -380,7 +380,7 @@ def action_settings_set(a):
         branches = mochi.git.branches(repo["id"])
         branch_names = [b["name"] for b in branches] if branches else []
         if default_branch not in branch_names:
-            return a.error(400, "Branch does not exist")
+            return a.error_label(400, "errors.branch_does_not_exist")
         updates.append("default_branch = ?")
         params.append(default_branch)
         mochi.git.branch.default.set(repo["id"], default_branch)
@@ -414,17 +414,17 @@ def action_settings_set(a):
 def action_rename(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_admin_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     name = a.input("name")
     if not name or not mochi.valid(name, "name"):
-        return a.error(400, "Invalid name")
+        return a.error_label(400, "errors.invalid_name")
 
     if len(name) > 100:
-        return a.error(400, "Name is too long (max 100 characters)")
+        return a.error_label(400, "errors.name_is_too_long_max_100_characters")
 
     # Update entity (handles directory, network publishing)
     mochi.entity.update(repo["id"], name=name)
@@ -443,10 +443,10 @@ def action_rename(a):
 def action_delete(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_admin_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     # Notify subscribers before deletion (only for owned repos)
     if repo.get("owner", 1) == 1:
@@ -471,10 +471,10 @@ def action_delete(a):
 def action_access_list(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_write_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     # Get owner - if we own this entity, use current user's info
     owner = None
@@ -517,19 +517,19 @@ def action_access_list(a):
 def action_access_set(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_admin_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     subject = a.input("subject")
     permission = a.input("permission")
 
     if not subject or not permission:
-        return a.error(400, "Subject and permission are required")
+        return a.error_label(400, "errors.subject_and_permission_are_required")
 
     if permission not in ["read", "write", "none"]:
-        return a.error(400, "Invalid permission")
+        return a.error_label(400, "errors.invalid_permission")
 
     resource = "repository/" + repo["id"]
     granter = a.user.identity.id if a.user and a.user.identity else ""
@@ -551,15 +551,15 @@ def action_access_set(a):
 def action_access_revoke(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_admin_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     subject = a.input("subject")
 
     if not subject:
-        return a.error(400, "Subject is required")
+        return a.error_label(400, "errors.subject_is_required")
 
     resource = "repository/" + repo["id"]
 
@@ -573,10 +573,10 @@ def action_access_revoke(a):
 def action_refs(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -598,10 +598,10 @@ def action_refs(a):
 def action_branches(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -628,21 +628,21 @@ def action_branches(a):
 def action_branch_create(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
     if not check_write_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     name = a.input("name", "").strip()
     source = a.input("source") or "HEAD"
 
     if not name:
-        return a.error(400, "Branch name is required")
+        return a.error_label(400, "errors.branch_name_is_required")
     if len(name) > 256:
-        return a.error(400, "Branch name is too long")
+        return a.error_label(400, "errors.branch_name_is_too_long")
 
     result = mochi.git.branch.create(repo["id"], name, source)
     if not result:
-        return a.error(400, "Failed to create branch")
+        return a.error_label(400, "errors.failed_to_create_branch")
 
     return {"data": {"success": True, "name": name}}
 
@@ -650,21 +650,21 @@ def action_branch_create(a):
 def action_branch_delete(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
     if not check_write_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     name = a.input("name")
     if not name:
-        return a.error(400, "Branch name is required")
+        return a.error_label(400, "errors.branch_name_is_required")
 
     default = mochi.git.branch.default.get(repo["id"])
     if name == default:
-        return a.error(400, "Cannot delete the default branch")
+        return a.error_label(400, "errors.cannot_delete_the_default_branch")
 
     result = mochi.git.branch.delete(repo["id"], name)
     if not result:
-        return a.error(400, "Failed to delete branch")
+        return a.error_label(400, "errors.failed_to_delete_branch")
 
     return {"data": {"success": True}}
 
@@ -672,10 +672,10 @@ def action_branch_delete(a):
 def action_tags(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -697,18 +697,18 @@ def action_tags(a):
 def action_commits(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     ref = a.input("ref", "HEAD")
     if not valid_ref(ref):
-        return a.error(400, "Invalid ref")
+        return a.error_label(400, "errors.invalid_ref")
     limit_str = a.input("limit", "50")
     offset_str = a.input("offset", "0")
     if not limit_str.isdigit() or not offset_str.isdigit():
-        return a.error(400, "Invalid pagination parameters")
+        return a.error_label(400, "errors.invalid_pagination_parameters")
     limit = int(limit_str)
     offset = int(offset_str)
     if limit < 1 or limit > 1000:
@@ -748,17 +748,17 @@ def action_commits(a):
 def action_commit(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     sha = a.input("sha")
     if not sha:
-        return a.error(400, "Commit SHA is required")
+        return a.error_label(400, "errors.commit_sha_is_required")
 
     if not valid_sha(sha):
-        return a.error(400, "Invalid commit SHA")
+        return a.error_label(400, "errors.invalid_commit_sha")
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -772,11 +772,11 @@ def action_commit(a):
         }, peer)
         if not response.get("error"):
             return {"data": response}
-        return a.error(404, "Commit not found")
+        return a.error_label(404, "errors.commit_not_found")
 
     commit = mochi.git.commit.get(repo["id"], sha)
     if not commit:
-        return a.error(404, "Commit not found")
+        return a.error_label(404, "errors.commit_not_found")
 
     return {"data": {"commit": commit}}
 
@@ -784,10 +784,10 @@ def action_commit(a):
 def action_tree(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     is_remote = repo.get("owner", 1) == 0
     server = repo.get("server", "")
@@ -806,7 +806,7 @@ def action_tree(a):
         path = a.input("path", "")
 
     if not valid_ref(ref):
-        return a.error(400, "Invalid ref")
+        return a.error_label(400, "errors.invalid_ref")
 
     if is_remote:
         # Fetch from remote server
@@ -852,10 +852,10 @@ def action_tree(a):
 def action_blob(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     is_remote = repo.get("owner", 1) == 0
     server = repo.get("server", "")
@@ -874,10 +874,10 @@ def action_blob(a):
         path = a.input("path", "")
 
     if not valid_ref(ref):
-        return a.error(400, "Invalid ref")
+        return a.error_label(400, "errors.invalid_ref")
 
     if not path:
-        return a.error(400, "Path is required")
+        return a.error_label(400, "errors.path_is_required")
 
     if is_remote:
         # Fetch from remote server
@@ -919,18 +919,18 @@ def action_blob(a):
 def action_archive(a):
     repo = get_repo(a)
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if not check_read_access(a, repo["id"]):
-        return a.error(403, "Access denied")
+        return a.error_label(403, "errors.access_denied")
 
     format = a.input("format", "")
     if format not in ["zip", "tar.gz", "tar.bz2"]:
-        return a.error(400, "Format must be zip, tar.gz, or tar.bz2")
+        return a.error_label(400, "errors.format_must_be_zip_tar_gz_or_tar_bz2")
 
     ref = a.input("ref", "HEAD")
     if not valid_ref(ref):
-        return a.error(400, "Invalid ref")
+        return a.error_label(400, "errors.invalid_ref")
 
     content_types = {
         "zip": "application/zip",
@@ -950,7 +950,7 @@ def action_archive(a):
             "format": format,
         }, peer)
         if not s:
-            return a.error(503, "Failed to connect to remote server")
+            return a.error_label(503, "errors.failed_to_connect_to_remote_server")
 
         # Header message: error or {filename, ...}
         head = s.read()
@@ -964,7 +964,7 @@ def action_archive(a):
             # Peer is running an older app version that doesn't know the
             # archive event, or returned a malformed response. Don't write a
             # zero-byte archive — surface the failure instead.
-            return a.error(502, "Remote server does not support archive download")
+            return a.error_label(502, "errors.remote_server_does_not_support_archive_download")
 
         a.header("Content-Type", content_types[format])
         a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
@@ -1010,7 +1010,7 @@ def action_opengraph(a):
 # Action: Search users (for access control UI)
 def action_users_search(a):
     if not a.user:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
     query = a.input("q", "")
     results = mochi.service.call("people", "users/search", query)
     return {"data": {"results": results or []}}
@@ -1018,28 +1018,28 @@ def action_users_search(a):
 # Action: List groups
 def action_groups(a):
     if not a.user:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
     results = mochi.service.call("friends", "groups/list")
     return {"data": {"groups": results or []}}
 
 # Action: Create a new authentication token
 def action_token_create(a):
     if not a.user:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
 
     name = (a.input("name") or "Git access").strip()
     if len(name) > 100:
-        return a.error(400, "Token name is too long (max 100 characters)")
+        return a.error_label(400, "errors.token_name_is_too_long_max_100_characters")
     token = mochi.token.create(name, [], 0)
     if not token:
-        return a.error(500, "Failed to create token")
+        return a.error_label(500, "errors.failed_to_create_token")
 
     return {"data": {"token": token}}
 
 # Action: List authentication tokens
 def action_token_list(a):
     if not a.user:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
 
     tokens = mochi.token.list()
     return {"data": {"tokens": tokens or []}}
@@ -1047,11 +1047,11 @@ def action_token_list(a):
 # Action: Delete authentication token
 def action_token_delete(a):
     if not a.user:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
 
     hash = a.input("hash", "").strip()
     if not hash or len(hash) > 128:
-        return a.error(400, "Invalid token hash")
+        return a.error_label(400, "errors.invalid_token_hash")
 
     ok = mochi.token.delete(hash)
     return {"data": {"ok": ok}}
@@ -1209,7 +1209,7 @@ def action_recommendations(a):
 # Supports: name search, entity ID, fingerprint (with/without hyphens), URL
 def action_search(a):
     if not a.user or not a.user.identity:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
 
     search = a.input("search", "").strip()
     if not search:
@@ -1266,11 +1266,11 @@ def action_search(a):
 # Action: Probe a remote repository by URL
 def action_probe(a):
     if not a.user or not a.user.identity:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
 
     url = a.input("url") or a.input("search", "")
     if not url:
-        return a.error(400, "No URL provided")
+        return a.error_label(400, "errors.no_url_provided")
 
     # Parse URL to extract server and repository ID
     # Expected formats:
@@ -1300,17 +1300,17 @@ def action_probe(a):
         else:
             repo_id = repo_path
     else:
-        return a.error(400, "Invalid URL format. Expected: https://server/repositories/REPO_ID")
+        return a.error_label(400, "errors.invalid_url_format_expected_https_server_repositories_repo_i")
 
     if not server or server == protocol:
-        return a.error(400, "Could not extract server from URL")
+        return a.error_label(400, "errors.could_not_extract_server_from_url")
 
     # Check if it's a fingerprint (9 chars) or entity ID (50-51 chars)
     is_fingerprint = mochi.valid(repo_id, "fingerprint")
     is_entity_id = mochi.valid(repo_id, "entity")
 
     if not is_fingerprint and not is_entity_id:
-        return a.error(400, "Invalid repository ID or fingerprint in URL")
+        return a.error_label(400, "errors.invalid_repository_id_or_fingerprint_in_url")
 
     # If it's a fingerprint, try to resolve to entity ID via directory or server
     if is_fingerprint:
@@ -1326,7 +1326,7 @@ def action_probe(a):
 
     peer = mochi.remote.peer(server) if server else None
     if not peer:
-        return a.error(502, "Unable to connect to server")
+        return a.error_label(502, "errors.unable_to_connect_to_server")
 
     response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
     if response.get("error"):
@@ -1346,19 +1346,19 @@ def action_probe(a):
 # Action: Subscribe to a remote repository
 def action_subscribe(a):
     if not a.user or not a.user.identity:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
     user_id = a.user.identity.id
 
     repo_id = a.input("repository")
     server = a.input("server", "")
 
     if not mochi.valid(repo_id, "entity"):
-        return a.error(400, "Invalid repository ID")
+        return a.error_label(400, "errors.invalid_repository_id")
 
     # Check if already subscribed
     existing = mochi.db.row("select * from repositories where id = ?", repo_id)
     if existing:
-        return a.error(400, "Already subscribed to this repository")
+        return a.error_label(400, "errors.already_subscribed_to_this_repository")
 
     # If no server provided, try to discover it from directory
     if not server:
@@ -1387,7 +1387,7 @@ def action_subscribe(a):
         # Use directory lookup when no server specified
         directory = mochi.directory.get(repo_id)
         if not directory:
-            return a.error(404, "Unable to find repository in directory. Please provide the repository URL.")
+            return a.error_label(404, "errors.unable_to_find_repository_in_directory_please_provide_the_re")
         repo_name = directory.get("name", "")
         repo_path = ""
         repo_description = ""
@@ -1412,12 +1412,12 @@ def action_subscribe(a):
 # Action: Unsubscribe from a remote repository
 def action_unsubscribe(a):
     if not a.user or not a.user.identity:
-        return a.error(401, "Not logged in")
+        return a.error_label(401, "errors.not_logged_in")
     user_id = a.user.identity.id
 
     repo_id = a.input("repository")
     if not mochi.valid(repo_id, "entity") and not mochi.valid(repo_id, "fingerprint"):
-        return a.error(400, "Invalid repository ID")
+        return a.error_label(400, "errors.invalid_repository_id")
 
     # Get repository by ID or fingerprint
     repo = mochi.db.row("select * from repositories where id = ?", repo_id)
@@ -1426,10 +1426,10 @@ def action_unsubscribe(a):
         if repo:
             repo_id = repo["id"]
     if not repo:
-        return a.error(404, "Repository not found")
+        return a.error_label(404, "errors.repository_not_found")
 
     if repo["owner"] == 1:
-        return a.error(400, "Cannot unsubscribe from owned repository")
+        return a.error_label(400, "errors.cannot_unsubscribe_from_owned_repository")
 
     # Delete local reference
     mochi.db.execute("delete from repositories where id = ?", repo_id)
