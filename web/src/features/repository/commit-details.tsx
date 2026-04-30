@@ -6,11 +6,12 @@ import {
   CardHeader,
   CardTitle,
   Button,
+  EntityAvatar,
   Skeleton,
   getErrorMessage,
   useFormat,
 } from '@mochi/web'
-import { GitCommit, User, Calendar, Copy, Check } from 'lucide-react'
+import { GitCommit, Calendar, Copy, Check } from 'lucide-react'
 import { useCommit } from '@/hooks/use-repository'
 
 interface CommitDetailsProps {
@@ -76,7 +77,11 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
         <CardContent>
           <div className="flex flex-wrap items-center gap-4 text-sm">
             <div className="flex items-center gap-2">
-              <User className="h-4 w-4 text-muted-foreground" />
+              <EntityAvatar
+                seed={commit.author_email || commit.author}
+                name={commit.author}
+                size={24}
+              />
               <span>{commit.author}</span>
               {commit.author_email && (
                 <span className="text-muted-foreground">

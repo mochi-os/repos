@@ -5,6 +5,7 @@ import {
   Main,
   Card,
   CardContent,
+  EntityAvatar,
   Skeleton,
   Select,
   SelectContent,
@@ -16,7 +17,7 @@ import {
   getErrorMessage,
   useFormat,
 } from '@mochi/web'
-import { GitBranch, GitCommit, User } from 'lucide-react'
+import { GitBranch, GitCommit } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useCommits, useBranches } from '@/hooks/use-repository'
@@ -127,7 +128,11 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
                   <div className="flex-1 min-w-0">
                     <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                      <User className="h-3 w-3" />
+                      <EntityAvatar
+                        seed={commit.author_email || commit.author}
+                        name={commit.author}
+                        size="xs"
+                      />
                       <span>{commit.author}</span>
                       <span>·</span>
                       <span>{formatTimestamp(commit.date)}</span>
