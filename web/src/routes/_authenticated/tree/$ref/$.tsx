@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Trans } from '@lingui/react/macro'
 import {
   Main,
   usePageTitle,
@@ -29,7 +30,7 @@ function TreePage() {
     return (
       <Main>
         <div className="p-4 text-muted-foreground">
-          This page requires a repository context.
+          <Trans>This page requires a repository context.</Trans>
         </div>
       </Main>
     )

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { getCommitTitle } from '@/lib/format'
 import {
@@ -70,6 +71,7 @@ function CommitsPage() {
 }
 
 function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch: string }) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
@@ -84,7 +86,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder="Select branch" />
+            <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
             {branches.map((branch) => (
@@ -104,12 +106,12 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
         </div>
       ) : error ? (
         <div className="text-destructive">
-          {getErrorMessage(error, 'Failed to load commits')}
+          {getErrorMessage(error, t`Failed to load commits`)}
         </div>
       ) : (data?.commits || []).length === 0 ? (
         <div className="p-8 text-center text-muted-foreground">
           <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-          <p>No commits yet</p>
+          <p><Trans>No commits yet</Trans></p>
         </div>
       ) : (
         <Card>

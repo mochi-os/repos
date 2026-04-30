@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -21,6 +22,7 @@ interface CommitDetailsProps {
 }
 
 export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommit(repoId, sha)
   const [copied, setCopied] = useState(false)
@@ -43,7 +45,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
   if (error) {
     return (
       <div className="text-destructive">
-        {getErrorMessage(error, 'Failed to load commit')}
+        {getErrorMessage(error, t`Failed to load commit`)}
       </div>
     )
   }
@@ -51,7 +53,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
   const commit = data?.commit
   if (!commit) {
     return (
-      <div className="text-muted-foreground">Commit not found</div>
+      <div className="text-muted-foreground"><Trans>Commit not found</Trans></div>
     )
   }
 
@@ -132,7 +134,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
       {commit.diff && (
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg">Changes</CardTitle>
+            <CardTitle className="text-lg"><Trans>Changes</Trans></CardTitle>
           </CardHeader>
           <CardContent className="p-0">
             <pre className="overflow-x-auto p-4 text-sm font-mono">

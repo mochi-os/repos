@@ -1,4 +1,5 @@
 import { createFileRoute, redirect, Link, useRouter } from '@tanstack/react-router'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -114,7 +115,8 @@ interface RepositoryListPageProps {
 }
 
 function RepositoryListPage({ repositories }: RepositoryListPageProps) {
-  usePageTitle('Repositories')
+  const { t } = useLingui()
+  usePageTitle(t`Repositories`)
   const { openCreateDialog } = useSidebarContext()
   const queryClient = useQueryClient()
   const router = useRouter()
@@ -155,11 +157,11 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     setPendingRepoId(repo.id)
     try {
       await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
-      toast.success('Subscribed')
+      toast.success(t`Subscribed`)
       await queryClient.invalidateQueries({ queryKey: ['repositories', 'recommendations'] })
       await router.invalidate()
     } catch (error) {
-      toast.error(getErrorMessage(error, 'Failed to subscribe'))
+      toast.error(getErrorMessage(error, t`Failed to subscribe`))
     } finally {
       setPendingRepoId(null)
     }
@@ -179,7 +181,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   return (
     <>
       <PageHeader
-        title="Repositories"
+        title={t`Repositories`}
         icon={<FolderGit2 className="size-4 md:size-5" />}
       />
       <Main>
@@ -187,7 +189,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
           {!hasRepos ? (
             <div className="flex flex-col items-center justify-center p-8 text-center">
               <FolderGit2 className="text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50" />
-              <p className="text-muted-foreground mb-1 text-sm font-medium">Repositories</p>
+              <p className="text-muted-foreground mb-1 text-sm font-medium"><Trans>Repositories</Trans></p>
             <p className="text-muted-foreground mb-4 max-w-sm text-xs">
               {isLoggedIn ? 'You have no repositories yet.' : 'No public repositories.'}
             </p>
@@ -196,7 +198,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                 <InlineRepoSearch subscribedIds={subscribedRepoIds} onRefresh={refreshRepos} />
                 <Button variant="outline" onClick={openCreateDialog} className="mt-4">
                   <Plus className="mr-2 h-4 w-4" />
-                  Create a new repository
+                  <Trans>Create a new repository</Trans>
                 </Button>
               </>
             )}
@@ -207,7 +209,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                 <hr className="my-6 w-full max-w-md border-t" />
                 <div className="w-full max-w-md">
                   <p className="text-muted-foreground mb-3 text-xs font-medium uppercase tracking-wide">
-                    Recommended repositories
+                    <Trans>Recommended repositories</Trans>
                   </p>
                   <div className="divide-border divide-y rounded-lg border text-left">
                     {recommendations
@@ -285,7 +287,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                           setUnsubscribeId(repo.id)
                         }}
                       >
-                        Unsubscribe
+                        <Trans>Unsubscribe</Trans>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -305,7 +307,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
       <ConfirmDialog
         open={!!unsubscribeId}
         onOpenChange={(open) => { if (!open) setUnsubscribeId(null) }}
-        title="Unsubscribe"
+        title={t`Unsubscribe`}
         desc="Are you sure you want to unsubscribe from this repository?"
         confirmText="Unsubscribe"
         destructive
@@ -315,10 +317,10 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             unsubscribe.mutate(unsubscribeId, {
               onSuccess: () => {
                 setUnsubscribeId(null)
-                toast.success('Unsubscribed')
+                toast.success(t`Unsubscribed`)
                 void router.invalidate()
               },
-              onError: (error) => toast.error(getErrorMessage(error, 'Failed to unsubscribe')),
+              onError: (error) => toast.error(getErrorMessage(error, t`Failed to unsubscribe`)),
             })
           }
         }}

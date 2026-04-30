@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { Link, useNavigate } from '@tanstack/react-router'
 import {
   cn,
@@ -53,6 +54,7 @@ export function RepositoryHeader({
   currentRef,
   showDownload = true,
 }: RepositoryHeaderProps) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const unsubscribe = useUnsubscribe()
   const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
@@ -62,11 +64,11 @@ export function RepositoryHeader({
   const handleUnsubscribe = () => {
     unsubscribe.mutate(repoId, {
       onSuccess: () => {
-        toast.success('Unsubscribed from repository')
+        toast.success(t`Unsubscribed from repository`)
         void navigate({ to: '/' })
       },
       onError: (error) => {
-        toast.error(getErrorMessage(error, 'Failed to unsubscribe'))
+        toast.error(getErrorMessage(error, t`Failed to unsubscribe`))
       },
     })
     setShowUnsubscribeDialog(false)
@@ -88,7 +90,7 @@ export function RepositoryHeader({
           {isRemote && (
             <span className="flex items-center gap-1 text-xs text-muted-foreground">
               <Globe className="h-3 w-3" />
-              Subscribed
+              <Trans>Subscribed</Trans>
             </span>
           )}
         </div>
@@ -106,19 +108,19 @@ export function RepositoryHeader({
               disabled={unsubscribe.isPending}
             >
               <UserMinus className="h-4 w-4" />
-              <span className="hidden sm:inline">Unsubscribe</span>
+              <span className="hidden sm:inline"><Trans>Unsubscribe</Trans></span>
             </Button>
             <AlertDialog open={showUnsubscribeDialog} onOpenChange={setShowUnsubscribeDialog}>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Unsubscribe from repository?</AlertDialogTitle>
+                  <AlertDialogTitle><Trans>Unsubscribe from repository?</Trans></AlertDialogTitle>
                   <AlertDialogDescription>
                     This will remove "{name}" from your repository list. You can subscribe again later.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={handleUnsubscribe}>Unsubscribe</AlertDialogAction>
+                  <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
+                  <AlertDialogAction onClick={handleUnsubscribe}><Trans>Unsubscribe</Trans></AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>

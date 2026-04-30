@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -45,6 +46,7 @@ export function FileBrowser({
   initialRef,
   initialPath = '',
 }: FileBrowserProps) {
+  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
@@ -91,28 +93,28 @@ export function FileBrowser({
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId/commits" params={{ repoId: fingerprint }}>
             <History className="h-4 w-4 mr-1" />
-            Commits
+            <Trans>Commits</Trans>
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId/branches" params={{ repoId: fingerprint }}>
             <GitBranch className="h-4 w-4 mr-1" />
-            Branches
+            <Trans>Branches</Trans>
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId/tags" params={{ repoId: fingerprint }}>
             <Tag className="h-4 w-4 mr-1" />
-            Tags
+            <Trans>Tags</Trans>
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId" params={{ repoId: fingerprint }} search={{ tab: 'settings' }}>
             <Settings className="h-4 w-4 mr-1" />
-            Settings
+            <Trans>Settings</Trans>
           </Link>
         </Button>
 
@@ -130,7 +132,7 @@ export function FileBrowser({
           <Select value={currentRef} onValueChange={setCurrentRef}>
             <SelectTrigger className="w-[180px]">
               <GitBranch className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Select branch" />
+              <SelectValue placeholder={t`Select branch`} />
             </SelectTrigger>
             <SelectContent>
               {branches.map((branch) => (
@@ -186,11 +188,11 @@ export function FileBrowser({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, 'Failed to load files')}
+              {getErrorMessage(error, t`Failed to load files`)}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
-              Empty repository
+              <Trans>Empty repository</Trans>
             </div>
           ) : (
             <div className="divide-y">
@@ -229,6 +231,7 @@ export function FileTree({
   currentRef: initialRef,
   currentPath: initialPath,
 }: FileTreeProps) {
+  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
@@ -267,7 +270,7 @@ export function FileTree({
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder="Select branch" />
+            <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
             {/* Show current ref if not in branches list (e.g., tag or invalid ref) */}
@@ -328,11 +331,11 @@ export function FileTree({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, 'Failed to load files')}
+              {getErrorMessage(error, t`Failed to load files`)}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
-              Empty directory
+              <Trans>Empty directory</Trans>
             </div>
           ) : (
             <div className="divide-y">

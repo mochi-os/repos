@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
 import {
   Button,
@@ -38,6 +39,7 @@ export function CreateRepositoryDialog({
   onOpenChange,
   hideTrigger,
 }: CreateRepositoryDialogProps) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const createRepo = useCreateRepo()
 
@@ -100,7 +102,7 @@ export function CreateRepositoryDialog({
       },
       {
         onSuccess: (response) => {
-          toast.success('Repository created')
+          toast.success(t`Repository created`)
           resetForm()
           handleOpenChange(false)
           if (response?.fingerprint) {
@@ -110,7 +112,7 @@ export function CreateRepositoryDialog({
           }
         },
         onError: (error) => {
-          toast.error(getErrorMessage(error, 'Failed to create repository'))
+          toast.error(getErrorMessage(error, t`Failed to create repository`))
         },
       }
     )
@@ -121,19 +123,19 @@ export function CreateRepositoryDialog({
       {!hideTrigger && (
         <Button onClick={() => handleOpenChange(true)}>
           <Plus className="h-4 w-4" />
-          Create repository
+          <Trans>Create repository</Trans>
         </Button>
       )}
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <FolderGit2 className="h-5 w-5" />
-            Create repository
+            <Trans>Create repository</Trans>
           </DialogTitle>
         </DialogHeader>
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="repo-name">Name</Label>
+            <Label htmlFor="repo-name"><Trans>Name</Trans></Label>
             <Input
               id="repo-name"
               value={name}
@@ -145,7 +147,7 @@ export function CreateRepositoryDialog({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="repo-path">Path</Label>
+            <Label htmlFor="repo-path"><Trans>Path</Trans></Label>
             <Input
               id="repo-path"
               value={path}
@@ -156,7 +158,7 @@ export function CreateRepositoryDialog({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="repo-description">Description</Label>
+            <Label htmlFor="repo-description"><Trans>Description</Trans></Label>
             <Textarea
               id="repo-description"
               value={description}
@@ -166,12 +168,12 @@ export function CreateRepositoryDialog({
           </div>
 
           <div className="flex items-center justify-between">
-            <Label htmlFor="repo-privacy">Allow anyone to search for repository</Label>
+            <Label htmlFor="repo-privacy"><Trans>Allow anyone to search for repository</Trans></Label>
             <Switch id="repo-privacy" checked={privacy} onCheckedChange={setPrivacy} />
           </div>
 
           <div className="flex items-center justify-between">
-            <Label htmlFor="repo-allow-read">Allow anyone to read repository</Label>
+            <Label htmlFor="repo-allow-read"><Trans>Allow anyone to read repository</Trans></Label>
             <Switch id="repo-allow-read" checked={allowRead} onCheckedChange={setAllowRead} />
           </div>
         </div>

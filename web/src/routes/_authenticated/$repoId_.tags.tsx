@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Main,
   Card,
@@ -65,6 +66,7 @@ interface TagsListProps {
 }
 
 function TagsList({ repoId }: TagsListProps) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
@@ -81,7 +83,7 @@ function TagsList({ repoId }: TagsListProps) {
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, 'Failed to load tags')}
+        {getErrorMessage(error, t`Failed to load tags`)}
       </div>
     )
   }
@@ -92,7 +94,7 @@ function TagsList({ repoId }: TagsListProps) {
     return (
       <div className="p-8 text-center text-muted-foreground">
         <Tag className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p>No tags yet</p>
+        <p><Trans>No tags yet</Trans></p>
       </div>
     )
   }

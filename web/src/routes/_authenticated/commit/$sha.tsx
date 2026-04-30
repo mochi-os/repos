@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { Trans } from '@lingui/react/macro'
 import {
   Header,
   Main,
@@ -31,11 +32,11 @@ function CommitPage() {
     return (
       <>
         <Header>
-          <h1 className="text-lg font-semibold">Repository not found</h1>
+          <h1 className="text-lg font-semibold"><Trans>Repository not found</Trans></h1>
         </Header>
         <Main>
           <div className="p-4 text-muted-foreground">
-            This page requires a repository context.
+            <Trans>This page requires a repository context.</Trans>
           </div>
         </Main>
       </>
@@ -49,7 +50,7 @@ function CommitPage() {
           <FolderGit2 className="h-5 w-5" />
           <h1 className="text-lg font-semibold">{data.name}</h1>
           <span className="text-muted-foreground">/</span>
-          <span>Commit</span>
+          <span><Trans>Commit</Trans></span>
         </div>
       </Header>
       <Main spacingY="xs">
@@ -58,7 +59,7 @@ function CommitPage() {
             <Button variant="outline" size="sm" asChild>
               <Link to="/$repoId/commits" params={{ repoId: data.fingerprint || data.id }}>
                 <ArrowLeft className="h-4 w-4 mr-1" />
-                Back to commits
+                <Trans>Back to commits</Trans>
               </Link>
             </Button>
           </div>

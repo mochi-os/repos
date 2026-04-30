@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -93,6 +94,7 @@ export function RepositoryTabs({
   activeTab,
   onTabChange,
 }: RepositoryTabsProps) {
+  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
   const branches = branchesData?.branches || []
@@ -131,7 +133,7 @@ export function RepositoryTabs({
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder="Select branch" />
+            <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
             {branches.map((branch) => (
@@ -186,6 +188,7 @@ export function RepositoryTabs({
 // ============================================================================
 
 export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoName: string }) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [showDialog, setShowDialog] = useState(false)
@@ -195,12 +198,12 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
     setIsUnsubscribing(true)
     try {
       await reposRequest.post('-/unsubscribe', { repository: repoId }, { baseURL: appBasePath() })
-      toast.success('Unsubscribed from repository')
+      toast.success(t`Unsubscribed from repository`)
       // Invalidate repository list to refresh sidebar
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       void navigate({ to: '/' })
     } catch (error) {
-      toast.error(getErrorMessage(error, 'Failed to unsubscribe'))
+      toast.error(getErrorMessage(error, t`Failed to unsubscribe`))
     } finally {
       setIsUnsubscribing(false)
       setShowDialog(false)
@@ -216,18 +219,18 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
         disabled={isUnsubscribing}
       >
         <UserMinus className="h-4 w-4 mr-1" />
-        Unsubscribe
+        <Trans>Unsubscribe</Trans>
       </Button>
       <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Unsubscribe from repository?</AlertDialogTitle>
+            <AlertDialogTitle><Trans>Unsubscribe from repository?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
               This will remove "{repoName}" from your repository list. You can subscribe again later.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleUnsubscribe} disabled={isUnsubscribing}>
               {isUnsubscribing ? 'Unsubscribing...' : 'Unsubscribe'}
             </AlertDialogAction>
@@ -257,6 +260,7 @@ function FilesTab({
   currentRef,
   initialPath = '',
 }: FilesTabProps) {
+  const { t } = useLingui()
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
 
   const entries = treeData?.entries || []
@@ -311,11 +315,11 @@ function FilesTab({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, 'Failed to load files')}
+              {getErrorMessage(error, t`Failed to load files`)}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
-              Empty repository
+              <Trans>Empty repository</Trans>
             </div>
           ) : (
             <div className="divide-y">
@@ -341,6 +345,7 @@ function FilesTab({
 // ============================================================================
 
 function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommits(repoId, currentRef)
 
@@ -354,12 +359,12 @@ function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; finge
         </div>
       ) : error ? (
         <div className="p-4 text-destructive">
-          {getErrorMessage(error, 'Failed to load commits')}
+          {getErrorMessage(error, t`Failed to load commits`)}
         </div>
       ) : (data?.commits || []).length === 0 ? (
         <div className="p-8 text-center text-muted-foreground">
           <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-          <p>No commits yet</p>
+          <p><Trans>No commits yet</Trans></p>
         </div>
       ) : (
         <Card>
@@ -410,6 +415,7 @@ interface BranchesTabProps {
 }
 
 function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTabProps) {
+  const { t } = useLingui()
   const [showCreateDialog, setShowCreateDialog] = useState(false)
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
   const [branchToDelete, setBranchToDelete] = useState('')
@@ -425,7 +431,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
 
   const handleCreate = () => {
     if (!newBranchName.trim()) {
-      toast.error('Branch name is required')
+      toast.error(t`Branch name is required`)
       return
     }
     createBranch.mutate(
@@ -438,7 +444,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
           setSourceBranch('')
         },
         onError: (err) => {
-          toast.error(getErrorMessage(err, 'Failed to create branch'))
+          toast.error(getErrorMessage(err, t`Failed to create branch`))
         },
       }
     )
@@ -457,7 +463,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
         setBranchToDelete('')
       },
       onError: (err) => {
-        toast.error(getErrorMessage(err, 'Failed to delete branch'))
+        toast.error(getErrorMessage(err, t`Failed to delete branch`))
       },
     })
   }
@@ -475,7 +481,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, 'Failed to load branches')}
+        {getErrorMessage(error, t`Failed to load branches`)}
       </div>
     )
   }
@@ -486,7 +492,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
         <div className="flex justify-end mb-2">
           <Button size="sm" onClick={() => setShowCreateDialog(true)}>
             <Plus className="h-4 w-4" />
-            Create branch
+            <Trans>Create branch</Trans>
           </Button>
         </div>
       )}
@@ -494,7 +500,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
       {branches.length === 0 ? (
         <div className="p-8 text-center text-muted-foreground">
           <GitBranch className="h-12 w-12 mx-auto mb-4 opacity-50" />
-          <p>No branches yet</p>
+          <p><Trans>No branches yet</Trans></p>
         </div>
       ) : (
         <Card>
@@ -545,11 +551,11 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
       <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>New branch</DialogTitle>
+            <DialogTitle><Trans>New branch</Trans></DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div className="space-y-2">
-              <Label htmlFor="branch-name">Branch name</Label>
+              <Label htmlFor="branch-name"><Trans>Branch name</Trans></Label>
               <Input
                 id="branch-name"
                 value={newBranchName}
@@ -559,10 +565,10 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
               />
             </div>
             <div className="space-y-2">
-              <Label>Source branch</Label>
+              <Label><Trans>Source branch</Trans></Label>
               <Select value={sourceBranch || actualDefault} onValueChange={setSourceBranch}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select source branch" />
+                  <SelectValue placeholder={t`Select source branch`} />
                 </SelectTrigger>
                 <SelectContent>
                   {branches.map((b) => (
@@ -576,10 +582,10 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setShowCreateDialog(false)}>
-              Cancel
+              <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" />Create branch</>}
+              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -589,13 +595,13 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete branch?</AlertDialogTitle>
+            <AlertDialogTitle><Trans>Delete branch?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
               Delete "{branchToDelete}"? This cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete} disabled={deleteBranch.isPending}>
               {deleteBranch.isPending ? 'Deleting...' : 'Delete'}
             </AlertDialogAction>
@@ -611,6 +617,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
 // ============================================================================
 
 function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string }) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
@@ -627,7 +634,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, 'Failed to load tags')}
+        {getErrorMessage(error, t`Failed to load tags`)}
       </div>
     )
   }
@@ -657,7 +664,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
     return (
       <div className="p-8 text-center text-muted-foreground">
         <Tag className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p>No tags yet</p>
+        <p><Trans>No tags yet</Trans></p>
       </div>
     )
   }
@@ -729,6 +736,7 @@ function GeneralSettingsTab({
   description: initialDescription,
   defaultBranch: initialDefaultBranch,
 }: GeneralSettingsTabProps) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [currentName, setCurrentName] = useState(initialName || '')
@@ -760,11 +768,11 @@ function GeneralSettingsTab({
         { baseURL: `${appBasePath()}${repoId}/-/` }
       ),
     onSuccess: () => {
-      toast.success('Settings saved')
+      toast.success(t`Settings saved`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, 'Failed to save setting'))
+      toast.error(getErrorMessage(error, t`Failed to save setting`))
     },
   })
 
@@ -777,11 +785,11 @@ function GeneralSettingsTab({
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-      toast.success('Repository deleted')
+      toast.success(t`Repository deleted`)
       void navigate({ to: '/' })
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, 'Failed to delete repository'))
+      toast.error(getErrorMessage(error, t`Failed to delete repository`))
     },
   })
 
@@ -823,11 +831,11 @@ function GeneralSettingsTab({
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setCurrentName(trimmedName)
-      toast.success('Repository renamed')
+      toast.success(t`Repository renamed`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       setIsEditingName(false)
     } catch (err) {
-      toast.error(getErrorMessage(err, 'Failed to rename repository'))
+      toast.error(getErrorMessage(err, t`Failed to rename repository`))
     } finally {
       setIsRenaming(false)
     }
@@ -867,11 +875,11 @@ function GeneralSettingsTab({
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setCurrentPath(trimmedPath)
-      toast.success('Path updated')
+      toast.success(t`Path updated`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       setIsEditingPath(false)
     } catch (err) {
-      toast.error(getErrorMessage(err, 'Failed to update path'))
+      toast.error(getErrorMessage(err, t`Failed to update path`))
     } finally {
       setIsSavingPath(false)
     }
@@ -889,7 +897,7 @@ function GeneralSettingsTab({
   return (
     <div className="max-w-2xl divide-y">
       <div className="pb-4">
-        <h3 className="text-lg font-semibold mb-4">Identity</h3>
+        <h3 className="text-lg font-semibold mb-4"><Trans>Identity</Trans></h3>
         <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 items-center">
           <span className="text-muted-foreground">Name:</span>
           {isEditingName ? (
@@ -1015,7 +1023,7 @@ function GeneralSettingsTab({
       </div>
 
       <div className="space-y-2 py-4">
-        <Label className="text-base">Description</Label>
+        <Label className="text-base"><Trans>Description</Trans></Label>
         <Textarea
           id="description"
           value={description}
@@ -1028,15 +1036,15 @@ function GeneralSettingsTab({
           disabled={updateSetting.isPending || description === (initialDescription || '')}
         >
           <Save className="h-4 w-4" />
-          Save
+          <Trans>Save</Trans>
         </Button>
       </div>
 
       {branches.length > 0 && (
         <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-0.5">
-            <Label className="text-base">Default branch</Label>
-            <p className="text-sm text-muted-foreground">The branch shown when viewing the repository</p>
+            <Label className="text-base"><Trans>Default branch</Trans></Label>
+            <p className="text-sm text-muted-foreground"><Trans>The branch shown when viewing the repository</Trans></p>
           </div>
           <div className="w-full sm:w-48">
             <Select
@@ -1045,7 +1053,7 @@ function GeneralSettingsTab({
               disabled={updateSetting.isPending}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select default branch" />
+                <SelectValue placeholder={t`Select default branch`} />
               </SelectTrigger>
               <SelectContent>
                 {branches.map((branch) => (
@@ -1061,9 +1069,9 @@ function GeneralSettingsTab({
 
       <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-0.5">
-          <Label className="text-base">Delete repository</Label>
+          <Label className="text-base"><Trans>Delete repository</Trans></Label>
           <p className="text-sm text-muted-foreground">
-            Permanently delete this repository and all its data
+            <Trans>Permanently delete this repository and all its data</Trans>
           </p>
         </div>
         <Button
@@ -1072,22 +1080,22 @@ function GeneralSettingsTab({
           disabled={deleteRepo.isPending}
         >
           <Trash2 className="h-4 w-4" />
-          Delete repository
+          <Trans>Delete repository</Trans>
         </Button>
       </div>
 
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete repository?</AlertDialogTitle>
+            <AlertDialogTitle><Trans>Delete repository?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
               This will permanently delete "{currentName}" and all its commits, branches, and
               tags. This action cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}><Trans>Delete</Trans></AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -1096,6 +1104,7 @@ function GeneralSettingsTab({
 }
 
 function AccessSettingsTab({ repoId }: { repoId: string }) {
+  const { t } = useLingui()
   const [rules, setRules] = useState<AccessRule[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -1131,7 +1140,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       )
       setRules(response.rules ?? [])
     } catch (err) {
-      setError(new Error(getErrorMessage(err, 'Failed to load access rules')))
+      setError(new Error(getErrorMessage(err, t`Failed to load access rules`)))
     } finally {
       setIsLoading(false)
     }
@@ -1151,7 +1160,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       toast.success(`Access set for ${subjectName}`)
       void loadRules()
     } catch (err) {
-      toast.error(getErrorMessage(err, 'Failed to set access level'))
+      toast.error(getErrorMessage(err, t`Failed to set access level`))
       throw err
     }
   }
@@ -1163,10 +1172,10 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         { subject },
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
-      toast.success('Access removed')
+      toast.success(t`Access removed`)
       void loadRules()
     } catch (err) {
-      toast.error(getErrorMessage(err, 'Failed to remove access'))
+      toast.error(getErrorMessage(err, t`Failed to remove access`))
     }
   }
 
@@ -1177,10 +1186,10 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         { subject, permission: operation },
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
-      toast.success('Access level updated')
+      toast.success(t`Access level updated`)
       void loadRules()
     } catch (err) {
-      toast.error(getErrorMessage(err, 'Failed to update access level'))
+      toast.error(getErrorMessage(err, t`Failed to update access level`))
     }
   }
 
@@ -1189,7 +1198,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       <div className="flex justify-end">
         <Button onClick={() => setDialogOpen(true)}>
           <Plus className="h-4 w-4" />
-          Add
+          <Trans>Add</Trans>
         </Button>
       </div>
 

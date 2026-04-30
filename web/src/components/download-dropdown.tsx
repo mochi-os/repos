@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLingui } from '@lingui/react/macro'
 import {
   Button,
   DropdownMenu,
@@ -30,6 +31,7 @@ export function DownloadDropdown({
   variant = 'button',
   disabled,
 }: DownloadDropdownProps) {
+  const { t } = useLingui()
   const [busy, setBusy] = useState<Format | null>(null)
 
   const handleDownload = async (format: Format) => {
@@ -42,7 +44,7 @@ export function DownloadDropdown({
         { params: { ref: gitRef } }
       )
     } catch (error) {
-      toast.error(getErrorMessage(error, 'Failed to download archive'))
+      toast.error(getErrorMessage(error, t`Failed to download archive`))
     } finally {
       setBusy(null)
     }
@@ -55,7 +57,7 @@ export function DownloadDropdown({
         size="icon"
         disabled={disabled || !!busy}
         onClick={(e) => e.stopPropagation()}
-        aria-label="Download"
+        aria-label={t`Download`}
       >
         {busy ? (
           <Loader2 className="h-4 w-4 animate-spin" />

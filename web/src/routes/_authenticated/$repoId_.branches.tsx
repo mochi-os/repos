@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   Main,
@@ -56,6 +57,7 @@ export const Route = createFileRoute('/_authenticated/$repoId_/branches')({
 })
 
 function BranchesPage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
   const [showCreateDialog, setShowCreateDialog] = useState(false)
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
@@ -74,7 +76,7 @@ function BranchesPage() {
 
   const handleCreate = () => {
     if (!newBranchName.trim()) {
-      toast.error('Branch name is required')
+      toast.error(t`Branch name is required`)
       return
     }
     createBranch.mutate(
@@ -87,7 +89,7 @@ function BranchesPage() {
           setSourceBranch('')
         },
         onError: (error) => {
-          toast.error(getErrorMessage(error, 'Failed to create branch'))
+          toast.error(getErrorMessage(error, t`Failed to create branch`))
         },
       }
     )
@@ -106,7 +108,7 @@ function BranchesPage() {
         setBranchToDelete('')
       },
       onError: (error) => {
-        toast.error(getErrorMessage(error, 'Failed to delete branch'))
+        toast.error(getErrorMessage(error, t`Failed to delete branch`))
       },
     })
   }
@@ -130,7 +132,7 @@ function BranchesPage() {
           <div className="flex justify-end">
             <Button size="sm" onClick={() => setShowCreateDialog(true)}>
               <Plus className="h-4 w-4" />
-              Create branch
+              <Trans>Create branch</Trans>
             </Button>
           </div>
         )}
@@ -146,11 +148,11 @@ function BranchesPage() {
       <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>New branch</DialogTitle>
+            <DialogTitle><Trans>New branch</Trans></DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
             <div className="space-y-2">
-              <Label htmlFor="branch-name">Branch name</Label>
+              <Label htmlFor="branch-name"><Trans>Branch name</Trans></Label>
               <Input
                 id="branch-name"
                 value={newBranchName}
@@ -160,10 +162,10 @@ function BranchesPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label>Source branch</Label>
+              <Label><Trans>Source branch</Trans></Label>
               <Select value={sourceBranch || defaultBranch} onValueChange={setSourceBranch}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select source branch" />
+                  <SelectValue placeholder={t`Select source branch`} />
                 </SelectTrigger>
                 <SelectContent>
                   {branches.map((b) => (
@@ -177,10 +179,10 @@ function BranchesPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setShowCreateDialog(false)}>
-              Cancel
+              <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" />Create branch</>}
+              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -190,13 +192,13 @@ function BranchesPage() {
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete branch?</AlertDialogTitle>
+            <AlertDialogTitle><Trans>Delete branch?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
               Delete "{branchToDelete}"? This cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete} disabled={deleteBranch.isPending}>
               {deleteBranch.isPending ? 'Deleting...' : 'Delete'}
             </AlertDialogAction>
@@ -215,6 +217,7 @@ interface BranchesListProps {
 }
 
 function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesListProps) {
+  const { t } = useLingui()
   const { data, isLoading, error } = useBranches(repoId)
 
   if (isLoading) {
@@ -230,7 +233,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, 'Failed to load branches')}
+        {getErrorMessage(error, t`Failed to load branches`)}
       </div>
     )
   }
@@ -241,7 +244,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
     return (
       <div className="p-8 text-center text-muted-foreground">
         <GitBranch className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p>No branches yet</p>
+        <p><Trans>No branches yet</Trans></p>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
 import { useQueryClient } from '@tanstack/react-query'
 import { Search, Loader2, FolderGit2 } from 'lucide-react'
@@ -14,6 +15,7 @@ interface InlineRepoSearchProps {
 }
 
 export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchProps) {
+  const { t } = useLingui()
   const [searchQuery, setSearchQuery] = useState('')
   const [debouncedQuery, setDebouncedQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
@@ -64,7 +66,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
       onRefresh?.()
       void navigate({ to: '/$repoId', params: { repoId: repo.id } })
     } catch (error) {
-      toast.error(getErrorMessage(error, 'Failed to subscribe'))
+      toast.error(getErrorMessage(error, t`Failed to subscribe`))
       setPendingRepoId(null)
     }
   }
@@ -78,7 +80,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
       <div className="relative mb-4">
         <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
         <Input
-          placeholder="Search for repositories..."
+          placeholder={t`Search for repositories...`}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="h-10 pl-9"
@@ -95,7 +97,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
 
       {!isLoading && showResults && results.length === 0 && (
         <p className="text-muted-foreground text-sm text-center py-4">
-          No repositories found
+          <Trans>No repositories found</Trans>
         </p>
       )}
 

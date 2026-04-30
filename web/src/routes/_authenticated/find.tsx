@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react'
+import { useLingui } from '@lingui/react/macro'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { FolderGit2 } from 'lucide-react'
@@ -13,6 +14,7 @@ export const Route = createFileRoute('/_authenticated/find')({
 })
 
 function FindRepositoriesPage() {
+  const { t } = useLingui()
   const { data } = useRepoInfo()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
@@ -43,11 +45,11 @@ function FindRepositoriesPage() {
   const handleSubscribe = useCallback(async (repoId: string) => {
     try {
       await subscribe.mutateAsync({ repository: repoId })
-      toast.success('Subscribed')
+      toast.success(t`Subscribed`)
       await queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       void navigate({ to: '/$repoId', params: { repoId } })
     } catch (error) {
-      toast.error(getErrorMessage(error, 'Failed to subscribe'))
+      toast.error(getErrorMessage(error, t`Failed to subscribe`))
     }
   }, [subscribe, queryClient, navigate])
 
@@ -59,8 +61,8 @@ function FindRepositoriesPage() {
       searchEndpoint={`${appBasePath()}-/search`}
       icon={FolderGit2}
       iconClassName="bg-primary/10 text-primary"
-      title="Find repositories"
-      placeholder="Search by name, ID, fingerprint, or URL..."
+      title={t`Find repositories`}
+      placeholder={t`Search by name, ID, fingerprint, or URL...`}
       emptyMessage="No repositories found"
       recommendations={recommendations}
       isLoadingRecommendations={isLoadingRecommendations}
