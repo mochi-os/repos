@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo } from 'react'
 import { useLingui } from '@lingui/react/macro'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem } from '@mochi/web'
+import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem, naturalCompare} from '@mochi/web'
 import { FolderGit2, Plus, Search } from 'lucide-react'
 import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
@@ -40,7 +40,7 @@ function RepositoriesLayoutInner() {
   const sidebarData: SidebarData = useMemo(() => {
     // Sort repositories alphabetically by name
     const sortedRepos = [...repositories].sort((a, b) =>
-      a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+      naturalCompare(a.name, b.name)
     )
 
     // Build repository items - use path for domain-routed URLs, fingerprint otherwise

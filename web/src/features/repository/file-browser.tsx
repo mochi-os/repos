@@ -12,8 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
   Skeleton,
-  getErrorMessage,
-} from '@mochi/web'
+  getErrorMessage, naturalCompare,} from '@mochi/web'
 import {
   FolderGit2,
   GitBranch,
@@ -74,7 +73,7 @@ export function FileBrowser({
     const bIsDir = b.type === 'tree' || b.type === 'dir'
     if (aIsDir && !bIsDir) return -1
     if (!aIsDir && bIsDir) return 1
-    return a.name.localeCompare(b.name)
+    return naturalCompare(a.name, b.name)
   })
 
   const pathParts = currentPath ? currentPath.split('/').filter(Boolean) : []
@@ -258,7 +257,7 @@ export function FileTree({
     const bIsDir = b.type === 'tree' || b.type === 'dir'
     if (aIsDir && !bIsDir) return -1
     if (!aIsDir && bIsDir) return 1
-    return a.name.localeCompare(b.name)
+    return naturalCompare(a.name, b.name)
   })
 
   const pathParts = currentPath ? currentPath.split('/').filter(Boolean) : []

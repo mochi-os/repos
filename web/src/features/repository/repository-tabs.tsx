@@ -38,8 +38,7 @@ import {
   DataChip,
   type AccessLevel,
   type AccessRule,
-  useFormat,
-} from '@mochi/web'
+  useFormat, naturalCompare,} from '@mochi/web'
 import {
   Check,
   ChevronRight,
@@ -270,7 +269,7 @@ function FilesTab({
   const sortedEntries = [...entries].sort((a, b) => {
     if (a.type === 'tree' && b.type !== 'tree') return -1
     if (a.type !== 'tree' && b.type === 'tree') return 1
-    return a.name.localeCompare(b.name)
+    return naturalCompare(a.name, b.name)
   })
 
   const pathParts = initialPath ? initialPath.split('/').filter(Boolean) : []
@@ -658,7 +657,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
     }
     // Both non-version: sort by date descending, then name descending
     if (a.date && b.date && a.date !== b.date) return b.date - a.date
-    return b.name.localeCompare(a.name)
+    return naturalCompare(b.name, a.name)
   })
 
   if (tags.length === 0) {
