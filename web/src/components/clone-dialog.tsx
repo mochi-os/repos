@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   Button,
@@ -64,6 +64,7 @@ interface CloneDialogProps {
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
 export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<DialogView>('loading')
@@ -109,7 +110,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       queryClient.invalidateQueries({ queryKey: ['tokens'] })
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, "Failed to create token"))
+      toast.error(getErrorMessage(error, t`Failed to create token`))
     },
   })
 
@@ -118,12 +119,12 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       await reposRequest.post('-/token/delete', { hash }, { baseURL: appBasePath() })
     },
     onSuccess: () => {
-      toast.success("Token deleted")
+      toast.success(t`Token deleted`)
       queryClient.invalidateQueries({ queryKey: ['tokens'] })
       setDeleteHash(null)
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, "Failed to delete token"))
+      toast.error(getErrorMessage(error, t`Failed to delete token`))
     },
   })
 
@@ -149,7 +150,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       setCloneCommand(buildCloneUrl(response.token))
       setView('clone')
     } catch (error) {
-      toast.error(getErrorMessage(error, "Failed to get token"))
+      toast.error(getErrorMessage(error, t`Failed to get token`))
       setOpen(false)
     }
   }
@@ -158,7 +159,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     if (cloneCommand) {
       navigator.clipboard.writeText(cloneCommand)
       setCopied(true)
-      toast.success("Copied to clipboard")
+      toast.success(t`Copied to clipboard`)
       setTimeout(() => setCopied(false), 2000)
     }
   }
@@ -167,14 +168,14 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     if (newToken) {
       navigator.clipboard.writeText(buildCloneUrl(newToken))
       setCopied(true)
-      toast.success("Copied to clipboard")
+      toast.success(t`Copied to clipboard`)
       setTimeout(() => setCopied(false), 2000)
     }
   }
 
   const handleCreate = () => {
     if (!newTokenName.trim()) {
-      toast.error("Please enter a token name")
+      toast.error(t`Please enter a token name`)
       return
     }
     createMutation.mutate(newTokenName.trim())

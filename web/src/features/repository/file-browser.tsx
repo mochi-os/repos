@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -46,6 +46,7 @@ export function FileBrowser({
   initialRef,
   initialPath = '',
 }: FileBrowserProps) {
+  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
@@ -187,7 +188,7 @@ export function FileBrowser({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, "Failed to load files")}
+              {getErrorMessage(error, t`Failed to load files`)}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
@@ -230,6 +231,7 @@ export function FileTree({
   currentRef: initialRef,
   currentPath: initialPath,
 }: FileTreeProps) {
+  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
@@ -329,7 +331,7 @@ export function FileTree({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, "Failed to load files")}
+              {getErrorMessage(error, t`Failed to load files`)}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">

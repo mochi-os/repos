@@ -1,5 +1,5 @@
 import { createFileRoute, redirect, Link, useRouter } from '@tanstack/react-router'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -115,7 +115,8 @@ interface RepositoryListPageProps {
 }
 
 function RepositoryListPage({ repositories }: RepositoryListPageProps) {
-  usePageTitle("Repositories")
+  const { t } = useLingui()
+  usePageTitle(t`Repositories`)
   const { openCreateDialog } = useSidebarContext()
   const queryClient = useQueryClient()
   const router = useRouter()
@@ -156,11 +157,11 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     setPendingRepoId(repo.id)
     try {
       await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
-      toast.success("Subscribed")
+      toast.success(t`Subscribed`)
       await queryClient.invalidateQueries({ queryKey: ['repositories', 'recommendations'] })
       await router.invalidate()
     } catch (error) {
-      toast.error(getErrorMessage(error, "Failed to subscribe"))
+      toast.error(getErrorMessage(error, t`Failed to subscribe`))
     } finally {
       setPendingRepoId(null)
     }
@@ -316,10 +317,10 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             unsubscribe.mutate(unsubscribeId, {
               onSuccess: () => {
                 setUnsubscribeId(null)
-                toast.success("Unsubscribed")
+                toast.success(t`Unsubscribed`)
                 void router.invalidate()
               },
-              onError: (error) => toast.error(getErrorMessage(error, "Failed to unsubscribe")),
+              onError: (error) => toast.error(getErrorMessage(error, t`Failed to unsubscribe`)),
             })
           }
         }}

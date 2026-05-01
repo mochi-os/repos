@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
 import {
   Button,
@@ -39,6 +39,7 @@ export function CreateRepositoryDialog({
   onOpenChange,
   hideTrigger,
 }: CreateRepositoryDialogProps) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const createRepo = useCreateRepo()
 
@@ -101,7 +102,7 @@ export function CreateRepositoryDialog({
       },
       {
         onSuccess: (response) => {
-          toast.success("Repository created")
+          toast.success(t`Repository created`)
           resetForm()
           handleOpenChange(false)
           if (response?.fingerprint) {
@@ -111,7 +112,7 @@ export function CreateRepositoryDialog({
           }
         },
         onError: (error) => {
-          toast.error(getErrorMessage(error, "Failed to create repository"))
+          toast.error(getErrorMessage(error, t`Failed to create repository`))
         },
       }
     )

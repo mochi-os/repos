@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
 import { useQueryClient } from '@tanstack/react-query'
 import { Search, Loader2, FolderGit2 } from 'lucide-react'
@@ -15,6 +15,7 @@ interface InlineRepoSearchProps {
 }
 
 export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchProps) {
+  const { t } = useLingui()
   const [searchQuery, setSearchQuery] = useState('')
   const [debouncedQuery, setDebouncedQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
@@ -65,7 +66,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
       onRefresh?.()
       void navigate({ to: '/$repoId', params: { repoId: repo.id } })
     } catch (error) {
-      toast.error(getErrorMessage(error, "Failed to subscribe"))
+      toast.error(getErrorMessage(error, t`Failed to subscribe`))
       setPendingRepoId(null)
     }
   }

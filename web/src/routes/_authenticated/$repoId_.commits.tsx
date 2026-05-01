@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { getCommitTitle } from '@/lib/format'
 import {
@@ -71,6 +71,7 @@ function CommitsPage() {
 }
 
 function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch: string }) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
@@ -105,7 +106,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
         </div>
       ) : error ? (
         <div className="text-destructive">
-          {getErrorMessage(error, "Failed to load commits")}
+          {getErrorMessage(error, t`Failed to load commits`)}
         </div>
       ) : (data?.commits || []).length === 0 ? (
         <div className="p-8 text-center text-muted-foreground">

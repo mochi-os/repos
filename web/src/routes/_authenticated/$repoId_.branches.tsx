@@ -217,6 +217,7 @@ interface BranchesListProps {
 }
 
 function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesListProps) {
+  const { t } = useLingui()
   const { data, isLoading, error } = useBranches(repoId)
 
   if (isLoading) {
@@ -232,7 +233,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, "Failed to load branches")}
+        {getErrorMessage(error, t`Failed to load branches`)}
       </div>
     )
   }

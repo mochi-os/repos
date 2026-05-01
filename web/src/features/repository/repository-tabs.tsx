@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -187,6 +187,7 @@ export function RepositoryTabs({
 // ============================================================================
 
 export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoName: string }) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [showDialog, setShowDialog] = useState(false)
@@ -196,12 +197,12 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
     setIsUnsubscribing(true)
     try {
       await reposRequest.post('-/unsubscribe', { repository: repoId }, { baseURL: appBasePath() })
-      toast.success("Unsubscribed from repository")
+      toast.success(t`Unsubscribed from repository`)
       // Invalidate repository list to refresh sidebar
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       void navigate({ to: '/' })
     } catch (error) {
-      toast.error(getErrorMessage(error, "Failed to unsubscribe"))
+      toast.error(getErrorMessage(error, t`Failed to unsubscribe`))
     } finally {
       setIsUnsubscribing(false)
       setShowDialog(false)
@@ -258,6 +259,7 @@ function FilesTab({
   currentRef,
   initialPath = '',
 }: FilesTabProps) {
+  const { t } = useLingui()
   const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
 
   const entries = treeData?.entries || []
@@ -312,7 +314,7 @@ function FilesTab({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, "Failed to load files")}
+              {getErrorMessage(error, t`Failed to load files`)}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
@@ -342,6 +344,7 @@ function FilesTab({
 // ============================================================================
 
 function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommits(repoId, currentRef)
 
@@ -355,7 +358,7 @@ function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; finge
         </div>
       ) : error ? (
         <div className="p-4 text-destructive">
-          {getErrorMessage(error, "Failed to load commits")}
+          {getErrorMessage(error, t`Failed to load commits`)}
         </div>
       ) : (data?.commits || []).length === 0 ? (
         <div className="p-8 text-center text-muted-foreground">
@@ -411,6 +414,7 @@ interface BranchesTabProps {
 }
 
 function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTabProps) {
+  const { t } = useLingui()
   const [showCreateDialog, setShowCreateDialog] = useState(false)
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
   const [branchToDelete, setBranchToDelete] = useState('')
@@ -426,7 +430,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
 
   const handleCreate = () => {
     if (!newBranchName.trim()) {
-      toast.error("Branch name is required")
+      toast.error(t`Branch name is required`)
       return
     }
     createBranch.mutate(
@@ -439,7 +443,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
           setSourceBranch('')
         },
         onError: (err) => {
-          toast.error(getErrorMessage(err, "Failed to create branch"))
+          toast.error(getErrorMessage(err, t`Failed to create branch`))
         },
       }
     )
@@ -458,7 +462,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
         setBranchToDelete('')
       },
       onError: (err) => {
-        toast.error(getErrorMessage(err, "Failed to delete branch"))
+        toast.error(getErrorMessage(err, t`Failed to delete branch`))
       },
     })
   }
@@ -476,7 +480,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, "Failed to load branches")}
+        {getErrorMessage(error, t`Failed to load branches`)}
       </div>
     )
   }
@@ -612,6 +616,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
 // ============================================================================
 
 function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string }) {
+  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useTags(repoId)
 
@@ -628,7 +633,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
   if (error) {
     return (
       <div className="p-4 text-destructive">
-        {getErrorMessage(error, "Failed to load tags")}
+        {getErrorMessage(error, t`Failed to load tags`)}
       </div>
     )
   }
@@ -730,6 +735,7 @@ function GeneralSettingsTab({
   description: initialDescription,
   defaultBranch: initialDefaultBranch,
 }: GeneralSettingsTabProps) {
+  const { t } = useLingui()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const [currentName, setCurrentName] = useState(initialName || '')
@@ -761,11 +767,11 @@ function GeneralSettingsTab({
         { baseURL: `${appBasePath()}${repoId}/-/` }
       ),
     onSuccess: () => {
-      toast.success("Settings saved")
+      toast.success(t`Settings saved`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, "Failed to save setting"))
+      toast.error(getErrorMessage(error, t`Failed to save setting`))
     },
   })
 
@@ -778,11 +784,11 @@ function GeneralSettingsTab({
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-      toast.success("Repository deleted")
+      toast.success(t`Repository deleted`)
       void navigate({ to: '/' })
     },
     onError: (error) => {
-      toast.error(getErrorMessage(error, "Failed to delete repository"))
+      toast.error(getErrorMessage(error, t`Failed to delete repository`))
     },
   })
 
@@ -824,11 +830,11 @@ function GeneralSettingsTab({
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setCurrentName(trimmedName)
-      toast.success("Repository renamed")
+      toast.success(t`Repository renamed`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       setIsEditingName(false)
     } catch (err) {
-      toast.error(getErrorMessage(err, "Failed to rename repository"))
+      toast.error(getErrorMessage(err, t`Failed to rename repository`))
     } finally {
       setIsRenaming(false)
     }
@@ -868,11 +874,11 @@ function GeneralSettingsTab({
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
       setCurrentPath(trimmedPath)
-      toast.success("Path updated")
+      toast.success(t`Path updated`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       setIsEditingPath(false)
     } catch (err) {
-      toast.error(getErrorMessage(err, "Failed to update path"))
+      toast.error(getErrorMessage(err, t`Failed to update path`))
     } finally {
       setIsSavingPath(false)
     }
@@ -1097,6 +1103,7 @@ function GeneralSettingsTab({
 }
 
 function AccessSettingsTab({ repoId }: { repoId: string }) {
+  const { t } = useLingui()
   const [rules, setRules] = useState<AccessRule[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -1132,7 +1139,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       )
       setRules(response.rules ?? [])
     } catch (err) {
-      setError(new Error(getErrorMessage(err, "Failed to load access rules")))
+      setError(new Error(getErrorMessage(err, t`Failed to load access rules`)))
     } finally {
       setIsLoading(false)
     }
@@ -1152,7 +1159,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
       toast.success(`Access set for ${subjectName}`)
       void loadRules()
     } catch (err) {
-      toast.error(getErrorMessage(err, "Failed to set access level"))
+      toast.error(getErrorMessage(err, t`Failed to set access level`))
       throw err
     }
   }
@@ -1164,10 +1171,10 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         { subject },
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
-      toast.success("Access removed")
+      toast.success(t`Access removed`)
       void loadRules()
     } catch (err) {
-      toast.error(getErrorMessage(err, "Failed to remove access"))
+      toast.error(getErrorMessage(err, t`Failed to remove access`))
     }
   }
 
@@ -1178,10 +1185,10 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         { subject, permission: operation },
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
-      toast.success("Access level updated")
+      toast.success(t`Access level updated`)
       void loadRules()
     } catch (err) {
-      toast.error(getErrorMessage(err, "Failed to update access level"))
+      toast.error(getErrorMessage(err, t`Failed to update access level`))
     }
   }
 
