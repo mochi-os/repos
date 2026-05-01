@@ -117,10 +117,10 @@ def action_info_class(a):
     is_logged_in = a.user and a.user.identity
     if is_logged_in:
         # Logged-in users see all repositories (owned + subscribed)
-        repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories order by name")
+        repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories")
     else:
         # Anonymous users see only local repositories with public read access
-        repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories where owner=1 order by name")
+        repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories where owner=1")
         if repos:
             visible = []
             for repo in repos:
@@ -420,7 +420,7 @@ def action_rename(a):
         return a.error_label(403, "errors.access_denied")
 
     name = a.input("name")
-    if not name or not mochi.valid(name, "name"):
+    if not name or not mochi.text.valid(name, "name"):
         return a.error_label(400, "errors.invalid_name")
 
     if len(name) > 100:
@@ -500,7 +500,7 @@ def action_access_list(a):
                 group = mochi.group.get(group_id)
                 if group:
                     rule["name"] = group.get("name", group_id)
-            elif mochi.valid(subject, "entity"):
+            elif mochi.text.valid(subject, "entity"):
                 # Try directory first (for user identities), then local entities
                 entry = mochi.directory.get(subject)
                 if entry:
@@ -1226,13 +1226,13 @@ def action_search(a):
     clean = search.replace("-", "")
 
     # Check if search term is an entity ID (50-51 chars base58)
-    if mochi.valid(search, "entity"):
+    if mochi.text.valid(search, "entity"):
         entry = mochi.directory.get(search)
         if entry and entry.get("class") == "repository":
             results.append(entry)
 
     # Check if search term is a fingerprint (9 chars base58)
-    if mochi.valid(clean, "fingerprint"):
+    if mochi.text.valid(clean, "fingerprint"):
         matches = mochi.directory.search("repository", "", False, fingerprint=clean)
         for entry in matches:
             found = False
@@ -1306,8 +1306,8 @@ def action_probe(a):
         return a.error_label(400, "errors.could_not_extract_server_from_url")
 
     # Check if it's a fingerprint (9 chars) or entity ID (50-51 chars)
-    is_fingerprint = mochi.valid(repo_id, "fingerprint")
-    is_entity_id = mochi.valid(repo_id, "entity")
+    is_fingerprint = mochi.text.valid(repo_id, "fingerprint")
+    is_entity_id = mochi.text.valid(repo_id, "entity")
 
     if not is_fingerprint and not is_entity_id:
         return a.error_label(400, "errors.invalid_repository_id_or_fingerprint_in_url")
@@ -1352,7 +1352,7 @@ def action_subscribe(a):
     repo_id = a.input("repository")
     server = a.input("server", "")
 
-    if not mochi.valid(repo_id, "entity"):
+    if not mochi.text.valid(repo_id, "entity"):
         return a.error_label(400, "errors.invalid_repository_id")
 
     # Check if already subscribed
@@ -1416,7 +1416,7 @@ def action_unsubscribe(a):
     user_id = a.user.identity.id
 
     repo_id = a.input("repository")
-    if not mochi.valid(repo_id, "entity") and not mochi.valid(repo_id, "fingerprint"):
+    if not mochi.text.valid(repo_id, "entity") and not mochi.text.valid(repo_id, "fingerprint"):
         return a.error_label(400, "errors.invalid_repository_id")
 
     # Get repository by ID or fingerprint
