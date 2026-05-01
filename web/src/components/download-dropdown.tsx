@@ -57,7 +57,7 @@ export function DownloadDropdown({
         size="icon"
         disabled={disabled || !!busy}
         onClick={(e) => e.stopPropagation()}
-        aria-label={"Download"}
+        aria-label={t`Download`}
       >
         {busy ? (
           <Loader2 className="h-4 w-4 animate-spin" />

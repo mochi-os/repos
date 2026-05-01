@@ -80,7 +80,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
       <div className="relative mb-4">
         <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
         <Input
-          placeholder={"Search for repositories..."}
+          placeholder={t`Search for repositories...`}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="h-10 pl-9"

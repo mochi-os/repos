@@ -63,7 +63,7 @@ import { FileEntry } from '@/components/file-entry'
 import { DownloadDropdown } from '@/components/download-dropdown'
 import { getCommitTitle } from '@/lib/format'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
-import { tabs, type RepositoryTabId } from './tabs'
+import { useRepositoryTabs, type RepositoryTabId } from './tabs'
 
 // Re-export CloneDialog from shared component
 export { CloneDialog } from '@/components/clone-dialog'
@@ -94,11 +94,13 @@ export function RepositoryTabs({
   activeTab,
   onTabChange,
 }: RepositoryTabsProps) {
+  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
   const branches = branchesData?.branches || []
 
   // Filter tabs based on ownership
+  const tabs = useRepositoryTabs()
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
   return (
@@ -132,7 +134,7 @@ export function RepositoryTabs({
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder={"Select branch"} />
+            <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
             {branches.map((branch) => (
@@ -225,13 +227,13 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
           <AlertDialogHeader>
             <AlertDialogTitle><Trans>Unsubscribe from repository?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
-              This will remove "{repoName}" from your repository list. You can subscribe again later.
+              <Trans>This will remove "{repoName}" from your repository list. You can subscribe again later.</Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleUnsubscribe} disabled={isUnsubscribing}>
-              {isUnsubscribing ? "Unsubscribing..." : "Unsubscribe"}
+              {isUnsubscribing ? <Trans>Unsubscribing…</Trans> : <Trans>Unsubscribe</Trans>}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -437,7 +439,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
       { name: newBranchName.trim(), source: sourceBranch || actualDefault },
       {
         onSuccess: () => {
-          toast.success(`Branch "${newBranchName}" created`)
+          toast.success(t`Branch "${newBranchName}" created`)
           setShowCreateDialog(false)
           setNewBranchName('')
           setSourceBranch('')
@@ -457,7 +459,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
   const handleDelete = () => {
     deleteBranch.mutate(branchToDelete, {
       onSuccess: () => {
-        toast.success(`Branch "${branchToDelete}" deleted`)
+        toast.success(t`Branch "${branchToDelete}" deleted`)
         setShowDeleteDialog(false)
         setBranchToDelete('')
       },
@@ -567,7 +569,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
               <Label><Trans>Source branch</Trans></Label>
               <Select value={sourceBranch || actualDefault} onValueChange={setSourceBranch}>
                 <SelectTrigger>
-                  <SelectValue placeholder={"Select source branch"} />
+                  <SelectValue placeholder={t`Select source branch`} />
                 </SelectTrigger>
                 <SelectContent>
                   {branches.map((b) => (
@@ -584,7 +586,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
               <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" /><Trans>Create branch</Trans></>}
+              {createBranch.isPending ? <Trans>Creating…</Trans> : <><Plus className="h-4 w-4 mr-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -596,13 +598,13 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
           <AlertDialogHeader>
             <AlertDialogTitle><Trans>Delete branch?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
-              Delete "{branchToDelete}"? This cannot be undone.
+              <Trans>Delete "{branchToDelete}"? This cannot be undone.</Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete} disabled={deleteBranch.isPending}>
-              {deleteBranch.isPending ? "Deleting..." : "Delete"}
+              {deleteBranch.isPending ? <Trans>Deleting…</Trans> : <Trans>Delete</Trans>}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -711,11 +713,14 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
 // Settings Tab
 // ============================================================================
 
-const REPO_ACCESS_LEVELS: AccessLevel[] = [
-  { value: 'write', label: "Read and write" },
-  { value: 'read', label: "Read only" },
-  { value: 'none', label: "No access" },
-]
+function useRepoAccessLevels(): AccessLevel[] {
+  const { t } = useLingui()
+  return [
+    { value: 'write', label: t`Read and write` },
+    { value: 'read', label: t`Read only` },
+    { value: 'none', label: t`No access` },
+  ]
+}
 
 interface GeneralSettingsTabProps {
   repoId: string
@@ -793,9 +798,9 @@ function GeneralSettingsTab({
   })
 
   const validateName = (n: string): string | null => {
-    if (!n.trim()) return 'Repository name is required'
-    if (n.length > 100) return 'Name must be 100 characters or less'
-    if (DISALLOWED_NAME_CHARS.test(n)) return 'Name cannot contain < or > characters'
+    if (!n.trim()) return t`Repository name is required`
+    if (n.length > 100) return t`Name must be 100 characters or less`
+    if (DISALLOWED_NAME_CHARS.test(n)) return t`Name cannot contain < or > characters`
     return null
   }
 
@@ -855,11 +860,11 @@ function GeneralSettingsTab({
   const handleSaveEditPath = async () => {
     const trimmedPath = editPath.trim()
     if (!trimmedPath) {
-      setPathError('Path is required')
+      setPathError(t`Path is required`)
       return
     }
     if (!isValidPath(trimmedPath)) {
-      setPathError('Lowercase letters, numbers, and hyphens only')
+      setPathError(t`Lowercase letters, numbers, and hyphens only`)
       return
     }
     if (trimmedPath === currentPath) {
@@ -898,7 +903,7 @@ function GeneralSettingsTab({
       <div className="pb-4">
         <h3 className="text-lg font-semibold mb-4"><Trans>Identity</Trans></h3>
         <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 items-center">
-          <span className="text-muted-foreground">Name:</span>
+          <span className="text-muted-foreground"><Trans>Name:</Trans></span>
           {isEditingName ? (
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
@@ -956,7 +961,7 @@ function GeneralSettingsTab({
               </Button>
             </div>
           )}
-          <span className="text-muted-foreground">Path:</span>
+          <span className="text-muted-foreground"><Trans>Path:</Trans></span>
           {isEditingPath ? (
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
@@ -1014,9 +1019,9 @@ function GeneralSettingsTab({
               </Button>
             </div>
           )}
-          <span className="text-muted-foreground">Entity:</span>
+          <span className="text-muted-foreground"><Trans>Entity:</Trans></span>
           <DataChip value={repoId} truncate="middle" />
-          <span className="text-muted-foreground">Fingerprint:</span>
+          <span className="text-muted-foreground"><Trans>Fingerprint:</Trans></span>
           <DataChip value={fingerprint} truncate="middle" />
         </div>
       </div>
@@ -1052,7 +1057,7 @@ function GeneralSettingsTab({
               disabled={updateSetting.isPending}
             >
               <SelectTrigger>
-                <SelectValue placeholder={"Select default branch"} />
+                <SelectValue placeholder={t`Select default branch`} />
               </SelectTrigger>
               <SelectContent>
                 {branches.map((branch) => (
@@ -1088,8 +1093,7 @@ function GeneralSettingsTab({
           <AlertDialogHeader>
             <AlertDialogTitle><Trans>Delete repository?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete "{currentName}" and all its commits, branches, and
-              tags. This action cannot be undone.
+              <Trans>This will permanently delete "{currentName}" and all its commits, branches, and tags. This action cannot be undone.</Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -1104,6 +1108,7 @@ function GeneralSettingsTab({
 
 function AccessSettingsTab({ repoId }: { repoId: string }) {
   const { t } = useLingui()
+  const REPO_ACCESS_LEVELS = useRepoAccessLevels()
   const [rules, setRules] = useState<AccessRule[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -1156,7 +1161,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         { subject, permission: operation },
         { baseURL: `${appBasePath()}${repoId}/-/` }
       )
-      toast.success(`Access set for ${subjectName}`)
+      toast.success(t`Access set for ${subjectName}`)
       void loadRules()
     } catch (err) {
       toast.error(getErrorMessage(err, t`Failed to set access level`))

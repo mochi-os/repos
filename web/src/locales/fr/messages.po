@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/features/repository/tabs.tsx:29
+msgid "Access"
+msgstr "Accès"
+
 #: ../../../lib/web/src/features/errors/forbidden.tsx:12
 msgid "Access Forbidden"
 msgstr "Accès interdit"
@@ -21,19 +25,23 @@ msgstr "Accès interdit"
 msgid "Access level"
 msgstr "Niveau d'accès"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1193
 msgid "Access level updated"
 msgstr "Niveau d'accès mis à jour"
 
-#: src/features/repository/repository-tabs.tsx:1174
+#: src/features/repository/repository-tabs.tsx:1179
 msgid "Access removed"
 msgstr "Accès retiré"
+
+#: src/features/repository/repository-tabs.tsx:1164
+msgid "Access set for {subjectName}"
+msgstr "Accès défini pour {subjectName}"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:122
 msgid "Account type"
 msgstr "Type de compte"
 
-#: src/features/repository/repository-tabs.tsx:1200
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Add"
 msgstr "Ajouter"
 
@@ -69,6 +77,10 @@ msgstr "Ajouter aux notifications existantes"
 #: ../../../lib/web/src/components/config-drawer.tsx:62
 msgid "Adjust the appearance and layout to suit your preferences."
 msgstr "Ajustez l'apparence et la disposition selon vos préférences."
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx:38
+msgid "AI"
+msgstr "IA"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:158
 msgid "All"
@@ -106,17 +118,26 @@ msgstr "Retour aux commits"
 msgid "Back to Home"
 msgstr "Retour à l'accueil"
 
-#: src/features/repository/repository-tabs.tsx:557
+#: src/features/repository/repository-tabs.tsx:462
+msgid "Branch \"{branchToDelete}\" deleted"
+msgstr "Branche « {branchToDelete} » supprimée"
+
+#: src/features/repository/repository-tabs.tsx:442
+msgid "Branch \"{newBranchName}\" created"
+msgstr "Branche « {newBranchName} » créée"
+
+#: src/features/repository/repository-tabs.tsx:559
 #: src/routes/_authenticated/$repoId_.branches.tsx:155
 msgid "Branch name"
 msgstr "Nom de la branche"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:435
 #: src/routes/_authenticated/$repoId_.branches.tsx:79
 msgid "Branch name is required"
 msgstr "Le nom de la branche est obligatoire"
 
 #: src/features/repository/file-browser.tsx:103
+#: src/features/repository/tabs.tsx:27
 msgid "Branches"
 msgstr "Branches"
 
@@ -127,11 +148,11 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:184
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
 #: src/components/clone-dialog.tsx:381
-#: src/features/repository/repository-header.tsx:122
-#: src/features/repository/repository-tabs.tsx:232
-#: src/features/repository/repository-tabs.tsx:584
-#: src/features/repository/repository-tabs.tsx:603
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-tabs.tsx:234
+#: src/features/repository/repository-tabs.tsx:586
+#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:182
 #: src/routes/_authenticated/$repoId_.branches.tsx:201
 msgid "Cancel"
@@ -187,6 +208,10 @@ msgstr "Cloner"
 msgid "Close"
 msgstr "Fermer"
 
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:97
+msgid "Close navigation"
+msgstr "Fermer la navigation"
+
 #: ../../../lib/web/src/components/layout/right-panel.tsx:254
 msgid "Close Panel"
 msgstr "Fermer le panneau"
@@ -208,6 +233,7 @@ msgid "Commit not found"
 msgstr "Commit introuvable"
 
 #: src/features/repository/file-browser.tsx:96
+#: src/features/repository/tabs.tsx:26
 msgid "Commits"
 msgstr "Commits"
 
@@ -237,8 +263,8 @@ msgstr "Copier"
 msgid "Create a new repository"
 msgstr "Créer un nouveau dépôt"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:587
+#: src/features/repository/repository-tabs.tsx:496
+#: src/features/repository/repository-tabs.tsx:589
 #: src/routes/_authenticated/$repoId_.branches.tsx:135
 #: src/routes/_authenticated/$repoId_.branches.tsx:185
 msgid "Create branch"
@@ -253,6 +279,10 @@ msgstr "Créer le dépôt"
 #: src/components/clone-dialog.tsx:301
 msgid "Create token"
 msgstr "Créer un jeton"
+
+#: src/features/repository/repository-tabs.tsx:589
+msgid "Creating…"
+msgstr "Création…"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:205
 msgid "Dark"
@@ -274,27 +304,32 @@ msgstr "Par défaut"
 msgid "Default AI account"
 msgstr "Compte IA par défaut"
 
-#: src/features/repository/repository-tabs.tsx:1045
+#: src/features/repository/repository-tabs.tsx:1050
 msgid "Default branch"
 msgstr "Branche par défaut"
 
 #: src/components/clone-dialog.tsx:385
-#: src/features/repository/repository-tabs.tsx:1097
+#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:1101
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
 msgid "Delete"
 msgstr "Supprimer"
 
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:601
+msgid "Delete \"{branchToDelete}\"? This cannot be undone."
+msgstr "Supprimer « {branchToDelete} » ? Cette action est irréversible."
+
+#: src/features/repository/repository-tabs.tsx:599
 #: src/routes/_authenticated/$repoId_.branches.tsx:195
 msgid "Delete branch?"
 msgstr "Supprimer la branche ?"
 
-#: src/features/repository/repository-tabs.tsx:1071
-#: src/features/repository/repository-tabs.tsx:1082
+#: src/features/repository/repository-tabs.tsx:1076
+#: src/features/repository/repository-tabs.tsx:1087
 msgid "Delete repository"
 msgstr "Supprimer le dépôt"
 
-#: src/features/repository/repository-tabs.tsx:1089
+#: src/features/repository/repository-tabs.tsx:1094
 msgid "Delete repository?"
 msgstr "Supprimer le dépôt ?"
 
@@ -306,12 +341,16 @@ msgstr "Supprimer le jeton ?"
 msgid "Deleting..."
 msgstr "Suppression..."
 
+#: src/features/repository/repository-tabs.tsx:607
+msgid "Deleting…"
+msgstr "Suppression…"
+
 #: ../../../lib/web/src/components/data-table/column-header.tsx:60
 msgid "Desc"
 msgstr "Décroissant"
 
 #: src/features/repository/create-repository-dialog.tsx:161
-#: src/features/repository/repository-tabs.tsx:1025
+#: src/features/repository/repository-tabs.tsx:1030
 msgid "Description"
 msgstr "Description"
 
@@ -332,20 +371,28 @@ msgstr "Affiche la barre latérale mobile."
 msgid "Done"
 msgstr "Terminé"
 
+#: src/components/download-dropdown.tsx:60
+msgid "Download"
+msgstr "Télécharger"
+
 #: src/features/repository/file-browser.tsx:338
 msgid "Empty directory"
 msgstr "Répertoire vide"
 
 #: src/features/repository/file-browser.tsx:195
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:323
 msgid "Empty repository"
 msgstr "Dépôt vide"
+
+#: src/features/repository/repository-tabs.tsx:1022
+msgid "Entity:"
+msgstr "Entité :"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx:35
 msgid "Expand sidebar"
 msgstr "Développer la barre latérale"
 
-#: src/features/repository/repository-tabs.tsx:446
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:92
 msgid "Failed to create branch"
 msgstr "Échec de la création de la branche"
@@ -358,12 +405,12 @@ msgstr "Échec de la création du dépôt"
 msgid "Failed to create token"
 msgstr "Échec de la création du jeton"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:467
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Failed to delete branch"
 msgstr "Échec de la suppression de la branche"
 
-#: src/features/repository/repository-tabs.tsx:791
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Failed to delete repository"
 msgstr "Échec de la suppression du dépôt"
 
@@ -379,11 +426,11 @@ msgstr "Échec du téléchargement de l'archive"
 msgid "Failed to get token"
 msgstr "Échec de la récupération du jeton"
 
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Failed to load access rules"
 msgstr "Échec du chargement des règles d'accès"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:485
 #: src/routes/_authenticated/$repoId_.branches.tsx:236
 msgid "Failed to load branches"
 msgstr "Échec du chargement des branches"
@@ -392,35 +439,35 @@ msgstr "Échec du chargement des branches"
 msgid "Failed to load commit"
 msgstr "Échec du chargement du commit"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:363
 #: src/routes/_authenticated/$repoId_.commits.tsx:109
 msgid "Failed to load commits"
 msgstr "Échec du chargement des commits"
 
 #: src/features/repository/file-browser.tsx:191
 #: src/features/repository/file-browser.tsx:334
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:319
 msgid "Failed to load files"
 msgstr "Échec du chargement des fichiers"
 
-#: src/features/repository/repository-tabs.tsx:636
+#: src/features/repository/repository-tabs.tsx:638
 #: src/routes/_authenticated/$repoId_.tags.tsx:86
 msgid "Failed to load tags"
 msgstr "Échec du chargement des étiquettes"
 
-#: src/features/repository/repository-tabs.tsx:1177
+#: src/features/repository/repository-tabs.tsx:1182
 msgid "Failed to remove access"
 msgstr "Échec du retrait de l'accès"
 
-#: src/features/repository/repository-tabs.tsx:837
+#: src/features/repository/repository-tabs.tsx:842
 msgid "Failed to rename repository"
 msgstr "Échec du renommage du dépôt"
 
-#: src/features/repository/repository-tabs.tsx:774
+#: src/features/repository/repository-tabs.tsx:779
 msgid "Failed to save setting"
 msgstr "Échec de l'enregistrement du paramètre"
 
-#: src/features/repository/repository-tabs.tsx:1162
+#: src/features/repository/repository-tabs.tsx:1167
 msgid "Failed to set access level"
 msgstr "Échec de la définition du niveau d'accès"
 
@@ -430,24 +477,32 @@ msgstr "Échec de la définition du niveau d'accès"
 msgid "Failed to subscribe"
 msgstr "Échec de l'abonnement"
 
-#: src/features/repository/repository-header.tsx:71
-#: src/features/repository/repository-tabs.tsx:205
+#: src/features/repository/repository-header.tsx:72
+#: src/features/repository/repository-tabs.tsx:207
 #: src/routes/_authenticated/index.tsx:323
 msgid "Failed to unsubscribe"
 msgstr "Échec du désabonnement"
 
-#: src/features/repository/repository-tabs.tsx:1191
+#: src/features/repository/repository-tabs.tsx:1196
 msgid "Failed to update access level"
 msgstr "Échec de la mise à jour du niveau d'accès"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:886
 msgid "Failed to update path"
 msgstr "Échec de la mise à jour du chemin"
+
+#: src/features/repository/tabs.tsx:25
+msgid "Files"
+msgstr "Fichiers"
 
 #: src/components/layout/repositories-layout.tsx:62
 #: src/routes/_authenticated/find.tsx:64
 msgid "Find repositories"
 msgstr "Trouver des dépôts"
+
+#: src/features/repository/repository-tabs.tsx:1024
+msgid "Fingerprint:"
+msgstr "Empreinte :"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:244
 msgid "Floating"
@@ -456,6 +511,11 @@ msgstr "Flottant"
 #: ../../../lib/web/src/components/travelling-picker.tsx:148
 msgid "From"
 msgstr "De"
+
+#. placeholder {0}: new URL(server).hostname
+#: src/features/repository/repository-header.tsx:138
+msgid "From: {0}"
+msgstr "Depuis : {0}"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:307
 msgid "Full layout"
@@ -491,13 +551,25 @@ msgstr "Groupe"
 msgid "Hide"
 msgstr "Masquer"
 
-#: src/features/repository/repository-tabs.tsx:899
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:82
+msgid "Home"
+msgstr "Accueil"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx:41
+msgid "Hot"
+msgstr "Populaire"
+
+#: src/features/repository/repository-tabs.tsx:904
 msgid "Identity"
 msgstr "Identité"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:239
 msgid "Inset"
 msgstr "Encastré"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx:39
+msgid "Interests"
+msgstr "Centres d'intérêt"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
@@ -515,6 +587,14 @@ msgstr "Gauche à droite"
 msgid "Light"
 msgstr "Clair"
 
+#: ../../../lib/web/src/components/ui/load-more.tsx:32
+msgid "Load more"
+msgstr "Charger plus"
+
+#: ../../../lib/web/src/components/ui/load-more.tsx:32
+msgid "Loading…"
+msgstr "Chargement…"
+
 #: ../../../lib/web/src/components/layout/nav-user.tsx:98
 #: ../../../lib/web/src/components/layout/nav-user.tsx:164
 #: ../../../lib/web/src/components/layout/nav-user.tsx:212
@@ -530,6 +610,10 @@ msgstr "Déconnecté (avec erreurs)"
 #: ../../../lib/web/src/hooks/use-logout.ts:14
 msgid "Logged out successfully"
 msgstr "Déconnexion réussie"
+
+#: src/features/repository/repository-tabs.tsx:867
+msgid "Lowercase letters, numbers, and hyphens only"
+msgstr "Lettres minuscules, chiffres et traits d'union uniquement"
 
 #: src/components/clone-dialog.tsx:250
 msgid "Manage tokens"
@@ -547,21 +631,41 @@ msgstr "Menu"
 msgid "Name"
 msgstr "Nom"
 
-#: src/features/repository/repository-tabs.tsx:553
+#: src/features/repository/repository-tabs.tsx:803
+msgid "Name cannot contain < or > characters"
+msgstr "Le nom ne peut pas contenir les caractères < ou >"
+
+#: src/features/repository/repository-tabs.tsx:802
+msgid "Name must be 100 characters or less"
+msgstr "Le nom doit comporter 100 caractères ou moins"
+
+#: src/features/repository/repository-tabs.tsx:906
+msgid "Name:"
+msgstr "Nom :"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx:40
+msgid "New"
+msgstr "Nouveau"
+
+#: src/features/repository/repository-tabs.tsx:555
 #: src/routes/_authenticated/$repoId_.branches.tsx:151
 msgid "New branch"
 msgstr "Nouvelle branche"
+
+#: src/features/repository/repository-tabs.tsx:721
+msgid "No access"
+msgstr "Aucun accès"
 
 #: ../../../lib/web/src/features/access/access-list.tsx:155
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Aucune règle d'accès configurée. Ajoutez des règles pour contrôler qui peut accéder à cette ressource."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:504
 #: src/routes/_authenticated/$repoId_.branches.tsx:247
 msgid "No branches yet"
 msgstr "Aucune branche pour le moment"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:114
 msgid "No commits yet"
 msgstr "Aucun commit pour le moment"
@@ -574,7 +678,7 @@ msgstr "Aucun compte connecté"
 msgid "No groups available"
 msgstr "Aucun groupe disponible"
 
-#: ../../../lib/web/src/components/language-picker.tsx:99
+#: ../../../lib/web/src/components/language-picker.tsx:96
 msgid "No matches."
 msgstr "Aucune correspondance."
 
@@ -596,7 +700,7 @@ msgstr "Aucun dépôt trouvé"
 msgid "No results found."
 msgstr "Aucun résultat trouvé."
 
-#: src/features/repository/repository-tabs.tsx:666
+#: src/features/repository/repository-tabs.tsx:668
 #: src/routes/_authenticated/$repoId_.tags.tsx:97
 msgid "No tags yet"
 msgstr "Aucune étiquette pour le moment"
@@ -646,11 +750,19 @@ msgstr "Propriétaire\"#. placeholder {0}: formatInterval(source.interval)"
 msgid "Path"
 msgstr "Chemin"
 
-#: src/features/repository/repository-tabs.tsx:877
+#: src/features/repository/repository-tabs.tsx:863
+msgid "Path is required"
+msgstr "Le chemin est requis"
+
+#: src/features/repository/repository-tabs.tsx:882
 msgid "Path updated"
 msgstr "Chemin mis à jour"
 
-#: src/features/repository/repository-tabs.tsx:1073
+#: src/features/repository/repository-tabs.tsx:964
+msgid "Path:"
+msgstr "Chemin :"
+
+#: src/features/repository/repository-tabs.tsx:1078
 msgid "Permanently delete this repository and all its data"
 msgstr "Supprimer définitivement ce dépôt et toutes ses données"
 
@@ -662,6 +774,14 @@ msgstr "Veuillez saisir un nom de jeton"
 #: ../../../lib/web/src/components/profile-dropdown.tsx:111
 msgid "Profile"
 msgstr "Profil"
+
+#: src/features/repository/repository-tabs.tsx:719
+msgid "Read and write"
+msgstr "Lire et écrire"
+
+#: src/features/repository/repository-tabs.tsx:720
+msgid "Read only"
+msgstr "Lecture seule"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:216
 #: ../../../lib/web/src/components/search-entity-page.tsx:191
@@ -686,6 +806,7 @@ msgid "Remove access?"
 msgstr "Supprimer l'accès ?"
 
 #: src/routes/_authenticated/index.tsx:119
+#: src/routes/_authenticated/index.tsx:184
 #: src/routes/_authenticated/index.tsx:192
 msgid "Repositories"
 msgstr "Dépôts"
@@ -694,15 +815,19 @@ msgstr "Dépôts"
 msgid "Repository created"
 msgstr "Dépôt créé"
 
-#: src/features/repository/repository-tabs.tsx:787
+#: src/features/repository/repository-tabs.tsx:792
 msgid "Repository deleted"
 msgstr "Dépôt supprimé"
+
+#: src/features/repository/repository-tabs.tsx:801
+msgid "Repository name is required"
+msgstr "Le nom du dépôt est requis"
 
 #: src/routes/_authenticated/commit/$sha.tsx:35
 msgid "Repository not found"
 msgstr "Dépôt introuvable"
 
-#: src/features/repository/repository-tabs.tsx:833
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Repository renamed"
 msgstr "Dépôt renommé"
 
@@ -722,7 +847,7 @@ msgstr "Droite à gauche"
 msgid "Rows per page"
 msgstr "Lignes par page"
 
-#: src/features/repository/repository-tabs.tsx:1038
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -738,6 +863,10 @@ msgstr "Rechercher par nom, ID, empreinte ou URL..."
 #: ../../../lib/web/src/components/place-picker.tsx:82
 msgid "Search for a place"
 msgstr "Rechercher un lieu"
+
+#: src/features/repository/inline-repo-search.tsx:83
+msgid "Search for repositories..."
+msgstr "Rechercher des dépôts…"
 
 #: ../../../lib/web/src/features/access/access-dialog.tsx:169
 msgid "Search users"
@@ -757,6 +886,17 @@ msgstr "Sélectionnez un utilisateur, un groupe, ou une autre règle pour accord
 msgid "Select access rule"
 msgstr "Sélectionner une règle d'accès"
 
+#: src/features/repository/file-browser.tsx:135
+#: src/features/repository/file-browser.tsx:273
+#: src/features/repository/repository-tabs.tsx:137
+#: src/routes/_authenticated/$repoId_.commits.tsx:89
+msgid "Select branch"
+msgstr "Sélectionner une branche"
+
+#: src/features/repository/repository-tabs.tsx:1060
+msgid "Select default branch"
+msgstr "Sélectionner une branche par défaut"
+
 #: ../../../lib/web/src/features/access/access-dialog.tsx:227
 msgid "Select group"
 msgstr "Sélectionner un groupe"
@@ -773,6 +913,7 @@ msgstr "Sélectionner le style de barre latérale"
 msgid "Select site direction"
 msgstr "Sélectionner la direction du site"
 
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:168
 msgid "Select source branch"
 msgstr "Sélectionner la branche source"
@@ -789,12 +930,17 @@ msgstr "Définir l'origine et la destination"
 #: ../../../lib/web/src/components/layout/nav-user.tsx:145
 #: ../../../lib/web/src/components/layout/nav-user.tsx:195
 #: src/features/repository/file-browser.tsx:117
+#: src/features/repository/tabs.tsx:30
 msgid "Settings"
 msgstr "Paramètres"
 
-#: src/features/repository/repository-tabs.tsx:770
+#: src/features/repository/repository-tabs.tsx:775
 msgid "Settings saved"
 msgstr "Paramètres enregistrés"
+
+#: ../../../lib/web/src/components/ui/load-more.tsx:36
+msgid "Showing {totalShown} of {total}"
+msgstr "Affichage de {totalShown} sur {total}"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:225
 #: ../../../lib/web/src/components/config-drawer.tsx:249
@@ -810,7 +956,7 @@ msgstr "Déconnexion..."
 msgid "Skip to Main"
 msgstr "Aller au contenu principal"
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:569
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "Branche source"
@@ -823,7 +969,7 @@ msgstr "Restez à l'écoute !"
 msgid "Subject"
 msgstr "Sujet"
 
-#: src/features/repository/repository-header.tsx:93
+#: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
 #: src/routes/_authenticated/index.tsx:160
 msgid "Subscribed"
@@ -838,6 +984,7 @@ msgid "Tag"
 msgstr "Étiquette"
 
 #: src/features/repository/file-browser.tsx:110
+#: src/features/repository/tabs.tsx:28
 msgid "Tags"
 msgstr "Étiquettes"
 
@@ -845,7 +992,7 @@ msgstr "Étiquettes"
 msgid "Teams/Apps"
 msgstr "Équipes/Applications"
 
-#: src/features/repository/repository-tabs.tsx:1046
+#: src/features/repository/repository-tabs.tsx:1051
 msgid "The branch shown when viewing the repository"
 msgstr "La branche affichée lors de la consultation du dépôt"
 
@@ -862,6 +1009,18 @@ msgstr "Paramètres du thème"
 #: src/routes/_authenticated/tree/$ref/$.tsx:33
 msgid "This page requires a repository context."
 msgstr "Cette page nécessite un contexte de dépôt."
+
+#: src/features/repository/repository-tabs.tsx:1096
+msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
+msgstr "Ceci supprimera définitivement « {currentName} » et tous ses commits, branches et étiquettes. Cette action est irréversible."
+
+#: src/features/repository/repository-header.tsx:119
+msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
+msgstr "Ceci retirera « {name} » de votre liste de dépôts. Vous pourrez vous réabonner plus tard."
+
+#: src/features/repository/repository-tabs.tsx:230
+msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
+msgstr "Ceci retirera « {repoName} » de votre liste de dépôts. Vous pourrez vous réabonner plus tard."
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:34
 msgid "Toggle columns"
@@ -887,6 +1046,10 @@ msgstr "Jeton supprimé"
 msgid "Token name"
 msgstr "Nom du jeton"
 
+#: ../../../lib/web/src/components/ui/sort-selector.tsx:42
+msgid "Top"
+msgstr "Meilleur"
+
 #: ../../../lib/web/src/components/travelling-picker.tsx:140
 msgid "Travelling"
 msgstr "En déplacement"
@@ -910,15 +1073,17 @@ msgstr "Tapez pour rechercher des utilisateurs"
 msgid "Unauthorized Access"
 msgstr "Accès non autorisé"
 
-#: src/features/repository/repository-header.tsx:111
-#: src/features/repository/repository-header.tsx:123
-#: src/features/repository/repository-tabs.tsx:221
+#: src/features/repository/repository-header.tsx:112
+#: src/features/repository/repository-header.tsx:124
+#: src/features/repository/repository-tabs.tsx:223
+#: src/features/repository/repository-tabs.tsx:236
 #: src/routes/_authenticated/index.tsx:290
+#: src/routes/_authenticated/index.tsx:310
 msgid "Unsubscribe"
 msgstr "Se désabonner"
 
-#: src/features/repository/repository-header.tsx:116
-#: src/features/repository/repository-tabs.tsx:226
+#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-tabs.tsx:228
 msgid "Unsubscribe from repository?"
 msgstr "Se désabonner du dépôt ?"
 
@@ -926,10 +1091,14 @@ msgstr "Se désabonner du dépôt ?"
 msgid "Unsubscribed"
 msgstr "Désabonné"
 
-#: src/features/repository/repository-header.tsx:67
-#: src/features/repository/repository-tabs.tsx:200
+#: src/features/repository/repository-header.tsx:68
+#: src/features/repository/repository-tabs.tsx:202
 msgid "Unsubscribed from repository"
 msgstr "Désabonné du dépôt"
+
+#: src/features/repository/repository-tabs.tsx:236
+msgid "Unsubscribing…"
+msgstr "Désabonnement…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:129
 msgid "Unverified"

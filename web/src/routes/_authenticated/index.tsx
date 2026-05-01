@@ -181,7 +181,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   return (
     <>
       <PageHeader
-        title={"Repositories"}
+        title={t`Repositories`}
         icon={<FolderGit2 className="size-4 md:size-5" />}
       />
       <Main>
@@ -307,7 +307,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
       <ConfirmDialog
         open={!!unsubscribeId}
         onOpenChange={(open) => { if (!open) setUnsubscribeId(null) }}
-        title={"Unsubscribe"}
+        title={t`Unsubscribe`}
         desc="Are you sure you want to unsubscribe from this repository?"
         confirmText="Unsubscribe"
         destructive

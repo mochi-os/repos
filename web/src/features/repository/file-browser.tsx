@@ -132,7 +132,7 @@ export function FileBrowser({
           <Select value={currentRef} onValueChange={setCurrentRef}>
             <SelectTrigger className="w-[180px]">
               <GitBranch className="h-4 w-4 mr-2" />
-              <SelectValue placeholder={"Select branch"} />
+              <SelectValue placeholder={t`Select branch`} />
             </SelectTrigger>
             <SelectContent>
               {branches.map((branch) => (
@@ -270,7 +270,7 @@ export function FileTree({
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder={"Select branch"} />
+            <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
             {/* Show current ref if not in branches list (e.g., tag or invalid ref) */}

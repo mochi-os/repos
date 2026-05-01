@@ -24,7 +24,7 @@ import {
 import { useUnsubscribe } from '@/hooks/use-repository'
 import { CloneDialog } from '@/components/clone-dialog'
 import { DownloadDropdown } from '@/components/download-dropdown'
-import { tabs, type RepositoryTabId } from './tabs'
+import { useRepositoryTabs, type RepositoryTabId } from './tabs'
 
 
 interface RepositoryHeaderProps {
@@ -59,6 +59,7 @@ export function RepositoryHeader({
   const unsubscribe = useUnsubscribe()
   const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
 
+  const tabs = useRepositoryTabs()
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
   const handleUnsubscribe = () => {
@@ -115,7 +116,7 @@ export function RepositoryHeader({
                 <AlertDialogHeader>
                   <AlertDialogTitle><Trans>Unsubscribe from repository?</Trans></AlertDialogTitle>
                   <AlertDialogDescription>
-                    This will remove "{name}" from your repository list. You can subscribe again later.
+                    <Trans>This will remove "{name}" from your repository list. You can subscribe again later.</Trans>
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -134,7 +135,7 @@ export function RepositoryHeader({
 
       {isRemote && server && server.startsWith('http') && (
         <p className="text-sm text-muted-foreground">
-          From: {new URL(server).hostname}
+          <Trans>From: {new URL(server).hostname}</Trans>
         </p>
       )}
 
