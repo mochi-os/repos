@@ -58,7 +58,7 @@ function CommitPage() {
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" asChild>
               <Link to="/$repoId/commits" params={{ repoId: data.fingerprint || data.id }}>
-                <ArrowLeft className="h-4 w-4 mr-1" />
+                <ArrowLeft className="h-4 w-4 me-1 rtl:rotate-180" />
                 <Trans>Back to commits</Trans>
               </Link>
             </Button>

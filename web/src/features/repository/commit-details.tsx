@@ -113,7 +113,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
                   key={parent}
                   to="/$repoId/commit/$sha"
                   params={{ repoId: fingerprint, sha: parent }}
-                  className="ml-2 font-mono text-primary hover:underline"
+                  className="ms-2 font-mono text-primary hover:underline"
                 >
                   {parent.substring(0, 7)}
                 </Link>

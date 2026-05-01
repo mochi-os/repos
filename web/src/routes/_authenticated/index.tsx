@@ -197,7 +197,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
               <>
                 <InlineRepoSearch subscribedIds={subscribedRepoIds} onRefresh={refreshRepos} />
                 <Button variant="outline" onClick={openCreateDialog} className="mt-4">
-                  <Plus className="mr-2 h-4 w-4" />
+                  <Plus className="me-2 h-4 w-4" />
                   <Trans>Create a new repository</Trans>
                 </Button>
               </>
@@ -211,7 +211,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                   <p className="text-muted-foreground mb-3 text-xs font-medium uppercase tracking-wide">
                     <Trans>Recommended repositories</Trans>
                   </p>
-                  <div className="divide-border divide-y rounded-lg border text-left">
+                  <div className="divide-border divide-y rounded-lg border text-start">
                     {recommendations
                       .filter((rec) => !subscribedRepoIds.has(rec.id))
                       .map((rec) => {

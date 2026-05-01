@@ -132,7 +132,7 @@ export function RepositoryTabs({
       {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 mr-2" />
+            <GitBranch className="h-4 w-4 me-2" />
             <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
@@ -218,7 +218,7 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
         onClick={() => setShowDialog(true)}
         disabled={isUnsubscribing}
       >
-        <UserMinus className="h-4 w-4 mr-1" />
+        <UserMinus className="h-4 w-4 me-1" />
         <Trans>Unsubscribe</Trans>
       </Button>
       <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
@@ -286,7 +286,7 @@ function FilesTab({
             const pathTo = pathParts.slice(0, index + 1).join('/')
             return (
               <span key={pathTo} className="flex items-center gap-1">
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
                 {index === pathParts.length - 1 ? (
                   <span>{part}</span>
                 ) : (
@@ -585,7 +585,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
               <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? <Trans>Creating…</Trans> : <><Plus className="h-4 w-4 mr-2" /><Trans>Create branch</Trans></>}
+              {createBranch.isPending ? <Trans>Creating…</Trans> : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>

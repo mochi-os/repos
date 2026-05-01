@@ -91,28 +91,28 @@ export function FileBrowser({
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId/commits" params={{ repoId: fingerprint }}>
-            <History className="h-4 w-4 mr-1" />
+            <History className="h-4 w-4 me-1" />
             <Trans>Commits</Trans>
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId/branches" params={{ repoId: fingerprint }}>
-            <GitBranch className="h-4 w-4 mr-1" />
+            <GitBranch className="h-4 w-4 me-1" />
             <Trans>Branches</Trans>
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId/tags" params={{ repoId: fingerprint }}>
-            <Tag className="h-4 w-4 mr-1" />
+            <Tag className="h-4 w-4 me-1" />
             <Trans>Tags</Trans>
           </Link>
         </Button>
 
         <Button variant="outline" size="sm" asChild>
           <Link to="/$repoId" params={{ repoId: fingerprint }} search={{ tab: 'settings' }}>
-            <Settings className="h-4 w-4 mr-1" />
+            <Settings className="h-4 w-4 me-1" />
             <Trans>Settings</Trans>
           </Link>
         </Button>
@@ -130,7 +130,7 @@ export function FileBrowser({
         <div className="flex flex-wrap items-center gap-2">
           <Select value={currentRef} onValueChange={setCurrentRef}>
             <SelectTrigger className="w-[180px]">
-              <GitBranch className="h-4 w-4 mr-2" />
+              <GitBranch className="h-4 w-4 me-2" />
               <SelectValue placeholder={t`Select branch`} />
             </SelectTrigger>
             <SelectContent>
@@ -158,7 +158,7 @@ export function FileBrowser({
             const pathTo = pathParts.slice(0, index + 1).join('/')
             return (
               <span key={pathTo} className="flex items-center gap-1">
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
                 {index === pathParts.length - 1 ? (
                   <span>{part}</span>
                 ) : (
@@ -268,7 +268,7 @@ export function FileTree({
       {branches.length > 0 && (
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 mr-2" />
+            <GitBranch className="h-4 w-4 me-2" />
             <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
@@ -301,7 +301,7 @@ export function FileTree({
             const pathTo = pathParts.slice(0, index + 1).join('/')
             return (
               <span key={pathTo} className="flex items-center gap-1">
-                <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
                 {index === pathParts.length - 1 ? (
                   <span>{part}</span>
                 ) : (

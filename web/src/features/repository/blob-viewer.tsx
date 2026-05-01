@@ -120,7 +120,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
       {branches.length > 0 && (
         <Select value={gitRef} onValueChange={handleBranchChange}>
           <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 mr-2" />
+            <GitBranch className="h-4 w-4 me-2" />
             <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
@@ -147,7 +147,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
           const isLast = index === pathParts.length - 1
           return (
             <span key={pathTo} className="flex items-center gap-1">
-              <ChevronRight className="h-4 w-4 text-muted-foreground" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
               {isLast ? (
                 <span className="font-medium text-foreground">{part}</span>
               ) : (
@@ -199,7 +199,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
                     <tbody>
                       {lines.map((line, index) => (
                         <tr key={index} className="hover:bg-accent/50">
-                          <td className="px-4 py-0 text-right text-muted-foreground select-none border-r w-12 align-top">
+                          <td className="px-4 py-0 text-end text-muted-foreground select-none border-e w-12 align-top">
                             {index + 1}
                           </td>
                           <td className="px-4 py-0 whitespace-pre">{line || ' '}</td>

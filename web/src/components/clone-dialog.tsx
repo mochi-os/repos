@@ -293,7 +293,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
               )}
               <DialogFooter className="flex-row gap-2 sm:justify-between">
                 <Button variant="ghost" onClick={() => setView('clone')}>
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
                   <Trans>Back</Trans>
                 </Button>
                 <Button onClick={() => setView('create')}>
@@ -351,7 +351,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                   </div>
                   <DialogFooter className="flex-row gap-2 sm:justify-between">
                     <Button variant="ghost" onClick={() => setView('manage')}>
-                      <ArrowLeft className="h-4 w-4" />
+                      <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
                       <Trans>Back</Trans>
                     </Button>
                     <Button onClick={handleCreate} disabled={createMutation.isPending}>

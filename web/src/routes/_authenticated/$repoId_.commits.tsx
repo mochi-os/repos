@@ -85,7 +85,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
       {branches.length > 0 && (
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 mr-2" />
+            <GitBranch className="h-4 w-4 me-2" />
             <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>

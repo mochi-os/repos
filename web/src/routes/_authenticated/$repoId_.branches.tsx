@@ -182,7 +182,7 @@ function BranchesPage() {
               <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 mr-2" /><Trans>Create branch</Trans></>}
+              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>
