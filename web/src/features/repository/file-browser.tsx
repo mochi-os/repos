@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
+import { Trans } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -46,7 +46,6 @@ export function FileBrowser({
   initialRef,
   initialPath = '',
 }: FileBrowserProps) {
-  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
@@ -132,7 +131,7 @@ export function FileBrowser({
           <Select value={currentRef} onValueChange={setCurrentRef}>
             <SelectTrigger className="w-[180px]">
               <GitBranch className="h-4 w-4 mr-2" />
-              <SelectValue placeholder={t`Select branch`} />
+              <SelectValue placeholder={"Select branch"} />
             </SelectTrigger>
             <SelectContent>
               {branches.map((branch) => (
@@ -188,7 +187,7 @@ export function FileBrowser({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, t`Failed to load files`)}
+              {getErrorMessage(error, "Failed to load files")}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">
@@ -231,7 +230,6 @@ export function FileTree({
   currentRef: initialRef,
   currentPath: initialPath,
 }: FileTreeProps) {
-  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
 
@@ -270,7 +268,7 @@ export function FileTree({
         <Select value={currentRef} onValueChange={setCurrentRef}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder={t`Select branch`} />
+            <SelectValue placeholder={"Select branch"} />
           </SelectTrigger>
           <SelectContent>
             {/* Show current ref if not in branches list (e.g., tag or invalid ref) */}
@@ -331,7 +329,7 @@ export function FileTree({
             </div>
           ) : error ? (
             <div className="p-4 text-destructive">
-              {getErrorMessage(error, t`Failed to load files`)}
+              {getErrorMessage(error, "Failed to load files")}
             </div>
           ) : sortedEntries.length === 0 ? (
             <div className="p-8 text-center text-muted-foreground">

@@ -1,5 +1,4 @@
 import { Link, useNavigate } from '@tanstack/react-router'
-import { useLingui } from '@lingui/react/macro'
 import {
   Card,
   CardContent,
@@ -33,7 +32,6 @@ interface BlobViewerProps {
 }
 
 export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobViewerProps) {
-  const { t } = useLingui()
   const { data, isLoading, error } = useBlob(repoId, gitRef, path)
   const { data: branchesData } = useBranches(repoId)
   const [copied, setCopied] = useState(false)
@@ -122,7 +120,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
         <Select value={gitRef} onValueChange={handleBranchChange}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder={t`Select branch`} />
+            <SelectValue placeholder={"Select branch"} />
           </SelectTrigger>
           <SelectContent>
             {branches.map((branch) => (

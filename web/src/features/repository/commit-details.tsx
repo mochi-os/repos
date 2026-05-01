@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
+import { Trans } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -22,7 +22,6 @@ interface CommitDetailsProps {
 }
 
 export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) {
-  const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommit(repoId, sha)
   const [copied, setCopied] = useState(false)
@@ -45,7 +44,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
   if (error) {
     return (
       <div className="text-destructive">
-        {getErrorMessage(error, t`Failed to load commit`)}
+        {getErrorMessage(error, "Failed to load commit")}
       </div>
     )
   }

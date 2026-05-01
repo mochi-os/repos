@@ -1,5 +1,5 @@
 import { createFileRoute, redirect, Link, useRouter } from '@tanstack/react-router'
-import { Trans, useLingui } from '@lingui/react/macro'
+import { Trans } from '@lingui/react/macro'
 import { useEffect, useMemo, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -115,8 +115,7 @@ interface RepositoryListPageProps {
 }
 
 function RepositoryListPage({ repositories }: RepositoryListPageProps) {
-  const { t } = useLingui()
-  usePageTitle(t`Repositories`)
+  usePageTitle("Repositories")
   const { openCreateDialog } = useSidebarContext()
   const queryClient = useQueryClient()
   const router = useRouter()
@@ -157,11 +156,11 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     setPendingRepoId(repo.id)
     try {
       await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
-      toast.success(t`Subscribed`)
+      toast.success("Subscribed")
       await queryClient.invalidateQueries({ queryKey: ['repositories', 'recommendations'] })
       await router.invalidate()
     } catch (error) {
-      toast.error(getErrorMessage(error, t`Failed to subscribe`))
+      toast.error(getErrorMessage(error, "Failed to subscribe"))
     } finally {
       setPendingRepoId(null)
     }
@@ -181,7 +180,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   return (
     <>
       <PageHeader
-        title={t`Repositories`}
+        title={"Repositories"}
         icon={<FolderGit2 className="size-4 md:size-5" />}
       />
       <Main>
@@ -191,7 +190,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
               <FolderGit2 className="text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50" />
               <p className="text-muted-foreground mb-1 text-sm font-medium"><Trans>Repositories</Trans></p>
             <p className="text-muted-foreground mb-4 max-w-sm text-xs">
-              {isLoggedIn ? 'You have no repositories yet.' : 'No public repositories.'}
+              {isLoggedIn ? "You have no repositories yet." : "No public repositories."}
             </p>
             {isLoggedIn && (
               <>
@@ -307,7 +306,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
       <ConfirmDialog
         open={!!unsubscribeId}
         onOpenChange={(open) => { if (!open) setUnsubscribeId(null) }}
-        title={t`Unsubscribe`}
+        title={"Unsubscribe"}
         desc="Are you sure you want to unsubscribe from this repository?"
         confirmText="Unsubscribe"
         destructive
@@ -317,10 +316,10 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
             unsubscribe.mutate(unsubscribeId, {
               onSuccess: () => {
                 setUnsubscribeId(null)
-                toast.success(t`Unsubscribed`)
+                toast.success("Unsubscribed")
                 void router.invalidate()
               },
-              onError: (error) => toast.error(getErrorMessage(error, t`Failed to unsubscribe`)),
+              onError: (error) => toast.error(getErrorMessage(error, "Failed to unsubscribe")),
             })
           }
         }}

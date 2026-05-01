@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
+import { Trans } from '@lingui/react/macro'
 import { Link, useNavigate } from '@tanstack/react-router'
 import {
   cn,
@@ -54,7 +54,6 @@ export function RepositoryHeader({
   currentRef,
   showDownload = true,
 }: RepositoryHeaderProps) {
-  const { t } = useLingui()
   const navigate = useNavigate()
   const unsubscribe = useUnsubscribe()
   const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
@@ -64,11 +63,11 @@ export function RepositoryHeader({
   const handleUnsubscribe = () => {
     unsubscribe.mutate(repoId, {
       onSuccess: () => {
-        toast.success(t`Unsubscribed from repository`)
+        toast.success("Unsubscribed from repository")
         void navigate({ to: '/' })
       },
       onError: (error) => {
-        toast.error(getErrorMessage(error, t`Failed to unsubscribe`))
+        toast.error(getErrorMessage(error, "Failed to unsubscribe"))
       },
     })
     setShowUnsubscribeDialog(false)

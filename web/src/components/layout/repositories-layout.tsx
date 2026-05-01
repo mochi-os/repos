@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo } from 'react'
+import { useLingui } from '@lingui/react/macro'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
 import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem } from '@mochi/web'
@@ -9,6 +10,7 @@ import { CreateRepositoryDialog } from '@/features/repository/create-repository-
 import { isDomainRouted } from '@/api/request'
 
 function RepositoriesLayoutInner() {
+  const { t } = useLingui()
   const { data, refetch } = useRepoInfo()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
@@ -49,7 +51,7 @@ function RepositoriesLayoutInner() {
     }))
 
     const allReposItem: NavItem = {
-      title: 'All repositories',
+      title: t`All repositories`,
       onClick: handleAllReposClick,
       icon: FolderGit2,
       isActive: location.pathname === '/',
@@ -57,8 +59,8 @@ function RepositoriesLayoutInner() {
 
     // Bottom items (logged-in only)
     const bottomItems: NavItem[] = isLoggedIn ? [
-      { title: 'Find repositories', icon: Search, url: '/find' },
-      { title: 'Create repository', icon: Plus, onClick: openCreateDialog },
+      { title: t`Find repositories`, icon: Search, url: '/find' },
+      { title: t`Create repository`, icon: Plus, onClick: openCreateDialog },
     ] : []
 
     const groups: SidebarData['navGroups'] = [
