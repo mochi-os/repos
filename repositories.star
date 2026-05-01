@@ -741,7 +741,7 @@ def action_commits(a):
         tags = mochi.git.tags(repo["id"])
         if (not branches or len(branches) == 0) and (not tags or len(tags) == 0):
             return {"data": {"commits": []}}
-        return a.error(404, "Branch or tag '%s' not found." % ref)
+        return a.error_label(404, "errors.ref_not_found", ref=ref)
     return {"data": {"commits": commits or []}}
 
 # Action: Get commit details
@@ -828,8 +828,8 @@ def action_tree(a):
         if path:
             root_tree = mochi.git.tree(repo["id"], ref, "")
             if root_tree == None:
-                return a.error(404, "Branch or tag '%s' not found." % ref)
-            return a.error(404, "Path '%s' not found." % path)
+                return a.error_label(404, "errors.ref_not_found", ref=ref)
+            return a.error_label(404, "errors.path_not_found", path=path)
         # Check if repository is empty (no branches or tags at all)
         branches = mochi.git.branches(repo["id"])
         tags = mochi.git.tags(repo["id"])
@@ -840,7 +840,7 @@ def action_tree(a):
                 "path": path,
                 "entries": [],
             }}
-        return a.error(404, "Branch or tag '%s' not found." % ref)
+        return a.error_label(404, "errors.ref_not_found", ref=ref)
 
     return {"data": {
         "ref": ref,
@@ -890,7 +890,7 @@ def action_blob(a):
         if not response.get("error"):
             return {"data": response}
         # Fall through to error if remote unavailable
-        return a.error(404, "File '%s' not found." % path)
+        return a.error_label(404, "errors.file_not_found", path=path)
 
     # Local repository
     blob = mochi.git.blob.get(repo["id"], ref, path)
@@ -898,8 +898,8 @@ def action_blob(a):
         # Check if ref exists
         root_tree = mochi.git.tree(repo["id"], ref, "")
         if root_tree == None:
-            return a.error(404, "Branch or tag '%s' not found." % ref)
-        return a.error(404, "File '%s' not found." % path)
+            return a.error_label(404, "errors.ref_not_found", ref=ref)
+        return a.error_label(404, "errors.file_not_found", path=path)
 
     # For small non-binary files, include content
     content = None
@@ -974,7 +974,7 @@ def action_archive(a):
     # Resolve ref to its tip commit so we can fail early on bad refs
     commits = mochi.git.commit.list(repo["id"], ref, 1, 0)
     if not commits:
-        return a.error(404, "Branch, tag, or commit '%s' not found" % ref)
+        return a.error_label(404, "errors.ref_or_commit_not_found", ref=ref)
     sha = commits[0]["sha"]
 
     base = repo.get("path") or repo.get("name") or "repo"
