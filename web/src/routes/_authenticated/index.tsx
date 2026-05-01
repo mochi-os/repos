@@ -308,8 +308,8 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         open={!!unsubscribeId}
         onOpenChange={(open) => { if (!open) setUnsubscribeId(null) }}
         title={t`Unsubscribe`}
-        desc="Are you sure you want to unsubscribe from this repository?"
-        confirmText="Unsubscribe"
+        desc={t`Are you sure you want to unsubscribe from this repository?`}
+        confirmText={t`Unsubscribe`}
         destructive
         isLoading={unsubscribe.isPending}
         handleConfirm={() => {

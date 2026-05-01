@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
+import { t } from '@lingui/core/macro'
 
 interface BlobViewerProps {
   repoId: string
@@ -120,7 +121,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
         <Select value={gitRef} onValueChange={handleBranchChange}>
           <SelectTrigger className="w-[180px]">
             <GitBranch className="h-4 w-4 mr-2" />
-            <SelectValue placeholder={"Select branch"} />
+            <SelectValue placeholder={t`Select branch`} />
           </SelectTrigger>
           <SelectContent>
             {branches.map((branch) => (

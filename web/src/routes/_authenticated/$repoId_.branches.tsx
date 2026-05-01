@@ -83,7 +83,7 @@ function BranchesPage() {
       { name: newBranchName.trim(), source: sourceBranch || defaultBranch },
       {
         onSuccess: () => {
-          toast.success(`Branch "${newBranchName}" created`)
+          toast.success(t`Branch "${newBranchName}" created`)
           setShowCreateDialog(false)
           setNewBranchName('')
           setSourceBranch('')
@@ -103,7 +103,7 @@ function BranchesPage() {
   const handleDelete = () => {
     deleteBranch.mutate(branchToDelete, {
       onSuccess: () => {
-        toast.success(`Branch "${branchToDelete}" deleted`)
+        toast.success(t`Branch "${branchToDelete}" deleted`)
         setShowDeleteDialog(false)
         setBranchToDelete('')
       },
