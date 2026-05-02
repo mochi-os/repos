@@ -22,8 +22,15 @@ export default defineConfig({
     tailwindcss(),
   ],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, './src') },
+      // jiti is a Node-only build tool pulled in via @lingui/conf's peer-dep
+      // chain. Vite tree-shakes it out on Node 22+, but on Node 20.18 (sansho)
+      // it leaks into the browser bundle and fails because jiti.mjs imports
+      // createRequire from "node:module", which Vite's __vite-browser-external
+      // shim does not provide on sub-20.19 Nodes. Aliasing to an empty stub
+      // keeps the build green regardless of Node version.
+      { find: /^jiti(\/.*)?$/, replacement: path.resolve(__dirname, './empty.mjs') },
+    ],
   },
 })
