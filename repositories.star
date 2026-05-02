@@ -968,7 +968,7 @@ def action_archive(a):
 
         a.header("Content-Type", content_types[format])
         a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
-        a.write_from_stream(s)
+        a.write.stream(s)
         return None
 
     # Resolve ref to its tip commit so we can fail early on bad refs
