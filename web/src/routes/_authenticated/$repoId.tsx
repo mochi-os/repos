@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
+import { t } from '@lingui/core/macro'
 import {
   Header,
   Main,
@@ -27,7 +28,7 @@ export const Route = createFileRoute('/_authenticated/$repoId')({
   loader: async ({ params }) => {
     const repoId = params.repoId
     if (!repoId) {
-      throw new Error("Repository ID is required")
+      throw new Error(t`Repository ID is required`)
     }
     // Use window.location.pathname since TanStack Router's location is relative to app mount
     const pathname = window.location.pathname

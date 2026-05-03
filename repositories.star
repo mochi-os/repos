@@ -278,7 +278,7 @@ def action_create(a):
         return a.error.label(400, "errors.path_must_be_lowercase_letters_numbers_and_hyphens_1_100_cha")
 
     if description and len(description) > 2000:
-        return a.error.label(400, "errors.description_is_too_long_max_2000_characters")
+        return a.error.label(400, "errors.description_too_long")
 
     # Check for duplicate name
     existing = mochi.db.row("select id from repositories where name = ?", name)
@@ -288,7 +288,7 @@ def action_create(a):
     # Check for duplicate path
     existing_path = mochi.db.row("select id from repositories where path = ?", path)
     if existing_path:
-        return a.error.label(400, "errors.a_repository_with_that_path_already_exists")
+        return a.error.label(400, "errors.repository_path_taken")
 
     # Create entity (privacy controls directory listing)
     entity_id = mochi.entity.create("repository", name, privacy, "")
@@ -357,7 +357,7 @@ def action_settings_set(a):
     privacy = a.input("privacy")
 
     if description and len(description) > 2000:
-        return a.error.label(400, "errors.description_is_too_long_max_2000_characters")
+        return a.error.label(400, "errors.description_too_long")
 
     updates = []
     params = []
@@ -367,7 +367,7 @@ def action_settings_set(a):
             return a.error.label(400, "errors.path_must_be_lowercase_letters_numbers_and_hyphens_1_100_cha")
         existing = mochi.db.row("select id from repositories where path = ? and id != ?", path, repo["id"])
         if existing:
-            return a.error.label(400, "errors.a_repository_with_that_path_already_exists")
+            return a.error.label(400, "errors.repository_path_taken")
         updates.append("path = ?")
         params.append(path)
 
@@ -950,7 +950,7 @@ def action_archive(a):
             "format": format,
         }, peer)
         if not s:
-            return a.error.label(503, "errors.failed_to_connect_to_remote_server")
+            return a.error.label(503, "errors.remote_connect_failed")
 
         # Header message: error or {filename, ...}
         head = s.read()
@@ -1303,7 +1303,7 @@ def action_probe(a):
         return a.error.label(400, "errors.invalid_url_format_expected_https_server_repositories_repo_i")
 
     if not server or server == protocol:
-        return a.error.label(400, "errors.could_not_extract_server_from_url")
+        return a.error.label(400, "errors.invalid_url")
 
     # Check if it's a fingerprint (9 chars) or entity ID (50-51 chars)
     is_fingerprint = mochi.text.valid(repo_id, "fingerprint")
