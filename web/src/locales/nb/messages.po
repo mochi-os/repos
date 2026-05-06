@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0} grener"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0} commits"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} tagget {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0} tagger"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 timer"
@@ -134,7 +156,7 @@ msgstr "Tillat hvem som helst å søke etter repositorium"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Er du sikker på at du vil logge ut? Du må logge inn igjen for å få tilgang til kontoen din."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Er du sikker på at du vil avslutte abonnementet på dette repositoriet?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Stigende"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Tilbake"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Tilbake til commits"
 
@@ -157,6 +179,11 @@ msgstr "Tilbake til commits"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Tilbake til startsiden"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Binærfil ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Grener"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Tøm utvalg"
 msgid "Clear selection (Escape)"
 msgstr "Tøm utvalg (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Klon"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Klon lager"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Skjul sidefelt"
 msgid "Coming Soon!"
 msgstr "Kommer snart!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Kontekstuell informasjon og detaljer."
 msgid "Continue"
 msgstr "Fortsett"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Kopiert til utklippstavlen"
 
@@ -335,7 +373,16 @@ msgstr "Kopier"
 msgid "Could not determine route context"
 msgstr "Kunne ikke fastslå rutekontekst"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Opprett"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Opprett en ny autentiseringstoken."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Opprett et nytt repositorium"
 
@@ -352,9 +399,19 @@ msgstr "Opprett gren"
 msgid "Create repository"
 msgstr "Opprett repositorium"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Opprett token"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Opprettet {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Oppretter …"
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Mørkt"
 msgid "Dark mode"
 msgstr "Mørkt utseende"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "standard"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Standard"
@@ -385,7 +446,7 @@ msgstr "Standard KI-konto"
 msgid "Default branch"
 msgstr "Standardgren"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Slett"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Slette «{branchToDelete}»? Dette kan ikke angres."
 
@@ -410,7 +472,7 @@ msgstr "Slett repositorium"
 msgid "Delete repository?"
 msgstr "Slette repositorium?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Slette token?"
 
@@ -454,15 +516,20 @@ msgstr "Retning"
 msgid "Displays the mobile sidebar."
 msgstr "Viser sidefeltet for mobil."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Ferdig"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Last ned"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "f.eks. Arbeidsdatamaskin"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Kunne ikke opprette gren"
 msgid "Failed to create repository"
 msgstr "Kunne ikke opprette depot"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Kunne ikke opprette token"
 
@@ -507,7 +574,7 @@ msgstr "Kunne ikke slette gren"
 msgid "Failed to delete repository"
 msgstr "Kunne ikke slette depot"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Kunne ikke slette token"
 
@@ -515,7 +582,7 @@ msgstr "Kunne ikke slette token"
 msgid "Failed to download archive"
 msgstr "Kunne ikke laste ned arkiv"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Kunne ikke hente token"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Kunne ikke laste commit"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Kunne ikke laste commits"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Kunne ikke laste filer"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Kunne ikke laste tagger"
 
@@ -574,13 +641,13 @@ msgstr "Kunne ikke angi tilgangsnivå"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Kunne ikke abonnere"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Kunne ikke avslutte abonnement"
 
@@ -596,7 +663,18 @@ msgstr "Kunne ikke oppdatere kategori"
 msgid "Failed to update path"
 msgstr "Kunne ikke oppdatere sti"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "fil"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Filer"
 
@@ -691,6 +769,11 @@ msgstr "Interesser"
 msgid "Invalid verification code"
 msgstr "Ugyldig bekreftelseskode"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Sist brukt {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Layout"
@@ -738,6 +821,7 @@ msgstr "Logget ut"
 msgid "Logging out…"
 msgstr "Logger ut …"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Kun små bokstaver, tall og bindestreker"
@@ -746,7 +830,8 @@ msgstr "Kun små bokstaver, tall og bindestreker"
 msgid "Luma (Default)"
 msgstr "Luma (standard)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Administrer tokens"
 
@@ -771,10 +856,12 @@ msgstr "Mandag"
 msgid "Name"
 msgstr "Navn"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Navn kan ikke inneholde tegnene < eller >"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Navn må være 100 tegn eller kortere"
@@ -782,6 +869,11 @@ msgstr "Navn må være 100 tegn eller kortere"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Navn:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Aldri"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Ingen grener ennå"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Ingen commits ennå"
 
@@ -834,6 +926,10 @@ msgstr "Ingen steder funnet"
 msgid "No profile"
 msgstr "Ingen profil"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Ingen offentlige lagre."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Ingen resultater funnet."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Ingen tagger ennå"
 
@@ -853,7 +949,7 @@ msgstr "Ingen tagger ennå"
 msgid "No time zone found."
 msgstr "Ingen tidssone funnet."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Ingen tokens ennå."
 
@@ -905,6 +1001,14 @@ msgstr "Annet"
 msgid "Owner"
 msgstr "Eier"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Forelder:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Foreldre:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Sti"
@@ -925,7 +1029,7 @@ msgstr "Sti:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Slett dette repositoriet og alle data permanent"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Skriv inn et token-navn"
 
@@ -951,7 +1055,7 @@ msgstr "Kun lesing"
 msgid "Recommended"
 msgstr "Anbefalt"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Anbefalte repositorier"
 
@@ -989,11 +1093,29 @@ msgstr "Fjerne tilgang?"
 msgid "Remove interest"
 msgstr "Fjern interesse"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "Repositorier"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr "Lager"
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "Repository-ID er påkrevd"
 msgid "Repository name is required"
 msgstr "Repositoriumsnavn er påkrevd"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Repositorium ikke funnet"
 
@@ -1044,8 +1166,12 @@ msgstr "Lørdag"
 msgid "Save"
 msgstr "Lagre"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Lagre denne tokenen nå. Du vil ikke kunne se den igjen."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Lagre dette tokenet sikkert. Du vil ikke kunne se det igjen."
 
@@ -1103,11 +1229,11 @@ msgstr "Velg tilgangsregel"
 msgid "Select account type"
 msgstr "Velg kontotype"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Velg gren"
 
@@ -1191,9 +1317,14 @@ msgstr "Følg med likevel!"
 msgid "Subject"
 msgstr "Emne"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "Abonner"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Abonnert"
 
@@ -1231,15 +1362,19 @@ msgstr "Tema"
 msgid "Theme Settings"
 msgstr "Temainnstillinger"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Denne siden krever en depotkontekst."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Dette sletter «{currentName}» og alle dens commits, grener og etiketter permanent. Denne handlingen kan ikke angres."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Dette vil permanent slette tokenen. Eventuelle git-klienter som bruker den vil ikke lenger kunne autentisere."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Slå av/på sidefelt"
 msgid "Toggle theme"
 msgstr "Bytt tema"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Token opprettet"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Token slettet"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Tokennavn"
 
@@ -1335,9 +1474,9 @@ msgstr "USA"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Avslutt abonnement"
 
@@ -1346,7 +1485,7 @@ msgstr "Avslutt abonnement"
 msgid "Unsubscribe from repository?"
 msgstr "Avslutte abonnement på depot?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Abonnement avsluttet"
 
@@ -1410,3 +1549,7 @@ msgstr "Nettstedet er under vedlikehold!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Onsdag"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Du har ingen lagre ennå."

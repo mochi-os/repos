@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Main,
   usePageTitle,
@@ -21,10 +21,11 @@ export const Route = createFileRoute('/_authenticated/tree/$ref/$')({
 })
 
 function TreePage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
   const { ref, _splat: path } = Route.useParams()
 
-  usePageTitle(`${path || data.name || 'Files'} - ${data.name}`)
+  usePageTitle(`${path || data.name || t`Files`} - ${data.name}`)
 
   if (!data.entity || !data.id) {
     return (
@@ -44,7 +45,7 @@ function TreePage() {
         <RepositoryHeader
           fingerprint={fingerprint}
           repoId={data.id}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="files"
@@ -55,7 +56,7 @@ function TreePage() {
         <FileTree
           repoId={data.id}
           fingerprint={fingerprint}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           defaultBranch={data.default_branch || 'main'}
           currentRef={ref}
           currentPath={path || ''}

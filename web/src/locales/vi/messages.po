@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0} nhánh"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0} commit"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} đã gắn tag vào {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0} tag"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 giờ"
@@ -134,7 +156,7 @@ msgstr "Cho phép mọi người tìm kiếm kho lưu trữ"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Bạn có chắc muốn đăng xuất? Bạn sẽ cần đăng nhập lại để truy cập tài khoản."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Bạn có chắc muốn hủy đăng ký kho lưu trữ này?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Tăng dần"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Quay lại"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Quay lại commits"
 
@@ -157,6 +179,11 @@ msgstr "Quay lại commits"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Quay lại Trang chủ"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Tệp nhị phân ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Nhánh"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Bỏ chọn"
 msgid "Clear selection (Escape)"
 msgstr "Bỏ chọn (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Sao chép"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Sao chép kho lưu trữ"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Thu gọn thanh bên"
 msgid "Coming Soon!"
 msgstr "Sắp ra mắt!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Thông tin và chi tiết theo ngữ cảnh."
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Đã sao chép vào bộ nhớ tạm"
 
@@ -335,7 +373,16 @@ msgstr "Sao chép"
 msgid "Could not determine route context"
 msgstr "Không xác định được ngữ cảnh tuyến"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Tạo"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Tạo mã thông báo xác thực mới."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Tạo kho lưu trữ mới"
 
@@ -352,9 +399,19 @@ msgstr "Tạo nhánh"
 msgid "Create repository"
 msgstr "Tạo kho lưu trữ"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Tạo token"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Đã tạo {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Đang tạo..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Tối"
 msgid "Dark mode"
 msgstr "Chế độ tối"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "mặc định"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Mặc định"
@@ -385,7 +446,7 @@ msgstr "Tài khoản AI mặc định"
 msgid "Default branch"
 msgstr "Nhánh mặc định"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Xóa"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Xóa \"{branchToDelete}\"? Không thể hoàn tác."
 
@@ -410,7 +472,7 @@ msgstr "Xóa kho lưu trữ"
 msgid "Delete repository?"
 msgstr "Xóa kho lưu trữ?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Xóa token?"
 
@@ -454,15 +516,20 @@ msgstr "Hướng"
 msgid "Displays the mobile sidebar."
 msgstr "Hiển thị thanh bên di động."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Xong"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Tải xuống"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "vd. Laptop công việc"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Không tạo nhánh được"
 msgid "Failed to create repository"
 msgstr "Không tạo kho lưu trữ được"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Không tạo token được"
 
@@ -507,7 +574,7 @@ msgstr "Không xoá nhánh được"
 msgid "Failed to delete repository"
 msgstr "Không xoá kho lưu trữ được"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Không xoá token được"
 
@@ -515,7 +582,7 @@ msgstr "Không xoá token được"
 msgid "Failed to download archive"
 msgstr "Không tải xuống bản lưu trữ được"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Không lấy token được"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Không tải commit được"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Không tải các commit được"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Không tải tệp được"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Không tải thẻ được"
 
@@ -574,13 +641,13 @@ msgstr "Không đặt mức truy cập được"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Không đăng ký được"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Không huỷ đăng ký được"
 
@@ -596,7 +663,18 @@ msgstr "Không cập nhật danh mục được"
 msgid "Failed to update path"
 msgstr "Không cập nhật đường dẫn được"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "tệp"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Tệp"
 
@@ -691,6 +769,11 @@ msgstr "Sở thích"
 msgid "Invalid verification code"
 msgstr "Mã xác minh không hợp lệ"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Sử dụng cuối {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Bố cục"
@@ -738,6 +821,7 @@ msgstr "Đăng xuất thành công"
 msgid "Logging out…"
 msgstr "Đang đăng xuất…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Chỉ chữ thường, số và dấu gạch ngang"
@@ -746,7 +830,8 @@ msgstr "Chỉ chữ thường, số và dấu gạch ngang"
 msgid "Luma (Default)"
 msgstr "Luma (Mặc định)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Quản lý token"
 
@@ -771,10 +856,12 @@ msgstr "Thứ Hai"
 msgid "Name"
 msgstr "Tên"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Tên không được chứa ký tự < hoặc >"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Tên phải có 100 ký tự trở xuống"
@@ -782,6 +869,11 @@ msgstr "Tên phải có 100 ký tự trở xuống"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Tên:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Không bao giờ"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Chưa có nhánh"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Chưa có commit"
 
@@ -834,6 +926,10 @@ msgstr "Không tìm thấy địa điểm nào"
 msgid "No profile"
 msgstr "Không có hồ sơ"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Không có kho công khai."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Không tìm thấy kết quả nào."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Chưa có thẻ"
 
@@ -853,7 +949,7 @@ msgstr "Chưa có thẻ"
 msgid "No time zone found."
 msgstr "Không tìm thấy múi giờ."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Chưa có token."
 
@@ -905,6 +1001,14 @@ msgstr "Khác"
 msgid "Owner"
 msgstr "Chủ sở hữu"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Cha:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Cha:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Đường dẫn"
@@ -925,7 +1029,7 @@ msgstr "Đường dẫn:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Xoá vĩnh viễn kho lưu trữ này và toàn bộ dữ liệu của nó"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Vui lòng nhập tên token"
 
@@ -951,7 +1055,7 @@ msgstr "Chỉ đọc"
 msgid "Recommended"
 msgstr "Được đề xuất"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Kho lưu trữ được đề xuất"
 
@@ -989,10 +1093,28 @@ msgstr "Xoá quyền truy cập?"
 msgid "Remove interest"
 msgstr "Xoá sở thích"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
+msgstr "Kho lưu trữ"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
 msgstr "Kho lưu trữ"
 
 #: src/features/repository/create-repository-dialog.tsx:105
@@ -1012,7 +1134,7 @@ msgstr "ID kho lưu trữ là bắt buộc"
 msgid "Repository name is required"
 msgstr "Tên kho lưu trữ là bắt buộc"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Không tìm thấy kho lưu trữ"
 
@@ -1044,8 +1166,12 @@ msgstr "Thứ bảy"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Lưu mã thông báo này ngay. Bạn sẽ không thể xem lại."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Lưu token này một cách an toàn. Bạn sẽ không thể xem lại nó nữa."
 
@@ -1103,11 +1229,11 @@ msgstr "Chọn quy tắc truy cập"
 msgid "Select account type"
 msgstr "Chọn loại tài khoản"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Chọn nhánh"
 
@@ -1191,9 +1317,14 @@ msgstr "Hãy đón xem nhé!"
 msgid "Subject"
 msgstr "Tiêu đề"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "Đăng ký"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Đã đăng ký"
 
@@ -1231,15 +1362,19 @@ msgstr "Giao diện"
 msgid "Theme Settings"
 msgstr "Cài đặt giao diện"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Trang này yêu cầu ngữ cảnh kho lưu trữ."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Thao tác này sẽ xóa vĩnh viễn \"{currentName}\" cùng toàn bộ commit, nhánh và thẻ. Hành động này không thể hoàn tác."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Điều này sẽ xóa vĩnh viễn mã thông báo. Các client git sử dụng nó sẽ không thể xác thực nữa."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Bật/tắt thanh bên"
 msgid "Toggle theme"
 msgstr "Bật/tắt giao diện"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Đã tạo token"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Đã xóa token"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Tên token"
 
@@ -1335,9 +1474,9 @@ msgstr "Hoa Kỳ"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Hủy đăng ký"
 
@@ -1346,7 +1485,7 @@ msgstr "Hủy đăng ký"
 msgid "Unsubscribe from repository?"
 msgstr "Hủy đăng ký kho lưu trữ?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Đã hủy đăng ký"
 
@@ -1410,3 +1549,7 @@ msgstr "Trang web đang bảo trì!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Thứ tư"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Bạn chưa có kho lưu trữ nào."

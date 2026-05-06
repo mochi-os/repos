@@ -84,6 +84,8 @@ reposClient.interceptors.request.use((config) => {
   const token = useAuthStore.getState().token
 
   if (token) {
+    // HTTP Authorization header — protocol literal, never translated.
+    // eslint-disable-next-line lingui/no-unlocalized-strings
     config.headers.Authorization = token.startsWith('Bearer ') ? token : `Bearer ${token}`
   }
 
@@ -124,6 +126,7 @@ function unwrapData<T>(responseData: unknown): T {
     // Try to extract a meaningful error from the HTML
     const titleMatch = responseData.match(/<title>([^<]+)<\/title>/)
     const preMatch = responseData.match(/<pre>([^<]+)<\/pre>/)
+    // eslint-disable-next-line lingui/no-unlocalized-strings
     const message = preMatch?.[1] || titleMatch?.[1] || 'Server returned HTML instead of JSON (possible routing error)'
     throw new Error(message)
   }

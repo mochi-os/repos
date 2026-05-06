@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0} برانچز"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0} کمٹس"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} نے {1} کو ٹیگ کیا"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0} ٹیگز"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 گھنٹے"
@@ -134,7 +156,7 @@ msgstr "کسی کو بھی Repository تلاش کرنے کی اجازت دیں"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "کیا آپ واقعی لاگ آؤٹ کرنا چاہتے ہیں؟ آپ کو اپنے اکاؤنٹ تک رسائی کے لیے دوبارہ لاگ ان کرنا ہوگا۔"
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "کیا آپ واقعی اس Repository سے ان سبسکرائب کرنا چاہتے ہیں؟"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "بڑھتا ہوا"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "واپس"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Commits پر واپس"
 
@@ -157,6 +179,11 @@ msgstr "Commits پر واپس"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "ہوم پر واپس"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "بائنری فائل ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "انتخاب صاف کریں"
 msgid "Clear selection (Escape)"
 msgstr "انتخاب صاف کریں (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Clone"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "ذخیرہ کلون کریں"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "سائڈ بار سکیڑیں"
 msgid "Coming Soon!"
 msgstr "جلد آرہا ہے!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "کمٹ {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "سیاق و سباق کی معلومات اور تفصیلات۔"
 msgid "Continue"
 msgstr "جاری رکھیں"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Clipboard پر کاپی ہو گیا"
 
@@ -335,7 +373,16 @@ msgstr "کاپی کریں"
 msgid "Could not determine route context"
 msgstr "روٹ سیاق و سباق کا تعین نہیں ہو سکا"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "بنائیں"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "نیا توثیق ٹوکن بنائیں۔"
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "نیا Repository بنائیں"
 
@@ -352,9 +399,19 @@ msgstr "Branch بنائیں"
 msgid "Create repository"
 msgstr "Repository بنائیں"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Token بنائیں"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "بنایا گیا {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "بن رہا ہے..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Dark"
 msgid "Dark mode"
 msgstr "Dark موڈ"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "ڈیفالٹ"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "ڈیفالٹ"
@@ -385,7 +446,7 @@ msgstr "ڈیفالٹ AI اکاؤنٹ"
 msgid "Default branch"
 msgstr "ڈیفالٹ branch"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "حذف کریں"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" حذف کریں؟ یہ واپس نہیں لیا جا سکتا۔"
 
@@ -410,7 +472,7 @@ msgstr "Repository حذف کریں"
 msgid "Delete repository?"
 msgstr "Repository حذف کریں؟"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Token حذف کریں؟"
 
@@ -454,15 +516,20 @@ msgstr "سمت"
 msgid "Displays the mobile sidebar."
 msgstr "موبائل سائڈبار دکھاتا ہے۔"
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "مکمل"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "ڈاؤن لوڈ"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "مثلاً کام کا لیپ ٹاپ"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "برانچ بنانے میں ناکامی"
 msgid "Failed to create repository"
 msgstr "ریپوزٹری بنانے میں ناکامی"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "ٹوکن بنانے میں ناکامی"
 
@@ -507,7 +574,7 @@ msgstr "برانچ حذف کرنے میں ناکامی"
 msgid "Failed to delete repository"
 msgstr "ریپوزٹری حذف کرنے میں ناکامی"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "ٹوکن حذف کرنے میں ناکامی"
 
@@ -515,7 +582,7 @@ msgstr "ٹوکن حذف کرنے میں ناکامی"
 msgid "Failed to download archive"
 msgstr "آرکائیو ڈاؤن لوڈ میں ناکامی"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "ٹوکن حاصل کرنے میں ناکامی"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "کمٹ لوڈ کرنے میں ناکامی"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "کمٹس لوڈ کرنے میں ناکامی"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "فائلیں لوڈ کرنے میں ناکامی"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "ٹیگز لوڈ کرنے میں ناکامی"
 
@@ -574,13 +641,13 @@ msgstr "رسائی کی سطح مقرر کرنے میں ناکامی"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "سبسکرائب کرنے میں ناکامی"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "ان سبسکرائب کرنے میں ناکامی"
 
@@ -596,7 +663,18 @@ msgstr "زمرہ اپڈیٹ کرنے میں ناکامی"
 msgid "Failed to update path"
 msgstr "پاتھ اپڈیٹ کرنے میں ناکامی"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "فائل"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "فائلیں"
 
@@ -691,6 +769,11 @@ msgstr "دلچسپیاں"
 msgid "Invalid verification code"
 msgstr "غلط تصدیقی کوڈ"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "آخری استعمال {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "لے آؤٹ"
@@ -738,6 +821,7 @@ msgstr "کامیابی سے لاگ آؤٹ ہو گئے"
 msgid "Logging out…"
 msgstr "لاگ آؤٹ ہو رہا ہے…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "صرف چھوٹے حروف، اعداد اور hyphen"
@@ -746,7 +830,8 @@ msgstr "صرف چھوٹے حروف، اعداد اور hyphen"
 msgid "Luma (Default)"
 msgstr "Luma (ڈیفالٹ)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "tokens کا انتظام کریں"
 
@@ -771,10 +856,12 @@ msgstr "پیر"
 msgid "Name"
 msgstr "نام"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "نام میں < یا > کے حروف نہیں ہو سکتے"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "نام 100 حروف یا اس سے کم ہونا چاہیے"
@@ -782,6 +869,11 @@ msgstr "نام 100 حروف یا اس سے کم ہونا چاہیے"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "نام:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "کبھی نہیں"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "ابھی تک کوئی branches نہیں"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "ابھی تک کوئی commits نہیں"
 
@@ -834,6 +926,10 @@ msgstr "کوئی مقامات نہیں ملے"
 msgid "No profile"
 msgstr "کوئی پروفائل نہیں"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "کوئی عوامی ذخائر نہیں۔"
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "کوئی نتائج نہیں ملے۔"
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "ابھی تک کوئی tags نہیں"
 
@@ -853,7 +949,7 @@ msgstr "ابھی تک کوئی tags نہیں"
 msgid "No time zone found."
 msgstr "کوئی time zone نہیں ملا۔"
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "ابھی تک کوئی tokens نہیں۔"
 
@@ -905,6 +1001,14 @@ msgstr "دیگر"
 msgid "Owner"
 msgstr "مالک"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "پیرنٹ:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "پیرنٹس:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "path"
@@ -925,7 +1029,7 @@ msgstr "path:"
 msgid "Permanently delete this repository and all its data"
 msgstr "اس repository اور اس کے تمام ڈیٹا کو مستقل طور پر حذف کریں"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "براہ کرم token کا نام درج کریں"
 
@@ -951,7 +1055,7 @@ msgstr "صرف پڑھنا"
 msgid "Recommended"
 msgstr "تجویز کردہ"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "تجویز کردہ repositories"
 
@@ -989,11 +1093,29 @@ msgstr "رسائی ہٹائیں؟"
 msgid "Remove interest"
 msgstr "دلچسپی ہٹائیں"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "repositories"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr "ذخیرہ"
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "ریپوزٹری ID درکار ہے"
 msgid "Repository name is required"
 msgstr "repository کا نام درکار ہے"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "repository نہیں ملا"
 
@@ -1044,8 +1166,12 @@ msgstr "ہفتہ"
 msgid "Save"
 msgstr "محفوظ کریں"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "اس ٹوکن کو ابھی محفوظ کریں۔ آپ اسے دوبارہ نہیں دیکھ سکیں گے۔"
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "اس ٹوکن کو محفوظ طریقے سے رکھیں۔ آپ اسے دوبارہ نہیں دیکھ سکیں گے۔"
 
@@ -1103,11 +1229,11 @@ msgstr "رسائی کا قاعدہ منتخب کریں"
 msgid "Select account type"
 msgstr "اکاؤنٹ کی قسم منتخب کریں"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "برانچ منتخب کریں"
 
@@ -1191,9 +1317,14 @@ msgstr "البتہ منتظر رہیں!"
 msgid "Subject"
 msgstr "موضوع"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "سبسکرائب کریں"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "سبسکرائب ہو گیا"
 
@@ -1231,15 +1362,19 @@ msgstr "تھیم"
 msgid "Theme Settings"
 msgstr "تھیم سیٹنگز"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "اس صفحے کو ریپازٹری سیاق و سباق درکار ہے۔"
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "یہ \"{currentName}\" اور اس کے تمام کمٹس، برانچز، اور ٹیگز کو مستقل طور پر حذف کر دے گا۔ یہ ایکشن واپس نہیں لیا جا سکتا۔"
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "یہ اس ٹوکن کو مستقل طور پر حذف کر دے گا۔ اسے استعمال کرنے والے git کلائنٹس مزید توثیق نہیں کر سکیں گے۔"
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "سائڈبار ٹوگل کریں"
 msgid "Toggle theme"
 msgstr "تھیم ٹوگل کریں"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "ٹوکن بن گیا"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "ٹوکن حذف کر دیا گیا"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "ٹوکن کا نام"
 
@@ -1335,9 +1474,9 @@ msgstr "ریاستہائے متحدہ"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "ان سبسکرائب کریں"
 
@@ -1346,7 +1485,7 @@ msgstr "ان سبسکرائب کریں"
 msgid "Unsubscribe from repository?"
 msgstr "ریپازٹری سے ان سبسکرائب کریں؟"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "ان سبسکرائب ہو گیا"
 
@@ -1410,3 +1549,7 @@ msgstr "ویب سائٹ مرمت کے تحت ہے!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "بدھ"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "آپ کے پاس ابھی تک کوئی ذخائر نہیں ہیں۔"

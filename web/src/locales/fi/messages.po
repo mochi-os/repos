@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0}-haarat"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0}-commitit"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} tagatti {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0}-tagit"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 tuntia"
@@ -134,7 +156,7 @@ msgstr "Salli kenen tahansa etsiä tietovarastoa"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Haluatko varmasti kirjautua ulos? Sinun täytyy kirjautua uudelleen sisään päästäksesi tilillesi."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Haluatko varmasti peruuttaa tämän tietovaraston tilauksen?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Nouseva"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Takaisin"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Takaisin commiteihin"
 
@@ -157,6 +179,11 @@ msgstr "Takaisin commiteihin"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Takaisin etusivulle"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Binääritiedosto ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Haarat"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Tyhjennä valinta"
 msgid "Clear selection (Escape)"
 msgstr "Tyhjennä valinta (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Kloonaa"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Kloonaa repository"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Tiivistä sivupalkki"
 msgid "Coming Soon!"
 msgstr "Tulossa pian!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Asiayhteyteen liittyvät tiedot ja yksityiskohdat."
 msgid "Continue"
 msgstr "Jatka"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Kopioitu leikepöydälle"
 
@@ -335,7 +373,16 @@ msgstr "Kopioi"
 msgid "Could not determine route context"
 msgstr "Reitin kontekstia ei voitu määrittää"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Luo"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Luo uusi todennustunnus."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Luo uusi tietovarasto"
 
@@ -352,9 +399,19 @@ msgstr "Luo haara"
 msgid "Create repository"
 msgstr "Luo tietovarasto"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Luo tunnus"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Luotu {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Luodaan..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Tumma"
 msgid "Dark mode"
 msgstr "Tumma tila"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "oletus"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Oletus"
@@ -385,7 +446,7 @@ msgstr "Oletustekoälytili"
 msgid "Default branch"
 msgstr "Oletushaara"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Poista"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Poistetaanko \"{branchToDelete}\"? Tätä ei voi kumota."
 
@@ -410,7 +472,7 @@ msgstr "Poista tietovarasto"
 msgid "Delete repository?"
 msgstr "Poistetaanko tietovarasto?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Poistetaanko tunnus?"
 
@@ -454,15 +516,20 @@ msgstr "Suunta"
 msgid "Displays the mobile sidebar."
 msgstr "Näyttää mobiilisivupalkin."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Valmis"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Lataa"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "esim. Työkannettava"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Haaran luominen epäonnistui"
 msgid "Failed to create repository"
 msgstr "Arkiston luominen epäonnistui"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Tunnisteen luominen epäonnistui"
 
@@ -507,7 +574,7 @@ msgstr "Haaran poistaminen epäonnistui"
 msgid "Failed to delete repository"
 msgstr "Arkiston poistaminen epäonnistui"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Tunnisteen poistaminen epäonnistui"
 
@@ -515,7 +582,7 @@ msgstr "Tunnisteen poistaminen epäonnistui"
 msgid "Failed to download archive"
 msgstr "Arkiston lataaminen epäonnistui"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Tunnisteen hakeminen epäonnistui"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Sitoumuksen lataus epäonnistui"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Sitoumusten lataus epäonnistui"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Tiedostojen lataus epäonnistui"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Tunnisteiden lataus epäonnistui"
 
@@ -574,13 +641,13 @@ msgstr "Käyttöoikeustason asettaminen epäonnistui"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Tilaaminen epäonnistui"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Tilauksen peruutus epäonnistui"
 
@@ -596,7 +663,18 @@ msgstr "Kategorian päivitys epäonnistui"
 msgid "Failed to update path"
 msgstr "Polun päivitys epäonnistui"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "tiedosto"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Tiedostot"
 
@@ -691,6 +769,11 @@ msgstr "Kiinnostuksen kohteet"
 msgid "Invalid verification code"
 msgstr "Virheellinen vahvistuskoodi"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Viimeksi käytetty {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Asettelu"
@@ -738,6 +821,7 @@ msgstr "Uloskirjautuminen onnistui"
 msgid "Logging out…"
 msgstr "Kirjaudutaan ulos…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Vain pieniä kirjaimia, numeroita ja yhdysmerkkejä"
@@ -746,7 +830,8 @@ msgstr "Vain pieniä kirjaimia, numeroita ja yhdysmerkkejä"
 msgid "Luma (Default)"
 msgstr "Luma (oletus)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Hallitse tunnuksia"
 
@@ -771,10 +856,12 @@ msgstr "Maanantai"
 msgid "Name"
 msgstr "Nimi"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Nimi ei voi sisältää merkkejä < tai >"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Nimen on oltava enintään 100 merkkiä"
@@ -782,6 +869,11 @@ msgstr "Nimen on oltava enintään 100 merkkiä"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Nimi:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Ei koskaan"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Ei vielä haaroja"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Ei vielä committeja"
 
@@ -834,6 +926,10 @@ msgstr "Paikkoja ei löytynyt"
 msgid "No profile"
 msgstr "Ei profiilia"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Ei julkisia repositoryjä."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Tuloksia ei löytynyt."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Ei vielä tunnisteita"
 
@@ -853,7 +949,7 @@ msgstr "Ei vielä tunnisteita"
 msgid "No time zone found."
 msgstr "Aikavyöhykettä ei löytynyt."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Ei vielä tunnuksia."
 
@@ -905,6 +1001,14 @@ msgstr "Muu"
 msgid "Owner"
 msgstr "Omistaja"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Vanhempi:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Vanhemmat:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Polku"
@@ -925,7 +1029,7 @@ msgstr "Polku:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Poista tämä repositorio ja kaikki sen tiedot pysyvästi"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Syötä tunnuksen nimi"
 
@@ -951,7 +1055,7 @@ msgstr "Vain luku"
 msgid "Recommended"
 msgstr "Suositeltu"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Suositellut repositoriot"
 
@@ -989,11 +1093,29 @@ msgstr "Poistetaanko käyttöoikeus?"
 msgid "Remove interest"
 msgstr "Poista kiinnostus"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "Repositoriot"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr ""
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "Säilön tunnus vaaditaan"
 msgid "Repository name is required"
 msgstr "Repositorion nimi vaaditaan"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Repositoriota ei löytynyt"
 
@@ -1044,8 +1166,12 @@ msgstr "Lauantai"
 msgid "Save"
 msgstr "Tallenna"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Tallenna tämä tunnus nyt. Et voi nähdä sitä uudelleen."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Tallenna tämä tunniste turvallisesti. Et voi enää nähdä sitä."
 
@@ -1103,11 +1229,11 @@ msgstr "Valitse käyttöoikeussääntö"
 msgid "Select account type"
 msgstr "Valitse tilityyppi"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Valitse haara"
 
@@ -1191,9 +1317,14 @@ msgstr "Pysy kuulolla!"
 msgid "Subject"
 msgstr "Aihe"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "Tilaa"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Tilattu"
 
@@ -1231,15 +1362,19 @@ msgstr "Teema"
 msgid "Theme Settings"
 msgstr "Teema-asetukset"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Tämä sivu vaatii arkistokontekstin."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Tämä poistaa pysyvästi kohteen \"{currentName}\" sekä kaikki sen committit, haarat ja tunnisteet. Toimintoa ei voi kumota."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Tämä poistaa tunnuksen pysyvästi. Sitä käyttävät git-asiakkaat eivät enää voi todentua."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Vaihda sivupalkki"
 msgid "Toggle theme"
 msgstr "Vaihda teema"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Tunnus luotu"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Tunniste poistettu"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Tunnisteen nimi"
 
@@ -1335,9 +1474,9 @@ msgstr "Yhdysvallat"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Peru tilaus"
 
@@ -1346,7 +1485,7 @@ msgstr "Peru tilaus"
 msgid "Unsubscribe from repository?"
 msgstr "Perutaanko arkiston tilaus?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Tilaus peruttu"
 
@@ -1410,3 +1549,7 @@ msgstr "Sivusto on huoltotilassa!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Keskiviikko"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Sinulla ei ole vielä repositoryjä."

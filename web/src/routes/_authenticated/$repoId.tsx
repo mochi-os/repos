@@ -54,7 +54,7 @@ function RepositoryPage() {
     void navigate({ search: { tab: newTab }, replace: true })
   }
 
-  const name = data.name || 'Repository'
+  const name = data.name || t`Repository`
 
   usePageTitle(name)
 

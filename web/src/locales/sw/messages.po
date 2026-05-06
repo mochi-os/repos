@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "Matawi {0}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "Commits {0}"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} aliweka tag tarehe {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "Vitanzu {0}"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "Masaa 12"
@@ -134,7 +156,7 @@ msgstr "Ruhusu mtu yeyote kutafuta hazina"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Una uhakika unataka kuondoka? Utahitaji kuingia tena kufikia akaunti yako."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Una uhakika unataka kujiondoa kutoka kwa hazina hii?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Pandisha"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Rudi"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Rudi kwa commits"
 
@@ -157,6 +179,11 @@ msgstr "Rudi kwa commits"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Rudi Mwanzo"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Faili ya binary ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Matawi"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Futa uteuzi"
 msgid "Clear selection (Escape)"
 msgstr "Futa uteuzi (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Nakili"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Nakili hifadhi"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Kunja upau wa pembeni"
 msgid "Coming Soon!"
 msgstr "Inakuja Karibuni!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Maelezo ya muktadha na undani."
 msgid "Continue"
 msgstr "Endelea"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Imenakiliwa kwenye ubao wa kunakili"
 
@@ -335,7 +373,16 @@ msgstr "Nakili"
 msgid "Could not determine route context"
 msgstr "Haikuweza kubaini muktadha wa njia"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Unda"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Unda tokeni mpya ya uthibitishaji."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Unda hazina mpya"
 
@@ -352,9 +399,19 @@ msgstr "Unda tawi"
 msgid "Create repository"
 msgstr "Unda hazina"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Unda tokeni"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Imeundwa {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Inaunda..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Giza"
 msgid "Dark mode"
 msgstr "Hali ya giza"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "chaguo-msingi"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Chaguo-msingi"
@@ -385,7 +446,7 @@ msgstr "Akaunti chaguo-msingi ya AI"
 msgid "Default branch"
 msgstr "Tawi chaguo-msingi"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Futa"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Futa \"{branchToDelete}\"? Hili haliwezi kutenduliwa."
 
@@ -410,7 +472,7 @@ msgstr "Futa hazina"
 msgid "Delete repository?"
 msgstr "Futa hazina?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Futa tokeni?"
 
@@ -454,15 +516,20 @@ msgstr "Mwelekeo"
 msgid "Displays the mobile sidebar."
 msgstr "Huonyesha utepe wa simu."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Imekamilika"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Pakua"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "k.m. Kompyuta ya kazi"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Imeshindwa kuunda tawi"
 msgid "Failed to create repository"
 msgstr "Imeshindwa kuunda hifadhi"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Imeshindwa kuunda tokeni"
 
@@ -507,7 +574,7 @@ msgstr "Imeshindwa kufuta tawi"
 msgid "Failed to delete repository"
 msgstr "Imeshindwa kufuta hifadhi"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Imeshindwa kufuta tokeni"
 
@@ -515,7 +582,7 @@ msgstr "Imeshindwa kufuta tokeni"
 msgid "Failed to download archive"
 msgstr "Imeshindwa kupakua kumbukumbu"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Imeshindwa kupata tokeni"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Imeshindwa kupakia commit"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Imeshindwa kupakia commits"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Imeshindwa kupakia faili"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Imeshindwa kupakia tagi"
 
@@ -574,13 +641,13 @@ msgstr "Imeshindwa kuweka kiwango cha ufikiaji"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Imeshindwa kujisajili"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Imeshindwa kujiondoa"
 
@@ -596,7 +663,18 @@ msgstr "Imeshindwa kusasisha kategoria"
 msgid "Failed to update path"
 msgstr "Imeshindwa kusasisha njia"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "faili"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Faili"
 
@@ -691,6 +769,11 @@ msgstr "Mivuto"
 msgid "Invalid verification code"
 msgstr "Msimbo wa uthibitisho batili"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Matumizi ya mwisho {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Mpangilio"
@@ -738,6 +821,7 @@ msgstr "Umetoka kwa ufanisi"
 msgid "Logging out…"
 msgstr "Inatoka…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Herufi ndogo, nambari, na vistari pekee"
@@ -746,7 +830,8 @@ msgstr "Herufi ndogo, nambari, na vistari pekee"
 msgid "Luma (Default)"
 msgstr "Luma (Chaguo-msingi)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Simamia tokeni"
 
@@ -771,10 +856,12 @@ msgstr "Jumatatu"
 msgid "Name"
 msgstr "Jina"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Jina haliwezi kuwa na herufi < au >"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Jina lazima liwe na herufi 100 au chini"
@@ -782,6 +869,11 @@ msgstr "Jina lazima liwe na herufi 100 au chini"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Jina:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Kamwe"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Hakuna matawi bado"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Hakuna commit bado"
 
@@ -834,6 +926,10 @@ msgstr "Hakuna mahali palipopatikana"
 msgid "No profile"
 msgstr "Hakuna wasifu"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Hakuna hifadhi za umma."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Hakuna matokeo yaliyopatikana."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Hakuna lebo bado"
 
@@ -853,7 +949,7 @@ msgstr "Hakuna lebo bado"
 msgid "No time zone found."
 msgstr "Hakuna saa za eneo zilizopatikana."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Hakuna tokeni bado."
 
@@ -905,6 +1001,14 @@ msgstr "Nyingine"
 msgid "Owner"
 msgstr "Mmiliki"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Mzazi:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Wazazi:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Njia"
@@ -925,7 +1029,7 @@ msgstr "Njia:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Futa kabisa hifadhi hii na data yake yote"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Tafadhali ingiza jina la tokeni"
 
@@ -951,7 +1055,7 @@ msgstr "Soma tu"
 msgid "Recommended"
 msgstr "Inapendekezwa"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Hifadhi zinazopendekezwa"
 
@@ -989,10 +1093,28 @@ msgstr "Ondoa ufikiaji?"
 msgid "Remove interest"
 msgstr "Ondoa shauku"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
+msgstr "Hifadhi"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
 msgstr "Hifadhi"
 
 #: src/features/repository/create-repository-dialog.tsx:105
@@ -1012,7 +1134,7 @@ msgstr "Kitambulisho cha hifadhi kinahitajika"
 msgid "Repository name is required"
 msgstr "Jina la hifadhi linahitajika"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Hifadhi haikupatikana"
 
@@ -1044,8 +1166,12 @@ msgstr "Jumamosi"
 msgid "Save"
 msgstr "Hifadhi"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Hifadhi tokeni hii sasa. Hutaweza kuiona tena."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Hifadhi tokeni hii kwa usalama. Hutaweza kuiona tena."
 
@@ -1103,11 +1229,11 @@ msgstr "Chagua sheria ya ufikiaji"
 msgid "Select account type"
 msgstr "Chagua aina ya akaunti"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Chagua tawi"
 
@@ -1191,9 +1317,14 @@ msgstr "Endelea kufuatilia!"
 msgid "Subject"
 msgstr "Mada"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "Jiunge"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Umejiunga"
 
@@ -1231,15 +1362,19 @@ msgstr "Mandhari"
 msgid "Theme Settings"
 msgstr "Mipangilio ya Mandhari"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Ukurasa huu unahitaji muktadha wa hifadhi."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Hii itafuta \"{currentName}\" kabisa na commit zake zote, matawi, na lebo. Kitendo hiki hakiwezi kutenduliwa."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Hii itafuta tokeni kabisa. Wateja wowote wa git wanaoitumia hawataweza kuthibitisha tena."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Geuza Upau wa Kando"
 msgid "Toggle theme"
 msgstr "Geuza mandhari"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Tokeni imeundwa"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Tokeni imefutwa"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Jina la tokeni"
 
@@ -1335,9 +1474,9 @@ msgstr "Marekani"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Jiondoe"
 
@@ -1346,7 +1485,7 @@ msgstr "Jiondoe"
 msgid "Unsubscribe from repository?"
 msgstr "Jiondoe kutoka hifadhi?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Umejiondoa"
 
@@ -1410,3 +1549,7 @@ msgstr "Tovuti iko chini ya matengenezo!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Jumatano"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Bado huna hifadhi yoyote."

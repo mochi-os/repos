@@ -42,9 +42,10 @@ export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
 })
 
 function CommitsPage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
 
-  usePageTitle(`${data.name} commits`)
+  usePageTitle(t`${data.name} commits`)
 
   return (
     <Main>
@@ -52,7 +53,7 @@ function CommitsPage() {
         <RepositoryHeader
           fingerprint={data.fingerprint || data.repoId}
           repoId={data.id || data.repoId}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="commits"

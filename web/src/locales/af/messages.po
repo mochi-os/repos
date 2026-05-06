@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0}-takke"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0}-vasleggings"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} geëtiketteer op {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0}-etikette"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 uur"
@@ -134,7 +156,7 @@ msgstr "Laat enigiemand toe om vir bewaarplek te soek"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Is jy seker jy wil afmeld? Jy sal weer moet aanmeld om toegang tot jou rekening te kry."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Is jy seker jy wil van hierdie bewaarplek uitskryf?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Stygend"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Terug"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Terug na commits"
 
@@ -157,6 +179,11 @@ msgstr "Terug na commits"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Terug na tuis"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Binêre lêer ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Takke"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Maak keuse skoon"
 msgid "Clear selection (Escape)"
 msgstr "Maak keuse skoon (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Kloon"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Kloneer bewaarplek"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Vou sybalk in"
 msgid "Coming Soon!"
 msgstr "Kom binnekort!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Vaslegging {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Kontekstuele inligting en besonderhede."
 msgid "Continue"
 msgstr "Gaan voort"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Gekopieer na knipbord"
 
@@ -335,7 +373,16 @@ msgstr "Kopieer"
 msgid "Could not determine route context"
 msgstr "Kon nie roetekonteks bepaal nie"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Skep"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Skep 'n nuwe stawingsteken."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Skep 'n nuwe bewaarplek"
 
@@ -352,9 +399,19 @@ msgstr "Skep tak"
 msgid "Create repository"
 msgstr "Skep bewaarplek"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Skep token"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Geskep {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Skep..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Donker"
 msgid "Dark mode"
 msgstr "Donker modus"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "verstek"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Verstek"
@@ -385,7 +446,7 @@ msgstr "Verstek KI-rekening"
 msgid "Default branch"
 msgstr "Verstek tak"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Verwyder"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Verwyder \"{branchToDelete}\"? Dit kan nie ongedaan gemaak word nie."
 
@@ -410,7 +472,7 @@ msgstr "Verwyder bewaarplek"
 msgid "Delete repository?"
 msgstr "Verwyder bewaarplek?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Verwyder token?"
 
@@ -454,15 +516,20 @@ msgstr "Rigting"
 msgid "Displays the mobile sidebar."
 msgstr "Vertoon die mobiele sybalk."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Klaar"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Laai af"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "bv. Werk-skootrekenaar"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Kon nie tak skep nie"
 msgid "Failed to create repository"
 msgstr "Kon nie bewaarplek skep nie"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Kon nie token skep nie"
 
@@ -507,7 +574,7 @@ msgstr "Kon nie tak verwyder nie"
 msgid "Failed to delete repository"
 msgstr "Kon nie bewaarplek verwyder nie"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Kon nie token verwyder nie"
 
@@ -515,7 +582,7 @@ msgstr "Kon nie token verwyder nie"
 msgid "Failed to download archive"
 msgstr "Kon nie argief aflaai nie"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Kon nie token kry nie"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Kon nie commit laai nie"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Kon nie commits laai nie"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Kon nie lêers laai nie"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Kon nie etikette laai nie"
 
@@ -574,13 +641,13 @@ msgstr "Kon nie toegangsvlak stel nie"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Kon nie inteken nie"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Kon nie uitteken nie"
 
@@ -596,7 +663,18 @@ msgstr "Kon nie kategorie opdateer nie"
 msgid "Failed to update path"
 msgstr "Kon nie pad opdateer nie"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "lêer"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Lêers"
 
@@ -691,6 +769,11 @@ msgstr "Belange"
 msgid "Invalid verification code"
 msgstr "Ongeldige verifikasiekode"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Laaste gebruik {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Uitleg"
@@ -738,6 +821,7 @@ msgstr "Suksesvol afgemeld"
 msgid "Logging out…"
 msgstr "Besig om af te meld…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Slegs kleinletters, syfers en koppeltekens"
@@ -746,7 +830,8 @@ msgstr "Slegs kleinletters, syfers en koppeltekens"
 msgid "Luma (Default)"
 msgstr "Luma (verstek)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Bestuur tokens"
 
@@ -771,10 +856,12 @@ msgstr "Maandag"
 msgid "Name"
 msgstr "Naam"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Naam kan nie < of > karakters bevat nie"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Naam moet 100 karakters of minder wees"
@@ -782,6 +869,11 @@ msgstr "Naam moet 100 karakters of minder wees"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Naam:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Nooit"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Nog geen takke nie"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Nog geen commits nie"
 
@@ -834,6 +926,10 @@ msgstr "Geen plekke gevind nie"
 msgid "No profile"
 msgstr "Geen profiel"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Geen openbare bewaarplekke nie."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Geen resultate gevind nie."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Nog geen etikette nie"
 
@@ -853,7 +949,7 @@ msgstr "Nog geen etikette nie"
 msgid "No time zone found."
 msgstr "Geen tydsone gevind nie."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Nog geen tokens nie."
 
@@ -905,6 +1001,14 @@ msgstr "Ander"
 msgid "Owner"
 msgstr "Eienaar"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Ouer:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Ouers:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Pad"
@@ -925,7 +1029,7 @@ msgstr "Pad:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Verwyder hierdie repository en al sy data permanent"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Voer asseblief 'n tokennaam in"
 
@@ -951,7 +1055,7 @@ msgstr "Slegs lees"
 msgid "Recommended"
 msgstr "Aanbeveel"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Aanbevole repositories"
 
@@ -989,11 +1093,29 @@ msgstr "Verwyder toegang?"
 msgid "Remove interest"
 msgstr "Verwyder belangstelling"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "Repositories"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr "Bewaarplek"
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "Bewaarplek-ID word vereis"
 msgid "Repository name is required"
 msgstr "Repository-naam word vereis"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Repository nie gevind nie"
 
@@ -1044,8 +1166,12 @@ msgstr "Saterdag"
 msgid "Save"
 msgstr "Stoor"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Stoor hierdie teken nou. Jy sal dit nie weer kan sien nie."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Stoor hierdie token veilig. Jy sal dit nie weer kan sien nie."
 
@@ -1103,11 +1229,11 @@ msgstr "Kies toegangsreël"
 msgid "Select account type"
 msgstr "Kies rekeningtipe"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Kies tak"
 
@@ -1191,9 +1317,14 @@ msgstr "Bly egter ingeskakel!"
 msgid "Subject"
 msgstr "Onderwerp"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "Teken in"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Ingeteken"
 
@@ -1231,15 +1362,19 @@ msgstr "Tema"
 msgid "Theme Settings"
 msgstr "Tema-instellings"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Hierdie bladsy vereis 'n bewaarplek-konteks."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Dit sal \"{currentName}\" en al sy commits, takke en etikette permanent skrap. Hierdie aksie kan nie ongedaan gemaak word nie."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Dit sal hierdie teken permanent verwyder. Enige git-kliënte wat dit gebruik, sal nie meer kan staaf nie."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Skakel sybalk"
 msgid "Toggle theme"
 msgstr "Skakel tema"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Teken geskep"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Token geskrap"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Tokennaam"
 
@@ -1335,9 +1474,9 @@ msgstr "Verenigde State"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Teken uit"
 
@@ -1346,7 +1485,7 @@ msgstr "Teken uit"
 msgid "Unsubscribe from repository?"
 msgstr "Teken uit van bewaarplek?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Uitgeteken"
 
@@ -1410,3 +1549,7 @@ msgstr "Webwerf is onder instandhouding!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Woensdag"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Jy het nog geen bewaarplekke nie."

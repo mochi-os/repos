@@ -692,7 +692,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
                 )}
                 {tag.tagger && tag.date && (
                   <div className="text-sm text-muted-foreground">
-                    {tag.tagger} tagged on {formatTimestamp(tag.date)}
+                    <Trans>{tag.tagger} tagged on {formatTimestamp(tag.date)}</Trans>
                   </div>
                 )}
               </div>

@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0} 브랜치"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0} 커밋"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0}이(가) {1}에 태그함"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0} 태그"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12시간"
@@ -134,7 +156,7 @@ msgstr "누구나 저장소를 검색할 수 있도록 허용"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "로그아웃할까요? 계정에 다시 접근하려면 다시 로그인해야 해요."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "이 저장소 구독을 취소할까요?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "오름차순"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "뒤로"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "커밋으로 돌아가기"
 
@@ -157,6 +179,11 @@ msgstr "커밋으로 돌아가기"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "홈으로 돌아가기"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "바이너리 파일 ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "브랜치"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "선택 해제"
 msgid "Clear selection (Escape)"
 msgstr "선택 해제 (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "복제"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "저장소 복제"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "사이드바 접기"
 msgid "Coming Soon!"
 msgstr "곧 출시!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "커밋"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "커밋 {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "맥락 정보 및 세부 사항."
 msgid "Continue"
 msgstr "계속"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "클립보드에 복사되었어요"
 
@@ -335,7 +373,16 @@ msgstr "복사"
 msgid "Could not determine route context"
 msgstr "경로 컨텍스트를 확인할 수 없어요"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "생성"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "새 인증 토큰을 생성합니다."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "새 저장소 생성"
 
@@ -352,9 +399,19 @@ msgstr "브랜치 생성"
 msgid "Create repository"
 msgstr "저장소 생성"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "토큰 생성"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "생성 {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "생성 중..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "다크"
 msgid "Dark mode"
 msgstr "다크 모드"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "기본값"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "기본값"
@@ -385,7 +446,7 @@ msgstr "기본 AI 계정"
 msgid "Default branch"
 msgstr "기본 브랜치"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "삭제"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\"을(를) 삭제할까요? 이 작업은 되돌릴 수 없어요."
 
@@ -410,7 +472,7 @@ msgstr "저장소 삭제"
 msgid "Delete repository?"
 msgstr "저장소를 삭제할까요?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "토큰을 삭제할까요?"
 
@@ -454,15 +516,20 @@ msgstr "방향"
 msgid "Displays the mobile sidebar."
 msgstr "모바일 사이드바를 표시해요."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "완료"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "다운로드"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "예: 업무용 노트북"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "브랜치 생성에 실패했어요"
 msgid "Failed to create repository"
 msgstr "저장소 생성에 실패했어요"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "토큰 생성에 실패했어요"
 
@@ -507,7 +574,7 @@ msgstr "브랜치 삭제에 실패했어요"
 msgid "Failed to delete repository"
 msgstr "저장소 삭제에 실패했어요"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "토큰 삭제에 실패했어요"
 
@@ -515,7 +582,7 @@ msgstr "토큰 삭제에 실패했어요"
 msgid "Failed to download archive"
 msgstr "아카이브 다운로드에 실패했어요"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "토큰을 가져오지 못했어요"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "커밋 불러오기에 실패했어요"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "커밋 불러오기에 실패했어요"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "파일 불러오기에 실패했어요"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "태그 불러오기에 실패했어요"
 
@@ -574,13 +641,13 @@ msgstr "접근 레벨 설정에 실패했어요"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "구독에 실패했어요"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "구독 취소에 실패했어요"
 
@@ -596,7 +663,18 @@ msgstr "카테고리 업데이트에 실패했어요"
 msgid "Failed to update path"
 msgstr "경로 업데이트에 실패했어요"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "파일"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "파일"
 
@@ -691,6 +769,11 @@ msgstr "관심사"
 msgid "Invalid verification code"
 msgstr "잘못된 인증 코드"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "마지막 사용 {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "레이아웃"
@@ -738,6 +821,7 @@ msgstr "성공적으로 로그아웃되었어요"
 msgid "Logging out…"
 msgstr "로그아웃 중…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "소문자, 숫자, 하이픈만 가능해요"
@@ -746,7 +830,8 @@ msgstr "소문자, 숫자, 하이픈만 가능해요"
 msgid "Luma (Default)"
 msgstr "Luma (기본)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "토큰 관리"
 
@@ -771,10 +856,12 @@ msgstr "월요일"
 msgid "Name"
 msgstr "이름"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "이름에는 < 또는 > 문자를 사용할 수 없어요"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "이름은 100자 이하여야 해요"
@@ -782,6 +869,11 @@ msgstr "이름은 100자 이하여야 해요"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "이름:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "안 함"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "아직 브랜치가 없어요"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "아직 커밋이 없어요"
 
@@ -834,6 +926,10 @@ msgstr "장소를 찾을 수 없어요"
 msgid "No profile"
 msgstr "프로필이 없어요"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "공개 저장소가 없습니다."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "결과를 찾을 수 없어요."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "아직 태그가 없어요"
 
@@ -853,7 +949,7 @@ msgstr "아직 태그가 없어요"
 msgid "No time zone found."
 msgstr "타임존을 찾을 수 없어요."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "아직 토큰이 없어요."
 
@@ -905,6 +1001,14 @@ msgstr "기타"
 msgid "Owner"
 msgstr "소유자"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "부모:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "부모:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "경로"
@@ -925,7 +1029,7 @@ msgstr "경로:"
 msgid "Permanently delete this repository and all its data"
 msgstr "이 리포지토리와 모든 데이터를 영구적으로 삭제해요"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "토큰 이름을 입력해 주세요"
 
@@ -951,7 +1055,7 @@ msgstr "읽기 전용"
 msgid "Recommended"
 msgstr "추천됨"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "추천 리포지토리"
 
@@ -989,11 +1093,29 @@ msgstr "접근 권한을 제거할까요?"
 msgid "Remove interest"
 msgstr "관심사 제거"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "리포지토리"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr "저장소"
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "저장소 ID가 필요해요"
 msgid "Repository name is required"
 msgstr "리포지토리 이름은 필수예요"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "리포지토리를 찾을 수 없어요"
 
@@ -1044,8 +1166,12 @@ msgstr "토요일"
 msgid "Save"
 msgstr "저장"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "지금 이 토큰을 저장하세요. 다시 볼 수 없습니다."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "이 토큰을 안전하게 저장해 주세요. 다시 볼 수 없어요."
 
@@ -1103,11 +1229,11 @@ msgstr "접근 규칙 선택"
 msgid "Select account type"
 msgstr "계정 유형 선택"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "브랜치 선택"
 
@@ -1191,9 +1317,14 @@ msgstr "기대해 주세요!"
 msgid "Subject"
 msgstr "제목"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "구독"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "구독됨"
 
@@ -1231,15 +1362,19 @@ msgstr "테마"
 msgid "Theme Settings"
 msgstr "테마 설정"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "이 페이지는 저장소 컨텍스트가 필요해요."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "\"{currentName}\"과(와) 모든 커밋, 브랜치, 태그가 영구적으로 삭제돼요. 이 작업은 되돌릴 수 없어요."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "이 토큰을 영구적으로 삭제합니다. 이를 사용하는 git 클라이언트는 더 이상 인증할 수 없습니다."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "사이드바 전환"
 msgid "Toggle theme"
 msgstr "테마 전환"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "토큰 생성됨"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "토큰이 삭제되었어요"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "토큰 이름"
 
@@ -1335,9 +1474,9 @@ msgstr "미국"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "구독 취소"
 
@@ -1346,7 +1485,7 @@ msgstr "구독 취소"
 msgid "Unsubscribe from repository?"
 msgstr "저장소 구독을 취소할까요?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "구독이 취소되었어요"
 
@@ -1410,3 +1549,7 @@ msgstr "웹사이트가 점검 중이에요!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "수요일"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "아직 저장소가 없습니다."

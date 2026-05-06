@@ -84,6 +84,7 @@ function IndexPage() {
 }
 
 function RepositoryHomePage({ data }: { data: InfoResponse }) {
+  const { t } = useLingui()
   const { tab } = Route.useSearch()
   const navigate = Route.useNavigate()
 
@@ -91,14 +92,14 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
     void navigate({ search: { tab: newTab }, replace: true })
   }
 
-  usePageTitle(data.name || 'Repository')
+  usePageTitle(data.name || t`Repository`)
 
   return (
     <Main>
       <RepositoryTabs
         repoId={data.id!}
         fingerprint={data.fingerprint || data.id!}
-        name={data.name || 'Repository'}
+        name={data.name || t`Repository`}
         path={data.path || ''}
         defaultBranch={data.default_branch || 'main'}
         description={data.description}
@@ -191,7 +192,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
               <FolderGit2 className="text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50" />
               <p className="text-muted-foreground mb-1 text-sm font-medium"><Trans>Repositories</Trans></p>
             <p className="text-muted-foreground mb-4 max-w-sm text-xs">
-              {isLoggedIn ? "You have no repositories yet." : "No public repositories."}
+              {isLoggedIn ? t`You have no repositories yet.` : t`No public repositories.`}
             </p>
             {isLoggedIn && (
               <>
@@ -243,7 +244,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                               {isPending ? (
                                 <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
-                                'Subscribe'
+                                <Trans>Subscribe</Trans>
                               )}
                             </Button>
                           </div>

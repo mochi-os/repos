@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "Větve {0}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "Commity {0}"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} otagováno {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "Tagy {0}"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 hodin"
@@ -134,7 +156,7 @@ msgstr "Povolit komukoli vyhledávat repozitář"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Opravdu se chcete odhlásit? Pro přístup ke svému účtu se budete muset znovu přihlásit."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Opravdu se chcete odhlásit z odběru tohoto repozitáře?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Vzestupně"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Zpět"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Zpět na commity"
 
@@ -157,6 +179,11 @@ msgstr "Zpět na commity"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Zpět na hlavní stránku"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Binární soubor ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Větve"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Zrušit výběr"
 msgid "Clear selection (Escape)"
 msgstr "Zrušit výběr (Escape)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Klonovat"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Klonovat repozitář"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Sbalit postranní panel"
 msgid "Coming Soon!"
 msgstr "Již brzy!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Kontextové informace a podrobnosti."
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Zkopírováno do schránky"
 
@@ -335,7 +373,16 @@ msgstr "Kopírovat"
 msgid "Could not determine route context"
 msgstr "Nepodařilo se určit kontext trasy"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Vytvořit"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Vytvořte nový ověřovací token."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Vytvořit nový repozitář"
 
@@ -352,9 +399,19 @@ msgstr "Vytvořit větev"
 msgid "Create repository"
 msgstr "Vytvořit repozitář"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Vytvořit token"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Vytvořeno {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Vytváření..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Tmavá"
 msgid "Dark mode"
 msgstr "Tmavý režim"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "výchozí"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Výchozí"
@@ -385,7 +446,7 @@ msgstr "Výchozí AI účet"
 msgid "Default branch"
 msgstr "Výchozí větev"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Smazat"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Smazat „{branchToDelete}“? Tuto akci nelze vrátit zpět."
 
@@ -410,7 +472,7 @@ msgstr "Smazat repozitář"
 msgid "Delete repository?"
 msgstr "Smazat repozitář?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Smazat token?"
 
@@ -454,15 +516,20 @@ msgstr "Směr"
 msgid "Displays the mobile sidebar."
 msgstr "Zobrazí mobilní postranní panel."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Hotovo"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Stáhnout"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "např. pracovní notebook"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Nepodařilo se vytvořit větev"
 msgid "Failed to create repository"
 msgstr "Nepodařilo se vytvořit úložiště"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Nepodařilo se vytvořit token"
 
@@ -507,7 +574,7 @@ msgstr "Nepodařilo se smazat větev"
 msgid "Failed to delete repository"
 msgstr "Nepodařilo se smazat úložiště"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Nepodařilo se smazat token"
 
@@ -515,7 +582,7 @@ msgstr "Nepodařilo se smazat token"
 msgid "Failed to download archive"
 msgstr "Nepodařilo se stáhnout archiv"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Nepodařilo se získat token"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Nepodařilo se načíst commit"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Nepodařilo se načíst commity"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Nepodařilo se načíst soubory"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Nepodařilo se načíst štítky"
 
@@ -574,13 +641,13 @@ msgstr "Nepodařilo se nastavit úroveň přístupu"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Nepodařilo se přihlásit k odběru"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Nepodařilo se odhlásit z odběru"
 
@@ -596,7 +663,18 @@ msgstr "Nepodařilo se aktualizovat kategorii"
 msgid "Failed to update path"
 msgstr "Nepodařilo se aktualizovat cestu"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "soubor"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Soubory"
 
@@ -691,6 +769,11 @@ msgstr "Zájmy"
 msgid "Invalid verification code"
 msgstr "Neplatný ověřovací kód"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Naposledy použito {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Rozvržení"
@@ -738,6 +821,7 @@ msgstr "Úspěšně odhlášeno"
 msgid "Logging out…"
 msgstr "Odhlašování…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Pouze malá písmena, čísla a pomlčky"
@@ -746,7 +830,8 @@ msgstr "Pouze malá písmena, čísla a pomlčky"
 msgid "Luma (Default)"
 msgstr "Luma (výchozí)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Spravovat tokeny"
 
@@ -771,10 +856,12 @@ msgstr "Pondělí"
 msgid "Name"
 msgstr "Název"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Název nesmí obsahovat znaky < nebo >"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Název smí mít nejvýše 100 znaků"
@@ -782,6 +869,11 @@ msgstr "Název smí mít nejvýše 100 znaků"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Název:"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Nikdy"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Zatím žádné větve"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Zatím žádné commity"
 
@@ -834,6 +926,10 @@ msgstr "Žádná místa nenalezena"
 msgid "No profile"
 msgstr "Žádný profil"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Žádné veřejné repozitáře."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Žádné výsledky nenalezeny."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Zatím žádné štítky"
 
@@ -853,7 +949,7 @@ msgstr "Zatím žádné štítky"
 msgid "No time zone found."
 msgstr "Žádné časové pásmo nenalezeno."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Zatím žádné tokeny."
 
@@ -905,6 +1001,14 @@ msgstr "Ostatní"
 msgid "Owner"
 msgstr "Vlastník"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Rodič:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Rodiče:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Cesta"
@@ -925,7 +1029,7 @@ msgstr "Cesta:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Trvale smazat toto repozitáře a všechna jeho data"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Zadejte název tokenu"
 
@@ -951,7 +1055,7 @@ msgstr "Pouze čtení"
 msgid "Recommended"
 msgstr "Doporučené"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Doporučená repozitáře"
 
@@ -989,11 +1093,29 @@ msgstr "Odebrat přístup?"
 msgid "Remove interest"
 msgstr "Odebrat zájem"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "Repozitáře"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr "Repozitář"
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "ID repozitáře je povinné"
 msgid "Repository name is required"
 msgstr "Název repozitáře je povinný"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Repozitář nenalezen"
 
@@ -1044,8 +1166,12 @@ msgstr "Sobota"
 msgid "Save"
 msgstr "Uložit"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Uložte tento token teď. Už ho neuvidíte znovu."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Uložte si tento token na bezpečném místě. Znovu jej neuvidíte."
 
@@ -1103,11 +1229,11 @@ msgstr "Vyberte pravidlo přístupu"
 msgid "Select account type"
 msgstr "Vyberte typ účtu"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Vyberte větev"
 
@@ -1191,9 +1317,14 @@ msgstr "Zůstaňte ale naladěni!"
 msgid "Subject"
 msgstr "Předmět"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "Odebírat"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Odebíráno"
 
@@ -1231,15 +1362,19 @@ msgstr "Motiv"
 msgid "Theme Settings"
 msgstr "Nastavení motivu"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Tato stránka vyžaduje kontext repozitáře."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Tímto trvale smažete „{currentName}“ a všechny její commity, větve a štítky. Tuto akci nelze vrátit zpět."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Tím se token trvale smaže. Žádný git klient ho nebude moci použít k ověření."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Přepnout postranní panel"
 msgid "Toggle theme"
 msgstr "Přepnout motiv"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Token vytvořen"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Token smazán"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Název tokenu"
 
@@ -1335,9 +1474,9 @@ msgstr "Spojené státy"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Zrušit odběr"
 
@@ -1346,7 +1485,7 @@ msgstr "Zrušit odběr"
 msgid "Unsubscribe from repository?"
 msgstr "Zrušit odběr repozitáře?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Odběr zrušen"
 
@@ -1410,3 +1549,7 @@ msgstr "Web je v režimu údržby!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Středa"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Zatím nemáte žádné repozitáře."

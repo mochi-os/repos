@@ -23,6 +23,7 @@ import {
 import { useState, useEffect } from 'react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
 import { t } from '@lingui/core/macro'
+import { Trans } from '@lingui/react/macro'
 
 interface BlobViewerProps {
   repoId: string
@@ -189,7 +190,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
           {data.binary ? (
             <div className="p-8 text-center text-muted-foreground">
               <File className="h-12 w-12 mx-auto mb-2" />
-              <p>Binary file ({formatFileSize(data.size)})</p>
+              <p><Trans>Binary file ({formatFileSize(data.size)})</Trans></p>
             </div>
           ) : (
             <div className="overflow-x-auto">

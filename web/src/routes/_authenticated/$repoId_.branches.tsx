@@ -72,7 +72,7 @@ function BranchesPage() {
   const createBranch = useCreateBranch(data.repoId)
   const deleteBranch = useDeleteBranch(data.repoId)
 
-  usePageTitle(`${data.name} branches`)
+  usePageTitle(t`${data.name} branches`)
 
   const handleCreate = () => {
     if (!newBranchName.trim()) {
@@ -119,7 +119,7 @@ function BranchesPage() {
         <RepositoryHeader
           fingerprint={data.fingerprint || data.repoId}
           repoId={data.id || data.repoId}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="branches"
@@ -157,7 +157,7 @@ function BranchesPage() {
                 id="branch-name"
                 value={newBranchName}
                 onChange={(e) => setNewBranchName(e.target.value)}
-                placeholder="feature/my-feature"
+                placeholder={t`feature/my-feature`}
                 autoFocus
               />
             </div>
@@ -182,7 +182,7 @@ function BranchesPage() {
               <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? 'Creating...' : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
+              {createBranch.isPending ? <Trans>Creating...</Trans> : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -194,7 +194,7 @@ function BranchesPage() {
           <AlertDialogHeader>
             <AlertDialogTitle><Trans>Delete branch?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
-              Delete "{branchToDelete}"? This cannot be undone.
+              <Trans>Delete &quot;{branchToDelete}&quot;? This cannot be undone.</Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -268,7 +268,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
                   <div className="flex items-center gap-2">
                     <span className="font-medium">{branch.name}</span>
                     {branch.name === defaultBranch && (
-                      <Badge variant="secondary">default</Badge>
+                      <Badge variant="secondary"><Trans>default</Trans></Badge>
                     )}
                   </div>
                 </div>

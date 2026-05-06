@@ -34,9 +34,10 @@ export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
 })
 
 function TagsPage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
 
-  usePageTitle(`${data.name} tags`)
+  usePageTitle(t`${data.name} tags`)
 
   return (
     <Main>
@@ -44,7 +45,7 @@ function TagsPage() {
         <RepositoryHeader
           fingerprint={data.fingerprint || data.repoId}
           repoId={data.id || data.repoId}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="tags"
@@ -123,7 +124,7 @@ function TagsList({ repoId }: TagsListProps) {
                   )}
                   {tag.tagger && tag.date && (
                     <div className="text-sm text-muted-foreground">
-                      {tag.tagger} tagged on {formatTimestamp(tag.date)}
+                      <Trans>{tag.tagger} tagged on {formatTimestamp(tag.date)}</Trans>
                     </div>
                   )}
                 </div>

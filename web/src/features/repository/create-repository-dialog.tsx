@@ -78,14 +78,14 @@ export function CreateRepositoryDialog({
 
   const nameError =
     name && DISALLOWED_NAME_CHARS.test(name)
-      ? 'Name cannot contain < or > characters'
+      ? t`Name cannot contain < or > characters`
       : name.length > 100
-        ? 'Name must be 100 characters or less'
+        ? t`Name must be 100 characters or less`
         : null
 
   const pathError =
     path && !isValidPath(path)
-      ? 'Lowercase letters, numbers, and hyphens only'
+      ? t`Lowercase letters, numbers, and hyphens only`
       : null
 
   const canSubmit = name.trim() && path.trim() && !nameError && !pathError && !createRepo.isPending
@@ -180,7 +180,7 @@ export function CreateRepositoryDialog({
         <DialogFooter>
           <Button onClick={handleSubmit} disabled={!canSubmit}>
             {createRepo.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
-            Create
+            <Trans>Create</Trans>
           </Button>
         </DialogFooter>
       </DialogContent>

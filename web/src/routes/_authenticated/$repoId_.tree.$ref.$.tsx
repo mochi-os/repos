@@ -36,7 +36,7 @@ function TreePage() {
   const data = Route.useLoaderData()
   const { ref, _splat: path } = Route.useParams()
 
-  usePageTitle(`${path || data.name || 'Files'} - ${data.name}`)
+  usePageTitle(`${path || data.name || t`Files`} - ${data.name}`)
 
   return (
     <Main>
@@ -44,7 +44,7 @@ function TreePage() {
         <RepositoryHeader
           fingerprint={data.fingerprint || data.repoId}
           repoId={data.id || data.repoId}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="files"
@@ -56,7 +56,7 @@ function TreePage() {
         <FileTree
           repoId={data.id || data.repoId}
           fingerprint={data.repoId}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           defaultBranch={data.default_branch || 'main'}
           currentRef={ref}
           currentPath={path || ''}

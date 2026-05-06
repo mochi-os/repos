@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Main,
   usePageTitle,
@@ -21,10 +21,11 @@ export const Route = createFileRoute('/_authenticated/blob/$ref/$')({
 })
 
 function BlobPage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
   const { ref, _splat: path } = Route.useParams()
 
-  const fileName = path?.split('/').pop() || 'file'
+  const fileName = path?.split('/').pop() || t`file`
   usePageTitle(`${fileName} - ${data.name}`)
 
   if (!data.entity || !data.id) {
@@ -45,7 +46,7 @@ function BlobPage() {
         <RepositoryHeader
           fingerprint={fingerprint}
           repoId={data.id}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="files"
@@ -56,7 +57,7 @@ function BlobPage() {
         <BlobViewer
           repoId={data.id}
           fingerprint={fingerprint}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           gitRef={ref}
           path={path || ''}
         />

@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useLingui } from '@lingui/react/macro'
 import {
   Main,
   usePageTitle,
@@ -26,10 +27,11 @@ export const Route = createFileRoute('/_authenticated/$repoId_/commit/$sha')({
 })
 
 function CommitPage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
   const { sha } = Route.useParams()
 
-  usePageTitle(`Commit ${sha.substring(0, 7)} - ${data.name}`)
+  usePageTitle(t`Commit ${sha.substring(0, 7)} - ${data.name}`)
 
   return (
     <Main>
@@ -37,7 +39,7 @@ function CommitPage() {
         <RepositoryHeader
           fingerprint={data.fingerprint || data.repoId}
           repoId={data.id || data.repoId}
-          name={data.name || 'Repository'}
+          name={data.name || t`Repository`}
           path={data.path || ''}
           description={data.description}
           activeTab="commits"

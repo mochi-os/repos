@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0} branches"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0} commits"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} a tagué le {1}"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0} tags"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12 heures"
@@ -134,7 +156,7 @@ msgstr "Autoriser tout le monde à rechercher le dépôt"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Voulez-vous vraiment vous déconnecter ? Vous devrez vous reconnecter pour accéder à votre compte."
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Voulez-vous vraiment vous désabonner de ce repository ?"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "Croissant"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "Retour"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "Retour aux commits"
 
@@ -157,6 +179,11 @@ msgstr "Retour aux commits"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "Retour à l'accueil"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "Fichier binaire ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "Effacer la sélection"
 msgid "Clear selection (Escape)"
 msgstr "Effacer la sélection (Échap)"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "Cloner"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "Cloner le dépôt"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "Réduire la barre latérale"
 msgid "Coming Soon!"
 msgstr "Bientôt disponible !"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "Commit"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "Commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "Informations contextuelles et détails."
 msgid "Continue"
 msgstr "Continuer"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "Copié dans le presse-papiers"
 
@@ -335,7 +373,16 @@ msgstr "Copier"
 msgid "Could not determine route context"
 msgstr "Impossible de déterminer le contexte de la route"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "Créer"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "Créer un nouveau jeton d'authentification."
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "Créer un nouveau dépôt"
 
@@ -352,9 +399,19 @@ msgstr "Créer la branche"
 msgid "Create repository"
 msgstr "Créer le dépôt"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "Créer un jeton"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "Créé le {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "Création..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "Sombre"
 msgid "Dark mode"
 msgstr "Mode sombre"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "par défaut"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "Par défaut"
@@ -385,7 +446,7 @@ msgstr "Compte IA par défaut"
 msgid "Default branch"
 msgstr "Branche par défaut"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Supprimer « {branchToDelete} » ? Cette action est irréversible."
 
@@ -410,7 +472,7 @@ msgstr "Supprimer le dépôt"
 msgid "Delete repository?"
 msgstr "Supprimer le dépôt ?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "Supprimer le jeton ?"
 
@@ -454,15 +516,20 @@ msgstr "Direction"
 msgid "Displays the mobile sidebar."
 msgstr "Affiche la barre latérale mobile."
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "Terminé"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "Télécharger"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "ex. Ordinateur portable de travail"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "Échec de la création de la branche"
 msgid "Failed to create repository"
 msgstr "Échec de la création du dépôt"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "Échec de la création du jeton"
 
@@ -507,7 +574,7 @@ msgstr "Échec de la suppression de la branche"
 msgid "Failed to delete repository"
 msgstr "Échec de la suppression du dépôt"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "Échec de la suppression du jeton"
 
@@ -515,7 +582,7 @@ msgstr "Échec de la suppression du jeton"
 msgid "Failed to download archive"
 msgstr "Échec du téléchargement de l'archive"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "Échec de la récupération du jeton"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "Échec du chargement du commit"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "Échec du chargement des commits"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "Échec du chargement des fichiers"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Échec du chargement des étiquettes"
 
@@ -574,13 +641,13 @@ msgstr "Échec de la définition du niveau d'accès"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "Échec de l'abonnement"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "Échec du désabonnement"
 
@@ -596,7 +663,18 @@ msgstr "Échec de la mise à jour de la catégorie"
 msgid "Failed to update path"
 msgstr "Échec de la mise à jour du chemin"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "fichier"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Fichiers"
 
@@ -691,6 +769,11 @@ msgstr "Centres d'intérêt"
 msgid "Invalid verification code"
 msgstr "Code de vérification invalide"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "Dernière utilisation {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "Disposition"
@@ -738,6 +821,7 @@ msgstr "Déconnexion réussie"
 msgid "Logging out…"
 msgstr "Déconnexion en cours…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Lettres minuscules, chiffres et traits d'union uniquement"
@@ -746,7 +830,8 @@ msgstr "Lettres minuscules, chiffres et traits d'union uniquement"
 msgid "Luma (Default)"
 msgstr "Luma (par défaut)"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "Gérer les jetons"
 
@@ -771,10 +856,12 @@ msgstr "Lundi"
 msgid "Name"
 msgstr "Nom"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Le nom ne peut pas contenir les caractères < ou >"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Le nom doit comporter 100 caractères ou moins"
@@ -782,6 +869,11 @@ msgstr "Le nom doit comporter 100 caractères ou moins"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "Nom :"
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "Jamais"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "Aucune branche pour le moment"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "Aucun commit pour le moment"
 
@@ -834,6 +926,10 @@ msgstr "Aucun lieu trouvé"
 msgid "No profile"
 msgstr "Aucun profil"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "Aucun dépôt public."
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "Aucun résultat trouvé."
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Aucune étiquette pour le moment"
 
@@ -853,7 +949,7 @@ msgstr "Aucune étiquette pour le moment"
 msgid "No time zone found."
 msgstr "Aucun fuseau horaire trouvé."
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "Aucun jeton pour le moment."
 
@@ -905,6 +1001,14 @@ msgstr "Autre"
 msgid "Owner"
 msgstr "Propriétaire\"#. placeholder {0}: formatInterval(source.interval)"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "Parent :"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "Parents :"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Chemin"
@@ -925,7 +1029,7 @@ msgstr "Chemin :"
 msgid "Permanently delete this repository and all its data"
 msgstr "Supprimer définitivement ce dépôt et toutes ses données"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "Veuillez saisir un nom de jeton"
 
@@ -951,7 +1055,7 @@ msgstr "Lecture seule"
 msgid "Recommended"
 msgstr "Recommandé"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "Dépôts recommandés"
 
@@ -989,11 +1093,29 @@ msgstr "Supprimer l'accès ?"
 msgid "Remove interest"
 msgstr "Supprimer l'intérêt"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
 msgstr "Dépôts"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
+msgstr "Dépôt"
 
 #: src/features/repository/create-repository-dialog.tsx:105
 msgid "Repository created"
@@ -1012,7 +1134,7 @@ msgstr "L'identifiant du dépôt est requis"
 msgid "Repository name is required"
 msgstr "Le nom du dépôt est requis"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "Dépôt introuvable"
 
@@ -1044,8 +1166,12 @@ msgstr "Samedi"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "Enregistrez ce jeton maintenant. Vous ne pourrez plus le voir."
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Enregistrez ce jeton en lieu sûr. Vous ne pourrez plus le revoir."
 
@@ -1103,11 +1229,11 @@ msgstr "Sélectionner une règle d'accès"
 msgid "Select account type"
 msgstr "Sélectionner le type de compte"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "Sélectionner une branche"
 
@@ -1191,9 +1317,14 @@ msgstr "Restez à l'écoute !"
 msgid "Subject"
 msgstr "Sujet"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "S'abonner"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "Abonné\"#. placeholder {0}: feed.name"
 
@@ -1231,15 +1362,19 @@ msgstr "Thème"
 msgid "Theme Settings"
 msgstr "Paramètres du thème"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "Cette page nécessite un contexte de dépôt."
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Ceci supprimera définitivement « {currentName} » et tous ses commits, branches et étiquettes. Cette action est irréversible."
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "Cela supprimera définitivement ce jeton. Les clients git qui l'utilisent ne pourront plus s'authentifier."
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "Basculer la barre latérale"
 msgid "Toggle theme"
 msgstr "Basculer le thème"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "Jeton créé"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "Jeton supprimé"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "Nom du jeton"
 
@@ -1335,9 +1474,9 @@ msgstr "États-Unis"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "Se désabonner"
 
@@ -1346,7 +1485,7 @@ msgstr "Se désabonner"
 msgid "Unsubscribe from repository?"
 msgstr "Se désabonner du dépôt ?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "Désabonné"
 
@@ -1410,3 +1549,7 @@ msgstr "Le site est en maintenance !"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "Mercredi"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "Vous n'avez pas encore de dépôts."

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLingui } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Button,
   DropdownMenu,
@@ -72,7 +72,7 @@ export function DownloadDropdown({
         ) : (
           <Download className="h-4 w-4" />
         )}
-        Download
+        <Trans>Download</Trans>
       </Button>
     )
 

@@ -83,6 +83,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     const url = new URL(cloneUrl)
     url.username = 'none'
     url.password = token
+    // git clone command — git literal, never translated.
+    // eslint-disable-next-line lingui/no-unlocalized-strings
     return `git clone ${url.toString()} ${repoPath || 'repo'}`
   }
 
@@ -186,11 +188,11 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const getTitle = () => {
     switch (view) {
       case 'manage':
-        return 'Manage tokens'
+        return t`Manage tokens`
       case 'create':
-        return newToken ? "Token created" : "Create token"
+        return newToken ? t`Token created` : t`Create token`
       default:
-        return 'Clone repository'
+        return t`Clone repository`
     }
   }
 
@@ -200,8 +202,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
         return null
       case 'create':
         return newToken
-          ? 'Save this token now. You won\'t be able to see it again.'
-          : 'Create a new authentication token.'
+          ? t`Save this token now. You won't be able to see it again.`
+          : t`Create a new authentication token.`
       default:
         return null
     }
@@ -275,8 +277,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       <div className="min-w-0 flex-1">
                         <p className="font-medium truncate">{token.name}</p>
                         <p className="text-xs text-muted-foreground">
-                          Created {formatTimestamp(token.created, 'Never')}
-                          {token.used ? ` · Last used ${formatTimestamp(token.used, 'Never')}` : ''}
+                          <Trans>Created {formatTimestamp(token.created, t`Never`)}</Trans>
+                          {token.used ? <> · <Trans>Last used {formatTimestamp(token.used, t`Never`)}</Trans></> : ''}
                         </p>
                       </div>
                       <Button
@@ -341,7 +343,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                     <Label htmlFor="token-name"><Trans>Token name</Trans></Label>
                     <Input
                       id="token-name"
-                      placeholder="e.g., Work laptop"
+                      placeholder={t`e.g., Work laptop`}
                       value={newTokenName}
                       onChange={(e) => setNewTokenName(e.target.value)}
                       onKeyDown={(e) => {
@@ -358,7 +360,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       {createMutation.isPending && (
                         <Loader2 className="h-4 w-4 animate-spin" />
                       )}
-                      Create
+                      <Trans>Create</Trans>
                     </Button>
                   </DialogFooter>
                 </>
@@ -373,8 +375,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           <AlertDialogHeader>
             <AlertDialogTitle><Trans>Delete token?</Trans></AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete this token. Any git clients using it will
-              no longer be able to authenticate.
+              <Trans>This will permanently delete this token. Any git clients using it will
+              no longer be able to authenticate.</Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

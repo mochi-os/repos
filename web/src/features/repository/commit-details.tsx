@@ -107,7 +107,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
 
           {commit.parents && commit.parents.length > 0 && (
             <div className="mt-4 text-sm">
-              <span className="text-muted-foreground">Parent{commit.parents.length > 1 ? 's' : ''}:</span>
+              <span className="text-muted-foreground">{commit.parents.length > 1 ? <Trans>Parents:</Trans> : <Trans>Parent:</Trans>}</span>
               {commit.parents.map((parent) => (
                 <Link
                   key={parent}

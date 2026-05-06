@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Header,
   Main,
@@ -23,10 +23,11 @@ export const Route = createFileRoute('/_authenticated/commit/$sha')({
 })
 
 function CommitPage() {
+  const { t } = useLingui()
   const data = Route.useLoaderData()
   const { sha } = Route.useParams()
 
-  usePageTitle(`Commit ${sha.substring(0, 7)} - ${data.name}`)
+  usePageTitle(t`Commit ${sha.substring(0, 7)} - ${data.name}`)
 
   if (!data.entity || !data.id) {
     return (

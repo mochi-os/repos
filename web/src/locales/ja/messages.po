@@ -13,6 +13,28 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.branches.tsx:75
+msgid "{0} branches"
+msgstr "{0} ブランチ"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.commits.tsx:48
+msgid "{0} commits"
+msgstr "{0} コミット"
+
+#. placeholder {0}: tag.tagger
+#. placeholder {1}: formatTimestamp(tag.date)
+#: src/features/repository/repository-tabs.tsx:695
+#: src/routes/_authenticated/$repoId_.tags.tsx:127
+msgid "{0} tagged on {1}"
+msgstr "{0} が {1} にタグ付け"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.tags.tsx:40
+msgid "{0} tags"
+msgstr "{0} タグ"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:52
 msgid "12 hours"
 msgstr "12時間"
@@ -134,7 +156,7 @@ msgstr "誰でもリポジトリを検索できるようにする"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "本当にログアウトしますか？再度アクセスするにはログインが必要です。"
 
-#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:312
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "このリポジトリの購読を解除しますか？"
 
@@ -143,12 +165,12 @@ msgid "Asc"
 msgstr "昇順"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:355
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:357
 msgid "Back"
 msgstr "戻る"
 
-#: src/routes/_authenticated/commit/$sha.tsx:62
+#: src/routes/_authenticated/commit/$sha.tsx:63
 msgid "Back to commits"
 msgstr "コミットに戻る"
 
@@ -157,6 +179,11 @@ msgstr "コミットに戻る"
 #: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
 msgid "Back to Home"
 msgstr "ホームに戻る"
+
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:193
+msgid "Binary file ({0})"
+msgstr "バイナリファイル ({0})"
 
 #: ../../../lib/web/src/components/post-tags.tsx:160
 msgid "Boost interest"
@@ -194,7 +221,7 @@ msgstr "ブランチ"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:381
+#: src/components/clone-dialog.tsx:383
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:585
@@ -258,9 +285,13 @@ msgstr "選択をクリア"
 msgid "Clear selection (Escape)"
 msgstr "選択をクリア（Esc）"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Clone"
 msgstr "クローン"
+
+#: src/components/clone-dialog.tsx:195
+msgid "Clone repository"
+msgstr "リポジトリをクローン"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:75
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:318
@@ -288,9 +319,16 @@ msgstr "サイドバーを折りたたむ"
 msgid "Coming Soon!"
 msgstr "近日公開!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:53
+#: src/routes/_authenticated/commit/$sha.tsx:54
 msgid "Commit"
 msgstr "コミット"
+
+#. placeholder {0}: sha.substring(0, 7)
+#. placeholder {1}: data.name
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/commit/$sha.tsx:30
+msgid "Commit {0} - {1}"
+msgstr "コミット {0} - {1}"
 
 #: src/features/repository/commit-details.tsx:56
 msgid "Commit not found"
@@ -322,8 +360,8 @@ msgstr "コンテキスト情報と詳細。"
 msgid "Continue"
 msgstr "続行"
 
-#: src/components/clone-dialog.tsx:162
-#: src/components/clone-dialog.tsx:171
+#: src/components/clone-dialog.tsx:164
+#: src/components/clone-dialog.tsx:173
 msgid "Copied to clipboard"
 msgstr "クリップボードにコピーしました"
 
@@ -335,7 +373,16 @@ msgstr "コピー"
 msgid "Could not determine route context"
 msgstr "ルートコンテキストを特定できませんでした"
 
-#: src/routes/_authenticated/index.tsx:201
+#: src/components/clone-dialog.tsx:363
+#: src/features/repository/create-repository-dialog.tsx:183
+msgid "Create"
+msgstr "作成"
+
+#: src/components/clone-dialog.tsx:206
+msgid "Create a new authentication token."
+msgstr "新しい認証トークンを作成します。"
+
+#: src/routes/_authenticated/index.tsx:202
 msgid "Create a new repository"
 msgstr "新しいリポジトリを作成"
 
@@ -352,9 +399,19 @@ msgstr "ブランチを作成"
 msgid "Create repository"
 msgstr "リポジトリを作成"
 
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:193
+#: src/components/clone-dialog.tsx:303
 msgid "Create token"
 msgstr "トークンを作成"
+
+#. placeholder {0}: formatTimestamp(token.created, t`Never`)
+#: src/components/clone-dialog.tsx:280
+msgid "Created {0}"
+msgstr "作成 {0}"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:185
+msgid "Creating..."
+msgstr "作成中..."
 
 #: src/features/repository/repository-tabs.tsx:588
 msgid "Creating…"
@@ -373,6 +430,10 @@ msgstr "ダーク"
 msgid "Dark mode"
 msgstr "ダークモード"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:271
+msgid "default"
+msgstr "デフォルト"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:297
 msgid "Default"
 msgstr "デフォルト"
@@ -385,7 +446,7 @@ msgstr "デフォルト AI アカウント"
 msgid "Default branch"
 msgstr "デフォルトブランチ"
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:387
 #: src/features/repository/repository-tabs.tsx:606
 #: src/features/repository/repository-tabs.tsx:1100
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
@@ -393,6 +454,7 @@ msgid "Delete"
 msgstr "削除"
 
 #: src/features/repository/repository-tabs.tsx:600
+#: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "「{branchToDelete}」を削除しますか？この操作は元に戻せません。"
 
@@ -410,7 +472,7 @@ msgstr "リポジトリを削除"
 msgid "Delete repository?"
 msgstr "リポジトリを削除しますか?"
 
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:376
 msgid "Delete token?"
 msgstr "トークンを削除しますか?"
 
@@ -454,15 +516,20 @@ msgstr "方向"
 msgid "Displays the mobile sidebar."
 msgstr "モバイルサイドバーを表示します。"
 
-#: src/components/clone-dialog.tsx:252
-#: src/components/clone-dialog.tsx:334
+#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:336
 msgid "Done"
 msgstr "完了"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:312
 #: src/components/download-dropdown.tsx:60
+#: src/components/download-dropdown.tsx:75
 msgid "Download"
 msgstr "ダウンロード"
+
+#: src/components/clone-dialog.tsx:346
+msgid "e.g., Work laptop"
+msgstr "例: 業務用ノートPC"
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -494,7 +561,7 @@ msgstr "ブランチの作成に失敗しました"
 msgid "Failed to create repository"
 msgstr "リポジトリの作成に失敗しました"
 
-#: src/components/clone-dialog.tsx:113
+#: src/components/clone-dialog.tsx:115
 msgid "Failed to create token"
 msgstr "トークンの作成に失敗しました"
 
@@ -507,7 +574,7 @@ msgstr "ブランチの削除に失敗しました"
 msgid "Failed to delete repository"
 msgstr "リポジトリの削除に失敗しました"
 
-#: src/components/clone-dialog.tsx:127
+#: src/components/clone-dialog.tsx:129
 msgid "Failed to delete token"
 msgstr "トークンの削除に失敗しました"
 
@@ -515,7 +582,7 @@ msgstr "トークンの削除に失敗しました"
 msgid "Failed to download archive"
 msgstr "アーカイブのダウンロードに失敗しました"
 
-#: src/components/clone-dialog.tsx:153
+#: src/components/clone-dialog.tsx:155
 msgid "Failed to get token"
 msgstr "トークンの取得に失敗しました"
 
@@ -533,7 +600,7 @@ msgid "Failed to load commit"
 msgstr "コミットの読み込みに失敗しました"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:109
+#: src/routes/_authenticated/$repoId_.commits.tsx:110
 msgid "Failed to load commits"
 msgstr "コミットの読み込みに失敗しました"
 
@@ -544,7 +611,7 @@ msgid "Failed to load files"
 msgstr "ファイルの読み込みに失敗しました"
 
 #: src/features/repository/repository-tabs.tsx:637
-#: src/routes/_authenticated/$repoId_.tags.tsx:86
+#: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "タグの読み込みに失敗しました"
 
@@ -574,13 +641,13 @@ msgstr "アクセスレベルの設定に失敗しました"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:164
+#: src/routes/_authenticated/index.tsx:165
 msgid "Failed to subscribe"
 msgstr "購読に失敗しました"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:323
+#: src/routes/_authenticated/index.tsx:324
 msgid "Failed to unsubscribe"
 msgstr "購読解除に失敗しました"
 
@@ -596,7 +663,18 @@ msgstr "カテゴリの更新に失敗しました"
 msgid "Failed to update path"
 msgstr "パスの更新に失敗しました"
 
+#: src/routes/_authenticated/$repoId_.branches.tsx:160
+msgid "feature/my-feature"
+msgstr "feature/my-feature"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/blob/$ref/$.tsx:28
+msgid "file"
+msgstr "ファイル"
+
 #: src/features/repository/tabs.tsx:25
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "ファイル"
 
@@ -691,6 +769,11 @@ msgstr "興味"
 msgid "Invalid verification code"
 msgstr "確認コードが無効です"
 
+#. placeholder {0}: formatTimestamp(token.used, t`Never`)
+#: src/components/clone-dialog.tsx:281
+msgid "Last used {0}"
+msgstr "最終使用 {0}"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:273
 msgid "Layout"
 msgstr "レイアウト"
@@ -738,6 +821,7 @@ msgstr "ログアウトしました"
 msgid "Logging out…"
 msgstr "ログアウトしています…"
 
+#: src/features/repository/create-repository-dialog.tsx:88
 #: src/features/repository/repository-tabs.tsx:866
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "小文字、数字、ハイフンのみ"
@@ -746,7 +830,8 @@ msgstr "小文字、数字、ハイフンのみ"
 msgid "Luma (Default)"
 msgstr "Luma（デフォルト）"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:191
+#: src/components/clone-dialog.tsx:252
 msgid "Manage tokens"
 msgstr "トークンを管理"
 
@@ -771,10 +856,12 @@ msgstr "月曜日"
 msgid "Name"
 msgstr "名前"
 
+#: src/features/repository/create-repository-dialog.tsx:81
 #: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "名前に < または > 文字を含めることはできません"
 
+#: src/features/repository/create-repository-dialog.tsx:83
 #: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "名前は100文字以下にしてください"
@@ -782,6 +869,11 @@ msgstr "名前は100文字以下にしてください"
 #: src/features/repository/repository-tabs.tsx:905
 msgid "Name:"
 msgstr "名前："
+
+#: src/components/clone-dialog.tsx:280
+#: src/components/clone-dialog.tsx:281
+msgid "Never"
+msgstr "なし"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:40
 msgid "New"
@@ -810,7 +902,7 @@ msgid "No branches yet"
 msgstr "まだブランチがありません"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:114
+#: src/routes/_authenticated/$repoId_.commits.tsx:115
 msgid "No commits yet"
 msgstr "まだコミットがありません"
 
@@ -834,6 +926,10 @@ msgstr "場所が見つかりません"
 msgid "No profile"
 msgstr "プロフィールがありません"
 
+#: src/routes/_authenticated/index.tsx:195
+msgid "No public repositories."
+msgstr "公開リポジトリはありません。"
+
 #: src/features/repository/inline-repo-search.tsx:100
 #: src/routes/_authenticated/find.tsx:66
 msgid "No repositories found"
@@ -845,7 +941,7 @@ msgid "No results found."
 msgstr "結果が見つかりません。"
 
 #: src/features/repository/repository-tabs.tsx:667
-#: src/routes/_authenticated/$repoId_.tags.tsx:97
+#: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "まだタグがありません"
 
@@ -853,7 +949,7 @@ msgstr "まだタグがありません"
 msgid "No time zone found."
 msgstr "タイムゾーンが見つかりません。"
 
-#: src/components/clone-dialog.tsx:266
+#: src/components/clone-dialog.tsx:268
 msgid "No tokens yet."
 msgstr "まだトークンがありません。"
 
@@ -905,6 +1001,14 @@ msgstr "その他"
 msgid "Owner"
 msgstr "オーナー\"#. placeholder {0}: formatInterval(source.interval)"
 
+#: src/features/repository/commit-details.tsx:110
+msgid "Parent:"
+msgstr "親:"
+
+#: src/features/repository/commit-details.tsx:110
+msgid "Parents:"
+msgstr "親:"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "パス"
@@ -925,7 +1029,7 @@ msgstr "パス："
 msgid "Permanently delete this repository and all its data"
 msgstr "このリポジトリとすべてのデータを完全に削除します"
 
-#: src/components/clone-dialog.tsx:178
+#: src/components/clone-dialog.tsx:180
 msgid "Please enter a token name"
 msgstr "トークン名を入力してください"
 
@@ -951,7 +1055,7 @@ msgstr "読み取り専用"
 msgid "Recommended"
 msgstr "おすすめ"
 
-#: src/routes/_authenticated/index.tsx:212
+#: src/routes/_authenticated/index.tsx:213
 msgid "Recommended repositories"
 msgstr "おすすめのリポジトリ"
 
@@ -989,10 +1093,28 @@ msgstr "アクセスを削除しますか?"
 msgid "Remove interest"
 msgstr "関心を削除"
 
-#: src/routes/_authenticated/index.tsx:119
-#: src/routes/_authenticated/index.tsx:184
-#: src/routes/_authenticated/index.tsx:192
+#: src/routes/_authenticated/index.tsx:120
+#: src/routes/_authenticated/index.tsx:185
+#: src/routes/_authenticated/index.tsx:193
 msgid "Repositories"
+msgstr "リポジトリ"
+
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
+#: src/routes/_authenticated/$repoId_.branches.tsx:122
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:56
+#: src/routes/_authenticated/$repoId_.tags.tsx:48
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
+#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/blob/$ref/$.tsx:49
+#: src/routes/_authenticated/blob/$ref/$.tsx:60
+#: src/routes/_authenticated/index.tsx:95
+#: src/routes/_authenticated/index.tsx:102
+#: src/routes/_authenticated/tree/$ref/$.tsx:48
+#: src/routes/_authenticated/tree/$ref/$.tsx:59
+msgid "Repository"
 msgstr "リポジトリ"
 
 #: src/features/repository/create-repository-dialog.tsx:105
@@ -1012,7 +1134,7 @@ msgstr "リポジトリIDが必要です"
 msgid "Repository name is required"
 msgstr "リポジトリ名が必要です"
 
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:36
 msgid "Repository not found"
 msgstr "リポジトリが見つかりません"
 
@@ -1044,8 +1166,12 @@ msgstr "土曜日"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:205
+msgid "Save this token now. You won't be able to see it again."
+msgstr "このトークンを今すぐ保存してください。再表示できません。"
+
+#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:327
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "このトークンを安全な場所に保管してください。再度表示することはできません。"
 
@@ -1103,11 +1229,11 @@ msgstr "アクセスルールを選択"
 msgid "Select account type"
 msgstr "アカウントの種類を選択"
 
-#: src/features/repository/blob-viewer.tsx:124
+#: src/features/repository/blob-viewer.tsx:125
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:89
+#: src/routes/_authenticated/$repoId_.commits.tsx:90
 msgid "Select branch"
 msgstr "ブランチを選択"
 
@@ -1191,9 +1317,14 @@ msgstr "今後の更新にご期待ください!"
 msgid "Subject"
 msgstr "件名"
 
+#: src/features/repository/inline-repo-search.tsx:137
+#: src/routes/_authenticated/index.tsx:247
+msgid "Subscribe"
+msgstr "購読する"
+
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:160
+#: src/routes/_authenticated/index.tsx:161
 msgid "Subscribed"
 msgstr "購読中\"#. placeholder {0}: feed.name"
 
@@ -1231,15 +1362,19 @@ msgstr "テーマ"
 msgid "Theme Settings"
 msgstr "テーマ設定"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:34
-#: src/routes/_authenticated/commit/$sha.tsx:39
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:40
+#: src/routes/_authenticated/tree/$ref/$.tsx:34
 msgid "This page requires a repository context."
 msgstr "このページにはリポジトリのコンテキストが必要です。"
 
 #: src/features/repository/repository-tabs.tsx:1095
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "「{currentName}」とそのすべてのコミット、ブランチ、タグが完全に削除されます。この操作は元に戻せません。"
+
+#: src/components/clone-dialog.tsx:378
+msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
+msgstr "このトークンを完全に削除します。使用中の git クライアントは認証できなくなります。"
 
 #: src/features/repository/repository-header.tsx:119
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -1271,11 +1406,15 @@ msgstr "サイドバーを切り替え"
 msgid "Toggle theme"
 msgstr "テーマを切り替え"
 
-#: src/components/clone-dialog.tsx:122
+#: src/components/clone-dialog.tsx:193
+msgid "Token created"
+msgstr "トークンを作成しました"
+
+#: src/components/clone-dialog.tsx:124
 msgid "Token deleted"
 msgstr "トークンを削除しました"
 
-#: src/components/clone-dialog.tsx:341
+#: src/components/clone-dialog.tsx:343
 msgid "Token name"
 msgstr "トークン名"
 
@@ -1335,9 +1474,9 @@ msgstr "アメリカ合衆国"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:290
-#: src/routes/_authenticated/index.tsx:310
-#: src/routes/_authenticated/index.tsx:312
+#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:311
+#: src/routes/_authenticated/index.tsx:313
 msgid "Unsubscribe"
 msgstr "購読解除"
 
@@ -1346,7 +1485,7 @@ msgstr "購読解除"
 msgid "Unsubscribe from repository?"
 msgstr "リポジトリの購読を解除しますか?"
 
-#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:321
 msgid "Unsubscribed"
 msgstr "購読を解除しました"
 
@@ -1410,3 +1549,7 @@ msgstr "ウェブサイトはメンテナンス中です!"
 #: ../../../lib/web/src/lib/preference-utils.ts:71
 msgid "Wednesday"
 msgstr "水曜日"
+
+#: src/routes/_authenticated/index.tsx:195
+msgid "You have no repositories yet."
+msgstr "まだリポジトリがありません。"
