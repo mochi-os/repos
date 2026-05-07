@@ -999,7 +999,7 @@ def action_opengraph(a):
         return None
 
     title = row["name"]
-    description = row["description"] or "Git repository"
+    description = row["description"] or mochi.app.label("opengraph.fallback.description")
 
     return {
         "title": title,
