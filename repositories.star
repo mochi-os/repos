@@ -979,13 +979,12 @@ def action_archive(a):
 
     base = repo.get("path") or repo.get("name") or "repo"
     label = archive_label(ref, sha)
-    prefix = "%s-%s" % (base, label)
-    filename = "%s.%s" % (prefix, format)
+    filename = "%s-%s.%s" % (base, label, format)
 
     a.header("Content-Type", content_types[format])
     a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
 
-    mochi.git.archive(repo["id"], sha, format, prefix)
+    mochi.git.archive(repo["id"], sha, format, base)
     return None
 
 # Action: Open Graph meta tags
@@ -1765,12 +1764,11 @@ def event_archive(e):
 
     base = repo.get("path") or repo.get("name") or "repo"
     label = archive_label(ref, sha)
-    prefix = "%s-%s" % (base, label)
-    filename = "%s.%s" % (prefix, format)
+    filename = "%s-%s.%s" % (base, label, format)
 
     # Header response, then raw archive bytes on the same stream
-    e.stream.write({"filename": filename, "sha": sha, "prefix": prefix})
-    mochi.git.archive(repo_id, sha, format, prefix, e.stream)
+    e.stream.write({"filename": filename, "sha": sha, "prefix": base})
+    mochi.git.archive(repo_id, sha, format, base, e.stream)
 
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 

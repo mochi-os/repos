@@ -96,7 +96,7 @@ export function RepositoryHeader({
           )}
         </div>
         <div className="flex-1" />
-        <CloneDialog repoPath={path} fingerprint={fingerprint} />
+        <CloneDialog repoPath={path} />
         {showDownload && (
           <DownloadDropdown gitRef={currentRef || 'HEAD'} />
         )}

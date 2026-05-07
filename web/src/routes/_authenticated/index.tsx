@@ -9,6 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  Header,
   Main,
   PageHeader,
   usePageTitle,
@@ -21,7 +22,8 @@ import { Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
 import { reposRequest, appBasePath, isDomainRouted } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository, RecommendationsResponse, RecommendedRepository } from '@/api/types'
-import { RepositoryTabs, type RepositoryTabId } from '@/features/repository/repository-tabs'
+import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
+import { DownloadDropdown } from '@/components/download-dropdown'
 import { getLastRepo, clearLastRepo, setLastRepo } from '@/hooks/use-repos-storage'
 import { useSidebarContext } from '@/context/sidebar-context'
 import { InlineRepoSearch } from '@/features/repository/inline-repo-search'
@@ -92,22 +94,43 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
     void navigate({ search: { tab: newTab }, replace: true })
   }
 
-  usePageTitle(data.name || t`Repository`)
+  const name = data.name || t`Repository`
+  const fingerprint = data.fingerprint || data.id!
+  usePageTitle(name)
 
   return (
-    <Main>
-      <RepositoryTabs
-        repoId={data.id!}
-        fingerprint={data.fingerprint || data.id!}
-        name={data.name || t`Repository`}
-        path={data.path || ''}
-        defaultBranch={data.default_branch || 'main'}
-        description={data.description}
-        isOwner={data.isAdmin}
-        activeTab={tab ?? 'files'}
-        onTabChange={setActiveTab}
-      />
-    </Main>
+    <>
+      <Header className="border-b-0">
+        <div className="flex w-full items-center justify-between">
+          <div className="flex items-center gap-2">
+            <FolderGit2 className="h-5 w-5" />
+            <h1 className="text-lg font-semibold">{name}</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <CloneDialog repoPath={data.path || ''} />
+            {(tab ?? 'files') === 'files' && (
+              <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
+            )}
+            {data.remote && (
+              <UnsubscribeButton repoId={data.id!} repoName={name} />
+            )}
+          </div>
+        </div>
+      </Header>
+      <Main spacingY="xs">
+        <RepositoryTabs
+          repoId={data.id!}
+          fingerprint={fingerprint}
+          name={name}
+          path={data.path || ''}
+          defaultBranch={data.default_branch || 'main'}
+          description={data.description}
+          isOwner={data.isAdmin}
+          activeTab={tab ?? 'files'}
+          onTabChange={setActiveTab}
+        />
+      </Main>
+    </>
   )
 }
 

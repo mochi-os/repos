@@ -2,7 +2,7 @@
 // Copyright Alistair Cunningham 2025-2026
 
 {
-	"version": "2.7",
+	"version": "2.14",
 	"label": "app.name",
 	"classes": ["repository"],
 	"paths": ["repositories"],
@@ -45,6 +45,9 @@
 
 		":repository": {"file": "web/dist/index.html", "public": true, "function": "action_info_entity", "opengraph": "action_opengraph"},
 		":repository/-/info": {"function": "action_info_entity", "public": true},
+		":repository/-/token/create": {"function": "action_token_create"},
+		":repository/-/token/list": {"function": "action_token_list"},
+		":repository/-/token/delete": {"function": "action_token_delete"},
 		":repository/-/settings": {"function": "action_settings"},
 		":repository/-/settings/set": {"function": "action_settings_set"},
 		":repository/-/rename": {"function": "action_rename"},

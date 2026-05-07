@@ -23,6 +23,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   useFormat,
+  useAuthStore,
+  getRouterBasepath,
+  isDomainEntityRouting,
 } from '@mochi/web'
 import {
   Code,
@@ -58,14 +61,14 @@ interface TokenListResponse {
 
 interface CloneDialogProps {
   repoPath: string
-  fingerprint: string
 }
 
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
-export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
+export function CloneDialog({ repoPath }: CloneDialogProps) {
   const { t } = useLingui()
   const { formatTimestamp } = useFormat()
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
   const [open, setOpen] = useState(false)
   const [view, setView] = useState<DialogView>('loading')
   const [cloneCommand, setCloneCommand] = useState<string | null>(null)
@@ -75,14 +78,17 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const [deleteHash, setDeleteHash] = useState<string | null>(null)
   const queryClient = useQueryClient()
 
-  const buildCloneUrl = (token: string) => {
-    const pathname = window.location.pathname
-    const match = pathname.match(/^(\/[^/]+)\//)
-    const appPrefix = match ? match[1] : ''
-    const cloneUrl = `${window.location.origin}${appPrefix}/${fingerprint}/git`
-    const url = new URL(cloneUrl)
-    url.username = 'none'
-    url.password = token
+  const buildCloneUrl = (token: string | null) => {
+    // Domain-routed entities serve the git protocol at the entity root
+    // (handled by the special-case in web_action). Other routing modes
+    // serve it via the :repository/git/*path action.
+    const base = getRouterBasepath()
+    const path = isDomainEntityRouting() ? base.replace(/\/$/, '') : `${base}git`
+    const url = new URL(`${window.location.origin}${path}`)
+    if (token) {
+      url.username = 'none'
+      url.password = token
+    }
     // git clone command — git literal, never translated.
     // eslint-disable-next-line lingui/no-unlocalized-strings
     return `git clone ${url.toString()} ${repoPath || 'repo'}`
@@ -139,6 +145,12 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       setCopied(false)
       setNewTokenName('')
       setNewToken(null)
+      return
+    }
+    // Anonymous viewers get a credential-less public clone URL
+    if (!isAuthenticated) {
+      setCloneCommand(buildCloneUrl(null))
+      setView('clone')
       return
     }
     // Fetch token status on open
@@ -216,7 +228,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           <Code className="h-4 w-4" />
           <Trans>Clone</Trans>
         </Button>
-        <DialogContent>
+        <DialogContent className="sm:max-w-4xl">
           <DialogHeader>
             <DialogTitle>{getTitle()}</DialogTitle>
             {getDescription() && (
@@ -233,7 +245,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           {view === 'clone' && cloneCommand && (
             <div className="space-y-4">
               <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
-                <code className="flex-1 break-all select-all">{cloneCommand}</code>
+                <code className="flex-1 select-all overflow-x-auto whitespace-nowrap">{cloneCommand}</code>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -243,14 +255,18 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                   {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
-              <p className="text-sm text-muted-foreground">
-                <Trans>Save this token securely. You won't be able to see it again.</Trans>
-              </p>
+              {isAuthenticated && (
+                <p className="text-sm text-muted-foreground">
+                  <Trans>Save this token securely. You won't be able to see it again.</Trans>
+                </p>
+              )}
               <DialogFooter className="flex-row gap-2 sm:justify-between">
-                <Button variant="outline" onClick={() => setView('manage')}>
-                  <Key className="h-4 w-4" />
-                  <Trans>Manage tokens</Trans>
-                </Button>
+                {isAuthenticated ? (
+                  <Button variant="outline" onClick={() => setView('manage')}>
+                    <Key className="h-4 w-4" />
+                    <Trans>Manage tokens</Trans>
+                  </Button>
+                ) : <span />}
                 <Button variant='outline' onClick={() => setOpen(false)}><Trans>Done</Trans></Button>
               </DialogFooter>
             </div>
@@ -311,7 +327,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
               {newToken ? (
                 <>
                   <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
-                    <code className="flex-1 break-all select-all">
+                    <code className="flex-1 select-all overflow-x-auto whitespace-nowrap">
                       {buildCloneUrl(newToken)}
                     </code>
                     <Button
