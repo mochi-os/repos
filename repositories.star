@@ -1511,6 +1511,18 @@ def event_update(e):
     description = e.content("description")
     default_branch = e.content("default_branch")
 
+    # LWW gate: drop the event when its `updated` is no newer than our
+    # locally-stored repositories.updated for this repo. Older senders
+    # without the field fall back to applying with local now, so this
+    # is backwards-compatible.
+    incoming = str(e.content("updated", "0"))
+    if mochi.text.valid(incoming, "integer"):
+        incoming = int(incoming)
+    else:
+        incoming = 0
+    if incoming and repo["updated"] and incoming <= repo["updated"]:
+        return
+
     updates = []
     params = []
 
@@ -1529,7 +1541,7 @@ def event_update(e):
 
     if updates:
         updates.append("updated = ?")
-        params.append(mochi.time.now())
+        params.append(incoming if incoming else mochi.time.now())
         params.append(repo_id)
         mochi.db.execute("update repositories set " + ", ".join(updates) + " where id = ?", *params)
 
@@ -1778,7 +1790,7 @@ def broadcast_update(repo):
     for sub in subscribers:
         mochi.message.send(
             headers(repo["id"], sub["id"], "update"),
-            {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"]}
+            {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"], "updated": repo.get("updated", 0)}
         )
 
 # Broadcast deletion notification to all subscribers
