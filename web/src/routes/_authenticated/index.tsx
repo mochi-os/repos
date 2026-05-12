@@ -17,6 +17,7 @@ import {
   GeneralError,
   toast,
   getErrorMessage,
+  naturalCompare,
 } from '@mochi/web'
 import { Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
 import { reposRequest, appBasePath, isDomainRouted } from '@/api/request'
@@ -156,12 +157,16 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     if (isLoggedIn) setLastRepo(null)
   }, [isLoggedIn])
 
-  const hasRepos = repositories && repositories.length > 0
+  const sortedRepositories = useMemo(
+    () => [...(repositories ?? [])].sort((a, b) => naturalCompare(a.name, b.name)),
+    [repositories]
+  )
+  const hasRepos = sortedRepositories.length > 0
 
   // Set of subscribed repository IDs for inline search
   const subscribedRepoIds = useMemo(
-    () => new Set((repositories ?? []).flatMap((r) => [r.id, r.fingerprint].filter((x): x is string => !!x))),
-    [repositories]
+    () => new Set(sortedRepositories.flatMap((r) => [r.id, r.fingerprint].filter((x): x is string => !!x))),
+    [sortedRepositories]
   )
 
   // Recommendations query (only for logged-in users)
@@ -280,7 +285,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
           </div>
         ) : (
           <div className="divide-y rounded-lg border">
-            {repositories.map((repo) => (
+            {sortedRepositories.map((repo) => (
               <Link
                 key={repo.id}
                 to="/$repoId"
