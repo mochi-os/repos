@@ -156,7 +156,7 @@ msgstr "Jẹ́ kí ẹnikẹ́ni wá repository"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ṣé o dájú pé o fẹ́ jáde? Wàá nílò láti wọlé lẹ́ẹ̀kan sí i láti rí àkáǹtì rẹ."
 
-#: src/routes/_authenticated/index.tsx:335
+#: src/routes/_authenticated/index.tsx:340
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ṣé o dájú pé o fẹ́ yọ orúkọ rẹ kúrò nínú repository yìí?"
 
@@ -260,7 +260,7 @@ msgstr "Yan láàrin ìṣíkiri ojú-òpó láti òsì sí ọ̀tún tàbí lá
 msgid "Choose between system preference, light mode, or dark mode"
 msgstr "Yan láàrin ìfẹ́ system, ọ̀nà ìmọ́lẹ̀, tàbí ọ̀nà òkùnkùn"
 
-#: ../../../lib/web/src/components/language-picker.tsx:167
+#: ../../../lib/web/src/components/language-picker.tsx:174
 msgid "Choose language"
 msgstr "Yan èdè"
 
@@ -315,6 +315,10 @@ msgstr "Ti àwárí"
 msgid "Collapse sidebar"
 msgstr "Hó sidebar"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:93
+msgid "Comfortable"
+msgstr "Itunu"
+
 #: ../../../lib/web/src/components/coming-soon.tsx:9
 msgid "Coming Soon!"
 msgstr "Yóò Dé Láìpẹ́!"
@@ -340,6 +344,7 @@ msgid "Commits"
 msgstr "Àwọn commit"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:302
+#: ../../../lib/web/src/lib/preference-utils.ts:92
 msgid "Compact"
 msgstr "Kékeré"
 
@@ -373,6 +378,10 @@ msgstr "Ṣe àdàkọ"
 msgid "Could not determine route context"
 msgstr "Kò lè pinnu ipò ọ̀nà"
 
+#: ../../../lib/web/src/features/document/document-page.tsx:81
+msgid "Could not load this document. Please try again later."
+msgstr "Kò lè kó ìwé yìí. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
+
 #: src/components/clone-dialog.tsx:379
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
@@ -382,7 +391,7 @@ msgstr "Dá"
 msgid "Create a new authentication token."
 msgstr "Ṣẹda àmì àfìdíhàn tuntun."
 
-#: src/routes/_authenticated/index.tsx:225
+#: src/routes/_authenticated/index.tsx:230
 msgid "Create a new repository"
 msgstr "Dá repository tuntun"
 
@@ -497,7 +506,7 @@ msgstr "Àpèjúwe"
 msgid "Details Panel"
 msgstr "Pánẹ́ẹ̀lì Àwọn Ẹ̀kúnrẹ́rẹ́"
 
-#: ../../../lib/web/src/components/language-picker.tsx:145
+#: ../../../lib/web/src/components/language-picker.tsx:152
 #: ../../../lib/web/src/components/timezone-select.tsx:43
 #: ../../../lib/web/src/components/timezone-select.tsx:80
 #: ../../../lib/web/src/lib/preference-utils.ts:25
@@ -527,6 +536,10 @@ msgstr "Ti parí"
 msgid "Download"
 msgstr "Gbà sílẹ̀"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:134
+msgid "Dyslexia-friendly"
+msgstr "Ẹ̀dá lóàfin fún àìmoọ̀rọ̀"
+
 #: src/components/clone-dialog.tsx:362
 msgid "e.g., Work laptop"
 msgstr "fún àpẹẹrẹ Kọ̀ǹpútà alágbèéká iṣẹ́"
@@ -547,6 +560,10 @@ msgstr "Ẹ̀ka:"
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx:35
 msgid "Expand sidebar"
 msgstr "Fẹ̀ sidebar"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:124
+msgid "Extra large"
+msgstr "Tóbi gan"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:217
 msgid "Failed to add account"
@@ -641,13 +658,13 @@ msgstr "Kò lè gbé ìpele àyè kalẹ̀"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:188
+#: src/routes/_authenticated/index.tsx:193
 msgid "Failed to subscribe"
 msgstr "Kò lè ṣe alábàápín"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:347
+#: src/routes/_authenticated/index.tsx:352
 msgid "Failed to unsubscribe"
 msgstr "Kò lè yọ alábàápín"
 
@@ -698,6 +715,14 @@ msgstr "Ọjọ́ Ẹ̀tì"
 #: ../../../lib/web/src/components/travelling-picker.tsx:149
 msgid "From"
 msgstr "Láti"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:91
+#: ../../../lib/web/src/lib/preference-utils.ts:101
+#: ../../../lib/web/src/lib/preference-utils.ts:112
+#: ../../../lib/web/src/lib/preference-utils.ts:120
+#: ../../../lib/web/src/lib/preference-utils.ts:131
+msgid "From theme"
+msgstr "Lát'ọ̀dọ̀ Theme"
 
 #. placeholder {0}: new URL(server).hostname
 #: src/features/repository/repository-header.tsx:138
@@ -769,6 +794,11 @@ msgstr "Àwọn ìfẹ́"
 msgid "Invalid verification code"
 msgstr "Kóòdù ìjẹ́rìí aláìdára"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:105
+#: ../../../lib/web/src/lib/preference-utils.ts:123
+msgid "Large"
+msgstr "Tóbi"
+
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
 #: src/components/clone-dialog.tsx:297
 msgid "Last used {0}"
@@ -796,6 +826,7 @@ msgid "Load more"
 msgstr "Ṣí síwájú"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:32
+#: ../../../lib/web/src/features/document/document-page.tsx:87
 msgid "Loading…"
 msgstr "Ń ṣí…"
 
@@ -835,6 +866,10 @@ msgstr "Ṣàkóso àwọn token"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:220
 msgid "Mark all as read"
 msgstr "Sàmì sí gbogbo gẹ́gẹ́ bí kíkà"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:104
+msgid "Medium"
+msgstr "Àárín"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:152
 msgid "Menu"
@@ -910,10 +945,6 @@ msgstr "Kò sí ìròyìn tó sopọ̀"
 msgid "No groups available"
 msgstr "Kò sí ẹgbẹ́ tó wà"
 
-#: ../../../lib/web/src/components/language-picker.tsx:177
-msgid "No matches."
-msgstr "Kò sí ìbámu."
-
 #: ../../../lib/web/src/components/place-picker.tsx:129
 msgid "No places found"
 msgstr "A kò rí ibikíbi"
@@ -922,7 +953,7 @@ msgstr "A kò rí ibikíbi"
 msgid "No profile"
 msgstr "Kò sí profile"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "No public repositories."
 msgstr "Kò sí àwọn ibi ìpamọ́ ìta."
 
@@ -958,8 +989,14 @@ msgid "No users found"
 msgstr "A kò rí olùlò kankan"
 
 #: ../../../lib/web/src/components/person-picker.tsx:349
+#: ../../../lib/web/src/lib/preference-utils.ts:102
+#: ../../../lib/web/src/lib/preference-utils.ts:113
 msgid "None"
 msgstr "Kòsí"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:122
+msgid "Normal"
+msgstr "Déédéé"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1033,6 +1070,11 @@ msgstr "Jọ̀wọ́ tẹ orúkọ token sí"
 msgid "Previous image"
 msgstr "Àwòrán tó kọjá"
 
+#: ../../../lib/web/src/components/server-documents-footer.tsx:24
+#: ../../../lib/web/src/features/document/document-page.tsx:41
+msgid "Privacy"
+msgstr "Aṣírí"
+
 #: ../../../lib/web/src/components/layout/nav-user.tsx:134
 #: ../../../lib/web/src/components/profile-dropdown.tsx:111
 msgid "Profile"
@@ -1051,7 +1093,7 @@ msgstr "Kíkà nìkan"
 msgid "Recommended"
 msgstr "Tí a dábàá"
 
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:241
 msgid "Recommended repositories"
 msgstr "Àwọn repo tí a dábàá"
 
@@ -1089,9 +1131,9 @@ msgstr "Yọ àyè kúrò?"
 msgid "Remove interest"
 msgstr "Yọ ìfẹ́ kúrò"
 
-#: src/routes/_authenticated/index.tsx:143
-#: src/routes/_authenticated/index.tsx:208
-#: src/routes/_authenticated/index.tsx:216
+#: src/routes/_authenticated/index.tsx:144
+#: src/routes/_authenticated/index.tsx:213
+#: src/routes/_authenticated/index.tsx:221
 msgid "Repositories"
 msgstr "Àwọn repo"
 
@@ -1106,7 +1148,7 @@ msgstr "Àwọn repo"
 #: src/routes/_authenticated/$repoId.tsx:57
 #: src/routes/_authenticated/blob/$ref/$.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:60
-#: src/routes/_authenticated/index.tsx:97
+#: src/routes/_authenticated/index.tsx:98
 #: src/routes/_authenticated/tree/$ref/$.tsx:48
 #: src/routes/_authenticated/tree/$ref/$.tsx:59
 msgid "Repository"
@@ -1202,10 +1244,6 @@ msgstr "Wá àwọn user"
 msgid "Search..."
 msgstr "Wá..."
 
-#: ../../../lib/web/src/components/language-picker.tsx:175
-msgid "Search…"
-msgstr "Wá…"
-
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:174
 #: ../../../lib/web/src/components/search-entity-page.tsx:149
 #: ../../../lib/web/src/features/access/access-dialog.tsx:199
@@ -1261,6 +1299,15 @@ msgstr "Yan source branch"
 msgid "Select theme preference"
 msgstr "Yan àfẹ́nilọ́kàn theme"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:133
+msgid "Serif"
+msgstr "Serif"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:16
+#: ../../../lib/web/src/features/document/document-page.tsx:37
+msgid "Server rules"
+msgstr "Àwọn òfin sáfà"
+
 #: ../../../lib/web/src/lib/api-client.ts:224
 msgid "Session expired"
 msgstr "Session ti parí"
@@ -1299,10 +1346,19 @@ msgstr "Ń jáde..."
 msgid "Skip to Main"
 msgstr "Fò sí Olórí"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:103
+#: ../../../lib/web/src/lib/preference-utils.ts:121
+msgid "Small"
+msgstr "Kékeré"
+
 #: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "Source branch"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:94
+msgid "Spacious"
+msgstr "Àáyè"
 
 #: ../../../lib/web/src/components/coming-soon.tsx:12
 msgid "Stay tuned though!"
@@ -1313,13 +1369,13 @@ msgid "Subject"
 msgstr "Àkòrí"
 
 #: src/features/repository/inline-repo-search.tsx:137
-#: src/routes/_authenticated/index.tsx:270
+#: src/routes/_authenticated/index.tsx:275
 msgid "Subscribe"
 msgstr "Forúkọsílẹ̀"
 
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:184
+#: src/routes/_authenticated/index.tsx:189
 msgid "Subscribed"
 msgstr "Ti forúkọsílẹ̀"
 
@@ -1329,6 +1385,7 @@ msgstr "Ọjọ́ Àìkú"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
+#: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
 msgstr "System"
 
@@ -1344,6 +1401,11 @@ msgstr "Àwọn tag"
 #: ../../../lib/web/src/components/layout/team-switcher.tsx:60
 msgid "Teams/Apps"
 msgstr "Àwọn ẹgbẹ́/Apps"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:20
+#: ../../../lib/web/src/features/document/document-page.tsx:39
+msgid "Terms and conditions"
+msgstr "Àwọn ọ̀rọ̀ àti àwọn ipò"
 
 #: src/features/repository/repository-tabs.tsx:1050
 msgid "The branch shown when viewing the repository"
@@ -1469,9 +1531,9 @@ msgstr "United States"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:314
-#: src/routes/_authenticated/index.tsx:334
-#: src/routes/_authenticated/index.tsx:336
+#: src/routes/_authenticated/index.tsx:319
+#: src/routes/_authenticated/index.tsx:339
+#: src/routes/_authenticated/index.tsx:341
 msgid "Unsubscribe"
 msgstr "Yọ ìforúkọsílẹ̀ kúrò"
 
@@ -1480,7 +1542,7 @@ msgstr "Yọ ìforúkọsílẹ̀ kúrò"
 msgid "Unsubscribe from repository?"
 msgstr "Yọ ìforúkọsílẹ̀ kúrò lórí repository?"
 
-#: src/routes/_authenticated/index.tsx:344
+#: src/routes/_authenticated/index.tsx:349
 msgid "Unsubscribed"
 msgstr "Ti yọ ìforúkọsílẹ̀ kúrò"
 
@@ -1545,6 +1607,6 @@ msgstr "Síìtì wà lábẹ́ ìtọ́jú!"
 msgid "Wednesday"
 msgstr "Ọjọ́rú"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "You have no repositories yet."
 msgstr "O kò ní ibi ìpamọ́ kankan síbẹ̀."

@@ -156,7 +156,7 @@ msgstr "Povoliť komukoľvek vyhľadávať repozitár"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Naozaj sa chcete odhlásiť? Pre prístup k účtu sa budete musieť znova prihlásiť."
 
-#: src/routes/_authenticated/index.tsx:335
+#: src/routes/_authenticated/index.tsx:340
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Naozaj sa chcete odhlásiť z odberu tohto repozitára?"
 
@@ -260,7 +260,7 @@ msgstr "Vyberte smer stránky zľava doprava alebo sprava doľava"
 msgid "Choose between system preference, light mode, or dark mode"
 msgstr "Vyberte medzi systémovou predvoľbou, svetlým režimom alebo tmavým režimom"
 
-#: ../../../lib/web/src/components/language-picker.tsx:167
+#: ../../../lib/web/src/components/language-picker.tsx:174
 msgid "Choose language"
 msgstr "Vyberte jazyk"
 
@@ -315,6 +315,10 @@ msgstr "Zavrieť vyhľadávanie"
 msgid "Collapse sidebar"
 msgstr "Zbaliť bočný panel"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:93
+msgid "Comfortable"
+msgstr "Pohodlné"
+
 #: ../../../lib/web/src/components/coming-soon.tsx:9
 msgid "Coming Soon!"
 msgstr "Už čoskoro!"
@@ -340,6 +344,7 @@ msgid "Commits"
 msgstr "Commity"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:302
+#: ../../../lib/web/src/lib/preference-utils.ts:92
 msgid "Compact"
 msgstr "Kompaktné"
 
@@ -373,6 +378,10 @@ msgstr "Kopírovať"
 msgid "Could not determine route context"
 msgstr "Nepodarilo sa určiť kontext cesty"
 
+#: ../../../lib/web/src/features/document/document-page.tsx:81
+msgid "Could not load this document. Please try again later."
+msgstr "Tento dokument sa nepodarilo načítať. Skúste to neskôr."
+
 #: src/components/clone-dialog.tsx:379
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
@@ -382,7 +391,7 @@ msgstr "Vytvoriť"
 msgid "Create a new authentication token."
 msgstr "Vytvorte nový autentifikačný token."
 
-#: src/routes/_authenticated/index.tsx:225
+#: src/routes/_authenticated/index.tsx:230
 msgid "Create a new repository"
 msgstr "Vytvoriť nový repozitár"
 
@@ -497,7 +506,7 @@ msgstr "Popis"
 msgid "Details Panel"
 msgstr "Panel podrobností"
 
-#: ../../../lib/web/src/components/language-picker.tsx:145
+#: ../../../lib/web/src/components/language-picker.tsx:152
 #: ../../../lib/web/src/components/timezone-select.tsx:43
 #: ../../../lib/web/src/components/timezone-select.tsx:80
 #: ../../../lib/web/src/lib/preference-utils.ts:25
@@ -527,6 +536,10 @@ msgstr "Hotovo"
 msgid "Download"
 msgstr "Stiahnuť"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:134
+msgid "Dyslexia-friendly"
+msgstr "Vhodné pre dyslexiu"
+
 #: src/components/clone-dialog.tsx:362
 msgid "e.g., Work laptop"
 msgstr "napr. Pracovný laptop"
@@ -547,6 +560,10 @@ msgstr "Entita:"
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx:35
 msgid "Expand sidebar"
 msgstr "Rozbaliť bočný panel"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:124
+msgid "Extra large"
+msgstr "Veľmi veľké"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:217
 msgid "Failed to add account"
@@ -641,13 +658,13 @@ msgstr "Nepodarilo sa nastaviť úroveň prístupu"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:188
+#: src/routes/_authenticated/index.tsx:193
 msgid "Failed to subscribe"
 msgstr "Nepodarilo sa prihlásiť na odber"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:347
+#: src/routes/_authenticated/index.tsx:352
 msgid "Failed to unsubscribe"
 msgstr "Nepodarilo sa zrušiť odber"
 
@@ -698,6 +715,14 @@ msgstr "Piatok"
 #: ../../../lib/web/src/components/travelling-picker.tsx:149
 msgid "From"
 msgstr "Od"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:91
+#: ../../../lib/web/src/lib/preference-utils.ts:101
+#: ../../../lib/web/src/lib/preference-utils.ts:112
+#: ../../../lib/web/src/lib/preference-utils.ts:120
+#: ../../../lib/web/src/lib/preference-utils.ts:131
+msgid "From theme"
+msgstr "Z motívu"
 
 #. placeholder {0}: new URL(server).hostname
 #: src/features/repository/repository-header.tsx:138
@@ -769,6 +794,11 @@ msgstr "Záujmy"
 msgid "Invalid verification code"
 msgstr "Neplatný overovací kód"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:105
+#: ../../../lib/web/src/lib/preference-utils.ts:123
+msgid "Large"
+msgstr "Veľké"
+
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
 #: src/components/clone-dialog.tsx:297
 msgid "Last used {0}"
@@ -796,6 +826,7 @@ msgid "Load more"
 msgstr "Načítať viac"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:32
+#: ../../../lib/web/src/features/document/document-page.tsx:87
 msgid "Loading…"
 msgstr "Načítava sa…"
 
@@ -835,6 +866,10 @@ msgstr "Spravovať tokeny"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:220
 msgid "Mark all as read"
 msgstr "Označiť všetko ako prečítané"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:104
+msgid "Medium"
+msgstr "Stredné"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:152
 msgid "Menu"
@@ -910,10 +945,6 @@ msgstr "Žiadne prepojené účty"
 msgid "No groups available"
 msgstr "Nie sú dostupné žiadne skupiny"
 
-#: ../../../lib/web/src/components/language-picker.tsx:177
-msgid "No matches."
-msgstr "Žiadne zhody."
-
 #: ../../../lib/web/src/components/place-picker.tsx:129
 msgid "No places found"
 msgstr "Nenašli sa žiadne miesta"
@@ -922,7 +953,7 @@ msgstr "Nenašli sa žiadne miesta"
 msgid "No profile"
 msgstr "Bez profilu"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "No public repositories."
 msgstr "Žiadne verejné repozitáre."
 
@@ -958,8 +989,14 @@ msgid "No users found"
 msgstr "Nenašli sa žiadni používatelia"
 
 #: ../../../lib/web/src/components/person-picker.tsx:349
+#: ../../../lib/web/src/lib/preference-utils.ts:102
+#: ../../../lib/web/src/lib/preference-utils.ts:113
 msgid "None"
 msgstr "Žiadne"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:122
+msgid "Normal"
+msgstr "Normálne"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1033,6 +1070,11 @@ msgstr "Zadajte názov tokenu"
 msgid "Previous image"
 msgstr "Predchádzajúci obrázok"
 
+#: ../../../lib/web/src/components/server-documents-footer.tsx:24
+#: ../../../lib/web/src/features/document/document-page.tsx:41
+msgid "Privacy"
+msgstr "Súkromie"
+
 #: ../../../lib/web/src/components/layout/nav-user.tsx:134
 #: ../../../lib/web/src/components/profile-dropdown.tsx:111
 msgid "Profile"
@@ -1051,7 +1093,7 @@ msgstr "Iba na čítanie"
 msgid "Recommended"
 msgstr "Odporúčané"
 
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:241
 msgid "Recommended repositories"
 msgstr "Odporúčané repozitáre"
 
@@ -1089,9 +1131,9 @@ msgstr "Odstrániť prístup?"
 msgid "Remove interest"
 msgstr "Odstrániť záujem"
 
-#: src/routes/_authenticated/index.tsx:143
-#: src/routes/_authenticated/index.tsx:208
-#: src/routes/_authenticated/index.tsx:216
+#: src/routes/_authenticated/index.tsx:144
+#: src/routes/_authenticated/index.tsx:213
+#: src/routes/_authenticated/index.tsx:221
 msgid "Repositories"
 msgstr "Repozitáre"
 
@@ -1106,7 +1148,7 @@ msgstr "Repozitáre"
 #: src/routes/_authenticated/$repoId.tsx:57
 #: src/routes/_authenticated/blob/$ref/$.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:60
-#: src/routes/_authenticated/index.tsx:97
+#: src/routes/_authenticated/index.tsx:98
 #: src/routes/_authenticated/tree/$ref/$.tsx:48
 #: src/routes/_authenticated/tree/$ref/$.tsx:59
 msgid "Repository"
@@ -1202,10 +1244,6 @@ msgstr "Hľadať používateľov"
 msgid "Search..."
 msgstr "Hľadať..."
 
-#: ../../../lib/web/src/components/language-picker.tsx:175
-msgid "Search…"
-msgstr "Hľadať…"
-
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:174
 #: ../../../lib/web/src/components/search-entity-page.tsx:149
 #: ../../../lib/web/src/features/access/access-dialog.tsx:199
@@ -1261,6 +1299,15 @@ msgstr "Vybrať zdrojovú vetvu"
 msgid "Select theme preference"
 msgstr "Vybrať predvoľbu motívu"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:133
+msgid "Serif"
+msgstr "Pätkové"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:16
+#: ../../../lib/web/src/features/document/document-page.tsx:37
+msgid "Server rules"
+msgstr "Pravidlá servera"
+
 #: ../../../lib/web/src/lib/api-client.ts:224
 msgid "Session expired"
 msgstr "Platnosť relácie vypršala"
@@ -1299,10 +1346,19 @@ msgstr "Odhlasuje sa..."
 msgid "Skip to Main"
 msgstr "Preskočiť na hlavný obsah"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:103
+#: ../../../lib/web/src/lib/preference-utils.ts:121
+msgid "Small"
+msgstr "Malé"
+
 #: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "Zdrojová vetva"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:94
+msgid "Spacious"
+msgstr "Priestranné"
 
 #: ../../../lib/web/src/components/coming-soon.tsx:12
 msgid "Stay tuned though!"
@@ -1313,13 +1369,13 @@ msgid "Subject"
 msgstr "Predmet"
 
 #: src/features/repository/inline-repo-search.tsx:137
-#: src/routes/_authenticated/index.tsx:270
+#: src/routes/_authenticated/index.tsx:275
 msgid "Subscribe"
 msgstr "Prihlásiť na odber"
 
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:184
+#: src/routes/_authenticated/index.tsx:189
 msgid "Subscribed"
 msgstr "Prihlásený na odber"
 
@@ -1329,6 +1385,7 @@ msgstr "Nedeľa"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
+#: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
 msgstr "Systém"
 
@@ -1344,6 +1401,11 @@ msgstr "Tagy"
 #: ../../../lib/web/src/components/layout/team-switcher.tsx:60
 msgid "Teams/Apps"
 msgstr "Tímy/Aplikácie"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:20
+#: ../../../lib/web/src/features/document/document-page.tsx:39
+msgid "Terms and conditions"
+msgstr "Podmienky používania"
 
 #: src/features/repository/repository-tabs.tsx:1050
 msgid "The branch shown when viewing the repository"
@@ -1469,9 +1531,9 @@ msgstr "Spojené štáty"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:314
-#: src/routes/_authenticated/index.tsx:334
-#: src/routes/_authenticated/index.tsx:336
+#: src/routes/_authenticated/index.tsx:319
+#: src/routes/_authenticated/index.tsx:339
+#: src/routes/_authenticated/index.tsx:341
 msgid "Unsubscribe"
 msgstr "Odhlásiť odber"
 
@@ -1480,7 +1542,7 @@ msgstr "Odhlásiť odber"
 msgid "Unsubscribe from repository?"
 msgstr "Odhlásiť odber repozitára?"
 
-#: src/routes/_authenticated/index.tsx:344
+#: src/routes/_authenticated/index.tsx:349
 msgid "Unsubscribed"
 msgstr "Odber zrušený"
 
@@ -1545,6 +1607,6 @@ msgstr "Webová stránka je v údržbe!"
 msgid "Wednesday"
 msgstr "Streda"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "You have no repositories yet."
 msgstr "Zatiaľ nemáte žiadne repozitáre."

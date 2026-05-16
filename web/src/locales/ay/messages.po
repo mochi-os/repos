@@ -156,7 +156,7 @@ msgstr "Khitirus repositorio thaqaña iyawsaña"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Chiqpach mistuña munta? Wasitat mantañam cuentamar mantañataki."
 
-#: src/routes/_authenticated/index.tsx:335
+#: src/routes/_authenticated/index.tsx:340
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Chiqpach aka repositoriot mistuña munta?"
 
@@ -260,7 +260,7 @@ msgstr "Ch'iqat-kupiru jan ukax kupit-ch'iqaru sitio dirección ajllxaña"
 msgid "Choose between system preference, light mode, or dark mode"
 msgstr "Sistema munawi, qhana modo, jan ukax ch'amaka modo ajllxaña"
 
-#: ../../../lib/web/src/components/language-picker.tsx:167
+#: ../../../lib/web/src/components/language-picker.tsx:174
 msgid "Choose language"
 msgstr "Aru ajllxaña"
 
@@ -315,6 +315,10 @@ msgstr "Thaqaña jist'antaña"
 msgid "Collapse sidebar"
 msgstr "Sidebar jist'antaña"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:93
+msgid "Comfortable"
+msgstr "Suma"
+
 #: ../../../lib/web/src/components/coming-soon.tsx:9
 msgid "Coming Soon!"
 msgstr "Jichhakiwa!"
@@ -340,6 +344,7 @@ msgid "Commits"
 msgstr "Commits"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:302
+#: ../../../lib/web/src/lib/preference-utils.ts:92
 msgid "Compact"
 msgstr "Compacto"
 
@@ -373,6 +378,10 @@ msgstr "Copiaña"
 msgid "Could not determine route context"
 msgstr "Janiw thaki contexto amuyañ atkiti"
 
+#: ../../../lib/web/src/features/document/document-page.tsx:81
+msgid "Could not load this document. Please try again later."
+msgstr "Janiw aka documento apañ atkiti. Mira qhipata wasitat yant'aña."
+
 #: src/components/clone-dialog.tsx:379
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
@@ -382,7 +391,7 @@ msgstr "Luraña"
 msgid "Create a new authentication token."
 msgstr "Mä machaq authentication token luraña."
 
-#: src/routes/_authenticated/index.tsx:225
+#: src/routes/_authenticated/index.tsx:230
 msgid "Create a new repository"
 msgstr "Mä machaq repositorio luraña"
 
@@ -497,7 +506,7 @@ msgstr "Uñacht'awi"
 msgid "Details Panel"
 msgstr "Detalle Panel"
 
-#: ../../../lib/web/src/components/language-picker.tsx:145
+#: ../../../lib/web/src/components/language-picker.tsx:152
 #: ../../../lib/web/src/components/timezone-select.tsx:43
 #: ../../../lib/web/src/components/timezone-select.tsx:80
 #: ../../../lib/web/src/lib/preference-utils.ts:25
@@ -527,6 +536,10 @@ msgstr "Tukuyata"
 msgid "Download"
 msgstr "Apaqaña"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:134
+msgid "Dyslexia-friendly"
+msgstr "Dislexia jaqinakataki"
+
 #: src/components/clone-dialog.tsx:362
 msgid "e.g., Work laptop"
 msgstr "email código"
@@ -547,6 +560,10 @@ msgstr "Entidad:"
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx:35
 msgid "Expand sidebar"
 msgstr "Sidebar jach'achaña"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:124
+msgid "Extra large"
+msgstr "Sinti jach'a"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:217
 msgid "Failed to add account"
@@ -641,13 +658,13 @@ msgstr "Janiw acceso patxa uchaña atinkti"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:188
+#: src/routes/_authenticated/index.tsx:193
 msgid "Failed to subscribe"
 msgstr "Janiw suscribiña atinkti"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:347
+#: src/routes/_authenticated/index.tsx:352
 msgid "Failed to unsubscribe"
 msgstr "Janiw suscripción jaytaña atinkti"
 
@@ -698,6 +715,14 @@ msgstr "Viernes"
 #: ../../../lib/web/src/components/travelling-picker.tsx:149
 msgid "From"
 msgstr "Ukatx"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:91
+#: ../../../lib/web/src/lib/preference-utils.ts:101
+#: ../../../lib/web/src/lib/preference-utils.ts:112
+#: ../../../lib/web/src/lib/preference-utils.ts:120
+#: ../../../lib/web/src/lib/preference-utils.ts:131
+msgid "From theme"
+msgstr "Temata"
 
 #. placeholder {0}: new URL(server).hostname
 #: src/features/repository/repository-header.tsx:138
@@ -769,6 +794,11 @@ msgstr "Interesanaka"
 msgid "Invalid verification code"
 msgstr "Jan wakisir verificación código"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:105
+#: ../../../lib/web/src/lib/preference-utils.ts:123
+msgid "Large"
+msgstr "Jach'a"
+
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
 #: src/components/clone-dialog.tsx:297
 msgid "Last used {0}"
@@ -796,6 +826,7 @@ msgid "Load more"
 msgstr "Jukamp apaqaña"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:32
+#: ../../../lib/web/src/features/document/document-page.tsx:87
 msgid "Loading…"
 msgstr "Apaqaskiwa…"
 
@@ -835,6 +866,10 @@ msgstr "Tokennak apnaqaña"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:220
 msgid "Mark all as read"
 msgstr "Taqpach ullt'ata uñacht'ayaña"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:104
+msgid "Medium"
+msgstr "Taypi"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:152
 msgid "Menu"
@@ -910,10 +945,6 @@ msgstr "Jan cuenta connectatati"
 msgid "No groups available"
 msgstr "Jan tamanak utjki"
 
-#: ../../../lib/web/src/components/language-picker.tsx:177
-msgid "No matches."
-msgstr "Jan jikxatawinaka."
-
 #: ../../../lib/web/src/components/place-picker.tsx:129
 msgid "No places found"
 msgstr "Cheqanak jan jikxatasiti"
@@ -922,7 +953,7 @@ msgstr "Cheqanak jan jikxatasiti"
 msgid "No profile"
 msgstr "Jan perfil"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "No public repositories."
 msgstr "Jan public repositorionaka."
 
@@ -958,8 +989,14 @@ msgid "No users found"
 msgstr "Usuarionak jan jikxatasiti"
 
 #: ../../../lib/web/src/components/person-picker.tsx:349
+#: ../../../lib/web/src/lib/preference-utils.ts:102
+#: ../../../lib/web/src/lib/preference-utils.ts:113
 msgid "None"
 msgstr "Janiwa"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:122
+msgid "Normal"
+msgstr "Walja"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1033,6 +1070,11 @@ msgstr "Token suti mantayama"
 msgid "Previous image"
 msgstr "Nayrïri imagen"
 
+#: ../../../lib/web/src/components/server-documents-footer.tsx:24
+#: ../../../lib/web/src/features/document/document-page.tsx:41
+msgid "Privacy"
+msgstr "Imantawi"
+
 #: ../../../lib/web/src/components/layout/nav-user.tsx:134
 #: ../../../lib/web/src/components/profile-dropdown.tsx:111
 msgid "Profile"
@@ -1051,7 +1093,7 @@ msgstr "Ullt'añakiwa"
 msgid "Recommended"
 msgstr "Recomendata"
 
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:241
 msgid "Recommended repositories"
 msgstr "Recomendat repositorionaka"
 
@@ -1089,9 +1131,9 @@ msgstr "¿Mantañ aparma?"
 msgid "Remove interest"
 msgstr "Interés aparma"
 
-#: src/routes/_authenticated/index.tsx:143
-#: src/routes/_authenticated/index.tsx:208
-#: src/routes/_authenticated/index.tsx:216
+#: src/routes/_authenticated/index.tsx:144
+#: src/routes/_authenticated/index.tsx:213
+#: src/routes/_authenticated/index.tsx:221
 msgid "Repositories"
 msgstr "Repositorionaka"
 
@@ -1106,7 +1148,7 @@ msgstr "Repositorionaka"
 #: src/routes/_authenticated/$repoId.tsx:57
 #: src/routes/_authenticated/blob/$ref/$.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:60
-#: src/routes/_authenticated/index.tsx:97
+#: src/routes/_authenticated/index.tsx:98
 #: src/routes/_authenticated/tree/$ref/$.tsx:48
 #: src/routes/_authenticated/tree/$ref/$.tsx:59
 msgid "Repository"
@@ -1202,10 +1244,6 @@ msgstr "Usuarionak thaqhama"
 msgid "Search..."
 msgstr "Thaqhama..."
 
-#: ../../../lib/web/src/components/language-picker.tsx:175
-msgid "Search…"
-msgstr "Thaqhama…"
-
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:174
 #: ../../../lib/web/src/components/search-entity-page.tsx:149
 #: ../../../lib/web/src/features/access/access-dialog.tsx:199
@@ -1261,6 +1299,15 @@ msgstr "Jutir rama ajlliña"
 msgid "Select theme preference"
 msgstr "Tema preferencia ajlliña"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:133
+msgid "Serif"
+msgstr "Serif"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:16
+#: ../../../lib/web/src/features/document/document-page.tsx:37
+msgid "Server rules"
+msgstr "Servidor reglas"
+
 #: ../../../lib/web/src/lib/api-client.ts:224
 msgid "Session expired"
 msgstr "Sesión tukusi"
@@ -1299,10 +1346,19 @@ msgstr "Mistuyasa..."
 msgid "Skip to Main"
 msgstr "Main ukar saraqaña"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:103
+#: ../../../lib/web/src/lib/preference-utils.ts:121
+msgid "Small"
+msgstr "Jisk'a"
+
 #: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "Origen rama"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:94
+msgid "Spacious"
+msgstr "Jach'a"
 
 #: ../../../lib/web/src/components/coming-soon.tsx:12
 msgid "Stay tuned though!"
@@ -1313,13 +1369,13 @@ msgid "Subject"
 msgstr "Tema"
 
 #: src/features/repository/inline-repo-search.tsx:137
-#: src/routes/_authenticated/index.tsx:270
+#: src/routes/_authenticated/index.tsx:275
 msgid "Subscribe"
 msgstr "Suscribiña"
 
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:184
+#: src/routes/_authenticated/index.tsx:189
 msgid "Subscribed"
 msgstr "Suscribita"
 
@@ -1329,6 +1385,7 @@ msgstr "Domingo"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
+#: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
 msgstr "Sistema"
 
@@ -1344,6 +1401,11 @@ msgstr "Tags"
 #: ../../../lib/web/src/components/layout/team-switcher.tsx:60
 msgid "Teams/Apps"
 msgstr "Equipos/Apps"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:20
+#: ../../../lib/web/src/features/document/document-page.tsx:39
+msgid "Terms and conditions"
+msgstr "Términos ukat condicionanaka"
 
 #: src/features/repository/repository-tabs.tsx:1050
 msgid "The branch shown when viewing the repository"
@@ -1469,9 +1531,9 @@ msgstr "Unidades"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:314
-#: src/routes/_authenticated/index.tsx:334
-#: src/routes/_authenticated/index.tsx:336
+#: src/routes/_authenticated/index.tsx:319
+#: src/routes/_authenticated/index.tsx:339
+#: src/routes/_authenticated/index.tsx:341
 msgid "Unsubscribe"
 msgstr "CRM ukatpach suscripción jaytaña?"
 
@@ -1480,7 +1542,7 @@ msgstr "CRM ukatpach suscripción jaytaña?"
 msgid "Unsubscribe from repository?"
 msgstr "Suscripción jaytata"
 
-#: src/routes/_authenticated/index.tsx:344
+#: src/routes/_authenticated/index.tsx:349
 msgid "Unsubscribed"
 msgstr "Repositorio ukatpach suscripción jaytata"
 
@@ -1545,6 +1607,6 @@ msgstr "Miércoles"
 msgid "Wednesday"
 msgstr "Semanax aka uru qalltani"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "You have no repositories yet."
 msgstr "Janïraw chatnak qalltkta. Mä masimamp juntayasiñam qalltañataki."

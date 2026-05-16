@@ -156,7 +156,7 @@ msgstr "誰でもリポジトリを検索できるようにする"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "本当にログアウトしますか？再度アクセスするにはログインが必要です。"
 
-#: src/routes/_authenticated/index.tsx:335
+#: src/routes/_authenticated/index.tsx:340
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "このリポジトリの購読を解除しますか？"
 
@@ -260,7 +260,7 @@ msgstr "左から右、または右から左のサイト表示方向から選択
 msgid "Choose between system preference, light mode, or dark mode"
 msgstr "システム設定、ライトモード、ダークモードから選択します"
 
-#: ../../../lib/web/src/components/language-picker.tsx:167
+#: ../../../lib/web/src/components/language-picker.tsx:174
 msgid "Choose language"
 msgstr "言語を選択"
 
@@ -315,6 +315,10 @@ msgstr "検索を閉じる"
 msgid "Collapse sidebar"
 msgstr "サイドバーを折りたたむ"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:93
+msgid "Comfortable"
+msgstr "快適"
+
 #: ../../../lib/web/src/components/coming-soon.tsx:9
 msgid "Coming Soon!"
 msgstr "近日公開!"
@@ -340,6 +344,7 @@ msgid "Commits"
 msgstr "コミット"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:302
+#: ../../../lib/web/src/lib/preference-utils.ts:92
 msgid "Compact"
 msgstr "コンパクト"
 
@@ -373,6 +378,10 @@ msgstr "コピー"
 msgid "Could not determine route context"
 msgstr "ルートコンテキストを特定できませんでした"
 
+#: ../../../lib/web/src/features/document/document-page.tsx:81
+msgid "Could not load this document. Please try again later."
+msgstr "このドキュメントを読み込めませんでした。後ほどもう一度お試しください。"
+
 #: src/components/clone-dialog.tsx:379
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
@@ -382,7 +391,7 @@ msgstr "作成"
 msgid "Create a new authentication token."
 msgstr "新しい認証トークンを作成します。"
 
-#: src/routes/_authenticated/index.tsx:225
+#: src/routes/_authenticated/index.tsx:230
 msgid "Create a new repository"
 msgstr "新しいリポジトリを作成"
 
@@ -497,7 +506,7 @@ msgstr "説明"
 msgid "Details Panel"
 msgstr "詳細パネル"
 
-#: ../../../lib/web/src/components/language-picker.tsx:145
+#: ../../../lib/web/src/components/language-picker.tsx:152
 #: ../../../lib/web/src/components/timezone-select.tsx:43
 #: ../../../lib/web/src/components/timezone-select.tsx:80
 #: ../../../lib/web/src/lib/preference-utils.ts:25
@@ -527,6 +536,10 @@ msgstr "完了"
 msgid "Download"
 msgstr "ダウンロード"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:134
+msgid "Dyslexia-friendly"
+msgstr "ディスレクシア対応"
+
 #: src/components/clone-dialog.tsx:362
 msgid "e.g., Work laptop"
 msgstr "例: 業務用ノートPC"
@@ -547,6 +560,10 @@ msgstr "エンティティ："
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx:35
 msgid "Expand sidebar"
 msgstr "サイドバーを展開"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:124
+msgid "Extra large"
+msgstr "特大"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:217
 msgid "Failed to add account"
@@ -641,13 +658,13 @@ msgstr "アクセスレベルの設定に失敗しました"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:188
+#: src/routes/_authenticated/index.tsx:193
 msgid "Failed to subscribe"
 msgstr "購読に失敗しました"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:347
+#: src/routes/_authenticated/index.tsx:352
 msgid "Failed to unsubscribe"
 msgstr "購読解除に失敗しました"
 
@@ -698,6 +715,14 @@ msgstr "金曜日"
 #: ../../../lib/web/src/components/travelling-picker.tsx:149
 msgid "From"
 msgstr "差出元"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:91
+#: ../../../lib/web/src/lib/preference-utils.ts:101
+#: ../../../lib/web/src/lib/preference-utils.ts:112
+#: ../../../lib/web/src/lib/preference-utils.ts:120
+#: ../../../lib/web/src/lib/preference-utils.ts:131
+msgid "From theme"
+msgstr "テーマから"
 
 #. placeholder {0}: new URL(server).hostname
 #: src/features/repository/repository-header.tsx:138
@@ -769,6 +794,11 @@ msgstr "興味"
 msgid "Invalid verification code"
 msgstr "確認コードが無効です"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:105
+#: ../../../lib/web/src/lib/preference-utils.ts:123
+msgid "Large"
+msgstr "大"
+
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
 #: src/components/clone-dialog.tsx:297
 msgid "Last used {0}"
@@ -796,6 +826,7 @@ msgid "Load more"
 msgstr "もっと読み込む"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:32
+#: ../../../lib/web/src/features/document/document-page.tsx:87
 msgid "Loading…"
 msgstr "読み込み中…"
 
@@ -835,6 +866,10 @@ msgstr "トークンを管理"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:220
 msgid "Mark all as read"
 msgstr "すべて既読にする"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:104
+msgid "Medium"
+msgstr "中"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:152
 msgid "Menu"
@@ -910,10 +945,6 @@ msgstr "接続されたアカウントがありません"
 msgid "No groups available"
 msgstr "利用可能なグループがありません"
 
-#: ../../../lib/web/src/components/language-picker.tsx:177
-msgid "No matches."
-msgstr "一致するものがありません。"
-
 #: ../../../lib/web/src/components/place-picker.tsx:129
 msgid "No places found"
 msgstr "場所が見つかりません"
@@ -922,7 +953,7 @@ msgstr "場所が見つかりません"
 msgid "No profile"
 msgstr "プロフィールがありません"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "No public repositories."
 msgstr "公開リポジトリはありません。"
 
@@ -958,8 +989,14 @@ msgid "No users found"
 msgstr "ユーザーが見つかりません"
 
 #: ../../../lib/web/src/components/person-picker.tsx:349
+#: ../../../lib/web/src/lib/preference-utils.ts:102
+#: ../../../lib/web/src/lib/preference-utils.ts:113
 msgid "None"
 msgstr "なし"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:122
+msgid "Normal"
+msgstr "標準"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1033,6 +1070,11 @@ msgstr "トークン名を入力してください"
 msgid "Previous image"
 msgstr "前の画像"
 
+#: ../../../lib/web/src/components/server-documents-footer.tsx:24
+#: ../../../lib/web/src/features/document/document-page.tsx:41
+msgid "Privacy"
+msgstr "プライバシー"
+
 #: ../../../lib/web/src/components/layout/nav-user.tsx:134
 #: ../../../lib/web/src/components/profile-dropdown.tsx:111
 msgid "Profile"
@@ -1051,7 +1093,7 @@ msgstr "読み取り専用"
 msgid "Recommended"
 msgstr "おすすめ"
 
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:241
 msgid "Recommended repositories"
 msgstr "おすすめのリポジトリ"
 
@@ -1089,9 +1131,9 @@ msgstr "アクセスを削除しますか?"
 msgid "Remove interest"
 msgstr "関心を削除"
 
-#: src/routes/_authenticated/index.tsx:143
-#: src/routes/_authenticated/index.tsx:208
-#: src/routes/_authenticated/index.tsx:216
+#: src/routes/_authenticated/index.tsx:144
+#: src/routes/_authenticated/index.tsx:213
+#: src/routes/_authenticated/index.tsx:221
 msgid "Repositories"
 msgstr "リポジトリ"
 
@@ -1106,7 +1148,7 @@ msgstr "リポジトリ"
 #: src/routes/_authenticated/$repoId.tsx:57
 #: src/routes/_authenticated/blob/$ref/$.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:60
-#: src/routes/_authenticated/index.tsx:97
+#: src/routes/_authenticated/index.tsx:98
 #: src/routes/_authenticated/tree/$ref/$.tsx:48
 #: src/routes/_authenticated/tree/$ref/$.tsx:59
 msgid "Repository"
@@ -1202,10 +1244,6 @@ msgstr "ユーザーを検索"
 msgid "Search..."
 msgstr "検索…"
 
-#: ../../../lib/web/src/components/language-picker.tsx:175
-msgid "Search…"
-msgstr "検索…"
-
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:174
 #: ../../../lib/web/src/components/search-entity-page.tsx:149
 #: ../../../lib/web/src/features/access/access-dialog.tsx:199
@@ -1261,6 +1299,15 @@ msgstr "ソースブランチを選択"
 msgid "Select theme preference"
 msgstr "テーマの設定を選択"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:133
+msgid "Serif"
+msgstr "セリフ"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:16
+#: ../../../lib/web/src/features/document/document-page.tsx:37
+msgid "Server rules"
+msgstr "サーバーのルール"
+
 #: ../../../lib/web/src/lib/api-client.ts:224
 msgid "Session expired"
 msgstr "セッションの有効期限が切れました"
@@ -1299,10 +1346,19 @@ msgstr "サインアウト中..."
 msgid "Skip to Main"
 msgstr "メインコンテンツへスキップ"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:103
+#: ../../../lib/web/src/lib/preference-utils.ts:121
+msgid "Small"
+msgstr "小"
+
 #: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "ソースブランチ"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:94
+msgid "Spacious"
+msgstr "ゆったり"
 
 #: ../../../lib/web/src/components/coming-soon.tsx:12
 msgid "Stay tuned though!"
@@ -1313,13 +1369,13 @@ msgid "Subject"
 msgstr "件名"
 
 #: src/features/repository/inline-repo-search.tsx:137
-#: src/routes/_authenticated/index.tsx:270
+#: src/routes/_authenticated/index.tsx:275
 msgid "Subscribe"
 msgstr "購読する"
 
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:184
+#: src/routes/_authenticated/index.tsx:189
 msgid "Subscribed"
 msgstr "購読中"
 
@@ -1329,6 +1385,7 @@ msgstr "日曜日"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
+#: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
 msgstr "システム"
 
@@ -1344,6 +1401,11 @@ msgstr "タグ"
 #: ../../../lib/web/src/components/layout/team-switcher.tsx:60
 msgid "Teams/Apps"
 msgstr "チーム/アプリ"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:20
+#: ../../../lib/web/src/features/document/document-page.tsx:39
+msgid "Terms and conditions"
+msgstr "利用規約"
 
 #: src/features/repository/repository-tabs.tsx:1050
 msgid "The branch shown when viewing the repository"
@@ -1469,9 +1531,9 @@ msgstr "アメリカ合衆国"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:314
-#: src/routes/_authenticated/index.tsx:334
-#: src/routes/_authenticated/index.tsx:336
+#: src/routes/_authenticated/index.tsx:319
+#: src/routes/_authenticated/index.tsx:339
+#: src/routes/_authenticated/index.tsx:341
 msgid "Unsubscribe"
 msgstr "購読解除"
 
@@ -1480,7 +1542,7 @@ msgstr "購読解除"
 msgid "Unsubscribe from repository?"
 msgstr "リポジトリの購読を解除しますか?"
 
-#: src/routes/_authenticated/index.tsx:344
+#: src/routes/_authenticated/index.tsx:349
 msgid "Unsubscribed"
 msgstr "購読を解除しました"
 
@@ -1545,6 +1607,6 @@ msgstr "ウェブサイトはメンテナンス中です!"
 msgid "Wednesday"
 msgstr "水曜日"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "You have no repositories yet."
 msgstr "まだリポジトリがありません。"

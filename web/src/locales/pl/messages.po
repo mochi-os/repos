@@ -156,7 +156,7 @@ msgstr "Zezwól każdemu na wyszukiwanie repozytorium"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Czy na pewno chcesz się wylogować? Aby uzyskać dostęp do konta, będzie trzeba zalogować się ponownie."
 
-#: src/routes/_authenticated/index.tsx:335
+#: src/routes/_authenticated/index.tsx:340
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Czy na pewno chcesz anulować subskrypcję tego repozytorium?"
 
@@ -260,7 +260,7 @@ msgstr "Wybierz kierunek strony od lewej do prawej lub od prawej do lewej"
 msgid "Choose between system preference, light mode, or dark mode"
 msgstr "Wybierz między preferencją systemu, trybem jasnym lub ciemnym"
 
-#: ../../../lib/web/src/components/language-picker.tsx:167
+#: ../../../lib/web/src/components/language-picker.tsx:174
 msgid "Choose language"
 msgstr "Wybierz język"
 
@@ -315,6 +315,10 @@ msgstr "Zamknij wyszukiwanie"
 msgid "Collapse sidebar"
 msgstr "Zwiń pasek boczny"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:93
+msgid "Comfortable"
+msgstr "Wygodne"
+
 #: ../../../lib/web/src/components/coming-soon.tsx:9
 msgid "Coming Soon!"
 msgstr "Już wkrótce!"
@@ -340,6 +344,7 @@ msgid "Commits"
 msgstr "Commity"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:302
+#: ../../../lib/web/src/lib/preference-utils.ts:92
 msgid "Compact"
 msgstr "Kompaktowy"
 
@@ -373,6 +378,10 @@ msgstr "Kopiuj"
 msgid "Could not determine route context"
 msgstr "Nie udało się określić kontekstu trasy"
 
+#: ../../../lib/web/src/features/document/document-page.tsx:81
+msgid "Could not load this document. Please try again later."
+msgstr "Nie można wczytać tego dokumentu. Spróbuj ponownie później."
+
 #: src/components/clone-dialog.tsx:379
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
@@ -382,7 +391,7 @@ msgstr "Utwórz"
 msgid "Create a new authentication token."
 msgstr "Utwórz nowy token uwierzytelniania."
 
-#: src/routes/_authenticated/index.tsx:225
+#: src/routes/_authenticated/index.tsx:230
 msgid "Create a new repository"
 msgstr "Utwórz nowe repozytorium"
 
@@ -497,7 +506,7 @@ msgstr "Opis"
 msgid "Details Panel"
 msgstr "Panel szczegółów"
 
-#: ../../../lib/web/src/components/language-picker.tsx:145
+#: ../../../lib/web/src/components/language-picker.tsx:152
 #: ../../../lib/web/src/components/timezone-select.tsx:43
 #: ../../../lib/web/src/components/timezone-select.tsx:80
 #: ../../../lib/web/src/lib/preference-utils.ts:25
@@ -527,6 +536,10 @@ msgstr "Gotowe"
 msgid "Download"
 msgstr "Pobierz"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:134
+msgid "Dyslexia-friendly"
+msgstr "Przyjazna dla dysleksji"
+
 #: src/components/clone-dialog.tsx:362
 msgid "e.g., Work laptop"
 msgstr "np. Laptop służbowy"
@@ -547,6 +560,10 @@ msgstr "Encja:"
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx:35
 msgid "Expand sidebar"
 msgstr "Rozwiń pasek boczny"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:124
+msgid "Extra large"
+msgstr "Bardzo duży"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:217
 msgid "Failed to add account"
@@ -641,13 +658,13 @@ msgstr "Nie udało się ustawić poziomu dostępu"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:188
+#: src/routes/_authenticated/index.tsx:193
 msgid "Failed to subscribe"
 msgstr "Nie udało się zasubskrybować"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:347
+#: src/routes/_authenticated/index.tsx:352
 msgid "Failed to unsubscribe"
 msgstr "Nie udało się anulować subskrypcji"
 
@@ -698,6 +715,14 @@ msgstr "Piątek"
 #: ../../../lib/web/src/components/travelling-picker.tsx:149
 msgid "From"
 msgstr "Od"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:91
+#: ../../../lib/web/src/lib/preference-utils.ts:101
+#: ../../../lib/web/src/lib/preference-utils.ts:112
+#: ../../../lib/web/src/lib/preference-utils.ts:120
+#: ../../../lib/web/src/lib/preference-utils.ts:131
+msgid "From theme"
+msgstr "Z motywu"
 
 #. placeholder {0}: new URL(server).hostname
 #: src/features/repository/repository-header.tsx:138
@@ -769,6 +794,11 @@ msgstr "Zainteresowania"
 msgid "Invalid verification code"
 msgstr "Nieprawidłowy kod weryfikacyjny"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:105
+#: ../../../lib/web/src/lib/preference-utils.ts:123
+msgid "Large"
+msgstr "Duży"
+
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
 #: src/components/clone-dialog.tsx:297
 msgid "Last used {0}"
@@ -796,6 +826,7 @@ msgid "Load more"
 msgstr "Załaduj więcej"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:32
+#: ../../../lib/web/src/features/document/document-page.tsx:87
 msgid "Loading…"
 msgstr "Ładowanie…"
 
@@ -835,6 +866,10 @@ msgstr "Zarządzaj tokenami"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:220
 msgid "Mark all as read"
 msgstr "Oznacz wszystkie jako przeczytane"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:104
+msgid "Medium"
+msgstr "Średni"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:152
 msgid "Menu"
@@ -910,10 +945,6 @@ msgstr "Brak połączonych kont"
 msgid "No groups available"
 msgstr "Brak dostępnych grup"
 
-#: ../../../lib/web/src/components/language-picker.tsx:177
-msgid "No matches."
-msgstr "Brak dopasowań."
-
 #: ../../../lib/web/src/components/place-picker.tsx:129
 msgid "No places found"
 msgstr "Nie znaleziono miejsc"
@@ -922,7 +953,7 @@ msgstr "Nie znaleziono miejsc"
 msgid "No profile"
 msgstr "Brak profilu"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "No public repositories."
 msgstr "Brak publicznych repozytoriów."
 
@@ -958,8 +989,14 @@ msgid "No users found"
 msgstr "Nie znaleziono użytkowników"
 
 #: ../../../lib/web/src/components/person-picker.tsx:349
+#: ../../../lib/web/src/lib/preference-utils.ts:102
+#: ../../../lib/web/src/lib/preference-utils.ts:113
 msgid "None"
 msgstr "Brak"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:122
+msgid "Normal"
+msgstr "Normalny"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1033,6 +1070,11 @@ msgstr "Wprowadź nazwę tokena"
 msgid "Previous image"
 msgstr "Poprzedni obraz"
 
+#: ../../../lib/web/src/components/server-documents-footer.tsx:24
+#: ../../../lib/web/src/features/document/document-page.tsx:41
+msgid "Privacy"
+msgstr "Prywatność"
+
 #: ../../../lib/web/src/components/layout/nav-user.tsx:134
 #: ../../../lib/web/src/components/profile-dropdown.tsx:111
 msgid "Profile"
@@ -1051,7 +1093,7 @@ msgstr "Tylko do odczytu"
 msgid "Recommended"
 msgstr "Polecane"
 
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:241
 msgid "Recommended repositories"
 msgstr "Polecane repozytoria"
 
@@ -1089,9 +1131,9 @@ msgstr "Usunąć dostęp?"
 msgid "Remove interest"
 msgstr "Usuń zainteresowanie"
 
-#: src/routes/_authenticated/index.tsx:143
-#: src/routes/_authenticated/index.tsx:208
-#: src/routes/_authenticated/index.tsx:216
+#: src/routes/_authenticated/index.tsx:144
+#: src/routes/_authenticated/index.tsx:213
+#: src/routes/_authenticated/index.tsx:221
 msgid "Repositories"
 msgstr "Repozytoria"
 
@@ -1106,7 +1148,7 @@ msgstr "Repozytoria"
 #: src/routes/_authenticated/$repoId.tsx:57
 #: src/routes/_authenticated/blob/$ref/$.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:60
-#: src/routes/_authenticated/index.tsx:97
+#: src/routes/_authenticated/index.tsx:98
 #: src/routes/_authenticated/tree/$ref/$.tsx:48
 #: src/routes/_authenticated/tree/$ref/$.tsx:59
 msgid "Repository"
@@ -1202,10 +1244,6 @@ msgstr "Szukaj użytkowników"
 msgid "Search..."
 msgstr "Szukaj..."
 
-#: ../../../lib/web/src/components/language-picker.tsx:175
-msgid "Search…"
-msgstr "Szukaj…"
-
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:174
 #: ../../../lib/web/src/components/search-entity-page.tsx:149
 #: ../../../lib/web/src/features/access/access-dialog.tsx:199
@@ -1261,6 +1299,15 @@ msgstr "Wybierz gałąź źródłową"
 msgid "Select theme preference"
 msgstr "Wybierz preferencję motywu"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:133
+msgid "Serif"
+msgstr "Szeryfowa"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:16
+#: ../../../lib/web/src/features/document/document-page.tsx:37
+msgid "Server rules"
+msgstr "Zasady serwera"
+
 #: ../../../lib/web/src/lib/api-client.ts:224
 msgid "Session expired"
 msgstr "Sesja wygasła"
@@ -1299,10 +1346,19 @@ msgstr "Wylogowywanie..."
 msgid "Skip to Main"
 msgstr "Przejdź do głównej"
 
+#: ../../../lib/web/src/lib/preference-utils.ts:103
+#: ../../../lib/web/src/lib/preference-utils.ts:121
+msgid "Small"
+msgstr "Mały"
+
 #: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "Gałąź źródłowa"
+
+#: ../../../lib/web/src/lib/preference-utils.ts:94
+msgid "Spacious"
+msgstr "Przestronne"
 
 #: ../../../lib/web/src/components/coming-soon.tsx:12
 msgid "Stay tuned though!"
@@ -1313,13 +1369,13 @@ msgid "Subject"
 msgstr "Temat"
 
 #: src/features/repository/inline-repo-search.tsx:137
-#: src/routes/_authenticated/index.tsx:270
+#: src/routes/_authenticated/index.tsx:275
 msgid "Subscribe"
 msgstr "Subskrybuj"
 
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:184
+#: src/routes/_authenticated/index.tsx:189
 msgid "Subscribed"
 msgstr "Zasubskrybowano"
 
@@ -1329,6 +1385,7 @@ msgstr "Niedziela"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
+#: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
 msgstr "System"
 
@@ -1344,6 +1401,11 @@ msgstr "Tagi"
 #: ../../../lib/web/src/components/layout/team-switcher.tsx:60
 msgid "Teams/Apps"
 msgstr "Zespoły/Aplikacje"
+
+#: ../../../lib/web/src/components/server-documents-footer.tsx:20
+#: ../../../lib/web/src/features/document/document-page.tsx:39
+msgid "Terms and conditions"
+msgstr "Regulamin"
 
 #: src/features/repository/repository-tabs.tsx:1050
 msgid "The branch shown when viewing the repository"
@@ -1469,9 +1531,9 @@ msgstr "Stany Zjednoczone"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:314
-#: src/routes/_authenticated/index.tsx:334
-#: src/routes/_authenticated/index.tsx:336
+#: src/routes/_authenticated/index.tsx:319
+#: src/routes/_authenticated/index.tsx:339
+#: src/routes/_authenticated/index.tsx:341
 msgid "Unsubscribe"
 msgstr "Anuluj subskrypcję"
 
@@ -1480,7 +1542,7 @@ msgstr "Anuluj subskrypcję"
 msgid "Unsubscribe from repository?"
 msgstr "Anulować subskrypcję repozytorium?"
 
-#: src/routes/_authenticated/index.tsx:344
+#: src/routes/_authenticated/index.tsx:349
 msgid "Unsubscribed"
 msgstr "Anulowano subskrypcję"
 
@@ -1545,6 +1607,6 @@ msgstr "Witryna jest w trakcie konserwacji!"
 msgid "Wednesday"
 msgstr "Środa"
 
-#: src/routes/_authenticated/index.tsx:218
+#: src/routes/_authenticated/index.tsx:223
 msgid "You have no repositories yet."
 msgstr "Nie masz jeszcze repozytoriów."
