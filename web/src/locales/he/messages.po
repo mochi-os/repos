@@ -25,7 +25,7 @@ msgstr "{0} commits"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:695
+#: src/features/repository/repository-tabs.tsx:696
 #: src/routes/_authenticated/$repoId_.tags.tsx:127
 msgid "{0} tagged on {1}"
 msgstr "{0} תייג ב-{1}"
@@ -51,7 +51,7 @@ msgstr "מוחלט (תאריך ושעה)"
 msgid "Access"
 msgstr "גישה"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:12
+#: ../../../lib/web/src/features/errors/forbidden.tsx:13
 msgid "Access Forbidden"
 msgstr "הגישה אסורה"
 
@@ -59,15 +59,15 @@ msgstr "הגישה אסורה"
 msgid "Access level"
 msgstr "רמת גישה"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1197
 msgid "Access level updated"
 msgstr "רמת הגישה עודכנה"
 
-#: src/features/repository/repository-tabs.tsx:1178
+#: src/features/repository/repository-tabs.tsx:1183
 msgid "Access removed"
 msgstr "הגישה הוסרה"
 
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/repository-tabs.tsx:1168
 msgid "Access set for {subjectName}"
 msgstr "הוגדרה גישה עבור {subjectName}"
 
@@ -87,7 +87,8 @@ msgstr "סוג חשבון"
 msgid "Account verified"
 msgstr "החשבון אומת"
 
-#: src/features/repository/repository-tabs.tsx:1204
+#: ../../../lib/web/src/features/accounts/account-add.tsx:193
+#: src/features/repository/repository-tabs.tsx:1209
 msgid "Add"
 msgstr "הוספה"
 
@@ -165,8 +166,8 @@ msgid "Asc"
 msgstr "עולה"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:373
+#: src/components/clone-dialog.tsx:316
+#: src/components/clone-dialog.tsx:374
 msgid "Back"
 msgstr "חזור"
 
@@ -174,11 +175,11 @@ msgstr "חזור"
 msgid "Back to commits"
 msgstr "חזור ל-commits"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:21
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:21
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
-msgid "Back to Home"
-msgstr "חזור לדף הבית"
+#: ../../../lib/web/src/features/errors/forbidden.tsx:23
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:23
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:23
+msgid "Back to home"
+msgstr ""
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx:193
@@ -199,7 +200,7 @@ msgstr "הענף \"{branchToDelete}\" נמחק"
 msgid "Branch \"{newBranchName}\" created"
 msgstr "הענף \"{newBranchName}\" נוצר"
 
-#: src/features/repository/repository-tabs.tsx:558
+#: src/features/repository/repository-tabs.tsx:559
 #: src/routes/_authenticated/$repoId_.branches.tsx:155
 msgid "Branch name"
 msgstr "שם ענף"
@@ -221,16 +222,21 @@ msgstr "ענפים"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:399
+#: src/components/clone-dialog.tsx:400
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
-#: src/features/repository/repository-tabs.tsx:585
-#: src/features/repository/repository-tabs.tsx:604
-#: src/features/repository/repository-tabs.tsx:1099
+#: src/features/repository/repository-tabs.tsx:586
+#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:1104
 #: src/routes/_authenticated/$repoId_.branches.tsx:182
 #: src/routes/_authenticated/$repoId_.branches.tsx:201
 msgid "Cancel"
 msgstr "ביטול"
+
+#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:1003
+msgid "Cancel edit"
+msgstr ""
 
 #: ../../../lib/web/src/components/notification-category-button.tsx:131
 msgid "Category for this notification"
@@ -304,8 +310,8 @@ msgid "Close navigation"
 msgstr "סגור ניווט"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx:254
-msgid "Close Panel"
-msgstr "סגור פאנל"
+msgid "Close panel"
+msgstr ""
 
 #: ../../../lib/web/src/components/header-search.tsx:51
 msgid "Close search"
@@ -374,6 +380,14 @@ msgstr "הועתק ללוח"
 msgid "Copy"
 msgstr "העתק"
 
+#: src/features/repository/commit-details.tsx:103
+msgid "Copy commit SHA"
+msgstr ""
+
+#: src/features/repository/blob-viewer.tsx:180
+msgid "Copy file contents"
+msgstr ""
+
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:22
 msgid "Could not determine route context"
 msgstr "לא ניתן לקבוע את הקשר המסלול"
@@ -382,7 +396,7 @@ msgstr "לא ניתן לקבוע את הקשר המסלול"
 msgid "Could not load this document. Please try again later."
 msgstr "לא ניתן היה לטעון מסמך זה. אנא נסה שוב מאוחר יותר."
 
-#: src/components/clone-dialog.tsx:379
+#: src/components/clone-dialog.tsx:380
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
 msgstr "צור"
@@ -396,7 +410,7 @@ msgid "Create a new repository"
 msgstr "צור מאגר חדש"
 
 #: src/features/repository/repository-tabs.tsx:495
-#: src/features/repository/repository-tabs.tsx:588
+#: src/features/repository/repository-tabs.tsx:589
 #: src/routes/_authenticated/$repoId_.branches.tsx:135
 #: src/routes/_authenticated/$repoId_.branches.tsx:185
 msgid "Create branch"
@@ -409,7 +423,7 @@ msgid "Create repository"
 msgstr "צור מאגר"
 
 #: src/components/clone-dialog.tsx:205
-#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:320
 msgid "Create token"
 msgstr "צור אסימון"
 
@@ -422,7 +436,7 @@ msgstr "נוצר {0}"
 msgid "Creating..."
 msgstr "יוצר..."
 
-#: src/features/repository/repository-tabs.tsx:588
+#: src/features/repository/repository-tabs.tsx:589
 msgid "Creating…"
 msgstr "יוצר…"
 
@@ -451,37 +465,46 @@ msgstr "ברירת מחדל"
 msgid "Default AI account"
 msgstr "חשבון AI ברירת מחדל"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:1054
 msgid "Default branch"
 msgstr "ענף ברירת מחדל"
 
-#: src/components/clone-dialog.tsx:403
-#: src/features/repository/repository-tabs.tsx:606
-#: src/features/repository/repository-tabs.tsx:1100
+#: src/components/clone-dialog.tsx:404
+#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:1105
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
 msgid "Delete"
 msgstr "מחק"
 
-#: src/features/repository/repository-tabs.tsx:600
+#: src/features/repository/repository-tabs.tsx:601
 #: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "למחוק את \"{branchToDelete}\"? לא ניתן לבטל פעולה זו."
 
-#: src/features/repository/repository-tabs.tsx:598
+#: src/features/repository/repository-tabs.tsx:540
+#: src/routes/_authenticated/$repoId_.branches.tsx:289
+msgid "Delete branch"
+msgstr ""
+
+#: src/features/repository/repository-tabs.tsx:599
 #: src/routes/_authenticated/$repoId_.branches.tsx:195
 msgid "Delete branch?"
 msgstr "למחוק ענף?"
 
-#: src/features/repository/repository-tabs.tsx:1075
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:1080
+#: src/features/repository/repository-tabs.tsx:1091
 msgid "Delete repository"
 msgstr "מחק מאגר"
 
-#: src/features/repository/repository-tabs.tsx:1093
+#: src/features/repository/repository-tabs.tsx:1098
 msgid "Delete repository?"
 msgstr "למחוק מאגר?"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:305
+msgid "Delete token"
+msgstr "מחק אסימון"
+
+#: src/components/clone-dialog.tsx:393
 msgid "Delete token?"
 msgstr "למחוק אסימון?"
 
@@ -489,7 +512,7 @@ msgstr "למחוק אסימון?"
 msgid "Deleting..."
 msgstr "מוחק..."
 
-#: src/features/repository/repository-tabs.tsx:606
+#: src/features/repository/repository-tabs.tsx:607
 msgid "Deleting…"
 msgstr "מוחק…"
 
@@ -498,7 +521,7 @@ msgid "Desc"
 msgstr "יורד"
 
 #: src/features/repository/create-repository-dialog.tsx:161
-#: src/features/repository/repository-tabs.tsx:1029
+#: src/features/repository/repository-tabs.tsx:1034
 msgid "Description"
 msgstr "תיאור"
 
@@ -526,7 +549,7 @@ msgid "Displays the mobile sidebar."
 msgstr "מציג את סרגל הצד למובייל."
 
 #: src/components/clone-dialog.tsx:270
-#: src/components/clone-dialog.tsx:352
+#: src/components/clone-dialog.tsx:353
 msgid "Done"
 msgstr "בוצע"
 
@@ -536,13 +559,25 @@ msgstr "בוצע"
 msgid "Download"
 msgstr "הורדה"
 
+#: src/features/repository/blob-viewer.tsx:184
+msgid "Download file"
+msgstr ""
+
 #: ../../../lib/web/src/lib/preference-utils.ts:134
 msgid "Dyslexia-friendly"
 msgstr "ידידותי לדיסלקציה"
 
-#: src/components/clone-dialog.tsx:362
+#: src/components/clone-dialog.tsx:363
 msgid "e.g., Work laptop"
 msgstr "למשל, מחשב נייד של העבודה"
+
+#: src/features/repository/repository-tabs.tsx:960
+msgid "Edit name"
+msgstr "ערוך שם"
+
+#: src/features/repository/repository-tabs.tsx:1020
+msgid "Edit path"
+msgstr ""
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -553,7 +588,7 @@ msgstr "ספרייה ריקה"
 msgid "Empty repository"
 msgstr "מאגר ריק"
 
-#: src/features/repository/repository-tabs.tsx:1021
+#: src/features/repository/repository-tabs.tsx:1026
 msgid "Entity:"
 msgstr "ישות:"
 
@@ -587,7 +622,7 @@ msgstr "יצירת הטוקן נכשלה"
 msgid "Failed to delete branch"
 msgstr "מחיקת הענף נכשלה"
 
-#: src/features/repository/repository-tabs.tsx:795
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Failed to delete repository"
 msgstr "מחיקת המאגר נכשלה"
 
@@ -603,7 +638,7 @@ msgstr "הורדת הארכיון נכשלה"
 msgid "Failed to get token"
 msgstr "קבלת הטוקן נכשלה"
 
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:1151
 msgid "Failed to load access rules"
 msgstr "טעינת כללי הגישה נכשלה"
 
@@ -627,12 +662,12 @@ msgstr "טעינת ה-commitים נכשלה"
 msgid "Failed to load files"
 msgstr "טעינת הקבצים נכשלה"
 
-#: src/features/repository/repository-tabs.tsx:637
+#: src/features/repository/repository-tabs.tsx:638
 #: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "טעינת התגיות נכשלה"
 
-#: src/features/repository/repository-tabs.tsx:1181
+#: src/features/repository/repository-tabs.tsx:1186
 msgid "Failed to remove access"
 msgstr "הסרת הגישה נכשלה"
 
@@ -640,11 +675,11 @@ msgstr "הסרת הגישה נכשלה"
 msgid "Failed to remove account"
 msgstr "הסרת החשבון נכשלה"
 
-#: src/features/repository/repository-tabs.tsx:841
+#: src/features/repository/repository-tabs.tsx:842
 msgid "Failed to rename repository"
 msgstr "שינוי שם המאגר נכשל"
 
-#: src/features/repository/repository-tabs.tsx:778
+#: src/features/repository/repository-tabs.tsx:779
 msgid "Failed to save setting"
 msgstr "שמירת ההגדרה נכשלה"
 
@@ -652,7 +687,7 @@ msgstr "שמירת ההגדרה נכשלה"
 msgid "Failed to send verification code"
 msgstr "שליחת קוד האימות נכשלה"
 
-#: src/features/repository/repository-tabs.tsx:1166
+#: src/features/repository/repository-tabs.tsx:1171
 msgid "Failed to set access level"
 msgstr "הגדרת רמת הגישה נכשלה"
 
@@ -668,7 +703,7 @@ msgstr "ההרשמה נכשלה"
 msgid "Failed to unsubscribe"
 msgstr "ביטול ההרשמה נכשל"
 
-#: src/features/repository/repository-tabs.tsx:1195
+#: src/features/repository/repository-tabs.tsx:1200
 msgid "Failed to update access level"
 msgstr "עדכון רמת הגישה נכשל"
 
@@ -676,7 +711,7 @@ msgstr "עדכון רמת הגישה נכשל"
 msgid "Failed to update category"
 msgstr "עדכון הקטגוריה נכשל"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:886
 msgid "Failed to update path"
 msgstr "עדכון הנתיב נכשל"
 
@@ -700,7 +735,7 @@ msgstr "קבצים"
 msgid "Find repositories"
 msgstr "חפש מאגרים"
 
-#: src/features/repository/repository-tabs.tsx:1023
+#: src/features/repository/repository-tabs.tsx:1028
 msgid "Fingerprint:"
 msgstr "טביעת אצבע:"
 
@@ -733,11 +768,11 @@ msgstr "מאת: {0}"
 msgid "Full layout"
 msgstr "פריסה מלאה"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:19
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:19
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:19
-msgid "Go Back"
-msgstr "חזור"
+#: ../../../lib/web/src/features/errors/forbidden.tsx:21
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:21
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
+msgid "Go back"
+msgstr ""
 
 #: ../../../lib/web/src/components/data-table/pagination.tsx:75
 msgid "Go to first page"
@@ -750,6 +785,10 @@ msgstr "עבור לדף האחרון"
 #: ../../../lib/web/src/components/data-table/pagination.tsx:112
 msgid "Go to next page"
 msgstr "עבור לדף הבא"
+
+#: ../../../lib/web/src/components/data-table/pagination.tsx:99
+msgid "Go to page {pageNumber}"
+msgstr ""
 
 #: ../../../lib/web/src/components/data-table/pagination.tsx:84
 msgid "Go to previous page"
@@ -774,7 +813,7 @@ msgstr "בית"
 msgid "Hot"
 msgstr "חם"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:904
 msgid "Identity"
 msgstr "זהות"
 
@@ -853,7 +892,7 @@ msgid "Logging out…"
 msgstr "מתנתק…"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:866
+#: src/features/repository/repository-tabs.tsx:867
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "אותיות קטנות, מספרים ומקפים בלבד"
 
@@ -888,16 +927,16 @@ msgid "Name"
 msgstr "שם"
 
 #: src/features/repository/create-repository-dialog.tsx:81
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:803
 msgid "Name cannot contain < or > characters"
 msgstr "השם לא יכול להכיל את התווים < או >"
 
 #: src/features/repository/create-repository-dialog.tsx:83
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name must be 100 characters or less"
 msgstr "השם חייב להיות 100 תווים או פחות"
 
-#: src/features/repository/repository-tabs.tsx:905
+#: src/features/repository/repository-tabs.tsx:906
 msgid "Name:"
 msgstr "שם:"
 
@@ -910,7 +949,7 @@ msgstr "אף פעם"
 msgid "New"
 msgstr "חדש"
 
-#: src/features/repository/repository-tabs.tsx:554
+#: src/features/repository/repository-tabs.tsx:555
 #: src/routes/_authenticated/$repoId_.branches.tsx:151
 msgid "New branch"
 msgstr "ענף חדש"
@@ -919,7 +958,7 @@ msgstr "ענף חדש"
 msgid "Next image"
 msgstr "התמונה הבאה"
 
-#: src/features/repository/repository-tabs.tsx:720
+#: src/features/repository/repository-tabs.tsx:721
 msgid "No access"
 msgstr "אין גישה"
 
@@ -967,7 +1006,7 @@ msgstr "לא נמצאו מאגרים"
 msgid "No results found."
 msgstr "לא נמצאו תוצאות."
 
-#: src/features/repository/repository-tabs.tsx:667
+#: src/features/repository/repository-tabs.tsx:668
 #: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "עדיין אין תגיות"
@@ -1004,7 +1043,7 @@ msgstr "רגיל"
 msgid "Notifications"
 msgstr "התראות"
 
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:12
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:13
 msgid "Oops! Page Not Found!"
 msgstr "אופס! הדף לא נמצא!"
 
@@ -1046,19 +1085,19 @@ msgstr "הורים:"
 msgid "Path"
 msgstr "נתיב"
 
-#: src/features/repository/repository-tabs.tsx:862
+#: src/features/repository/repository-tabs.tsx:863
 msgid "Path is required"
 msgstr "נדרש נתיב"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:882
 msgid "Path updated"
 msgstr "הנתיב עודכן"
 
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:966
 msgid "Path:"
 msgstr "נתיב:"
 
-#: src/features/repository/repository-tabs.tsx:1077
+#: src/features/repository/repository-tabs.tsx:1082
 msgid "Permanently delete this repository and all its data"
 msgstr "מחק לצמיתות את המאגר הזה וכל הנתונים שלו"
 
@@ -1080,11 +1119,11 @@ msgstr "פרטיות"
 msgid "Profile"
 msgstr "פרופיל"
 
-#: src/features/repository/repository-tabs.tsx:718
+#: src/features/repository/repository-tabs.tsx:719
 msgid "Read and write"
 msgstr "קריאה וכתיבה"
 
-#: src/features/repository/repository-tabs.tsx:719
+#: src/features/repository/repository-tabs.tsx:720
 msgid "Read only"
 msgstr "קריאה בלבד"
 
@@ -1158,7 +1197,7 @@ msgstr "מאגר"
 msgid "Repository created"
 msgstr "המאגר נוצר"
 
-#: src/features/repository/repository-tabs.tsx:791
+#: src/features/repository/repository-tabs.tsx:792
 msgid "Repository deleted"
 msgstr "המאגר נמחק"
 
@@ -1167,7 +1206,7 @@ msgstr "המאגר נמחק"
 msgid "Repository ID is required"
 msgstr "מזהה המאגר נדרש"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Repository name is required"
 msgstr "נדרש שם מאגר"
 
@@ -1175,11 +1214,12 @@ msgstr "נדרש שם מאגר"
 msgid "Repository not found"
 msgstr "המאגר לא נמצא"
 
-#: src/features/repository/repository-tabs.tsx:837
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Repository renamed"
 msgstr "שם המאגר שונה"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:77
+#: ../../../lib/web/src/components/data-table/toolbar.tsx:78
 msgid "Reset"
 msgstr "אפס"
 
@@ -1199,7 +1239,7 @@ msgstr "שורות לעמוד"
 msgid "Saturday"
 msgstr "שבת"
 
-#: src/features/repository/repository-tabs.tsx:1042
+#: src/features/repository/repository-tabs.tsx:1047
 msgid "Save"
 msgstr "שמור"
 
@@ -1208,7 +1248,7 @@ msgid "Save this token now. You won't be able to see it again."
 msgstr "שמור את האסימון הזה עכשיו. לא תוכל לראות אותו שוב."
 
 #: src/components/clone-dialog.tsx:260
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:344
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "שמור את האסימון בצורה מאובטחת. לא תוכל לראות אותו שוב."
 
@@ -1270,7 +1310,7 @@ msgstr "בחר סוג חשבון"
 msgid "Select branch"
 msgstr "בחר ענף"
 
-#: src/features/repository/repository-tabs.tsx:1059
+#: src/features/repository/repository-tabs.tsx:1064
 msgid "Select default branch"
 msgstr "בחר ענף ברירת מחדל"
 
@@ -1290,7 +1330,7 @@ msgstr "בחר סגנון סרגל צד"
 msgid "Select site direction"
 msgstr "בחר כיוון אתר"
 
-#: src/features/repository/repository-tabs.tsx:571
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:168
 msgid "Select source branch"
 msgstr "בחר ענף מקור"
@@ -1298,6 +1338,10 @@ msgstr "בחר ענף מקור"
 #: ../../../lib/web/src/components/config-drawer.tsx:189
 msgid "Select theme preference"
 msgstr "בחר העדפת ערכת נושא"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:95
+msgid "Send again"
+msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts:133
 msgid "Serif"
@@ -1324,7 +1368,7 @@ msgstr "קבע מקור ויעד"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: src/features/repository/repository-tabs.tsx:774
+#: src/features/repository/repository-tabs.tsx:775
 msgid "Settings saved"
 msgstr "ההגדרות נשמרו"
 
@@ -1351,7 +1395,7 @@ msgstr "דלג לראשי"
 msgid "Small"
 msgstr "קטן"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:569
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "ענף מקור"
@@ -1407,7 +1451,7 @@ msgstr "צוותים/אפליקציות"
 msgid "Terms and conditions"
 msgstr "תנאים והגבלות"
 
-#: src/features/repository/repository-tabs.tsx:1050
+#: src/features/repository/repository-tabs.tsx:1055
 msgid "The branch shown when viewing the repository"
 msgstr "הענף המוצג בעת צפייה במאגר"
 
@@ -1425,11 +1469,11 @@ msgstr "הגדרות ערכת נושא"
 msgid "This page requires a repository context."
 msgstr "דף זה דורש הקשר של מאגר."
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1100
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "פעולה זו תמחק לצמיתות את \"{currentName}\" ואת כל הקומיטים, הענפים והתגיות שלו. לא ניתן לבטל פעולה זו."
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:395
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "זה ימחק את האסימון לצמיתות. לקוחות git שמשתמשים בו לא יוכלו להזדהות."
 
@@ -1450,10 +1494,13 @@ msgid "Toggle columns"
 msgstr "החלף עמודות"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx:227
-msgid "Toggle Right Panel"
-msgstr "החלף פאנל ימין"
+msgid "Toggle right panel"
+msgstr ""
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx:312
+msgid "Toggle sidebar"
+msgstr ""
+
 #: ../../../lib/web/src/components/ui/sidebar.tsx:324
 #: ../../../lib/web/src/components/ui/sidebar.tsx:327
 msgid "Toggle Sidebar"
@@ -1471,7 +1518,7 @@ msgstr "אסימון נוצר"
 msgid "Token deleted"
 msgstr "האסימון נמחק"
 
-#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:360
 msgid "Token name"
 msgstr "שם האסימון"
 
@@ -1490,7 +1537,7 @@ msgstr "נסה להתאים את מונחי החיפוש שלך"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:125
 #: ../../../lib/web/src/features/errors/general-error.tsx:165
-#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "Try again"
 msgstr "נסה שוב"
 
@@ -1519,7 +1566,7 @@ msgstr "לא ניתן להפנות להתחברות. נסה שוב."
 msgid "Unassigned"
 msgstr "לא משויך"
 
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:12
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:13
 msgid "Unauthorized Access"
 msgstr "גישה לא מורשית"
 
@@ -1576,6 +1623,7 @@ msgid "Verification failed"
 msgstr "האימות נכשל"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:164
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:106
 msgid "Verify"
 msgstr "אמת"
 
@@ -1595,11 +1643,11 @@ msgstr "הצג הכל"
 msgid "View all notifications"
 msgstr "הצג את כל ההתראות"
 
-#: ../../../lib/web/src/features/errors/maintenance-error.tsx:12
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:13
 msgid "We'll be back online shortly."
 msgstr "נחזור להיות מקוונים בקרוב."
 
-#: ../../../lib/web/src/features/errors/maintenance-error.tsx:9
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:10
 msgid "Website is under maintenance!"
 msgstr "האתר בתחזוקה!"
 

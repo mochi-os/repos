@@ -25,7 +25,7 @@ msgstr "{0} commits"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:695
+#: src/features/repository/repository-tabs.tsx:696
 #: src/routes/_authenticated/$repoId_.tags.tsx:127
 msgid "{0} tagged on {1}"
 msgstr "{0} air a thagadh air {1}"
@@ -51,7 +51,7 @@ msgstr "Iomlan (ceann-là agus àm)"
 msgid "Access"
 msgstr "Inntrigeadh"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:12
+#: ../../../lib/web/src/features/errors/forbidden.tsx:13
 msgid "Access Forbidden"
 msgstr "Inntrigeadh toirmisgte"
 
@@ -59,15 +59,15 @@ msgstr "Inntrigeadh toirmisgte"
 msgid "Access level"
 msgstr "Ìre inntrigidh"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1197
 msgid "Access level updated"
 msgstr "Ìre inntrigidh air ùrachadh"
 
-#: src/features/repository/repository-tabs.tsx:1178
+#: src/features/repository/repository-tabs.tsx:1183
 msgid "Access removed"
 msgstr "Inntrigeadh air a thoirt air falbh"
 
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/repository-tabs.tsx:1168
 msgid "Access set for {subjectName}"
 msgstr "Inntrigeadh air a shuidheachadh airson {subjectName}"
 
@@ -87,7 +87,8 @@ msgstr "Seòrsa cunntais"
 msgid "Account verified"
 msgstr "Cunntas dearbhte"
 
-#: src/features/repository/repository-tabs.tsx:1204
+#: ../../../lib/web/src/features/accounts/account-add.tsx:193
+#: src/features/repository/repository-tabs.tsx:1209
 msgid "Add"
 msgstr "Cuir ris"
 
@@ -165,8 +166,8 @@ msgid "Asc"
 msgstr "Dìreadh"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:373
+#: src/components/clone-dialog.tsx:316
+#: src/components/clone-dialog.tsx:374
 msgid "Back"
 msgstr "Air ais"
 
@@ -174,11 +175,11 @@ msgstr "Air ais"
 msgid "Back to commits"
 msgstr "Air ais gu commits"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:21
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:21
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
-msgid "Back to Home"
-msgstr "Air ais dhachaigh"
+#: ../../../lib/web/src/features/errors/forbidden.tsx:23
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:23
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:23
+msgid "Back to home"
+msgstr ""
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx:193
@@ -199,7 +200,7 @@ msgstr "Geug \"{branchToDelete}\" air a sguabadh às"
 msgid "Branch \"{newBranchName}\" created"
 msgstr "Geug \"{newBranchName}\" air a cruthachadh"
 
-#: src/features/repository/repository-tabs.tsx:558
+#: src/features/repository/repository-tabs.tsx:559
 #: src/routes/_authenticated/$repoId_.branches.tsx:155
 msgid "Branch name"
 msgstr "Ainm geuige"
@@ -221,16 +222,21 @@ msgstr "Geugan"
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:399
+#: src/components/clone-dialog.tsx:400
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
-#: src/features/repository/repository-tabs.tsx:585
-#: src/features/repository/repository-tabs.tsx:604
-#: src/features/repository/repository-tabs.tsx:1099
+#: src/features/repository/repository-tabs.tsx:586
+#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:1104
 #: src/routes/_authenticated/$repoId_.branches.tsx:182
 #: src/routes/_authenticated/$repoId_.branches.tsx:201
 msgid "Cancel"
 msgstr "Sguir dheth"
+
+#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:1003
+msgid "Cancel edit"
+msgstr ""
 
 #: ../../../lib/web/src/components/notification-category-button.tsx:131
 msgid "Category for this notification"
@@ -304,8 +310,8 @@ msgid "Close navigation"
 msgstr "Dùin an t-seòladaireachd"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx:254
-msgid "Close Panel"
-msgstr "Dùin a' phanail"
+msgid "Close panel"
+msgstr ""
 
 #: ../../../lib/web/src/components/header-search.tsx:51
 msgid "Close search"
@@ -374,6 +380,14 @@ msgstr "Air a chopaigeadh chun a' chliopaboird"
 msgid "Copy"
 msgstr "Dèan lethbhreac"
 
+#: src/features/repository/commit-details.tsx:103
+msgid "Copy commit SHA"
+msgstr ""
+
+#: src/features/repository/blob-viewer.tsx:180
+msgid "Copy file contents"
+msgstr ""
+
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:22
 msgid "Could not determine route context"
 msgstr "Cha b' urrainn co-theacsa slighe a dhearbhachadh"
@@ -382,7 +396,7 @@ msgstr "Cha b' urrainn co-theacsa slighe a dhearbhachadh"
 msgid "Could not load this document. Please try again later."
 msgstr "Cha b' urrainn an sgrìobhainn seo a luchdachadh. Feuch ris a-rithist nas anmoiche."
 
-#: src/components/clone-dialog.tsx:379
+#: src/components/clone-dialog.tsx:380
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
 msgstr "Cruthaich"
@@ -396,7 +410,7 @@ msgid "Create a new repository"
 msgstr "Cruthaich tasgadan ùr"
 
 #: src/features/repository/repository-tabs.tsx:495
-#: src/features/repository/repository-tabs.tsx:588
+#: src/features/repository/repository-tabs.tsx:589
 #: src/routes/_authenticated/$repoId_.branches.tsx:135
 #: src/routes/_authenticated/$repoId_.branches.tsx:185
 msgid "Create branch"
@@ -409,7 +423,7 @@ msgid "Create repository"
 msgstr "Cruthaich tasgadan"
 
 #: src/components/clone-dialog.tsx:205
-#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:320
 msgid "Create token"
 msgstr "Cruthaich tòcan"
 
@@ -422,7 +436,7 @@ msgstr "Cruthaichte {0}"
 msgid "Creating..."
 msgstr "A' cruthachadh..."
 
-#: src/features/repository/repository-tabs.tsx:588
+#: src/features/repository/repository-tabs.tsx:589
 msgid "Creating…"
 msgstr "A' cruthachadh…"
 
@@ -451,37 +465,46 @@ msgstr "Bunaiteach"
 msgid "Default AI account"
 msgstr "Cunntas AI bunaiteach"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:1054
 msgid "Default branch"
 msgstr "Geug bhunaiteach"
 
-#: src/components/clone-dialog.tsx:403
-#: src/features/repository/repository-tabs.tsx:606
-#: src/features/repository/repository-tabs.tsx:1100
+#: src/components/clone-dialog.tsx:404
+#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:1105
 #: src/routes/_authenticated/$repoId_.branches.tsx:203
 msgid "Delete"
 msgstr "Sguab às"
 
-#: src/features/repository/repository-tabs.tsx:600
+#: src/features/repository/repository-tabs.tsx:601
 #: src/routes/_authenticated/$repoId_.branches.tsx:197
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Sguab às \"{branchToDelete}\"? Cha ghabh seo a thilleadh."
 
-#: src/features/repository/repository-tabs.tsx:598
+#: src/features/repository/repository-tabs.tsx:540
+#: src/routes/_authenticated/$repoId_.branches.tsx:289
+msgid "Delete branch"
+msgstr ""
+
+#: src/features/repository/repository-tabs.tsx:599
 #: src/routes/_authenticated/$repoId_.branches.tsx:195
 msgid "Delete branch?"
 msgstr "Sguab às a' gheug?"
 
-#: src/features/repository/repository-tabs.tsx:1075
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:1080
+#: src/features/repository/repository-tabs.tsx:1091
 msgid "Delete repository"
 msgstr "Sguab às tasgadan"
 
-#: src/features/repository/repository-tabs.tsx:1093
+#: src/features/repository/repository-tabs.tsx:1098
 msgid "Delete repository?"
 msgstr "Sguab às tasgadan?"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:305
+msgid "Delete token"
+msgstr "Sguab às tòcan"
+
+#: src/components/clone-dialog.tsx:393
 msgid "Delete token?"
 msgstr "Sguab às tòcan?"
 
@@ -489,7 +512,7 @@ msgstr "Sguab às tòcan?"
 msgid "Deleting..."
 msgstr "A' sguabadh às..."
 
-#: src/features/repository/repository-tabs.tsx:606
+#: src/features/repository/repository-tabs.tsx:607
 msgid "Deleting…"
 msgstr "A' sguabadh às…"
 
@@ -498,7 +521,7 @@ msgid "Desc"
 msgstr "Teàrnadh"
 
 #: src/features/repository/create-repository-dialog.tsx:161
-#: src/features/repository/repository-tabs.tsx:1029
+#: src/features/repository/repository-tabs.tsx:1034
 msgid "Description"
 msgstr "Tuairisgeul"
 
@@ -526,7 +549,7 @@ msgid "Displays the mobile sidebar."
 msgstr "Seallaidh am bàr-thaobh fòn-làimhe."
 
 #: src/components/clone-dialog.tsx:270
-#: src/components/clone-dialog.tsx:352
+#: src/components/clone-dialog.tsx:353
 msgid "Done"
 msgstr "Deiseil"
 
@@ -536,13 +559,25 @@ msgstr "Deiseil"
 msgid "Download"
 msgstr "Luchdaich a-nuas"
 
+#: src/features/repository/blob-viewer.tsx:184
+msgid "Download file"
+msgstr ""
+
 #: ../../../lib/web/src/lib/preference-utils.ts:134
 msgid "Dyslexia-friendly"
 msgstr "Freagarrach do dhisléicse"
 
-#: src/components/clone-dialog.tsx:362
+#: src/components/clone-dialog.tsx:363
 msgid "e.g., Work laptop"
 msgstr "m.e., Coimpiutair-glùin obrach"
+
+#: src/features/repository/repository-tabs.tsx:960
+msgid "Edit name"
+msgstr "Deasaich an t-ainm"
+
+#: src/features/repository/repository-tabs.tsx:1020
+msgid "Edit path"
+msgstr ""
 
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
@@ -553,7 +588,7 @@ msgstr "Pasgan falamh"
 msgid "Empty repository"
 msgstr "Stòr-tasgaidh falamh"
 
-#: src/features/repository/repository-tabs.tsx:1021
+#: src/features/repository/repository-tabs.tsx:1026
 msgid "Entity:"
 msgstr "Aonad:"
 
@@ -587,7 +622,7 @@ msgstr "Cha b' urrainn tòcan a chruthachadh"
 msgid "Failed to delete branch"
 msgstr "Cha b' urrainn meur a sguabadh às"
 
-#: src/features/repository/repository-tabs.tsx:795
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Failed to delete repository"
 msgstr "Cha b' urrainn stòr-tasgaidh a sguabadh às"
 
@@ -603,7 +638,7 @@ msgstr "Cha b' urrainn an tasglann a luchdadh a-nuas"
 msgid "Failed to get token"
 msgstr "Cha b' urrainn tòcan fhaighinn"
 
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:1151
 msgid "Failed to load access rules"
 msgstr "Cha b' urrainn riaghailtean inntrigidh a luchdadh"
 
@@ -627,12 +662,12 @@ msgstr "Cha b' urrainn na geallaidhean a luchdadh"
 msgid "Failed to load files"
 msgstr "Cha b' urrainn na faidhlichean a luchdadh"
 
-#: src/features/repository/repository-tabs.tsx:637
+#: src/features/repository/repository-tabs.tsx:638
 #: src/routes/_authenticated/$repoId_.tags.tsx:87
 msgid "Failed to load tags"
 msgstr "Cha b' urrainn na tagaichean a luchdadh"
 
-#: src/features/repository/repository-tabs.tsx:1181
+#: src/features/repository/repository-tabs.tsx:1186
 msgid "Failed to remove access"
 msgstr "Cha b' urrainn inntrigeadh a thoirt air falbh"
 
@@ -640,11 +675,11 @@ msgstr "Cha b' urrainn inntrigeadh a thoirt air falbh"
 msgid "Failed to remove account"
 msgstr "Cha b' urrainn an cunntas a thoirt air falbh"
 
-#: src/features/repository/repository-tabs.tsx:841
+#: src/features/repository/repository-tabs.tsx:842
 msgid "Failed to rename repository"
 msgstr "Cha b' urrainn stòr-tasgaidh ath-ainmeachadh"
 
-#: src/features/repository/repository-tabs.tsx:778
+#: src/features/repository/repository-tabs.tsx:779
 msgid "Failed to save setting"
 msgstr "Cha b' urrainn an roghainn a shàbhaladh"
 
@@ -652,7 +687,7 @@ msgstr "Cha b' urrainn an roghainn a shàbhaladh"
 msgid "Failed to send verification code"
 msgstr "Cha b' urrainn còd dearbhaidh a chur"
 
-#: src/features/repository/repository-tabs.tsx:1166
+#: src/features/repository/repository-tabs.tsx:1171
 msgid "Failed to set access level"
 msgstr "Cha b' urrainn ìre an inntrigidh a shuidheachadh"
 
@@ -668,7 +703,7 @@ msgstr "Cha b' urrainn fo-sgrìobhadh"
 msgid "Failed to unsubscribe"
 msgstr "Cha b' urrainn dì-fho-sgrìobhadh"
 
-#: src/features/repository/repository-tabs.tsx:1195
+#: src/features/repository/repository-tabs.tsx:1200
 msgid "Failed to update access level"
 msgstr "Cha b' urrainn ìre an inntrigidh ùrachadh"
 
@@ -676,7 +711,7 @@ msgstr "Cha b' urrainn ìre an inntrigidh ùrachadh"
 msgid "Failed to update category"
 msgstr "Cha b' urrainn an roinn-seòrsa ùrachadh"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:886
 msgid "Failed to update path"
 msgstr "Cha b' urrainn an t-slighe ùrachadh"
 
@@ -700,7 +735,7 @@ msgstr "Faidhlichean"
 msgid "Find repositories"
 msgstr "Lorg stòran-tasgaidh"
 
-#: src/features/repository/repository-tabs.tsx:1023
+#: src/features/repository/repository-tabs.tsx:1028
 msgid "Fingerprint:"
 msgstr "Meur-lorg:"
 
@@ -733,11 +768,11 @@ msgstr "O: {0}"
 msgid "Full layout"
 msgstr "Làn-chruth"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:19
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:19
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:19
-msgid "Go Back"
-msgstr "Air ais"
+#: ../../../lib/web/src/features/errors/forbidden.tsx:21
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:21
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:21
+msgid "Go back"
+msgstr ""
 
 #: ../../../lib/web/src/components/data-table/pagination.tsx:75
 msgid "Go to first page"
@@ -750,6 +785,10 @@ msgstr "Rach dhan duilleag mu dheireadh"
 #: ../../../lib/web/src/components/data-table/pagination.tsx:112
 msgid "Go to next page"
 msgstr "Rach dhan ath dhuilleag"
+
+#: ../../../lib/web/src/components/data-table/pagination.tsx:99
+msgid "Go to page {pageNumber}"
+msgstr ""
 
 #: ../../../lib/web/src/components/data-table/pagination.tsx:84
 msgid "Go to previous page"
@@ -774,7 +813,7 @@ msgstr "Dachaigh"
 msgid "Hot"
 msgstr "Teth"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:904
 msgid "Identity"
 msgstr "Dearbh-aithne"
 
@@ -853,7 +892,7 @@ msgid "Logging out…"
 msgstr "A' clàradh a-mach…"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:866
+#: src/features/repository/repository-tabs.tsx:867
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Litrichean beaga, àireamhan agus tàthain a-mhàin"
 
@@ -888,16 +927,16 @@ msgid "Name"
 msgstr "Ainm"
 
 #: src/features/repository/create-repository-dialog.tsx:81
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:803
 msgid "Name cannot contain < or > characters"
 msgstr "Chan fhaod < no > a bhith san ainm"
 
 #: src/features/repository/create-repository-dialog.tsx:83
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name must be 100 characters or less"
 msgstr "Feumaidh an t-ainm a bhith 100 caractaran no nas lugha"
 
-#: src/features/repository/repository-tabs.tsx:905
+#: src/features/repository/repository-tabs.tsx:906
 msgid "Name:"
 msgstr "Ainm:"
 
@@ -910,7 +949,7 @@ msgstr "Chaoidh"
 msgid "New"
 msgstr "Ùr"
 
-#: src/features/repository/repository-tabs.tsx:554
+#: src/features/repository/repository-tabs.tsx:555
 #: src/routes/_authenticated/$repoId_.branches.tsx:151
 msgid "New branch"
 msgstr "Geug ùr"
@@ -919,7 +958,7 @@ msgstr "Geug ùr"
 msgid "Next image"
 msgstr "An ath dhealbh"
 
-#: src/features/repository/repository-tabs.tsx:720
+#: src/features/repository/repository-tabs.tsx:721
 msgid "No access"
 msgstr "Gun chothrom"
 
@@ -967,7 +1006,7 @@ msgstr "Cha deach tasgadain a lorg"
 msgid "No results found."
 msgstr "Cha deach toraidhean a lorg."
 
-#: src/features/repository/repository-tabs.tsx:667
+#: src/features/repository/repository-tabs.tsx:668
 #: src/routes/_authenticated/$repoId_.tags.tsx:98
 msgid "No tags yet"
 msgstr "Chan eil tagaichean ann fhathast"
@@ -1004,7 +1043,7 @@ msgstr "Àbhaisteach"
 msgid "Notifications"
 msgstr "Brathan"
 
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:12
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:13
 msgid "Oops! Page Not Found!"
 msgstr "Och! Cha deach an duilleag a lorg!"
 
@@ -1046,19 +1085,19 @@ msgstr "Pàrantan:"
 msgid "Path"
 msgstr "Slighe"
 
-#: src/features/repository/repository-tabs.tsx:862
+#: src/features/repository/repository-tabs.tsx:863
 msgid "Path is required"
 msgstr "Tha slighe a dhìth"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:882
 msgid "Path updated"
 msgstr "Chaidh an t-slighe ùrachadh"
 
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:966
 msgid "Path:"
 msgstr "Slighe:"
 
-#: src/features/repository/repository-tabs.tsx:1077
+#: src/features/repository/repository-tabs.tsx:1082
 msgid "Permanently delete this repository and all its data"
 msgstr "Sguab às an tasgadan seo agus an dàta uile gu sìorraidh"
 
@@ -1080,11 +1119,11 @@ msgstr "Prìobhaideachd"
 msgid "Profile"
 msgstr "Pròifil"
 
-#: src/features/repository/repository-tabs.tsx:718
+#: src/features/repository/repository-tabs.tsx:719
 msgid "Read and write"
 msgstr "Leugh is sgrìobh"
 
-#: src/features/repository/repository-tabs.tsx:719
+#: src/features/repository/repository-tabs.tsx:720
 msgid "Read only"
 msgstr "Leughadh a-mhàin"
 
@@ -1158,7 +1197,7 @@ msgstr "Tasgadan"
 msgid "Repository created"
 msgstr "Chaidh an tasgadan a chruthachadh"
 
-#: src/features/repository/repository-tabs.tsx:791
+#: src/features/repository/repository-tabs.tsx:792
 msgid "Repository deleted"
 msgstr "Chaidh an tasgadan a sguabadh às"
 
@@ -1167,7 +1206,7 @@ msgstr "Chaidh an tasgadan a sguabadh às"
 msgid "Repository ID is required"
 msgstr "Tha ID an tasgadain a dhìth"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Repository name is required"
 msgstr "Tha ainm an tasgadain a dhìth"
 
@@ -1175,11 +1214,12 @@ msgstr "Tha ainm an tasgadain a dhìth"
 msgid "Repository not found"
 msgstr "Cha deach an tasgadan a lorg"
 
-#: src/features/repository/repository-tabs.tsx:837
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Repository renamed"
 msgstr "Chaidh ainm ùr a thoirt air an tasgadan"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:77
+#: ../../../lib/web/src/components/data-table/toolbar.tsx:78
 msgid "Reset"
 msgstr "Ath-shuidhich"
 
@@ -1199,7 +1239,7 @@ msgstr "Sreathan gach duilleag"
 msgid "Saturday"
 msgstr "Disathairne"
 
-#: src/features/repository/repository-tabs.tsx:1042
+#: src/features/repository/repository-tabs.tsx:1047
 msgid "Save"
 msgstr "Sàbhail"
 
@@ -1208,7 +1248,7 @@ msgid "Save this token now. You won't be able to see it again."
 msgstr "Sàbhail an token seo a-nis. Chan fhaic thu a-rithist e."
 
 #: src/components/clone-dialog.tsx:260
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:344
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Sàbhail an token seo gu tèarainte. Chan fhaic thu a-rithist e."
 
@@ -1270,7 +1310,7 @@ msgstr "Tagh seòrsa cunntais"
 msgid "Select branch"
 msgstr "Tagh meur"
 
-#: src/features/repository/repository-tabs.tsx:1059
+#: src/features/repository/repository-tabs.tsx:1064
 msgid "Select default branch"
 msgstr "Tagh meur bhunaiteach"
 
@@ -1290,7 +1330,7 @@ msgstr "Tagh stoidhle bàr-taoibh"
 msgid "Select site direction"
 msgstr "Tagh comhair na làraich"
 
-#: src/features/repository/repository-tabs.tsx:571
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:168
 msgid "Select source branch"
 msgstr "Tagh am meur tùsail"
@@ -1298,6 +1338,10 @@ msgstr "Tagh am meur tùsail"
 #: ../../../lib/web/src/components/config-drawer.tsx:189
 msgid "Select theme preference"
 msgstr "Tagh roghainn an ùrlair"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:95
+msgid "Send again"
+msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts:133
 msgid "Serif"
@@ -1324,7 +1368,7 @@ msgstr "Suidhich tùs is ceann-uidhe"
 msgid "Settings"
 msgstr "Roghainnean"
 
-#: src/features/repository/repository-tabs.tsx:774
+#: src/features/repository/repository-tabs.tsx:775
 msgid "Settings saved"
 msgstr "Roghainnean air an sàbhaladh"
 
@@ -1351,7 +1395,7 @@ msgstr "Gearr-shlighe dhan phrìomh"
 msgid "Small"
 msgstr "Beag"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:569
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "Source branch"
 msgstr "Meur tùsail"
@@ -1407,7 +1451,7 @@ msgstr "Sgiobaidhean/Aplacaidean"
 msgid "Terms and conditions"
 msgstr "Teirmichean is cùmhnantan"
 
-#: src/features/repository/repository-tabs.tsx:1050
+#: src/features/repository/repository-tabs.tsx:1055
 msgid "The branch shown when viewing the repository"
 msgstr "Am meur a chithear nuair a tha thu a' coimhead air an tasglann"
 
@@ -1425,11 +1469,11 @@ msgstr "Roghainnean an ùrlair"
 msgid "This page requires a repository context."
 msgstr "Feumaidh an duilleag seo co-theacsa tasglainn."
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1100
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Sguabaidh seo às \"{currentName}\" gu buan agus a h-uile commit, meur, is taga aige. Chan urrainnear an gnìomh seo a thoirt air ais."
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:395
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Sguabaidh seo às an tòcan seo gu buan. Cha bhi e comasach do chliant git sam bith a tha ga chleachdadh dearbhachadh tuilleadh."
 
@@ -1450,10 +1494,13 @@ msgid "Toggle columns"
 msgstr "Toglaich colbhan"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx:227
-msgid "Toggle Right Panel"
-msgstr "Toglaich am panail deas"
+msgid "Toggle right panel"
+msgstr ""
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx:312
+msgid "Toggle sidebar"
+msgstr ""
+
 #: ../../../lib/web/src/components/ui/sidebar.tsx:324
 #: ../../../lib/web/src/components/ui/sidebar.tsx:327
 msgid "Toggle Sidebar"
@@ -1471,7 +1518,7 @@ msgstr "Tòcan cruthaichte"
 msgid "Token deleted"
 msgstr "Tòcan sguabte às"
 
-#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:360
 msgid "Token name"
 msgstr "Ainm an tòcain"
 
@@ -1490,7 +1537,7 @@ msgstr "Feuch ri na teirmean luirg agad atharrachadh"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:125
 #: ../../../lib/web/src/features/errors/general-error.tsx:165
-#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "Try again"
 msgstr "Feuch a-rithist"
 
@@ -1519,7 +1566,7 @@ msgstr "Cha b' urrainnear ath-stiùireadh dhan log-a-steach. Feuch a-rithist."
 msgid "Unassigned"
 msgstr "Gun shònrachadh"
 
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:12
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:13
 msgid "Unauthorized Access"
 msgstr "Inntrigeadh gun chead"
 
@@ -1576,6 +1623,7 @@ msgid "Verification failed"
 msgstr "Dh'fhàillig an dearbhadh"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:164
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:106
 msgid "Verify"
 msgstr "Dearbh"
 
@@ -1595,11 +1643,11 @@ msgstr "Seall a h-uile"
 msgid "View all notifications"
 msgstr "Seall a h-uile brath"
 
-#: ../../../lib/web/src/features/errors/maintenance-error.tsx:12
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:13
 msgid "We'll be back online shortly."
 msgstr "Bidh sinn air ais air-loidhne goirid."
 
-#: ../../../lib/web/src/features/errors/maintenance-error.tsx:9
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:10
 msgid "Website is under maintenance!"
 msgstr "Tha an làrach-lìn fo obair-càraidh!"
 
