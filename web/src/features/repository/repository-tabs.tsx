@@ -537,6 +537,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
                       e.preventDefault()
                       handleDeleteClick(branch.name)
                     }}
+                    aria-label={t`Delete branch`}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -939,6 +940,7 @@ function GeneralSettingsTab({
                   onClick={handleCancelEditName}
                   disabled={isRenaming}
                   className="h-8 w-8 p-0"
+                  aria-label={t`Cancel edit`}
                 >
                   <X className="size-4" />
                 </Button>
@@ -955,6 +957,7 @@ function GeneralSettingsTab({
                 variant="ghost"
                 onClick={handleStartEditName}
                 className="h-6 w-6 p-0"
+                aria-label={t`Edit name`}
               >
                 <Pencil className="size-3" />
               </Button>
@@ -997,6 +1000,7 @@ function GeneralSettingsTab({
                   onClick={handleCancelEditPath}
                   disabled={isSavingPath}
                   className="h-8 w-8 p-0"
+                  aria-label={t`Cancel edit`}
                 >
                   <X className="size-4" />
                 </Button>
@@ -1013,6 +1017,7 @@ function GeneralSettingsTab({
                 variant="ghost"
                 onClick={handleStartEditPath}
                 className="h-6 w-6 p-0"
+                aria-label={t`Edit path`}
               >
                 <Pencil className="size-3" />
               </Button>

@@ -302,6 +302,7 @@ export function CloneDialog({ repoPath }: CloneDialogProps) {
                         size="sm"
                         onClick={() => setDeleteHash(token.hash)}
                         disabled={deleteMutation.isPending}
+                        aria-label={t`Delete token`}
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>

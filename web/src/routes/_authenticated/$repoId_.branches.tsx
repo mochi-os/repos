@@ -286,6 +286,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
                       e.preventDefault()
                       onDelete(branch.name)
                     }}
+                    aria-label={t`Delete branch`}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>

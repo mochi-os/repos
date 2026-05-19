@@ -177,11 +177,11 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
           </div>
           <div className="flex items-center gap-1">
             {!data.binary && (
-              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopy}>
+              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopy} aria-label={t`Copy file contents`}>
                 {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
               </Button>
             )}
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload}>
+            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload} aria-label={t`Download file`}>
               <Download className="h-4 w-4" />
             </Button>
           </div>
