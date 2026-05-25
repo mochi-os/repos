@@ -1376,7 +1376,7 @@ def action_subscribe(a):
         peer = mochi.remote.peer(server)
         response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
         if response.get("error"):
-            return a.error(response.get("code", 502), response.get("error", "Unable to connect to server"))
+            return a.error(response.get("code", 502), response["error"])
         repo_name = response.get("name", "")
         repo_path = response.get("path", "")
         repo_description = response.get("description", "")
