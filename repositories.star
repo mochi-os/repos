@@ -1784,6 +1784,17 @@ def event_archive(e):
 
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 
+# error_message_timeout: core calls this when a fan-out to a subscriber aged
+# out undelivered. Remove them only when the directory shows no host left
+# (locations == 0) - definitely gone, not a transient outage or a server
+# migration in progress. repositories has no durable broadcast stream, so
+# there is no broadcast/gap handler.
+def error_message_timeout(e):
+    if e.detail.get("locations", 1) != 0:
+        return
+    mochi.db.execute("delete from subscribers where id=?", e.entity)
+
+
 # Broadcast metadata update to all subscribers
 def broadcast_update(repo):
     subscribers = mochi.db.rows("select id from subscribers where repository = ?", repo["id"])
