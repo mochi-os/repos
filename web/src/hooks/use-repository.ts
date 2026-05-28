@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
+import { naturalCompare } from '@mochi/web'
 import type {
   InfoResponse,
   BranchesResponse,
@@ -43,6 +44,10 @@ export function useBranches(repoId: string) {
     queryKey: repoKeys.branches(repoId),
     queryFn: () => reposRequest.get<BranchesResponse>(endpoints.repo.branches),
     enabled: !!repoId,
+    select: (response) => ({
+      ...response,
+      branches: [...response.branches].sort((a, b) => naturalCompare(a.name, b.name)),
+    }),
   })
 }
 
