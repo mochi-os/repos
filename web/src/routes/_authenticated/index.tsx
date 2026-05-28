@@ -108,7 +108,7 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
             <h1 className="text-lg font-semibold">{name}</h1>
           </div>
           <div className="flex items-center gap-2">
-            <CloneDialog repoPath={data.path || ''} />
+            <CloneDialog repoPath={data.path || ''} fingerprint={fingerprint} />
             {(tab ?? 'files') === 'files' && (
               <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
             )}

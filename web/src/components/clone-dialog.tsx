@@ -61,11 +61,12 @@ interface TokenListResponse {
 
 interface CloneDialogProps {
   repoPath: string
+  fingerprint: string
 }
 
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
-export function CloneDialog({ repoPath }: CloneDialogProps) {
+export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
@@ -79,11 +80,19 @@ export function CloneDialog({ repoPath }: CloneDialogProps) {
   const queryClient = useQueryClient()
 
   const buildCloneUrl = (token: string | null) => {
-    // Domain-routed entities serve the git protocol at the entity root
-    // (handled by the special-case in web_action). Other routing modes
-    // serve it via the :repository/git/*path action.
-    const base = getRouterBasepath()
-    const path = isDomainEntityRouting() ? base.replace(/\/$/, '') : `${base}git`
+    let path: string
+    if (isDomainEntityRouting()) {
+      // Domain-routed entities serve git at the entity root (special-cased in web_action).
+      path = getRouterBasepath().replace(/\/$/, '')
+    } else {
+      // Path-routed: /<app>/<fingerprint>/git, or /<fingerprint>/git under direct
+      // entity routing. The fingerprint is the entity route param, not part of the
+      // router basepath (which resolves only to the app root), so it must be
+      // spliced in explicitly here.
+      const first = window.location.pathname.match(/^\/([^/]+)/)?.[1] || ''
+      const direct = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(first)
+      path = direct ? `/${fingerprint}/git` : `/${first}/${fingerprint}/git`
+    }
     const url = new URL(`${window.location.origin}${path}`)
     if (token) {
       url.username = 'none'
