@@ -151,6 +151,29 @@ def get_repo(a):
     repo = mochi.db.row("select * from repositories where fingerprint = ?", repo_param)
     return repo
 
+# idle_resync_age: how long without hearing metadata from a subscribed
+# repository's owner before the next view re-subscribes (the owner may have
+# pruned us after a long idle). Matches core's broadcast_log_age. Repos have no
+# durable broadcast stream, so seen is stamped only by touch (subscribe,
+# re-subscribe, and inbound metadata events) - never by core auto-advance.
+idle_resync_age = 7 * 86400
+
+# maybe_resubscribe re-establishes a subscribed repository with its owner when
+# we've heard no metadata within idle_resync_age. The owner's event_subscribe is
+# idempotent (re-adds us to the push list); git content is pull-on-demand, so
+# there is nothing to reconcile. touch() throttles to once per window and keeps a
+# dead owner from being re-poked per view.
+def maybe_resubscribe(a, repo_id):
+    user_id = a.user.identity.id if a.user else None
+    if not user_id:
+        return
+    if not mochi.db.row("select 1 from repositories where id=? and owner=0", repo_id):
+        return
+    if mochi.time.now() - mochi.broadcast.seen(repo_id) <= idle_resync_age:
+        return
+    mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
+    mochi.broadcast.touch(repo_id)
+
 # Action: Get entity info - returns repository details for entity context
 def action_info_entity(a):
     repo = get_repo(a)
@@ -162,6 +185,8 @@ def action_info_entity(a):
     server = repo.get("server", "")
 
     if is_remote:
+        # Re-establish with the owner if this subscription has gone idle.
+        maybe_resubscribe(a, repo["id"])
         # Fetch live data from remote server (peer=None uses directory lookup)
         peer = mochi.remote.peer(server) if server else None
         response = mochi.remote.request(repo["id"], "repositories", "info", {"repository": repo["id"]}, peer)
@@ -1405,6 +1430,7 @@ def action_subscribe(a):
 
     # Notify remote owner
     mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
+    mochi.broadcast.touch(repo_id)
 
     return {"data": {"fingerprint": repo_fingerprint, "name": repo_name}}
 
@@ -1506,6 +1532,9 @@ def event_update(e):
     if not repo:
         return
 
+    # Heard from the owner - refresh the idle-resync timer.
+    mochi.broadcast.touch(repo_id)
+
     name = e.content("name")
     path = e.content("path")
     description = e.content("description")
@@ -1553,6 +1582,9 @@ def event_activity(e):
     repo = mochi.db.row("select * from repositories where id = ? and owner = 0", repo_id)
     if not repo:
         return
+
+    # Heard from the owner - refresh the idle-resync timer.
+    mochi.broadcast.touch(repo_id)
 
     # Update timestamp
     mochi.db.execute("update repositories set updated = ? where id = ?", mochi.time.now(), repo_id)
