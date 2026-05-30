@@ -82,7 +82,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
               <EntityAvatar
                 seed={commit.author_email || commit.author}
                 name={commit.author}
-                size={24}
+                size="sm"
               />
               <span>{commit.author}</span>
               {commit.author_email && (
