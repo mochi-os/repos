@@ -9,7 +9,7 @@ import {
   GeneralError,
 } from '@mochi/web'
 import { FolderGit2 } from 'lucide-react'
-import { reposRequest } from '@/api/request'
+import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
 import { DownloadDropdown } from '@/components/download-dropdown'
@@ -30,15 +30,7 @@ export const Route = createFileRoute('/_authenticated/$repoId')({
     if (!repoId) {
       throw new Error(t`Repository ID is required`)
     }
-    // Use window.location.pathname since TanStack Router's location is relative to app mount
-    const pathname = window.location.pathname
-    const firstSegment = pathname.match(/^\/([^/]+)/)?.[1] || ''
-    const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
-    // In entity context, don't prepend app path; in app context, include app path
-    const baseURL = isEntityContext
-      ? `/${repoId}/-/`
-      : `/${firstSegment}/${repoId}/-/`
-    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL: repoBasePath(repoId) })
     return { ...info, repoId }
   },
   component: RepositoryPage,

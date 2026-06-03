@@ -11,7 +11,7 @@ import {
   useFormat,
 } from '@mochi/web'
 import { Tag } from 'lucide-react'
-import { reposRequest } from '@/api/request'
+import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useTags } from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
@@ -19,14 +19,7 @@ import { DownloadDropdown } from '@/components/download-dropdown'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
   loader: async ({ params }) => {
-    // Use window.location.pathname since TanStack Router's location is relative to app mount
-    const pathname = window.location.pathname
-    const firstSegment = pathname.match(/^\/([^/]+)/)?.[1] || ''
-    const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
-    const baseURL = isEntityContext
-      ? `/${params.repoId}/-/`
-      : `/${firstSegment}/${params.repoId}/-/`
-    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL: repoBasePath(params.repoId) })
     return { ...info, repoId: params.repoId }
   },
   component: TagsPage,

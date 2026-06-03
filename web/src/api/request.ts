@@ -25,6 +25,17 @@ export function appBasePath(): string {
   return match ? `${match[1]}/` : '/'
 }
 
+// Entity-level base path for a specific repository, valid in all three routing contexts:
+// entity routing (/<fingerprint>/) and domain routing (git.mochi-os.org/<repo>/) both put the
+// repository as the first path segment; only app routing (/<app>/<repo>/) needs the app prefix.
+export function repoBasePath(repoId: string): string {
+  const firstSegment = window.location.pathname.match(/^\/([^/]+)/)?.[1] || ''
+  const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
+  return isEntityContext || isDomainRouted()
+    ? `/${repoId}/-/`
+    : `/${firstSegment}/${repoId}/-/`
+}
+
 // Compute API basepath fresh (no caching) to handle navigation between contexts
 function computeApiBasepath(): string {
   const pathname = window.location.pathname

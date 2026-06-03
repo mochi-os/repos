@@ -5,7 +5,7 @@ import {
   usePageTitle,
   GeneralError,
 } from '@mochi/web'
-import { reposRequest } from '@/api/request'
+import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 import { FileTree } from '@/features/repository/file-browser'
@@ -15,17 +15,7 @@ export const Route = createFileRoute('/_authenticated/$repoId_/tree/$ref/$')({
     if (!params.repoId) {
       throw new Error(t`Repository ID is required`)
     }
-    // Use window.location.pathname since TanStack Router's location is relative to app mount
-    const pathname = window.location.pathname
-    const firstSegment = pathname.match(/^\/([^/]+)/)?.[1]
-    if (!firstSegment) {
-      throw new Error(t`Could not determine route context`)
-    }
-    const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
-    const baseURL = isEntityContext
-      ? `/${params.repoId}/-/`
-      : `/${firstSegment}/${params.repoId}/-/`
-    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL: repoBasePath(params.repoId) })
     return { ...info, repoId: params.repoId }
   },
   component: TreePage,
