@@ -2,12 +2,11 @@ import { useCallback, useEffect, useMemo } from 'react'
 import { useLingui } from '@lingui/react/macro'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem, naturalCompare} from '@mochi/web'
+import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem, naturalCompare, isDomainEntityRouting } from '@mochi/web'
 import { FolderGit2, Plus, Search } from 'lucide-react'
 import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
 import { CreateRepositoryDialog } from '@/features/repository/create-repository-dialog'
-import { isDomainRouted } from '@/api/request'
 
 function RepositoriesLayoutInner() {
   const { t } = useLingui()
@@ -16,7 +15,7 @@ function RepositoriesLayoutInner() {
   const navigate = useNavigate()
   const location = useLocation()
   const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
-  const domainRouted = useMemo(() => isDomainRouted(), [])
+  const domainRouted = useMemo(() => isDomainEntityRouting(), [])
 
   const {
     createDialogOpen,

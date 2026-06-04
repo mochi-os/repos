@@ -18,9 +18,10 @@ import {
   toast,
   getErrorMessage,
   naturalCompare,
+  isDomainEntityRouting,
 } from '@mochi/web'
 import { Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
-import { reposRequest, appBasePath, isDomainRouted } from '@/api/request'
+import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { InfoResponse, Repository, RecommendationsResponse, RecommendedRepository } from '@/api/types'
 import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
@@ -55,7 +56,7 @@ export const Route = createFileRoute('/_authenticated/')({
     // In class context, check for last visited repository and redirect if it still exists
     // Skip redirect on domain-routed pages (e.g. git.mochi-os.org/) where the listing is the main view
     // Only for authenticated users — unauthenticated users should always see the listing
-    if (!info.entity && !isDomainRouted() && useAuthStore.getState().isAuthenticated) {
+    if (!info.entity && !isDomainEntityRouting() && useAuthStore.getState().isAuthenticated) {
       const lastRepoId = await getLastRepo()
       if (lastRepoId) {
         const repos = info.repositories || []
@@ -150,7 +151,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   const [pendingRepoId, setPendingRepoId] = useState<string | null>(null)
   const [unsubscribeId, setUnsubscribeId] = useState<string | null>(null)
   const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
-  const domainRouted = useMemo(() => isDomainRouted(), [])
+  const domainRouted = useMemo(() => isDomainEntityRouting(), [])
 
   // Store "all repositories" as the last location (authenticated users only)
   useEffect(() => {

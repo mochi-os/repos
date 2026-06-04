@@ -2,7 +2,7 @@
 // Computes API basepath fresh each request to handle both class and entity context
 
 import axios, { type AxiosRequestConfig } from 'axios'
-import { useAuthStore, isInShell } from '@mochi/web'
+import { useAuthStore, isInShell, isDomainEntityRouting } from '@mochi/web'
 
 // Known class-level routes that should not be treated as entity IDs
 const CLASS_ROUTES = ['new', 'settings']
@@ -10,11 +10,6 @@ const CLASS_ROUTES = ['new', 'settings']
 // Check if a string looks like an entity ID (50-51 chars) or fingerprint (9 chars) - both base58
 function isEntityIdentifier(s: string): boolean {
   return /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(s) || /^[1-9A-HJ-NP-Za-km-z]{50,51}$/.test(s)
-}
-
-// Check if we're on a domain-routed page (e.g. git.mochi-os.org/feeds)
-export function isDomainRouted(): boolean {
-  return !!document.querySelector('meta[name="mochi:domain"]')
 }
 
 // Get app-level base path (class context, not entity context)
@@ -31,7 +26,7 @@ export function appBasePath(): string {
 export function repoBasePath(repoId: string): string {
   const firstSegment = window.location.pathname.match(/^\/([^/]+)/)?.[1] || ''
   const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
-  return isEntityContext || isDomainRouted()
+  return isEntityContext || isDomainEntityRouting()
     ? `/${repoId}/-/`
     : `/${firstSegment}/${repoId}/-/`
 }
@@ -52,8 +47,8 @@ function computeApiBasepath(): string {
     return `${match[1]}/${match[2]}/-/`
   }
 
-  // Check for domain routing: server sets <meta name="mochi:domain"> on domain-routed pages
-  if (directMatch && document.querySelector('meta[name="mochi:domain"]')) {
+  // Check for domain routing (server meta tag or shell-init domain context)
+  if (directMatch && isDomainEntityRouting()) {
     return `/${directMatch[1]}/-/`
   }
 

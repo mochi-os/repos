@@ -37,7 +37,7 @@ import {
   ArrowLeft,
   Key,
 } from 'lucide-react'
-import { reposRequest, appBasePath } from '@/api/request'
+import { reposRequest } from '@/api/request'
 
 interface TokenGetResponse {
   token: string
@@ -106,9 +106,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const { data: tokensData, isLoading: tokensLoading } = useQuery({
     queryKey: ['tokens'],
     queryFn: async () => {
-      return await reposRequest.get<TokenListResponse>('-/token/list', {
-        baseURL: appBasePath(),
-      })
+      return await reposRequest.get<TokenListResponse>('token/list')
     },
     enabled: open && view === 'manage',
   })
@@ -116,9 +114,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
       return await reposRequest.post<TokenCreateResponse>(
-        '-/token/create',
-        { name },
-        { baseURL: appBasePath() }
+        'token/create',
+        { name }
       )
     },
     onSuccess: (data) => {
@@ -133,7 +130,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
 
   const deleteMutation = useMutation({
     mutationFn: async (hash: string) => {
-      await reposRequest.post('-/token/delete', { hash }, { baseURL: appBasePath() })
+      await reposRequest.post('token/delete', { hash })
     },
     onSuccess: () => {
       toast.success(t`Token deleted`)
@@ -166,9 +163,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     setView('loading')
     try {
       const response = await reposRequest.post<TokenGetResponse>(
-        '-/token/create',
-        { name: repoPath || 'repo' },
-        { baseURL: appBasePath() }
+        'token/create',
+        { name: repoPath || 'repo' }
       )
       setCloneCommand(buildCloneUrl(response.token))
       setView('clone')
