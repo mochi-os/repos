@@ -6,12 +6,10 @@ const endpoints = {
     create: '-/create',
     search: '-/search',
     recommendations: '-/recommendations',
-    probe: '-/probe',
     subscribe: '-/subscribe',
     unsubscribe: '-/unsubscribe',
 
     // Entity-level endpoints (caller should set baseURL to /{repoId}/-/)
-    settings: 'settings',
     settingsSet: 'settings/set',
     rename: 'rename',
     delete: 'delete',
@@ -20,7 +18,6 @@ const endpoints = {
     accessSet: 'access/set',
     accessRevoke: 'access/revoke',
     // Git operations
-    refs: 'refs',
     branches: 'branches',
     branchCreate: 'branches/create',
     branchDelete: 'branches/delete',

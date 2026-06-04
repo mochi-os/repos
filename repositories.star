@@ -345,27 +345,6 @@ def action_create(a):
     fingerprint = mochi.entity.fingerprint(entity_id)
     return {"data": {"id": entity_id, "fingerprint": fingerprint, "name": name, "path": path, "url": "/" + fingerprint}}
 
-# Action: Repository settings
-def action_settings(a):
-    repo = get_repo(a)
-    if not repo:
-        return a.error.label(404, "errors.repository_not_found")
-
-    if not check_write_access(a, repo["id"]):
-        return a.error.label(403, "errors.access_denied")
-
-    row = mochi.db.row("select * from repositories where id = ?", repo["id"])
-    if not row:
-        return a.error.label(404, "errors.repository_not_found")
-
-    return {"data": {
-        "id": repo["id"],
-        "name": row["name"],
-        "path": row.get("path", ""),
-        "description": row["description"],
-        "default_branch": row["default_branch"],
-    }}
-
 # Action: Update repository settings
 def action_settings_set(a):
     repo = get_repo(a)
@@ -380,6 +359,12 @@ def action_settings_set(a):
     default_branch = a.input("default_branch")
     allow_read = a.input("allow_read")
     privacy = a.input("privacy")
+
+    # Changing public-read access or directory privacy is an access-control
+    # change, reserved for admins (as in action_access_set). Write access alone
+    # covers only content settings (path/description/default branch).
+    if (allow_read in ("true", "false") or privacy in ("public", "private")) and not check_admin_access(a, repo["id"]):
+        return a.error.label(403, "errors.access_denied")
 
     if description and len(description) > 2000:
         return a.error.label(400, "errors.description_too_long")
@@ -980,9 +965,7 @@ def action_archive(a):
         # Header message: error or {filename, ...}
         head = s.read()
         if not head or head.get("error"):
-            code = head.get("code", 500) if head else 502
-            message = head.get("error", "Remote server unavailable") if head else "Remote server unavailable"
-            return a.error(code, message)
+            return a.error.label(502, "errors.remote_request_failed")
 
         filename = head.get("filename")
         if not filename:
@@ -1354,7 +1337,7 @@ def action_probe(a):
 
     response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
     if response.get("error"):
-        return a.error(response.get("code", 404), response["error"])
+        return a.error.label(404, "errors.repository_not_found")
 
     # Return repository info as a directory-like entry in results array format
     return {"data": {"results": [{
@@ -1401,7 +1384,7 @@ def action_subscribe(a):
         peer = mochi.remote.peer(server)
         response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
         if response.get("error"):
-            return a.error(response.get("code", 502), response["error"])
+            return a.error.label(502, "errors.remote_request_failed")
         repo_name = response.get("name", "")
         repo_path = response.get("path", "")
         repo_description = response.get("description", "")
@@ -1555,13 +1538,17 @@ def event_update(e):
     updates = []
     params = []
 
-    if name:
+    # Apply the same field validation the owner enforces locally
+    # (action_settings_set / action_rename), so a malformed or oversized value
+    # from a remote owner can't land in our cached copy. Invalid fields are
+    # skipped, keeping the existing cached value.
+    if name and mochi.text.valid(name, "name") and len(name) <= 100:
         updates.append("name = ?")
         params.append(name)
-    if path:
+    if path and valid_path(path):
         updates.append("path = ?")
         params.append(path)
-    if description:
+    if description and len(description) <= 2000:
         updates.append("description = ?")
         params.append(description)
     if default_branch:
