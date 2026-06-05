@@ -14,24 +14,24 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:75
+#: src/routes/_authenticated/$repoId_.branches.tsx:68
 msgid "{0} branches"
 msgstr "Rassan {0}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:48
+#: src/routes/_authenticated/$repoId_.commits.tsx:41
 msgid "{0} commits"
 msgstr "Commits {0}"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
 #: src/features/repository/repository-tabs.tsx:696
-#: src/routes/_authenticated/$repoId_.tags.tsx:127
+#: src/routes/_authenticated/$repoId_.tags.tsx:120
 msgid "{0} tagged on {1}"
 msgstr "{0} ya yi alama a {1}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:40
+#: src/routes/_authenticated/$repoId_.tags.tsx:33
 msgid "{0} tags"
 msgstr "Alamomin {0}"
 
@@ -141,7 +141,7 @@ msgstr "AI"
 msgid "All"
 msgstr "Duk"
 
-#: src/components/layout/repositories-layout.tsx:54
+#: src/components/layout/repositories-layout.tsx:53
 msgid "All repositories"
 msgstr "Duk repositories"
 
@@ -153,11 +153,19 @@ msgstr "Ba kowa damar karanta repository"
 msgid "Allow anyone to search for repository"
 msgstr "Ba kowa damar nemo repository"
 
+#: ../../../lib/web/src/lib/api-client.ts:189
+msgid "An error occurred"
+msgstr "An samu kuskure"
+
+#: ../../../lib/web/src/lib/api-client.ts:252
+msgid "An unexpected error occurred"
+msgstr "An samu kuskuren da ba a zata ba"
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:24
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ka tabbata kana son fita? Za ka buƙaci shiga kuma don shiga asusunka."
 
-#: src/routes/_authenticated/index.tsx:340
+#: src/routes/_authenticated/index.tsx:341
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ka tabbata kana son cire biyan kuɗi daga wannan repository?"
 
@@ -165,9 +173,13 @@ msgstr "Ka tabbata kana son cire biyan kuɗi daga wannan repository?"
 msgid "Asc"
 msgstr "Asc"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:312
+msgid "Authenticator code"
+msgstr "Code na authenticator"
+
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:316
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:321
+#: src/components/clone-dialog.tsx:379
 msgid "Back"
 msgstr "Komawa"
 
@@ -191,22 +203,22 @@ msgid "Boost interest"
 msgstr "Ƙara sha'awa"
 
 #: src/features/repository/repository-tabs.tsx:461
-#: src/routes/_authenticated/$repoId_.branches.tsx:106
+#: src/routes/_authenticated/$repoId_.branches.tsx:99
 msgid "Branch \"{branchToDelete}\" deleted"
 msgstr "An goge branch \"{branchToDelete}\""
 
 #: src/features/repository/repository-tabs.tsx:441
-#: src/routes/_authenticated/$repoId_.branches.tsx:86
+#: src/routes/_authenticated/$repoId_.branches.tsx:79
 msgid "Branch \"{newBranchName}\" created"
 msgstr "An ƙirƙiri branch \"{newBranchName}\""
 
 #: src/features/repository/repository-tabs.tsx:559
-#: src/routes/_authenticated/$repoId_.branches.tsx:155
+#: src/routes/_authenticated/$repoId_.branches.tsx:148
 msgid "Branch name"
 msgstr "Sunan branch"
 
 #: src/features/repository/repository-tabs.tsx:434
-#: src/routes/_authenticated/$repoId_.branches.tsx:79
+#: src/routes/_authenticated/$repoId_.branches.tsx:72
 msgid "Branch name is required"
 msgstr "Ana buƙatar sunan branch"
 
@@ -216,20 +228,21 @@ msgid "Branches"
 msgstr "Branches"
 
 #: ../../../lib/web/src/components/responsive-confirm-dialog.tsx:64
+#: ../../../lib/web/src/components/step-up-dialog.tsx:360
 #: ../../../lib/web/src/components/travelling-picker.tsx:292
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:245
 #: ../../../lib/web/src/features/access/access-dialog.tsx:325
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:405
 #: src/features/repository/repository-header.tsx:123
 #: src/features/repository/repository-tabs.tsx:233
 #: src/features/repository/repository-tabs.tsx:586
 #: src/features/repository/repository-tabs.tsx:605
 #: src/features/repository/repository-tabs.tsx:1104
-#: src/routes/_authenticated/$repoId_.branches.tsx:182
-#: src/routes/_authenticated/$repoId_.branches.tsx:201
+#: src/routes/_authenticated/$repoId_.branches.tsx:175
+#: src/routes/_authenticated/$repoId_.branches.tsx:194
 msgid "Cancel"
 msgstr "Soke"
 
@@ -238,11 +251,11 @@ msgstr "Soke"
 msgid "Cancel edit"
 msgstr "Soke gyaran"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:131
+#: ../../../lib/web/src/components/notification-category-button.tsx:135
 msgid "Category for this notification"
 msgstr "Rukuni don wannan sanarwa"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:115
+#: ../../../lib/web/src/components/notification-category-button.tsx:119
 msgid "Change notification category"
 msgstr "Sauya rukunin sanarwa"
 
@@ -291,11 +304,11 @@ msgstr "Share zaɓi"
 msgid "Clear selection (Escape)"
 msgstr "Share zaɓi (Escape)"
 
-#: src/components/clone-dialog.tsx:229
+#: src/components/clone-dialog.tsx:234
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:207
+#: src/components/clone-dialog.tsx:212
 msgid "Clone repository"
 msgstr "Yi clone na ma'aji"
 
@@ -335,7 +348,7 @@ msgstr "Commit"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
-#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:34
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:27
 #: src/routes/_authenticated/commit/$sha.tsx:30
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
@@ -371,8 +384,12 @@ msgstr "Bayanan da suka shafi mahallin da cikakkun bayanai."
 msgid "Continue"
 msgstr "Ci gaba"
 
-#: src/components/clone-dialog.tsx:176
-#: src/components/clone-dialog.tsx:185
+#: ../../../lib/web/src/components/step-up-dialog.tsx:349
+msgid "Continue with {label}"
+msgstr "Ci gaba da {label}"
+
+#: src/components/clone-dialog.tsx:181
+#: src/components/clone-dialog.tsx:190
 msgid "Copied to clipboard"
 msgstr "An kwafi zuwa clipboard"
 
@@ -388,51 +405,59 @@ msgstr "Kwafe SHA na commit"
 msgid "Copy file contents"
 msgstr "Kwafe abubuwan da ke cikin file"
 
-#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:22
-msgid "Could not determine route context"
-msgstr "Ba a iya gano mahallin route ba"
-
 #: ../../../lib/web/src/features/document/document-page.tsx:81
 msgid "Could not load this document. Please try again later."
 msgstr "Ba a iya loda wannan takarda ba. Da fatan a sake gwadawa daga baya."
 
-#: src/components/clone-dialog.tsx:380
+#: ../../../lib/web/src/components/step-up-dialog.tsx:181
+msgid "Couldn't send the code. Please try again."
+msgstr "An kasa aika lambar. Don Allah a sake gwadawa."
+
+#: ../../../lib/web/src/components/step-up-dialog.tsx:133
+msgid "Couldn't start re-authentication. Please try again."
+msgstr "An kasa fara sake tantancewa. Don Allah a sake gwadawa."
+
+#: ../../../lib/web/src/components/step-up-dialog.tsx:218
+msgid "Couldn't verify with that account. Please try again."
+msgstr "An kasa tabbatar da wannan asusun. Da fatan za a sake gwadawa."
+
+#: src/components/clone-dialog.tsx:385
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
 msgstr "Ƙirƙira"
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:223
 msgid "Create a new authentication token."
 msgstr "Ƙirƙiri sabon alamar tabbatarwa."
 
-#: src/routes/_authenticated/index.tsx:230
+#: src/routes/_authenticated/index.tsx:231
 msgid "Create a new repository"
 msgstr "Ƙirƙira sabon repository"
 
 #: src/features/repository/repository-tabs.tsx:495
 #: src/features/repository/repository-tabs.tsx:589
-#: src/routes/_authenticated/$repoId_.branches.tsx:135
-#: src/routes/_authenticated/$repoId_.branches.tsx:185
+#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:178
 msgid "Create branch"
 msgstr "Ƙirƙira branch"
 
-#: src/components/layout/repositories-layout.tsx:63
+#: src/components/layout/repositories-layout.tsx:62
 #: src/features/repository/create-repository-dialog.tsx:126
 #: src/features/repository/create-repository-dialog.tsx:133
 msgid "Create repository"
 msgstr "Ƙirƙira repository"
 
-#: src/components/clone-dialog.tsx:205
-#: src/components/clone-dialog.tsx:320
+#: src/components/clone-dialog.tsx:210
+#: src/components/clone-dialog.tsx:325
 msgid "Create token"
 msgstr "Ƙirƙira token"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:296
+#: src/components/clone-dialog.tsx:301
 msgid "Created {0}"
 msgstr "An ƙirƙira {0}"
 
-#: src/routes/_authenticated/$repoId_.branches.tsx:185
+#: src/routes/_authenticated/$repoId_.branches.tsx:178
 msgid "Creating..."
 msgstr "Ana ƙirƙira..."
 
@@ -453,7 +478,7 @@ msgstr "Duhu"
 msgid "Dark mode"
 msgstr "Dark mode"
 
-#: src/routes/_authenticated/$repoId_.branches.tsx:271
+#: src/routes/_authenticated/$repoId_.branches.tsx:264
 msgid "default"
 msgstr "tsohuwa"
 
@@ -469,25 +494,25 @@ msgstr "Default AI asusu"
 msgid "Default branch"
 msgstr "Default branch"
 
-#: src/components/clone-dialog.tsx:404
+#: src/components/clone-dialog.tsx:409
 #: src/features/repository/repository-tabs.tsx:607
 #: src/features/repository/repository-tabs.tsx:1105
-#: src/routes/_authenticated/$repoId_.branches.tsx:203
+#: src/routes/_authenticated/$repoId_.branches.tsx:196
 msgid "Delete"
 msgstr "Goge"
 
 #: src/features/repository/repository-tabs.tsx:601
-#: src/routes/_authenticated/$repoId_.branches.tsx:197
+#: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Goge \"{branchToDelete}\"? Ba za a iya juya wannan ba."
 
 #: src/features/repository/repository-tabs.tsx:540
-#: src/routes/_authenticated/$repoId_.branches.tsx:289
+#: src/routes/_authenticated/$repoId_.branches.tsx:282
 msgid "Delete branch"
 msgstr "Share branch"
 
 #: src/features/repository/repository-tabs.tsx:599
-#: src/routes/_authenticated/$repoId_.branches.tsx:195
+#: src/routes/_authenticated/$repoId_.branches.tsx:188
 msgid "Delete branch?"
 msgstr "Goge branch?"
 
@@ -500,15 +525,19 @@ msgstr "Goge repository"
 msgid "Delete repository?"
 msgstr "Goge repository?"
 
-#: src/components/clone-dialog.tsx:305
+#: src/components/clone-dialog.tsx:310
 msgid "Delete token"
 msgstr "Goge token"
 
-#: src/components/clone-dialog.tsx:393
+#: src/components/clone-dialog.tsx:398
 msgid "Delete token?"
 msgstr "Goge token?"
 
-#: src/routes/_authenticated/$repoId_.branches.tsx:203
+#: ../../../lib/web/src/components/restore-banner.tsx:90
+msgid "Delete your account on the old server"
+msgstr "Goge asusu ka akan tsohon uwar garken"
+
+#: src/routes/_authenticated/$repoId_.branches.tsx:196
 msgid "Deleting..."
 msgstr "Ana goge..."
 
@@ -544,12 +573,16 @@ msgstr "Gano daga web browser"
 msgid "Direction"
 msgstr "Hanya"
 
+#: ../../../lib/web/src/components/restore-banner.tsx:73
+msgid "Dismiss"
+msgstr "Kau da shi"
+
 #: ../../../lib/web/src/components/ui/sidebar.tsx:235
 msgid "Displays the mobile sidebar."
 msgstr "Yana nuna sidebar na wayar hannu."
 
-#: src/components/clone-dialog.tsx:270
-#: src/components/clone-dialog.tsx:353
+#: src/components/clone-dialog.tsx:275
+#: src/components/clone-dialog.tsx:358
 msgid "Done"
 msgstr "An gama"
 
@@ -567,7 +600,7 @@ msgstr "Sauke file"
 msgid "Dyslexia-friendly"
 msgstr "Mai dacewa da rashin karatu"
 
-#: src/components/clone-dialog.tsx:363
+#: src/components/clone-dialog.tsx:368
 msgid "e.g., Work laptop"
 msgstr "misali Laptop na aiki"
 
@@ -579,6 +612,10 @@ msgstr "Gyara suna"
 msgid "Edit path"
 msgstr "Gyara hanya"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:286
+msgid "Email code"
+msgstr "Lambar imel"
+
 #: src/features/repository/file-browser.tsx:337
 msgid "Empty directory"
 msgstr "Babu komai a directory"
@@ -587,6 +624,14 @@ msgstr "Babu komai a directory"
 #: src/features/repository/repository-tabs.tsx:322
 msgid "Empty repository"
 msgstr "Repository babu komai"
+
+#: ../../../lib/web/src/components/step-up-dialog.tsx:296
+msgid "Enter the code from your email"
+msgstr "Shigar da lambar daga imel ɗinka"
+
+#: ../../../lib/web/src/components/step-up-dialog.tsx:321
+msgid "Enter your authenticator code"
+msgstr "Shigar da lambar mai tantancewarka"
 
 #: src/features/repository/repository-tabs.tsx:1026
 msgid "Entity:"
@@ -605,7 +650,7 @@ msgid "Failed to add account"
 msgstr "An gaza ƙara account"
 
 #: src/features/repository/repository-tabs.tsx:447
-#: src/routes/_authenticated/$repoId_.branches.tsx:92
+#: src/routes/_authenticated/$repoId_.branches.tsx:85
 msgid "Failed to create branch"
 msgstr "An gaza ƙirƙirar branch"
 
@@ -613,12 +658,12 @@ msgstr "An gaza ƙirƙirar branch"
 msgid "Failed to create repository"
 msgstr "An gaza ƙirƙirar repository"
 
-#: src/components/clone-dialog.tsx:121
+#: src/components/clone-dialog.tsx:127
 msgid "Failed to create token"
 msgstr "An gaza ƙirƙirar token"
 
 #: src/features/repository/repository-tabs.tsx:466
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/routes/_authenticated/$repoId_.branches.tsx:104
 msgid "Failed to delete branch"
 msgstr "An gaza share branch"
 
@@ -626,7 +671,7 @@ msgstr "An gaza share branch"
 msgid "Failed to delete repository"
 msgstr "An gaza share repository"
 
-#: src/components/clone-dialog.tsx:135
+#: src/components/clone-dialog.tsx:141
 msgid "Failed to delete token"
 msgstr "An gaza share token"
 
@@ -634,7 +679,7 @@ msgstr "An gaza share token"
 msgid "Failed to download archive"
 msgstr "An gaza sauke archive"
 
-#: src/components/clone-dialog.tsx:167
+#: src/components/clone-dialog.tsx:172
 msgid "Failed to get token"
 msgstr "An gaza samun token"
 
@@ -643,7 +688,7 @@ msgid "Failed to load access rules"
 msgstr "An gaza loading access rules"
 
 #: src/features/repository/repository-tabs.tsx:484
-#: src/routes/_authenticated/$repoId_.branches.tsx:236
+#: src/routes/_authenticated/$repoId_.branches.tsx:229
 msgid "Failed to load branches"
 msgstr "An gaza loading branches"
 
@@ -652,7 +697,7 @@ msgid "Failed to load commit"
 msgstr "An gaza loading commit"
 
 #: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:110
+#: src/routes/_authenticated/$repoId_.commits.tsx:103
 msgid "Failed to load commits"
 msgstr "An gaza loading commits"
 
@@ -663,7 +708,7 @@ msgid "Failed to load files"
 msgstr "An gaza loading fayiloli"
 
 #: src/features/repository/repository-tabs.tsx:638
-#: src/routes/_authenticated/$repoId_.tags.tsx:87
+#: src/routes/_authenticated/$repoId_.tags.tsx:80
 msgid "Failed to load tags"
 msgstr "An gaza loading tags"
 
@@ -693,13 +738,13 @@ msgstr "An gaza saita matakin shiga"
 
 #: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:52
-#: src/routes/_authenticated/index.tsx:193
+#: src/routes/_authenticated/index.tsx:194
 msgid "Failed to subscribe"
 msgstr "An gaza subscribe"
 
 #: src/features/repository/repository-header.tsx:72
 #: src/features/repository/repository-tabs.tsx:206
-#: src/routes/_authenticated/index.tsx:352
+#: src/routes/_authenticated/index.tsx:353
 msgid "Failed to unsubscribe"
 msgstr "An gaza unsubscribe"
 
@@ -707,7 +752,7 @@ msgstr "An gaza unsubscribe"
 msgid "Failed to update access level"
 msgstr "An gaza sabunta matakin shiga"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:104
+#: ../../../lib/web/src/components/notification-category-button.tsx:108
 msgid "Failed to update category"
 msgstr "An gaza sabunta category"
 
@@ -715,22 +760,22 @@ msgstr "An gaza sabunta category"
 msgid "Failed to update path"
 msgstr "An gaza sabunta path"
 
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/routes/_authenticated/$repoId_.branches.tsx:153
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
-#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:34
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:27
 #: src/routes/_authenticated/blob/$ref/$.tsx:28
 msgid "file"
 msgstr "fayil"
 
 #: src/features/repository/tabs.tsx:25
-#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:39
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:29
 #: src/routes/_authenticated/tree/$ref/$.tsx:28
 msgid "Files"
 msgstr "Fayiloli"
 
-#: src/components/layout/repositories-layout.tsx:62
+#: src/components/layout/repositories-layout.tsx:61
 #: src/routes/_authenticated/find.tsx:64
 msgid "Find repositories"
 msgstr "Nemo repositories"
@@ -738,6 +783,10 @@ msgstr "Nemo repositories"
 #: src/features/repository/repository-tabs.tsx:1028
 msgid "Fingerprint:"
 msgstr "Fingerprint:"
+
+#: ../../../lib/web/src/components/restore-banner.tsx:79
+msgid "Finish moving your account"
+msgstr "Kammala ƙaurar asusunka"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:244
 msgid "Floating"
@@ -839,7 +888,7 @@ msgid "Large"
 msgstr "Babba"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:297
+#: src/components/clone-dialog.tsx:302
 msgid "Last used {0}"
 msgstr "An yi amfani a {0}"
 
@@ -896,8 +945,8 @@ msgstr "Ana fita…"
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Ƙananan haruffa, lambobi, da hyphens kaɗai"
 
-#: src/components/clone-dialog.tsx:203
-#: src/components/clone-dialog.tsx:267
+#: src/components/clone-dialog.tsx:208
+#: src/components/clone-dialog.tsx:272
 msgid "Manage tokens"
 msgstr "Sarrafa tokens"
 
@@ -940,8 +989,12 @@ msgstr "Suna dole ya kasance haruffa 100 ko ƙasa"
 msgid "Name:"
 msgstr "Suna:"
 
-#: src/components/clone-dialog.tsx:296
-#: src/components/clone-dialog.tsx:297
+#: ../../../lib/web/src/lib/api-client.ts:297
+msgid "Network error"
+msgstr "Kuskuren hanyar sadarwa"
+
+#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:302
 msgid "Never"
 msgstr "Babu lokaci"
 
@@ -950,7 +1003,7 @@ msgid "New"
 msgstr "Sabon"
 
 #: src/features/repository/repository-tabs.tsx:555
-#: src/routes/_authenticated/$repoId_.branches.tsx:151
+#: src/routes/_authenticated/$repoId_.branches.tsx:144
 msgid "New branch"
 msgstr "Sabon branch"
 
@@ -967,12 +1020,12 @@ msgid "No access rules configured. Add rules to control who can access this reso
 msgstr "Ba a saita ka'idojin shiga ba. Ƙara ka'idoji don sarrafa wanda zai iya shiga wannan albarkatun."
 
 #: src/features/repository/repository-tabs.tsx:503
-#: src/routes/_authenticated/$repoId_.branches.tsx:247
+#: src/routes/_authenticated/$repoId_.branches.tsx:240
 msgid "No branches yet"
 msgstr "Babu branches tukuna"
 
 #: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:115
+#: src/routes/_authenticated/$repoId_.commits.tsx:108
 msgid "No commits yet"
 msgstr "Babu commits tukuna"
 
@@ -992,7 +1045,7 @@ msgstr "Babu wurare da aka samu"
 msgid "No profile"
 msgstr "Babu profile"
 
-#: src/routes/_authenticated/index.tsx:223
+#: src/routes/_authenticated/index.tsx:224
 msgid "No public repositories."
 msgstr "Babu ma'ajiyoyin jama'a."
 
@@ -1007,7 +1060,7 @@ msgid "No results found."
 msgstr "Ba a sami sakamako ba."
 
 #: src/features/repository/repository-tabs.tsx:668
-#: src/routes/_authenticated/$repoId_.tags.tsx:98
+#: src/routes/_authenticated/$repoId_.tags.tsx:91
 msgid "No tags yet"
 msgstr "Babu tags tukuna"
 
@@ -1015,11 +1068,11 @@ msgstr "Babu tags tukuna"
 msgid "No time zone found."
 msgstr "Ba a sami time zone ba."
 
-#: src/components/clone-dialog.tsx:284
+#: src/components/clone-dialog.tsx:289
 msgid "No tokens yet."
 msgstr "Babu tokens tukuna."
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:135
+#: ../../../lib/web/src/components/notification-category-button.tsx:139
 msgid "No topic record yet — try again after the next notification."
 msgstr "Babu rikodin topic tukuna — sake gwadawa bayan sanarwa ta gaba."
 
@@ -1081,6 +1134,18 @@ msgstr "Iyaye:"
 msgid "Parents:"
 msgstr "Iyaye:"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:331
+msgid "Passkey"
+msgstr "Maɓallin shiga"
+
+#: ../../../lib/web/src/components/step-up-dialog.tsx:206
+msgid "Passkey verification failed. Please try again."
+msgstr "Tantance maɓallin shiga ya gaza. Don Allah a sake gwadawa."
+
+#: ../../../lib/web/src/components/restore-banner.tsx:126
+msgid "Passkeys"
+msgstr "Makullan shiga"
+
 #: src/features/repository/create-repository-dialog.tsx:150
 msgid "Path"
 msgstr "Path"
@@ -1101,7 +1166,11 @@ msgstr "Path:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Share wannan repository da duk bayanansa har abada"
 
-#: src/components/clone-dialog.tsx:192
+#: ../../../lib/web/src/lib/api-client.ts:298
+msgid "Please check your internet connection and try again."
+msgstr "Da fatan a duba haɗin intanet ɗinka sannan a sake gwadawa."
+
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "Da fatan shigar da sunan token"
 
@@ -1119,6 +1188,14 @@ msgstr "Sirri"
 msgid "Profile"
 msgstr "Profile"
 
+#: ../../../lib/web/src/components/restore-banner.tsx:98
+msgid "Re-link your accounts on this server"
+msgstr "Sake haɗa asusunka a wannan uwar garken"
+
+#: ../../../lib/web/src/components/restore-banner.tsx:120
+msgid "Re-register your passkeys on this server"
+msgstr "Sake yin rajistar makullan shiga naka a wannan uwar garken"
+
 #: src/features/repository/repository-tabs.tsx:719
 msgid "Read and write"
 msgstr "Karatu da rubutu"
@@ -1132,7 +1209,7 @@ msgstr "Karatu kawai"
 msgid "Recommended"
 msgstr "An ba da shawara"
 
-#: src/routes/_authenticated/index.tsx:241
+#: src/routes/_authenticated/index.tsx:242
 msgid "Recommended repositories"
 msgstr "Repositories da aka ba da shawara"
 
@@ -1170,24 +1247,24 @@ msgstr "A cire damar shiga?"
 msgid "Remove interest"
 msgstr "Cire sha'awa"
 
-#: src/routes/_authenticated/index.tsx:144
-#: src/routes/_authenticated/index.tsx:213
-#: src/routes/_authenticated/index.tsx:221
+#: src/routes/_authenticated/index.tsx:145
+#: src/routes/_authenticated/index.tsx:214
+#: src/routes/_authenticated/index.tsx:222
 msgid "Repositories"
 msgstr "Repositories"
 
-#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:43
-#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:56
-#: src/routes/_authenticated/$repoId_.branches.tsx:122
-#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:42
-#: src/routes/_authenticated/$repoId_.commits.tsx:56
-#: src/routes/_authenticated/$repoId_.tags.tsx:48
-#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:47
-#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:59
-#: src/routes/_authenticated/$repoId.tsx:57
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:36
+#: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:49
+#: src/routes/_authenticated/$repoId_.branches.tsx:115
+#: src/routes/_authenticated/$repoId_.commit.$sha.tsx:35
+#: src/routes/_authenticated/$repoId_.commits.tsx:49
+#: src/routes/_authenticated/$repoId_.tags.tsx:41
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:37
+#: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:49
+#: src/routes/_authenticated/$repoId.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:49
 #: src/routes/_authenticated/blob/$ref/$.tsx:60
-#: src/routes/_authenticated/index.tsx:98
+#: src/routes/_authenticated/index.tsx:99
 #: src/routes/_authenticated/tree/$ref/$.tsx:48
 #: src/routes/_authenticated/tree/$ref/$.tsx:59
 msgid "Repository"
@@ -1218,6 +1295,10 @@ msgstr "Ba a sami repository ba"
 msgid "Repository renamed"
 msgstr "An sake suna repository"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:364
+msgid "Resend email"
+msgstr "Sake aika imel"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:77
 #: ../../../lib/web/src/components/data-table/toolbar.tsx:78
 msgid "Reset"
@@ -1243,12 +1324,12 @@ msgstr "Asabar"
 msgid "Save"
 msgstr "Adana"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:222
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Ajiye wannan alamar yanzu. Ba za ka iya ganinta kuma ba."
 
-#: src/components/clone-dialog.tsx:260
-#: src/components/clone-dialog.tsx:344
+#: src/components/clone-dialog.tsx:265
+#: src/components/clone-dialog.tsx:349
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Adana wannan tokin lafiya. Ba za ku sake ganin sa ba."
 
@@ -1306,7 +1387,7 @@ msgstr "Zaɓi nau'in account"
 #: src/features/repository/file-browser.tsx:134
 #: src/features/repository/file-browser.tsx:272
 #: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:90
+#: src/routes/_authenticated/$repoId_.commits.tsx:83
 msgid "Select branch"
 msgstr "Zaɓi branch"
 
@@ -1331,7 +1412,7 @@ msgid "Select site direction"
 msgstr "Zaɓi alkiblar shafin"
 
 #: src/features/repository/repository-tabs.tsx:572
-#: src/routes/_authenticated/$repoId_.branches.tsx:168
+#: src/routes/_authenticated/$repoId_.branches.tsx:161
 msgid "Select source branch"
 msgstr "Zaɓi source branch"
 
@@ -1343,9 +1424,18 @@ msgstr "Zaɓi zaɓin theme"
 msgid "Send again"
 msgstr "Aika kuma"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:304
+msgid "Send email"
+msgstr "Aika email"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:133
 msgid "Serif"
 msgstr "Serif"
+
+#: ../../../lib/web/src/lib/api-client.ts:256
+#: ../../../lib/web/src/lib/api-client.ts:281
+msgid "Server error"
+msgstr "Kuskuren saba"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx:16
 #: ../../../lib/web/src/features/document/document-page.tsx:37
@@ -1396,7 +1486,7 @@ msgid "Small"
 msgstr "Karami"
 
 #: src/features/repository/repository-tabs.tsx:569
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/routes/_authenticated/$repoId_.branches.tsx:158
 msgid "Source branch"
 msgstr "Source branch"
 
@@ -1413,13 +1503,13 @@ msgid "Subject"
 msgstr "Batu"
 
 #: src/features/repository/inline-repo-search.tsx:137
-#: src/routes/_authenticated/index.tsx:275
+#: src/routes/_authenticated/index.tsx:276
 msgid "Subscribe"
 msgstr "Yi subscribe"
 
 #: src/features/repository/repository-header.tsx:94
 #: src/routes/_authenticated/find.tsx:48
-#: src/routes/_authenticated/index.tsx:189
+#: src/routes/_authenticated/index.tsx:190
 msgid "Subscribed"
 msgstr "An yi subscribe"
 
@@ -1451,6 +1541,10 @@ msgstr "Tawagogi/Apps"
 msgid "Terms and conditions"
 msgstr "Sharuɗɗa da yanayi"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:192
+msgid "That code is incorrect or has expired."
+msgstr "Wannan lambar ba daidai ba ce ko kuma ta kare."
+
 #: src/features/repository/repository-tabs.tsx:1055
 msgid "The branch shown when viewing the repository"
 msgstr "Branch ɗin da ake nunawa lokacin kallon repository"
@@ -1473,7 +1567,7 @@ msgstr "Wannan shafin yana buƙatar repository context."
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Wannan zai share \"{currentName}\" har abada da duk commits, branches, da tags. Ba a iya soke wannan aiki."
 
-#: src/components/clone-dialog.tsx:395
+#: src/components/clone-dialog.tsx:400
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Wannan zai share wannan alama har abada. Duk git clients da ke amfani da shi ba za su iya tabbatarwa ba."
 
@@ -1510,15 +1604,15 @@ msgstr "Toggle Sidebar"
 msgid "Toggle theme"
 msgstr "Toggle theme"
 
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:210
 msgid "Token created"
 msgstr "An ƙirƙiri alama"
 
-#: src/components/clone-dialog.tsx:130
+#: src/components/clone-dialog.tsx:136
 msgid "Token deleted"
 msgstr "An share token"
 
-#: src/components/clone-dialog.tsx:360
+#: src/components/clone-dialog.tsx:365
 msgid "Token name"
 msgstr "Sunan token"
 
@@ -1557,12 +1651,16 @@ msgstr "Buga don bincika masu amfani"
 msgid "Type to search..."
 msgstr "Buga don bincika..."
 
+#: ../../../lib/web/src/lib/api-client.ts:277
+msgid "Unable to connect to remote server"
+msgstr "An kasa haɗawa da saba mai nesa"
+
 #: ../../../lib/web/src/lib/auth-manager.ts:82
 #: ../../../lib/web/src/lib/auth-manager.ts:94
 msgid "Unable to redirect to login. Please try again."
 msgstr "Ba a iya tura zuwa login. Da fatan sake gwadawa."
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:143
+#: ../../../lib/web/src/components/notification-category-button.tsx:147
 msgid "Unassigned"
 msgstr "Ba a sanya wa kowa"
 
@@ -1578,9 +1676,9 @@ msgstr "Amurka"
 #: src/features/repository/repository-header.tsx:124
 #: src/features/repository/repository-tabs.tsx:222
 #: src/features/repository/repository-tabs.tsx:235
-#: src/routes/_authenticated/index.tsx:319
-#: src/routes/_authenticated/index.tsx:339
-#: src/routes/_authenticated/index.tsx:341
+#: src/routes/_authenticated/index.tsx:320
+#: src/routes/_authenticated/index.tsx:340
+#: src/routes/_authenticated/index.tsx:342
 msgid "Unsubscribe"
 msgstr "Cire subscribe"
 
@@ -1589,7 +1687,7 @@ msgstr "Cire subscribe"
 msgid "Unsubscribe from repository?"
 msgstr "Cire subscribe daga repository?"
 
-#: src/routes/_authenticated/index.tsx:349
+#: src/routes/_authenticated/index.tsx:350
 msgid "Unsubscribed"
 msgstr "An cire subscribe"
 
@@ -1605,6 +1703,10 @@ msgstr "Ana cire subscribe…"
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:131
 msgid "Unverified"
 msgstr "Ba a tabbatar ba"
+
+#: ../../../lib/web/src/components/step-up-dialog.tsx:335
+msgid "Use your passkey"
+msgstr "Yi amfani da maɓallin shiganka"
 
 #: ../../../lib/web/src/features/access/access-dialog.tsx:155
 msgid "User"
@@ -1622,6 +1724,7 @@ msgstr "An aika lambar tabbatarwa"
 msgid "Verification failed"
 msgstr "Tabbatarwa ya gaza"
 
+#: ../../../lib/web/src/components/step-up-dialog.tsx:385
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:164
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:106
 msgid "Verify"
@@ -1630,6 +1733,10 @@ msgstr "Tabbatar"
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:58
 msgid "Verify email address"
 msgstr "Tabbatar da adireshin imel"
+
+#: ../../../lib/web/src/components/attachment-gallery.tsx:63
+msgid "Video thumbnail"
+msgstr "Ƙaramin hoton bidiyo"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:30
 msgid "View"
@@ -1655,6 +1762,10 @@ msgstr "Shafin yana cikin kulawa!"
 msgid "Wednesday"
 msgstr "Laraba"
 
-#: src/routes/_authenticated/index.tsx:223
+#: src/routes/_authenticated/index.tsx:224
 msgid "You have no repositories yet."
 msgstr "Ba ka da wani ma'aji tukuna."
+
+#: ../../../lib/web/src/components/restore-banner.tsx:82
+msgid "Your account was moved here from {source}. Until you delete it there, messages and notifications may reach both servers, some of your content keeps being served from the old server, and followers may take a few minutes to find you here."
+msgstr "An ƙauri asusunka zuwa nan daga {source}. Sai ka goge shi a can, saƙonni da sanarwa na iya kai ga uwar garken biyu, wasu abubuwan ka suna ci gaba da samarwa daga tsohon uwar garken, kuma mabiyanka na iya ɗaukar 'yan mintoci don su same ka nan."
