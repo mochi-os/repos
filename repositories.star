@@ -1816,6 +1816,45 @@ def event_archive(e):
     e.stream.write({"filename": filename, "sha": sha, "prefix": base})
     mochi.git.archive(repo_id, sha, format, base, e.stream)
 
+# Handle a merge request from another app or a remote user (P2P request-response).
+# The repository's own ACL governs the merge: we authorize the cryptographically
+# verified P2P sender (e.header("from")) against repository/<id> write - the same
+# grant a git push requires - NOT the caller's project access. This handler runs
+# on the repository owner's host as the owner, so core's git_can_write would see
+# the owner; this from-check is the real gate for a remote initiator. Error
+# strings are label keys resolved by the calling app (e.g. projects).
+def event_merge(e):
+    repo_id = e.header("to")
+    requester = e.header("from")
+
+    # We must own the canonical repository to merge it. Report not-found as
+    # access-denied so an unauthorized caller cannot probe repository existence.
+    repo = mochi.db.row("select id from repositories where id = ? and owner = 1", repo_id)
+    if not repo:
+        e.stream.write({"error": "errors.access_denied", "code": 403})
+        return
+
+    if not mochi.access.check(requester, "repository/" + repo_id, "write"):
+        e.stream.write({"error": "errors.access_denied", "code": 403})
+        return
+
+    source = e.content("source")
+    target = e.content("target")
+    if not source or not target:
+        e.stream.write({"error": "errors.repository_source_and_target_required", "code": 400})
+        return
+
+    message = e.content("message") or "Merge branch"
+    method = e.content("method") or "merge"
+    author_name = e.content("author_name") or "Mochi"
+    author_email = e.content("author_email") or ""
+
+    result = mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email, method)
+    if result == None:
+        e.stream.write({"error": "errors.repositories_service_unavailable", "code": 500})
+        return
+    e.stream.write(result)
+
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 
 # error_message_timeout: core calls this when a fan-out to a subscriber aged
