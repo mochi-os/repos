@@ -1507,12 +1507,26 @@ def event_unsubscribe(e):
     mochi.db.execute("delete from subscribers where repository = ? and id = ?", repo_id, subscriber_id)
 
 # Handle metadata update from remote repository owner
+# unsubscribe_stale tells a repository owner to drop this subscriber when a
+# broadcast arrives for a repo the subscriber no longer holds locally. Subscribe
+# writes the local repositories(owner=0) row before notifying the owner, so a
+# missing row in a broadcast handler always means a stale roster entry, never an
+# in-flight subscribe. event_unsubscribe deletes by (repository, subscriber), so
+# a non-subscriber unsubscribe is a harmless no-op. Headers invert: from=repo,
+# to=this subscriber.
+def unsubscribe_stale(e):
+    repo_id = e.header("from")
+    member_id = e.header("to")
+    if repo_id and member_id:
+        mochi.message.send(headers(member_id, repo_id, "unsubscribe"), {})
+
 def event_update(e):
     repo_id = e.header("from")
 
     # Only update if we have this as a subscribed repository
     repo = mochi.db.row("select * from repositories where id = ? and owner = 0", repo_id)
     if not repo:
+        unsubscribe_stale(e)
         return
 
     # Heard from the owner - refresh the idle-resync timer.
@@ -1568,6 +1582,7 @@ def event_activity(e):
     # Only update if we have this as a subscribed repository
     repo = mochi.db.row("select * from repositories where id = ? and owner = 0", repo_id)
     if not repo:
+        unsubscribe_stale(e)
         return
 
     # Heard from the owner - refresh the idle-resync timer.
