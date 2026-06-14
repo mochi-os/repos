@@ -47,7 +47,6 @@ import {
   Loader2,
   Pencil,
   Plus,
-  Save,
   Tag,
   Trash2,
   User,
@@ -1043,7 +1042,7 @@ function GeneralSettingsTab({
           onClick={() => updateSetting.mutate({ description })}
           disabled={updateSetting.isPending || description === (initialDescription || '')}
         >
-          <Save className="h-4 w-4" />
+          <Check className="h-4 w-4" />
           <Trans>Save</Trans>
         </Button>
       </div>
