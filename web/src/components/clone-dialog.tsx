@@ -355,6 +355,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                         setView('manage')
                       }}
                     >
+                      <Check className="size-4" />
                       <Trans>Done</Trans>
                     </Button>
                   </DialogFooter>
