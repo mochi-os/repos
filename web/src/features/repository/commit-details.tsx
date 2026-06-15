@@ -124,8 +124,8 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
           {commit.stats && (
             <div className="mt-4 flex items-center gap-4 text-sm">
               <span>{commit.stats.files} file{commit.stats.files !== 1 ? 's' : ''} changed</span>
-              <span className="text-green-600">+{commit.stats.additions}</span>
-              <span className="text-red-600">-{commit.stats.deletions}</span>
+              <span className="text-success">+{commit.stats.additions}</span>
+              <span className="text-destructive">-{commit.stats.deletions}</span>
             </div>
           )}
         </CardContent>
@@ -143,9 +143,9 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
                   key={index}
                   className={
                     line.startsWith('+') && !line.startsWith('+++')
-                      ? 'bg-green-500/10 text-green-600'
+                      ? 'bg-success/10 text-success'
                       : line.startsWith('-') && !line.startsWith('---')
-                        ? 'bg-red-500/10 text-red-600'
+                        ? 'bg-destructive/10 text-destructive'
                         : line.startsWith('@@')
                           ? 'bg-primary/10 text-primary'
                           : ''

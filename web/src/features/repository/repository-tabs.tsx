@@ -30,7 +30,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  cn,
+  Tabs,
+  TabsList,
+  TabsTrigger,
   toast,
   getErrorMessage,
   AccessDialog,
@@ -109,24 +111,20 @@ export function RepositoryTabs({
       )}
 
       {/* Tab bar */}
-      <div className="flex gap-1 border-b">
-        {visibleTabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => onTabChange(tab.id)}
-            className={cn(
-              'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
-              'border-b-2 -mb-px',
-              activeTab === tab.id
-                ? 'border-primary text-foreground'
-                : 'border-transparent text-muted-foreground hover:text-foreground'
-            )}
-          >
-            {tab.icon}
-            <span className="hidden sm:inline">{tab.label}</span>
-          </button>
-        ))}
-      </div>
+      <Tabs
+        variant="underline"
+        value={activeTab}
+        onValueChange={(value) => onTabChange(value as typeof activeTab)}
+      >
+        <TabsList>
+          {visibleTabs.map((tab) => (
+            <TabsTrigger key={tab.id} value={tab.id} className="gap-2">
+              {tab.icon}
+              <span className="hidden sm:inline">{tab.label}</span>
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
 
       {/* Branch selector - shared across files/commits tabs */}
       {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
