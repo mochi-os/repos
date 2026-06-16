@@ -272,7 +272,10 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                     <Trans>Manage tokens</Trans>
                   </Button>
                 ) : <span />}
-                <Button variant='outline' onClick={() => setOpen(false)}><Trans>Done</Trans></Button>
+                <Button variant='outline' onClick={() => setOpen(false)}>
+                  <Check className="h-4 w-4" />
+                  <Trans>Done</Trans>
+                </Button>
               </DialogFooter>
             </div>
           )}
@@ -355,6 +358,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                         setView('manage')
                       }}
                     >
+                      <Check className="h-4 w-4" />
                       <Trans>Done</Trans>
                     </Button>
                   </DialogFooter>
