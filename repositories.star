@@ -1507,12 +1507,26 @@ def event_unsubscribe(e):
     mochi.db.execute("delete from subscribers where repository = ? and id = ?", repo_id, subscriber_id)
 
 # Handle metadata update from remote repository owner
+# unsubscribe_stale tells a repository owner to drop this subscriber when a
+# broadcast arrives for a repo the subscriber no longer holds locally. Subscribe
+# writes the local repositories(owner=0) row before notifying the owner, so a
+# missing row in a broadcast handler always means a stale roster entry, never an
+# in-flight subscribe. event_unsubscribe deletes by (repository, subscriber), so
+# a non-subscriber unsubscribe is a harmless no-op. Headers invert: from=repo,
+# to=this subscriber.
+def unsubscribe_stale(e):
+    repo_id = e.header("from")
+    member_id = e.header("to")
+    if repo_id and member_id:
+        mochi.message.send(headers(member_id, repo_id, "unsubscribe"), {})
+
 def event_update(e):
     repo_id = e.header("from")
 
     # Only update if we have this as a subscribed repository
     repo = mochi.db.row("select * from repositories where id = ? and owner = 0", repo_id)
     if not repo:
+        unsubscribe_stale(e)
         return
 
     # Heard from the owner - refresh the idle-resync timer.
@@ -1568,6 +1582,7 @@ def event_activity(e):
     # Only update if we have this as a subscribed repository
     repo = mochi.db.row("select * from repositories where id = ? and owner = 0", repo_id)
     if not repo:
+        unsubscribe_stale(e)
         return
 
     # Heard from the owner - refresh the idle-resync timer.
@@ -1800,6 +1815,45 @@ def event_archive(e):
     # Header response, then raw archive bytes on the same stream
     e.stream.write({"filename": filename, "sha": sha, "prefix": base})
     mochi.git.archive(repo_id, sha, format, base, e.stream)
+
+# Handle a merge request from another app or a remote user (P2P request-response).
+# The repository's own ACL governs the merge: we authorize the cryptographically
+# verified P2P sender (e.header("from")) against repository/<id> write - the same
+# grant a git push requires - NOT the caller's project access. This handler runs
+# on the repository owner's host as the owner, so core's git_can_write would see
+# the owner; this from-check is the real gate for a remote initiator. Error
+# strings are label keys resolved by the calling app (e.g. projects).
+def event_merge(e):
+    repo_id = e.header("to")
+    requester = e.header("from")
+
+    # We must own the canonical repository to merge it. Report not-found as
+    # access-denied so an unauthorized caller cannot probe repository existence.
+    repo = mochi.db.row("select id from repositories where id = ? and owner = 1", repo_id)
+    if not repo:
+        e.stream.write({"error": "errors.access_denied", "code": 403})
+        return
+
+    if not mochi.access.check(requester, "repository/" + repo_id, "write"):
+        e.stream.write({"error": "errors.access_denied", "code": 403})
+        return
+
+    source = e.content("source")
+    target = e.content("target")
+    if not source or not target:
+        e.stream.write({"error": "errors.repository_source_and_target_required", "code": 400})
+        return
+
+    message = e.content("message") or "Merge branch"
+    method = e.content("method") or "merge"
+    author_name = e.content("author_name") or "Mochi"
+    author_email = e.content("author_email") or ""
+
+    result = mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email, method)
+    if result == None:
+        e.stream.write({"error": "errors.repositories_service_unavailable", "code": 500})
+        return
+    e.stream.write(result)
 
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 
