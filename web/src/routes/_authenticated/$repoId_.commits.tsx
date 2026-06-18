@@ -8,22 +8,18 @@ import {
   CardContent,
   EntityAvatar,
   Skeleton,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
   usePageTitle,
   GeneralError,
   getErrorMessage,
   useFormat,
 } from '@mochi/web'
-import { GitBranch, GitCommit } from 'lucide-react'
+import { GitCommit } from 'lucide-react'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { useCommits, useBranches } from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 import { DownloadDropdown } from '@/components/download-dropdown'
+import { RefSelector } from '@/components/ref-selector'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
   loader: async ({ params }) => {
@@ -77,19 +73,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
     <div className="space-y-4">
       {/* Branch selector */}
       {branches.length > 0 && (
-        <Select value={currentRef} onValueChange={setCurrentRef}>
-          <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 me-2" />
-            <SelectValue placeholder={t`Select branch`} />
-          </SelectTrigger>
-          <SelectContent>
-            {branches.map((branch) => (
-              <SelectItem key={branch.name} value={branch.name}>
-                {branch.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <RefSelector branches={branches} value={currentRef} onValueChange={setCurrentRef} />
       )}
 
       {isLoading ? (
@@ -113,7 +97,7 @@ function CommitsList({ repoId, defaultBranch }: { repoId: string; defaultBranch:
             {(data?.commits || []).map((commit) => (
               <div
                 key={commit.sha}
-                className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
+                className="flex items-start gap-4 p-4 hover:bg-hover transition-colors"
               >
                 <Link
                   to="/$repoId/commit/$sha"

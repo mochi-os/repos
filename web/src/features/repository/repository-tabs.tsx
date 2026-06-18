@@ -61,6 +61,7 @@ import endpoints from '@/api/endpoints'
 
 import { FileEntry } from '@/components/file-entry'
 import { DownloadDropdown } from '@/components/download-dropdown'
+import { RefSelector } from '@/components/ref-selector'
 import { getCommitTitle } from '@/lib/format'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
@@ -94,7 +95,6 @@ export function RepositoryTabs({
   activeTab,
   onTabChange,
 }: RepositoryTabsProps) {
-  const { t } = useLingui()
   const [currentRef, setCurrentRef] = useState(defaultBranch)
   const { data: branchesData } = useBranches(repoId)
   const branches = branchesData?.branches || []
@@ -127,19 +127,7 @@ export function RepositoryTabs({
 
       {/* Branch selector - shared across files/commits tabs */}
       {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
-        <Select value={currentRef} onValueChange={setCurrentRef}>
-          <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 me-2" />
-            <SelectValue placeholder={t`Select branch`} />
-          </SelectTrigger>
-          <SelectContent>
-            {branches.map((branch) => (
-              <SelectItem key={branch.name} value={branch.name}>
-                {branch.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <RefSelector branches={branches} value={currentRef} onValueChange={setCurrentRef} />
       )}
 
       {/* Tab content */}
@@ -369,7 +357,7 @@ function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; finge
             {(data?.commits || []).map((commit) => (
               <div
                 key={commit.sha}
-                className="flex items-start gap-4 p-4 hover:bg-accent transition-colors"
+                className="flex items-start gap-4 p-4 hover:bg-hover transition-colors"
               >
                 <Link
                   to="/$repoId/commit/$sha"
@@ -505,7 +493,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
             {branches.map((branch) => (
               <div
                 key={branch.name}
-                className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
+                className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
               >
                 <Link
                   to="/$repoId/tree/$ref/$"
@@ -673,7 +661,7 @@ function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string 
         {tags.map((tag) => (
           <div
             key={tag.name}
-            className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
+            className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
           >
             <Link
               to="/$repoId/tree/$ref/$"

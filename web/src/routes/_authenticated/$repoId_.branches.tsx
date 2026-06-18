@@ -249,7 +249,7 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
           {branches.map((branch) => (
             <div
               key={branch.name}
-              className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
+              className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
             >
               <Link
                 to="/$repoId/tree/$ref/$"

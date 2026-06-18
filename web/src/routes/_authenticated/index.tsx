@@ -250,7 +250,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                         return (
                           <div
                             key={rec.id}
-                            className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-muted/50"
+                            className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-hover"
                           >
                             <div className="flex min-w-0 flex-1 items-center gap-3">
                               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10">
@@ -291,7 +291,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                 key={repo.id}
                 to="/$repoId"
                 params={{ repoId: repoParam(repo) }}
-                className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-accent"
+                className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-hover"
               >
                 <FolderGit2 className="h-5 w-5 text-muted-foreground shrink-0" />
                 <div className="flex-1 min-w-0">
@@ -304,7 +304,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <button
-                        className="hover:bg-muted shrink-0 rounded p-1 transition-colors"
+                        className="hover:bg-hover shrink-0 rounded-md p-1 transition-colors"
                         onClick={(e) => e.preventDefault()}
                       >
                         <MoreHorizontal className="text-muted-foreground size-4" />

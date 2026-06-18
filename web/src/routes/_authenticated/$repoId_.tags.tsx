@@ -100,7 +100,7 @@ function TagsList({ repoId }: TagsListProps) {
           {tags.map((tag) => (
             <div
               key={tag.name}
-              className="flex items-center gap-4 p-4 hover:bg-accent transition-colors"
+              className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
             >
               <Link
                 to="/$repoId/tree/$ref/$"

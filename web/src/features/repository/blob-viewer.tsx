@@ -4,11 +4,6 @@ import {
   CardContent,
   Button,
   Skeleton,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
   useFormat,
 } from '@mochi/web'
 import {
@@ -18,10 +13,10 @@ import {
   Check,
   Download,
   FileCode,
-  GitBranch,
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
+import { RefSelector } from '@/components/ref-selector'
 import { t } from '@lingui/core/macro'
 import { Trans } from '@lingui/react/macro'
 
@@ -86,7 +81,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <Skeleton className="h-10 w-[180px]" />
+        <Skeleton className="h-10 w-48" />
         <Skeleton className="h-8 w-64" />
         <Card>
           <CardContent className="p-4">
@@ -101,7 +96,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
     // Will auto-redirect via useEffect, show loading state
     return (
       <div className="space-y-4">
-        <Skeleton className="h-10 w-[180px]" />
+        <Skeleton className="h-10 w-48" />
         <Skeleton className="h-8 w-64" />
         <Card>
           <CardContent className="p-4">
@@ -119,19 +114,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
     <div className="space-y-4">
       {/* Branch selector */}
       {branches.length > 0 && (
-        <Select value={gitRef} onValueChange={handleBranchChange}>
-          <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 me-2" />
-            <SelectValue placeholder={t`Select branch`} />
-          </SelectTrigger>
-          <SelectContent>
-            {branches.map((branch) => (
-              <SelectItem key={branch.name} value={branch.name}>
-                {branch.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <RefSelector branches={branches} value={gitRef} onValueChange={handleBranchChange} />
       )}
 
       {/* Breadcrumb */}
@@ -167,7 +150,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
 
       {/* File content */}
       <Card>
-        <div className="flex items-center justify-between px-4 py-2 border-b bg-muted/50">
+        <div className="flex items-center justify-between px-4 py-2 border-b bg-surface-2">
           <div className="flex items-center gap-2 text-sm">
             <FileCode className="h-4 w-4" />
             <span>{fileName}</span>
@@ -199,7 +182,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
                   <table className="w-full border-collapse">
                     <tbody>
                       {lines.map((line, index) => (
-                        <tr key={index} className="hover:bg-accent/50">
+                        <tr key={index} className="hover:bg-hover">
                           <td className="px-4 py-0 text-end text-muted-foreground select-none border-e w-12 align-top">
                             {index + 1}
                           </td>

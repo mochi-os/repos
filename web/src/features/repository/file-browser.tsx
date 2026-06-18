@@ -6,11 +6,6 @@ import {
   CardContent,
   CardDescription,
   Button,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
   Skeleton,
   getErrorMessage, naturalCompare,} from '@mochi/web'
 import {
@@ -25,6 +20,7 @@ import { useTree, useBranches } from '@/hooks/use-repository'
 
 import { CloneDialog } from '@/components/clone-dialog'
 import { FileEntry } from '@/components/file-entry'
+import { RefSelector } from '@/components/ref-selector'
 
 interface FileBrowserProps {
   repoId: string
@@ -128,19 +124,7 @@ export function FileBrowser({
       {/* Branch selector - only show if there are branches */}
       {branches.length > 0 && (
         <div className="flex flex-wrap items-center gap-2">
-          <Select value={currentRef} onValueChange={setCurrentRef}>
-            <SelectTrigger className="w-[180px]">
-              <GitBranch className="h-4 w-4 me-2" />
-              <SelectValue placeholder={t`Select branch`} />
-            </SelectTrigger>
-            <SelectContent>
-              {branches.map((branch) => (
-                <SelectItem key={branch.name} value={branch.name}>
-                  {branch.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <RefSelector branches={branches} value={currentRef} onValueChange={setCurrentRef} />
         </div>
       )}
 
@@ -266,25 +250,7 @@ export function FileTree({
     <div className="space-y-4">
       {/* Branch selector */}
       {branches.length > 0 && (
-        <Select value={currentRef} onValueChange={setCurrentRef}>
-          <SelectTrigger className="w-[180px]">
-            <GitBranch className="h-4 w-4 me-2" />
-            <SelectValue placeholder={t`Select branch`} />
-          </SelectTrigger>
-          <SelectContent>
-            {/* Show current ref if not in branches list (e.g., tag or invalid ref) */}
-            {!branches.some(b => b.name === currentRef) && (
-              <SelectItem value={currentRef} disabled>
-                {currentRef}
-              </SelectItem>
-            )}
-            {branches.map((branch) => (
-              <SelectItem key={branch.name} value={branch.name}>
-                {branch.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <RefSelector branches={branches} value={currentRef} onValueChange={setCurrentRef} />
       )}
 
       {/* Breadcrumb */}
