@@ -30,7 +30,7 @@ export function RefSelector({ branches, value, onValueChange, className }: RefSe
     <Select value={value} onValueChange={onValueChange}>
       <SelectTrigger className={cn('w-48', className)} aria-label={t`Switch branch`}>
         <GitBranch className="h-4 w-4 me-2" />
-        <SelectValue placeholder={t`Select branch`} />
+        <SelectValue className="flex-1 text-start" placeholder={t`Select branch`} />
       </SelectTrigger>
       <SelectContent>
         {!hasCurrent && (

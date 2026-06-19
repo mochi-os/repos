@@ -9,7 +9,7 @@ import {
   getErrorMessage,
   toast,
 } from '@mochi/web'
-import { Download, Loader2 } from 'lucide-react'
+import { Download, Loader2, FileArchive } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 
 type Format = 'zip' | 'tar.gz' | 'tar.bz2'
@@ -86,6 +86,7 @@ export function DownloadDropdown({
             onSelect={() => void handleDownload(f.format)}
             disabled={!!busy}
           >
+            <FileArchive className="h-4 w-4 me-2 text-muted-foreground" />
             {f.label}
           </DropdownMenuItem>
         ))}
