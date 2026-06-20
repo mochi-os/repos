@@ -19,13 +19,13 @@ msgid "{0} branches"
 msgstr "{0} šakų"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:41
+#: src/routes/_authenticated/$repoId_.commits.tsx:37
 msgid "{0} commits"
 msgstr "{0} įsipareigojimų"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:696
+#: src/features/repository/repository-tabs.tsx:681
 #: src/routes/_authenticated/$repoId_.tags.tsx:120
 msgid "{0} tagged on {1}"
 msgstr "{0} pažymėtas {1}"
@@ -59,15 +59,15 @@ msgstr "Prieiga uždrausta"
 msgid "Access level"
 msgstr "Prieigos lygis"
 
-#: src/features/repository/repository-tabs.tsx:1197
+#: src/features/repository/repository-tabs.tsx:1182
 msgid "Access level updated"
 msgstr "Prieigos lygis atnaujintas"
 
-#: src/features/repository/repository-tabs.tsx:1183
+#: src/features/repository/repository-tabs.tsx:1168
 msgid "Access removed"
 msgstr "Prieiga pašalinta"
 
-#: src/features/repository/repository-tabs.tsx:1168
+#: src/features/repository/repository-tabs.tsx:1153
 msgid "Access set for {subjectName}"
 msgstr "Prieiga nustatyta {subjectName}"
 
@@ -88,7 +88,7 @@ msgid "Account verified"
 msgstr "Paskyra patvirtinta"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:193
-#: src/features/repository/repository-tabs.tsx:1209
+#: src/features/repository/repository-tabs.tsx:1194
 msgid "Add"
 msgstr "Pridėti"
 
@@ -125,7 +125,8 @@ msgstr "Pridėti komandą / programėlę"
 msgid "Add to existing notifications"
 msgstr "Pridėti prie esamų pranešimų"
 
-#: ../../../lib/web/src/components/view-tabs.tsx:57
+#: ../../../lib/web/src/components/view-tabs.tsx:81
+#: ../../../lib/web/src/components/view-tabs.tsx:82
 msgid "Add view"
 msgstr "Pridėti rodinį"
 
@@ -178,8 +179,8 @@ msgid "Authenticator code"
 msgstr "Autentifikatoriaus kodas"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:321
-#: src/components/clone-dialog.tsx:379
+#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:383
 msgid "Back"
 msgstr "Atgal"
 
@@ -194,7 +195,7 @@ msgid "Back to home"
 msgstr "Atgal į pradžią"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:193
+#: src/features/repository/blob-viewer.tsx:176
 msgid "Binary file ({0})"
 msgstr "Dvejetainis failas ({0})"
 
@@ -202,27 +203,27 @@ msgstr "Dvejetainis failas ({0})"
 msgid "Boost interest"
 msgstr "Padidinti susidomėjimą"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:446
 #: src/routes/_authenticated/$repoId_.branches.tsx:99
 msgid "Branch \"{branchToDelete}\" deleted"
 msgstr "Šaka „{branchToDelete}“ ištrinta"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:426
 #: src/routes/_authenticated/$repoId_.branches.tsx:79
 msgid "Branch \"{newBranchName}\" created"
 msgstr "Šaka „{newBranchName}“ sukurta"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:544
 #: src/routes/_authenticated/$repoId_.branches.tsx:148
 msgid "Branch name"
 msgstr "Šakos pavadinimas"
 
-#: src/features/repository/repository-tabs.tsx:434
+#: src/features/repository/repository-tabs.tsx:419
 #: src/routes/_authenticated/$repoId_.branches.tsx:72
 msgid "Branch name is required"
 msgstr "Šakos pavadinimas yra privalomas"
 
-#: src/features/repository/file-browser.tsx:102
+#: src/features/repository/file-browser.tsx:98
 #: src/features/repository/tabs.tsx:27
 msgid "Branches"
 msgstr "Šakos"
@@ -231,23 +232,24 @@ msgstr "Šakos"
 #: ../../../lib/web/src/components/step-up-dialog.tsx:360
 #: ../../../lib/web/src/components/travelling-picker.tsx:292
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:245
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:129
 #: ../../../lib/web/src/features/access/access-dialog.tsx:325
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:409
 #: src/features/repository/repository-header.tsx:123
-#: src/features/repository/repository-tabs.tsx:233
-#: src/features/repository/repository-tabs.tsx:586
-#: src/features/repository/repository-tabs.tsx:605
-#: src/features/repository/repository-tabs.tsx:1104
+#: src/features/repository/repository-tabs.tsx:218
+#: src/features/repository/repository-tabs.tsx:571
+#: src/features/repository/repository-tabs.tsx:590
+#: src/features/repository/repository-tabs.tsx:1089
 #: src/routes/_authenticated/$repoId_.branches.tsx:175
 #: src/routes/_authenticated/$repoId_.branches.tsx:194
 msgid "Cancel"
 msgstr "Atšaukti"
 
-#: src/features/repository/repository-tabs.tsx:943
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:988
 msgid "Cancel edit"
 msgstr "Atšaukti redagavimą"
 
@@ -358,7 +360,7 @@ msgstr "Commit {0} - {1}"
 msgid "Commit not found"
 msgstr "Commit nerastas"
 
-#: src/features/repository/file-browser.tsx:95
+#: src/features/repository/file-browser.tsx:91
 #: src/features/repository/tabs.tsx:26
 msgid "Commits"
 msgstr "Commit'ai"
@@ -368,8 +370,8 @@ msgstr "Commit'ai"
 msgid "Compact"
 msgstr "Kompaktiškas"
 
-#: ../../../lib/web/src/components/place-picker.tsx:155
-#: ../../../lib/web/src/components/travelling-picker.tsx:299
+#: ../../../lib/web/src/components/place-picker.tsx:156
+#: ../../../lib/web/src/components/travelling-picker.tsx:300
 msgid "Confirm"
 msgstr "Patvirtinti"
 
@@ -402,7 +404,7 @@ msgstr "Kopijuoti"
 msgid "Copy commit SHA"
 msgstr "Kopijuoti commit SHA"
 
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:163
 msgid "Copy file contents"
 msgstr "Kopijuoti failo turinį"
 
@@ -422,7 +424,7 @@ msgstr "Nepavyko pradėti pakartotinio tapatybės patvirtinimo. Bandykite dar ka
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Nepavyko patvirtinti su ta paskyra. Bandykite dar kartą."
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:389
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
 msgstr "Sukurti"
@@ -435,8 +437,8 @@ msgstr "Sukurti naują autentifikavimo žetoną."
 msgid "Create a new repository"
 msgstr "Sukurti naują saugyklą"
 
-#: src/features/repository/repository-tabs.tsx:495
-#: src/features/repository/repository-tabs.tsx:589
+#: src/features/repository/repository-tabs.tsx:480
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:128
 #: src/routes/_authenticated/$repoId_.branches.tsx:178
 msgid "Create branch"
@@ -449,12 +451,12 @@ msgid "Create repository"
 msgstr "Sukurti saugyklą"
 
 #: src/components/clone-dialog.tsx:210
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:328
 msgid "Create token"
 msgstr "Sukurti žetoną"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:304
 msgid "Created {0}"
 msgstr "Sukurta {0}"
 
@@ -462,7 +464,7 @@ msgstr "Sukurta {0}"
 msgid "Creating..."
 msgstr "Kuriama..."
 
-#: src/features/repository/repository-tabs.tsx:589
+#: src/features/repository/repository-tabs.tsx:574
 msgid "Creating…"
 msgstr "Kuriama…"
 
@@ -495,46 +497,46 @@ msgstr "Numatytasis"
 msgid "Default AI account"
 msgstr "Numatytoji DI paskyra"
 
-#: src/features/repository/repository-tabs.tsx:1054
+#: src/features/repository/repository-tabs.tsx:1039
 msgid "Default branch"
 msgstr "Numatytoji šaka"
 
-#: src/components/clone-dialog.tsx:409
-#: src/features/repository/repository-tabs.tsx:607
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/components/clone-dialog.tsx:413
+#: src/features/repository/repository-tabs.tsx:592
+#: src/features/repository/repository-tabs.tsx:1090
 #: src/routes/_authenticated/$repoId_.branches.tsx:196
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:586
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Ištrinti „{branchToDelete}“? Šio veiksmo atšaukti negalima."
 
-#: src/features/repository/repository-tabs.tsx:540
+#: src/features/repository/repository-tabs.tsx:525
 #: src/routes/_authenticated/$repoId_.branches.tsx:282
 msgid "Delete branch"
 msgstr "Ištrinti šaką"
 
-#: src/features/repository/repository-tabs.tsx:599
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:188
 msgid "Delete branch?"
 msgstr "Ištrinti šaką?"
 
-#: src/features/repository/repository-tabs.tsx:1080
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1076
 msgid "Delete repository"
 msgstr "Ištrinti saugyklą"
 
-#: src/features/repository/repository-tabs.tsx:1098
+#: src/features/repository/repository-tabs.tsx:1083
 msgid "Delete repository?"
 msgstr "Ištrinti saugyklą?"
 
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:313
 msgid "Delete token"
 msgstr "Ištrinti žetoną"
 
-#: src/components/clone-dialog.tsx:398
+#: src/components/clone-dialog.tsx:402
 msgid "Delete token?"
 msgstr "Ištrinti žetoną?"
 
@@ -546,7 +548,7 @@ msgstr "Ištrinkite paskyrą senajame serveryje"
 msgid "Deleting..."
 msgstr "Ištrinama..."
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:592
 msgid "Deleting…"
 msgstr "Ištrinama…"
 
@@ -555,7 +557,7 @@ msgid "Desc"
 msgstr "Maž."
 
 #: src/features/repository/create-repository-dialog.tsx:161
-#: src/features/repository/repository-tabs.tsx:1034
+#: src/features/repository/repository-tabs.tsx:1019
 msgid "Description"
 msgstr "Aprašymas"
 
@@ -586,8 +588,8 @@ msgstr "Atmesti"
 msgid "Displays the mobile sidebar."
 msgstr "Rodo mobiliąją šoninę juostą."
 
-#: src/components/clone-dialog.tsx:275
-#: src/components/clone-dialog.tsx:358
+#: src/components/clone-dialog.tsx:277
+#: src/components/clone-dialog.tsx:362
 msgid "Done"
 msgstr "Atlikta"
 
@@ -597,7 +599,7 @@ msgstr "Atlikta"
 msgid "Download"
 msgstr "Atsisiųsti"
 
-#: src/features/repository/blob-viewer.tsx:184
+#: src/features/repository/blob-viewer.tsx:167
 msgid "Download file"
 msgstr "Atsisiųsti failą"
 
@@ -605,15 +607,19 @@ msgstr "Atsisiųsti failą"
 msgid "Dyslexia-friendly"
 msgstr "Tinkama disleksijai"
 
-#: src/components/clone-dialog.tsx:368
+#: src/components/clone-dialog.tsx:372
 msgid "e.g., Work laptop"
 msgstr "pvz., darbo nešiojamas kompiuteris"
 
-#: src/features/repository/repository-tabs.tsx:960
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:151
+msgid "Edit {label}"
+msgstr "Redaguoti {label}"
+
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Edit name"
 msgstr "Redaguoti pavadinimą"
 
-#: src/features/repository/repository-tabs.tsx:1020
+#: src/features/repository/repository-tabs.tsx:1005
 msgid "Edit path"
 msgstr "Redaguoti kelią"
 
@@ -621,12 +627,12 @@ msgstr "Redaguoti kelią"
 msgid "Email code"
 msgstr "El. pašto kodas"
 
-#: src/features/repository/file-browser.tsx:337
+#: src/features/repository/file-browser.tsx:303
 msgid "Empty directory"
 msgstr "Tuščias katalogas"
 
-#: src/features/repository/file-browser.tsx:194
-#: src/features/repository/repository-tabs.tsx:322
+#: src/features/repository/file-browser.tsx:178
+#: src/features/repository/repository-tabs.tsx:307
 msgid "Empty repository"
 msgstr "Tuščia saugykla"
 
@@ -638,7 +644,7 @@ msgstr "Įveskite kodą iš savo el. laiško"
 msgid "Enter your authenticator code"
 msgstr "Įveskite autentifikatoriaus kodą"
 
-#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1011
 msgid "Entity:"
 msgstr "Subjektas:"
 
@@ -654,7 +660,7 @@ msgstr "Labai didelis"
 msgid "Failed to add account"
 msgstr "Nepavyko pridėti paskyros"
 
-#: src/features/repository/repository-tabs.tsx:447
+#: src/features/repository/repository-tabs.tsx:432
 #: src/routes/_authenticated/$repoId_.branches.tsx:85
 msgid "Failed to create branch"
 msgstr "Nepavyko sukurti šakos"
@@ -667,12 +673,12 @@ msgstr "Nepavyko sukurti saugyklos"
 msgid "Failed to create token"
 msgstr "Nepavyko sukurti raktelio"
 
-#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:451
 #: src/routes/_authenticated/$repoId_.branches.tsx:104
 msgid "Failed to delete branch"
 msgstr "Nepavyko ištrinti šakos"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:781
 msgid "Failed to delete repository"
 msgstr "Nepavyko ištrinti saugyklos"
 
@@ -688,11 +694,11 @@ msgstr "Nepavyko atsisiųsti archyvo"
 msgid "Failed to get token"
 msgstr "Nepavyko gauti raktelio"
 
-#: src/features/repository/repository-tabs.tsx:1151
+#: src/features/repository/repository-tabs.tsx:1136
 msgid "Failed to load access rules"
 msgstr "Nepavyko įkelti prieigos taisyklių"
 
-#: src/features/repository/repository-tabs.tsx:484
+#: src/features/repository/repository-tabs.tsx:469
 #: src/routes/_authenticated/$repoId_.branches.tsx:229
 msgid "Failed to load branches"
 msgstr "Nepavyko įkelti šakų"
@@ -701,23 +707,23 @@ msgstr "Nepavyko įkelti šakų"
 msgid "Failed to load commit"
 msgstr "Nepavyko įkelti commit"
 
-#: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:103
+#: src/features/repository/repository-tabs.tsx:347
+#: src/routes/_authenticated/$repoId_.commits.tsx:87
 msgid "Failed to load commits"
 msgstr "Nepavyko įkelti commitų"
 
-#: src/features/repository/file-browser.tsx:190
-#: src/features/repository/file-browser.tsx:333
-#: src/features/repository/repository-tabs.tsx:318
+#: src/features/repository/file-browser.tsx:174
+#: src/features/repository/file-browser.tsx:299
+#: src/features/repository/repository-tabs.tsx:303
 msgid "Failed to load files"
 msgstr "Nepavyko įkelti failų"
 
-#: src/features/repository/repository-tabs.tsx:638
+#: src/features/repository/repository-tabs.tsx:623
 #: src/routes/_authenticated/$repoId_.tags.tsx:80
 msgid "Failed to load tags"
 msgstr "Nepavyko įkelti žymų"
 
-#: src/features/repository/repository-tabs.tsx:1186
+#: src/features/repository/repository-tabs.tsx:1171
 msgid "Failed to remove access"
 msgstr "Nepavyko panaikinti prieigos"
 
@@ -725,11 +731,11 @@ msgstr "Nepavyko panaikinti prieigos"
 msgid "Failed to remove account"
 msgstr "Nepavyko pašalinti paskyros"
 
-#: src/features/repository/repository-tabs.tsx:842
+#: src/features/repository/repository-tabs.tsx:827
 msgid "Failed to rename repository"
 msgstr "Nepavyko pervadinti saugyklos"
 
-#: src/features/repository/repository-tabs.tsx:779
+#: src/features/repository/repository-tabs.tsx:764
 msgid "Failed to save setting"
 msgstr "Nepavyko išsaugoti nustatymo"
 
@@ -737,7 +743,7 @@ msgstr "Nepavyko išsaugoti nustatymo"
 msgid "Failed to send verification code"
 msgstr "Nepavyko išsiųsti patvirtinimo kodo"
 
-#: src/features/repository/repository-tabs.tsx:1171
+#: src/features/repository/repository-tabs.tsx:1156
 msgid "Failed to set access level"
 msgstr "Nepavyko nustatyti prieigos lygio"
 
@@ -748,12 +754,12 @@ msgid "Failed to subscribe"
 msgstr "Nepavyko prenumeruoti"
 
 #: src/features/repository/repository-header.tsx:72
-#: src/features/repository/repository-tabs.tsx:206
+#: src/features/repository/repository-tabs.tsx:191
 #: src/routes/_authenticated/index.tsx:353
 msgid "Failed to unsubscribe"
 msgstr "Nepavyko atsisakyti prenumeratos"
 
-#: src/features/repository/repository-tabs.tsx:1200
+#: src/features/repository/repository-tabs.tsx:1185
 msgid "Failed to update access level"
 msgstr "Nepavyko atnaujinti prieigos lygio"
 
@@ -761,7 +767,7 @@ msgstr "Nepavyko atnaujinti prieigos lygio"
 msgid "Failed to update category"
 msgstr "Nepavyko atnaujinti kategorijos"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:871
 msgid "Failed to update path"
 msgstr "Nepavyko atnaujinti kelio"
 
@@ -785,7 +791,7 @@ msgstr "Failai"
 msgid "Find repositories"
 msgstr "Rasti saugyklas"
 
-#: src/features/repository/repository-tabs.tsx:1028
+#: src/features/repository/repository-tabs.tsx:1013
 msgid "Fingerprint:"
 msgstr "Pirštų atspaudas:"
 
@@ -867,7 +873,7 @@ msgstr "Pradžia"
 msgid "Hot"
 msgstr "Karšta"
 
-#: src/features/repository/repository-tabs.tsx:904
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Identity"
 msgstr "Tapatybė"
 
@@ -893,7 +899,7 @@ msgid "Large"
 msgstr "Didelis"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:302
+#: src/components/clone-dialog.tsx:305
 msgid "Last used {0}"
 msgstr "Paskutinį kartą naudotas {0}"
 
@@ -946,7 +952,7 @@ msgid "Logging out…"
 msgstr "Atsijungiama…"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:867
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Tik mažosios raidės, skaičiai ir brūkšneliai"
 
@@ -981,16 +987,16 @@ msgid "Name"
 msgstr "Pavadinimas"
 
 #: src/features/repository/create-repository-dialog.tsx:81
-#: src/features/repository/repository-tabs.tsx:803
+#: src/features/repository/repository-tabs.tsx:788
 msgid "Name cannot contain < or > characters"
 msgstr "Pavadinime negali būti < ar > simbolių"
 
 #: src/features/repository/create-repository-dialog.tsx:83
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:787
 msgid "Name must be 100 characters or less"
 msgstr "Pavadinimas turi būti ne ilgesnis nei 100 simbolių"
 
-#: src/features/repository/repository-tabs.tsx:906
+#: src/features/repository/repository-tabs.tsx:891
 msgid "Name:"
 msgstr "Pavadinimas:"
 
@@ -998,8 +1004,8 @@ msgstr "Pavadinimas:"
 msgid "Network error"
 msgstr "Tinklo klaida"
 
-#: src/components/clone-dialog.tsx:301
-#: src/components/clone-dialog.tsx:302
+#: src/components/clone-dialog.tsx:304
+#: src/components/clone-dialog.tsx:305
 msgid "Never"
 msgstr "Niekada"
 
@@ -1007,7 +1013,7 @@ msgstr "Niekada"
 msgid "New"
 msgstr "Naujas"
 
-#: src/features/repository/repository-tabs.tsx:555
+#: src/features/repository/repository-tabs.tsx:540
 #: src/routes/_authenticated/$repoId_.branches.tsx:144
 msgid "New branch"
 msgstr "Nauja šaka"
@@ -1016,7 +1022,7 @@ msgstr "Nauja šaka"
 msgid "Next image"
 msgstr "Kitas paveikslėlis"
 
-#: src/features/repository/repository-tabs.tsx:721
+#: src/features/repository/repository-tabs.tsx:706
 msgid "No access"
 msgstr "Nėra prieigos"
 
@@ -1024,13 +1030,13 @@ msgstr "Nėra prieigos"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Prieigos taisyklių nesukonfigūruota. Pridėkite taisykles, kad valdytumėte, kas gali pasiekti šį išteklių."
 
-#: src/features/repository/repository-tabs.tsx:503
+#: src/features/repository/repository-tabs.tsx:488
 #: src/routes/_authenticated/$repoId_.branches.tsx:240
 msgid "No branches yet"
 msgstr "Dar nėra šakų"
 
-#: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:108
+#: src/features/repository/repository-tabs.tsx:352
+#: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "No commits yet"
 msgstr "Dar nėra commitų"
 
@@ -1064,7 +1070,7 @@ msgstr "Repozitorijų nerasta"
 msgid "No results found."
 msgstr "Rezultatų nerasta."
 
-#: src/features/repository/repository-tabs.tsx:668
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:91
 msgid "No tags yet"
 msgstr "Dar nėra žymų"
@@ -1073,7 +1079,7 @@ msgstr "Dar nėra žymų"
 msgid "No time zone found."
 msgstr "Laiko juostų nerasta."
 
-#: src/components/clone-dialog.tsx:289
+#: src/components/clone-dialog.tsx:292
 msgid "No tokens yet."
 msgstr "Dar nėra žetonų."
 
@@ -1094,6 +1100,10 @@ msgstr "Nėra"
 #: ../../../lib/web/src/lib/preference-utils.ts:122
 msgid "Normal"
 msgstr "Normalus"
+
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:143
+msgid "Not set"
+msgstr "Nenustatyta"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1159,19 +1169,19 @@ msgstr "Slaptarakčiai"
 msgid "Path"
 msgstr "Kelias"
 
-#: src/features/repository/repository-tabs.tsx:863
+#: src/features/repository/repository-tabs.tsx:848
 msgid "Path is required"
 msgstr "Kelias yra privalomas"
 
-#: src/features/repository/repository-tabs.tsx:882
+#: src/features/repository/repository-tabs.tsx:867
 msgid "Path updated"
 msgstr "Kelias atnaujintas"
 
-#: src/features/repository/repository-tabs.tsx:966
+#: src/features/repository/repository-tabs.tsx:951
 msgid "Path:"
 msgstr "Kelias:"
 
-#: src/features/repository/repository-tabs.tsx:1082
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Permanently delete this repository and all its data"
 msgstr "Visam laikui ištrinti šią repozitoriją ir visus jos duomenis"
 
@@ -1205,11 +1215,11 @@ msgstr "Iš naujo susiekite paskyras šiame serveryje"
 msgid "Re-register your passkeys on this server"
 msgstr "Iš naujo užregistruokite prieigos raktus šiame serveryje"
 
-#: src/features/repository/repository-tabs.tsx:719
+#: src/features/repository/repository-tabs.tsx:704
 msgid "Read and write"
 msgstr "Skaityti ir rašyti"
 
-#: src/features/repository/repository-tabs.tsx:720
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Read only"
 msgstr "Tik skaityti"
 
@@ -1266,7 +1276,7 @@ msgstr "Repozitorijos"
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:49
 #: src/routes/_authenticated/$repoId_.branches.tsx:115
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:35
-#: src/routes/_authenticated/$repoId_.commits.tsx:49
+#: src/routes/_authenticated/$repoId_.commits.tsx:45
 #: src/routes/_authenticated/$repoId_.tags.tsx:41
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:37
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:49
@@ -1283,7 +1293,7 @@ msgstr "Repozitorija"
 msgid "Repository created"
 msgstr "Repozitorija sukurta"
 
-#: src/features/repository/repository-tabs.tsx:792
+#: src/features/repository/repository-tabs.tsx:777
 msgid "Repository deleted"
 msgstr "Repozitorija ištrinta"
 
@@ -1292,7 +1302,7 @@ msgstr "Repozitorija ištrinta"
 msgid "Repository ID is required"
 msgstr "Repozitorijos ID yra privalomas"
 
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:786
 msgid "Repository name is required"
 msgstr "Repozitorijos pavadinimas yra privalomas"
 
@@ -1300,7 +1310,7 @@ msgstr "Repozitorijos pavadinimas yra privalomas"
 msgid "Repository not found"
 msgstr "Repozitorija nerasta"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:823
 msgid "Repository renamed"
 msgstr "Repozitorija pervadinta"
 
@@ -1329,8 +1339,9 @@ msgstr "Eilučių puslapyje"
 msgid "Saturday"
 msgstr "Šeštadienis"
 
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:119
 #: ../../../lib/web/src/components/ui/secret-field.tsx:74
-#: src/features/repository/repository-tabs.tsx:1047
+#: src/features/repository/repository-tabs.tsx:1032
 msgid "Save"
 msgstr "Išsaugoti"
 
@@ -1339,7 +1350,7 @@ msgid "Save this token now. You won't be able to see it again."
 msgstr "Išsaugokite šį žetoną dabar. Nebematysite jo dar kartą."
 
 #: src/components/clone-dialog.tsx:265
-#: src/components/clone-dialog.tsx:349
+#: src/components/clone-dialog.tsx:352
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Saugiai išsaugokite šį žetoną. Nebematysite jo dar kartą."
 
@@ -1393,15 +1404,11 @@ msgstr "Pasirinkite prieigos taisyklę"
 msgid "Select account type"
 msgstr "Pasirinkite paskyros tipą"
 
-#: src/features/repository/blob-viewer.tsx:125
-#: src/features/repository/file-browser.tsx:134
-#: src/features/repository/file-browser.tsx:272
-#: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:83
+#: src/components/ref-selector.tsx:33
 msgid "Select branch"
 msgstr "Pasirinkite šaką"
 
-#: src/features/repository/repository-tabs.tsx:1064
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Select default branch"
 msgstr "Pasirinkite numatytąją šaką"
 
@@ -1421,7 +1428,7 @@ msgstr "Pasirinkite šoninės juostos stilių"
 msgid "Select site direction"
 msgstr "Pasirinkite svetainės kryptį"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
 msgid "Select source branch"
 msgstr "Pasirinkite šaltinio šaką"
@@ -1463,12 +1470,12 @@ msgstr "Nustatyti pradžią ir paskirties vietą"
 #: ../../../lib/web/src/components/layout/nav-user.tsx:81
 #: ../../../lib/web/src/components/layout/nav-user.tsx:145
 #: ../../../lib/web/src/components/layout/nav-user.tsx:195
-#: src/features/repository/file-browser.tsx:116
+#: src/features/repository/file-browser.tsx:112
 #: src/features/repository/tabs.tsx:30
 msgid "Settings"
 msgstr "Nustatymai"
 
-#: src/features/repository/repository-tabs.tsx:775
+#: src/features/repository/repository-tabs.tsx:760
 msgid "Settings saved"
 msgstr "Nustatymai išsaugoti"
 
@@ -1495,7 +1502,7 @@ msgstr "Pereiti prie pagrindinio"
 msgid "Small"
 msgstr "Mažas"
 
-#: src/features/repository/repository-tabs.tsx:569
+#: src/features/repository/repository-tabs.tsx:554
 #: src/routes/_authenticated/$repoId_.branches.tsx:158
 msgid "Source branch"
 msgstr "Šaltinio šaka"
@@ -1527,6 +1534,10 @@ msgstr "Prenumeruota"
 msgid "Sunday"
 msgstr "Sekmadienis"
 
+#: src/components/ref-selector.tsx:31
+msgid "Switch branch"
+msgstr "Perjungti šaką"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
 #: ../../../lib/web/src/lib/preference-utils.ts:132
@@ -1537,7 +1548,7 @@ msgstr "Sistema"
 msgid "Tag"
 msgstr "Žyma"
 
-#: src/features/repository/file-browser.tsx:109
+#: src/features/repository/file-browser.tsx:105
 #: src/features/repository/tabs.tsx:28
 msgid "Tags"
 msgstr "Žymos"
@@ -1555,7 +1566,7 @@ msgstr "Sąlygos ir nuostatos"
 msgid "That code is incorrect or has expired."
 msgstr "Šis kodas neteisingas arba nebegalioja."
 
-#: src/features/repository/repository-tabs.tsx:1055
+#: src/features/repository/repository-tabs.tsx:1040
 msgid "The branch shown when viewing the repository"
 msgstr "Šaka, rodoma peržiūrint saugyklą"
 
@@ -1573,11 +1584,11 @@ msgstr "Temos nustatymai"
 msgid "This page requires a repository context."
 msgstr "Šis puslapis reikalauja saugyklos konteksto."
 
-#: src/features/repository/repository-tabs.tsx:1100
+#: src/features/repository/repository-tabs.tsx:1085
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Tai visam laikui ištrins „{currentName}“ ir visus jo įsipareigojimus, šakas bei žymas. Šio veiksmo negalima atšaukti."
 
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:404
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Tai visam laikui ištrins šį prieigos raktą. Bet kokie git klientai, jį naudojantys, nebegalės autentifikuotis."
 
@@ -1585,7 +1596,7 @@ msgstr "Tai visam laikui ištrins šį prieigos raktą. Bet kokie git klientai, 
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Tai pašalins „{name}“ iš jūsų saugyklų sąrašo. Vėliau galėsite vėl prenumeruoti."
 
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:214
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Tai pašalins „{repoName}“ iš jūsų saugyklų sąrašo. Vėliau galėsite vėl prenumeruoti."
 
@@ -1622,7 +1633,7 @@ msgstr "Prieigos raktas sukurtas"
 msgid "Token deleted"
 msgstr "Prieigos raktas ištrintas"
 
-#: src/components/clone-dialog.tsx:365
+#: src/components/clone-dialog.tsx:369
 msgid "Token name"
 msgstr "Prieigos rakto pavadinimas"
 
@@ -1684,8 +1695,8 @@ msgstr "Jungtinės Valstijos"
 
 #: src/features/repository/repository-header.tsx:112
 #: src/features/repository/repository-header.tsx:124
-#: src/features/repository/repository-tabs.tsx:222
-#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:207
+#: src/features/repository/repository-tabs.tsx:220
 #: src/routes/_authenticated/index.tsx:320
 #: src/routes/_authenticated/index.tsx:340
 #: src/routes/_authenticated/index.tsx:342
@@ -1693,7 +1704,7 @@ msgid "Unsubscribe"
 msgstr "Atšaukti prenumeratą"
 
 #: src/features/repository/repository-header.tsx:117
-#: src/features/repository/repository-tabs.tsx:227
+#: src/features/repository/repository-tabs.tsx:212
 msgid "Unsubscribe from repository?"
 msgstr "Atšaukti saugyklos prenumeratą?"
 
@@ -1702,11 +1713,11 @@ msgid "Unsubscribed"
 msgstr "Prenumerata atšaukta"
 
 #: src/features/repository/repository-header.tsx:68
-#: src/features/repository/repository-tabs.tsx:201
+#: src/features/repository/repository-tabs.tsx:186
 msgid "Unsubscribed from repository"
 msgstr "Saugyklos prenumerata atšaukta"
 
-#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:220
 msgid "Unsubscribing…"
 msgstr "Atšaukiama prenumerata…"
 

@@ -19,13 +19,13 @@ msgid "{0} branches"
 msgstr "{0} vetiev"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:41
+#: src/routes/_authenticated/$repoId_.commits.tsx:37
 msgid "{0} commits"
 msgstr "{0} commitov"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:696
+#: src/features/repository/repository-tabs.tsx:681
 #: src/routes/_authenticated/$repoId_.tags.tsx:120
 msgid "{0} tagged on {1}"
 msgstr "{0} otagované {1}"
@@ -59,15 +59,15 @@ msgstr "Prístup zakázaný"
 msgid "Access level"
 msgstr "Úroveň prístupu"
 
-#: src/features/repository/repository-tabs.tsx:1197
+#: src/features/repository/repository-tabs.tsx:1182
 msgid "Access level updated"
 msgstr "Úroveň prístupu aktualizovaná"
 
-#: src/features/repository/repository-tabs.tsx:1183
+#: src/features/repository/repository-tabs.tsx:1168
 msgid "Access removed"
 msgstr "Prístup odstránený"
 
-#: src/features/repository/repository-tabs.tsx:1168
+#: src/features/repository/repository-tabs.tsx:1153
 msgid "Access set for {subjectName}"
 msgstr "Prístup nastavený pre {subjectName}"
 
@@ -88,7 +88,7 @@ msgid "Account verified"
 msgstr "Účet overený"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:193
-#: src/features/repository/repository-tabs.tsx:1209
+#: src/features/repository/repository-tabs.tsx:1194
 msgid "Add"
 msgstr "Pridať"
 
@@ -125,7 +125,8 @@ msgstr "Pridať tím/aplikáciu"
 msgid "Add to existing notifications"
 msgstr "Pridať k existujúcim notifikáciám"
 
-#: ../../../lib/web/src/components/view-tabs.tsx:57
+#: ../../../lib/web/src/components/view-tabs.tsx:81
+#: ../../../lib/web/src/components/view-tabs.tsx:82
 msgid "Add view"
 msgstr "Pridať zobrazenie"
 
@@ -178,8 +179,8 @@ msgid "Authenticator code"
 msgstr "Autentifikačný kód"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:321
-#: src/components/clone-dialog.tsx:379
+#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:383
 msgid "Back"
 msgstr "Späť"
 
@@ -194,7 +195,7 @@ msgid "Back to home"
 msgstr "Späť na úvod"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:193
+#: src/features/repository/blob-viewer.tsx:176
 msgid "Binary file ({0})"
 msgstr "Binárny súbor ({0})"
 
@@ -202,27 +203,27 @@ msgstr "Binárny súbor ({0})"
 msgid "Boost interest"
 msgstr "Zvýšiť záujem"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:446
 #: src/routes/_authenticated/$repoId_.branches.tsx:99
 msgid "Branch \"{branchToDelete}\" deleted"
 msgstr "Vetva „{branchToDelete}“ odstránená"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:426
 #: src/routes/_authenticated/$repoId_.branches.tsx:79
 msgid "Branch \"{newBranchName}\" created"
 msgstr "Vetva „{newBranchName}“ vytvorená"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:544
 #: src/routes/_authenticated/$repoId_.branches.tsx:148
 msgid "Branch name"
 msgstr "Názov vetvy"
 
-#: src/features/repository/repository-tabs.tsx:434
+#: src/features/repository/repository-tabs.tsx:419
 #: src/routes/_authenticated/$repoId_.branches.tsx:72
 msgid "Branch name is required"
 msgstr "Názov vetvy je povinný"
 
-#: src/features/repository/file-browser.tsx:102
+#: src/features/repository/file-browser.tsx:98
 #: src/features/repository/tabs.tsx:27
 msgid "Branches"
 msgstr "Vetvy"
@@ -231,23 +232,24 @@ msgstr "Vetvy"
 #: ../../../lib/web/src/components/step-up-dialog.tsx:360
 #: ../../../lib/web/src/components/travelling-picker.tsx:292
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:245
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:129
 #: ../../../lib/web/src/features/access/access-dialog.tsx:325
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:409
 #: src/features/repository/repository-header.tsx:123
-#: src/features/repository/repository-tabs.tsx:233
-#: src/features/repository/repository-tabs.tsx:586
-#: src/features/repository/repository-tabs.tsx:605
-#: src/features/repository/repository-tabs.tsx:1104
+#: src/features/repository/repository-tabs.tsx:218
+#: src/features/repository/repository-tabs.tsx:571
+#: src/features/repository/repository-tabs.tsx:590
+#: src/features/repository/repository-tabs.tsx:1089
 #: src/routes/_authenticated/$repoId_.branches.tsx:175
 #: src/routes/_authenticated/$repoId_.branches.tsx:194
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/features/repository/repository-tabs.tsx:943
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:988
 msgid "Cancel edit"
 msgstr "Zrušiť úpravu"
 
@@ -358,7 +360,7 @@ msgstr "Commit {0} - {1}"
 msgid "Commit not found"
 msgstr "Commit sa nenašiel"
 
-#: src/features/repository/file-browser.tsx:95
+#: src/features/repository/file-browser.tsx:91
 #: src/features/repository/tabs.tsx:26
 msgid "Commits"
 msgstr "Commity"
@@ -368,8 +370,8 @@ msgstr "Commity"
 msgid "Compact"
 msgstr "Kompaktné"
 
-#: ../../../lib/web/src/components/place-picker.tsx:155
-#: ../../../lib/web/src/components/travelling-picker.tsx:299
+#: ../../../lib/web/src/components/place-picker.tsx:156
+#: ../../../lib/web/src/components/travelling-picker.tsx:300
 msgid "Confirm"
 msgstr "Potvrdiť"
 
@@ -402,7 +404,7 @@ msgstr "Kopírovať"
 msgid "Copy commit SHA"
 msgstr "Kopírovať SHA commitu"
 
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:163
 msgid "Copy file contents"
 msgstr "Kopírovať obsah súboru"
 
@@ -422,7 +424,7 @@ msgstr "Opätovné overenie sa nepodarilo spustiť. Skúste to znova."
 msgid "Couldn't verify with that account. Please try again."
 msgstr "S týmto účtom sa nepodarilo overiť. Skúste to znova."
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:389
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
 msgstr "Vytvoriť"
@@ -435,8 +437,8 @@ msgstr "Vytvorte nový autentifikačný token."
 msgid "Create a new repository"
 msgstr "Vytvoriť nový repozitár"
 
-#: src/features/repository/repository-tabs.tsx:495
-#: src/features/repository/repository-tabs.tsx:589
+#: src/features/repository/repository-tabs.tsx:480
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:128
 #: src/routes/_authenticated/$repoId_.branches.tsx:178
 msgid "Create branch"
@@ -449,12 +451,12 @@ msgid "Create repository"
 msgstr "Vytvoriť repozitár"
 
 #: src/components/clone-dialog.tsx:210
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:328
 msgid "Create token"
 msgstr "Vytvoriť token"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:304
 msgid "Created {0}"
 msgstr "Vytvorené {0}"
 
@@ -462,7 +464,7 @@ msgstr "Vytvorené {0}"
 msgid "Creating..."
 msgstr "Vytvára sa..."
 
-#: src/features/repository/repository-tabs.tsx:589
+#: src/features/repository/repository-tabs.tsx:574
 msgid "Creating…"
 msgstr "Vytvára sa…"
 
@@ -495,46 +497,46 @@ msgstr "Predvolené"
 msgid "Default AI account"
 msgstr "Predvolený AI účet"
 
-#: src/features/repository/repository-tabs.tsx:1054
+#: src/features/repository/repository-tabs.tsx:1039
 msgid "Default branch"
 msgstr "Predvolená vetva"
 
-#: src/components/clone-dialog.tsx:409
-#: src/features/repository/repository-tabs.tsx:607
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/components/clone-dialog.tsx:413
+#: src/features/repository/repository-tabs.tsx:592
+#: src/features/repository/repository-tabs.tsx:1090
 #: src/routes/_authenticated/$repoId_.branches.tsx:196
 msgid "Delete"
 msgstr "Odstrániť"
 
-#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:586
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Odstrániť „{branchToDelete}“? Túto akciu nemožno vrátiť späť."
 
-#: src/features/repository/repository-tabs.tsx:540
+#: src/features/repository/repository-tabs.tsx:525
 #: src/routes/_authenticated/$repoId_.branches.tsx:282
 msgid "Delete branch"
 msgstr "Odstrániť vetvu"
 
-#: src/features/repository/repository-tabs.tsx:599
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:188
 msgid "Delete branch?"
 msgstr "Odstrániť vetvu?"
 
-#: src/features/repository/repository-tabs.tsx:1080
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1076
 msgid "Delete repository"
 msgstr "Odstrániť repozitár"
 
-#: src/features/repository/repository-tabs.tsx:1098
+#: src/features/repository/repository-tabs.tsx:1083
 msgid "Delete repository?"
 msgstr "Odstrániť repozitár?"
 
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:313
 msgid "Delete token"
 msgstr "Odstrániť token"
 
-#: src/components/clone-dialog.tsx:398
+#: src/components/clone-dialog.tsx:402
 msgid "Delete token?"
 msgstr "Odstrániť token?"
 
@@ -546,7 +548,7 @@ msgstr "Odstráňte svoj účet na starom serveri"
 msgid "Deleting..."
 msgstr "Odstraňuje sa..."
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:592
 msgid "Deleting…"
 msgstr "Odstraňuje sa…"
 
@@ -555,7 +557,7 @@ msgid "Desc"
 msgstr "Zostupne"
 
 #: src/features/repository/create-repository-dialog.tsx:161
-#: src/features/repository/repository-tabs.tsx:1034
+#: src/features/repository/repository-tabs.tsx:1019
 msgid "Description"
 msgstr "Popis"
 
@@ -586,8 +588,8 @@ msgstr "Zatvoriť"
 msgid "Displays the mobile sidebar."
 msgstr "Zobrazí mobilný bočný panel."
 
-#: src/components/clone-dialog.tsx:275
-#: src/components/clone-dialog.tsx:358
+#: src/components/clone-dialog.tsx:277
+#: src/components/clone-dialog.tsx:362
 msgid "Done"
 msgstr "Hotovo"
 
@@ -597,7 +599,7 @@ msgstr "Hotovo"
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: src/features/repository/blob-viewer.tsx:184
+#: src/features/repository/blob-viewer.tsx:167
 msgid "Download file"
 msgstr "Stiahnuť súbor"
 
@@ -605,15 +607,19 @@ msgstr "Stiahnuť súbor"
 msgid "Dyslexia-friendly"
 msgstr "Vhodné pre dyslexiu"
 
-#: src/components/clone-dialog.tsx:368
+#: src/components/clone-dialog.tsx:372
 msgid "e.g., Work laptop"
 msgstr "napr. Pracovný laptop"
 
-#: src/features/repository/repository-tabs.tsx:960
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:151
+msgid "Edit {label}"
+msgstr "Upraviť {label}"
+
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Edit name"
 msgstr "Upraviť názov"
 
-#: src/features/repository/repository-tabs.tsx:1020
+#: src/features/repository/repository-tabs.tsx:1005
 msgid "Edit path"
 msgstr "Upraviť cestu"
 
@@ -621,12 +627,12 @@ msgstr "Upraviť cestu"
 msgid "Email code"
 msgstr "E-mailový kód"
 
-#: src/features/repository/file-browser.tsx:337
+#: src/features/repository/file-browser.tsx:303
 msgid "Empty directory"
 msgstr "Prázdny adresár"
 
-#: src/features/repository/file-browser.tsx:194
-#: src/features/repository/repository-tabs.tsx:322
+#: src/features/repository/file-browser.tsx:178
+#: src/features/repository/repository-tabs.tsx:307
 msgid "Empty repository"
 msgstr "Prázdny repozitár"
 
@@ -638,7 +644,7 @@ msgstr "Zadajte kód z e-mailu"
 msgid "Enter your authenticator code"
 msgstr "Zadajte kód z autentifikačnej aplikácie"
 
-#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1011
 msgid "Entity:"
 msgstr "Entita:"
 
@@ -654,7 +660,7 @@ msgstr "Veľmi veľké"
 msgid "Failed to add account"
 msgstr "Nepodarilo sa pridať účet"
 
-#: src/features/repository/repository-tabs.tsx:447
+#: src/features/repository/repository-tabs.tsx:432
 #: src/routes/_authenticated/$repoId_.branches.tsx:85
 msgid "Failed to create branch"
 msgstr "Nepodarilo sa vytvoriť vetvu"
@@ -667,12 +673,12 @@ msgstr "Nepodarilo sa vytvoriť repozitár"
 msgid "Failed to create token"
 msgstr "Nepodarilo sa vytvoriť token"
 
-#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:451
 #: src/routes/_authenticated/$repoId_.branches.tsx:104
 msgid "Failed to delete branch"
 msgstr "Nepodarilo sa zmazať vetvu"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:781
 msgid "Failed to delete repository"
 msgstr "Nepodarilo sa zmazať repozitár"
 
@@ -688,11 +694,11 @@ msgstr "Nepodarilo sa stiahnuť archív"
 msgid "Failed to get token"
 msgstr "Nepodarilo sa získať token"
 
-#: src/features/repository/repository-tabs.tsx:1151
+#: src/features/repository/repository-tabs.tsx:1136
 msgid "Failed to load access rules"
 msgstr "Nepodarilo sa načítať pravidlá prístupu"
 
-#: src/features/repository/repository-tabs.tsx:484
+#: src/features/repository/repository-tabs.tsx:469
 #: src/routes/_authenticated/$repoId_.branches.tsx:229
 msgid "Failed to load branches"
 msgstr "Nepodarilo sa načítať vetvy"
@@ -701,23 +707,23 @@ msgstr "Nepodarilo sa načítať vetvy"
 msgid "Failed to load commit"
 msgstr "Nepodarilo sa načítať commit"
 
-#: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:103
+#: src/features/repository/repository-tabs.tsx:347
+#: src/routes/_authenticated/$repoId_.commits.tsx:87
 msgid "Failed to load commits"
 msgstr "Nepodarilo sa načítať commity"
 
-#: src/features/repository/file-browser.tsx:190
-#: src/features/repository/file-browser.tsx:333
-#: src/features/repository/repository-tabs.tsx:318
+#: src/features/repository/file-browser.tsx:174
+#: src/features/repository/file-browser.tsx:299
+#: src/features/repository/repository-tabs.tsx:303
 msgid "Failed to load files"
 msgstr "Nepodarilo sa načítať súbory"
 
-#: src/features/repository/repository-tabs.tsx:638
+#: src/features/repository/repository-tabs.tsx:623
 #: src/routes/_authenticated/$repoId_.tags.tsx:80
 msgid "Failed to load tags"
 msgstr "Nepodarilo sa načítať značky"
 
-#: src/features/repository/repository-tabs.tsx:1186
+#: src/features/repository/repository-tabs.tsx:1171
 msgid "Failed to remove access"
 msgstr "Nepodarilo sa odstrániť prístup"
 
@@ -725,11 +731,11 @@ msgstr "Nepodarilo sa odstrániť prístup"
 msgid "Failed to remove account"
 msgstr "Nepodarilo sa odstrániť účet"
 
-#: src/features/repository/repository-tabs.tsx:842
+#: src/features/repository/repository-tabs.tsx:827
 msgid "Failed to rename repository"
 msgstr "Nepodarilo sa premenovať repozitár"
 
-#: src/features/repository/repository-tabs.tsx:779
+#: src/features/repository/repository-tabs.tsx:764
 msgid "Failed to save setting"
 msgstr "Nepodarilo sa uložiť nastavenie"
 
@@ -737,7 +743,7 @@ msgstr "Nepodarilo sa uložiť nastavenie"
 msgid "Failed to send verification code"
 msgstr "Nepodarilo sa odoslať overovací kód"
 
-#: src/features/repository/repository-tabs.tsx:1171
+#: src/features/repository/repository-tabs.tsx:1156
 msgid "Failed to set access level"
 msgstr "Nepodarilo sa nastaviť úroveň prístupu"
 
@@ -748,12 +754,12 @@ msgid "Failed to subscribe"
 msgstr "Nepodarilo sa prihlásiť na odber"
 
 #: src/features/repository/repository-header.tsx:72
-#: src/features/repository/repository-tabs.tsx:206
+#: src/features/repository/repository-tabs.tsx:191
 #: src/routes/_authenticated/index.tsx:353
 msgid "Failed to unsubscribe"
 msgstr "Nepodarilo sa zrušiť odber"
 
-#: src/features/repository/repository-tabs.tsx:1200
+#: src/features/repository/repository-tabs.tsx:1185
 msgid "Failed to update access level"
 msgstr "Nepodarilo sa aktualizovať úroveň prístupu"
 
@@ -761,7 +767,7 @@ msgstr "Nepodarilo sa aktualizovať úroveň prístupu"
 msgid "Failed to update category"
 msgstr "Nepodarilo sa aktualizovať kategóriu"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:871
 msgid "Failed to update path"
 msgstr "Nepodarilo sa aktualizovať cestu"
 
@@ -785,7 +791,7 @@ msgstr "Súbory"
 msgid "Find repositories"
 msgstr "Nájsť repozitáre"
 
-#: src/features/repository/repository-tabs.tsx:1028
+#: src/features/repository/repository-tabs.tsx:1013
 msgid "Fingerprint:"
 msgstr "Odtlačok:"
 
@@ -867,7 +873,7 @@ msgstr "Domov"
 msgid "Hot"
 msgstr "Populárne"
 
-#: src/features/repository/repository-tabs.tsx:904
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Identity"
 msgstr "Identita"
 
@@ -893,7 +899,7 @@ msgid "Large"
 msgstr "Veľké"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:302
+#: src/components/clone-dialog.tsx:305
 msgid "Last used {0}"
 msgstr "Naposledy použité {0}"
 
@@ -946,7 +952,7 @@ msgid "Logging out…"
 msgstr "Odhlasuje sa…"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:867
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Iba malé písmená, čísla a pomlčky"
 
@@ -981,16 +987,16 @@ msgid "Name"
 msgstr "Názov"
 
 #: src/features/repository/create-repository-dialog.tsx:81
-#: src/features/repository/repository-tabs.tsx:803
+#: src/features/repository/repository-tabs.tsx:788
 msgid "Name cannot contain < or > characters"
 msgstr "Názov nesmie obsahovať znaky < alebo >"
 
 #: src/features/repository/create-repository-dialog.tsx:83
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:787
 msgid "Name must be 100 characters or less"
 msgstr "Názov musí mať 100 znakov alebo menej"
 
-#: src/features/repository/repository-tabs.tsx:906
+#: src/features/repository/repository-tabs.tsx:891
 msgid "Name:"
 msgstr "Názov:"
 
@@ -998,8 +1004,8 @@ msgstr "Názov:"
 msgid "Network error"
 msgstr "Chyba siete"
 
-#: src/components/clone-dialog.tsx:301
-#: src/components/clone-dialog.tsx:302
+#: src/components/clone-dialog.tsx:304
+#: src/components/clone-dialog.tsx:305
 msgid "Never"
 msgstr "Nikdy"
 
@@ -1007,7 +1013,7 @@ msgstr "Nikdy"
 msgid "New"
 msgstr "Nový"
 
-#: src/features/repository/repository-tabs.tsx:555
+#: src/features/repository/repository-tabs.tsx:540
 #: src/routes/_authenticated/$repoId_.branches.tsx:144
 msgid "New branch"
 msgstr "Nová vetva"
@@ -1016,7 +1022,7 @@ msgstr "Nová vetva"
 msgid "Next image"
 msgstr "Ďalší obrázok"
 
-#: src/features/repository/repository-tabs.tsx:721
+#: src/features/repository/repository-tabs.tsx:706
 msgid "No access"
 msgstr "Žiadny prístup"
 
@@ -1024,13 +1030,13 @@ msgstr "Žiadny prístup"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Nie sú nakonfigurované žiadne pravidlá prístupu. Pridajte pravidlá na riadenie prístupu k tomuto zdroju."
 
-#: src/features/repository/repository-tabs.tsx:503
+#: src/features/repository/repository-tabs.tsx:488
 #: src/routes/_authenticated/$repoId_.branches.tsx:240
 msgid "No branches yet"
 msgstr "Zatiaľ žiadne vetvy"
 
-#: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:108
+#: src/features/repository/repository-tabs.tsx:352
+#: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "No commits yet"
 msgstr "Zatiaľ žiadne commity"
 
@@ -1064,7 +1070,7 @@ msgstr "Nenašli sa žiadne repozitáre"
 msgid "No results found."
 msgstr "Nenašli sa žiadne výsledky."
 
-#: src/features/repository/repository-tabs.tsx:668
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:91
 msgid "No tags yet"
 msgstr "Zatiaľ žiadne štítky"
@@ -1073,7 +1079,7 @@ msgstr "Zatiaľ žiadne štítky"
 msgid "No time zone found."
 msgstr "Nenašlo sa žiadne časové pásmo."
 
-#: src/components/clone-dialog.tsx:289
+#: src/components/clone-dialog.tsx:292
 msgid "No tokens yet."
 msgstr "Zatiaľ žiadne tokeny."
 
@@ -1094,6 +1100,10 @@ msgstr "Žiadne"
 #: ../../../lib/web/src/lib/preference-utils.ts:122
 msgid "Normal"
 msgstr "Normálne"
+
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:143
+msgid "Not set"
+msgstr "Nenastavené"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1159,19 +1169,19 @@ msgstr "Prístupové kľúče"
 msgid "Path"
 msgstr "Cesta"
 
-#: src/features/repository/repository-tabs.tsx:863
+#: src/features/repository/repository-tabs.tsx:848
 msgid "Path is required"
 msgstr "Cesta je povinná"
 
-#: src/features/repository/repository-tabs.tsx:882
+#: src/features/repository/repository-tabs.tsx:867
 msgid "Path updated"
 msgstr "Cesta aktualizovaná"
 
-#: src/features/repository/repository-tabs.tsx:966
+#: src/features/repository/repository-tabs.tsx:951
 msgid "Path:"
 msgstr "Cesta:"
 
-#: src/features/repository/repository-tabs.tsx:1082
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Permanently delete this repository and all its data"
 msgstr "Natrvalo odstrániť tento repozitár a všetky jeho dáta"
 
@@ -1205,11 +1215,11 @@ msgstr "Znovu prepojte svoje účty na tomto serveri"
 msgid "Re-register your passkeys on this server"
 msgstr "Znova zaregistrujte svoje prístupové kľúče na tomto serveri"
 
-#: src/features/repository/repository-tabs.tsx:719
+#: src/features/repository/repository-tabs.tsx:704
 msgid "Read and write"
 msgstr "Čítanie a zápis"
 
-#: src/features/repository/repository-tabs.tsx:720
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Read only"
 msgstr "Iba na čítanie"
 
@@ -1266,7 +1276,7 @@ msgstr "Repozitáre"
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:49
 #: src/routes/_authenticated/$repoId_.branches.tsx:115
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:35
-#: src/routes/_authenticated/$repoId_.commits.tsx:49
+#: src/routes/_authenticated/$repoId_.commits.tsx:45
 #: src/routes/_authenticated/$repoId_.tags.tsx:41
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:37
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:49
@@ -1283,7 +1293,7 @@ msgstr "Repozitár"
 msgid "Repository created"
 msgstr "Repozitár vytvorený"
 
-#: src/features/repository/repository-tabs.tsx:792
+#: src/features/repository/repository-tabs.tsx:777
 msgid "Repository deleted"
 msgstr "Repozitár odstránený"
 
@@ -1292,7 +1302,7 @@ msgstr "Repozitár odstránený"
 msgid "Repository ID is required"
 msgstr "ID repozitára je povinné"
 
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:786
 msgid "Repository name is required"
 msgstr "Názov repozitára je povinný"
 
@@ -1300,7 +1310,7 @@ msgstr "Názov repozitára je povinný"
 msgid "Repository not found"
 msgstr "Repozitár sa nenašiel"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:823
 msgid "Repository renamed"
 msgstr "Repozitár premenovaný"
 
@@ -1329,8 +1339,9 @@ msgstr "Riadkov na stránku"
 msgid "Saturday"
 msgstr "Sobota"
 
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:119
 #: ../../../lib/web/src/components/ui/secret-field.tsx:74
-#: src/features/repository/repository-tabs.tsx:1047
+#: src/features/repository/repository-tabs.tsx:1032
 msgid "Save"
 msgstr "Uložiť"
 
@@ -1339,7 +1350,7 @@ msgid "Save this token now. You won't be able to see it again."
 msgstr "Uložte si tento token teraz. Už ho neuvidíte."
 
 #: src/components/clone-dialog.tsx:265
-#: src/components/clone-dialog.tsx:349
+#: src/components/clone-dialog.tsx:352
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Uložte si tento token bezpečne. Už ho neuvidíte."
 
@@ -1393,15 +1404,11 @@ msgstr "Vybrať pravidlo prístupu"
 msgid "Select account type"
 msgstr "Vybrať typ účtu"
 
-#: src/features/repository/blob-viewer.tsx:125
-#: src/features/repository/file-browser.tsx:134
-#: src/features/repository/file-browser.tsx:272
-#: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:83
+#: src/components/ref-selector.tsx:33
 msgid "Select branch"
 msgstr "Vybrať vetvu"
 
-#: src/features/repository/repository-tabs.tsx:1064
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Select default branch"
 msgstr "Vybrať predvolenú vetvu"
 
@@ -1421,7 +1428,7 @@ msgstr "Vybrať štýl bočného panela"
 msgid "Select site direction"
 msgstr "Vybrať smer stránky"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
 msgid "Select source branch"
 msgstr "Vybrať zdrojovú vetvu"
@@ -1463,12 +1470,12 @@ msgstr "Nastaviť pôvod a cieľ"
 #: ../../../lib/web/src/components/layout/nav-user.tsx:81
 #: ../../../lib/web/src/components/layout/nav-user.tsx:145
 #: ../../../lib/web/src/components/layout/nav-user.tsx:195
-#: src/features/repository/file-browser.tsx:116
+#: src/features/repository/file-browser.tsx:112
 #: src/features/repository/tabs.tsx:30
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: src/features/repository/repository-tabs.tsx:775
+#: src/features/repository/repository-tabs.tsx:760
 msgid "Settings saved"
 msgstr "Nastavenia uložené"
 
@@ -1495,7 +1502,7 @@ msgstr "Preskočiť na hlavný obsah"
 msgid "Small"
 msgstr "Malé"
 
-#: src/features/repository/repository-tabs.tsx:569
+#: src/features/repository/repository-tabs.tsx:554
 #: src/routes/_authenticated/$repoId_.branches.tsx:158
 msgid "Source branch"
 msgstr "Zdrojová vetva"
@@ -1527,6 +1534,10 @@ msgstr "Prihlásený na odber"
 msgid "Sunday"
 msgstr "Nedeľa"
 
+#: src/components/ref-selector.tsx:31
+msgid "Switch branch"
+msgstr "Prepnúť vetvu"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
 #: ../../../lib/web/src/lib/preference-utils.ts:132
@@ -1537,7 +1548,7 @@ msgstr "Systém"
 msgid "Tag"
 msgstr "Tag"
 
-#: src/features/repository/file-browser.tsx:109
+#: src/features/repository/file-browser.tsx:105
 #: src/features/repository/tabs.tsx:28
 msgid "Tags"
 msgstr "Tagy"
@@ -1555,7 +1566,7 @@ msgstr "Podmienky používania"
 msgid "That code is incorrect or has expired."
 msgstr "Tento kód je nesprávny alebo vypršal."
 
-#: src/features/repository/repository-tabs.tsx:1055
+#: src/features/repository/repository-tabs.tsx:1040
 msgid "The branch shown when viewing the repository"
 msgstr "Vetva zobrazená pri prezeraní repozitára"
 
@@ -1573,11 +1584,11 @@ msgstr "Nastavenia motívu"
 msgid "This page requires a repository context."
 msgstr "Táto stránka vyžaduje kontext repozitára."
 
-#: src/features/repository/repository-tabs.tsx:1100
+#: src/features/repository/repository-tabs.tsx:1085
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Týmto sa natrvalo odstráni „{currentName}“ a všetky jeho commity, vetvy a tagy. Túto akciu nemožno vrátiť."
 
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:404
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Týmto sa natrvalo odstráni tento token. Žiadni git klienti, ktorí ho používajú, sa už nebudú môcť autentifikovať."
 
@@ -1585,7 +1596,7 @@ msgstr "Týmto sa natrvalo odstráni tento token. Žiadni git klienti, ktorí ho
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Týmto sa odstráni „{name}“ z vášho zoznamu repozitárov. Môžete sa znova prihlásiť neskôr."
 
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:214
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Týmto sa odstráni „{repoName}“ z vášho zoznamu repozitárov. Môžete sa znova prihlásiť neskôr."
 
@@ -1622,7 +1633,7 @@ msgstr "Token vytvorený"
 msgid "Token deleted"
 msgstr "Token odstránený"
 
-#: src/components/clone-dialog.tsx:365
+#: src/components/clone-dialog.tsx:369
 msgid "Token name"
 msgstr "Názov tokenu"
 
@@ -1684,8 +1695,8 @@ msgstr "Spojené štáty"
 
 #: src/features/repository/repository-header.tsx:112
 #: src/features/repository/repository-header.tsx:124
-#: src/features/repository/repository-tabs.tsx:222
-#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:207
+#: src/features/repository/repository-tabs.tsx:220
 #: src/routes/_authenticated/index.tsx:320
 #: src/routes/_authenticated/index.tsx:340
 #: src/routes/_authenticated/index.tsx:342
@@ -1693,7 +1704,7 @@ msgid "Unsubscribe"
 msgstr "Odhlásiť odber"
 
 #: src/features/repository/repository-header.tsx:117
-#: src/features/repository/repository-tabs.tsx:227
+#: src/features/repository/repository-tabs.tsx:212
 msgid "Unsubscribe from repository?"
 msgstr "Odhlásiť odber repozitára?"
 
@@ -1702,11 +1713,11 @@ msgid "Unsubscribed"
 msgstr "Odber zrušený"
 
 #: src/features/repository/repository-header.tsx:68
-#: src/features/repository/repository-tabs.tsx:201
+#: src/features/repository/repository-tabs.tsx:186
 msgid "Unsubscribed from repository"
 msgstr "Odber repozitára zrušený"
 
-#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:220
 msgid "Unsubscribing…"
 msgstr "Odhlasuje sa odber…"
 

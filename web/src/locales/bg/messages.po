@@ -19,13 +19,13 @@ msgid "{0} branches"
 msgstr "{0} клонове"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:41
+#: src/routes/_authenticated/$repoId_.commits.tsx:37
 msgid "{0} commits"
 msgstr "{0} commit-а"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:696
+#: src/features/repository/repository-tabs.tsx:681
 #: src/routes/_authenticated/$repoId_.tags.tsx:120
 msgid "{0} tagged on {1}"
 msgstr "{0} етикетиран на {1}"
@@ -59,15 +59,15 @@ msgstr "Достъпът е забранен"
 msgid "Access level"
 msgstr "Ниво на достъп"
 
-#: src/features/repository/repository-tabs.tsx:1197
+#: src/features/repository/repository-tabs.tsx:1182
 msgid "Access level updated"
 msgstr "Нивото на достъп е обновено"
 
-#: src/features/repository/repository-tabs.tsx:1183
+#: src/features/repository/repository-tabs.tsx:1168
 msgid "Access removed"
 msgstr "Достъпът е премахнат"
 
-#: src/features/repository/repository-tabs.tsx:1168
+#: src/features/repository/repository-tabs.tsx:1153
 msgid "Access set for {subjectName}"
 msgstr "Достъпът е зададен за {subjectName}"
 
@@ -88,7 +88,7 @@ msgid "Account verified"
 msgstr "Акаунтът е потвърден"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:193
-#: src/features/repository/repository-tabs.tsx:1209
+#: src/features/repository/repository-tabs.tsx:1194
 msgid "Add"
 msgstr "Добави"
 
@@ -125,7 +125,8 @@ msgstr "Добави екип/приложение"
 msgid "Add to existing notifications"
 msgstr "Добави към съществуващите известия"
 
-#: ../../../lib/web/src/components/view-tabs.tsx:57
+#: ../../../lib/web/src/components/view-tabs.tsx:81
+#: ../../../lib/web/src/components/view-tabs.tsx:82
 msgid "Add view"
 msgstr "Добави изглед"
 
@@ -178,8 +179,8 @@ msgid "Authenticator code"
 msgstr "Код от authenticator"
 
 #: ../../../lib/web/src/components/place-picker.tsx:152
-#: src/components/clone-dialog.tsx:321
-#: src/components/clone-dialog.tsx:379
+#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:383
 msgid "Back"
 msgstr "Назад"
 
@@ -194,7 +195,7 @@ msgid "Back to home"
 msgstr "Назад към началото"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:193
+#: src/features/repository/blob-viewer.tsx:176
 msgid "Binary file ({0})"
 msgstr "Двоичен файл ({0})"
 
@@ -202,27 +203,27 @@ msgstr "Двоичен файл ({0})"
 msgid "Boost interest"
 msgstr "Усили интереса"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:446
 #: src/routes/_authenticated/$repoId_.branches.tsx:99
 msgid "Branch \"{branchToDelete}\" deleted"
 msgstr "Клонът \"{branchToDelete}\" е изтрит"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:426
 #: src/routes/_authenticated/$repoId_.branches.tsx:79
 msgid "Branch \"{newBranchName}\" created"
 msgstr "Клонът \"{newBranchName}\" е създаден"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:544
 #: src/routes/_authenticated/$repoId_.branches.tsx:148
 msgid "Branch name"
 msgstr "Име на клона"
 
-#: src/features/repository/repository-tabs.tsx:434
+#: src/features/repository/repository-tabs.tsx:419
 #: src/routes/_authenticated/$repoId_.branches.tsx:72
 msgid "Branch name is required"
 msgstr "Името на клона е задължително"
 
-#: src/features/repository/file-browser.tsx:102
+#: src/features/repository/file-browser.tsx:98
 #: src/features/repository/tabs.tsx:27
 msgid "Branches"
 msgstr "Клонове"
@@ -231,23 +232,24 @@ msgstr "Клонове"
 #: ../../../lib/web/src/components/step-up-dialog.tsx:360
 #: ../../../lib/web/src/components/travelling-picker.tsx:292
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:245
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:129
 #: ../../../lib/web/src/features/access/access-dialog.tsx:325
 #: ../../../lib/web/src/features/access/access-list.tsx:255
 #: ../../../lib/web/src/features/accounts/account-add.tsx:185
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:86
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:409
 #: src/features/repository/repository-header.tsx:123
-#: src/features/repository/repository-tabs.tsx:233
-#: src/features/repository/repository-tabs.tsx:586
-#: src/features/repository/repository-tabs.tsx:605
-#: src/features/repository/repository-tabs.tsx:1104
+#: src/features/repository/repository-tabs.tsx:218
+#: src/features/repository/repository-tabs.tsx:571
+#: src/features/repository/repository-tabs.tsx:590
+#: src/features/repository/repository-tabs.tsx:1089
 #: src/routes/_authenticated/$repoId_.branches.tsx:175
 #: src/routes/_authenticated/$repoId_.branches.tsx:194
 msgid "Cancel"
 msgstr "Отказ"
 
-#: src/features/repository/repository-tabs.tsx:943
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:988
 msgid "Cancel edit"
 msgstr "Отмени редактирането"
 
@@ -358,7 +360,7 @@ msgstr "Commit {0} - {1}"
 msgid "Commit not found"
 msgstr "Commit не е намерен"
 
-#: src/features/repository/file-browser.tsx:95
+#: src/features/repository/file-browser.tsx:91
 #: src/features/repository/tabs.tsx:26
 msgid "Commits"
 msgstr "Commits"
@@ -368,8 +370,8 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "Компактно"
 
-#: ../../../lib/web/src/components/place-picker.tsx:155
-#: ../../../lib/web/src/components/travelling-picker.tsx:299
+#: ../../../lib/web/src/components/place-picker.tsx:156
+#: ../../../lib/web/src/components/travelling-picker.tsx:300
 msgid "Confirm"
 msgstr "Потвърди"
 
@@ -402,7 +404,7 @@ msgstr "Копирай"
 msgid "Copy commit SHA"
 msgstr "Копирай SHA на коммита"
 
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:163
 msgid "Copy file contents"
 msgstr "Копирай съдържанието на файла"
 
@@ -422,7 +424,7 @@ msgstr "Повторното удостоверяване не можа да з�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Потвърждаването с този акаунт не бе успешно. Моля, опитайте отново."
 
-#: src/components/clone-dialog.tsx:385
+#: src/components/clone-dialog.tsx:389
 #: src/features/repository/create-repository-dialog.tsx:183
 msgid "Create"
 msgstr "Създай"
@@ -435,8 +437,8 @@ msgstr "Създайте нов токен за удостоверяване."
 msgid "Create a new repository"
 msgstr "Създайте ново хранилище"
 
-#: src/features/repository/repository-tabs.tsx:495
-#: src/features/repository/repository-tabs.tsx:589
+#: src/features/repository/repository-tabs.tsx:480
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:128
 #: src/routes/_authenticated/$repoId_.branches.tsx:178
 msgid "Create branch"
@@ -449,12 +451,12 @@ msgid "Create repository"
 msgstr "Създай хранилище"
 
 #: src/components/clone-dialog.tsx:210
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:328
 msgid "Create token"
 msgstr "Създай токен"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:301
+#: src/components/clone-dialog.tsx:304
 msgid "Created {0}"
 msgstr "Създадено {0}"
 
@@ -462,7 +464,7 @@ msgstr "Създадено {0}"
 msgid "Creating..."
 msgstr "Създаване..."
 
-#: src/features/repository/repository-tabs.tsx:589
+#: src/features/repository/repository-tabs.tsx:574
 msgid "Creating…"
 msgstr "Създаване…"
 
@@ -495,46 +497,46 @@ msgstr "По подразбиране"
 msgid "Default AI account"
 msgstr "AI акаунт по подразбиране"
 
-#: src/features/repository/repository-tabs.tsx:1054
+#: src/features/repository/repository-tabs.tsx:1039
 msgid "Default branch"
 msgstr "Клон по подразбиране"
 
-#: src/components/clone-dialog.tsx:409
-#: src/features/repository/repository-tabs.tsx:607
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/components/clone-dialog.tsx:413
+#: src/features/repository/repository-tabs.tsx:592
+#: src/features/repository/repository-tabs.tsx:1090
 #: src/routes/_authenticated/$repoId_.branches.tsx:196
 msgid "Delete"
 msgstr "Изтрий"
 
-#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:586
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Изтриване на \"{branchToDelete}\"? Това не може да бъде отменено."
 
-#: src/features/repository/repository-tabs.tsx:540
+#: src/features/repository/repository-tabs.tsx:525
 #: src/routes/_authenticated/$repoId_.branches.tsx:282
 msgid "Delete branch"
 msgstr "Изтрий клона"
 
-#: src/features/repository/repository-tabs.tsx:599
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:188
 msgid "Delete branch?"
 msgstr "Изтриване на клона?"
 
-#: src/features/repository/repository-tabs.tsx:1080
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1076
 msgid "Delete repository"
 msgstr "Изтрий хранилището"
 
-#: src/features/repository/repository-tabs.tsx:1098
+#: src/features/repository/repository-tabs.tsx:1083
 msgid "Delete repository?"
 msgstr "Изтриване на хранилището?"
 
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:313
 msgid "Delete token"
 msgstr "Изтрий токена"
 
-#: src/components/clone-dialog.tsx:398
+#: src/components/clone-dialog.tsx:402
 msgid "Delete token?"
 msgstr "Изтриване на токена?"
 
@@ -546,7 +548,7 @@ msgstr "Изтрийте профила си на стария сървър"
 msgid "Deleting..."
 msgstr "Изтриване..."
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:592
 msgid "Deleting…"
 msgstr "Изтриване…"
 
@@ -555,7 +557,7 @@ msgid "Desc"
 msgstr "Низх."
 
 #: src/features/repository/create-repository-dialog.tsx:161
-#: src/features/repository/repository-tabs.tsx:1034
+#: src/features/repository/repository-tabs.tsx:1019
 msgid "Description"
 msgstr "Описание"
 
@@ -586,8 +588,8 @@ msgstr "Отхвърли"
 msgid "Displays the mobile sidebar."
 msgstr "Показва мобилната странична лента."
 
-#: src/components/clone-dialog.tsx:275
-#: src/components/clone-dialog.tsx:358
+#: src/components/clone-dialog.tsx:277
+#: src/components/clone-dialog.tsx:362
 msgid "Done"
 msgstr "Готово"
 
@@ -597,7 +599,7 @@ msgstr "Готово"
 msgid "Download"
 msgstr "Изтегляне"
 
-#: src/features/repository/blob-viewer.tsx:184
+#: src/features/repository/blob-viewer.tsx:167
 msgid "Download file"
 msgstr "Изтегли файла"
 
@@ -605,15 +607,19 @@ msgstr "Изтегли файла"
 msgid "Dyslexia-friendly"
 msgstr "Подходящ за дислексия"
 
-#: src/components/clone-dialog.tsx:368
+#: src/components/clone-dialog.tsx:372
 msgid "e.g., Work laptop"
 msgstr "напр. работен лаптоп"
 
-#: src/features/repository/repository-tabs.tsx:960
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:151
+msgid "Edit {label}"
+msgstr "Редактиране на {label}"
+
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Edit name"
 msgstr "Редактиране на име"
 
-#: src/features/repository/repository-tabs.tsx:1020
+#: src/features/repository/repository-tabs.tsx:1005
 msgid "Edit path"
 msgstr "Редактирай пътя"
 
@@ -621,12 +627,12 @@ msgstr "Редактирай пътя"
 msgid "Email code"
 msgstr "Имейл код"
 
-#: src/features/repository/file-browser.tsx:337
+#: src/features/repository/file-browser.tsx:303
 msgid "Empty directory"
 msgstr "Празна директория"
 
-#: src/features/repository/file-browser.tsx:194
-#: src/features/repository/repository-tabs.tsx:322
+#: src/features/repository/file-browser.tsx:178
+#: src/features/repository/repository-tabs.tsx:307
 msgid "Empty repository"
 msgstr "Празно хранилище"
 
@@ -638,7 +644,7 @@ msgstr "Въведете кода от имейла си"
 msgid "Enter your authenticator code"
 msgstr "Въведете кода от приложението за удостоверяване"
 
-#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1011
 msgid "Entity:"
 msgstr "Обект:"
 
@@ -654,7 +660,7 @@ msgstr "Много голям"
 msgid "Failed to add account"
 msgstr "Неуспешно добавяне на акаунт"
 
-#: src/features/repository/repository-tabs.tsx:447
+#: src/features/repository/repository-tabs.tsx:432
 #: src/routes/_authenticated/$repoId_.branches.tsx:85
 msgid "Failed to create branch"
 msgstr "Неуспешно създаване на клон"
@@ -667,12 +673,12 @@ msgstr "Неуспешно създаване на хранилище"
 msgid "Failed to create token"
 msgstr "Неуспешно създаване на токен"
 
-#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:451
 #: src/routes/_authenticated/$repoId_.branches.tsx:104
 msgid "Failed to delete branch"
 msgstr "Неуспешно изтриване на клон"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:781
 msgid "Failed to delete repository"
 msgstr "Неуспешно изтриване на хранилище"
 
@@ -688,11 +694,11 @@ msgstr "Неуспешно изтегляне на архив"
 msgid "Failed to get token"
 msgstr "Неуспешно получаване на токен"
 
-#: src/features/repository/repository-tabs.tsx:1151
+#: src/features/repository/repository-tabs.tsx:1136
 msgid "Failed to load access rules"
 msgstr "Неуспешно зареждане на правила за достъп"
 
-#: src/features/repository/repository-tabs.tsx:484
+#: src/features/repository/repository-tabs.tsx:469
 #: src/routes/_authenticated/$repoId_.branches.tsx:229
 msgid "Failed to load branches"
 msgstr "Неуспешно зареждане на клонове"
@@ -701,23 +707,23 @@ msgstr "Неуспешно зареждане на клонове"
 msgid "Failed to load commit"
 msgstr "Неуспешно зареждане на commit"
 
-#: src/features/repository/repository-tabs.tsx:362
-#: src/routes/_authenticated/$repoId_.commits.tsx:103
+#: src/features/repository/repository-tabs.tsx:347
+#: src/routes/_authenticated/$repoId_.commits.tsx:87
 msgid "Failed to load commits"
 msgstr "Неуспешно зареждане на commits"
 
-#: src/features/repository/file-browser.tsx:190
-#: src/features/repository/file-browser.tsx:333
-#: src/features/repository/repository-tabs.tsx:318
+#: src/features/repository/file-browser.tsx:174
+#: src/features/repository/file-browser.tsx:299
+#: src/features/repository/repository-tabs.tsx:303
 msgid "Failed to load files"
 msgstr "Неуспешно зареждане на файлове"
 
-#: src/features/repository/repository-tabs.tsx:638
+#: src/features/repository/repository-tabs.tsx:623
 #: src/routes/_authenticated/$repoId_.tags.tsx:80
 msgid "Failed to load tags"
 msgstr "Неуспешно зареждане на тагове"
 
-#: src/features/repository/repository-tabs.tsx:1186
+#: src/features/repository/repository-tabs.tsx:1171
 msgid "Failed to remove access"
 msgstr "Неуспешно премахване на достъп"
 
@@ -725,11 +731,11 @@ msgstr "Неуспешно премахване на достъп"
 msgid "Failed to remove account"
 msgstr "Неуспешно премахване на акаунт"
 
-#: src/features/repository/repository-tabs.tsx:842
+#: src/features/repository/repository-tabs.tsx:827
 msgid "Failed to rename repository"
 msgstr "Неуспешно преименуване на хранилище"
 
-#: src/features/repository/repository-tabs.tsx:779
+#: src/features/repository/repository-tabs.tsx:764
 msgid "Failed to save setting"
 msgstr "Неуспешно записване на настройка"
 
@@ -737,7 +743,7 @@ msgstr "Неуспешно записване на настройка"
 msgid "Failed to send verification code"
 msgstr "Неуспешно изпращане на код за потвърждение"
 
-#: src/features/repository/repository-tabs.tsx:1171
+#: src/features/repository/repository-tabs.tsx:1156
 msgid "Failed to set access level"
 msgstr "Неуспешно задаване на ниво на достъп"
 
@@ -748,12 +754,12 @@ msgid "Failed to subscribe"
 msgstr "Неуспешно абониране"
 
 #: src/features/repository/repository-header.tsx:72
-#: src/features/repository/repository-tabs.tsx:206
+#: src/features/repository/repository-tabs.tsx:191
 #: src/routes/_authenticated/index.tsx:353
 msgid "Failed to unsubscribe"
 msgstr "Неуспешно отписване"
 
-#: src/features/repository/repository-tabs.tsx:1200
+#: src/features/repository/repository-tabs.tsx:1185
 msgid "Failed to update access level"
 msgstr "Неуспешна актуализация на ниво на достъп"
 
@@ -761,7 +767,7 @@ msgstr "Неуспешна актуализация на ниво на дост�
 msgid "Failed to update category"
 msgstr "Неуспешна актуализация на категория"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:871
 msgid "Failed to update path"
 msgstr "Неуспешна актуализация на път"
 
@@ -785,7 +791,7 @@ msgstr "Файлове"
 msgid "Find repositories"
 msgstr "Намери хранилища"
 
-#: src/features/repository/repository-tabs.tsx:1028
+#: src/features/repository/repository-tabs.tsx:1013
 msgid "Fingerprint:"
 msgstr "Отпечатък:"
 
@@ -867,7 +873,7 @@ msgstr "Начало"
 msgid "Hot"
 msgstr "Горещо"
 
-#: src/features/repository/repository-tabs.tsx:904
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Identity"
 msgstr "Самоличност"
 
@@ -893,7 +899,7 @@ msgid "Large"
 msgstr "Голям"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:302
+#: src/components/clone-dialog.tsx:305
 msgid "Last used {0}"
 msgstr "Последно използвано {0}"
 
@@ -946,7 +952,7 @@ msgid "Logging out…"
 msgstr "Излизане…"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:867
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Само малки букви, цифри и тирета"
 
@@ -981,16 +987,16 @@ msgid "Name"
 msgstr "Име"
 
 #: src/features/repository/create-repository-dialog.tsx:81
-#: src/features/repository/repository-tabs.tsx:803
+#: src/features/repository/repository-tabs.tsx:788
 msgid "Name cannot contain < or > characters"
 msgstr "Името не може да съдържа символи < или >"
 
 #: src/features/repository/create-repository-dialog.tsx:83
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:787
 msgid "Name must be 100 characters or less"
 msgstr "Името трябва да е до 100 символа"
 
-#: src/features/repository/repository-tabs.tsx:906
+#: src/features/repository/repository-tabs.tsx:891
 msgid "Name:"
 msgstr "Име:"
 
@@ -998,8 +1004,8 @@ msgstr "Име:"
 msgid "Network error"
 msgstr "Мрежова грешка"
 
-#: src/components/clone-dialog.tsx:301
-#: src/components/clone-dialog.tsx:302
+#: src/components/clone-dialog.tsx:304
+#: src/components/clone-dialog.tsx:305
 msgid "Never"
 msgstr "Никога"
 
@@ -1007,7 +1013,7 @@ msgstr "Никога"
 msgid "New"
 msgstr "Ново"
 
-#: src/features/repository/repository-tabs.tsx:555
+#: src/features/repository/repository-tabs.tsx:540
 #: src/routes/_authenticated/$repoId_.branches.tsx:144
 msgid "New branch"
 msgstr "Нов клон"
@@ -1016,7 +1022,7 @@ msgstr "Нов клон"
 msgid "Next image"
 msgstr "Следващо изображение"
 
-#: src/features/repository/repository-tabs.tsx:721
+#: src/features/repository/repository-tabs.tsx:706
 msgid "No access"
 msgstr "Няма достъп"
 
@@ -1024,13 +1030,13 @@ msgstr "Няма достъп"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Няма конфигурирани правила за достъп. Добавете правила, за да контролирате кой има достъп до този ресурс."
 
-#: src/features/repository/repository-tabs.tsx:503
+#: src/features/repository/repository-tabs.tsx:488
 #: src/routes/_authenticated/$repoId_.branches.tsx:240
 msgid "No branches yet"
 msgstr "Все още няма клонове"
 
-#: src/features/repository/repository-tabs.tsx:367
-#: src/routes/_authenticated/$repoId_.commits.tsx:108
+#: src/features/repository/repository-tabs.tsx:352
+#: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "No commits yet"
 msgstr "Все още няма commits"
 
@@ -1064,7 +1070,7 @@ msgstr "Не са намерени хранилища"
 msgid "No results found."
 msgstr "Не са намерени резултати."
 
-#: src/features/repository/repository-tabs.tsx:668
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:91
 msgid "No tags yet"
 msgstr "Все още няма тагове"
@@ -1073,7 +1079,7 @@ msgstr "Все още няма тагове"
 msgid "No time zone found."
 msgstr "Не е намерена часова зона."
 
-#: src/components/clone-dialog.tsx:289
+#: src/components/clone-dialog.tsx:292
 msgid "No tokens yet."
 msgstr "Все още няма токени."
 
@@ -1094,6 +1100,10 @@ msgstr "Няма"
 #: ../../../lib/web/src/lib/preference-utils.ts:122
 msgid "Normal"
 msgstr "Нормален"
+
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:143
+msgid "Not set"
+msgstr "Не е зададен"
 
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:132
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:146
@@ -1159,19 +1169,19 @@ msgstr "Ключове за достъп"
 msgid "Path"
 msgstr "Път"
 
-#: src/features/repository/repository-tabs.tsx:863
+#: src/features/repository/repository-tabs.tsx:848
 msgid "Path is required"
 msgstr "Пътят е задължителен"
 
-#: src/features/repository/repository-tabs.tsx:882
+#: src/features/repository/repository-tabs.tsx:867
 msgid "Path updated"
 msgstr "Пътят е обновен"
 
-#: src/features/repository/repository-tabs.tsx:966
+#: src/features/repository/repository-tabs.tsx:951
 msgid "Path:"
 msgstr "Път:"
 
-#: src/features/repository/repository-tabs.tsx:1082
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Permanently delete this repository and all its data"
 msgstr "Изтрий завинаги това хранилище и всичките му данни"
 
@@ -1205,11 +1215,11 @@ msgstr "Свържете отново профилите си на този съ
 msgid "Re-register your passkeys on this server"
 msgstr "Регистрирайте отново ключовете си за достъп на този сървър"
 
-#: src/features/repository/repository-tabs.tsx:719
+#: src/features/repository/repository-tabs.tsx:704
 msgid "Read and write"
 msgstr "Четене и писане"
 
-#: src/features/repository/repository-tabs.tsx:720
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Read only"
 msgstr "Само за четене"
 
@@ -1266,7 +1276,7 @@ msgstr "Хранилища"
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:49
 #: src/routes/_authenticated/$repoId_.branches.tsx:115
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:35
-#: src/routes/_authenticated/$repoId_.commits.tsx:49
+#: src/routes/_authenticated/$repoId_.commits.tsx:45
 #: src/routes/_authenticated/$repoId_.tags.tsx:41
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:37
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:49
@@ -1283,7 +1293,7 @@ msgstr "Хранилище"
 msgid "Repository created"
 msgstr "Хранилището е създадено"
 
-#: src/features/repository/repository-tabs.tsx:792
+#: src/features/repository/repository-tabs.tsx:777
 msgid "Repository deleted"
 msgstr "Хранилището е изтрито"
 
@@ -1292,7 +1302,7 @@ msgstr "Хранилището е изтрито"
 msgid "Repository ID is required"
 msgstr "ID на хранилището е задължително"
 
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:786
 msgid "Repository name is required"
 msgstr "Името на хранилището е задължително"
 
@@ -1300,7 +1310,7 @@ msgstr "Името на хранилището е задължително"
 msgid "Repository not found"
 msgstr "Хранилището не е намерено"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:823
 msgid "Repository renamed"
 msgstr "Хранилището е преименувано"
 
@@ -1329,8 +1339,9 @@ msgstr "Редове на страница"
 msgid "Saturday"
 msgstr "Събота"
 
+#: ../../../lib/web/src/components/ui/editable-field-row.tsx:119
 #: ../../../lib/web/src/components/ui/secret-field.tsx:74
-#: src/features/repository/repository-tabs.tsx:1047
+#: src/features/repository/repository-tabs.tsx:1032
 msgid "Save"
 msgstr "Запази"
 
@@ -1339,7 +1350,7 @@ msgid "Save this token now. You won't be able to see it again."
 msgstr "Запазете този токен сега. Няма да можете да го видите отново."
 
 #: src/components/clone-dialog.tsx:265
-#: src/components/clone-dialog.tsx:349
+#: src/components/clone-dialog.tsx:352
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Запазете този токен сигурно. Няма да можете да го видите отново."
 
@@ -1393,15 +1404,11 @@ msgstr "Изберете правило за достъп"
 msgid "Select account type"
 msgstr "Изберете тип акаунт"
 
-#: src/features/repository/blob-viewer.tsx:125
-#: src/features/repository/file-browser.tsx:134
-#: src/features/repository/file-browser.tsx:272
-#: src/features/repository/repository-tabs.tsx:136
-#: src/routes/_authenticated/$repoId_.commits.tsx:83
+#: src/components/ref-selector.tsx:33
 msgid "Select branch"
 msgstr "Избор на клон"
 
-#: src/features/repository/repository-tabs.tsx:1064
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Select default branch"
 msgstr "Избор на клон по подразбиране"
 
@@ -1421,7 +1428,7 @@ msgstr "Избор на стил на страничната лента"
 msgid "Select site direction"
 msgstr "Избор на посока на сайта"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
 msgid "Select source branch"
 msgstr "Избор на изходен клон"
@@ -1463,12 +1470,12 @@ msgstr "Задай начало и край"
 #: ../../../lib/web/src/components/layout/nav-user.tsx:81
 #: ../../../lib/web/src/components/layout/nav-user.tsx:145
 #: ../../../lib/web/src/components/layout/nav-user.tsx:195
-#: src/features/repository/file-browser.tsx:116
+#: src/features/repository/file-browser.tsx:112
 #: src/features/repository/tabs.tsx:30
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/features/repository/repository-tabs.tsx:775
+#: src/features/repository/repository-tabs.tsx:760
 msgid "Settings saved"
 msgstr "Настройките са запазени"
 
@@ -1495,7 +1502,7 @@ msgstr "Прескочи към съдържанието"
 msgid "Small"
 msgstr "Малък"
 
-#: src/features/repository/repository-tabs.tsx:569
+#: src/features/repository/repository-tabs.tsx:554
 #: src/routes/_authenticated/$repoId_.branches.tsx:158
 msgid "Source branch"
 msgstr "Изходен клон"
@@ -1527,6 +1534,10 @@ msgstr "Абониран"
 msgid "Sunday"
 msgstr "Неделя"
 
+#: src/components/ref-selector.tsx:31
+msgid "Switch branch"
+msgstr "Превключи клон"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:195
 #: ../../../lib/web/src/lib/preference-utils.ts:18
 #: ../../../lib/web/src/lib/preference-utils.ts:132
@@ -1537,7 +1548,7 @@ msgstr "Система"
 msgid "Tag"
 msgstr "Етикет"
 
-#: src/features/repository/file-browser.tsx:109
+#: src/features/repository/file-browser.tsx:105
 #: src/features/repository/tabs.tsx:28
 msgid "Tags"
 msgstr "Етикети"
@@ -1555,7 +1566,7 @@ msgstr "Общи условия"
 msgid "That code is incorrect or has expired."
 msgstr "Този код е неправилен или е изтекъл."
 
-#: src/features/repository/repository-tabs.tsx:1055
+#: src/features/repository/repository-tabs.tsx:1040
 msgid "The branch shown when viewing the repository"
 msgstr "Клонът, показан при разглеждане на хранилището"
 
@@ -1573,11 +1584,11 @@ msgstr "Настройки на темата"
 msgid "This page requires a repository context."
 msgstr "Тази страница изисква контекст на хранилище."
 
-#: src/features/repository/repository-tabs.tsx:1100
+#: src/features/repository/repository-tabs.tsx:1085
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Това ще изтрие окончателно „{currentName}“ и всичките му commit-и, клонове и тагове. Това действие не може да бъде отменено."
 
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:404
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Това ще изтрие окончателно този токен. Всички git клиенти, използващи го, повече няма да могат да се удостоверяват."
 
@@ -1585,7 +1596,7 @@ msgstr "Това ще изтрие окончателно този токен. �
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Това ще премахне „{name}“ от списъка ви с хранилища. Можете да се абонирате отново по-късно."
 
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:214
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Това ще премахне „{repoName}“ от списъка ви с хранилища. Можете да се абонирате отново по-късно."
 
@@ -1622,7 +1633,7 @@ msgstr "Токенът е създаден"
 msgid "Token deleted"
 msgstr "Токенът е изтрит"
 
-#: src/components/clone-dialog.tsx:365
+#: src/components/clone-dialog.tsx:369
 msgid "Token name"
 msgstr "Име на токена"
 
@@ -1684,8 +1695,8 @@ msgstr "Съединени щати"
 
 #: src/features/repository/repository-header.tsx:112
 #: src/features/repository/repository-header.tsx:124
-#: src/features/repository/repository-tabs.tsx:222
-#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:207
+#: src/features/repository/repository-tabs.tsx:220
 #: src/routes/_authenticated/index.tsx:320
 #: src/routes/_authenticated/index.tsx:340
 #: src/routes/_authenticated/index.tsx:342
@@ -1693,7 +1704,7 @@ msgid "Unsubscribe"
 msgstr "Отпиши се"
 
 #: src/features/repository/repository-header.tsx:117
-#: src/features/repository/repository-tabs.tsx:227
+#: src/features/repository/repository-tabs.tsx:212
 msgid "Unsubscribe from repository?"
 msgstr "Отписване от хранилище?"
 
@@ -1702,11 +1713,11 @@ msgid "Unsubscribed"
 msgstr "Отписан"
 
 #: src/features/repository/repository-header.tsx:68
-#: src/features/repository/repository-tabs.tsx:201
+#: src/features/repository/repository-tabs.tsx:186
 msgid "Unsubscribed from repository"
 msgstr "Отписан от хранилището"
 
-#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:220
 msgid "Unsubscribing…"
 msgstr "Отписване…"
 
