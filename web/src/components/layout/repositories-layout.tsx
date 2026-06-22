@@ -58,6 +58,7 @@ function RepositoriesLayoutInner() {
       title: t`All repositories`,
       onClick: handleAllReposClick,
       icon: FolderGit2,
+      aggregate: true,
       isActive: location.pathname === '/',
     }
 
