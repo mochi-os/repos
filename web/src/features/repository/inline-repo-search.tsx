@@ -8,7 +8,7 @@ import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
 import { useQueryClient } from '@tanstack/react-query'
 import { Search, Loader2, FolderGit2 } from 'lucide-react'
-import { Button, Input, toast, getErrorMessage } from '@mochi/web'
+import { Button, Input, toastAction, getErrorMessage } from '@mochi/web'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { SearchResult, SearchResponse } from '@/api/types'
@@ -66,12 +66,15 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
   const handleSubscribe = async (repo: SearchResult) => {
     setPendingRepoId(repo.id)
     try {
-      await subscribe.mutateAsync({ repository: repo.id })
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+      await toastAction(subscribe.mutateAsync({ repository: repo.id }), {
+        loading: t`Subscribing...`,
+        success: t`Subscribed`,
+        error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+      })
+      void queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       onRefresh?.()
       void navigate({ to: '/$repoId', params: { repoId: repo.id } })
-    } catch (error) {
-      toast.error(getErrorMessage(error, t`Failed to subscribe`))
+    } catch {
       setPendingRepoId(null)
     }
   }

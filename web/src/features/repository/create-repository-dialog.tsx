@@ -17,7 +17,7 @@ import {
   Label,
   Switch,
   Textarea,
-  toast,
+  toastAction,
   getErrorMessage,
 } from '@mochi/web'
 import { FolderGit2, Loader2, Plus } from 'lucide-react'
@@ -95,32 +95,33 @@ export function CreateRepositoryDialog({
 
   const canSubmit = name.trim() && path.trim() && !nameError && !pathError && !createRepo.isPending
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!canSubmit) return
-    createRepo.mutate(
-      {
-        name: name.trim(),
-        path: path.trim(),
-        description,
-        allow_read: allowRead ? 'true' : 'false',
-        privacy: privacy ? 'public' : 'private',
-      },
-      {
-        onSuccess: (response) => {
-          toast.success(t`Repository created`)
-          resetForm()
-          handleOpenChange(false)
-          if (response?.fingerprint) {
-            void navigate({ to: '/$repoId', params: { repoId: response.fingerprint } })
-          } else {
-            void navigate({ to: '/' })
-          }
-        },
-        onError: (error) => {
-          toast.error(getErrorMessage(error, t`Failed to create repository`))
-        },
+    try {
+      const response = await toastAction(
+        createRepo.mutateAsync({
+          name: name.trim(),
+          path: path.trim(),
+          description,
+          allow_read: allowRead ? 'true' : 'false',
+          privacy: privacy ? 'public' : 'private',
+        }),
+        {
+          loading: t`Creating repository...`,
+          success: t`Repository created`,
+          error: (e) => getErrorMessage(e, t`Failed to create repository`),
+        }
+      )
+      resetForm()
+      handleOpenChange(false)
+      if (response?.fingerprint) {
+        void navigate({ to: '/$repoId', params: { repoId: response.fingerprint } })
+      } else {
+        void navigate({ to: '/' })
       }
-    )
+    } catch {
+      // toast already shown
+    }
   }
 
   return (

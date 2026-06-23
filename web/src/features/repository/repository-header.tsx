@@ -19,7 +19,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   getErrorMessage,
-  toast,
+  toastAction,
 } from '@mochi/web'
 import {
   FolderGit2,
@@ -67,17 +67,18 @@ export function RepositoryHeader({
   const tabs = useRepositoryTabs()
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
-  const handleUnsubscribe = () => {
-    unsubscribe.mutate(repoId, {
-      onSuccess: () => {
-        toast.success(t`Unsubscribed from repository`)
-        void navigate({ to: '/' })
-      },
-      onError: (error) => {
-        toast.error(getErrorMessage(error, t`Failed to unsubscribe`))
-      },
-    })
+  const handleUnsubscribe = async () => {
     setShowUnsubscribeDialog(false)
+    try {
+      await toastAction(unsubscribe.mutateAsync(repoId), {
+        loading: t`Unsubscribing...`,
+        success: t`Unsubscribed from repository`,
+        error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
+      })
+      void navigate({ to: '/' })
+    } catch {
+      // toast already shown
+    }
   }
 
   return (

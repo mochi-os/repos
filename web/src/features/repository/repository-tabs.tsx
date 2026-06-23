@@ -42,6 +42,7 @@ import {
   TooltipTrigger,
   TooltipContent,
   toast,
+  toastAction,
   getErrorMessage,
   AccessDialog,
   AccessList,
@@ -63,7 +64,7 @@ import {
   UserMinus,
   X,
 } from 'lucide-react'
-import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, repoKeys } from '@/hooks/use-repository'
+import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, useUnsubscribe, repoKeys } from '@/hooks/use-repository'
 import { reposRequest, appBasePath, repoBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 
@@ -183,20 +184,21 @@ export function RepositoryTabs({
 export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoName: string }) {
   const { t } = useLingui()
   const navigate = useNavigate()
-  const queryClient = useQueryClient()
+  const unsubscribe = useUnsubscribe()
   const [showDialog, setShowDialog] = useState(false)
   const [isUnsubscribing, setIsUnsubscribing] = useState(false)
 
   const handleUnsubscribe = async () => {
     setIsUnsubscribing(true)
     try {
-      await reposRequest.post('-/unsubscribe', { repository: repoId }, { baseURL: appBasePath() })
-      toast.success(t`Unsubscribed from repository`)
-      // Invalidate repository list to refresh sidebar
-      queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+      await toastAction(unsubscribe.mutateAsync(repoId), {
+        loading: t`Unsubscribing...`,
+        success: t`Unsubscribed from repository`,
+        error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
+      })
       void navigate({ to: '/' })
-    } catch (error) {
-      toast.error(getErrorMessage(error, t`Failed to unsubscribe`))
+    } catch {
+      // toast already shown
     } finally {
       setIsUnsubscribing(false)
       setShowDialog(false)
@@ -422,25 +424,27 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
   const branches = data?.branches || []
   const actualDefault = data?.default || defaultBranch
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (!newBranchName.trim()) {
       toast.error(t`Branch name is required`)
       return
     }
-    createBranch.mutate(
-      { name: newBranchName.trim(), source: sourceBranch || actualDefault },
-      {
-        onSuccess: () => {
-          toast.success(t`Branch "${newBranchName}" created`)
-          setShowCreateDialog(false)
-          setNewBranchName('')
-          setSourceBranch('')
-        },
-        onError: (err) => {
-          toast.error(getErrorMessage(err, t`Failed to create branch`))
-        },
-      }
-    )
+    const name = newBranchName.trim()
+    try {
+      await toastAction(
+        createBranch.mutateAsync({ name, source: sourceBranch || actualDefault }),
+        {
+          loading: t`Creating branch...`,
+          success: t`Branch "${name}" created`,
+          error: (e) => getErrorMessage(e, t`Failed to create branch`),
+        }
+      )
+      setShowCreateDialog(false)
+      setNewBranchName('')
+      setSourceBranch('')
+    } catch {
+      // toast already shown
+    }
   }
 
   const handleDeleteClick = (name: string) => {
@@ -448,17 +452,19 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
     setShowDeleteDialog(true)
   }
 
-  const handleDelete = () => {
-    deleteBranch.mutate(branchToDelete, {
-      onSuccess: () => {
-        toast.success(t`Branch "${branchToDelete}" deleted`)
-        setShowDeleteDialog(false)
-        setBranchToDelete('')
-      },
-      onError: (err) => {
-        toast.error(getErrorMessage(err, t`Failed to delete branch`))
-      },
-    })
+  const handleDelete = async () => {
+    const name = branchToDelete
+    try {
+      await toastAction(deleteBranch.mutateAsync(name), {
+        loading: t`Deleting branch...`,
+        success: t`Branch "${name}" deleted`,
+        error: (e) => getErrorMessage(e, t`Failed to delete branch`),
+      })
+      setShowDeleteDialog(false)
+      setBranchToDelete('')
+    } catch {
+      // toast already shown
+    }
   }
 
   if (isLoading) {
@@ -770,11 +776,7 @@ function GeneralSettingsTab({
         { baseURL: repoBasePath(repoId) }
       ),
     onSuccess: () => {
-      toast.success(t`Settings saved`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-    },
-    onError: (error) => {
-      toast.error(getErrorMessage(error, t`Failed to save setting`))
     },
   })
 
@@ -787,11 +789,6 @@ function GeneralSettingsTab({
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-      toast.success(t`Repository deleted`)
-      void navigate({ to: '/' })
-    },
-    onError: (error) => {
-      toast.error(getErrorMessage(error, t`Failed to delete repository`))
     },
   })
 
@@ -827,17 +824,23 @@ function GeneralSettingsTab({
     }
     setIsRenaming(true)
     try {
-      await reposRequest.post<{ success: boolean }>(
-        endpoints.repo.rename,
-        { name: trimmedName },
-        { baseURL: repoBasePath(repoId) }
+      await toastAction(
+        reposRequest.post<{ success: boolean }>(
+          endpoints.repo.rename,
+          { name: trimmedName },
+          { baseURL: repoBasePath(repoId) }
+        ),
+        {
+          loading: t`Renaming repository...`,
+          success: t`Repository renamed`,
+          error: (e) => getErrorMessage(e, t`Failed to rename repository`),
+        }
       )
       setCurrentName(trimmedName)
-      toast.success(t`Repository renamed`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       setIsEditingName(false)
-    } catch (err) {
-      toast.error(getErrorMessage(err, t`Failed to rename repository`))
+    } catch {
+      // toast already shown
     } finally {
       setIsRenaming(false)
     }
@@ -871,29 +874,65 @@ function GeneralSettingsTab({
     }
     setIsSavingPath(true)
     try {
-      await reposRequest.post<{ success: boolean }>(
-        endpoints.repo.settingsSet,
-        { path: trimmedPath },
-        { baseURL: repoBasePath(repoId) }
+      await toastAction(
+        reposRequest.post<{ success: boolean }>(
+          endpoints.repo.settingsSet,
+          { path: trimmedPath },
+          { baseURL: repoBasePath(repoId) }
+        ),
+        {
+          loading: t`Updating path...`,
+          success: t`Path updated`,
+          error: (e) => getErrorMessage(e, t`Failed to update path`),
+        }
       )
       setCurrentPath(trimmedPath)
-      toast.success(t`Path updated`)
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       setIsEditingPath(false)
-    } catch (err) {
-      toast.error(getErrorMessage(err, t`Failed to update path`))
+    } catch {
+      // toast already shown
     } finally {
       setIsSavingPath(false)
     }
   }
 
-  const handleBranchChange = (value: string) => {
+  const handleBranchChange = async (value: string) => {
+    const previous = selectedBranch
     setSelectedBranch(value)
-    updateSetting.mutate({ default_branch: value })
+    try {
+      await toastAction(updateSetting.mutateAsync({ default_branch: value }), {
+        loading: t`Saving settings...`,
+        success: t`Settings saved`,
+        error: (e) => getErrorMessage(e, t`Failed to save setting`),
+      })
+    } catch {
+      setSelectedBranch(previous)
+    }
   }
 
-  const handleDelete = () => {
-    deleteRepo.mutate()
+  const handleSaveDescription = async () => {
+    try {
+      await toastAction(updateSetting.mutateAsync({ description }), {
+        loading: t`Saving settings...`,
+        success: t`Settings saved`,
+        error: (e) => getErrorMessage(e, t`Failed to save setting`),
+      })
+    } catch {
+      // toast already shown
+    }
+  }
+
+  const handleDelete = async () => {
+    try {
+      await toastAction(deleteRepo.mutateAsync(), {
+        loading: t`Deleting repository...`,
+        success: t`Repository deleted`,
+        error: (e) => getErrorMessage(e, t`Failed to delete repository`),
+      })
+      void navigate({ to: '/' })
+    } catch {
+      // toast already shown
+    }
   }
 
   return (
@@ -1038,7 +1077,7 @@ function GeneralSettingsTab({
         />
         <Button
           size="sm"
-          onClick={() => updateSetting.mutate({ description })}
+          onClick={() => void handleSaveDescription()}
           disabled={updateSetting.isPending || description === (initialDescription || '')}
         >
           <Check className="h-4 w-4" />
@@ -1157,45 +1196,58 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
   }, [loadRules])
 
   const handleAdd = async (subject: string, subjectName: string, operation: string) => {
-    try {
-      await reposRequest.post(
+    await toastAction(
+      reposRequest.post(
         endpoints.repo.accessSet,
         { subject, permission: operation },
         { baseURL: repoBasePath(repoId) }
-      )
-      toast.success(t`Access set for ${subjectName}`)
-      void loadRules()
-    } catch (err) {
-      toast.error(getErrorMessage(err, t`Failed to set access level`))
-      throw err
-    }
+      ),
+      {
+        loading: t`Setting access...`,
+        success: t`Access set for ${subjectName}`,
+        error: (e) => getErrorMessage(e, t`Failed to set access level`),
+      }
+    )
+    void loadRules()
   }
 
   const handleRevoke = async (subject: string) => {
     try {
-      await reposRequest.post(
-        endpoints.repo.accessRevoke,
-        { subject },
-        { baseURL: repoBasePath(repoId) }
+      await toastAction(
+        reposRequest.post(
+          endpoints.repo.accessRevoke,
+          { subject },
+          { baseURL: repoBasePath(repoId) }
+        ),
+        {
+          loading: t`Removing access...`,
+          success: t`Access removed`,
+          error: (e) => getErrorMessage(e, t`Failed to remove access`),
+        }
       )
-      toast.success(t`Access removed`)
       void loadRules()
-    } catch (err) {
-      toast.error(getErrorMessage(err, t`Failed to remove access`))
+    } catch {
+      // toast already shown
     }
   }
 
   const handleLevelChange = async (subject: string, operation: string) => {
     try {
-      await reposRequest.post(
-        endpoints.repo.accessSet,
-        { subject, permission: operation },
-        { baseURL: repoBasePath(repoId) }
+      await toastAction(
+        reposRequest.post(
+          endpoints.repo.accessSet,
+          { subject, permission: operation },
+          { baseURL: repoBasePath(repoId) }
+        ),
+        {
+          loading: t`Updating access...`,
+          success: t`Access level updated`,
+          error: (e) => getErrorMessage(e, t`Failed to update access level`),
+        }
       )
-      toast.success(t`Access level updated`)
       void loadRules()
-    } catch (err) {
-      toast.error(getErrorMessage(err, t`Failed to update access level`))
+    } catch {
+      // toast already shown
     }
   }
 

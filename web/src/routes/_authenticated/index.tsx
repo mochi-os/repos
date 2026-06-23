@@ -23,7 +23,7 @@ import {
   usePageTitle,
   useAuthStore,
   GeneralError,
-  toast,
+  toastAction,
   getErrorMessage,
   naturalCompare,
   isDomainEntityRouting,
@@ -194,12 +194,18 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
   const handleSubscribeRecommendation = async (repo: RecommendedRepository) => {
     setPendingRepoId(repo.id)
     try {
-      await subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined })
-      toast.success(t`Subscribed`)
+      await toastAction(
+        subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined }),
+        {
+          loading: t`Subscribing...`,
+          success: t`Subscribed`,
+          error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+        }
+      )
       await queryClient.invalidateQueries({ queryKey: ['repositories', 'recommendations'] })
       await router.invalidate()
-    } catch (error) {
-      toast.error(getErrorMessage(error, t`Failed to subscribe`))
+    } catch {
+      // toast already shown
     } finally {
       setPendingRepoId(null)
     }
@@ -357,16 +363,18 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         confirmText={t`Unsubscribe`}
         destructive
         isLoading={unsubscribe.isPending}
-        handleConfirm={() => {
-          if (unsubscribeId) {
-            unsubscribe.mutate(unsubscribeId, {
-              onSuccess: () => {
-                setUnsubscribeId(null)
-                toast.success(t`Unsubscribed`)
-                void router.invalidate()
-              },
-              onError: (error) => toast.error(getErrorMessage(error, t`Failed to unsubscribe`)),
+        handleConfirm={async () => {
+          if (!unsubscribeId) return
+          try {
+            await toastAction(unsubscribe.mutateAsync(unsubscribeId), {
+              loading: t`Unsubscribing...`,
+              success: t`Unsubscribed`,
+              error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
             })
+            setUnsubscribeId(null)
+            void router.invalidate()
+          } catch {
+            // toast already shown
           }
         }}
       />
