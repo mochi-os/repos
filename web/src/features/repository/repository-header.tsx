@@ -68,13 +68,13 @@ export function RepositoryHeader({
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
 
   const handleUnsubscribe = async () => {
-    setShowUnsubscribeDialog(false)
     try {
       await toastAction(unsubscribe.mutateAsync(repoId), {
         loading: t`Unsubscribing...`,
         success: t`Unsubscribed from repository`,
         error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
       })
+      setShowUnsubscribeDialog(false)
       void navigate({ to: '/' })
     } catch {
       // toast already shown

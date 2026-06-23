@@ -47,13 +47,19 @@ function FindRepositoriesPage() {
     [repositories]
   )
 
-  const handleSubscribe = useCallback(async (repoId: string) => {
+  const handleSubscribe = useCallback(async (repoId: string, entity: { location?: string }) => {
     try {
-      await toastAction(subscribe.mutateAsync({ repository: repoId }), {
-        loading: t`Subscribing...`,
-        success: t`Subscribed`,
-        error: (e) => getErrorMessage(e, t`Failed to subscribe`),
-      })
+      await toastAction(
+        subscribe.mutateAsync({
+          repository: repoId,
+          server: entity.location,
+        }),
+        {
+          loading: t`Subscribing...`,
+          success: t`Subscribed`,
+          error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+        }
+      )
       await queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       void navigate({ to: '/$repoId', params: { repoId } })
     } catch {

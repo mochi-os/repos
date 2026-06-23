@@ -66,15 +66,23 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
   const handleSubscribe = async (repo: SearchResult) => {
     setPendingRepoId(repo.id)
     try {
-      await toastAction(subscribe.mutateAsync({ repository: repo.id }), {
-        loading: t`Subscribing...`,
-        success: t`Subscribed`,
-        error: (e) => getErrorMessage(e, t`Failed to subscribe`),
-      })
+      await toastAction(
+        subscribe.mutateAsync({
+          repository: repo.id,
+          server: repo.server || undefined,
+        }),
+        {
+          loading: t`Subscribing...`,
+          success: t`Subscribed`,
+          error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+        }
+      )
       void queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       onRefresh?.()
       void navigate({ to: '/$repoId', params: { repoId: repo.id } })
     } catch {
+      // toast already shown
+    } finally {
       setPendingRepoId(null)
     }
   }
