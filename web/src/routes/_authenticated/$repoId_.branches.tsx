@@ -35,6 +35,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
   toast,
   getErrorMessage,
 } from '@mochi/web'
@@ -277,17 +280,22 @@ function BranchesList({ repoId, defaultBranch, isAdmin, onDelete }: BranchesList
               <DownloadDropdown gitRef={branch.name} variant="icon" />
               {isAdmin && (
                 branch.name !== defaultBranch ? (
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      onDelete(branch.name)
-                    }}
-                    aria-label={t`Delete branch`}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          onDelete(branch.name)
+                        }}
+                        aria-label={t`Delete branch`}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>{t`Delete branch`}</TooltipContent>
+                  </Tooltip>
                 ) : (
                   <div className="w-9" /> // Placeholder for alignment
                 )

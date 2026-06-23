@@ -38,6 +38,9 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
   toast,
   getErrorMessage,
   AccessDialog,
@@ -520,17 +523,22 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
                 </Link>
                 <DownloadDropdown gitRef={branch.name} variant="icon" />
                 {isOwner && branch.name !== actualDefault && (
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleDeleteClick(branch.name)
-                    }}
-                    aria-label={t`Delete branch`}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          handleDeleteClick(branch.name)
+                        }}
+                        aria-label={t`Delete branch`}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>{t`Delete branch`}</TooltipContent>
+                  </Tooltip>
                 )}
               </div>
             ))}

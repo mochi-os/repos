@@ -11,6 +11,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
   getErrorMessage,
   toast,
 } from '@mochi/web'
@@ -83,7 +86,16 @@ export function DownloadDropdown({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
+      {variant === 'icon' ? (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
+          </TooltipTrigger>
+          <TooltipContent>{t`Download`}</TooltipContent>
+        </Tooltip>
+      ) : (
+        <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
+      )}
       <DropdownMenuContent align="end">
         {FORMATS.map((f) => (
           <DropdownMenuItem

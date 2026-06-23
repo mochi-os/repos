@@ -14,6 +14,9 @@ import {
   Button,
   EntityAvatar,
   Skeleton,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
   getErrorMessage,
   useFormat,
 } from '@mochi/web'
@@ -105,9 +108,14 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
           <div className="flex items-center gap-2 mt-4 p-2 bg-muted rounded-md">
             <GitCommit className="h-4 w-4 text-muted-foreground" />
             <code className="text-sm font-mono flex-1">{sha}</code>
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopySha} aria-label={t`Copy commit SHA`}>
-              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopySha} aria-label={t`Copy commit SHA`}>
+                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>{t`Copy commit SHA`}</TooltipContent>
+            </Tooltip>
           </div>
 
           {commit.parents && commit.parents.length > 0 && (

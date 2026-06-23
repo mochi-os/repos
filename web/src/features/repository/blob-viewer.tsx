@@ -9,6 +9,9 @@ import {
   CardContent,
   Button,
   Skeleton,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
   useFormat,
 } from '@mochi/web'
 import {
@@ -165,13 +168,23 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
           </div>
           <div className="flex items-center gap-1">
             {!data.binary && (
-              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopy} aria-label={t`Copy file contents`}>
-                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopy} aria-label={t`Copy file contents`}>
+                    {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>{t`Copy file contents`}</TooltipContent>
+              </Tooltip>
             )}
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload} aria-label={t`Download file`}>
-              <Download className="h-4 w-4" />
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload} aria-label={t`Download file`}>
+                  <Download className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>{t`Download file`}</TooltipContent>
+            </Tooltip>
           </div>
         </div>
         <CardContent className="p-0">
