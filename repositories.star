@@ -202,7 +202,7 @@ def action_info_entity(a):
                 response.get("path", repo.get("path", "")),
                 response.get("description", repo["description"]),
                 response.get("default_branch", repo["default_branch"]),
-                mochi.time.now(), repo["id"])
+                response.get("updated", repo["updated"]), repo["id"])
 
             return {"data": {
                 "entity": True,
