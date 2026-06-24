@@ -8,7 +8,7 @@ import { useLingui } from '@lingui/react/macro'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { FolderGit2 } from 'lucide-react'
-import { FindEntityPage, toast, getErrorMessage } from '@mochi/web'
+import { FindEntityPage, toastAction, getErrorMessage } from '@mochi/web'
 import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
@@ -47,16 +47,25 @@ function FindRepositoriesPage() {
     [repositories]
   )
 
-  const handleSubscribe = useCallback(async (repoId: string) => {
+  const handleSubscribe = useCallback(async (repoId: string, entity: { location?: string }) => {
     try {
-      await subscribe.mutateAsync({ repository: repoId })
-      toast.success(t`Subscribed`)
+      await toastAction(
+        subscribe.mutateAsync({
+          repository: repoId,
+          server: entity.location,
+        }),
+        {
+          loading: t`Subscribing...`,
+          success: t`Subscribed`,
+          error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+        }
+      )
       await queryClient.invalidateQueries({ queryKey: repoKeys.info() })
       void navigate({ to: '/$repoId', params: { repoId } })
-    } catch (error) {
-      toast.error(getErrorMessage(error, t`Failed to subscribe`))
+    } catch {
+      // toast already shown
     }
-  }, [subscribe, queryClient, navigate])
+  }, [subscribe, queryClient, navigate, t])
 
   return (
     <FindEntityPage

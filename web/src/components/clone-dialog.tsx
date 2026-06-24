@@ -18,6 +18,7 @@ import {
   Label,
   getErrorMessage,
   toast,
+  toastAction,
   Skeleton,
   AlertDialog,
   AlertDialogAction,
@@ -128,9 +129,6 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       setNewTokenName('')
       queryClient.invalidateQueries({ queryKey: ['tokens'] })
     },
-    onError: (error) => {
-      toast.error(getErrorMessage(error, t`Failed to create token`))
-    },
   })
 
   const deleteMutation = useMutation({
@@ -138,12 +136,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       await reposRequest.post('token/delete', { hash })
     },
     onSuccess: () => {
-      toast.success(t`Token deleted`)
       queryClient.invalidateQueries({ queryKey: ['tokens'] })
-      setDeleteHash(null)
-    },
-    onError: (error) => {
-      toast.error(getErrorMessage(error, t`Failed to delete token`))
     },
   })
 
@@ -197,12 +190,34 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     }
   }
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (!newTokenName.trim()) {
       toast.error(t`Please enter a token name`)
       return
     }
-    createMutation.mutate(newTokenName.trim())
+    try {
+      await toastAction(createMutation.mutateAsync(newTokenName.trim()), {
+        loading: t`Creating token...`,
+        success: false,
+        error: (e) => getErrorMessage(e, t`Failed to create token`),
+      })
+    } catch {
+      // toast already shown
+    }
+  }
+
+  const handleDelete = async () => {
+    if (!deleteHash) return
+    try {
+      await toastAction(deleteMutation.mutateAsync(deleteHash), {
+        loading: t`Deleting token...`,
+        success: t`Token deleted`,
+        error: (e) => getErrorMessage(e, t`Failed to delete token`),
+      })
+      setDeleteHash(null)
+    } catch {
+      // toast already shown
+    }
   }
 
   const tokens = tokensData?.tokens || []
@@ -378,7 +393,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       value={newTokenName}
                       onChange={(e) => setNewTokenName(e.target.value)}
                       onKeyDown={(e) => {
-                        if (e.key === 'Enter') handleCreate()
+                        if (e.key === 'Enter') void handleCreate()
                       }}
                     />
                   </div>
@@ -387,7 +402,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
                       <Trans>Back</Trans>
                     </Button>
-                    <Button onClick={handleCreate} disabled={createMutation.isPending}>
+                    <Button onClick={() => void handleCreate()} disabled={createMutation.isPending}>
                       {createMutation.isPending && (
                         <Loader2 className="h-4 w-4 animate-spin" />
                       )}
@@ -412,9 +427,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => deleteHash && deleteMutation.mutate(deleteHash)}
-            >
+            <AlertDialogAction onClick={() => void handleDelete()}>
               <Trans>Delete</Trans>
             </AlertDialogAction>
           </AlertDialogFooter>

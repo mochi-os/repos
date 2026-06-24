@@ -39,6 +39,7 @@ import {
   TooltipTrigger,
   TooltipContent,
   toast,
+  toastAction,
   getErrorMessage,
 } from '@mochi/web'
 import { GitBranch, Plus, Trash2 } from 'lucide-react'
@@ -75,25 +76,27 @@ function BranchesPage() {
 
   usePageTitle(t`${data.name} branches`)
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (!newBranchName.trim()) {
       toast.error(t`Branch name is required`)
       return
     }
-    createBranch.mutate(
-      { name: newBranchName.trim(), source: sourceBranch || defaultBranch },
-      {
-        onSuccess: () => {
-          toast.success(t`Branch "${newBranchName}" created`)
-          setShowCreateDialog(false)
-          setNewBranchName('')
-          setSourceBranch('')
-        },
-        onError: (error) => {
-          toast.error(getErrorMessage(error, t`Failed to create branch`))
-        },
-      }
-    )
+    const name = newBranchName.trim()
+    try {
+      await toastAction(
+        createBranch.mutateAsync({ name, source: sourceBranch || defaultBranch }),
+        {
+          loading: t`Creating branch...`,
+          success: t`Branch "${name}" created`,
+          error: (e) => getErrorMessage(e, t`Failed to create branch`),
+        }
+      )
+      setShowCreateDialog(false)
+      setNewBranchName('')
+      setSourceBranch('')
+    } catch {
+      // toast already shown
+    }
   }
 
   const handleDeleteClick = (name: string) => {
@@ -101,17 +104,19 @@ function BranchesPage() {
     setShowDeleteDialog(true)
   }
 
-  const handleDelete = () => {
-    deleteBranch.mutate(branchToDelete, {
-      onSuccess: () => {
-        toast.success(t`Branch "${branchToDelete}" deleted`)
-        setShowDeleteDialog(false)
-        setBranchToDelete('')
-      },
-      onError: (error) => {
-        toast.error(getErrorMessage(error, t`Failed to delete branch`))
-      },
-    })
+  const handleDelete = async () => {
+    const name = branchToDelete
+    try {
+      await toastAction(deleteBranch.mutateAsync(name), {
+        loading: t`Deleting branch...`,
+        success: t`Branch "${name}" deleted`,
+        error: (e) => getErrorMessage(e, t`Failed to delete branch`),
+      })
+      setShowDeleteDialog(false)
+      setBranchToDelete('')
+    } catch {
+      // toast already shown
+    }
   }
 
   return (
