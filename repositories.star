@@ -1577,6 +1577,7 @@ def event_update(e):
         params.append(incoming if incoming else mochi.time.now())
         params.append(repo_id)
         mochi.db.execute("update repositories set " + ", ".join(updates) + " where id = ?", *params)
+        notify_websocket(repo_id)
 
 # Handle activity notification from remote (push, branch, tag)
 def event_activity(e):
@@ -1594,12 +1595,18 @@ def event_activity(e):
     # Update timestamp
     mochi.db.execute("update repositories set updated = ? where id = ?", mochi.time.now(), repo_id)
 
+    # New push/branch/tag activity on the owner — the commit, branch, tag and
+    # tree views are fetched on demand, so refresh them by invalidating the
+    # subscriber's open UI.
+    notify_websocket(repo_id)
+
 # Handle notification that a repository has been deleted by its owner
 def event_deleted(e):
     repo_id = e.header("from")
 
     # Delete local subscription
     mochi.db.execute("delete from repositories where id = ? and owner = 0", repo_id)
+    notify_websocket(repo_id)
 
 # Handle P2P request for repository refs
 def event_refs(e):
@@ -1870,6 +1877,17 @@ def error_message_timeout(e):
         return
     mochi.db.execute("delete from subscribers where id=?", e.entity)
 
+
+# notify_websocket: tell any locally-open repository UI that a subscribed repo
+# changed, so the web refreshes the moment a remote owner's metadata edit or
+# push activity lands locally instead of staying stale until a manual reload.
+# The key is the repo's fingerprint, matching the web's websocket connection.
+def notify_websocket(repo_id):
+    if not repo_id:
+        return
+    fp = mochi.entity.fingerprint(repo_id)
+    if fp:
+        mochi.websocket.write(fp, {"type": "repository/update", "repository": repo_id})
 
 # Broadcast metadata update to all subscribers
 def broadcast_update(repo):
