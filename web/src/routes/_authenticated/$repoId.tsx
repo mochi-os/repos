@@ -19,6 +19,7 @@ import type { InfoResponse } from '@/api/types'
 import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
 import { DownloadDropdown } from '@/components/download-dropdown'
 import { setLastRepo } from '@/hooks/use-repos-storage'
+import { useRepositoryWebsocket } from '@/hooks/use-repository-websocket'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -54,6 +55,11 @@ function RepositoryPage() {
   const name = data.name || t`Repository`
 
   usePageTitle(name)
+
+  // Refresh a subscribed repository the moment the owner's metadata edit or
+  // push activity lands locally, instead of waiting for a manual reload. The
+  // websocket key is the repo's fingerprint (data.repoId is the URL fingerprint).
+  useRepositoryWebsocket(data.repoId)
 
   // Store last visited repository for restoration on next entry (authenticated users only)
   const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
