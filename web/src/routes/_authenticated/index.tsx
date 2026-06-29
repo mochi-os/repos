@@ -25,6 +25,7 @@ import {
   GeneralError,
   toastAction,
   getErrorMessage,
+  callWithServerFallback,
   naturalCompare,
   isDomainEntityRouting,
 } from '@mochi/web'
@@ -195,7 +196,14 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
     setPendingRepoId(repo.id)
     try {
       await toastAction(
-        subscribe.mutateAsync({ repository: repo.id, server: repo.server || undefined }),
+        callWithServerFallback(
+          (server) =>
+            subscribe.mutateAsync({
+              repository: repo.id,
+              server,
+            }),
+          repo.server || undefined,
+        ),
         {
           loading: t`Subscribing...`,
           success: t`Subscribed`,

@@ -8,7 +8,7 @@ import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
 import { useQueryClient } from '@tanstack/react-query'
 import { Search, Loader2, FolderGit2 } from 'lucide-react'
-import { Button, Input, toastAction, getErrorMessage } from '@mochi/web'
+import { Button, Input, toastAction, getErrorMessage, callWithServerFallback } from '@mochi/web'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import type { SearchResult, SearchResponse } from '@/api/types'
@@ -67,10 +67,14 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
     setPendingRepoId(repo.id)
     try {
       await toastAction(
-        subscribe.mutateAsync({
-          repository: repo.id,
-          server: repo.server || undefined,
-        }),
+        callWithServerFallback(
+          (server) =>
+            subscribe.mutateAsync({
+              repository: repo.id,
+              server,
+            }),
+          repo.server || undefined,
+        ),
         {
           loading: t`Subscribing...`,
           success: t`Subscribed`,

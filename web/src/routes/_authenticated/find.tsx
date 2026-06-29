@@ -8,7 +8,7 @@ import { useLingui } from '@lingui/react/macro'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { FolderGit2 } from 'lucide-react'
-import { FindEntityPage, toastAction, getErrorMessage } from '@mochi/web'
+import { FindEntityPage, toastAction, getErrorMessage, callWithServerFallback } from '@mochi/web'
 import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
@@ -50,10 +50,14 @@ function FindRepositoriesPage() {
   const handleSubscribe = useCallback(async (repoId: string, entity: { location?: string }) => {
     try {
       await toastAction(
-        subscribe.mutateAsync({
-          repository: repoId,
-          server: entity.location,
-        }),
+        callWithServerFallback(
+          (server) =>
+            subscribe.mutateAsync({
+              repository: repoId,
+              server,
+            }),
+          entity.location,
+        ),
         {
           loading: t`Subscribing...`,
           success: t`Subscribed`,
