@@ -302,6 +302,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
           <div className="divide-y rounded-lg border">
             {sortedRepositories.map((repo) => (
               <Link
+                preload={false}
                 key={repo.id}
                 to="/$repoId"
                 params={{ repoId: repoParam(repo) }}

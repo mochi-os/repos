@@ -22,6 +22,7 @@ export function FileEntry({ entry, fingerprint, currentRef, basePath }: FileEntr
 
   return (
     <Link
+      preload={false}
       to={isDirectory ? "/$repoId/tree/$ref/$" : "/$repoId/blob/$ref/$"}
       params={{ repoId: fingerprint, ref: currentRef, _splat: fullPath }}
       className="flex items-center gap-3 px-4 py-2 hover:bg-hover transition-colors"
