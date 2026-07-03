@@ -113,7 +113,7 @@ msgstr "הוסף חשבון כדי לקבל התראות ולהשתמש בשיר
 msgid "Add new account"
 msgstr "הוסף חשבון חדש"
 
-#: ../../../lib/web/src/components/post-tags.tsx:129
+#: ../../../lib/web/src/components/post-tags.tsx:133
 msgid "Add tag..."
 msgstr "הוסף תגית..."
 
@@ -154,11 +154,11 @@ msgstr "אפשר לכולם לקרוא את המאגר"
 msgid "Allow anyone to search for repository"
 msgstr "אפשר לכולם לחפש את המאגר"
 
-#: ../../../lib/web/src/lib/api-client.ts:192
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:159
 msgid "An error occurred"
 msgstr "אירעה שגיאה"
 
-#: ../../../lib/web/src/lib/api-client.ts:255
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:241
 msgid "An unexpected error occurred"
 msgstr "אירעה שגיאה בלתי צפויה"
 
@@ -166,7 +166,7 @@ msgstr "אירעה שגיאה בלתי צפויה"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "האם אתה בטוח שברצונך להתנתק? יהיה עליך להתחבר שוב כדי לגשת לחשבונך."
 
-#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:363
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "האם אתה בטוח שברצונך לבטל את המינוי למאגר זה?"
 
@@ -203,15 +203,10 @@ msgstr "חזרה לבית"
 msgid "Binary file ({0})"
 msgstr "קובץ בינארי ({0})"
 
-#: ../../../lib/web/src/components/post-tags.tsx:172
-#: ../../../lib/web/src/components/post-tags.tsx:184
+#: ../../../lib/web/src/components/post-tags.tsx:176
+#: ../../../lib/web/src/components/post-tags.tsx:188
 msgid "Boost interest"
 msgstr "הגבר עניין"
-
-#: src/features/repository/repository-tabs.tsx:454
-#: src/routes/_authenticated/$repoId_.branches.tsx:107
-#~ msgid "Branch \"{branchToDelete}\" deleted"
-#~ msgstr "הענף \"{branchToDelete}\" נמחק"
 
 #: src/features/repository/repository-tabs.tsx:438
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
@@ -222,11 +217,6 @@ msgstr "הענף \"{name}\" נוצר"
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "הענף \"{name}\" נמחק"
-
-#: src/features/repository/repository-tabs.tsx:434
-#: src/routes/_authenticated/$repoId_.branches.tsx:87
-#~ msgid "Branch \"{newBranchName}\" created"
-#~ msgstr "הענף \"{newBranchName}\" נוצר"
 
 #: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
@@ -337,8 +327,8 @@ msgid "Clone repository"
 msgstr "שכפל מאגר"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:332
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:335
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "סגור"
@@ -359,8 +349,8 @@ msgstr "סגור חיפוש"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Collapse"
 msgstr "כיווץ"
 
@@ -659,13 +649,17 @@ msgstr "מציג את סרגל הצד למובייל."
 msgid "Done"
 msgstr "בוצע"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:320
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:326
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
 msgid "Download"
 msgstr "הורדה"
+
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:68
+msgid "Download failed"
+msgstr "ההורדה נכשלה"
 
 #: src/features/repository/blob-viewer.tsx:182
 #: src/features/repository/blob-viewer.tsx:186
@@ -719,8 +713,8 @@ msgstr "ישות:"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Expand"
 msgstr "הרחבה"
 
@@ -824,15 +818,15 @@ msgstr "שליחת קוד האימות נכשלה"
 msgid "Failed to set access level"
 msgstr "הגדרת רמת הגישה נכשלה"
 
-#: src/features/repository/inline-repo-search.tsx:72
-#: src/routes/_authenticated/find.tsx:55
+#: src/features/repository/inline-repo-search.tsx:77
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "ההרשמה נכשלה"
 
-#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-header.tsx:75
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
 msgstr "ביטול ההרשמה נכשל"
 
@@ -864,7 +858,7 @@ msgid "Files"
 msgstr "קבצים"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:72
+#: src/routes/_authenticated/find.tsx:78
 msgid "Find repositories"
 msgstr "חפש מאגרים"
 
@@ -1011,6 +1005,10 @@ msgstr "בהיר"
 msgid "Load more"
 msgstr "טען עוד"
 
+#: ../../../lib/web/src/components/ui/loading-content.tsx:29
+msgid "Loading content…"
+msgstr "טוען תוכן…"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
 msgid "Loading…"
@@ -1070,8 +1068,8 @@ msgstr "מטרי"
 msgid "Monday"
 msgstr "יום שני"
 
-#: src/routes/_authenticated/index.tsx:324
-#: src/routes/_authenticated/index.tsx:332
+#: src/routes/_authenticated/index.tsx:325
+#: src/routes/_authenticated/index.tsx:333
 msgid "More actions"
 msgstr "פעולות נוספות"
 
@@ -1093,7 +1091,7 @@ msgstr "השם חייב להיות 100 תווים או פחות"
 msgid "Name:"
 msgstr "שם:"
 
-#: ../../../lib/web/src/lib/api-client.ts:300
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:288
 msgid "Network error"
 msgstr "שגיאת רשת"
 
@@ -1111,8 +1109,8 @@ msgstr "חדש"
 msgid "New branch"
 msgstr "ענף חדש"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:366
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:371
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
 msgid "Next image"
 msgstr "התמונה הבאה"
 
@@ -1154,8 +1152,8 @@ msgstr "אין פרופיל"
 msgid "No public repositories."
 msgstr "אין מאגרים ציבוריים."
 
-#: src/features/repository/inline-repo-search.tsx:108
-#: src/routes/_authenticated/find.tsx:74
+#: src/features/repository/inline-repo-search.tsx:116
+#: src/routes/_authenticated/find.tsx:80
 msgid "No repositories found"
 msgstr "לא נמצאו מאגרים"
 
@@ -1216,8 +1214,8 @@ msgstr "אופס! הדף לא נמצא!"
 msgid "Open account actions"
 msgstr "פתח פעולות חשבון"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:176
-#: ../../../lib/web/src/components/layout/nav-group.tsx:181
+#: ../../../lib/web/src/components/layout/nav-group.tsx:182
+#: ../../../lib/web/src/components/layout/nav-group.tsx:187
 msgid "Open actions"
 msgstr "פתיחת פעולות"
 
@@ -1284,7 +1282,7 @@ msgstr "נתיב:"
 msgid "Permanently delete this repository and all its data"
 msgstr "מחק לצמיתות את המאגר הזה וכל הנתונים שלו"
 
-#: ../../../lib/web/src/lib/api-client.ts:301
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:289
 msgid "Please check your internet connection and try again."
 msgstr "בדקו את חיבור האינטרנט ונסו שוב."
 
@@ -1292,8 +1290,8 @@ msgstr "בדקו את חיבור האינטרנט ונסו שוב."
 msgid "Please enter a token name"
 msgstr "הזן שם אסימון"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:351
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:356
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
 msgid "Previous image"
 msgstr "התמונה הקודמת"
 
@@ -1340,8 +1338,8 @@ msgstr "מאגרים מומלצים"
 msgid "Redirecting to login."
 msgstr "מפנה לדף ההתחברות."
 
-#: ../../../lib/web/src/components/post-tags.tsx:192
-#: ../../../lib/web/src/components/post-tags.tsx:204
+#: ../../../lib/web/src/components/post-tags.tsx:196
+#: ../../../lib/web/src/components/post-tags.tsx:208
 msgid "Reduce interest"
 msgstr "הפחת עניין"
 
@@ -1367,8 +1365,8 @@ msgstr "הסר כלל גישה"
 msgid "Remove access?"
 msgstr "להסיר גישה?"
 
-#: ../../../lib/web/src/components/post-tags.tsx:212
-#: ../../../lib/web/src/components/post-tags.tsx:224
+#: ../../../lib/web/src/components/post-tags.tsx:216
+#: ../../../lib/web/src/components/post-tags.tsx:228
 msgid "Remove interest"
 msgstr "הסר עניין"
 
@@ -1394,7 +1392,7 @@ msgstr "מאגרים"
 #: src/routes/_authenticated/$repoId_.tags.tsx:46
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId.tsx:54
+#: src/routes/_authenticated/$repoId.tsx:55
 #: src/routes/_authenticated/blob/$ref/$.tsx:54
 #: src/routes/_authenticated/blob/$ref/$.tsx:65
 #: src/routes/_authenticated/index.tsx:107
@@ -1412,7 +1410,7 @@ msgid "Repository deleted"
 msgstr "המאגר נמחק"
 
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:21
-#: src/routes/_authenticated/$repoId.tsx:36
+#: src/routes/_authenticated/$repoId.tsx:37
 msgid "Repository ID is required"
 msgstr "מזהה המאגר נדרש"
 
@@ -1473,7 +1471,7 @@ msgstr "שמור את האסימון בצורה מאובטחת. לא תוכל ל
 msgid "Saving settings..."
 msgstr "שומר הגדרות..."
 
-#: src/routes/_authenticated/find.tsx:73
+#: src/routes/_authenticated/find.tsx:79
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "חפש לפי שם, מזהה, טביעת אצבע או כתובת URL..."
 
@@ -1489,7 +1487,7 @@ msgstr "חפש יעד..."
 msgid "Search for origin..."
 msgstr "חפש מקור..."
 
-#: src/features/repository/inline-repo-search.tsx:91
+#: src/features/repository/inline-repo-search.tsx:99
 msgid "Search for repositories..."
 msgstr "חפש מאגרים..."
 
@@ -1568,8 +1566,8 @@ msgstr "שלח אימייל"
 msgid "Serif"
 msgstr "סריף"
 
-#: ../../../lib/web/src/lib/api-client.ts:259
-#: ../../../lib/web/src/lib/api-client.ts:284
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:245
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:271
 msgid "Server error"
 msgstr "שגיאת שרת"
 
@@ -1578,7 +1576,7 @@ msgstr "שגיאת שרת"
 msgid "Server rules"
 msgstr "כללי השרת"
 
-#: ../../../lib/web/src/lib/api-client.ts:227
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:209
 msgid "Session expired"
 msgstr "ההפעלה פגה"
 
@@ -1654,20 +1652,20 @@ msgstr "הישאר מעודכן!"
 msgid "Subject"
 msgstr "נושא"
 
-#: src/features/repository/inline-repo-search.tsx:145
+#: src/features/repository/inline-repo-search.tsx:153
 #: src/routes/_authenticated/index.tsx:290
 msgid "Subscribe"
 msgstr "הירשם"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:76
 #: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:54
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "רשום"
 
-#: src/features/repository/inline-repo-search.tsx:70
-#: src/routes/_authenticated/find.tsx:53
+#: src/features/repository/inline-repo-search.tsx:75
+#: src/routes/_authenticated/find.tsx:58
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "נרשם..."
@@ -1690,8 +1688,8 @@ msgstr "מערכת"
 msgid "Tag"
 msgstr "תגית"
 
-#: ../../../lib/web/src/components/post-tags.tsx:96
-#: ../../../lib/web/src/components/post-tags.tsx:107
+#: ../../../lib/web/src/components/post-tags.tsx:100
+#: ../../../lib/web/src/components/post-tags.tsx:111
 #: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
@@ -1757,10 +1755,10 @@ msgstr "החלף עמודות"
 msgid "Toggle right panel"
 msgstr "החלף פנל ימני"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:345
-#: ../../../lib/web/src/components/layout/nav-group.tsx:352
-#: ../../../lib/web/src/components/layout/nav-group.tsx:475
-#: ../../../lib/web/src/components/layout/nav-group.tsx:482
+#: ../../../lib/web/src/components/layout/nav-group.tsx:351
+#: ../../../lib/web/src/components/layout/nav-group.tsx:358
+#: ../../../lib/web/src/components/layout/nav-group.tsx:481
+#: ../../../lib/web/src/components/layout/nav-group.tsx:488
 msgid "Toggle section"
 msgstr "החלפת מצב מקטע"
 
@@ -1826,7 +1824,7 @@ msgstr "הקלד לחיפוש משתמשים"
 msgid "Type to search..."
 msgstr "הקלד לחיפוש..."
 
-#: ../../../lib/web/src/lib/api-client.ts:280
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:267
 msgid "Unable to connect to remote server"
 msgstr "לא ניתן להתחבר לשרת המרוחק"
 
@@ -1851,9 +1849,9 @@ msgstr "ארצות הברית"
 #: src/features/repository/repository-header.tsx:130
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:341
-#: src/routes/_authenticated/index.tsx:361
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:342
+#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:364
 msgid "Unsubscribe"
 msgstr "בטל הרשמה"
 
@@ -1862,18 +1860,18 @@ msgstr "בטל הרשמה"
 msgid "Unsubscribe from repository?"
 msgstr "לבטל הרשמה מהמאגר?"
 
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribed"
 msgstr "ההרשמה בוטלה"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "ההרשמה למאגר בוטלה"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:73
 #: src/features/repository/repository-tabs.tsx:195
-#: src/routes/_authenticated/index.tsx:370
+#: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "מבטל הרשמה..."
 

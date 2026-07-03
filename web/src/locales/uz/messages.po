@@ -113,7 +113,7 @@ msgstr "Bildirishnomalar olish va xizmatlardan foydalanish uchun hisob qoʻshing
 msgid "Add new account"
 msgstr "Yangi hisob qoʻshish"
 
-#: ../../../lib/web/src/components/post-tags.tsx:129
+#: ../../../lib/web/src/components/post-tags.tsx:133
 msgid "Add tag..."
 msgstr "Teg qoʻshish..."
 
@@ -154,11 +154,11 @@ msgstr "Repozitoriyani hammaga oʻqishga ruxsat berish"
 msgid "Allow anyone to search for repository"
 msgstr "Hammaga repozitoriyani qidirishga ruxsat berish"
 
-#: ../../../lib/web/src/lib/api-client.ts:192
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:159
 msgid "An error occurred"
 msgstr "Xatolik yuz berdi"
 
-#: ../../../lib/web/src/lib/api-client.ts:255
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:241
 msgid "An unexpected error occurred"
 msgstr "Kutilmagan xatolik yuz berdi"
 
@@ -166,7 +166,7 @@ msgstr "Kutilmagan xatolik yuz berdi"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Chiqishga ishonchingiz komilmi? Hisobingizga kirish uchun yana kirishingiz kerak boʻladi."
 
-#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:363
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Bu repozitoriyadan obunani bekor qilmoqchimisiz?"
 
@@ -203,15 +203,10 @@ msgstr "Bosh sahifaga qaytish"
 msgid "Binary file ({0})"
 msgstr "Binar fayl ({0})"
 
-#: ../../../lib/web/src/components/post-tags.tsx:172
-#: ../../../lib/web/src/components/post-tags.tsx:184
+#: ../../../lib/web/src/components/post-tags.tsx:176
+#: ../../../lib/web/src/components/post-tags.tsx:188
 msgid "Boost interest"
 msgstr "Qiziqishni kuchaytirish"
-
-#: src/features/repository/repository-tabs.tsx:454
-#: src/routes/_authenticated/$repoId_.branches.tsx:107
-#~ msgid "Branch \"{branchToDelete}\" deleted"
-#~ msgstr "\"{branchToDelete}\" branch oʻchirildi"
 
 #: src/features/repository/repository-tabs.tsx:438
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
@@ -222,11 +217,6 @@ msgstr "\"{name}\" tarmog'i yaratildi"
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" tarmog'i o'chirildi"
-
-#: src/features/repository/repository-tabs.tsx:434
-#: src/routes/_authenticated/$repoId_.branches.tsx:87
-#~ msgid "Branch \"{newBranchName}\" created"
-#~ msgstr "\"{newBranchName}\" branch yaratildi"
 
 #: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
@@ -337,8 +327,8 @@ msgid "Clone repository"
 msgstr "Repozitoriyani klonlash"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:332
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:335
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "Yopish"
@@ -359,8 +349,8 @@ msgstr "Qidiruvni yopish"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Collapse"
 msgstr "Yigʻish"
 
@@ -659,13 +649,17 @@ msgstr "Mobil yon panelni koʻrsatadi."
 msgid "Done"
 msgstr "Bajarildi"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:320
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:326
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
 msgid "Download"
 msgstr "Yuklab olish"
+
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:68
+msgid "Download failed"
+msgstr "Yuklab olib boʻlmadi"
 
 #: src/features/repository/blob-viewer.tsx:182
 #: src/features/repository/blob-viewer.tsx:186
@@ -719,8 +713,8 @@ msgstr "Obyekt:"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Expand"
 msgstr "Yoyish"
 
@@ -824,15 +818,15 @@ msgstr "Tasdiqlash kodini yuborib boʻlmadi"
 msgid "Failed to set access level"
 msgstr "Kirish darajasini oʻrnatib boʻlmadi"
 
-#: src/features/repository/inline-repo-search.tsx:72
-#: src/routes/_authenticated/find.tsx:55
+#: src/features/repository/inline-repo-search.tsx:77
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Obuna boʻlib boʻlmadi"
 
-#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-header.tsx:75
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
 msgstr "Obunani bekor qilib boʻlmadi"
 
@@ -864,7 +858,7 @@ msgid "Files"
 msgstr "Fayllar"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:72
+#: src/routes/_authenticated/find.tsx:78
 msgid "Find repositories"
 msgstr "Repozitoriylarni topish"
 
@@ -1011,6 +1005,10 @@ msgstr "Yorugʻ"
 msgid "Load more"
 msgstr "Koʻproq yuklash"
 
+#: ../../../lib/web/src/components/ui/loading-content.tsx:29
+msgid "Loading content…"
+msgstr "Kontent yuklanmoqda…"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
 msgid "Loading…"
@@ -1070,8 +1068,8 @@ msgstr "Metrik"
 msgid "Monday"
 msgstr "Dushanba"
 
-#: src/routes/_authenticated/index.tsx:324
-#: src/routes/_authenticated/index.tsx:332
+#: src/routes/_authenticated/index.tsx:325
+#: src/routes/_authenticated/index.tsx:333
 msgid "More actions"
 msgstr "Koʻproq amallar"
 
@@ -1093,7 +1091,7 @@ msgstr "Nom 100 ta belgidan oshmasligi kerak"
 msgid "Name:"
 msgstr "Nomi:"
 
-#: ../../../lib/web/src/lib/api-client.ts:300
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:288
 msgid "Network error"
 msgstr "Tarmoq xatosi"
 
@@ -1111,8 +1109,8 @@ msgstr "Yangi"
 msgid "New branch"
 msgstr "Yangi shoxcha"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:366
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:371
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
 msgid "Next image"
 msgstr "Keyingi rasm"
 
@@ -1154,8 +1152,8 @@ msgstr "Profil yoʻq"
 msgid "No public repositories."
 msgstr "Ommaviy ombor yoʻq."
 
-#: src/features/repository/inline-repo-search.tsx:108
-#: src/routes/_authenticated/find.tsx:74
+#: src/features/repository/inline-repo-search.tsx:116
+#: src/routes/_authenticated/find.tsx:80
 msgid "No repositories found"
 msgstr "Omborlar topilmadi"
 
@@ -1216,8 +1214,8 @@ msgstr "Voy! Sahifa topilmadi!"
 msgid "Open account actions"
 msgstr "Hisob amallarini ochish"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:176
-#: ../../../lib/web/src/components/layout/nav-group.tsx:181
+#: ../../../lib/web/src/components/layout/nav-group.tsx:182
+#: ../../../lib/web/src/components/layout/nav-group.tsx:187
 msgid "Open actions"
 msgstr "Amallarni ochish"
 
@@ -1284,7 +1282,7 @@ msgstr "Yoʻl:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Bu ombor va uning barcha maʼlumotlarini butunlay oʻchirish"
 
-#: ../../../lib/web/src/lib/api-client.ts:301
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:289
 msgid "Please check your internet connection and try again."
 msgstr "Internet aloqangizni tekshiring va qayta urinib ko‘ring."
 
@@ -1292,8 +1290,8 @@ msgstr "Internet aloqangizni tekshiring va qayta urinib ko‘ring."
 msgid "Please enter a token name"
 msgstr "Iltimos, token nomini kiriting"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:351
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:356
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
 msgid "Previous image"
 msgstr "Oldingi rasm"
 
@@ -1340,8 +1338,8 @@ msgstr "Tavsiya etilgan omborlar"
 msgid "Redirecting to login."
 msgstr "Kirish sahifasiga yoʻnaltirilmoqda."
 
-#: ../../../lib/web/src/components/post-tags.tsx:192
-#: ../../../lib/web/src/components/post-tags.tsx:204
+#: ../../../lib/web/src/components/post-tags.tsx:196
+#: ../../../lib/web/src/components/post-tags.tsx:208
 msgid "Reduce interest"
 msgstr "Qiziqishni kamaytirish"
 
@@ -1367,8 +1365,8 @@ msgstr "Kirish qoidasini olib tashlash"
 msgid "Remove access?"
 msgstr "Kirishni olib tashlasinmi?"
 
-#: ../../../lib/web/src/components/post-tags.tsx:212
-#: ../../../lib/web/src/components/post-tags.tsx:224
+#: ../../../lib/web/src/components/post-tags.tsx:216
+#: ../../../lib/web/src/components/post-tags.tsx:228
 msgid "Remove interest"
 msgstr "Qiziqishni olib tashlash"
 
@@ -1394,7 +1392,7 @@ msgstr "Omborlar"
 #: src/routes/_authenticated/$repoId_.tags.tsx:46
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId.tsx:54
+#: src/routes/_authenticated/$repoId.tsx:55
 #: src/routes/_authenticated/blob/$ref/$.tsx:54
 #: src/routes/_authenticated/blob/$ref/$.tsx:65
 #: src/routes/_authenticated/index.tsx:107
@@ -1412,7 +1410,7 @@ msgid "Repository deleted"
 msgstr "Ombor oʻchirildi"
 
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:21
-#: src/routes/_authenticated/$repoId.tsx:36
+#: src/routes/_authenticated/$repoId.tsx:37
 msgid "Repository ID is required"
 msgstr "Ombor IDsi kerak"
 
@@ -1473,7 +1471,7 @@ msgstr "Bu tokenni xavfsiz tarzda saqlang. Uni qayta koʻra olmaysiz."
 msgid "Saving settings..."
 msgstr "Sozlamalar saqlanmoqda..."
 
-#: src/routes/_authenticated/find.tsx:73
+#: src/routes/_authenticated/find.tsx:79
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Nomi, IDsi, fingerprinti yoki URL boʻyicha qidirish..."
 
@@ -1489,7 +1487,7 @@ msgstr "Manzil qidirish..."
 msgid "Search for origin..."
 msgstr "Boshlanish nuqtasini qidirish..."
 
-#: src/features/repository/inline-repo-search.tsx:91
+#: src/features/repository/inline-repo-search.tsx:99
 msgid "Search for repositories..."
 msgstr "Omborlar qidirish..."
 
@@ -1568,8 +1566,8 @@ msgstr "Email yuborish"
 msgid "Serif"
 msgstr "Serif"
 
-#: ../../../lib/web/src/lib/api-client.ts:259
-#: ../../../lib/web/src/lib/api-client.ts:284
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:245
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:271
 msgid "Server error"
 msgstr "Server xatosi"
 
@@ -1578,7 +1576,7 @@ msgstr "Server xatosi"
 msgid "Server rules"
 msgstr "Server qoidalari"
 
-#: ../../../lib/web/src/lib/api-client.ts:227
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:209
 msgid "Session expired"
 msgstr "Sessiya muddati tugadi"
 
@@ -1654,20 +1652,20 @@ msgstr "Lekin kuzatishda davom eting!"
 msgid "Subject"
 msgstr "Mavzu"
 
-#: src/features/repository/inline-repo-search.tsx:145
+#: src/features/repository/inline-repo-search.tsx:153
 #: src/routes/_authenticated/index.tsx:290
 msgid "Subscribe"
 msgstr "Obuna boʻlish"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:76
 #: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:54
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Obuna boʻlingan"
 
-#: src/features/repository/inline-repo-search.tsx:70
-#: src/routes/_authenticated/find.tsx:53
+#: src/features/repository/inline-repo-search.tsx:75
+#: src/routes/_authenticated/find.tsx:58
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Obuna boʻlinmoqda..."
@@ -1690,8 +1688,8 @@ msgstr "Tizim"
 msgid "Tag"
 msgstr "Teg"
 
-#: ../../../lib/web/src/components/post-tags.tsx:96
-#: ../../../lib/web/src/components/post-tags.tsx:107
+#: ../../../lib/web/src/components/post-tags.tsx:100
+#: ../../../lib/web/src/components/post-tags.tsx:111
 #: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
@@ -1757,10 +1755,10 @@ msgstr "Ustunlarni almashtirish"
 msgid "Toggle right panel"
 msgstr "Oʻng panelni almashtirish"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:345
-#: ../../../lib/web/src/components/layout/nav-group.tsx:352
-#: ../../../lib/web/src/components/layout/nav-group.tsx:475
-#: ../../../lib/web/src/components/layout/nav-group.tsx:482
+#: ../../../lib/web/src/components/layout/nav-group.tsx:351
+#: ../../../lib/web/src/components/layout/nav-group.tsx:358
+#: ../../../lib/web/src/components/layout/nav-group.tsx:481
+#: ../../../lib/web/src/components/layout/nav-group.tsx:488
 msgid "Toggle section"
 msgstr "Bo‘limni ochish/yopish"
 
@@ -1826,7 +1824,7 @@ msgstr "Foydalanuvchilarni qidirish uchun yozing"
 msgid "Type to search..."
 msgstr "Qidirish uchun yozing..."
 
-#: ../../../lib/web/src/lib/api-client.ts:280
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:267
 msgid "Unable to connect to remote server"
 msgstr "Masofaviy serverga ulanib bo‘lmadi"
 
@@ -1851,9 +1849,9 @@ msgstr "Amerika Qoʻshma Shtatlari"
 #: src/features/repository/repository-header.tsx:130
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:341
-#: src/routes/_authenticated/index.tsx:361
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:342
+#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:364
 msgid "Unsubscribe"
 msgstr "Obunadan chiqish"
 
@@ -1862,18 +1860,18 @@ msgstr "Obunadan chiqish"
 msgid "Unsubscribe from repository?"
 msgstr "Repozitoriydan obunadan chiqasizmi?"
 
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribed"
 msgstr "Obunadan chiqildi"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Repozitoriydan obunadan chiqildi"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:73
 #: src/features/repository/repository-tabs.tsx:195
-#: src/routes/_authenticated/index.tsx:370
+#: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "Obunadan chiqilmoqda..."
 

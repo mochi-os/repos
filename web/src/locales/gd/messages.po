@@ -113,7 +113,7 @@ msgstr "Cuir cunntas ris gus brathan fhaighinn agus seirbheisean a chleachdadh."
 msgid "Add new account"
 msgstr "Cuir cunntas ùr ris"
 
-#: ../../../lib/web/src/components/post-tags.tsx:129
+#: ../../../lib/web/src/components/post-tags.tsx:133
 msgid "Add tag..."
 msgstr "Cuir taga ris..."
 
@@ -154,11 +154,11 @@ msgstr "Ceadaich do dhuine sam bith an tasgadan a leughadh"
 msgid "Allow anyone to search for repository"
 msgstr "Ceadaich do dhuine sam bith tasgadan a lorg"
 
-#: ../../../lib/web/src/lib/api-client.ts:192
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:159
 msgid "An error occurred"
 msgstr "Thachair mearachd"
 
-#: ../../../lib/web/src/lib/api-client.ts:255
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:241
 msgid "An unexpected error occurred"
 msgstr "Thachair mearachd ris nach robh dùil"
 
@@ -166,7 +166,7 @@ msgstr "Thachair mearachd ris nach robh dùil"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "A bheil thu cinnteach gu bheil thu airson clàradh a-mach? Feumaidh tu clàradh a-steach a-rithist gus do chunntas inntrigeadh."
 
-#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:363
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "A bheil thu cinnteach gu bheil thu airson sgur de fho-sgrìobhadh ris an tasgadan seo?"
 
@@ -203,15 +203,10 @@ msgstr "Air ais dhan dachaigh"
 msgid "Binary file ({0})"
 msgstr "Faidhle binary ({0})"
 
-#: ../../../lib/web/src/components/post-tags.tsx:172
-#: ../../../lib/web/src/components/post-tags.tsx:184
+#: ../../../lib/web/src/components/post-tags.tsx:176
+#: ../../../lib/web/src/components/post-tags.tsx:188
 msgid "Boost interest"
 msgstr "Brosnaich ùidh"
-
-#: src/features/repository/repository-tabs.tsx:454
-#: src/routes/_authenticated/$repoId_.branches.tsx:107
-#~ msgid "Branch \"{branchToDelete}\" deleted"
-#~ msgstr "Geug \"{branchToDelete}\" air a sguabadh às"
 
 #: src/features/repository/repository-tabs.tsx:438
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
@@ -222,11 +217,6 @@ msgstr "Chaidh am meur \"{name}\" a chruthachadh"
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Chaidh am meur \"{name}\" a sguabadh às"
-
-#: src/features/repository/repository-tabs.tsx:434
-#: src/routes/_authenticated/$repoId_.branches.tsx:87
-#~ msgid "Branch \"{newBranchName}\" created"
-#~ msgstr "Geug \"{newBranchName}\" air a cruthachadh"
 
 #: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
@@ -337,8 +327,8 @@ msgid "Clone repository"
 msgstr "Dèan mac-samhail den tasgadan"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:332
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:335
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "Dùin"
@@ -359,8 +349,8 @@ msgstr "Dùin an lorg"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Collapse"
 msgstr "Lùb a-steach"
 
@@ -659,13 +649,17 @@ msgstr "Seallaidh am bàr-thaobh fòn-làimhe."
 msgid "Done"
 msgstr "Deiseil"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:320
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:326
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
 msgid "Download"
 msgstr "Luchdaich a-nuas"
+
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:68
+msgid "Download failed"
+msgstr "Dh’fhàillig an luchdadh a-nuas"
 
 #: src/features/repository/blob-viewer.tsx:182
 #: src/features/repository/blob-viewer.tsx:186
@@ -719,8 +713,8 @@ msgstr "Aonad:"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Expand"
 msgstr "Leudaich"
 
@@ -824,15 +818,15 @@ msgstr "Cha b' urrainn còd dearbhaidh a chur"
 msgid "Failed to set access level"
 msgstr "Cha b' urrainn ìre an inntrigidh a shuidheachadh"
 
-#: src/features/repository/inline-repo-search.tsx:72
-#: src/routes/_authenticated/find.tsx:55
+#: src/features/repository/inline-repo-search.tsx:77
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Cha b' urrainn fo-sgrìobhadh"
 
-#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-header.tsx:75
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
 msgstr "Cha b' urrainn dì-fho-sgrìobhadh"
 
@@ -864,7 +858,7 @@ msgid "Files"
 msgstr "Faidhlichean"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:72
+#: src/routes/_authenticated/find.tsx:78
 msgid "Find repositories"
 msgstr "Lorg stòran-tasgaidh"
 
@@ -1011,6 +1005,10 @@ msgstr "Soilleir"
 msgid "Load more"
 msgstr "Luchdaich barrachd"
 
+#: ../../../lib/web/src/components/ui/loading-content.tsx:29
+msgid "Loading content…"
+msgstr "A’ luchdadh susbaint…"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
 msgid "Loading…"
@@ -1070,8 +1068,8 @@ msgstr "Meatraigeach"
 msgid "Monday"
 msgstr "DiLuain"
 
-#: src/routes/_authenticated/index.tsx:324
-#: src/routes/_authenticated/index.tsx:332
+#: src/routes/_authenticated/index.tsx:325
+#: src/routes/_authenticated/index.tsx:333
 msgid "More actions"
 msgstr "Barrachd ghnìomhan"
 
@@ -1093,7 +1091,7 @@ msgstr "Feumaidh an t-ainm a bhith 100 caractaran no nas lugha"
 msgid "Name:"
 msgstr "Ainm:"
 
-#: ../../../lib/web/src/lib/api-client.ts:300
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:288
 msgid "Network error"
 msgstr "Mearachd lìonraidh"
 
@@ -1111,8 +1109,8 @@ msgstr "Ùr"
 msgid "New branch"
 msgstr "Geug ùr"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:366
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:371
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
 msgid "Next image"
 msgstr "An ath dhealbh"
 
@@ -1154,8 +1152,8 @@ msgstr "Gun phròifil"
 msgid "No public repositories."
 msgstr "Chan eil tasgadain phoblach."
 
-#: src/features/repository/inline-repo-search.tsx:108
-#: src/routes/_authenticated/find.tsx:74
+#: src/features/repository/inline-repo-search.tsx:116
+#: src/routes/_authenticated/find.tsx:80
 msgid "No repositories found"
 msgstr "Cha deach tasgadain a lorg"
 
@@ -1216,8 +1214,8 @@ msgstr "Och! Cha deach an duilleag a lorg!"
 msgid "Open account actions"
 msgstr "Fosgail gnìomhan a' chunntais"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:176
-#: ../../../lib/web/src/components/layout/nav-group.tsx:181
+#: ../../../lib/web/src/components/layout/nav-group.tsx:182
+#: ../../../lib/web/src/components/layout/nav-group.tsx:187
 msgid "Open actions"
 msgstr "Fosgail na gnìomhan"
 
@@ -1284,7 +1282,7 @@ msgstr "Slighe:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Sguab às an tasgadan seo agus an dàta uile gu sìorraidh"
 
-#: ../../../lib/web/src/lib/api-client.ts:301
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:289
 msgid "Please check your internet connection and try again."
 msgstr "Thoir sùil air a' cheangal eadar-lìn agad agus feuch ris a-rithist."
 
@@ -1292,8 +1290,8 @@ msgstr "Thoir sùil air a' cheangal eadar-lìn agad agus feuch ris a-rithist."
 msgid "Please enter a token name"
 msgstr "Cuir a-steach ainm token"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:351
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:356
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
 msgid "Previous image"
 msgstr "An dealbh roimhe"
 
@@ -1340,8 +1338,8 @@ msgstr "Tasgadain air am moladh"
 msgid "Redirecting to login."
 msgstr "Ag ath-stiùireadh dhan log a-steach."
 
-#: ../../../lib/web/src/components/post-tags.tsx:192
-#: ../../../lib/web/src/components/post-tags.tsx:204
+#: ../../../lib/web/src/components/post-tags.tsx:196
+#: ../../../lib/web/src/components/post-tags.tsx:208
 msgid "Reduce interest"
 msgstr "Lùghdaich an ùidh"
 
@@ -1367,8 +1365,8 @@ msgstr "Thoir an riaghailt cothraim air falbh"
 msgid "Remove access?"
 msgstr "Thoir an cothrom air falbh?"
 
-#: ../../../lib/web/src/components/post-tags.tsx:212
-#: ../../../lib/web/src/components/post-tags.tsx:224
+#: ../../../lib/web/src/components/post-tags.tsx:216
+#: ../../../lib/web/src/components/post-tags.tsx:228
 msgid "Remove interest"
 msgstr "Thoir an ùidh air falbh"
 
@@ -1394,7 +1392,7 @@ msgstr "Tasgadain"
 #: src/routes/_authenticated/$repoId_.tags.tsx:46
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId.tsx:54
+#: src/routes/_authenticated/$repoId.tsx:55
 #: src/routes/_authenticated/blob/$ref/$.tsx:54
 #: src/routes/_authenticated/blob/$ref/$.tsx:65
 #: src/routes/_authenticated/index.tsx:107
@@ -1412,7 +1410,7 @@ msgid "Repository deleted"
 msgstr "Chaidh an tasgadan a sguabadh às"
 
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:21
-#: src/routes/_authenticated/$repoId.tsx:36
+#: src/routes/_authenticated/$repoId.tsx:37
 msgid "Repository ID is required"
 msgstr "Tha ID an tasgadain a dhìth"
 
@@ -1473,7 +1471,7 @@ msgstr "Sàbhail an token seo gu tèarainte. Chan fhaic thu a-rithist e."
 msgid "Saving settings..."
 msgstr "A' sàbhaladh nan roghainnean..."
 
-#: src/routes/_authenticated/find.tsx:73
+#: src/routes/_authenticated/find.tsx:79
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Lorg le ainm, ID, lorg-meòir, no URL..."
 
@@ -1489,7 +1487,7 @@ msgstr "Lorg ceann-uidhe..."
 msgid "Search for origin..."
 msgstr "Lorg tùs..."
 
-#: src/features/repository/inline-repo-search.tsx:91
+#: src/features/repository/inline-repo-search.tsx:99
 msgid "Search for repositories..."
 msgstr "Lorg tasgadain..."
 
@@ -1568,8 +1566,8 @@ msgstr "Cuir post-d"
 msgid "Serif"
 msgstr "Serif"
 
-#: ../../../lib/web/src/lib/api-client.ts:259
-#: ../../../lib/web/src/lib/api-client.ts:284
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:245
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:271
 msgid "Server error"
 msgstr "Mearachd frithealaiche"
 
@@ -1578,7 +1576,7 @@ msgstr "Mearachd frithealaiche"
 msgid "Server rules"
 msgstr "Riaghailtean an fhrithealaiche"
 
-#: ../../../lib/web/src/lib/api-client.ts:227
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:209
 msgid "Session expired"
 msgstr "Dh'fhalbh an ùine air an t-seisean"
 
@@ -1654,20 +1652,20 @@ msgstr "Fuirich an dùil ge-tà!"
 msgid "Subject"
 msgstr "Cuspair"
 
-#: src/features/repository/inline-repo-search.tsx:145
+#: src/features/repository/inline-repo-search.tsx:153
 #: src/routes/_authenticated/index.tsx:290
 msgid "Subscribe"
 msgstr "Fo-sgrìobh"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:76
 #: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:54
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Fo-sgrìobhte"
 
-#: src/features/repository/inline-repo-search.tsx:70
-#: src/routes/_authenticated/find.tsx:53
+#: src/features/repository/inline-repo-search.tsx:75
+#: src/routes/_authenticated/find.tsx:58
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "A' fo-sgrìobhadh..."
@@ -1690,8 +1688,8 @@ msgstr "Siostam"
 msgid "Tag"
 msgstr "Taga"
 
-#: ../../../lib/web/src/components/post-tags.tsx:96
-#: ../../../lib/web/src/components/post-tags.tsx:107
+#: ../../../lib/web/src/components/post-tags.tsx:100
+#: ../../../lib/web/src/components/post-tags.tsx:111
 #: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
@@ -1757,10 +1755,10 @@ msgstr "Toglaich colbhan"
 msgid "Toggle right panel"
 msgstr "Toglaich am panail deas"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:345
-#: ../../../lib/web/src/components/layout/nav-group.tsx:352
-#: ../../../lib/web/src/components/layout/nav-group.tsx:475
-#: ../../../lib/web/src/components/layout/nav-group.tsx:482
+#: ../../../lib/web/src/components/layout/nav-group.tsx:351
+#: ../../../lib/web/src/components/layout/nav-group.tsx:358
+#: ../../../lib/web/src/components/layout/nav-group.tsx:481
+#: ../../../lib/web/src/components/layout/nav-group.tsx:488
 msgid "Toggle section"
 msgstr "Toglaich an earrann"
 
@@ -1826,7 +1824,7 @@ msgstr "Sgrìobh airson cleachdaichean a lorg"
 msgid "Type to search..."
 msgstr "Sgrìobh airson lorg..."
 
-#: ../../../lib/web/src/lib/api-client.ts:280
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:267
 msgid "Unable to connect to remote server"
 msgstr "Cha ghabh ceangal ris an fhrithealaiche chèin"
 
@@ -1851,9 +1849,9 @@ msgstr "Stàitean Aonaichte"
 #: src/features/repository/repository-header.tsx:130
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:341
-#: src/routes/_authenticated/index.tsx:361
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:342
+#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:364
 msgid "Unsubscribe"
 msgstr "Dì-fho-sgrìobh"
 
@@ -1862,18 +1860,18 @@ msgstr "Dì-fho-sgrìobh"
 msgid "Unsubscribe from repository?"
 msgstr "Dì-fho-sgrìobh bhon tasglann?"
 
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribed"
 msgstr "Dì-fho-sgrìobhte"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Dì-fho-sgrìobhte bhon tasglann"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:73
 #: src/features/repository/repository-tabs.tsx:195
-#: src/routes/_authenticated/index.tsx:370
+#: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "A' dì-fho-sgrìobhadh..."
 

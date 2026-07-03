@@ -113,7 +113,7 @@ msgstr "通知を受け取り、サービスを利用するには、アカウン
 msgid "Add new account"
 msgstr "新しいアカウントを追加"
 
-#: ../../../lib/web/src/components/post-tags.tsx:129
+#: ../../../lib/web/src/components/post-tags.tsx:133
 msgid "Add tag..."
 msgstr "タグを追加…"
 
@@ -154,11 +154,11 @@ msgstr "誰でもリポジトリを読めるようにする"
 msgid "Allow anyone to search for repository"
 msgstr "誰でもリポジトリを検索できるようにする"
 
-#: ../../../lib/web/src/lib/api-client.ts:192
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:159
 msgid "An error occurred"
 msgstr "エラーが発生しました"
 
-#: ../../../lib/web/src/lib/api-client.ts:255
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:241
 msgid "An unexpected error occurred"
 msgstr "予期しないエラーが発生しました"
 
@@ -166,7 +166,7 @@ msgstr "予期しないエラーが発生しました"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "本当にログアウトしますか？再度アクセスするにはログインが必要です。"
 
-#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:363
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "このリポジトリの購読を解除しますか？"
 
@@ -203,15 +203,10 @@ msgstr "ホームに戻る"
 msgid "Binary file ({0})"
 msgstr "バイナリファイル ({0})"
 
-#: ../../../lib/web/src/components/post-tags.tsx:172
-#: ../../../lib/web/src/components/post-tags.tsx:184
+#: ../../../lib/web/src/components/post-tags.tsx:176
+#: ../../../lib/web/src/components/post-tags.tsx:188
 msgid "Boost interest"
 msgstr "関心を高める"
-
-#: src/features/repository/repository-tabs.tsx:454
-#: src/routes/_authenticated/$repoId_.branches.tsx:107
-#~ msgid "Branch \"{branchToDelete}\" deleted"
-#~ msgstr "ブランチ「{branchToDelete}」を削除しました"
 
 #: src/features/repository/repository-tabs.tsx:438
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
@@ -222,11 +217,6 @@ msgstr "ブランチ \"{name}\" を作成しました"
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "ブランチ \"{name}\" を削除しました"
-
-#: src/features/repository/repository-tabs.tsx:434
-#: src/routes/_authenticated/$repoId_.branches.tsx:87
-#~ msgid "Branch \"{newBranchName}\" created"
-#~ msgstr "ブランチ「{newBranchName}」を作成しました"
 
 #: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:161
@@ -337,8 +327,8 @@ msgid "Clone repository"
 msgstr "リポジトリをクローン"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:332
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:335
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "閉じる"
@@ -359,8 +349,8 @@ msgstr "検索を閉じる"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -659,13 +649,17 @@ msgstr "モバイルサイドバーを表示します。"
 msgid "Done"
 msgstr "完了"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:320
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:326
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
 msgid "Download"
 msgstr "ダウンロード"
+
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:68
+msgid "Download failed"
+msgstr "ダウンロードに失敗しました"
 
 #: src/features/repository/blob-viewer.tsx:182
 #: src/features/repository/blob-viewer.tsx:186
@@ -719,8 +713,8 @@ msgstr "エンティティ："
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
-#: ../../../lib/web/src/components/tree-row.tsx:255
-#: ../../../lib/web/src/components/tree-row.tsx:269
+#: ../../../lib/web/src/components/tree-row.tsx:338
+#: ../../../lib/web/src/components/tree-row.tsx:352
 msgid "Expand"
 msgstr "展開する"
 
@@ -824,15 +818,15 @@ msgstr "確認コードの送信に失敗しました"
 msgid "Failed to set access level"
 msgstr "アクセスレベルの設定に失敗しました"
 
-#: src/features/repository/inline-repo-search.tsx:72
-#: src/routes/_authenticated/find.tsx:55
+#: src/features/repository/inline-repo-search.tsx:77
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "購読に失敗しました"
 
-#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-header.tsx:75
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
 msgstr "購読解除に失敗しました"
 
@@ -864,7 +858,7 @@ msgid "Files"
 msgstr "ファイル"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:72
+#: src/routes/_authenticated/find.tsx:78
 msgid "Find repositories"
 msgstr "リポジトリを検索"
 
@@ -1011,6 +1005,10 @@ msgstr "ライト"
 msgid "Load more"
 msgstr "もっと読み込む"
 
+#: ../../../lib/web/src/components/ui/loading-content.tsx:29
+msgid "Loading content…"
+msgstr "コンテンツを読み込んでいます…"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
 msgid "Loading…"
@@ -1070,8 +1068,8 @@ msgstr "メートル法"
 msgid "Monday"
 msgstr "月曜日"
 
-#: src/routes/_authenticated/index.tsx:324
-#: src/routes/_authenticated/index.tsx:332
+#: src/routes/_authenticated/index.tsx:325
+#: src/routes/_authenticated/index.tsx:333
 msgid "More actions"
 msgstr "その他の操作"
 
@@ -1093,7 +1091,7 @@ msgstr "名前は100文字以下にしてください"
 msgid "Name:"
 msgstr "名前："
 
-#: ../../../lib/web/src/lib/api-client.ts:300
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:288
 msgid "Network error"
 msgstr "ネットワークエラー"
 
@@ -1111,8 +1109,8 @@ msgstr "新規"
 msgid "New branch"
 msgstr "新しいブランチ"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:366
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:371
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
 msgid "Next image"
 msgstr "次の画像"
 
@@ -1154,8 +1152,8 @@ msgstr "プロフィールがありません"
 msgid "No public repositories."
 msgstr "公開リポジトリはありません。"
 
-#: src/features/repository/inline-repo-search.tsx:108
-#: src/routes/_authenticated/find.tsx:74
+#: src/features/repository/inline-repo-search.tsx:116
+#: src/routes/_authenticated/find.tsx:80
 msgid "No repositories found"
 msgstr "リポジトリが見つかりません"
 
@@ -1216,8 +1214,8 @@ msgstr "ページが見つかりません!"
 msgid "Open account actions"
 msgstr "アカウントのアクションを開く"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:176
-#: ../../../lib/web/src/components/layout/nav-group.tsx:181
+#: ../../../lib/web/src/components/layout/nav-group.tsx:182
+#: ../../../lib/web/src/components/layout/nav-group.tsx:187
 msgid "Open actions"
 msgstr "操作メニューを開く"
 
@@ -1284,7 +1282,7 @@ msgstr "パス："
 msgid "Permanently delete this repository and all its data"
 msgstr "このリポジトリとすべてのデータを完全に削除します"
 
-#: ../../../lib/web/src/lib/api-client.ts:301
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:289
 msgid "Please check your internet connection and try again."
 msgstr "インターネット接続を確認して、もう一度お試しください。"
 
@@ -1292,8 +1290,8 @@ msgstr "インターネット接続を確認して、もう一度お試しくだ
 msgid "Please enter a token name"
 msgstr "トークン名を入力してください"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:351
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:356
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
 msgid "Previous image"
 msgstr "前の画像"
 
@@ -1340,8 +1338,8 @@ msgstr "おすすめのリポジトリ"
 msgid "Redirecting to login."
 msgstr "ログイン画面にリダイレクトしています。"
 
-#: ../../../lib/web/src/components/post-tags.tsx:192
-#: ../../../lib/web/src/components/post-tags.tsx:204
+#: ../../../lib/web/src/components/post-tags.tsx:196
+#: ../../../lib/web/src/components/post-tags.tsx:208
 msgid "Reduce interest"
 msgstr "関心を下げる"
 
@@ -1367,8 +1365,8 @@ msgstr "アクセスルールを削除"
 msgid "Remove access?"
 msgstr "アクセスを削除しますか?"
 
-#: ../../../lib/web/src/components/post-tags.tsx:212
-#: ../../../lib/web/src/components/post-tags.tsx:224
+#: ../../../lib/web/src/components/post-tags.tsx:216
+#: ../../../lib/web/src/components/post-tags.tsx:228
 msgid "Remove interest"
 msgstr "関心を削除"
 
@@ -1394,7 +1392,7 @@ msgstr "リポジトリ"
 #: src/routes/_authenticated/$repoId_.tags.tsx:46
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId.tsx:54
+#: src/routes/_authenticated/$repoId.tsx:55
 #: src/routes/_authenticated/blob/$ref/$.tsx:54
 #: src/routes/_authenticated/blob/$ref/$.tsx:65
 #: src/routes/_authenticated/index.tsx:107
@@ -1412,7 +1410,7 @@ msgid "Repository deleted"
 msgstr "リポジトリを削除しました"
 
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:21
-#: src/routes/_authenticated/$repoId.tsx:36
+#: src/routes/_authenticated/$repoId.tsx:37
 msgid "Repository ID is required"
 msgstr "リポジトリIDが必要です"
 
@@ -1473,7 +1471,7 @@ msgstr "このトークンを安全な場所に保管してください。再度
 msgid "Saving settings..."
 msgstr "設定を保存しています..."
 
-#: src/routes/_authenticated/find.tsx:73
+#: src/routes/_authenticated/find.tsx:79
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "名前、ID、フィンガープリント、または URL で検索..."
 
@@ -1489,7 +1487,7 @@ msgstr "目的地を検索…"
 msgid "Search for origin..."
 msgstr "出発地を検索…"
 
-#: src/features/repository/inline-repo-search.tsx:91
+#: src/features/repository/inline-repo-search.tsx:99
 msgid "Search for repositories..."
 msgstr "リポジトリを検索…"
 
@@ -1568,8 +1566,8 @@ msgstr "メールを送信"
 msgid "Serif"
 msgstr "セリフ"
 
-#: ../../../lib/web/src/lib/api-client.ts:259
-#: ../../../lib/web/src/lib/api-client.ts:284
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:245
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:271
 msgid "Server error"
 msgstr "サーバーエラー"
 
@@ -1578,7 +1576,7 @@ msgstr "サーバーエラー"
 msgid "Server rules"
 msgstr "サーバーのルール"
 
-#: ../../../lib/web/src/lib/api-client.ts:227
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:209
 msgid "Session expired"
 msgstr "セッションの有効期限が切れました"
 
@@ -1654,20 +1652,20 @@ msgstr "今後の更新にご期待ください!"
 msgid "Subject"
 msgstr "件名"
 
-#: src/features/repository/inline-repo-search.tsx:145
+#: src/features/repository/inline-repo-search.tsx:153
 #: src/routes/_authenticated/index.tsx:290
 msgid "Subscribe"
 msgstr "購読する"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:76
 #: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:54
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "購読中"
 
-#: src/features/repository/inline-repo-search.tsx:70
-#: src/routes/_authenticated/find.tsx:53
+#: src/features/repository/inline-repo-search.tsx:75
+#: src/routes/_authenticated/find.tsx:58
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "購読中..."
@@ -1690,8 +1688,8 @@ msgstr "システム"
 msgid "Tag"
 msgstr "タグ"
 
-#: ../../../lib/web/src/components/post-tags.tsx:96
-#: ../../../lib/web/src/components/post-tags.tsx:107
+#: ../../../lib/web/src/components/post-tags.tsx:100
+#: ../../../lib/web/src/components/post-tags.tsx:111
 #: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
@@ -1757,10 +1755,10 @@ msgstr "列を切り替え"
 msgid "Toggle right panel"
 msgstr "右パネルを切り替え"
 
-#: ../../../lib/web/src/components/layout/nav-group.tsx:345
-#: ../../../lib/web/src/components/layout/nav-group.tsx:352
-#: ../../../lib/web/src/components/layout/nav-group.tsx:475
-#: ../../../lib/web/src/components/layout/nav-group.tsx:482
+#: ../../../lib/web/src/components/layout/nav-group.tsx:351
+#: ../../../lib/web/src/components/layout/nav-group.tsx:358
+#: ../../../lib/web/src/components/layout/nav-group.tsx:481
+#: ../../../lib/web/src/components/layout/nav-group.tsx:488
 msgid "Toggle section"
 msgstr "セクションを切り替え"
 
@@ -1826,7 +1824,7 @@ msgstr "入力してユーザーを検索"
 msgid "Type to search..."
 msgstr "入力して検索…"
 
-#: ../../../lib/web/src/lib/api-client.ts:280
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:267
 msgid "Unable to connect to remote server"
 msgstr "リモートサーバーに接続できません"
 
@@ -1851,9 +1849,9 @@ msgstr "アメリカ合衆国"
 #: src/features/repository/repository-header.tsx:130
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:341
-#: src/routes/_authenticated/index.tsx:361
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:342
+#: src/routes/_authenticated/index.tsx:362
+#: src/routes/_authenticated/index.tsx:364
 msgid "Unsubscribe"
 msgstr "購読解除"
 
@@ -1862,18 +1860,18 @@ msgstr "購読解除"
 msgid "Unsubscribe from repository?"
 msgstr "リポジトリの購読を解除しますか?"
 
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribed"
 msgstr "購読を解除しました"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "リポジトリの購読を解除しました"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:73
 #: src/features/repository/repository-tabs.tsx:195
-#: src/routes/_authenticated/index.tsx:370
+#: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "購読解除中..."
 
