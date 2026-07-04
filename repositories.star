@@ -38,27 +38,6 @@ def database_create():
     """)
     mochi.db.execute("create index subscribers_id on subscribers(id)")
 
-# Database upgrade - called once per version from (current+1) to target
-def database_upgrade(version):
-    if version == 8:
-        # Rename the access namespace from "repo/" to "repository/" so resource
-        # keys match the rest of the app's vocabulary (class "repository", URL
-        # path :repository, etc). The access table lives in the app system db,
-        # which Starlark can only reach via mochi.access.* — so iterate every
-        # known repo, copy its rules under the new key, then drop the old ones.
-        repos = mochi.db.rows("select id from repositories") or []
-        for repo in repos:
-            old = "repo/" + repo["id"]
-            new = "repository/" + repo["id"]
-            for rule in mochi.access.list.resource(old) or []:
-                granter = rule.get("granter") or ""
-                if rule.get("grant"):
-                    mochi.access.allow(rule["subject"], new, rule["operation"], granter)
-                else:
-                    mochi.access.deny(rule["subject"], new, rule["operation"], granter)
-            mochi.access.clear.resource(old)
-
-# Validate git SHA: 4-40 hex characters
 def valid_sha(s):
     if len(s) < 4 or len(s) > 40:
         return False
