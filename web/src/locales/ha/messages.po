@@ -162,6 +162,10 @@ msgstr "An samu kuskure"
 msgid "An unexpected error occurred"
 msgstr "An samu kuskuren da ba a zata ba"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Duk wanda ka ba shi damar shiga zai iya biyan kuɗi da wannan hanyar."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ka tabbata kana son fita? Za ka buƙaci shiga kuma don shiga asusunka."
@@ -243,7 +247,7 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Yana nuna sidebar na wayar hannu."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "An gama"
 
@@ -735,6 +740,10 @@ msgstr "An gaza ƙara account"
 msgid "Failed to create branch"
 msgstr "An gaza ƙirƙirar branch"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "An gaza ƙirƙirar link"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "An gaza ƙirƙirar repository"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "An gaza saita matakin shiga"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "An gaza subscribe"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Fayiloli"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Nemo repositories"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Daga jigo"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Daga: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Hagu zuwa Dama"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Haske"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Hanya"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Babu ma'ajiyoyin jama'a."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Babu repositories da aka samu"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Karatu kawai"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "An ba da shawara"
 
@@ -1414,6 +1427,10 @@ msgstr "An share repository"
 msgid "Repository ID is required"
 msgstr "Ana buƙatar Repository ID"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Hanyar ma'ajiya"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Ana buƙatar sunan repository"
@@ -1471,7 +1488,7 @@ msgstr "Adana wannan tokin lafiya. Ba za ku sake ganin sa ba."
 msgid "Saving settings..."
 msgstr "Ana ajiye saituna..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Bincika ta suna, ID, fingerprint, ko URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Bincika..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Ana bincike..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Yi subscribe"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "An yi subscribe"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Ana yin subscribe..."
@@ -1734,7 +1751,7 @@ msgstr "Wannan zai share \"{currentName}\" har abada da duk commits, branches, d
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Wannan zai share wannan alama har abada. Duk git clients da ke amfani da shi ba za su iya tabbatarwa ba."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Wannan zai cire \"{name}\" daga jerin repository ɗinka. Kuna iya sake subscribe daga baya."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Tafiya"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Gwada gyara kalmomin bincike"
 
@@ -1845,8 +1862,8 @@ msgstr "Damar Shiga Ba Tare Da Izini Ba"
 msgid "United States"
 msgstr "Amurka"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Amurka"
 msgid "Unsubscribe"
 msgstr "Cire subscribe"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Cire subscribe daga repository?"
@@ -1864,12 +1881,12 @@ msgstr "Cire subscribe daga repository?"
 msgid "Unsubscribed"
 msgstr "An cire subscribe"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "An cire subscribe daga repository"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

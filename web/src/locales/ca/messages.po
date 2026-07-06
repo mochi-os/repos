@@ -162,6 +162,10 @@ msgstr "S'ha produït un error"
 msgid "An unexpected error occurred"
 msgstr "S'ha produït un error inesperat"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Qualsevol persona a qui doneu accés pot subscriure's amb aquest enllaç."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Segur que vols tancar la sessió? Hauràs de tornar a iniciar sessió per accedir al teu compte."
@@ -243,7 +247,7 @@ msgstr "Branques"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Mostra la barra lateral mòbil."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Fet"
 
@@ -735,6 +740,10 @@ msgstr "No s'ha pogut afegir el compte"
 msgid "Failed to create branch"
 msgstr "No s'ha pogut crear la branca"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "No s'ha pogut crear l'enllaç"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "No s'ha pogut crear el repositori"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "No s'ha pogut establir el nivell d'accés"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "No s'ha pogut subscriure"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Fitxers"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Cerca repositoris"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Del tema"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "De: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "D'esquerra a dreta"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Clar"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Enllaç"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Cap repositori públic."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "No s'ha trobat cap repositori"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Només lectura"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Recomanat"
 
@@ -1414,6 +1427,10 @@ msgstr "Repositori suprimit"
 msgid "Repository ID is required"
 msgstr "L'ID del repositori és obligatori"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Enllaç del repositori"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "El nom del repositori és obligatori"
@@ -1471,7 +1488,7 @@ msgstr "Desa aquest token de manera segura. No tornaràs a poder veure'l."
 msgid "Saving settings..."
 msgstr "Desant la configuració..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Cerca per nom, ID, empremta o URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Cerca..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Cercant..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Subscriu-te"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Subscrit"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Subscrivint..."
@@ -1734,7 +1751,7 @@ msgstr "Això eliminarà permanentment \"{currentName}\" i tots els seus commits
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Això eliminarà permanentment aquest testimoni. Els clients git que l'utilitzin ja no es podran autenticar."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Això eliminarà \"{name}\" de la teva llista de repositoris. Pots tornar-te a subscriure més tard."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Viatjant"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Prova d'ajustar els termes de cerca"
 
@@ -1845,8 +1862,8 @@ msgstr "Accés no autoritzat"
 msgid "United States"
 msgstr "Estats Units"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Estats Units"
 msgid "Unsubscribe"
 msgstr "Cancel·la la subscripció"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Cancel·lar la subscripció al repositori?"
@@ -1864,12 +1881,12 @@ msgstr "Cancel·lar la subscripció al repositori?"
 msgid "Unsubscribed"
 msgstr "Subscripció cancel·lada"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Subscripció al repositori cancel·lada"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

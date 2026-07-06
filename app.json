@@ -5,7 +5,7 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
 {
-	"version": "2.47",
+	"version": "2.48",
 	"label": "app.name",
 	"classes": ["repository"],
 	"paths": ["repositories"],
@@ -46,6 +46,7 @@
 		"-/token/delete": {"function": "action_token_delete"},
 
 		":repository": {"file": "web/dist/index.html", "public": true, "function": "action_info_entity", "opengraph": "action_opengraph"},
+		":repository/-/share": {"function": "action_share"},
 		":repository/-/info": {"function": "action_info_entity", "public": true},
 		":repository/-/token/create": {"function": "action_token_create"},
 		":repository/-/token/list": {"function": "action_token_list"},

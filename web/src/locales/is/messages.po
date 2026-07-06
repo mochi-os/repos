@@ -162,6 +162,10 @@ msgstr "Villa kom upp"
 msgid "An unexpected error occurred"
 msgstr "Óvænt villa kom upp"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Hver sem þú veitir aðgang getur gerst áskrifandi með þessum tengli."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ertu viss um að þú viljir skrá þig út? Þú þarft að skrá þig inn aftur til að komast að reikningnum þínum."
@@ -243,7 +247,7 @@ msgstr "Greinar"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Sýnir hliðarstiku farsíma."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Lokið"
 
@@ -735,6 +740,10 @@ msgstr "Tókst ekki að bæta við reikningi"
 msgid "Failed to create branch"
 msgstr "Tókst ekki að búa til grein"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Tókst ekki að búa til tengil"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Tókst ekki að búa til geymslusvæði"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Tókst ekki að stilla aðgangsstig"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Tókst ekki að gerast áskrifandi"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Skrár"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Finna geymslusvæði"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Frá þema"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Frá: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Vinstri til hægri"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Ljóst"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Tengill"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Engar opinberar geymslur."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Engar geymslur fundust"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Aðeins lesa"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Mælt með"
 
@@ -1414,6 +1427,10 @@ msgstr "Geymslu eytt"
 msgid "Repository ID is required"
 msgstr "Auðkenni hugbúnaðargeymslu er skylt"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Tengill gagnageymslu"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Heiti geymslu er nauðsynlegt"
@@ -1471,7 +1488,7 @@ msgstr "Vistaðu þetta teikn á öruggan hátt. Þú munt ekki geta séð það
 msgid "Saving settings..."
 msgstr "Vista stillingar..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Leita eftir nafni, auðkenni, fingrafari eða slóð..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Leita..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Leita..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Gerast áskrifandi"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Áskrift virk"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Skrái áskrift..."
@@ -1734,7 +1751,7 @@ msgstr "Þetta mun eyða „{currentName}“ og öllum commit-um, greinum og mer
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Þetta eyðir tókeninum varanlega. Allir git-biðlarar sem nota hann munu ekki lengur geta auðkennst."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Þetta mun fjarlægja „{name}“ úr geymslulistanum þínum. Þú getur gerst áskrifandi aftur síðar."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Á ferðalagi"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Reyndu að breyta leitarskilyrðum þínum"
 
@@ -1845,8 +1862,8 @@ msgstr "Óheimill aðgangur"
 msgid "United States"
 msgstr "Bandaríkin"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Bandaríkin"
 msgid "Unsubscribe"
 msgstr "Afskrá áskrift"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Afskrá áskrift að geymslu?"
@@ -1864,12 +1881,12 @@ msgstr "Afskrá áskrift að geymslu?"
 msgid "Unsubscribed"
 msgstr "Áskrift afskráð"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Áskrift að geymslu afskráð"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

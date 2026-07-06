@@ -162,6 +162,10 @@ msgstr "Yon erè te rive"
 msgid "An unexpected error occurred"
 msgstr "Yon erè inatandi te rive"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Nenpòt moun ou bay aksè kapab abòne ak lyen sa a."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Èske ou sèten ou vle dekonekte? Ou pral bezwen konekte ankò pou aksede kont ou."
@@ -243,7 +247,7 @@ msgstr "Branch yo"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Afiche ba kote mobil la."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Fini"
 
@@ -735,6 +740,10 @@ msgstr "Echwe pou ajoute kont"
 msgid "Failed to create branch"
 msgstr "Echwe pou kreye branch"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Echwe pou kreye lyen"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Echwe pou kreye depo"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Echwe pou mete nivo aksè"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Echwe pou abòne"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Fichye"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Jwenn depo"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Soti nan tèm"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Soti nan: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Goch a Dwat"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Klè"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Lyen"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Pa gen depo piblik."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Pa gen depo ki jwenn"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Li sèlman"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Rekòmande"
 
@@ -1414,6 +1427,10 @@ msgstr "Depo efase"
 msgid "Repository ID is required"
 msgstr "ID depo obligatwa"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Lyen depo"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Non depo obligatwa"
@@ -1471,7 +1488,7 @@ msgstr "Sove tokenn sa a an sekirite. Ou pap kapab wè li ankò."
 msgid "Saving settings..."
 msgstr "Ap sove paramèt yo..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Chèche pa non, ID, fingerprint, oswa URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Chèche..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Ap chèche..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Abone"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Abone"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Ap abone..."
@@ -1734,7 +1751,7 @@ msgstr "Sa pral efase \"{currentName}\" pèmanan ak tout commits, branches, ak t
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Sa pral efase token sa pèmanan. Nenpòt kliyan git k ap itilize l pap kapab otantifye ankò."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Sa pral retire \"{name}\" nan lis depo w. Ou ka abone ankò pita."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Vwayaje"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Eseye ajiste tèm rechèch ou"
 
@@ -1845,8 +1862,8 @@ msgstr "Aksè Pa Otorize"
 msgid "United States"
 msgstr "Etazini"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Etazini"
 msgid "Unsubscribe"
 msgstr "Dezabòne"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Dezabòne nan depo?"
@@ -1864,12 +1881,12 @@ msgstr "Dezabòne nan depo?"
 msgid "Unsubscribed"
 msgstr "Dezabòne"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Dezabòne nan depo"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

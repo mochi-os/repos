@@ -162,6 +162,10 @@ msgstr "May naganap na error"
 msgid "An unexpected error occurred"
 msgstr "May naganap na hindi inaasahang error"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Sinumang bigyan mo ng access ay maaaring mag-subscribe gamit ang link na ito."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Sigurado ka bang gusto mong mag-log out? Kakailanganin mong mag-log in muli para ma-access ang iyong account."
@@ -243,7 +247,7 @@ msgstr "Mga branch"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Ipinapakita ang mobile sidebar."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Tapos na"
 
@@ -735,6 +740,10 @@ msgstr "Nabigong magdagdag ng account"
 msgid "Failed to create branch"
 msgstr "Nabigong gumawa ng branch"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Nabigong gumawa ng link"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Nabigong gumawa ng repository"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Nabigong i-set ang access level"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Nabigong mag-subscribe"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Mga file"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Maghanap ng mga repository"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Mula sa tema"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Mula sa: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Kaliwa pakanan"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Light"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Link"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Walang pampublikong repository."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Walang nakitang repository"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Pagbasa lamang"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Inirerekomenda"
 
@@ -1414,6 +1427,10 @@ msgstr "Natanggal ang repository"
 msgid "Repository ID is required"
 msgstr "Kailangan ang ID ng repository"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Link ng repositoryo"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Kailangan ang pangalan ng repository"
@@ -1471,7 +1488,7 @@ msgstr "I-save nang ligtas ang token na ito. Hindi mo na muli itong makikita."
 msgid "Saving settings..."
 msgstr "Sini-save ang mga setting..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Maghanap ayon sa pangalan, ID, fingerprint, o URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Maghanap..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Naghahanap..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Mag-subscribe"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Naka-subscribe"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Nag-su-subscribe..."
@@ -1734,7 +1751,7 @@ msgstr "Permanenteng tatanggalin nito ang \"{currentName}\" at lahat ng commit, 
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Permanenteng tatanggalin nito ang token. Ang anumang git clients na gumagamit nito ay hindi na makaka-authenticate."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Tatanggalin nito ang \"{name}\" mula sa iyong listahan ng repository. Maaari kang muling mag-subscribe mamaya."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Naglalakbay"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Subukang ayusin ang iyong mga search term"
 
@@ -1845,8 +1862,8 @@ msgstr "Hindi Pinahihintulutang Pag-access"
 msgid "United States"
 msgstr "United States"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "United States"
 msgid "Unsubscribe"
 msgstr "Mag-unsubscribe"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Mag-unsubscribe sa repository?"
@@ -1864,12 +1881,12 @@ msgstr "Mag-unsubscribe sa repository?"
 msgid "Unsubscribed"
 msgstr "Hindi na naka-subscribe"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Hindi na naka-subscribe sa repository"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

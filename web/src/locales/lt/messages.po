@@ -162,6 +162,10 @@ msgstr "Įvyko klaida"
 msgid "An unexpected error occurred"
 msgstr "Įvyko netikėta klaida"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Bet kas, kam suteiksite prieigą, gali užsiprenumeruoti naudodamas šią nuorodą."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ar tikrai norite atsijungti? Norėdami pasiekti paskyrą, turėsite vėl prisijungti."
@@ -243,7 +247,7 @@ msgstr "Šakos"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Rodo mobiliąją šoninę juostą."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Atlikta"
 
@@ -735,6 +740,10 @@ msgstr "Nepavyko pridėti paskyros"
 msgid "Failed to create branch"
 msgstr "Nepavyko sukurti šakos"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Nepavyko sukurti nuorodos"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Nepavyko sukurti saugyklos"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Nepavyko nustatyti prieigos lygio"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Nepavyko prenumeruoti"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Failai"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Rasti saugyklas"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Iš temos"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Nuo: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Iš kairės į dešinę"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Šviesi"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Nuoroda"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Viešų repozitorijų nėra."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Repozitorijų nerasta"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Tik skaityti"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Rekomenduojama"
 
@@ -1414,6 +1427,10 @@ msgstr "Repozitorija ištrinta"
 msgid "Repository ID is required"
 msgstr "Repozitorijos ID yra privalomas"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Saugyklos nuoroda"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repozitorijos pavadinimas yra privalomas"
@@ -1471,7 +1488,7 @@ msgstr "Saugiai išsaugokite šį žetoną. Nebematysite jo dar kartą."
 msgid "Saving settings..."
 msgstr "Įrašomi nustatymai..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Ieškoti pagal pavadinimą, ID, atspaudą ar URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Ieškoti..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Ieškoma..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Prenumeruoti"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Prenumeruota"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Prenumeruojama..."
@@ -1734,7 +1751,7 @@ msgstr "Tai visam laikui ištrins „{currentName}“ ir visus jo įsipareigojim
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Tai visam laikui ištrins šį prieigos raktą. Bet kokie git klientai, jį naudojantys, nebegalės autentifikuotis."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Tai pašalins „{name}“ iš jūsų saugyklų sąrašo. Vėliau galėsite vėl prenumeruoti."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Keliauja"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Pabandykite koreguoti paieškos terminus"
 
@@ -1845,8 +1862,8 @@ msgstr "Neautorizuota prieiga"
 msgid "United States"
 msgstr "Jungtinės Valstijos"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Jungtinės Valstijos"
 msgid "Unsubscribe"
 msgstr "Atšaukti prenumeratą"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Atšaukti saugyklos prenumeratą?"
@@ -1864,12 +1881,12 @@ msgstr "Atšaukti saugyklos prenumeratą?"
 msgid "Unsubscribed"
 msgstr "Prenumerata atšaukta"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Saugyklos prenumerata atšaukta"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

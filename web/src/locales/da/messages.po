@@ -162,6 +162,10 @@ msgstr "Der opstod en fejl"
 msgid "An unexpected error occurred"
 msgstr "Der opstod en uventet fejl"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Alle, du giver adgang, kan abonnere med dette link."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Er du sikker på, at du vil logge ud? Du skal logge ind igen for at få adgang til din konto."
@@ -243,7 +247,7 @@ msgstr "Grene"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Viser mobil-sidebjælken."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Færdig"
 
@@ -735,6 +740,10 @@ msgstr "Kunne ikke tilføje konto"
 msgid "Failed to create branch"
 msgstr "Kunne ikke oprette gren"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Kunne ikke oprette link"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Kunne ikke oprette arkiv"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Kunne ikke indstille adgangsniveau"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Kunne ikke abonnere"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Filer"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Find arkiver"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Fra tema"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Fra: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Venstre mod højre"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Lys"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Link"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Ingen offentlige repositories."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Ingen repositories fundet"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Skrivebeskyttet"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Anbefalet"
 
@@ -1414,6 +1427,10 @@ msgstr "Repository slettet"
 msgid "Repository ID is required"
 msgstr "Repository-ID er påkrævet"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Repositorie-link"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repository-navn er påkrævet"
@@ -1471,7 +1488,7 @@ msgstr "Gem dette token sikkert. Du vil ikke kunne se det igen."
 msgid "Saving settings..."
 msgstr "Gemmer indstillinger..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Søg efter navn, ID, fingeraftryk eller URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Søg..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Søger..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Abonnér"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Abonneret"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Abonnerer..."
@@ -1734,7 +1751,7 @@ msgstr "Dette vil permanent slette \"{currentName}\" og alle dens commits, grene
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Dette vil permanent slette tokenet. Eventuelle git-klienter, der bruger det, vil ikke længere kunne godkendes."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Dette vil fjerne \"{name}\" fra din repositorieliste. Du kan abonnere igen senere."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Rejser"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Prøv at justere dine søgeord"
 
@@ -1845,8 +1862,8 @@ msgstr "Uautoriseret adgang"
 msgid "United States"
 msgstr "USA"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "USA"
 msgid "Unsubscribe"
 msgstr "Afmeld"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Afmeld repositorie?"
@@ -1864,12 +1881,12 @@ msgstr "Afmeld repositorie?"
 msgid "Unsubscribed"
 msgstr "Afmeldt"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Afmeldt fra repositorie"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

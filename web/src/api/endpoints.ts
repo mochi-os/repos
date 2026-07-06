@@ -11,6 +11,8 @@ const endpoints = {
     create: '-/create',
     search: '-/search',
     recommendations: '-/recommendations',
+    probe: '-/probe',
+    share: (repoId: string) => `${repoId}/-/share`,
     subscribe: '-/subscribe',
     unsubscribe: '-/unsubscribe',
 

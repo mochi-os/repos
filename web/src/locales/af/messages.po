@@ -162,6 +162,10 @@ msgstr "Daar het 'n fout voorgekom"
 msgid "An unexpected error occurred"
 msgstr "'n Onverwagte fout het voorgekom"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Enigiemand aan wie jy toegang gee, kan met hierdie skakel inteken."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Is jy seker jy wil afmeld? Jy sal weer moet aanmeld om toegang tot jou rekening te kry."
@@ -243,7 +247,7 @@ msgstr "Takke"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Vertoon die mobiele sybalk."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Klaar"
 
@@ -735,6 +740,10 @@ msgstr "Kon nie rekening byvoeg nie"
 msgid "Failed to create branch"
 msgstr "Kon nie tak skep nie"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Kon nie skakel skep nie"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Kon nie bewaarplek skep nie"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Kon nie toegangsvlak stel nie"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Kon nie inteken nie"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Lêers"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Vind bewaarplekke"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Vanaf tema"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Van: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Links na regs"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Lig"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Skakel"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Geen openbare bewaarplekke nie."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Geen repositories gevind nie"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Slegs lees"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Aanbeveel"
 
@@ -1414,6 +1427,10 @@ msgstr "Repository verwyder"
 msgid "Repository ID is required"
 msgstr "Bewaarplek-ID word vereis"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Bewaarplekskakel"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repository-naam word vereis"
@@ -1471,7 +1488,7 @@ msgstr "Stoor hierdie token veilig. Jy sal dit nie weer kan sien nie."
 msgid "Saving settings..."
 msgstr "Instellings word gestoor..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Soek volgens naam, ID, vingerafdruk of URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Soek..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Besig om te soek..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Teken in"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Ingeteken"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Besig om in te teken..."
@@ -1734,7 +1751,7 @@ msgstr "Dit sal \"{currentName}\" en al sy commits, takke en etikette permanent 
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Dit sal hierdie teken permanent verwyder. Enige git-kliënte wat dit gebruik, sal nie meer kan staaf nie."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Dit sal \"{name}\" van jou bewaarpleklys verwyder. Jy kan later weer inteken."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Op reis"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Probeer jou soekterme aanpas"
 
@@ -1845,8 +1862,8 @@ msgstr "Nie-toegelate toegang"
 msgid "United States"
 msgstr "Verenigde State"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Verenigde State"
 msgid "Unsubscribe"
 msgstr "Teken uit"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Teken uit van bewaarplek?"
@@ -1864,12 +1881,12 @@ msgstr "Teken uit van bewaarplek?"
 msgid "Unsubscribed"
 msgstr "Uitgeteken"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Uitgeteken van bewaarplek"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

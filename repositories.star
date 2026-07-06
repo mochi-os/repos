@@ -1261,6 +1261,29 @@ def action_probe(a):
     if not url:
         return a.error.label(400, "errors.no_url_provided")
 
+    # mochi://<peer>/<entity> - a share link pins the owner's peer directly,
+    # so a non-listed repository resolves without a hostname.
+    if url.startswith("mochi://"):
+        rest = url[len("mochi://"):]
+        if "/" not in rest:
+            return a.error.label(400, "errors.invalid_url_format")
+        link_peer, path = rest.split("/", 1)
+        link_repo = path.split("/")[0]
+        if not link_peer or not mochi.text.valid(link_repo, "entity"):
+            return a.error.label(400, "errors.invalid_url_format")
+        response = mochi.remote.request(link_repo, "repositories", "info", {"repository": link_repo}, link_peer)
+        if response.get("error"):
+            return a.error(response.get("code", 404), response["error"])
+        return {"data": {
+            "id": link_repo,
+            "name": response.get("name", ""),
+            "description": response.get("description", ""),
+            "fingerprint": response.get("fingerprint", ""),
+            "class": "repository",
+            "peer": link_peer,  # subscribe pins the same peer for its initial sync
+            "remote": True
+        }}
+
     # Parse URL to extract server and repository ID
     # Expected formats:
     #   https://example.com/repositories/ENTITY_ID
@@ -1333,6 +1356,20 @@ def action_probe(a):
     }]}}
 
 # Action: Subscribe to a remote repository
+# Produce a mochi://<server-peer>/<repository> share link for a repository
+# the caller owns. The link conveys location only - a repository without the
+# wildcard read grant still requires the owner to grant read (#209).
+def action_share(a): # repositories_share
+    if not a.user or not a.user.identity:
+        return a.error.label(401, "errors.not_logged_in")
+    repo_id = a.input("repository")
+    if not mochi.text.valid(repo_id, "entity"):
+        return a.error.label(400, "errors.invalid_repository_id")
+    if not mochi.db.exists("select 1 from repositories where id = ? and owner = 1", repo_id):
+        return a.error.label(403, "errors.access_denied")
+    peer = mochi.server.id()
+    return {"data": {"link": "mochi://" + peer + "/" + repo_id, "peer": peer, "repository": repo_id}}
+
 def action_subscribe(a):
     if not a.user or not a.user.identity:
         return a.error.label(401, "errors.not_logged_in")
@@ -1340,6 +1377,7 @@ def action_subscribe(a):
 
     repo_id = a.input("repository")
     server = a.input("server", "")
+    peer = a.input("peer")  # from a mochi://<peer>/<repository> share link
 
     if not mochi.text.valid(repo_id, "entity"):
         return a.error.label(400, "errors.invalid_repository_id")
@@ -1362,8 +1400,9 @@ def action_subscribe(a):
                 server = peer_id
 
     # Get repository info from remote or directory
-    if server:
-        peer = mochi.remote.peer(server)
+    if peer or server:
+        if not peer:
+            peer = mochi.remote.peer(server)
         response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
         if response.get("error"):
             return a.error.label(502, "errors.remote_request_failed")
@@ -1393,8 +1432,12 @@ def action_subscribe(a):
         values (?, ?, ?, ?, ?, 0, ?, ?, ?, ?)
     """, repo_id, repo_name, repo_path, repo_description, default_branch, server or "", fp, now, now)
 
-    # Notify remote owner
-    mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
+    # Notify remote owner. A non-listed repository is not in the directory, so
+    # when the subscription came via a share link, pin that peer.
+    if peer:
+        mochi.message.send.peer(peer, headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
+    else:
+        mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
     mochi.broadcast.touch(repo_id)
 
     return {"data": {"fingerprint": repo_fingerprint, "name": repo_name}}
@@ -1473,6 +1516,13 @@ def event_subscribe(e):
     if not repo:
         return
 
+    # Only readers may subscribe - metadata broadcasts go to every subscriber,
+    # so knowing the repository's location (e.g. a share link) must not be
+    # enough to receive them. Public repositories carry the wildcard read
+    # grant, so this only bites when the owner turned "allow read" off (#209).
+    if not mochi.access.check(subscriber_id, "repository/" + repo_id, "read"):
+        return
+
     # Add to subscribers table
     now = mochi.time.now()
     mochi.db.execute("""
@@ -1528,7 +1578,14 @@ def event_update(e):
         incoming = int(incoming)
     else:
         incoming = 0
-    if incoming and repo["updated"] and incoming <= repo["updated"]:
+    # The updated column is declared text, so coerce the stored side too -
+    # int <= string is a runtime error in Starlark.
+    stored = str(repo["updated"] or "0")
+    if mochi.text.valid(stored, "integer"):
+        stored = int(stored)
+    else:
+        stored = 0
+    if incoming and stored and incoming <= stored:
         return
 
     updates = []

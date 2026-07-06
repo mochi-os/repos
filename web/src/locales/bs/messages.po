@@ -162,6 +162,10 @@ msgstr "Došlo je do greške"
 msgid "An unexpected error occurred"
 msgstr "Došlo je do neočekivane greške"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Svako kome date pristup može se pretplatiti pomoću ove veze."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Jeste li sigurni da se želite odjaviti? Morat ćete se ponovo prijaviti za pristup vašem računu."
@@ -243,7 +247,7 @@ msgstr "Grane"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Prikazuje mobilnu bočnu traku."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Gotovo"
 
@@ -735,6 +740,10 @@ msgstr "Dodavanje računa nije uspjelo"
 msgid "Failed to create branch"
 msgstr "Kreiranje grane nije uspjelo"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Kreiranje veze nije uspjelo"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Kreiranje repozitorija nije uspjelo"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Postavljanje nivoa pristupa nije uspjelo"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Pretplata nije uspjela"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Datoteke"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Pronađi repozitorije"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Iz teme"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Od: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Slijeva nadesno"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Svijetla"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Veza"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Nema javnih repozitorija."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Nema pronađenih repozitorija"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Samo za čitanje"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Preporučeno"
 
@@ -1414,6 +1427,10 @@ msgstr "Repozitorij obrisan"
 msgid "Repository ID is required"
 msgstr "ID repozitorija je obavezan"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Veza repozitorija"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Ime repozitorija je obavezno"
@@ -1471,7 +1488,7 @@ msgstr "Sačuvajte ovaj token sigurno. Nećete moći ponovo da ga vidite."
 msgid "Saving settings..."
 msgstr "Spremanje postavki..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Pretraži po imenu, ID-u, otisku ili URL-u..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Pretraži..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Pretraživanje..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Pretplati se"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Pretplaćeno"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Pretplaćivanje..."
@@ -1734,7 +1751,7 @@ msgstr "Ovo će trajno obrisati \"{currentName}\" i sve njegove commitove, grane
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Ovo će trajno obrisati ovaj token. Svi git klijenti koji ga koriste više se neće moći autentifikovati."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Ovo će ukloniti \"{name}\" s vaše liste repozitorija. Možete se pretplatiti ponovo kasnije."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Putovanje"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Pokušaj prilagoditi termine pretrage"
 
@@ -1845,8 +1862,8 @@ msgstr "Neovlašteni pristup"
 msgid "United States"
 msgstr "Sjedinjene Države"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Sjedinjene Države"
 msgid "Unsubscribe"
 msgstr "Otkaži pretplatu"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Otkazati pretplatu na repozitorij?"
@@ -1864,12 +1881,12 @@ msgstr "Otkazati pretplatu na repozitorij?"
 msgid "Unsubscribed"
 msgstr "Pretplata otkazana"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Pretplata na repozitorij otkazana"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

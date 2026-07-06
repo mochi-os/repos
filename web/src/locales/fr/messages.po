@@ -162,6 +162,10 @@ msgstr "Une erreur s'est produite"
 msgid "An unexpected error occurred"
 msgstr "Une erreur inattendue s'est produite"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Toute personne à qui vous donnez accès peut s'abonner avec ce lien."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Voulez-vous vraiment vous déconnecter ? Vous devrez vous reconnecter pour accéder à votre compte."
@@ -243,7 +247,7 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Affiche la barre latérale mobile."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Terminé"
 
@@ -735,6 +740,10 @@ msgstr "Échec de l'ajout du compte"
 msgid "Failed to create branch"
 msgstr "Échec de la création de la branche"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Échec de la création du lien"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Échec de la création du dépôt"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Échec de la définition du niveau d'accès"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Échec de l'abonnement"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Fichiers"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Trouver des dépôts"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Du thème"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Depuis : {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Gauche à droite"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Clair"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Lien"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Aucun dépôt public."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Aucun dépôt trouvé"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Lecture seule"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Recommandé"
 
@@ -1414,6 +1427,10 @@ msgstr "Dépôt supprimé"
 msgid "Repository ID is required"
 msgstr "L'identifiant du dépôt est requis"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Lien du dépôt"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Le nom du dépôt est requis"
@@ -1471,7 +1488,7 @@ msgstr "Enregistrez ce jeton en lieu sûr. Vous ne pourrez plus le revoir."
 msgid "Saving settings..."
 msgstr "Enregistrement des paramètres..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Rechercher par nom, ID, empreinte ou URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Rechercher…"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Recherche..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "S'abonner"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Abonné"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Abonnement..."
@@ -1734,7 +1751,7 @@ msgstr "Ceci supprimera définitivement « {currentName} » et tous ses commits,
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Cela supprimera définitivement ce jeton. Les clients git qui l'utilisent ne pourront plus s'authentifier."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Ceci retirera « {name} » de votre liste de dépôts. Vous pourrez vous réabonner plus tard."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "En déplacement"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Essayez d'ajuster vos termes de recherche"
 
@@ -1845,8 +1862,8 @@ msgstr "Accès non autorisé"
 msgid "United States"
 msgstr "États-Unis"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "États-Unis"
 msgid "Unsubscribe"
 msgstr "Se désabonner"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Se désabonner du dépôt ?"
@@ -1864,12 +1881,12 @@ msgstr "Se désabonner du dépôt ?"
 msgid "Unsubscribed"
 msgstr "Désabonné"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Désabonné du dépôt"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

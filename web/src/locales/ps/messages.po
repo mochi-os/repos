@@ -162,6 +162,10 @@ msgstr "یوه تېروتنه رامنځته شوه"
 msgid "An unexpected error occurred"
 msgstr "یوه ناڅاپي تېروتنه رامنځته شوه"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "هر څوک چې تاسو ورته لاسرسی ورکړئ کولی شي د دې لینک له لارې ګډون وکړي."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "ایا تاسو ډاډه یاست چې غواړئ وتل وکړئ؟ تاسو به اړتیا ولرئ بیا ننوځئ ترڅو خپل حساب ته لاسرسی ولرئ."
@@ -243,7 +247,7 @@ msgstr "څانګې"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "موبایل څنګې پټۍ ښیي."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "ترسره شو"
 
@@ -735,6 +740,10 @@ msgstr "د حساب اضافه کولو پاتې راغلل"
 msgid "Failed to create branch"
 msgstr "د څانګې جوړولو پاتې راغلل"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "د لینک جوړولو پاتې راغلل"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "د ریپوزیټوري جوړولو پاتې راغلل"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "د لاسرسي د کچې ټاکلو پاتې راغلل"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "د ګډون پاتې راغلل"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "فایلونه"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "ریپوزیټوریانه ومومئ"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "د ښکارندوی څخه"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "له: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "له کیڼ څخه ښي"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "روښانه"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "لینک"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "هیڅ عامه ذخیرې نشته."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "هیڅ ذخیرې ونه موندل شوې"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "یوازې لوستل"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "سپارښتل شوی"
 
@@ -1414,6 +1427,10 @@ msgstr "ذخیره حذف شوه"
 msgid "Repository ID is required"
 msgstr "د ذخیرې ID اړین دی"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "د زېرمتون لینک"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "د ذخیرې نوم اړین دی"
@@ -1471,7 +1488,7 @@ msgstr "دا ټوکن په خوندي ډول خوندي کړئ. تاسو به ب
 msgid "Saving settings..."
 msgstr "د امستنو خوندي کول..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "د نوم، ID، فنګر پرنټ، یا URL له مخې وپلټئ..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "لټون..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "د لټون په حال کې..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "ګډون وکړئ"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "ګډون شوی"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "ګډون کیږي..."
@@ -1734,7 +1751,7 @@ msgstr "دا به \"{currentName}\" او ټول یې commitونه، څانګې،
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "دا به دا ټوکن دایمي ډول حذف کړي. هر هغه git مراجعین چې له دې کاروي به نور د تصدیق وړتیا ونه لري."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "دا به \"{name}\" له ستاسو د ذخیرو لیست څخه لرې کړي. تاسو وروسته بیا ګډون کولی شئ."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "په سفر کې"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "د خپل لټون اصطلاحات سمول هڅه وکړئ"
 
@@ -1845,8 +1862,8 @@ msgstr "غیر مجاز لاسرسی"
 msgid "United States"
 msgstr "متحده ایالات"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "متحده ایالات"
 msgid "Unsubscribe"
 msgstr "ګډون لغوه کول"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "د ذخیرې څخه ګډون لغوه کول؟"
@@ -1864,12 +1881,12 @@ msgstr "د ذخیرې څخه ګډون لغوه کول؟"
 msgid "Unsubscribed"
 msgstr "ګډون لغوه شو"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "د ذخیرې څخه ګډون لغوه شو"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

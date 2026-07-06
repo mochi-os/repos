@@ -162,6 +162,10 @@ msgstr "Ýalňyşlyk ýüze çykdy"
 msgid "An unexpected error occurred"
 msgstr "Garaşylmadyk ýalňyşlyk ýüze çykdy"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Rugsat beren islendik adamyňyz şu salgy bilen abuna ýazylyp biler."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Çykmak isleýärsiňizmi? Hasabyňyza girmek üçin täzeden girmeli bolarsyňyz."
@@ -243,7 +247,7 @@ msgstr "Şahalar"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Mobil gapdal paneli görkezýär."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Taýýar"
 
@@ -735,6 +740,10 @@ msgstr "Hasap goşulmady"
 msgid "Failed to create branch"
 msgstr "Şaha döredilmedi"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Baglanyşyk döredilmedi"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Ammar döredilmedi"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Rugsat derejesi düzülmedi"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Abuna bolunmady"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Faýllar"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Ammarlary tap"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Temadan"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Kimden: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Çepden saga"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Açyk"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Salgy"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Köpçülige açyk repozitoriýalar ýok."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Repozitoriýalar tapylmady"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Diňe oka"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Maslahat berilýän"
 
@@ -1414,6 +1427,10 @@ msgstr "Repozitoriýa pozuldy"
 msgid "Repository ID is required"
 msgstr "Repozitoriýa ID hökmandyr"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Ammar salgysy"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repozitoriýanyň ady hökmandyr"
@@ -1471,7 +1488,7 @@ msgstr "Bu tokeni howpsuz saklaýyş. Ony gaýtadan görüp bilmersiňiz."
 msgid "Saving settings..."
 msgstr "Sazlamalar saklanýar..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "At, ID, fingerprint ýa-da URL boýunça gözle..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Gözle..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Gözlenýär..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Abuna ýaz"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Abuna ýazyldy"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Abuna ýazylýar..."
@@ -1734,7 +1751,7 @@ msgstr "Bu \"{currentName}\" we ähli commit-lerini, şahalaryny we belliklerini
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Bu tokeni hemişelik pozar. Ony ulanýan islendik git müşderileri autentifikasiýa edip bilmez."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Bu \"{name}\" ammar sanawyňdan aýrar. Soň gaýtadan abuna ýazylyp bilersiň."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Sapar"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Gözleg sözleriňi düzelt"
 
@@ -1845,8 +1862,8 @@ msgstr "Rugsatsyz giriş"
 msgid "United States"
 msgstr "Birleşen Ştatlar"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Birleşen Ştatlar"
 msgid "Unsubscribe"
 msgstr "Abunadan çyk"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Ammardan abuna ýazylyşygy ýatyrylsynmy?"
@@ -1864,12 +1881,12 @@ msgstr "Ammardan abuna ýazylyşygy ýatyrylsynmy?"
 msgid "Unsubscribed"
 msgstr "Abuna ýazylyşygy ýatyryldy"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Ammardan abuna ýazylyşygy ýatyryldy"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

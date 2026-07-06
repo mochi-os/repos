@@ -143,7 +143,7 @@ export function useSubscribe() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (data: { repository: string; server?: string }) =>
+    mutationFn: (data: { repository: string; server?: string; peer?: string }) =>
       reposRequest.post<SubscribeResponse>(endpoints.repo.subscribe, data, { baseURL: appBasePath() }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })

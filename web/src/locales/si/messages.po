@@ -162,6 +162,10 @@ msgstr "දෝෂයක් සිදු විය"
 msgid "An unexpected error occurred"
 msgstr "අනපේක්ෂිත දෝෂයක් සිදු විය"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "ඔබ ප්‍රවේශය ලබා දෙන ඕනෑම කෙනෙකුට මෙම සබැඳිය සමඟ දායක විය හැක."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "ඔබට පිටවීමට අවශ්‍ය බව විශ්වාසද? ඔබේ ගිණුමට ප්‍රවේශ වීමට ඔබට නැවත පුරනය විය යුතුය."
@@ -243,7 +247,7 @@ msgstr "branches"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "ජංගම පැති තීරුව සංදර්ශනය ක�
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "නිමයි"
 
@@ -735,6 +740,10 @@ msgstr "ගිණුම එක් කිරීමට අසමත් විය"
 msgid "Failed to create branch"
 msgstr "ශාඛාවක් සෑදීමට අසමත් විය"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "සබැඳියක් සෑදීමට අසමත් විය"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "ගබඩාවක් සෑදීමට අසමත් විය"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "ප්‍රවේශ මට්ටම සැකසීමට අසමත් විය"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "දායක වීමට අසමත් විය"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "ගොනු"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "ගබඩා සොයන්න"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "තේමාවෙන්"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "සිට: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "වමේ සිට දකුණට"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "ලා"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "සබැඳිය"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "පොදු ගබඩා නැත."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "repositories හමු නොවීය"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "කියවීම පමණි"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "නිර්දේශිත"
 
@@ -1414,6 +1427,10 @@ msgstr "Repository මකන ලදී"
 msgid "Repository ID is required"
 msgstr "Repository ID අවශ්‍යයි"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "ගබඩා සබැඳිය"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repository නම අවශ්‍යයි"
@@ -1471,7 +1488,7 @@ msgstr "මෙම ටෝකනය ආරක්ෂිතව සුරකින්
 msgid "Saving settings..."
 msgstr "සැකසීම් සුරැකෙමින්..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "නම, ID, ඇඟිලි සලකුණ, හෝ URL අනුව සොයන්න..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "සොයන්න..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "සොයමින්..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "දායක වන්න"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "දායක වී ඇත"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "දායක වෙමින්..."
@@ -1734,7 +1751,7 @@ msgstr "මෙය \"{currentName}\" සහ එහි සියලුම commits,
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "මෙය ටෝකනය ස්ථිරවම මකා දමයි. එය භාවිතා කරන git සේවාදායකයන්ට තව සත්‍යාපනය කළ නොහැක."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "මෙය ඔබේ ගබඩා ලැයිස්තුවෙන් \"{name}\" ඉවත් කරනු ඇත. ඔබට පසුව නැවත දායක විය හැක."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "ගමන් කරමින්"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "ඔබේ සෙවුම් යෙදුම් සකස් කිරීම උත්සාහ කරන්න"
 
@@ -1845,8 +1862,8 @@ msgstr "අනවසර ප්‍රවේශය"
 msgid "United States"
 msgstr "එක්සත් ජනපදය"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "එක්සත් ජනපදය"
 msgid "Unsubscribe"
 msgstr "දායකත්වය ඉවත් කරන්න"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "ගබඩාවෙන් දායකත්වය ඉවත් කරන්නද?"
@@ -1864,12 +1881,12 @@ msgstr "ගබඩාවෙන් දායකත්වය ඉවත් කරන
 msgid "Unsubscribed"
 msgstr "දායකත්වය ඉවත් කරන ලදී"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "ගබඩාවෙන් දායකත්වය ඉවත් කරන ලදී"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

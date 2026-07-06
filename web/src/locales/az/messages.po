@@ -162,6 +162,10 @@ msgstr "Xəta baş verdi"
 msgid "An unexpected error occurred"
 msgstr "Gözlənilməz xəta baş verdi"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Giriş verdiyiniz istənilən şəxs bu keçidlə abunə ola bilər."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Çıxmaq istədiyinizə əminsiniz? Hesabınıza giriş üçün yenidən daxil olmalı olacaqsınız."
@@ -243,7 +247,7 @@ msgstr "Budaqlar"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Mobil yan paneli göstərir."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Hazırdır"
 
@@ -735,6 +740,10 @@ msgstr "Hesab əlavə etmək alınmadı"
 msgid "Failed to create branch"
 msgstr "Budaq yaratmaq alınmadı"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Link yaratmaq alınmadı"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Repozitor yaratmaq alınmadı"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Giriş səviyyəsini təyin etmək alınmadı"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Abunə olmaq alınmadı"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Fayllar"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Repozitorları tap"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Mövzudan"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Kimdən: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Soldan sağa"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "İşıqlı"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Keçid"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Açıq repozitoriya yoxdur."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Repozitoriya tapılmadı"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Yalnız oxu"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Tövsiyə olunur"
 
@@ -1414,6 +1427,10 @@ msgstr "Repozitoriya silindi"
 msgid "Repository ID is required"
 msgstr "Repozitoriya ID-si tələb olunur"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Depo keçidi"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repozitoriya adı tələb olunur"
@@ -1471,7 +1488,7 @@ msgstr "Bu tokeni təhlükəsiz saxla. Onu yenidən görə bilməyəcəksiniz."
 msgid "Saving settings..."
 msgstr "Parametrlər saxlanılır..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Ad, ID, fingerprint və ya URL ilə axtar..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Axtar..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Axtarılır..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Abunə ol"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Abunə oldun"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Abunə olunur..."
@@ -1734,7 +1751,7 @@ msgstr "Bu \"{0}\" tokenini daimi olaraq siləcək. Bu tokendən istifadə edən
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Bu \"{0}\"-u yan panelinizdən siləcək və bu CRM üçün yeniləmələri dayandıracaq."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Bu \"{repoName}\"-i repozitoriya siyahınızdan siləcək. Sonra yenidən abunə ola bilərsiniz."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Fərqli axtarış termini və ya filtri sınayın."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Fərqli axtarış termini sınayın."
 
@@ -1845,8 +1862,8 @@ msgstr "Banı götür"
 msgid "United States"
 msgstr "Naməlum"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Naməlum"
 msgid "Unsubscribe"
 msgstr "CRM-dən abunəlikdən çıx"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Repozitoriyadan abunəlikdən çıxıldı"
@@ -1864,12 +1881,12 @@ msgstr "Repozitoriyadan abunəlikdən çıxıldı"
 msgid "Unsubscribed"
 msgstr "{feedName}-dən abunəlikdən çıxıldı"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Abunəlikdən çıxılır..."
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

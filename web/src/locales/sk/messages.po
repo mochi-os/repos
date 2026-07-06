@@ -162,6 +162,10 @@ msgstr "Vyskytla sa chyba"
 msgid "An unexpected error occurred"
 msgstr "Vyskytla sa neočakávaná chyba"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Ktokoľvek, komu udelíte prístup, sa môže prihlásiť pomocou tohto odkazu."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Naozaj sa chcete odhlásiť? Pre prístup k účtu sa budete musieť znova prihlásiť."
@@ -243,7 +247,7 @@ msgstr "Vetvy"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Zobrazí mobilný bočný panel."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Hotovo"
 
@@ -735,6 +740,10 @@ msgstr "Nepodarilo sa pridať účet"
 msgid "Failed to create branch"
 msgstr "Nepodarilo sa vytvoriť vetvu"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Nepodarilo sa vytvoriť odkaz"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Nepodarilo sa vytvoriť repozitár"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Nepodarilo sa nastaviť úroveň prístupu"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Nepodarilo sa prihlásiť na odber"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Súbory"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Nájsť repozitáre"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Z motívu"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Od: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Zľava doprava"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Svetlý"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Odkaz"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Žiadne verejné repozitáre."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Nenašli sa žiadne repozitáre"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Iba na čítanie"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Odporúčané"
 
@@ -1414,6 +1427,10 @@ msgstr "Repozitár odstránený"
 msgid "Repository ID is required"
 msgstr "ID repozitára je povinné"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Odkaz na repozitár"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Názov repozitára je povinný"
@@ -1471,7 +1488,7 @@ msgstr "Uložte si tento token bezpečne. Už ho neuvidíte."
 msgid "Saving settings..."
 msgstr "Ukladajú sa nastavenia..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Hľadať podľa názvu, ID, odtlačku alebo URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Hľadať..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Hľadám..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Prihlásiť na odber"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Prihlásený na odber"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Prihlasuje sa na odber..."
@@ -1734,7 +1751,7 @@ msgstr "Týmto sa natrvalo odstráni „{currentName}“ a všetky jeho commity,
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Týmto sa natrvalo odstráni tento token. Žiadni git klienti, ktorí ho používajú, sa už nebudú môcť autentifikovať."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Týmto sa odstráni „{name}“ z vášho zoznamu repozitárov. Môžete sa znova prihlásiť neskôr."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Cestujem"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Skúste upraviť hľadané výrazy"
 
@@ -1845,8 +1862,8 @@ msgstr "Neoprávnený prístup"
 msgid "United States"
 msgstr "Spojené štáty"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Spojené štáty"
 msgid "Unsubscribe"
 msgstr "Odhlásiť odber"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Odhlásiť odber repozitára?"
@@ -1864,12 +1881,12 @@ msgstr "Odhlásiť odber repozitára?"
 msgid "Unsubscribed"
 msgstr "Odber zrušený"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Odber repozitára zrušený"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

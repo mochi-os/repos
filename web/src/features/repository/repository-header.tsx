@@ -20,13 +20,26 @@ import {
   AlertDialogTitle,
   getErrorMessage,
   toastAction,
+  toast,
+  shellClipboardWrite,
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+  ResponsiveDialogDescription,
+  ResponsiveDialogFooter,
+  ResponsiveDialogHeader,
+  ResponsiveDialogTitle,
 } from '@mochi/web'
 import {
+  Check,
+  Copy,
   FolderGit2,
   Globe,
+  Link as LinkIcon,
   UserMinus,
 } from 'lucide-react'
 import { useUnsubscribe } from '@/hooks/use-repository'
+import { reposRequest, appBasePath } from '@/api/request'
+import endpoints from '@/api/endpoints'
 import { CloneDialog } from '@/components/clone-dialog'
 import { DownloadDropdown } from '@/components/download-dropdown'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
@@ -63,6 +76,35 @@ export function RepositoryHeader({
   const navigate = useNavigate()
   const unsubscribe = useUnsubscribe()
   const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
+  const [linkOpen, setLinkOpen] = useState(false)
+  const [shareLink, setShareLink] = useState('')
+  const [linkCopied, setLinkCopied] = useState(false)
+
+  const openLinkDialog = async () => {
+    setShareLink('')
+    setLinkCopied(false)
+    setLinkOpen(true)
+    try {
+      const response = await reposRequest.post<{ data?: { link: string }; link?: string }>(
+        endpoints.repo.share(fingerprint),
+        {},
+        { baseURL: appBasePath() }
+      )
+      setShareLink(response.data?.link ?? response.link ?? '')
+    } catch (error) {
+      setLinkOpen(false)
+      toast.error(getErrorMessage(error, t`Failed to create link`))
+    }
+  }
+
+  const copyShareLink = async () => {
+    if (!shareLink) return
+    const ok = await shellClipboardWrite(shareLink)
+    if (ok) {
+      setLinkCopied(true)
+      setTimeout(() => setLinkCopied(false), 2000)
+    }
+  }
 
   const tabs = useRepositoryTabs()
   const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
@@ -103,6 +145,12 @@ export function RepositoryHeader({
         </div>
         <div className="flex-1" />
         <CloneDialog repoPath={path} fingerprint={fingerprint} />
+        {isOwner && (
+          <Button variant="outline" size="sm" onClick={() => void openLinkDialog()}>
+            <LinkIcon className="h-4 w-4" />
+            <span className="hidden sm:inline"><Trans>Link</Trans></span>
+          </Button>
+        )}
         {showDownload && (
           <DownloadDropdown gitRef={currentRef || 'HEAD'} />
         )}
@@ -133,6 +181,25 @@ export function RepositoryHeader({
             </AlertDialog>
           </>
         )}
+        <ResponsiveDialog open={linkOpen} onOpenChange={setLinkOpen}>
+          <ResponsiveDialogContent>
+            <ResponsiveDialogHeader>
+              <ResponsiveDialogTitle><Trans>Repository link</Trans></ResponsiveDialogTitle>
+              <ResponsiveDialogDescription>
+                <Trans>Anyone you give access to can subscribe with this link.</Trans>
+              </ResponsiveDialogDescription>
+            </ResponsiveDialogHeader>
+            <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
+              <code className="flex-1 break-all">{shareLink || '…'}</code>
+              <Button variant="ghost" size="sm" onClick={() => void copyShareLink()} disabled={!shareLink} className="shrink-0">
+                {linkCopied ? <Check className="size-4" /> : <Copy className="size-4" />}
+              </Button>
+            </div>
+            <ResponsiveDialogFooter>
+              <Button variant="outline" onClick={() => setLinkOpen(false)}><Trans>Done</Trans></Button>
+            </ResponsiveDialogFooter>
+          </ResponsiveDialogContent>
+        </ResponsiveDialog>
       </div>
 
       {description && (

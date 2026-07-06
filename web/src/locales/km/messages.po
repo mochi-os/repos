@@ -162,6 +162,10 @@ msgstr "មានកំហុសកើតឡើង"
 msgid "An unexpected error occurred"
 msgstr "មានកំហុសដែលមិនបានរំពឹងទុកកើតឡើង"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "អ្នកណាដែលអ្នកផ្តល់សិទ្ធិចូលប្រើ អាចជាវតាមរយៈតំណនេះបាន។"
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "តើអ្នកប្រាកដថាចង់ចាកចេញមែនទេ? អ្នកនឹងត្រូវចូលម្តងទៀតដើម្បីចូលប្រើគណនីរបស់អ្នក។"
@@ -243,7 +247,7 @@ msgstr "សាខា"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "បង្ហាញរបារចំហៀងទូរស័ព្ទ។
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "រួចរាល់"
 
@@ -735,6 +740,10 @@ msgstr "បរាជ័យក្នុងការបន្ថែមគណនី
 msgid "Failed to create branch"
 msgstr "បរាជ័យក្នុងការបង្កើតសាខា"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "បរាជ័យក្នុងការបង្កើតតំណ"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "បរាជ័យក្នុងការបង្កើតឃ្លាំង"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "បរាជ័យក្នុងការកំណត់កម្រិតចូលដំណើរការ"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "បរាជ័យក្នុងការជាវ"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "ឯកសារ"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "ស្វែងរកឃ្លាំង"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "ពីរូបរាង"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "ពី៖ {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "ឆ្វេងទៅស្ដាំ"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "ភ្លឺ"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "តំណ"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "មិនមានឃ្លាំងសាធារណៈ។"
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "រកមិនឃើញឃ្លាំង"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "អានតែប៉ុណ្ណោះ"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "បានណែនាំ"
 
@@ -1414,6 +1427,10 @@ msgstr "បានលុបឃ្លាំង"
 msgid "Repository ID is required"
 msgstr "តម្រូវឱ្យបញ្ចូល ID ឃ្លាំង"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "តំណឃ្លាំង"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "តម្រូវឱ្យបញ្ចូលឈ្មោះឃ្លាំង"
@@ -1471,7 +1488,7 @@ msgstr "រក្សាទុក token នេះដោយសុវត្ថិ�
 msgid "Saving settings..."
 msgstr "កំពុងរក្សាទុកការកំណត់..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "ស្វែងរកតាមឈ្មោះ ID ស្នាមម្រាមដៃ ឬ URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "ស្វែងរក..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "កំពុងស្វែងរក..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "ជាវ"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "បានជាវ"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "កំពុងជាវ..."
@@ -1734,7 +1751,7 @@ msgstr "នេះនឹងលុប \"{currentName}\" និង commits សា�
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "នេះនឹងលុបថូខឹននេះជាអចិន្ត្រៃយ៍។ កម្មវិធី git ណាមួយដែលប្រើវានឹងលែងអាចផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវបានទៀតទេ។"
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "នេះនឹងដក \"{name}\" ចេញពីបញ្ជីឃ្លាំងផ្ទុករបស់អ្នក។ អ្នកអាចជាវម្តងទៀតពេលក្រោយ។"
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "កំពុងធ្វើដំណើរ"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "សាកល្បងកែតម្រូវពាក្យស្វែងរករបស់អ្នក"
 
@@ -1845,8 +1862,8 @@ msgstr "ការចូលប្រើដោយគ្មានសិទ្ធិ
 msgid "United States"
 msgstr "សហរដ្ឋអាមេរិក"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "សហរដ្ឋអាមេរិក"
 msgid "Unsubscribe"
 msgstr "ឈប់ជាវ"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "ឈប់ជាវពីឃ្លាំងផ្ទុក?"
@@ -1864,12 +1881,12 @@ msgstr "ឈប់ជាវពីឃ្លាំងផ្ទុក?"
 msgid "Unsubscribed"
 msgstr "បានឈប់ជាវ"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "បានឈប់ជាវពីឃ្លាំងផ្ទុក"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

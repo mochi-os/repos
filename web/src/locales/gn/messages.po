@@ -162,6 +162,10 @@ msgstr "Oĩ peteĩ jejavy"
 msgid "An unexpected error occurred"
 msgstr "Oĩ peteĩ jejavy ñeha'ãrõ'ỹva"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Opavave rehe remeꞌẽva jeike ikatu oñemboja ko ñeꞌẽ rupive."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Añetehápe esẽse? Eñepyrũjeýta hag̃ua eike ne tetãyguápe."
@@ -243,7 +247,7 @@ msgstr "Ramakuéra"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Ohechauka mobile sidebar."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Apopyre"
 
@@ -735,6 +740,10 @@ msgstr "Ndaikatúi oñembojuaju cuenta"
 msgid "Failed to create branch"
 msgstr "Ndaikatúi oñembojuaju rama"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Ndaikatúi oñembojuaju link"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Ndaikatúi oñembojuaju repositorio"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Ndaikatúi oñemboheko acceso jeporavo"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Ndaikatúi oñesuscribi"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Archivos"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Eheka repositorios"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "Téma guive"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "{0}-gui:"
 
@@ -1000,6 +1009,10 @@ msgstr "Asu gotyo Akatúa peve"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Hesakã"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Ñeꞌẽ"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Ndaipóri repositorio público."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Ndojejuhúi repositorios"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Omoñe'ẽ año"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Ojeporavóva"
 
@@ -1414,6 +1427,10 @@ msgstr "Repositorio oñembogue"
 msgid "Repository ID is required"
 msgstr "Repositorio ID oñeikotevẽ"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Repositorio ñeꞌẽ"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Repositorio téra oñeikotevẽ"
@@ -1471,7 +1488,7 @@ msgstr "Eñongatu ko token sãsõme. Ndaikatumo'ãi rehecha jey."
 msgid "Saving settings..."
 msgstr "Oñeñongatuhína ñemboheko..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Eheka téra, ID, fingerprint, térã URL rupive..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Eheka..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Ohekahína..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Eñemboaty"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Mboatypyre"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Eñemboaty hína..."
@@ -1734,7 +1751,7 @@ msgstr "Kóva oguéta tapiarã \"{currentName}\" ha opa commits, branches ha tag
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Kóva oguéta tapiarã ko token. Mavevereveva git cliente oipuru ko token ndaikatumo'ãi authenticate."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Kóva oguéta \"{name}\" ne repositorio listagui. Ikatu eñemboaty jey upéi."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "Ojeguatáva"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Eha'ã embohekopyahu ne jeheka peha"
 
@@ -1845,8 +1862,8 @@ msgstr "Eike'ỹva Permiso'ỹre"
 msgid "United States"
 msgstr "Estados Unidos"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Estados Unidos"
 msgid "Unsubscribe"
 msgstr "Eñemboaty'ỹ"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Eñemboaty'ỹ repositorio-gui?"
@@ -1864,12 +1881,12 @@ msgstr "Eñemboaty'ỹ repositorio-gui?"
 msgid "Unsubscribed"
 msgstr "Oñemboaty'ỹ"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Oñemboaty'ỹ repositorio-gui"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

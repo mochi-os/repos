@@ -162,6 +162,10 @@ msgstr "Адбылася памылка"
 msgid "An unexpected error occurred"
 msgstr "Адбылася нечаканая памылка"
 
+#: src/features/repository/repository-header.tsx:189
+msgid "Anyone you give access to can subscribe with this link."
+msgstr "Любы, каму вы дасце доступ, можа падпісацца па гэтай спасылцы."
+
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Вы ўпэўнены, што хочаце выйсці? Вам трэба будзе ўвайсці зноў, каб атрымаць доступ да ўліковага запісу."
@@ -243,7 +247,7 @@ msgstr "Галіны"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:129
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -646,6 +650,7 @@ msgstr "Адлюстроўвае мабільную бакавую панэль.
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
+#: src/features/repository/repository-header.tsx:199
 msgid "Done"
 msgstr "Гатова"
 
@@ -735,6 +740,10 @@ msgstr "Не ўдалося дадаць акаўнт"
 msgid "Failed to create branch"
 msgstr "Не ўдалося стварыць галіну"
 
+#: src/features/repository/repository-header.tsx:96
+msgid "Failed to create link"
+msgstr "Не ўдалося стварыць спасылку"
+
 #: src/features/repository/create-repository-dialog.tsx:112
 msgid "Failed to create repository"
 msgstr "Не ўдалося стварыць рэпазіторый"
@@ -819,12 +828,12 @@ msgid "Failed to set access level"
 msgstr "Не ўдалося ўсталяваць узровень доступу"
 
 #: src/features/repository/inline-repo-search.tsx:77
-#: src/routes/_authenticated/find.tsx:60
+#: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:202
 msgid "Failed to subscribe"
 msgstr "Не ўдалося падпісацца"
 
-#: src/features/repository/repository-header.tsx:75
+#: src/features/repository/repository-header.tsx:117
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -858,7 +867,7 @@ msgid "Files"
 msgstr "Файлы"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:78
+#: src/routes/_authenticated/find.tsx:95
 msgid "Find repositories"
 msgstr "Знайсці рэпазіторыі"
 
@@ -896,7 +905,7 @@ msgid "From theme"
 msgstr "З тэмы"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:144
+#: src/features/repository/repository-header.tsx:211
 msgid "From: {0}"
 msgstr "Ад: {0}"
 
@@ -1000,6 +1009,10 @@ msgstr "Злева направа"
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Светлая"
+
+#: src/features/repository/repository-header.tsx:151
+msgid "Link"
+msgstr "Спасылка"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 msgid "Load more"
@@ -1153,7 +1166,7 @@ msgid "No public repositories."
 msgstr "Публічных рэпазітарыяў няма."
 
 #: src/features/repository/inline-repo-search.tsx:116
-#: src/routes/_authenticated/find.tsx:80
+#: src/routes/_authenticated/find.tsx:97
 msgid "No repositories found"
 msgstr "Рэпазітарыі не знойдзены"
 
@@ -1326,7 +1339,7 @@ msgid "Read only"
 msgstr "Толькі чытанне"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:194
+#: ../../../lib/web/src/components/search-entity-page.tsx:243
 msgid "Recommended"
 msgstr "Рэкамендуецца"
 
@@ -1414,6 +1427,10 @@ msgstr "Рэпазітарый выдалены"
 msgid "Repository ID is required"
 msgstr "ID рэпазітарыя абавязковы"
 
+#: src/features/repository/repository-header.tsx:187
+msgid "Repository link"
+msgstr "Спасылка на рэпазіторый"
+
 #: src/features/repository/repository-tabs.tsx:796
 msgid "Repository name is required"
 msgstr "Назва рэпазітарыя абавязковая"
@@ -1471,7 +1488,7 @@ msgstr "Захавайце гэты токен бяспечна. Вы больш
 msgid "Saving settings..."
 msgstr "Захаванне налад..."
 
-#: src/routes/_authenticated/find.tsx:79
+#: src/routes/_authenticated/find.tsx:96
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Пошук па імені, ID, адбітку або URL..."
 
@@ -1504,7 +1521,7 @@ msgid "Search..."
 msgstr "Пошук..."
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:152
+#: ../../../lib/web/src/components/search-entity-page.tsx:201
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "Пошук..."
@@ -1658,14 +1675,14 @@ msgid "Subscribe"
 msgstr "Падпісацца"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:100
-#: src/routes/_authenticated/find.tsx:59
+#: src/features/repository/repository-header.tsx:142
+#: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
 msgstr "Падпісана"
 
 #: src/features/repository/inline-repo-search.tsx:75
-#: src/routes/_authenticated/find.tsx:58
+#: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:200
 msgid "Subscribing..."
 msgstr "Падпіска..."
@@ -1734,7 +1751,7 @@ msgstr "Гэта незваротна выдаліць «{currentName}» і ўс
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Гэта незваротна выдаліць гэты токен. Любыя git-кліенты, якія яго выкарыстоўваюць, больш не змогуць аўтэнтыфікавацца."
 
-#: src/features/repository/repository-header.tsx:125
+#: src/features/repository/repository-header.tsx:173
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Гэта выдаліць «{name}» з вашага спісу рэпазіторыяў. Вы можаце падпісацца зноў пазней."
 
@@ -1798,7 +1815,7 @@ msgid "Travelling"
 msgstr "У дарозе"
 
 #: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:168
+#: ../../../lib/web/src/components/search-entity-page.tsx:217
 msgid "Try adjusting your search terms"
 msgstr "Паспрабуйце наладзіць пошукавыя запыты"
 
@@ -1845,8 +1862,8 @@ msgstr "Несанкцыянаваны доступ"
 msgid "United States"
 msgstr "Злучаныя Штаты"
 
-#: src/features/repository/repository-header.tsx:118
-#: src/features/repository/repository-header.tsx:130
+#: src/features/repository/repository-header.tsx:166
+#: src/features/repository/repository-header.tsx:178
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1855,7 +1872,7 @@ msgstr "Злучаныя Штаты"
 msgid "Unsubscribe"
 msgstr "Адпісацца"
 
-#: src/features/repository/repository-header.tsx:123
+#: src/features/repository/repository-header.tsx:171
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Адпісацца ад рэпазіторыя?"
@@ -1864,12 +1881,12 @@ msgstr "Адпісацца ад рэпазіторыя?"
 msgid "Unsubscribed"
 msgstr "Адпісана"
 
-#: src/features/repository/repository-header.tsx:74
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Адпісана ад рэпазіторыя"
 
-#: src/features/repository/repository-header.tsx:73
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
