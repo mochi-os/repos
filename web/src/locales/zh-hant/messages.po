@@ -51,6 +51,10 @@ msgstr "絕對 (日期與時間)"
 msgid "Access"
 msgstr "存取"
 
+#: ../../../lib/web/src/features/errors/general-error.tsx:60
+msgid "Access denied"
+msgstr "拒絕存取"
+
 #: ../../../lib/web/src/features/errors/forbidden.tsx:16
 msgid "Access Forbidden"
 msgstr "禁止存取"
@@ -158,7 +162,7 @@ msgstr "允許任何人搜尋儲存庫"
 msgid "An error occurred"
 msgstr "發生錯誤"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:241
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:256
 msgid "An unexpected error occurred"
 msgstr "發生未預期的錯誤"
 
@@ -262,12 +266,12 @@ msgstr "取消"
 msgid "Cancel edit"
 msgstr "取消編輯"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:144
+#: ../../../lib/web/src/components/notification-category-button.tsx:143
 msgid "Category for this notification"
 msgstr "此通知的類別"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:125
-#: ../../../lib/web/src/components/notification-category-button.tsx:136
+#: ../../../lib/web/src/components/notification-category-button.tsx:124
+#: ../../../lib/web/src/components/notification-category-button.tsx:135
 msgid "Change notification category"
 msgstr "變更通知類別"
 
@@ -524,6 +528,10 @@ msgstr "深色"
 #: ../../../lib/web/src/components/profile-dropdown.tsx:123
 msgid "Dark mode"
 msgstr "深色模式"
+
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:240
+msgid "Data conflict"
+msgstr "資料衝突"
 
 #: src/routes/_authenticated/$repoId_.branches.tsx:277
 msgid "default"
@@ -843,7 +851,7 @@ msgstr "取消訂閱失敗"
 msgid "Failed to update access level"
 msgstr "更新存取層級失敗"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:112
+#: ../../../lib/web/src/components/notification-category-button.tsx:111
 msgid "Failed to update category"
 msgstr "更新類別失敗"
 
@@ -1104,7 +1112,8 @@ msgstr "名稱必須為 100 個字元或更少"
 msgid "Name:"
 msgstr "名稱:"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:288
+#: ../../../lib/web/src/features/errors/general-error.tsx:53
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:303
 msgid "Network error"
 msgstr "網路錯誤"
 
@@ -1188,7 +1197,7 @@ msgstr "找不到時區。"
 msgid "No tokens yet."
 msgstr "尚無權杖。"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:148
+#: ../../../lib/web/src/components/notification-category-button.tsx:147
 msgid "No topic record yet — try again after the next notification."
 msgstr "尚無主題記錄 — 請在下次通知後再試一次。"
 
@@ -1205,6 +1214,10 @@ msgstr "無"
 #: ../../../lib/web/src/lib/preference-utils.ts:134
 msgid "Normal"
 msgstr "標準"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:67
+msgid "Not found"
+msgstr "找不到"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:146
 msgid "Not set"
@@ -1295,13 +1308,23 @@ msgstr "路徑:"
 msgid "Permanently delete this repository and all its data"
 msgstr "永久刪除此儲存庫及其所有資料"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:289
+#: ../../../lib/web/src/features/errors/general-error.tsx:54
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:304
+#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "請檢查您的網際網路連線後再試一次。"
 
 #: src/components/clone-dialog.tsx:195
 msgid "Please enter a token name"
 msgstr "請輸入權杖名稱"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:83
+msgid "Please try again."
+msgstr "請再試一次。"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:75
+msgid "Please wait a moment and try again."
+msgstr "請稍候片刻，然後再試一次。"
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
@@ -1338,8 +1361,8 @@ msgstr "讀取和寫入"
 msgid "Read only"
 msgstr "唯讀"
 
-#: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:243
+#: ../../../lib/web/src/components/search-entity-dialog.tsx:216
+#: ../../../lib/web/src/components/search-entity-page.tsx:240
 msgid "Recommended"
 msgstr "推薦"
 
@@ -1520,8 +1543,8 @@ msgstr "搜尋使用者"
 msgid "Search..."
 msgstr "搜尋..."
 
-#: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:201
+#: ../../../lib/web/src/components/search-entity-dialog.tsx:174
+#: ../../../lib/web/src/components/search-entity-page.tsx:198
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "搜尋中..."
@@ -1583,8 +1606,8 @@ msgstr "傳送郵件"
 msgid "Serif"
 msgstr "襯線體"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:245
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:271
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:260
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:286
 msgid "Server error"
 msgstr "伺服器錯誤"
 
@@ -1593,9 +1616,9 @@ msgstr "伺服器錯誤"
 msgid "Server rules"
 msgstr "伺服器規則"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:209
-msgid "Session expired"
-msgstr "工作階段已過期"
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:210
+msgid "Session expired. Please log in again."
+msgstr "工作階段已過期，請重新登入。"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx:147
 msgid "Set origin and destination"
@@ -1729,6 +1752,10 @@ msgstr "該代碼不正確或已過期。"
 msgid "The branch shown when viewing the repository"
 msgstr "檢視儲存庫時顯示的分支"
 
+#: ../../../lib/web/src/features/errors/general-error.tsx:68
+msgid "The requested content could not be found."
+msgstr "找不到要求的內容。"
+
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
 msgstr "主題"
@@ -1806,6 +1833,10 @@ msgstr "權杖已刪除"
 msgid "Token name"
 msgstr "權杖名稱"
 
+#: ../../../lib/web/src/features/errors/general-error.tsx:74
+msgid "Too many requests"
+msgstr "要求次數過多"
+
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:45
 msgid "Top"
 msgstr "頂端"
@@ -1814,13 +1845,13 @@ msgstr "頂端"
 msgid "Travelling"
 msgstr "行進中"
 
-#: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:217
+#: ../../../lib/web/src/components/search-entity-dialog.tsx:190
+#: ../../../lib/web/src/components/search-entity-page.tsx:214
 msgid "Try adjusting your search terms"
 msgstr "請嘗試調整您的搜尋字詞"
 
-#: ../../../lib/web/src/features/errors/general-error.tsx:128
-#: ../../../lib/web/src/features/errors/general-error.tsx:168
+#: ../../../lib/web/src/features/errors/general-error.tsx:140
+#: ../../../lib/web/src/features/errors/general-error.tsx:180
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:19
 msgid "Try again"
 msgstr "重試"
@@ -1841,7 +1872,7 @@ msgstr "輸入以搜尋使用者"
 msgid "Type to search..."
 msgstr "輸入以搜尋..."
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:267
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:282
 msgid "Unable to connect to remote server"
 msgstr "無法連線至遠端伺服器"
 
@@ -1850,7 +1881,7 @@ msgstr "無法連線至遠端伺服器"
 msgid "Unable to redirect to login. Please try again."
 msgstr "無法重新導向至登入頁面。請重試。"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:156
+#: ../../../lib/web/src/components/notification-category-button.tsx:155
 msgid "Unassigned"
 msgstr "未指派"
 
@@ -1966,6 +1997,10 @@ msgstr "網站維護中!"
 #: ../../../lib/web/src/lib/preference-utils.ts:61
 msgid "Wednesday"
 msgstr "星期三"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:61
+msgid "You do not have access to this section."
+msgstr "您沒有存取此區段的權限。"
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

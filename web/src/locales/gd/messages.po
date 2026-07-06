@@ -51,6 +51,10 @@ msgstr "Iomlan (ceann-là agus àm)"
 msgid "Access"
 msgstr "Inntrigeadh"
 
+#: ../../../lib/web/src/features/errors/general-error.tsx:60
+msgid "Access denied"
+msgstr "Inntrigeadh air a dhiùltadh"
+
 #: ../../../lib/web/src/features/errors/forbidden.tsx:16
 msgid "Access Forbidden"
 msgstr "Inntrigeadh toirmisgte"
@@ -158,7 +162,7 @@ msgstr "Ceadaich do dhuine sam bith tasgadan a lorg"
 msgid "An error occurred"
 msgstr "Thachair mearachd"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:241
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:256
 msgid "An unexpected error occurred"
 msgstr "Thachair mearachd ris nach robh dùil"
 
@@ -262,12 +266,12 @@ msgstr "Sguir dheth"
 msgid "Cancel edit"
 msgstr "Sguir den deasachadh"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:144
+#: ../../../lib/web/src/components/notification-category-button.tsx:143
 msgid "Category for this notification"
 msgstr "Roinn airson a' bhratha seo"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:125
-#: ../../../lib/web/src/components/notification-category-button.tsx:136
+#: ../../../lib/web/src/components/notification-category-button.tsx:124
+#: ../../../lib/web/src/components/notification-category-button.tsx:135
 msgid "Change notification category"
 msgstr "Atharraich roinn nam brathan"
 
@@ -524,6 +528,10 @@ msgstr "Dorcha"
 #: ../../../lib/web/src/components/profile-dropdown.tsx:123
 msgid "Dark mode"
 msgstr "Modh dorcha"
+
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:240
+msgid "Data conflict"
+msgstr "Còmhstri dàta"
 
 #: src/routes/_authenticated/$repoId_.branches.tsx:277
 msgid "default"
@@ -843,7 +851,7 @@ msgstr "Cha b' urrainn dì-fho-sgrìobhadh"
 msgid "Failed to update access level"
 msgstr "Cha b' urrainn ìre an inntrigidh ùrachadh"
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:112
+#: ../../../lib/web/src/components/notification-category-button.tsx:111
 msgid "Failed to update category"
 msgstr "Cha b' urrainn an roinn-seòrsa ùrachadh"
 
@@ -1104,7 +1112,8 @@ msgstr "Feumaidh an t-ainm a bhith 100 caractaran no nas lugha"
 msgid "Name:"
 msgstr "Ainm:"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:288
+#: ../../../lib/web/src/features/errors/general-error.tsx:53
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:303
 msgid "Network error"
 msgstr "Mearachd lìonraidh"
 
@@ -1188,7 +1197,7 @@ msgstr "Cha deach roinn-tìde a lorg."
 msgid "No tokens yet."
 msgstr "Chan eil tokenan ann fhathast."
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:148
+#: ../../../lib/web/src/components/notification-category-button.tsx:147
 msgid "No topic record yet — try again after the next notification."
 msgstr "Chan eil clàradh cuspair ann fhathast — feuch a-rithist às dèidh an ath bhrath."
 
@@ -1205,6 +1214,10 @@ msgstr "Chan eil gin"
 #: ../../../lib/web/src/lib/preference-utils.ts:134
 msgid "Normal"
 msgstr "Àbhaisteach"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:67
+msgid "Not found"
+msgstr "Cha deach a lorg"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:146
 msgid "Not set"
@@ -1295,13 +1308,23 @@ msgstr "Slighe:"
 msgid "Permanently delete this repository and all its data"
 msgstr "Sguab às an tasgadan seo agus an dàta uile gu sìorraidh"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:289
+#: ../../../lib/web/src/features/errors/general-error.tsx:54
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:304
+#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "Thoir sùil air a' cheangal eadar-lìn agad agus feuch ris a-rithist."
 
 #: src/components/clone-dialog.tsx:195
 msgid "Please enter a token name"
 msgstr "Cuir a-steach ainm token"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:83
+msgid "Please try again."
+msgstr "Feuch ris a-rithist."
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:75
+msgid "Please wait a moment and try again."
+msgstr "Fuirich greiseag is feuch ris a-rithist."
 
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
@@ -1338,8 +1361,8 @@ msgstr "Leugh is sgrìobh"
 msgid "Read only"
 msgstr "Leughadh a-mhàin"
 
-#: ../../../lib/web/src/components/search-entity-dialog.tsx:219
-#: ../../../lib/web/src/components/search-entity-page.tsx:243
+#: ../../../lib/web/src/components/search-entity-dialog.tsx:216
+#: ../../../lib/web/src/components/search-entity-page.tsx:240
 msgid "Recommended"
 msgstr "Air a mholadh"
 
@@ -1520,8 +1543,8 @@ msgstr "Lorg cleachdaichean"
 msgid "Search..."
 msgstr "Lorg..."
 
-#: ../../../lib/web/src/components/search-entity-dialog.tsx:177
-#: ../../../lib/web/src/components/search-entity-page.tsx:201
+#: ../../../lib/web/src/components/search-entity-dialog.tsx:174
+#: ../../../lib/web/src/components/search-entity-page.tsx:198
 #: ../../../lib/web/src/features/access/access-dialog.tsx:202
 msgid "Searching..."
 msgstr "A' lorg..."
@@ -1583,8 +1606,8 @@ msgstr "Cuir post-d"
 msgid "Serif"
 msgstr "Serif"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:245
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:271
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:260
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:286
 msgid "Server error"
 msgstr "Mearachd frithealaiche"
 
@@ -1593,9 +1616,9 @@ msgstr "Mearachd frithealaiche"
 msgid "Server rules"
 msgstr "Riaghailtean an fhrithealaiche"
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:209
-msgid "Session expired"
-msgstr "Dh'fhalbh an ùine air an t-seisean"
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:210
+msgid "Session expired. Please log in again."
+msgstr "Dh'fhalbh an ùine air an t-seisean. Log a-steach a-rithist."
 
 #: ../../../lib/web/src/components/travelling-picker.tsx:147
 msgid "Set origin and destination"
@@ -1729,6 +1752,10 @@ msgstr "Tha an còd sin ceàrr no air a dhol à bann."
 msgid "The branch shown when viewing the repository"
 msgstr "Am meur a chithear nuair a tha thu a' coimhead air an tasglann"
 
+#: ../../../lib/web/src/features/errors/general-error.tsx:68
+msgid "The requested content could not be found."
+msgstr "Cha b' urrainn dhuinn an t-susbaint a chaidh iarraidh a lorg."
+
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
 msgstr "Ùrlar"
@@ -1806,6 +1833,10 @@ msgstr "Tòcan sguabte às"
 msgid "Token name"
 msgstr "Ainm an tòcain"
 
+#: ../../../lib/web/src/features/errors/general-error.tsx:74
+msgid "Too many requests"
+msgstr "Cus iarrtasan"
+
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:45
 msgid "Top"
 msgstr "Mullach"
@@ -1814,13 +1845,13 @@ msgstr "Mullach"
 msgid "Travelling"
 msgstr "A' siubhal"
 
-#: ../../../lib/web/src/components/search-entity-dialog.tsx:193
-#: ../../../lib/web/src/components/search-entity-page.tsx:217
+#: ../../../lib/web/src/components/search-entity-dialog.tsx:190
+#: ../../../lib/web/src/components/search-entity-page.tsx:214
 msgid "Try adjusting your search terms"
 msgstr "Feuch ri na teirmean luirg agad atharrachadh"
 
-#: ../../../lib/web/src/features/errors/general-error.tsx:128
-#: ../../../lib/web/src/features/errors/general-error.tsx:168
+#: ../../../lib/web/src/features/errors/general-error.tsx:140
+#: ../../../lib/web/src/features/errors/general-error.tsx:180
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:19
 msgid "Try again"
 msgstr "Feuch a-rithist"
@@ -1841,7 +1872,7 @@ msgstr "Sgrìobh airson cleachdaichean a lorg"
 msgid "Type to search..."
 msgstr "Sgrìobh airson lorg..."
 
-#: ../../../lib/web/src/lib/api-response-interceptors.ts:267
+#: ../../../lib/web/src/lib/api-response-interceptors.ts:282
 msgid "Unable to connect to remote server"
 msgstr "Cha ghabh ceangal ris an fhrithealaiche chèin"
 
@@ -1850,7 +1881,7 @@ msgstr "Cha ghabh ceangal ris an fhrithealaiche chèin"
 msgid "Unable to redirect to login. Please try again."
 msgstr "Cha b' urrainnear ath-stiùireadh dhan log-a-steach. Feuch a-rithist."
 
-#: ../../../lib/web/src/components/notification-category-button.tsx:156
+#: ../../../lib/web/src/components/notification-category-button.tsx:155
 msgid "Unassigned"
 msgstr "Gun shònrachadh"
 
@@ -1966,6 +1997,10 @@ msgstr "Tha an làrach-lìn fo obair-càraidh!"
 #: ../../../lib/web/src/lib/preference-utils.ts:61
 msgid "Wednesday"
 msgstr "Diciadain"
+
+#: ../../../lib/web/src/features/errors/general-error.tsx:61
+msgid "You do not have access to this section."
+msgstr "Chan eil cead-inntrigidh agad dhan earrann seo."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."
