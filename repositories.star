@@ -1925,20 +1925,39 @@ def notify_websocket(repo_id):
     if fp:
         mochi.websocket.write(fp, {"type": "repository/update", "repository": repo_id})
 
-# Broadcast metadata update to all subscribers
+# Broadcast metadata update to all subscribers via the durable broadcast log
+# (sequence + gap-detection live in core, matching feeds/forums/projects/crm).
+# A subscribed repository is a private entity on the subscriber's server, so
+# the core per-user directory carries the route - no app-level peer plumbing.
 def broadcast_update(repo):
-    subscribers = mochi.db.rows("select id from subscribers where repository = ?", repo["id"])
-    for sub in subscribers:
-        mochi.message.send(
-            headers(repo["id"], sub["id"], "update"),
-            {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"], "updated": repo.get("updated", 0)}
-        )
+    subscriber_ids = [s["id"] for s in mochi.db.rows("select id from subscribers where repository = ?", repo["id"])]
+    if not subscriber_ids:
+        return
+    mochi.broadcast.send(repo["id"], repo["id"], subscriber_ids, "repositories", "update",
+        {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"], "updated": repo.get("updated", 0)})
 
-# Broadcast deletion notification to all subscribers
+# Broadcast deletion notification to all subscribers via the broadcast log.
 def broadcast_deleted(repo):
-    subscribers = mochi.db.rows("select id from subscribers where repository = ?", repo["id"])
-    for sub in subscribers:
-        mochi.message.send(
-            headers(repo["id"], sub["id"], "deleted"),
-            {}
-        )
+    subscriber_ids = [s["id"] for s in mochi.db.rows("select id from subscribers where repository = ?", repo["id"])]
+    if not subscriber_ids:
+        return
+    mochi.broadcast.send(repo["id"], repo["id"], subscriber_ids, "repositories", "deleted", {})
+
+# error_broadcast_gap: core calls this when an unfillable broadcast gap was
+# skipped. Each "update" is a full metadata snapshot, so recovery is just a
+# fresh info fetch from the owner (peer=None resolves the private repo via the
+# learned user directory). Owners are the canonical source and never resync.
+def error_broadcast_gap(e):
+    row = mochi.db.row("select server from repositories where id=? and owner=0", e.entity)
+    if not row:
+        return
+    server = row["server"] or ""
+    peer = mochi.remote.peer(server) if server else None
+    response = mochi.remote.request(e.entity, "repositories", "info", {"repository": e.entity}, peer)
+    if not response or response.get("error"):
+        return
+    mochi.db.execute("update repositories set name=?, path=?, description=?, default_branch=?, updated=? where id=?",
+        response.get("name", ""), response.get("path", ""), response.get("description", ""),
+        response.get("default_branch", "main"), response.get("updated", mochi.time.now()), e.entity)
+    mochi.broadcast.touch(e.entity)
+    notify_websocket(e.entity)
