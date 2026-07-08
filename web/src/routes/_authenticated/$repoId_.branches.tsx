@@ -132,7 +132,6 @@ function BranchesPage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
-          showDownload={false}
         />
         {data.isAdmin && branches.length > 0 && (
           <div className="flex justify-end">

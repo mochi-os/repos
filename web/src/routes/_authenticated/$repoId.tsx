@@ -18,6 +18,7 @@ import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
 import { DownloadDropdown } from '@/components/download-dropdown'
+import { RepositoryLinkButton } from '@/components/repository-link-button'
 import { setLastRepo } from '@/hooks/use-repos-storage'
 import { useRepositoryWebsocket } from '@/hooks/use-repository-websocket'
 
@@ -77,9 +78,8 @@ function RepositoryPage() {
           </div>
           <div className="flex items-center gap-2">
             <CloneDialog repoPath={data.path || ''} fingerprint={data.repoId} />
-            {(tab ?? 'files') === 'files' && (
-              <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
-            )}
+            <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
+            <RepositoryLinkButton fingerprint={data.repoId} isOwner={data.isAdmin} />
             {data.remote && (
               <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
             )}

@@ -50,7 +50,6 @@ function TagsPage() {
           isOwner={data.isAdmin}
           isRemote={data.remote}
           server={data.server}
-          showDownload={false}
         />
         <TagsList
           repoId={data.repoId}

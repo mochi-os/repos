@@ -48,6 +48,19 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
     const search = async () => {
       setIsLoading(true)
       try {
+        // A pasted link (mochi://<peer>/<repo> or a web URL) resolves via probe -
+        // a directory search can't find a private/unlisted repo or match a URL.
+        if (/^(mochi:|https?:\/\/)/i.test(debouncedQuery)) {
+          const probe = await reposRequest.post<{ data?: SearchResult } & Partial<SearchResult>>(
+            endpoints.repo.probe, { url: debouncedQuery }, { baseURL: appBasePath() }
+          ).catch(() => null)
+          const data: Partial<SearchResult> = probe?.data ?? probe ?? {}
+          setResults(data.id
+            ? [{ id: data.id, name: data.name ?? '', fingerprint: data.fingerprint ?? '',
+                 server: data.server, peer: data.peer }]
+            : [])
+          return
+        }
         const response = await reposRequest.get<SearchResponse>(
           `${endpoints.repo.search}?search=${encodeURIComponent(debouncedQuery)}`,
           { baseURL: appBasePath() }
@@ -70,6 +83,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
         subscribe.mutateAsync({
           repository: repo.id,
           server: repo.server || undefined,
+          peer: repo.peer,
         }),
         {
           loading: t`Subscribing...`,

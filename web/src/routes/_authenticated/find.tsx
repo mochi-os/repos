@@ -8,7 +8,7 @@ import { useLingui } from '@lingui/react/macro'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { FolderGit2 } from 'lucide-react'
-import { FindEntityPage, toastAction, getErrorMessage, type MochiEntityUri } from '@mochi/web'
+import { FindEntityPage, toastAction, getErrorMessage } from '@mochi/web'
 import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
@@ -70,17 +70,16 @@ function FindRepositoriesPage() {
 
   // Resolve a pasted mochi:// share link to the repository's name via probe,
   // so the card shows the real repository rather than a raw entity id.
-  const resolveUri = useCallback(async (uri: MochiEntityUri) => {
-    if (!uri.peer) return null
-    type ProbeEntry = { id: string; name: string; fingerprint?: string; peer?: string }
+  const resolveUri = useCallback(async (url: string) => {
+    type ProbeEntry = { id: string; name: string; fingerprint?: string; server?: string; peer?: string }
     const response = await reposRequest.post<{ data?: ProbeEntry } & Partial<ProbeEntry>>(
       endpoints.repo.probe,
-      { url: `mochi://${uri.peer}/${uri.entity}` },
+      { url },
       { baseURL: appBasePath() }
     )
     const data: Partial<ProbeEntry> = response.data ?? response
     if (!data.id) return null
-    return { id: data.id, name: data.name ?? '', fingerprint: data.fingerprint, peer: data.peer || uri.peer }
+    return { id: data.id, name: data.name ?? '', fingerprint: data.fingerprint, location: data.server ?? '', peer: data.peer }
   }, [])
 
   return (

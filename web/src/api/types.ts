@@ -50,6 +50,8 @@ export interface SearchResult {
   name: string
   class?: string
   server?: string
+  /** owner's peer from a mochi:// share-link probe; subscribe pins the same peer. */
+  peer?: string
   remote?: boolean
   description?: string
 }
