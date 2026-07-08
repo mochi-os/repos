@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "Der opstod en fejl"
 msgid "An unexpected error occurred"
 msgstr "Der opstod en uventet fejl"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "Alle, du giver adgang, kan abonnere med dette link."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Er du sikker på, at du vil logge ud? Du skal logge ind igen for at få adgang til din konto."
@@ -251,7 +252,7 @@ msgstr "Grene"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "Viser mobil-sidebjælken."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "Færdig"
 
@@ -748,7 +749,7 @@ msgstr "Kunne ikke tilføje konto"
 msgid "Failed to create branch"
 msgstr "Kunne ikke oprette gren"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "Kunne ikke oprette link"
 
@@ -841,7 +842,7 @@ msgstr "Kunne ikke indstille adgangsniveau"
 msgid "Failed to subscribe"
 msgstr "Kunne ikke abonnere"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "Fra tema"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "Fra: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "Venstre mod højre"
 msgid "Light"
 msgstr "Lys"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "Link"
 
@@ -1310,7 +1311,6 @@ msgstr "Slet dette repository og alle dets data permanent"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "Tjek din internetforbindelse, og prøv igen."
 
@@ -1450,7 +1450,7 @@ msgstr "Repository slettet"
 msgid "Repository ID is required"
 msgstr "Repository-ID er påkrævet"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "Repositorie-link"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "Abonnér"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "Dette vil permanent slette \"{currentName}\" og alle dens commits, grene
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Dette vil permanent slette tokenet. Eventuelle git-klienter, der bruger det, vil ikke længere kunne godkendes."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Dette vil fjerne \"{name}\" fra din repositorieliste. Du kan abonnere igen senere."
 
@@ -1893,8 +1893,8 @@ msgstr "Uautoriseret adgang"
 msgid "United States"
 msgstr "USA"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "USA"
 msgid "Unsubscribe"
 msgstr "Afmeld"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Afmeld repositorie?"
@@ -1912,12 +1912,12 @@ msgstr "Afmeld repositorie?"
 msgid "Unsubscribed"
 msgstr "Afmeldt"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Afmeldt fra repositorie"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

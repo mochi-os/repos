@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "حدث خطأ"
 msgid "An unexpected error occurred"
 msgstr "حدث خطأ غير متوقع"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "يمكن لأي شخص تمنحه حق الوصول الاشتراك عبر هذا الرابط."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "هل أنت متأكد من تسجيل الخروج؟ ستحتاج إلى تسجيل الدخول مرة أخرى للوصول إلى حسابك."
@@ -251,7 +252,7 @@ msgstr "الفروع"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "يعرض الشريط الجانبي للهاتف."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "منتهٍ"
 
@@ -748,7 +749,7 @@ msgstr "فشل إضافة الحساب"
 msgid "Failed to create branch"
 msgstr "فشل إنشاء الفرع"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "فشل إنشاء الرابط"
 
@@ -841,7 +842,7 @@ msgstr "فشل تعيين مستوى الوصول"
 msgid "Failed to subscribe"
 msgstr "فشل الاشتراك"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "من السمة"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "من: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "من اليسار إلى اليمين"
 msgid "Light"
 msgstr "فاتح"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "رابط"
 
@@ -1310,7 +1311,6 @@ msgstr "حذف هذا المستودع وكل بياناته نهائياً"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى."
 
@@ -1450,7 +1450,7 @@ msgstr "تم حذف المستودع"
 msgid "Repository ID is required"
 msgstr "معرف المستودع مطلوب"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "رابط المستودع"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "اشتراك"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "سيؤدي هذا إلى حذف \"{currentName}\" وجميع التزا�
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "سيؤدي هذا إلى حذف الرمز نهائيًا. لن تتمكن أي عملاء git تستخدمه من المصادقة."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "سيؤدي هذا إلى إزالة \"{name}\" من قائمة المستودعات. يمكنك الاشتراك مرة أخرى لاحقًا."
 
@@ -1893,8 +1893,8 @@ msgstr "وصول غير مصرح"
 msgid "United States"
 msgstr "الولايات المتحدة"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "الولايات المتحدة"
 msgid "Unsubscribe"
 msgstr "إلغاء الاشتراك"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "إلغاء الاشتراك من المستودع؟"
@@ -1912,12 +1912,12 @@ msgstr "إلغاء الاشتراك من المستودع؟"
 msgid "Unsubscribed"
 msgstr "تم إلغاء الاشتراك"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "تم إلغاء الاشتراك من المستودع"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

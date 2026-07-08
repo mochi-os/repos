@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "Ката кетти"
 msgid "An unexpected error occurred"
 msgstr "Күтүлбөгөн ката кетти"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "Уруксат берген ар бир адам ушул шилтеме менен жазыла алат."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Чыгууну каалайсызбы? Аккаунтуңузга кайра кирүү керек болот."
@@ -251,7 +252,7 @@ msgstr "Бутактар"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "Мобилдик каптал тилкесин көрсөтөт."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "Бүттү"
 
@@ -748,7 +749,7 @@ msgstr "Эсеп кошуу ишке ашкан жок"
 msgid "Failed to create branch"
 msgstr "Бутак түзүү ишке ашкан жок"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "Шилтеме түзүү ишке ашкан жок"
 
@@ -841,7 +842,7 @@ msgstr "Жетишүү деңгээлин коюу ишке ашкан жок"
 msgid "Failed to subscribe"
 msgstr "Жазылуу ишке ашкан жок"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "Темадан"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "Кимден: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "Солдон оңго"
 msgid "Light"
 msgstr "Жарык"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "Шилтеме"
 
@@ -1310,7 +1311,6 @@ msgstr "Бул репозиторийди жана анын бардык маа�
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "Интернет байланышыңызды текшерип, кайра аракет кылыңыз."
 
@@ -1450,7 +1450,7 @@ msgstr "Репозиторий өчүрүлдү"
 msgid "Repository ID is required"
 msgstr "Репозиторий ID талап кылынат"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "Репозиторий шилтемеси"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "Жазылуу"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "Бул \"{currentName}\" жана анын бардык коммитте
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Бул токенди биротоло өчүрөт. Аны колдонгон git кардарлары аутентификация кыла албай калат."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Бул сиздин репозиторий тизмеңизден \"{name}\" дегенди алып салат. Кийин кайра жазылса болот."
 
@@ -1893,8 +1893,8 @@ msgstr "Уруксатсыз кирүү"
 msgid "United States"
 msgstr "Кошмо Штаттар"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "Кошмо Штаттар"
 msgid "Unsubscribe"
 msgstr "Жазылуудан баш тартуу"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Репозиторийден жазылуудан баш тартасызбы?"
@@ -1912,12 +1912,12 @@ msgstr "Репозиторийден жазылуудан баш тартасы�
 msgid "Unsubscribed"
 msgstr "Жазылуудан баш тартылды"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Репозиторийден жазылуудан баш тартылды"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

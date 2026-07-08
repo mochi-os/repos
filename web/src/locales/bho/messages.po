@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "एगो त्रुटि भइल"
 msgid "An unexpected error occurred"
 msgstr "एगो अप्रत्याशित त्रुटि भइल"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "जेकरा रउरा पहुँच देब ऊ ई लिंक से सदस्यता ले सकेला।"
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "का रउआ लॉग आउट करे चाहत बानी? आपन खाता तक पहुंचे खातिर रउआ के फिर लॉग इन करे के पड़ी।"
@@ -251,7 +252,7 @@ msgstr "Branch"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "मोबाइल साइडबार देखावेला।"
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "हो गइल"
 
@@ -748,7 +749,7 @@ msgstr "खाता जोड़े में विफल"
 msgid "Failed to create branch"
 msgstr "ब्रांच बनावे में विफल"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "लिंक बनावे में विफल"
 
@@ -841,7 +842,7 @@ msgstr "पहुँच स्तर सेट करे में विफल"
 msgid "Failed to subscribe"
 msgstr "सब्सक्राइब करे में विफल"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "थीम से"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "से: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "बायाँ से दहिने"
 msgid "Light"
 msgstr "हल्का"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "लिंक"
 
@@ -1310,7 +1311,6 @@ msgstr "ए रिपॉजिटरी आ ओकर सब डेटा के
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "कृपया आपन इंटरनेट कनेक्शन जाँचीं आ फेर से कोसिस करीं।"
 
@@ -1450,7 +1450,7 @@ msgstr "रिपॉजिटरी मिटावल गइल"
 msgid "Repository ID is required"
 msgstr "रिपॉजिटरी ID जरूरी बा"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "रिपॉजिटरी लिंक"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "सदस्यता लीं"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "ई \"{currentName}\" आ ओकर सब कमिट, शाखा, �
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ई टोकन के स्थायी रूप से हटा दी। एकर उपयोग करे वाला कवनो git क्लाइंट अब प्रमाणित ना कर पाई।"
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "ई \"{name}\" के आपके रिपॉजिटरी सूची से हटा दी। आप बाद में फेर से सदस्यता ले सकेनीं।"
 
@@ -1893,8 +1893,8 @@ msgstr "अनधिकृत पहुँच"
 msgid "United States"
 msgstr "संयुक्त राज्य अमेरिका"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "संयुक्त राज्य अमेरिका"
 msgid "Unsubscribe"
 msgstr "सदस्यता रद्द करीं"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "रिपॉजिटरी से सदस्यता रद्द करीं?"
@@ -1912,12 +1912,12 @@ msgstr "रिपॉजिटरी से सदस्यता रद्द �
 msgid "Unsubscribed"
 msgstr "सदस्यता रद्द भइल"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "रिपॉजिटरी से सदस्यता रद्द भइल"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

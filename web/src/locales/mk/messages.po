@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "Се појави грешка"
 msgid "An unexpected error occurred"
 msgstr "Се појави неочекувана грешка"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "Секој на кого ќе му дадете пристап може да се претплати со оваа врска."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Сигурен ли си дека сакаш да се одјавиш? Ќе треба повторно да се најавиш за да пристапиш до твојата сметка."
@@ -251,7 +252,7 @@ msgstr "Гранки"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "Ја прикажува мобилната странична лента
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "Готово"
 
@@ -748,7 +749,7 @@ msgstr "Неуспешно додавање на сметка"
 msgid "Failed to create branch"
 msgstr "Неуспешно креирање на гранка"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "Неуспешно креирање на врска"
 
@@ -841,7 +842,7 @@ msgstr "Неуспешно поставување на ниво на прист�
 msgid "Failed to subscribe"
 msgstr "Неуспешна претплата"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "Од темата"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "Од: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "Лево кон десно"
 msgid "Light"
 msgstr "Светло"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "Врска"
 
@@ -1310,7 +1311,6 @@ msgstr "Трајно избриши го ова складиште и сите �
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "Проверете ја вашата интернет-врска и обидете се повторно."
 
@@ -1450,7 +1450,7 @@ msgstr "Складиштето е избришано"
 msgid "Repository ID is required"
 msgstr "ID на складиштето е задолжителен"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "Врска на складиштето"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "Претплати се"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "Ова трајно ќе го избрише „{currentName}“ и си
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Ова трајно ќе го избрише овој токен. Сите git клиенти што го користат повеќе нема да можат да се автентифицираат."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Ова ќе го отстрани „{name}“ од вашата листа на складишта. Можете повторно да се претплатите подоцна."
 
@@ -1893,8 +1893,8 @@ msgstr "Неовластен пристап"
 msgid "United States"
 msgstr "Соединети Држави"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "Соединети Држави"
 msgid "Unsubscribe"
 msgstr "Откажи претплата"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Откажи претплата од складиште?"
@@ -1912,12 +1912,12 @@ msgstr "Откажи претплата од складиште?"
 msgid "Unsubscribed"
 msgstr "Претплатата е откажана"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Претплатата на складиштето е откажана"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

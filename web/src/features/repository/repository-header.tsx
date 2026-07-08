@@ -24,7 +24,6 @@ import {
   shellClipboardWrite,
   ResponsiveDialog,
   ResponsiveDialogContent,
-  ResponsiveDialogDescription,
   ResponsiveDialogFooter,
   ResponsiveDialogHeader,
   ResponsiveDialogTitle,
@@ -185,9 +184,6 @@ export function RepositoryHeader({
           <ResponsiveDialogContent>
             <ResponsiveDialogHeader>
               <ResponsiveDialogTitle><Trans>Repository link</Trans></ResponsiveDialogTitle>
-              <ResponsiveDialogDescription>
-                <Trans>Anyone you give access to can subscribe with this link.</Trans>
-              </ResponsiveDialogDescription>
             </ResponsiveDialogHeader>
             <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
               <code className="flex-1 break-all">{shareLink || '…'}</code>

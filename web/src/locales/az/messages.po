@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "Xəta baş verdi"
 msgid "An unexpected error occurred"
 msgstr "Gözlənilməz xəta baş verdi"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "Giriş verdiyiniz istənilən şəxs bu keçidlə abunə ola bilər."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Çıxmaq istədiyinizə əminsiniz? Hesabınıza giriş üçün yenidən daxil olmalı olacaqsınız."
@@ -251,7 +252,7 @@ msgstr "Budaqlar"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "Mobil yan paneli göstərir."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "Hazırdır"
 
@@ -748,7 +749,7 @@ msgstr "Hesab əlavə etmək alınmadı"
 msgid "Failed to create branch"
 msgstr "Budaq yaratmaq alınmadı"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "Link yaratmaq alınmadı"
 
@@ -841,7 +842,7 @@ msgstr "Giriş səviyyəsini təyin etmək alınmadı"
 msgid "Failed to subscribe"
 msgstr "Abunə olmaq alınmadı"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "Mövzudan"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "Kimdən: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "Soldan sağa"
 msgid "Light"
 msgstr "İşıqlı"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "Keçid"
 
@@ -1310,7 +1311,6 @@ msgstr "Bu repozitoriyanı və bütün məlumatlarını birdəfəlik silin"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "İnternet bağlantınızı yoxlayıb yenidən cəhd edin."
 
@@ -1450,7 +1450,7 @@ msgstr "Repozitoriya silindi"
 msgid "Repository ID is required"
 msgstr "Repozitoriya ID-si tələb olunur"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "Depo keçidi"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "Abunə ol"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "Bu \"{0}\" tokenini daimi olaraq siləcək. Bu tokendən istifadə edən
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Bu \"{0}\"-u yan panelinizdən siləcək və bu CRM üçün yeniləmələri dayandıracaq."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Bu \"{repoName}\"-i repozitoriya siyahınızdan siləcək. Sonra yenidən abunə ola bilərsiniz."
 
@@ -1893,8 +1893,8 @@ msgstr "Banı götür"
 msgid "United States"
 msgstr "Naməlum"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "Naməlum"
 msgid "Unsubscribe"
 msgstr "CRM-dən abunəlikdən çıx"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Repozitoriyadan abunəlikdən çıxıldı"
@@ -1912,12 +1912,12 @@ msgstr "Repozitoriyadan abunəlikdən çıxıldı"
 msgid "Unsubscribed"
 msgstr "{feedName}-dən abunəlikdən çıxıldı"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Abunəlikdən çıxılır..."
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

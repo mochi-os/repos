@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "பிழை ஏற்பட்டது"
 msgid "An unexpected error occurred"
 msgstr "எதிர்பாராத பிழை ஏற்பட்டது"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "நீங்கள் அணுகல் வழங்கும் எவரும் இந்த இணைப்பைப் பயன்படுத்தி குழுசேரலாம்."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "வெளியேற விரும்புகிறீர்களா? உங்கள் கணக்கை அணுக மீண்டும் உள்நுழைய வேண்டும்."
@@ -251,7 +252,7 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "மொபைல் பக்கப்பட்டியைக் கா�
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "முடிந்தது"
 
@@ -748,7 +749,7 @@ msgstr "கணக்கைச் சேர்க்க முடியவில�
 msgid "Failed to create branch"
 msgstr "பிராஞ்சை உருவாக்க முடியவில்லை"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "இணைப்பை உருவாக்க முடியவில்லை"
 
@@ -841,7 +842,7 @@ msgstr "அணுகல் நிலையை அமைக்க முடிய
 msgid "Failed to subscribe"
 msgstr "சந்தா செய்ய முடியவில்லை"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "தீமிலிருந்து"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "அனுப்புனர்: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "இடமிருந்து வலம்"
 msgid "Light"
 msgstr "லைட்"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "இணைப்பு"
 
@@ -1310,7 +1311,6 @@ msgstr "இந்த repository மற்றும் அதன் அனைத�
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "உங்கள் இணைய இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்."
 
@@ -1450,7 +1450,7 @@ msgstr "Repository நீக்கப்பட்டது"
 msgid "Repository ID is required"
 msgstr "Repository ID தேவை"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "களஞ்சிய இணைப்பு"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "சந்தாதாராக"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "இது \"{currentName}\" மற்றும் அதன் அனை
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "இது இந்த டோக்கனை நிரந்தரமாக நீக்கும். இதைப் பயன்படுத்தும் எந்த git கிளையன்ட்களும் இனி அங்கீகரிக்க முடியாது."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "இது உங்கள் ரெபாசிட்டரி பட்டியலிலிருந்து \"{name}\"-ஐ நீக்கும். நீங்கள் பின்னர் மீண்டும் சந்தாதாராகலாம்."
 
@@ -1893,8 +1893,8 @@ msgstr "அனுமதிக்கப்படாத அணுகல்"
 msgid "United States"
 msgstr "ஐக்கிய அமெரிக்கா"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "ஐக்கிய அமெரிக்கா"
 msgid "Unsubscribe"
 msgstr "சந்தா நீக்கு"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "ரெபாசிட்டரியிலிருந்து சந்தா நீக்க வேண்டுமா?"
@@ -1912,12 +1912,12 @@ msgstr "ரெபாசிட்டரியிலிருந்து சந�
 msgid "Unsubscribed"
 msgstr "சந்தா நீக்கப்பட்டது"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "ரெபாசிட்டரியிலிருந்து சந்தா நீக்கப்பட்டது"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

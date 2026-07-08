@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "មានកំហុសកើតឡើង"
 msgid "An unexpected error occurred"
 msgstr "មានកំហុសដែលមិនបានរំពឹងទុកកើតឡើង"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "អ្នកណាដែលអ្នកផ្តល់សិទ្ធិចូលប្រើ អាចជាវតាមរយៈតំណនេះបាន។"
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "តើអ្នកប្រាកដថាចង់ចាកចេញមែនទេ? អ្នកនឹងត្រូវចូលម្តងទៀតដើម្បីចូលប្រើគណនីរបស់អ្នក។"
@@ -251,7 +252,7 @@ msgstr "សាខា"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "បង្ហាញរបារចំហៀងទូរស័ព្ទ។
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "រួចរាល់"
 
@@ -748,7 +749,7 @@ msgstr "បរាជ័យក្នុងការបន្ថែមគណនី
 msgid "Failed to create branch"
 msgstr "បរាជ័យក្នុងការបង្កើតសាខា"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "បរាជ័យក្នុងការបង្កើតតំណ"
 
@@ -841,7 +842,7 @@ msgstr "បរាជ័យក្នុងការកំណត់កម្រិ
 msgid "Failed to subscribe"
 msgstr "បរាជ័យក្នុងការជាវ"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "ពីរូបរាង"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "ពី៖ {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "ឆ្វេងទៅស្ដាំ"
 msgid "Light"
 msgstr "ភ្លឺ"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "តំណ"
 
@@ -1310,7 +1311,6 @@ msgstr "លុបឃ្លាំងនេះ និងទិន្នន័យ�
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក រួចព្យាយាមម្តងទៀត។"
 
@@ -1450,7 +1450,7 @@ msgstr "បានលុបឃ្លាំង"
 msgid "Repository ID is required"
 msgstr "តម្រូវឱ្យបញ្ចូល ID ឃ្លាំង"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "តំណឃ្លាំង"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "ជាវ"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "នេះនឹងលុប \"{currentName}\" និង commits សា�
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "នេះនឹងលុបថូខឹននេះជាអចិន្ត្រៃយ៍។ កម្មវិធី git ណាមួយដែលប្រើវានឹងលែងអាចផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវបានទៀតទេ។"
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "នេះនឹងដក \"{name}\" ចេញពីបញ្ជីឃ្លាំងផ្ទុករបស់អ្នក។ អ្នកអាចជាវម្តងទៀតពេលក្រោយ។"
 
@@ -1893,8 +1893,8 @@ msgstr "ការចូលប្រើដោយគ្មានសិទ្ធិ
 msgid "United States"
 msgstr "សហរដ្ឋអាមេរិក"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "សហរដ្ឋអាមេរិក"
 msgid "Unsubscribe"
 msgstr "ឈប់ជាវ"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "ឈប់ជាវពីឃ្លាំងផ្ទុក?"
@@ -1912,12 +1912,12 @@ msgstr "ឈប់ជាវពីឃ្លាំងផ្ទុក?"
 msgid "Unsubscribed"
 msgstr "បានឈប់ជាវ"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "បានឈប់ជាវពីឃ្លាំងផ្ទុក"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

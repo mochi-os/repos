@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "Tekkis viga"
 msgid "An unexpected error occurred"
 msgstr "Tekkis ootamatu viga"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "Igaüks, kellele annad juurdepääsu, saab selle lingiga tellida."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Kas oled kindel, et soovid välja logida? Konto kasutamiseks pead uuesti sisse logima."
@@ -251,7 +252,7 @@ msgstr "Harud"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "Kuvab mobiilse külgriba."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "Tehtud"
 
@@ -748,7 +749,7 @@ msgstr "Konto lisamine ebaõnnestus"
 msgid "Failed to create branch"
 msgstr "Haru loomine ebaõnnestus"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "Lingi loomine ebaõnnestus"
 
@@ -841,7 +842,7 @@ msgstr "Pääsutaseme määramine ebaõnnestus"
 msgid "Failed to subscribe"
 msgstr "Tellimine ebaõnnestus"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "Teemast"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "Saatja: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "Vasakult paremale"
 msgid "Light"
 msgstr "Hele"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "Link"
 
@@ -1310,7 +1311,6 @@ msgstr "Kustuta see repositoorium ja kõik selle andmed jäädavalt"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "Kontrolli internetiühendust ja proovi uuesti."
 
@@ -1450,7 +1450,7 @@ msgstr "Repositoorium kustutatud"
 msgid "Repository ID is required"
 msgstr "Repositooriumi ID on kohustuslik"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "Hoidla link"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "Telli"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "See kustutab jäädavalt \"{currentName}\" ja kõik selle commitid, haru
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "See kustutab jäädavalt selle loa. Seda kasutavad git-kliendid ei saa enam autentida."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "See eemaldab \"{name}\" sinu repositooriumide loendist. Saad uuesti tellida hiljem."
 
@@ -1893,8 +1893,8 @@ msgstr "Volitamata juurdepääs"
 msgid "United States"
 msgstr "Ameerika Ühendriigid"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "Ameerika Ühendriigid"
 msgid "Unsubscribe"
 msgstr "Tühista tellimus"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Tühistada repositooriumi tellimus?"
@@ -1912,12 +1912,12 @@ msgstr "Tühistada repositooriumi tellimus?"
 msgid "Unsubscribed"
 msgstr "Tellimus tühistatud"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Repositooriumi tellimus tühistatud"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."

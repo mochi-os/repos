@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: ../../../lib/web/src/lib/error-normalizer.ts:204
+msgid "Please check your internet connection and try again."
+msgstr ""
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -166,10 +171,6 @@ msgstr "Đã xảy ra lỗi"
 msgid "An unexpected error occurred"
 msgstr "Đã xảy ra lỗi không mong muốn"
 
-#: src/features/repository/repository-header.tsx:189
-msgid "Anyone you give access to can subscribe with this link."
-msgstr "Bất kỳ ai bạn cấp quyền truy cập đều có thể đăng ký bằng liên kết này."
-
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Bạn có chắc muốn đăng xuất? Bạn sẽ cần đăng nhập lại để truy cập tài khoản."
@@ -251,7 +252,7 @@ msgstr "Nhánh"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:89
 #: src/components/clone-dialog.tsx:429
-#: src/features/repository/repository-header.tsx:177
+#: src/features/repository/repository-header.tsx:176
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:590
 #: src/features/repository/repository-tabs.tsx:609
@@ -658,7 +659,7 @@ msgstr "Hiển thị thanh bên di động."
 
 #: src/components/clone-dialog.tsx:297
 #: src/components/clone-dialog.tsx:382
-#: src/features/repository/repository-header.tsx:199
+#: src/features/repository/repository-header.tsx:195
 msgid "Done"
 msgstr "Xong"
 
@@ -748,7 +749,7 @@ msgstr "Không thêm tài khoản được"
 msgid "Failed to create branch"
 msgstr "Không tạo nhánh được"
 
-#: src/features/repository/repository-header.tsx:96
+#: src/features/repository/repository-header.tsx:95
 msgid "Failed to create link"
 msgstr "Không tạo liên kết được"
 
@@ -841,7 +842,7 @@ msgstr "Không đặt mức truy cập được"
 msgid "Failed to subscribe"
 msgstr "Không đăng ký được"
 
-#: src/features/repository/repository-header.tsx:117
+#: src/features/repository/repository-header.tsx:116
 #: src/features/repository/repository-tabs.tsx:197
 #: src/routes/_authenticated/index.tsx:373
 msgid "Failed to unsubscribe"
@@ -913,7 +914,7 @@ msgid "From theme"
 msgstr "Từ giao diện"
 
 #. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:211
+#: src/features/repository/repository-header.tsx:207
 msgid "From: {0}"
 msgstr "Từ: {0}"
 
@@ -1018,7 +1019,7 @@ msgstr "Trái sang phải"
 msgid "Light"
 msgstr "Sáng"
 
-#: src/features/repository/repository-header.tsx:151
+#: src/features/repository/repository-header.tsx:150
 msgid "Link"
 msgstr "Liên kết"
 
@@ -1310,7 +1311,6 @@ msgstr "Xoá vĩnh viễn kho lưu trữ này và toàn bộ dữ liệu của n
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:54
 #: ../../../lib/web/src/lib/api-response-interceptors.ts:304
-#: ../../../lib/web/src/lib/error-normalizer.ts:201
 msgid "Please check your internet connection and try again."
 msgstr "Vui lòng kiểm tra kết nối internet và thử lại."
 
@@ -1450,7 +1450,7 @@ msgstr "Đã xoá kho lưu trữ"
 msgid "Repository ID is required"
 msgstr "ID kho lưu trữ là bắt buộc"
 
-#: src/features/repository/repository-header.tsx:187
+#: src/features/repository/repository-header.tsx:186
 msgid "Repository link"
 msgstr "Liên kết kho lưu trữ"
 
@@ -1698,7 +1698,7 @@ msgid "Subscribe"
 msgstr "Đăng ký"
 
 #: src/features/repository/inline-repo-search.tsx:76
-#: src/features/repository/repository-header.tsx:142
+#: src/features/repository/repository-header.tsx:141
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:201
 msgid "Subscribed"
@@ -1778,7 +1778,7 @@ msgstr "Thao tác này sẽ xóa vĩnh viễn \"{currentName}\" cùng toàn bộ
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Điều này sẽ xóa vĩnh viễn mã thông báo. Các client git sử dụng nó sẽ không thể xác thực nữa."
 
-#: src/features/repository/repository-header.tsx:173
+#: src/features/repository/repository-header.tsx:172
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Thao tác này sẽ xóa \"{name}\" khỏi danh sách kho lưu trữ của bạn. Bạn có thể đăng ký lại sau."
 
@@ -1893,8 +1893,8 @@ msgstr "Truy cập không được phép"
 msgid "United States"
 msgstr "Hoa Kỳ"
 
-#: src/features/repository/repository-header.tsx:166
-#: src/features/repository/repository-header.tsx:178
+#: src/features/repository/repository-header.tsx:165
+#: src/features/repository/repository-header.tsx:177
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:342
@@ -1903,7 +1903,7 @@ msgstr "Hoa Kỳ"
 msgid "Unsubscribe"
 msgstr "Hủy đăng ký"
 
-#: src/features/repository/repository-header.tsx:171
+#: src/features/repository/repository-header.tsx:170
 #: src/features/repository/repository-tabs.tsx:222
 msgid "Unsubscribe from repository?"
 msgstr "Hủy đăng ký kho lưu trữ?"
@@ -1912,12 +1912,12 @@ msgstr "Hủy đăng ký kho lưu trữ?"
 msgid "Unsubscribed"
 msgstr "Đã hủy đăng ký"
 
-#: src/features/repository/repository-header.tsx:116
+#: src/features/repository/repository-header.tsx:115
 #: src/features/repository/repository-tabs.tsx:196
 msgid "Unsubscribed from repository"
 msgstr "Đã hủy đăng ký kho lưu trữ"
 
-#: src/features/repository/repository-header.tsx:115
+#: src/features/repository/repository-header.tsx:114
 #: src/features/repository/repository-tabs.tsx:195
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
