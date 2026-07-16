@@ -4,6 +4,14 @@
 # This file is part of Mochi, licensed under the GNU AGPL v3 with the
 # Mochi Application Interface Exception - see license.txt and license-exception.md.
 
+def database_upgrade(version):
+    if version == 2:
+        # Drop the pre-2026-07 broadcast tables left in the app data DB when
+        # broadcast state moved to the per-app system DB - inert, but stale
+        # sequence/log copies mislead diagnosis.
+        for table in ["sequence", "log", "acknowledged", "received"]:
+            mochi.db.execute("drop table if exists " + table)
+
 # Database schema
 def database_create():
     mochi.db.execute("""
