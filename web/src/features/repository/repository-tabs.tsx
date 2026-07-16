@@ -1061,7 +1061,7 @@ function GeneralSettingsTab({
             </div>
           )}
           <span className="text-muted-foreground"><Trans>Entity:</Trans></span>
-          <DataChip value={repoId} truncate="middle" />
+          <DataChip value={repoId} truncate="none" />
           <span className="text-muted-foreground"><Trans>Fingerprint:</Trans></span>
           <DataChip value={fingerprint} truncate="middle" />
         </div>
