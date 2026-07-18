@@ -1921,6 +1921,13 @@ def error_message_timeout(e):
         return
     mochi.db.execute("delete from subscribers where id=?", e.entity)
 
+# error_subscriber_unreachable: core suspended this subscriber - every
+# delivery across the whole evict window failed with no contradicting
+# success - and asks us to drop them so fan-out stops paying for a dead
+# host. If they return, they re-subscribe.
+def error_subscriber_unreachable(e):
+    mochi.db.execute("delete from subscribers where id=?", e.entity)
+
 
 # notify_websocket: tell any locally-open repository UI that a subscribed repo
 # changed, so the web refreshes the moment a remote owner's metadata edit or
