@@ -4,6 +4,17 @@
 # This file is part of Mochi, licensed under the GNU AGPL v3 with the
 # Mochi Application Interface Exception - see license.txt and license-exception.md.
 
+# remote_error surfaces a failed mochi.remote.request: core-authored
+# transport failures (marked "transport") become a translated generic
+# error with the detail kept in the server log; far-end app answers
+# pass through unchanged.
+def remote_error(a, response, code=502):
+    if response.get("transport"):
+        mochi.log.info("Remote transport error: %s", response.get("error", ""))
+        a.error.label(response.get("code", code), "errors.remote")
+    else:
+        a.error(response.get("code", code), response.get("error", "Error"))
+
 def database_upgrade(version):
     if version == 2:
         # Drop the pre-2026-07 broadcast tables left in the app data DB when
@@ -1281,7 +1292,7 @@ def action_probe(a):
             return a.error.label(400, "errors.invalid_url_format")
         response = mochi.remote.request(link_repo, "repositories", "info", {"repository": link_repo}, link_peer)
         if response.get("error"):
-            return a.error(response.get("code", 404), response["error"])
+            return remote_error(a, response, 404)
         return {"data": {
             "id": link_repo,
             "name": response.get("name", ""),
@@ -1577,8 +1588,14 @@ def event_update(e):
     description = e.content("description")
     default_branch = e.content("default_branch")
 
-    # LWW gate: drop the event when its `updated` is no newer than our
-    # locally-stored repositories.updated for this repo. Older senders
+    # LWW gate: drop the event when its `updated` is OLDER than our
+    # locally-stored repositories.updated for this repo. Strictly older,
+    # not older-or-equal: repo metadata has exactly one writer (the
+    # owner), so an equal timestamp is a same-second successor, not a
+    # concurrent conflict - the subscribe-time snapshot stamps the
+    # owner's row.updated, and an owner edit in that same second must
+    # still apply (tie-DROPPING lost it permanently; the flow
+    # repositories-link-private flaked on exactly this). Older senders
     # without the field fall back to applying with local now, so this
     # is backwards-compatible.
     incoming = str(e.content("updated", "0"))
@@ -1593,7 +1610,7 @@ def event_update(e):
         stored = int(stored)
     else:
         stored = 0
-    if incoming and stored and incoming <= stored:
+    if incoming and stored and incoming < stored:
         return
 
     updates = []
