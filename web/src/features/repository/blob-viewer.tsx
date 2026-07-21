@@ -13,6 +13,8 @@ import {
   TooltipTrigger,
   TooltipContent,
   useFormat,
+  toast,
+  shellSaveBlob,
 } from '@mochi/web'
 import {
   File,
@@ -77,12 +79,11 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   const handleDownload = () => {
     if (data?.content) {
       const blob = new Blob([data.content], { type: 'text/plain' })
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = fileName
-      a.click()
-      URL.revokeObjectURL(url)
+      // A bare anchor-click save silently no-ops in the shell's sandboxed
+      // iframe; shellSaveBlob hands the blob to the parent shell to save.
+      void shellSaveBlob(blob, fileName).then((ok) => {
+        if (!ok) toast.error(t`Failed to download`)
+      })
     }
   }
 

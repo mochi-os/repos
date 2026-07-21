@@ -7,7 +7,7 @@
 // Computes API basepath fresh each request to handle both class and entity context
 
 import axios, { type AxiosRequestConfig } from 'axios'
-import { useAuthStore, isInShell, isDomainEntityRouting } from '@mochi/web'
+import { useAuthStore, isInShell, isDomainEntityRouting, shellSaveBlob } from '@mochi/web'
 
 // Known class-level routes that should not be treated as entity IDs
 const CLASS_ROUTES = ['new', 'settings']
@@ -189,20 +189,13 @@ export const reposRequest = {
     const cd = response.headers['content-disposition'] as string | undefined
     const match = cd?.match(/filename="?([^";]+)"?/)
     const filename = match?.[1] || fallbackFilename
-    const objectUrl = URL.createObjectURL(response.data as Blob)
-    const link = document.createElement('a')
-    link.href = objectUrl
-    link.download = filename
-    link.style.display = 'none'
-    document.body.appendChild(link)
-    link.click()
-    // Delay cleanup so Firefox has time to resolve the blob URL — revoking
-    // immediately races with the download and silently kills it for some
-    // formats.
-    setTimeout(() => {
-      document.body.removeChild(link)
-      URL.revokeObjectURL(objectUrl)
-    }, 1000)
+    // A bare anchor-click save silently no-ops in the shell's sandboxed
+    // iframe; shellSaveBlob hands the blob to the parent shell to save. The
+    // empty Error message makes normalizeError fall through to the caller's
+    // translated fallback.
+    if (!(await shellSaveBlob(response.data as Blob, filename))) {
+      throw new Error('')
+    }
   },
 }
 
