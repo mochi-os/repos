@@ -181,6 +181,14 @@ def action_info_entity(a):
     if not repo:
         return a.error.label(404, "errors.repository_not_found")
 
+    # This route is public, and an anonymous request runs in the repository
+    # owner's database context, so it needs its own gate: without one any
+    # anonymous caller who knew a fingerprint could read a private repository's
+    # name, path, description, default branch and privacy - for a locally-owned
+    # repository as well as a subscribed one, and for every user on the host.
+    if not check_read_access(a, repo["id"]):
+        return a.error.label(403, "errors.access_denied")
+
     # Check if this is a subscribed remote repository
     is_remote = repo.get("owner", 1) == 0
     server = repo.get("server", "")
@@ -996,24 +1004,41 @@ def action_archive(a):
     mochi.git.archive(repo["id"], sha, format, base)
     return None
 
-# Action: Open Graph meta tags
-def action_opengraph(a):
-    repo = get_repo(a)
-    if not repo:
-        return None
-
-    row = mochi.db.row("select * from repositories where id = ?", repo["id"])
-    if not row:
-        return None
-
-    title = row["name"]
-    description = row["description"] or mochi.app.label("opengraph.fallback.description")
-
-    return {
-        "title": title,
-        "description": description,
+# Open Graph meta tags.
+#
+# Core invokes an opengraph hook with a params DICT, not an action, and swallows
+# any error - so the previous action-shaped version (which called get_repo(a) ->
+# a.input) raised on every request and this app silently rendered no tags at
+# all. Repairing the signature without adding the gate below would have turned a
+# dead function into a live disclosure, because core runs opengraph as the
+# entity OWNER even for anonymous crawlers.
+def action_opengraph(params):
+    og = {
+        "title": mochi.app.label("app.name"),
+        "description": mochi.app.label("opengraph.fallback.description"),
         "type": "website",
     }
+
+    repo_id = params.get("entity", "") or params.get("repository", "")
+    if not repo_id:
+        return og
+
+    row = mochi.db.row("select * from repositories where id = ?", repo_id)
+    if not row:
+        return og
+
+    # Treat every request as untrusted: a private repository must leak nothing,
+    # not even its name. mochi.access.check(None, ...) consults the "*" grant
+    # alone, which action_create adds only when the repository is world
+    # readable. NOT check_read_access(), which needs an action and whose
+    # subscription short-circuit has no meaning without a caller identity.
+    if not mochi.access.check(None, "repository/" + row["id"], "read"):
+        return og
+
+    og["title"] = row["name"]
+    if row["description"]:
+        og["description"] = row["description"]
+    return og
 
 # Action: Search users (for access control UI)
 def action_users_search(a):
@@ -1140,15 +1165,23 @@ def service_merge(s, params=None):
 
 def check_read_access(a, repo_id):
     """Check if user has read access to repository"""
-    # For subscribed remote repositories (owner=0), grant read access automatically
+    # Pass None for anonymous users - "*" would be treated as a logged-in user
+    user_id = a.user.identity.id if a.user and a.user.identity else None
+
+    # For subscribed remote repositories (owner=0) the subscription IS the
+    # grant: the app database is per user, so any authenticated caller reaching
+    # this row is the subscriber. It must be a REAL authenticated caller. For an
+    # anonymous request to a public action core substitutes the entity owner as
+    # the effective user, so without the `user_id and` guard an anonymous
+    # stranger passed this check and the proxied refs/tree/blob/commit/archive
+    # actions then fetched over P2P stamped with the SUBSCRIBER's identity -
+    # the owner answered an authorised request and this server relayed private
+    # repository content to an unauthenticated caller.
     repo = mochi.db.row("select owner from repositories where id = ?", repo_id)
-    if repo and repo.get("owner", 1) == 0:
-        # Subscribed repository - user has read access by virtue of subscription
+    if user_id and repo and repo.get("owner", 1) == 0:
         return True
 
     # For local repositories, check access control
-    # Pass None for anonymous users - "*" would be treated as a logged-in user
-    user_id = a.user.identity.id if a.user and a.user.identity else None
     return mochi.access.check(user_id, "repository/" + repo_id, "read")
 
 def check_write_access(a, repo_id):
