@@ -1172,6 +1172,15 @@ def headers(from_id, to_id, event):
     return {"from": from_id, "to": to_id, "service": "repositories", "event": event}
 
 # Action: Get repository recommendations
+# Read the user's BCP 47 language tag, or "en" if unset / anonymous
+def user_language(a):
+    if not a.user:
+        return "en"
+    preference = a.user.preference.get("language")
+    if not preference:
+        return "en"
+    return str(preference).strip().lower()
+
 def action_recommendations(a):
     # Gather IDs of repositories the user already has (owned or subscribed)
     existing_ids = set()
@@ -1181,7 +1190,7 @@ def action_recommendations(a):
             existing_ids.add(r["id"])
 
     # Request recommendations from the recommendations service
-    s = mochi.remote.stream("1JYmMpQU7fxvTrwHpNpiwKCgUg3odWqX7s9t1cLswSMAro5M2P", "recommendations", "list", {"type": "repository", "language": "en"})
+    s = mochi.remote.stream("1JYmMpQU7fxvTrwHpNpiwKCgUg3odWqX7s9t1cLswSMAro5M2P", "recommendations", "list", {"type": "repository", "language": user_language(a)})
     if not s:
         return {"data": {"repositories": []}}
 
