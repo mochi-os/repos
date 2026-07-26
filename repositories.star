@@ -13,7 +13,8 @@ def remote_error(a, response, code=502):
         mochi.log.info("Remote transport error: %s", response.get("error", ""))
         a.error.label(response.get("code", code), "errors.remote")
     else:
-        a.error(response.get("code", code), response.get("error", "Error"))
+        # The remote sends a stable label key; localise it in the caller's language.
+        a.error.label(response.get("code", code), response.get("error", "errors.remote"))
 
 def database_upgrade(version):
     if version == 2:
@@ -1793,8 +1794,21 @@ def event_commits(e):
     if not ref:
         ref = repo.get("default_branch", "main")
 
+    # Pagination, forwarded by the subscriber as strings; same validation and
+    # cap as action_commits. Older subscribers send neither - default 50/0.
+    limit = 50
+    offset = 0
+    limit_str = str(e.content("limit", ""))
+    offset_str = str(e.content("offset", ""))
+    if limit_str.isdigit():
+        limit = int(limit_str)
+        if limit < 1 or limit > 1000:
+            limit = 50
+    if offset_str.isdigit():
+        offset = int(offset_str)
+
     # Get commits
-    commits = mochi.git.commit.list(repo_id, ref, 50, 0)
+    commits = mochi.git.commit.list(repo_id, ref, limit, offset)
     e.stream.write({"ref": ref, "commits": commits or []})
 
 # Handle P2P request for repository tree
@@ -1818,6 +1832,14 @@ def event_tree(e):
     if not ref:
         ref = repo.get("default_branch", "main")
     path = e.content("path", "")
+
+    # The subscriber has no ref list, so it splits the combined
+    # /tree/feature/login/src URL on the first slash and a slash-containing
+    # branch arrives as ref "feature", path "login/src". Recombine and resolve
+    # against the real refs, as the local path does: git forbids a ref and a
+    # ref directory sharing a name, so at most one prefix is a real ref and
+    # the resolution is unambiguous.
+    ref, path = resolve_ref(repo_id, ref + "/" + path if path else ref)
 
     # Get tree entries
     entries = mochi.git.tree(repo_id, ref, path)
@@ -1844,6 +1866,9 @@ def event_blob(e):
     if not ref:
         ref = repo.get("default_branch", "main")
     path = e.content("path", "")
+
+    # Same slash-containing-ref recombination as event_tree above.
+    ref, path = resolve_ref(repo_id, ref + "/" + path if path else ref)
 
     # Get blob metadata
     blob = mochi.git.blob.get(repo_id, ref, path)
