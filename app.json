@@ -106,14 +106,14 @@
 	},
 
 	"functions": {
-		"list": {"function": "service_list"},
-		"get": {"function": "service_get"},
-		"branches": {"function": "service_branches"},
-		"file": {"function": "service_file"},
-		"tree": {"function": "service_tree"},
-		"commits": {"function": "service_commits"},
-		"diff": {"function": "service_diff"},
-		"merge/check": {"function": "service_can_merge"},
-		"merge": {"function": "service_merge"}
+		"list": {"function": "service_list", "permission": "repositories/read"},
+		"get": {"function": "service_get", "permission": "repositories/read"},
+		"branches": {"function": "service_branches", "permission": "repositories/read"},
+		"file": {"function": "service_file", "permission": "repositories/read"},
+		"tree": {"function": "service_tree", "permission": "repositories/read"},
+		"commits": {"function": "service_commits", "permission": "repositories/read"},
+		"diff": {"function": "service_diff", "permission": "repositories/read"},
+		"merge/check": {"function": "service_can_merge", "permission": "repositories/read"},
+		"merge": {"function": "service_merge", "permission": "repositories/write"}
 	}
 }
