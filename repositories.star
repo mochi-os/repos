@@ -1094,13 +1094,16 @@ def action_token_delete(a):
 
 def service_list(s, params=None):
     """List repositories owned by current user"""
-    return mochi.db.rows("select id, name, description, default_branch from repositories")
-
-def service_get(s, params=None):
-    """Get repository details"""
-    p = params or s
-    repo_id = p.get("id", "")
-    return mochi.db.row("select * from repositories where id = ?", repo_id)
+    # Owned repositories only. The table also holds subscribed ones (owner=0),
+    # which are other people's repositories shared with this user - re-sharing
+    # those to whichever app holds repositories/read is not this user's call to
+    # make, and the owners never consented to it. They would be useless here in
+    # any case: a subscription has no local git storage, so every git-backed
+    # function below fails for one, and offering them to a caller advertises a
+    # choice that cannot be followed through. Serving remote repositories to
+    # other apps needs the is_remote branch the actions above have, routing
+    # through mochi.remote.request; until that exists this stays local-only.
+    return mochi.db.rows("select id, name, description, default_branch from repositories where owner = 1")
 
 def service_branches(s, params=None):
     """List branches for a repository"""
