@@ -668,7 +668,7 @@ def action_access_revoke(a):
     subject = a.input("subject")
 
     if not subject:
-        return a.error.label(400, "errors.subject_is_required")
+        return a.error.label(400, "errors.user_or_group_required")
 
     resource = "repository/" + repo["id"]
 
