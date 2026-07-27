@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "Athugaðu nettenginguna og reyndu aftur."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, one {# valið} other {# valin}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# skrá breyttist} other {# skrám breytt}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# lína} other {# línur}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} commit"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} merkti {1}"
@@ -49,6 +54,26 @@ msgstr "{0} merkti {1}"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} merki"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "Nafn {entityLabel}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, one {{entityName} valið} other {{manyName} valin}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, one {# {entityName} valið. Tækjastika magnaðgerða er tiltæk.} other {# {manyName} valin. Tækjastika magnaðgerða er tiltæk.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, one {# valin} other {# valin}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, one {Magnaðgerðir fyrir # valið {entityName}} other {Magnaðgerðir fyrir # valin {manyName}}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "Aðgangur bannaður"
 msgid "Access level"
 msgstr "Aðgangsstig"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "Aðgangsstig uppfært"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "Aðgangur fjarlægður"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "Aðgangur stilltur fyrir {subjectName}"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "Reikningur staðfestur"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "Bæta við"
 
@@ -185,7 +210,7 @@ msgstr "Óvænt villa kom upp"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ertu viss um að þú viljir skrá þig út? Þú þarft að skrá þig inn aftur til að komast að reikningnum þínum."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ertu viss um að þú viljir afskrá þig úr þessari geymslu?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Auðkennisnúmer"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "Til baka"
 
@@ -211,14 +236,14 @@ msgstr "Til baka"
 msgid "Back to commits"
 msgstr "Til baka í commits"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "Til baka á forsíðu"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "Tvíundarskrá ({0})"
 
@@ -227,27 +252,26 @@ msgstr "Tvíundarskrá ({0})"
 msgid "Boost interest"
 msgstr "Auka áhuga"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Greinin \"{name}\" búin til"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Greininni \"{name}\" eytt"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Greinarheiti"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Greinarheiti er áskilið"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "Greinar"
@@ -260,20 +284,20 @@ msgstr "Greinar"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "Hætta við"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "Hætta við breytingu"
 
@@ -286,7 +310,7 @@ msgstr "Flokkur fyrir þessa tilkynningu"
 msgid "Change notification category"
 msgstr "Breyta flokki tilkynningar"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "Breytingar"
 
@@ -324,36 +348,37 @@ msgstr "Hreinsa"
 msgid "Clear all"
 msgstr "Hreinsa allt"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "Hreinsa síur"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "Hreinsa val"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "Hreinsa val (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Klóna"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "Klóna geymslu"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "Loka"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "Loka leiðsögn"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit fannst ekki"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commits"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "Halda áfram með {label}"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "Afritað á klippiborðið"
 
@@ -440,13 +464,13 @@ msgstr "Afritað á klippiborðið"
 msgid "Copy"
 msgstr "Afrita"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "Afrita commit-SHA"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "Afrita innihald skráar"
 
@@ -466,12 +490,12 @@ msgstr "Ekki tókst að hefja endurauðkenningu. Reyndu aftur."
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Ekki tókst að staðfesta með þeim reikningi. Reyndu aftur."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Búa til"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "Búa til nýjan auðkennistóken."
 
@@ -479,8 +503,8 @@ msgstr "Búa til nýjan auðkennistóken."
 msgid "Create a new repository"
 msgstr "Búa til nýja geymslu"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "Búa til grein"
 msgid "Create repository"
 msgstr "Búa til geymslu"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "Búa til tókna"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "Búið til {0}"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Bý til grein..."
@@ -511,11 +535,11 @@ msgstr "Bý til grein..."
 msgid "Creating repository..."
 msgstr "Bý til geymslu..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "Bý til teikn..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Bý til..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "Sérsniðið"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "Dökkt"
@@ -541,7 +566,7 @@ msgstr "Dökkur hamur"
 msgid "Data conflict"
 msgstr "Gagnaárekstur"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "sjálfgefið"
@@ -554,48 +579,48 @@ msgstr "Sjálfgefið"
 msgid "Default AI account"
 msgstr "Sjálfgefinn gervigreindarreikningur"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "Sjálfgefin grein"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Eyða"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Eyða „{branchToDelete}“? Þessu er ekki hægt að afturkalla."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Eyða grein"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Eyða grein?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "Eyða geymslu"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "Eyða geymslu?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "Eyða tókna"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "Eyða tókna?"
 
@@ -603,20 +628,20 @@ msgstr "Eyða tókna?"
 msgid "Delete your account on the old server"
 msgstr "Eyddu reikningnum þínum á gamla þjóninum"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Eyði grein..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "Eyði geymslu..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "Eyði teikni..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Eyði..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "Lækkandi"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "Lýsing"
 
@@ -662,13 +687,13 @@ msgstr "Hafna"
 msgid "Displays the mobile sidebar."
 msgstr "Sýnir hliðarstiku farsíma."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "Lokið"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "Hlaða niður"
 msgid "Download failed"
 msgstr "Niðurhal mistókst"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "Sækja skrá"
 
@@ -688,7 +713,7 @@ msgstr "Sækja skrá"
 msgid "Dyslexia-friendly"
 msgstr "Lesblinduvænt"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "t.d. Vinnufartölvu"
 
@@ -696,11 +721,11 @@ msgstr "t.d. Vinnufartölvu"
 msgid "Edit {label}"
 msgstr "Breyta {label}"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "Breyta nafni"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "Breyta slóð"
 
@@ -708,12 +733,11 @@ msgstr "Breyta slóð"
 msgid "Email code"
 msgstr "Tölvupóstkóði"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "Tóm mappa"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "Tómt geymslusvæði"
 
@@ -725,7 +749,7 @@ msgstr "Sláðu inn kóðann úr tölvupóstinum þínum"
 msgid "Enter your authenticator code"
 msgstr "Sláðu inn auðkenniskóðann þinn"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "Eining:"
 
@@ -748,7 +772,7 @@ msgstr "Mjög stórt"
 msgid "Failed to add account"
 msgstr "Tókst ekki að bæta við reikningi"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Tókst ekki að búa til grein"
@@ -761,24 +785,24 @@ msgstr "Tókst ekki að búa til tengil"
 msgid "Failed to create repository"
 msgstr "Tókst ekki að búa til geymslusvæði"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "Tókst ekki að búa til tóka"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Tókst ekki að eyða grein"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "Tókst ekki að eyða geymslusvæði"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "Tókst ekki að eyða tóka"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "Tókst ekki að hlaða niður"
 
@@ -786,40 +810,47 @@ msgstr "Tókst ekki að hlaða niður"
 msgid "Failed to download archive"
 msgstr "Tókst ekki að hlaða niður safni"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "Tókst ekki að fá tóka"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "Tókst ekki að hlaða aðgangsreglum"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Tókst ekki að hlaða greinum"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "Tókst ekki að hlaða innsendingu"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Tókst ekki að hlaða innsendingum"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "Tókst ekki að hlaða skrám"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "Ekki tókst að hlaða mynd"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Tókst ekki að hlaða merkjum"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "Ekki tókst að hlaða myndskeið"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "Tókst ekki að fjarlægja aðgang"
 
@@ -827,12 +858,12 @@ msgstr "Tókst ekki að fjarlægja aðgang"
 msgid "Failed to remove account"
 msgstr "Tókst ekki að fjarlægja reikning"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "Tókst ekki að endurnefna geymslusvæði"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "Tókst ekki að vista stillingu"
 
@@ -840,7 +871,7 @@ msgstr "Tókst ekki að vista stillingu"
 msgid "Failed to send verification code"
 msgstr "Tókst ekki að senda staðfestingarkóða"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "Tókst ekki að stilla aðgangsstig"
 
@@ -852,11 +883,11 @@ msgstr "Tókst ekki að gerast áskrifandi"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "Tókst ekki að segja upp áskrift"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "Tókst ekki að uppfæra aðgangsstig"
 
@@ -864,11 +895,11 @@ msgstr "Tókst ekki að uppfæra aðgangsstig"
 msgid "Failed to update category"
 msgstr "Tókst ekki að uppfæra flokk"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "Tókst ekki að uppfæra slóð"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "Skrár"
 msgid "Find repositories"
 msgstr "Finna geymslusvæði"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "Fingrafar:"
 
@@ -931,29 +962,29 @@ msgstr "Frá: {0}"
 msgid "Full layout"
 msgstr "Full umgjörð"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "Til baka"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "Fara á fyrstu síðu"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "Fara á síðustu síðu"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "Fara á næstu síðu"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "Fara á síðu {pageNumber}"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "Fara á fyrri síðu"
 
@@ -980,9 +1011,14 @@ msgstr "Heim"
 msgid "Hot"
 msgstr "Heitt"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "Auðkenni"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "Myndaskoðari: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "Áhugaefni"
 msgid "Invalid verification code"
 msgstr "Ógildur staðfestingarkóði"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "Svo virðist sem síðan sem þú leitar að <0/>sé ekki til eða hafi verið fjarlægð."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "Stórt"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "Síðast notað {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "Vinstri til hægri"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Ljóst"
@@ -1042,8 +1083,8 @@ msgstr "Hleð inn efni…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "Hleð…"
+msgid "Loading..."
+msgstr "Hleð..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "Útskrái…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Aðeins lágstafir, tölur og bandstrik"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "Stjórna tóknum"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "Merkja allt sem lesið"
@@ -1099,8 +1140,8 @@ msgstr "Mæling"
 msgid "Monday"
 msgstr "Mánudagur"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "Fleiri aðgerðir"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "Nafn"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Nafn má ekki innihalda stafi < eða >"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Nafn má ekki vera lengra en 100 stafir"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "Nafn:"
 
@@ -1127,8 +1168,8 @@ msgstr "Nafn:"
 msgid "Network error"
 msgstr "Netvilla"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "Aldrei"
 
@@ -1136,17 +1177,17 @@ msgstr "Aldrei"
 msgid "New"
 msgstr "Nýtt"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Ný grein"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "Næsta mynd"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "Enginn aðgangur"
 
@@ -1154,12 +1195,12 @@ msgstr "Enginn aðgangur"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Engar aðgangsreglur stilltar. Bættu við reglum til að stjórna því hver getur fengið aðgang að þessari auðlind."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Engar greinar ennþá"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Engar færslur ennþá"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "Engar geymslur fundust"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "Engar niðurstöður fundust."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Engin merki ennþá"
@@ -1203,7 +1244,7 @@ msgstr "Engin merki ennþá"
 msgid "No time zone found."
 msgstr "Ekkert tímabelti fannst."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "Engin tókn ennþá."
 
@@ -1240,6 +1281,11 @@ msgstr "Ekki stillt"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "Tilkynningar"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "Tilkynningar: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "Annað"
 msgid "Owner"
 msgstr "Eigandi"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "Síða {currentPage} af {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "Foreldri:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "Foreldrar:"
 
@@ -1302,19 +1353,19 @@ msgstr "Aðgangslyklar"
 msgid "Path"
 msgstr "Slóð"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "Slóð er nauðsynleg"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "Slóð uppfærð"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "Slóð:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "Eyða þessari geymslu og öllum gögnum hennar varanlega"
 
@@ -1323,9 +1374,13 @@ msgstr "Eyða þessari geymslu og öllum gögnum hennar varanlega"
 msgid "Please check your internet connection and try again."
 msgstr "Athugaðu nettenginguna og reyndu aftur."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "Sláðu inn heiti tókns"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "Skráðu þig inn með viðeigandi auðkennum <0/> til að fá aðgang að þessu efni."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "Reyndu aftur."
 msgid "Please wait a moment and try again."
 msgstr "Bíddu aðeins og reyndu aftur."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "Fyrri mynd"
 
@@ -1362,11 +1417,11 @@ msgstr "Tengdu reikninga þína aftur á þessum þjóni"
 msgid "Re-register your passkeys on this server"
 msgstr "Skráðu aðgangslyklana þína aftur á þessum netþjóni"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "Lesa og skrifa"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "Aðeins lesa"
 
@@ -1406,6 +1461,11 @@ msgstr "Fjarlægja"
 msgid "Remove access rule"
 msgstr "Fjarlægja aðgangsreglu"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "Fjarlægja aðgangsreglu fyrir „{0}“?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "Fjarlægja aðgang?"
@@ -1415,11 +1475,11 @@ msgstr "Fjarlægja aðgang?"
 msgid "Remove interest"
 msgstr "Fjarlægja áhuga"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "Fjarlægi aðgang..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "Endurnefni geymslu..."
 
@@ -1450,7 +1510,7 @@ msgstr "Geymsla"
 msgid "Repository created"
 msgstr "Geymsla búin til"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "Geymslu eytt"
 
@@ -1463,7 +1523,7 @@ msgstr "Auðkenni hugbúnaðargeymslu er skylt"
 msgid "Repository link"
 msgstr "Tengill gagnageymslu"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "Heiti geymslu er nauðsynlegt"
 
@@ -1471,7 +1531,7 @@ msgstr "Heiti geymslu er nauðsynlegt"
 msgid "Repository not found"
 msgstr "Geymsla fannst ekki"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "Geymsla endurnefnd"
 
@@ -1492,7 +1552,7 @@ msgstr "Endurstilla allar stillingar á sjálfgefin gildi"
 msgid "Right to Left"
 msgstr "Hægri til vinstri"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "Raðir á síðu"
 
@@ -1502,21 +1562,21 @@ msgstr "Laugardagur"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "Vista"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Vistaðu þennan tóken núna. Þú getur ekki séð hann aftur."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Vistaðu þetta teikn á öruggan hátt. Þú munt ekki geta séð það aftur."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "Vista stillingar..."
 
@@ -1574,7 +1634,7 @@ msgstr "Veldu reikningstegund"
 msgid "Select branch"
 msgstr "Veldu grein"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "Veldu sjálfgefna grein"
 
@@ -1594,7 +1654,7 @@ msgstr "Veldu stíl hliðarstiku"
 msgid "Select site direction"
 msgstr "Veldu stefnu vefsvæðis"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Veldu upprunalega grein"
@@ -1603,7 +1663,16 @@ msgstr "Veldu upprunalega grein"
 msgid "Select theme preference"
 msgstr "Veldu þemastillingu"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "valin"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "Valið: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "Senda aftur"
 
@@ -1633,7 +1702,7 @@ msgstr "Setan er útrunnin. Skráðu þig aftur inn."
 msgid "Set origin and destination"
 msgstr "Stilltu upphafsstað og áfangastað"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "Stilli aðgang..."
 
@@ -1642,13 +1711,12 @@ msgstr "Stilli aðgang..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Stillingar"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "Stillingar vistaðar"
 
@@ -1684,7 +1752,7 @@ msgstr "Fara í aðalefni"
 msgid "Small"
 msgstr "Lítið"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Upprunagrein"
@@ -1701,8 +1769,8 @@ msgstr "En haltu áfram að fylgjast með!"
 msgid "Subject"
 msgstr "Efni"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "Gerast áskrifandi"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "Skipta um grein"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "Merki"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "Merki"
@@ -1757,13 +1825,17 @@ msgstr "Skilmálar og skilyrði"
 msgid "That code is incorrect or has expired."
 msgstr "Þessi kóði er rangur eða útrunninn."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "Greinin sem birtist þegar skoðað er í geymslunni"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "Umbeðið efni fannst ekki."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "Vefurinn er ekki tiltækur í augnablikinu."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "Þema"
 msgid "Theme Settings"
 msgstr "Þemastillingar"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "Þessi síða hefur ekki verið búin til enn."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Þessi síða krefst samhengis geymslu."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Þetta mun eyða „{currentName}“ og öllum commit-um, greinum og merkjum til frambúðar. Ekki er hægt að afturkalla þessa aðgerð."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Þetta eyðir tókeninum varanlega. Allir git-biðlarar sem nota hann munu ekki lengur geta auðkennst."
 
@@ -1798,6 +1874,10 @@ msgstr "Þetta mun fjarlægja „{repoName}“ úr geymslulistanum þínum. Þú
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "Fimmtudagur"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "Til"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "Skipta um hliðarstiku"
 msgid "Toggle theme"
 msgstr "Skipta um þema"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "Lykill búinn til"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "Teikni eytt"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "Nafn teikns"
 
@@ -1906,9 +1986,9 @@ msgstr "Bandaríkin"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "Afskrá áskrift"
 
@@ -1917,7 +1997,7 @@ msgstr "Afskrá áskrift"
 msgid "Unsubscribe from repository?"
 msgstr "Afskrá áskrift að geymslu?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "Áskrift afskráð"
 
@@ -1929,7 +2009,7 @@ msgstr "Áskrift að geymslu afskráð"
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "Afskrái áskrift..."
 
@@ -1937,11 +2017,11 @@ msgstr "Afskrái áskrift..."
 msgid "Unverified"
 msgstr "Óstaðfest"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "Uppfæri aðgang..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "Uppfæri slóð..."
 
@@ -1953,7 +2033,7 @@ msgstr "Notaðu aðgangslykilinn þinn"
 msgid "User"
 msgstr "Notandi"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "Sannprófunarkóði"
 
@@ -1967,7 +2047,7 @@ msgstr "Sannprófun mistókst"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "Sannprófa"
 
@@ -1979,6 +2059,11 @@ msgstr "Sannprófa netfang"
 msgid "Video thumbnail"
 msgstr "Smámynd myndbands"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "Myndskeiðaskoðari: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "Skoða"
@@ -1987,10 +2072,15 @@ msgstr "Skoða"
 msgid "View all"
 msgstr "Skoða allt"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "Skoða allar tilkynningar"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "Við sendum staðfestingarkóða á <0>{0}</0>. Sláðu inn kóðann hér að neðan til að staðfesta netfangið þitt."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "Miðvikudagur"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "Þú hefur ekki aðgang að þessum hluta."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "Þú hefur ekki nauðsynlega heimild <0/>til að skoða þetta efni."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

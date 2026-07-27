@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "Tanpri tcheke koneksyon entènèt ou epi eseye ankò."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, other {# chwazi}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# fichye chanje} other {# fichye chanje}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# liy} other {# liy}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} commits"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} tagye sou {1}"
@@ -49,6 +54,26 @@ msgstr "{0} tagye sou {1}"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} tags"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "Non {entityLabel}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, other {{manyName} chwazi}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, other {# {manyName} chwazi. Ba zouti aksyon an gwoup la disponib.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, other {# chwazi}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, other {Aksyon an gwoup pou # {manyName} chwazi}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "Aksè Entèdi"
 msgid "Access level"
 msgstr "Nivo aksè"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "Nivo aksè mete ajou"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "Aksè retire"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "Aksè defini pou {subjectName}"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "Kont verifye"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "Ajoute"
 
@@ -185,7 +210,7 @@ msgstr "Yon erè inatandi te rive"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Èske ou sèten ou vle dekonekte? Ou pral bezwen konekte ankò pou aksede kont ou."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Èske ou sèten ou vle dezabòne nan depo sa a?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Kòd otantifikatè"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "Retounen"
 
@@ -211,14 +236,14 @@ msgstr "Retounen"
 msgid "Back to commits"
 msgstr "Retounen nan commits"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "Tounen lakay"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "Fichye binè ({0})"
 
@@ -227,27 +252,26 @@ msgstr "Fichye binè ({0})"
 msgid "Boost interest"
 msgstr "Ogmante enterè"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Branch \"{name}\" kreye"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Branch \"{name}\" efase"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Non branch"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Non branch obligatwa"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "Branch yo"
@@ -260,20 +284,20 @@ msgstr "Branch yo"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "Anile"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "Anile chanjman"
 
@@ -286,7 +310,7 @@ msgstr "Kategori pou notifikasyon sa a"
 msgid "Change notification category"
 msgstr "Chanje kategori notifikasyon"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "Chanjman"
 
@@ -324,36 +348,37 @@ msgstr "Efase"
 msgid "Clear all"
 msgstr "Efase tout"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "Efase filtè"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "Efase seleksyon"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "Efase seleksyon (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Klone"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "Klone depo"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "Fèmen"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "Fèmen navigasyon"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit pa jwenn"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commits"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "Kontinye ak {label}"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "Kopye nan clipboard"
 
@@ -440,13 +464,13 @@ msgstr "Kopye nan clipboard"
 msgid "Copy"
 msgstr "Kopye"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "Kopye SHA commit la"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "Kopye kontni fichye a"
 
@@ -466,12 +490,12 @@ msgstr "Nou pa t kapab kòmanse re-otantifikasyon an. Tanpri eseye ankò."
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Nou pa t kapab verifye ak kont sa a. Tanpri eseye ankò."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Kreye"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "Kreye yon nouvo token otantifikasyon."
 
@@ -479,8 +503,8 @@ msgstr "Kreye yon nouvo token otantifikasyon."
 msgid "Create a new repository"
 msgstr "Kreye yon nouvo depo"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "Kreye branch"
 msgid "Create repository"
 msgstr "Kreye depo"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "Kreye token"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "Kreye {0}"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Ap kreye branch..."
@@ -511,11 +535,11 @@ msgstr "Ap kreye branch..."
 msgid "Creating repository..."
 msgstr "Ap kreye depo..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "Ap kreye token..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Ap kreye..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "Pèsonalize"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "Fonse"
@@ -541,7 +566,7 @@ msgstr "Mòd fonse"
 msgid "Data conflict"
 msgstr "Konfli done"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "defo"
@@ -554,48 +579,48 @@ msgstr "Defo"
 msgid "Default AI account"
 msgstr "Kont AI defo"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "Branch defo"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Efase"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Efase \"{branchToDelete}\"? Sa a pa ka anile."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Efase branch"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Efase branch?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "Efase depo"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "Efase depo?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "Efase token"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "Efase token?"
 
@@ -603,20 +628,20 @@ msgstr "Efase token?"
 msgid "Delete your account on the old server"
 msgstr "Efase kont ou sou ansyen sèvè a"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Ap efase branch..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "Ap efase depo..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "Ap efase token..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Ap efase..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "Desann"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "Deskripsyon"
 
@@ -662,13 +687,13 @@ msgstr "Rejte"
 msgid "Displays the mobile sidebar."
 msgstr "Afiche ba kote mobil la."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "Fini"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "Telechaje"
 msgid "Download failed"
 msgstr "Telechajman an echwe"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "Telechaje fichye"
 
@@ -688,7 +713,7 @@ msgstr "Telechaje fichye"
 msgid "Dyslexia-friendly"
 msgstr "Adapte pou disleksi"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "pa egzanp, Laptop travay"
 
@@ -696,11 +721,11 @@ msgstr "pa egzanp, Laptop travay"
 msgid "Edit {label}"
 msgstr "Modifye {label}"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "Modifye non"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "Modifye chemen"
 
@@ -708,12 +733,11 @@ msgstr "Modifye chemen"
 msgid "Email code"
 msgstr "Kòd imèl"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "Anyè vid"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "Depo vid"
 
@@ -725,7 +749,7 @@ msgstr "Antre kòd la ki nan imel ou"
 msgid "Enter your authenticator code"
 msgstr "Antre kòd otantifikatè ou"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "Antite:"
 
@@ -748,7 +772,7 @@ msgstr "Trè gwo"
 msgid "Failed to add account"
 msgstr "Echwe pou ajoute kont"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Echwe pou kreye branch"
@@ -761,24 +785,24 @@ msgstr "Echwe pou kreye lyen"
 msgid "Failed to create repository"
 msgstr "Echwe pou kreye depo"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "Echwe pou kreye token"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Echwe pou efase branch"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "Echwe pou efase depo"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "Echwe pou efase token"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "Echwe pou telechaje"
 
@@ -786,40 +810,47 @@ msgstr "Echwe pou telechaje"
 msgid "Failed to download archive"
 msgstr "Echwe pou telechaje achiv"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "Echwe pou jwenn token"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "Echwe pou chaje règ aksè"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Echwe pou chaje branch"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "Echwe pou chaje commit"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Echwe pou chaje commit yo"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "Echwe pou chaje fichye"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "Echèk chajman imaj la"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Echwe pou chaje tag"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "Echèk chajman videyo a"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "Echwe pou retire aksè"
 
@@ -827,12 +858,12 @@ msgstr "Echwe pou retire aksè"
 msgid "Failed to remove account"
 msgstr "Echwe pou retire kont"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "Echwe pou rebatize depo"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "Echwe pou sove paramèt"
 
@@ -840,7 +871,7 @@ msgstr "Echwe pou sove paramèt"
 msgid "Failed to send verification code"
 msgstr "Echwe pou voye kòd verifikasyon"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "Echwe pou mete nivo aksè"
 
@@ -852,11 +883,11 @@ msgstr "Echwe pou abòne"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "Echwe pou dezabòne"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "Echwe pou mete ajou nivo aksè"
 
@@ -864,11 +895,11 @@ msgstr "Echwe pou mete ajou nivo aksè"
 msgid "Failed to update category"
 msgstr "Echwe pou mete ajou kategori"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "Echwe pou mete ajou chemen"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "Fichye"
 msgid "Find repositories"
 msgstr "Jwenn depo"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "Anprent dijital:"
 
@@ -931,29 +962,29 @@ msgstr "Soti nan: {0}"
 msgid "Full layout"
 msgstr "Layout konplè"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "Retounen"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "Ale nan premye paj"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "Ale nan dènye paj"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "Ale nan paj swivan"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "Ale nan paj {pageNumber}"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "Ale nan paj anvan"
 
@@ -980,9 +1011,14 @@ msgstr "Akèy"
 msgid "Hot"
 msgstr "Cho"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "Idantite"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "Vizyonè imaj: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "Enterè"
 msgid "Invalid verification code"
 msgstr "Kòd verifikasyon envalid"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "Sanble paj w ap chèche a <0/>pa egziste oswa yo retire l."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "Gwo"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "Dènye itilize {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "Goch a Dwat"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Klè"
@@ -1042,8 +1083,8 @@ msgstr "Y ap chaje kontni…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "Ap chaje…"
+msgid "Loading..."
+msgstr "Ap chaje..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "Ap dekonekte…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Lèt minuskil, nimewo, ak tirè sèlman"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "Jere token"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "Make tout kòm li"
@@ -1099,8 +1140,8 @@ msgstr "Metrik"
 msgid "Monday"
 msgstr "Lendi"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "Plis aksyon"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "Non"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Non pa ka gen karaktè < oswa >"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Non dwe gen 100 karaktè oswa mwens"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "Non:"
 
@@ -1127,8 +1168,8 @@ msgstr "Non:"
 msgid "Network error"
 msgstr "Erè rezo"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "Janmen"
 
@@ -1136,17 +1177,17 @@ msgstr "Janmen"
 msgid "New"
 msgstr "Nouvo"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Nouvo branch"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "Pwochen imaj"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "Pa gen aksè"
 
@@ -1154,12 +1195,12 @@ msgstr "Pa gen aksè"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Pa gen règ aksè konfigire. Ajoute règ pou kontwole kiyès ki ka jwenn aksè nan resous sa a."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Poko gen branch"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Poko gen commit"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "Pa gen depo ki jwenn"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "Pa gen rezilta ki jwenn."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Poko gen tag"
@@ -1203,7 +1244,7 @@ msgstr "Poko gen tag"
 msgid "No time zone found."
 msgstr "Pa gen zòn lè ki jwenn."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "Poko gen tokenn."
 
@@ -1240,6 +1281,11 @@ msgstr "Pa defini"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "Notifikasyon"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "Notifikasyon: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "Lòt"
 msgid "Owner"
 msgstr "Pwopriyetè"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "Paj {currentPage} sou {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "Paran:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "Paran yo:"
 
@@ -1302,19 +1353,19 @@ msgstr "Paskey"
 msgid "Path"
 msgstr "Chemen"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "Chemen obligatwa"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "Chemen mete ajou"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "Chemen:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "Efase pèmanan depo sa a ak tout done li yo"
 
@@ -1323,9 +1374,13 @@ msgstr "Efase pèmanan depo sa a ak tout done li yo"
 msgid "Please check your internet connection and try again."
 msgstr "Tanpri tcheke koneksyon entènèt ou epi eseye ankò."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "Tanpri antre yon non tokenn"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "Tanpri konekte ak bon idantifyan yo <0/> pou w jwenn aksè nan resous sa a."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "Tanpri, eseye ankò."
 msgid "Please wait a moment and try again."
 msgstr "Tanpri tann yon ti moman epi eseye ankò."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "Imaj anvan"
 
@@ -1362,11 +1417,11 @@ msgstr "Konekte kont ou yo ankò sou sèvè sa a"
 msgid "Re-register your passkeys on this server"
 msgstr "Re-enskri paskey ou yo sou sèvè sa a"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "Li ak ekri"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "Li sèlman"
 
@@ -1406,6 +1461,11 @@ msgstr "Retire"
 msgid "Remove access rule"
 msgstr "Retire règ aksè"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "Retire règ aksè pou \"{0}\"?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "Retire aksè?"
@@ -1415,11 +1475,11 @@ msgstr "Retire aksè?"
 msgid "Remove interest"
 msgstr "Retire enterè"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "Ap retire aksè..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "Ap chanje non depo..."
 
@@ -1450,7 +1510,7 @@ msgstr "Depo"
 msgid "Repository created"
 msgstr "Depo kreye"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "Depo efase"
 
@@ -1463,7 +1523,7 @@ msgstr "ID depo obligatwa"
 msgid "Repository link"
 msgstr "Lyen depo"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "Non depo obligatwa"
 
@@ -1471,7 +1531,7 @@ msgstr "Non depo obligatwa"
 msgid "Repository not found"
 msgstr "Depo pa jwenn"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "Depo rebatize"
 
@@ -1492,7 +1552,7 @@ msgstr "Reset tout paramèt nan valè default"
 msgid "Right to Left"
 msgstr "Dwat a Goch"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "Ranje pa paj"
 
@@ -1502,21 +1562,21 @@ msgstr "Samdi"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "Sove"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Sove tokenn sa a kounye a. Ou pap kapab wè li ankò."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Sove tokenn sa a an sekirite. Ou pap kapab wè li ankò."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "Ap sove paramèt yo..."
 
@@ -1574,7 +1634,7 @@ msgstr "Chwazi tip kont"
 msgid "Select branch"
 msgstr "Chwazi branch"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "Chwazi branch defo"
 
@@ -1594,7 +1654,7 @@ msgstr "Chwazi style sidebar"
 msgid "Select site direction"
 msgstr "Chwazi direksyon sit la"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Chwazi branch sous"
@@ -1603,7 +1663,16 @@ msgstr "Chwazi branch sous"
 msgid "Select theme preference"
 msgstr "Chwazi preferans tèm"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "chwazi"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "Chwazi: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "Voye ankò"
 
@@ -1633,7 +1702,7 @@ msgstr "Sesyon an ekspire. Tanpri konekte ankò."
 msgid "Set origin and destination"
 msgstr "Mete orijin ak destinasyon"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "Ap defini aksè..."
 
@@ -1642,13 +1711,12 @@ msgstr "Ap defini aksè..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Paramèt"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "Paramèt sove"
 
@@ -1684,7 +1752,7 @@ msgstr "Sote pou Prensipal"
 msgid "Small"
 msgstr "Piti"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Branch sous"
@@ -1701,8 +1769,8 @@ msgstr "Men rete kanpe!"
 msgid "Subject"
 msgstr "Sijè"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "Abone"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "Chanje branch"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "Tag"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "Tag yo"
@@ -1757,13 +1825,17 @@ msgstr "Kondisyon"
 msgid "That code is incorrect or has expired."
 msgstr "Kòd sa a pa kòrèk oswa li ekspire."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "Branch ki montre lè w gade depo a"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "Nou pa t ka jwenn kontni ou te mande a."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "Sit la pa disponib kounye a."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "Tèm"
 msgid "Theme Settings"
 msgstr "Paramèt Tèm"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "Paj sa a poko kreye."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Paj sa mande yon kontèks depo."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Sa pral efase \"{currentName}\" pèmanan ak tout commits, branches, ak tags li yo. Aksyon sa pa ka anile."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Sa pral efase token sa pèmanan. Nenpòt kliyan git k ap itilize l pap kapab otantifye ankò."
 
@@ -1798,6 +1874,10 @@ msgstr "Sa pral retire \"{repoName}\" nan lis depo w. Ou ka abone ankò pita."
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "Jedi"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "Pou"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "Aktive Sidebar"
 msgid "Toggle theme"
 msgstr "Aktive tèm"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "Token kreye"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "Token efase"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "Non token"
 
@@ -1906,9 +1986,9 @@ msgstr "Etazini"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "Dezabòne"
 
@@ -1917,7 +1997,7 @@ msgstr "Dezabòne"
 msgid "Unsubscribe from repository?"
 msgstr "Dezabòne nan depo?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "Dezabòne"
 
@@ -1929,7 +2009,7 @@ msgstr "Dezabòne nan depo"
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "Ap dezabòne..."
 
@@ -1937,11 +2017,11 @@ msgstr "Ap dezabòne..."
 msgid "Unverified"
 msgstr "Pa verifye"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "Ap mete aksè ajou..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "Ap mete chemen ajou..."
 
@@ -1953,7 +2033,7 @@ msgstr "Sèvi ak passkey ou"
 msgid "User"
 msgstr "Itilizatè"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "Kòd verifikasyon"
 
@@ -1967,7 +2047,7 @@ msgstr "Verifikasyon echwe"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "Verifye"
 
@@ -1979,6 +2059,11 @@ msgstr "Verifye adrès imèl"
 msgid "Video thumbnail"
 msgstr "Imaj videyo"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "Vizyonè videyo: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "Wè"
@@ -1987,10 +2072,15 @@ msgstr "Wè"
 msgid "View all"
 msgstr "Wè tout"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "Wè tout notifikasyon"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "Nou voye yon kòd verifikasyon nan <0>{0}</0>. Antre kòd la anba a pou verifye adrès imèl ou."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "Mèkredi"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "Ou pa gen aksè nan seksyon sa a."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "Ou pa gen pèmisyon nesesè a <0/>pou w wè resous sa a."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

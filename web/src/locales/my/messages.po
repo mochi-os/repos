@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "သင့်အင်တာနက်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။"
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, other {# ရွေးထား}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, other {ဖိုင် # ခု ပြောင်းလဲသည်}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, other {# လိုင်း}}"
 
@@ -40,7 +45,7 @@ msgstr "Commit {0} ခု"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{1} တွင် {0} ကို tag လုပ်ပြီး"
@@ -49,6 +54,26 @@ msgstr "{1} တွင် {0} ကို tag လုပ်ပြီး"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "Tag {0} ခု"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "{entityLabel} အမည်"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, other {{manyName} ရွေးထားသည်}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, other {# {manyName} ရွေးထားသည်။ အစုလိုက်လုပ်ဆောင်ချက် ကိရိယာဘား ရနိုင်သည်။}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, other {# ခု ရွေးထားသည်}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, other {ရွေးချယ်ထားသော {manyName} # ခုအတွက် အစုလိုက်လုပ်ဆောင်ချက်များ}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "ဝင်ရောက်ခွင့် တားမြစ်ထား�
 msgid "Access level"
 msgstr "ဝင်ရောက်ခွင့်အဆင့်"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "ဝင်ရောက်ခွင့်အဆင့် ပြောင်းပြီး"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "ဝင်ရောက်ခွင့် ဖယ်ရှားပြီး"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} အတွက် ဝင်ရောက်ခွင့် သတ်မှတ်ပြီး"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "အကောင့် အတည်ပြုပြီး"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "ထည့်မည်"
 
@@ -185,7 +210,7 @@ msgstr "မမျှော်လင့်ထားသော အမှားတ�
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "log out လုပ်မှာသေချာပါသလား? သင့်အကောင့်ကို ပြန်ဝင်ရန် log in ပြန်လုပ်ရမည်။"
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ဤသိုလှောင်ရာမှ subscription ဖြုတ်မှာသေချာပါသလား?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Authenticator ကုဒ်"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "နောက်သို့"
 
@@ -211,14 +236,14 @@ msgstr "နောက်သို့"
 msgid "Back to commits"
 msgstr "commit များသို့ ပြန်သွားမည်"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "ပင်မစာမျက်နှာ သို့ပြန်သွားရန်"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "Binary ဖိုင် ({0})"
 
@@ -227,27 +252,26 @@ msgstr "Binary ဖိုင် ({0})"
 msgid "Boost interest"
 msgstr "စိတ်ဝင်စားမှု မြှင့်တင်မည်"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Branch \"{name}\" ကို ဖန်တီးပြီးပါပြီ"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Branch \"{name}\" ကို ဖျက်ပြီးပါပြီ"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "branch အမည်"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "branch အမည် လိုအပ်သည်"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "branch များ"
@@ -260,20 +284,20 @@ msgstr "branch များ"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "မလုပ်တော့ပါ"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "တည်းဖြတ်ခြင်း ပယ်ဖျက်ပါ"
 
@@ -286,7 +310,7 @@ msgstr "ဤအကြောင်းကြားချက်အတွက် အ�
 msgid "Change notification category"
 msgstr "အကြောင်းကြားချက် အမျိုးအစား ပြောင်းမည်"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "ပြောင်းလဲမှုများ"
 
@@ -324,36 +348,37 @@ msgstr "ရှင်းမည်"
 msgid "Clear all"
 msgstr "အားလုံး ရှင်းမည်"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "filter များ ရှင်းမည်"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "ရွေးချယ်မှု ရှင်းမည်"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "ရွေးချယ်မှု ရှင်းမည် (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "သိုလှောင်ရာ Clone"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "ပိတ်မည်"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "navigation ပိတ်မည်"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit မတွေ့ရှိပါ"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commit များ"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "{label} ဖြင့် ဆက်လက်လုပ်ဆောင်ပါ"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "ကလစ်ဘုတ်သို့ ကူးပြီး"
 
@@ -440,13 +464,13 @@ msgstr "ကလစ်ဘုတ်သို့ ကူးပြီး"
 msgid "Copy"
 msgstr "ကူးမည်"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "commit SHA ကို ကူးယူပါ"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "ဖိုင်အကြောင်းအရာကို ကူးယူပါ"
 
@@ -466,12 +490,12 @@ msgstr "ပြန်လည်အတည်ပြုခြင်းကို စ�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "ထိုအကောင့်ဖြင့် အတည်ပြု၍မရပါ။ ကျေးဇူးပြု၍ ထပ်မံကြိုးစားပါ။"
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "ဖန်တီးမည်"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "Authentication token အသစ်တစ်ခု ဖန်တီးမည်။"
 
@@ -479,8 +503,8 @@ msgstr "Authentication token အသစ်တစ်ခု ဖန်တီးမ�
 msgid "Create a new repository"
 msgstr "သိုလှောင်ရာ အသစ်တစ်ခု ဖန်တီးမည်"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "branch ဖန်တီးမည်"
 msgid "Create repository"
 msgstr "သိုလှောင်ရာ ဖန်တီးမည်"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "Token ဖန်တီးမည်"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "{0} ဖန်တီးပြီး"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Branch ကို ဖန်တီးနေသည်..."
@@ -511,11 +535,11 @@ msgstr "Branch ကို ဖန်တီးနေသည်..."
 msgid "Creating repository..."
 msgstr "သိုလှောင်ရာကို ဖန်တီးနေသည်..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "တိုကင်ကို ဖန်တီးနေသည်..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "ဖန်တီးနေသည်..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "စိတ်ကြိုက်"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "အမှောင်"
@@ -541,7 +566,7 @@ msgstr "အမှောင်ပုံစံ"
 msgid "Data conflict"
 msgstr "ဒေတာ ကွဲလွဲမှု"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "ပုံသေ"
@@ -554,48 +579,48 @@ msgstr "မူရင်း"
 msgid "Default AI account"
 msgstr "မူရင်း AI အကောင့်"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "မူရင်း branch"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "ဖျက်မည်"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" ကို ဖျက်မလား? ပြန်လည်ပြုပြင်၍မရပါ။"
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "အကိုင်းကို ဖျက်ပါ"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "branch ဖျက်မလား?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "သိုလှောင်ရာ ဖျက်မည်"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "သိုလှောင်ရာ ဖျက်မလား?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "Token ဖျက်မည်"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "Token ဖျက်မလား?"
 
@@ -603,20 +628,20 @@ msgstr "Token ဖျက်မလား?"
 msgid "Delete your account on the old server"
 msgstr "ဟောင်းသောဆာဗာမှ သင်၏အကောင့်ကို ဖျက်ပါ"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Branch ကို ဖျက်နေသည်..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "သိုလှောင်ရာကို ဖျက်နေသည်..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "တိုကင်ကို ဖျက်နေသည်..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "ဖျက်နေသည်..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "ကြီးစဉ်ငယ်လိုက်"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "ဖော်ပြချက်"
 
@@ -662,13 +687,13 @@ msgstr "ပယ်မည်"
 msgid "Displays the mobile sidebar."
 msgstr "မိုဘိုင်း ဘေးဘားကို ပြသသည်။"
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "ပြီးပါပြီ"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "ဒေါင်းလုဒ်"
 msgid "Download failed"
 msgstr "ဒေါင်းလုဒ် မအောင်မြင်ပါ"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "ဖိုင် ဒေါင်းလုပ်လုပ်ပါ"
 
@@ -688,7 +713,7 @@ msgstr "ဖိုင် ဒေါင်းလုပ်လုပ်ပါ"
 msgid "Dyslexia-friendly"
 msgstr "စာဖတ်ရခက်သူများအတွက်ရိုးရှင်း"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "ဥပမာ အလုပ်သုံး laptop"
 
@@ -696,11 +721,11 @@ msgstr "ဥပမာ အလုပ်သုံး laptop"
 msgid "Edit {label}"
 msgstr "{label} ကို တည်းဖြတ်ပါ"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "အမည် တည်းဖြတ်"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "လမ်းကြောင်း တည်းဖြတ်ပါ"
 
@@ -708,12 +733,11 @@ msgstr "လမ်းကြောင်း တည်းဖြတ်ပါ"
 msgid "Email code"
 msgstr "အီးမေးလ် ကုဒ်"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "လမ်းညွှန် ဗလာ"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "သိုလှောင်ရာ ဗလာ"
 
@@ -725,7 +749,7 @@ msgstr "သင့်အီးမေးလ်မှ ကုဒ်ကို ထည�
 msgid "Enter your authenticator code"
 msgstr "သင့်အထောက်အထားစိစစ်ရေးကုဒ်ကို ထည့်ပါ"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "အကောင့် -"
 
@@ -748,7 +772,7 @@ msgstr "အလွန်ကြီး"
 msgid "Failed to add account"
 msgstr "အကောင့် ထည့်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "ဘရန်ချ် ဖန်တီး၍ မရပါ"
@@ -761,24 +785,24 @@ msgstr "လင့် ဖန်တီး၍ မရပါ"
 msgid "Failed to create repository"
 msgstr "သိုလှောင်ရာ ဖန်တီး၍ မရပါ"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "တိုကင် ဖန်တီး၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "ဘရန်ချ် ဖျက်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "သိုလှောင်ရာ ဖျက်၍ မရပါ"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "တိုကင် ဖျက်၍ မရပါ"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "ဒေါင်းလုဒ် မရပါ"
 
@@ -786,40 +810,47 @@ msgstr "ဒေါင်းလုဒ် မရပါ"
 msgid "Failed to download archive"
 msgstr "မှတ်တမ်း ဒေါင်းလုဒ် မရပါ"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "တိုကင် ရယူ၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "ဝင်ရောက်ခွင့် စည်းမျဉ်းများ တင်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "ဘရန်ချ်များ တင်၍ မရပါ"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "ကွန်မစ် တင်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "ကွန်မစ်များ တင်၍ မရပါ"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "ဖိုင်များ တင်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "ပုံကို ဖွင့်၍မရပါ"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "တဂ်များ တင်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "ဗီဒီယိုကို ဖွင့်၍မရပါ"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "ဝင်ရောက်ခွင့် ဖယ်ရှား၍ မရပါ"
 
@@ -827,12 +858,12 @@ msgstr "ဝင်ရောက်ခွင့် ဖယ်ရှား၍ မရ�
 msgid "Failed to remove account"
 msgstr "အကောင့် ဖယ်ရှား၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "သိုလှောင်ရာ အမည်ပြောင်း၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "ဆက်တင် သိမ်း၍ မရပါ"
 
@@ -840,7 +871,7 @@ msgstr "ဆက်တင် သိမ်း၍ မရပါ"
 msgid "Failed to send verification code"
 msgstr "အတည်ပြုကုဒ် ပို့၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "ဝင်ရောက်ခွင့် အဆင့် သတ်မှတ်၍ မရပါ"
 
@@ -852,11 +883,11 @@ msgstr "စာရင်းသွင်း၍ မရပါ"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "စာရင်းမှ ထွက်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "ဝင်ရောက်ခွင့် အဆင့် ပြင်ဆင်၍ မရပါ"
 
@@ -864,11 +895,11 @@ msgstr "ဝင်ရောက်ခွင့် အဆင့် ပြင်ဆ�
 msgid "Failed to update category"
 msgstr "အမျိုးအစား ပြင်ဆင်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "လမ်းကြောင်း ပြင်ဆင်၍ မရပါ"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "ဖိုင်များ"
 msgid "Find repositories"
 msgstr "သိုလှောင်ရာများ ရှာ"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "လက်ဗွေ -"
 
@@ -931,29 +962,29 @@ msgstr "မှ - {0}"
 msgid "Full layout"
 msgstr "အပြည့် အပြင်အဆင်"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "ပြန်သွားပါ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "ပထမစာမျက်နှာသို့"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "နောက်ဆုံးစာမျက်နှာသို့"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "နောက်စာမျက်နှာသို့"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "စာမျက်နှာ {pageNumber} သို့သွားပါ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "ယခင်စာမျက်နှာသို့"
 
@@ -980,9 +1011,14 @@ msgstr "ပင်မ"
 msgid "Hot"
 msgstr "လူကြိုက်များ"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "ကိုယ်ပိုင်"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "ပုံကြည့်ရှုစနစ်- {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "စိတ်ဝင်စားမှုများ"
 msgid "Invalid verification code"
 msgstr "မမှန်ကန်သော အတည်ပြု ကုဒ်"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "သင်ရှာဖွေနေသော စာမျက်နှာသည် <0/>မရှိတော့ပါ သို့မဟုတ် ဖယ်ရှားခံရပုံရသည်။"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "ကြီး"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "နောက်ဆုံး အသုံးပြုခဲ့သည် {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "ဘယ်မှ ညာသို့"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "အလင်း"
@@ -1042,8 +1083,8 @@ msgstr "အကြောင်းအရာ ဖွင့်နေသည်…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "တင်နေသည်…"
+msgid "Loading..."
+msgstr "တင်နေသည်..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "ထွက်နေသည်…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "အက္ခရာသေးများ၊ နံပါတ်များနှင့် မျဉ်းတိုများသာ"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "တိုကင်များ စီမံ"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "အားလုံးကို ဖတ်ပြီးအဖြစ် မှတ်"
@@ -1099,8 +1140,8 @@ msgstr "မက်ထရစ်"
 msgid "Monday"
 msgstr "တနင်္လာ"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "ပိုလုပ်ဆောင်ချက်များ"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "အမည်"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "အမည်တွင် < သို့မဟုတ် > စာလုံးများ မပါဝင်ရ"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "အမည်သည် စာလုံး ၁၀၀ သို့မဟုတ် ထိုထက်နည်းရမည်"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "အမည် -"
 
@@ -1127,8 +1168,8 @@ msgstr "အမည် -"
 msgid "Network error"
 msgstr "ကွန်ရက် အမှား"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "ဘယ်တော့မှ မဟုတ်"
 
@@ -1136,17 +1177,17 @@ msgstr "ဘယ်တော့မှ မဟုတ်"
 msgid "New"
 msgstr "အသစ်"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "branch အသစ်"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "နောက်ပုံ"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "ဝင်ရောက်ခွင့်မရှိ"
 
@@ -1154,12 +1195,12 @@ msgstr "ဝင်ရောက်ခွင့်မရှိ"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "ဝင်ရောက်ခွင့်စည်းမျဉ်းများ မသတ်မှတ်ထားပါ။ ဤအရင်းအမြစ်ကို မည်သူဝင်နိုင်သည်ကို ထိန်းချုပ်ရန် စည်းမျဉ်းများ ထည့်ပါ။"
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "branch များ မရှိသေးပါ"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "commit များ မရှိသေးပါ"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "repository များ မတွေ့ပါ"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "ရလဒ်များ မတွေ့ပါ။"
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "tag များ မရှိသေးပါ"
@@ -1203,7 +1244,7 @@ msgstr "tag များ မရှိသေးပါ"
 msgid "No time zone found."
 msgstr "အချိန်ဇုန် မတွေ့ပါ။"
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "token များ မရှိသေးပါ။"
 
@@ -1240,6 +1281,11 @@ msgstr "မသတ်မှတ်ထားပါ"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "အသိပေးချက်များ"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "အကြောင်းကြားချက်များ- {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "အခြား"
 msgid "Owner"
 msgstr "ပိုင်ရှင်"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "စာမျက်နှာ {currentPage} / {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "Parent -"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "Parent များ -"
 
@@ -1302,19 +1353,19 @@ msgstr "Passkey များ"
 msgid "Path"
 msgstr "လမ်းကြောင်း"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "လမ်းကြောင်း လိုအပ်သည်"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "လမ်းကြောင်း ပြင်ဆင်ပြီးပါပြီ"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "လမ်းကြောင်း -"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "ဤ repository နှင့် ၎င်း၏ ဒေတာအားလုံးကို အပြီးတိုင်ဖျက်ပါ"
 
@@ -1323,9 +1374,13 @@ msgstr "ဤ repository နှင့် ၎င်း၏ ဒေတာအားလ�
 msgid "Please check your internet connection and try again."
 msgstr "သင့်အင်တာနက်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။"
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "token အမည် ရိုက်ထည့်ပါ"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "ဤအရင်းအမြစ်ကို ဝင်ရောက်ရန် <0/> သင့်လျော်သော အထောက်အထားများဖြင့် ဝင်ရောက်ပါ။"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "ကျေးဇူးပြု၍ ထပ်ကြိုးစားပ�
 msgid "Please wait a moment and try again."
 msgstr "ကျေးဇူးပြု၍ ခဏစောင့်ပြီး ထပ်စမ်းကြည့်ပါ။"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "ယခင်ပုံ"
 
@@ -1362,11 +1417,11 @@ msgstr "ဤဆာဗာပေါ်တွင် သင်၏အကောင့�
 msgid "Re-register your passkeys on this server"
 msgstr "ဤဆာဗာတွင် သင်၏ passkey များကို ပြန်လည်မှတ်ပုံတင်ပါ"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "ဖတ်ပြီး ရေးပါ"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "ဖတ်ရှုသာ"
 
@@ -1406,6 +1461,11 @@ msgstr "ဖယ်ရှား"
 msgid "Remove access rule"
 msgstr "ဝင်ရောက်ခွင့် စည်းမျဉ်း ဖယ်ရှား"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "\"{0}\" အတွက် ဝင်ရောက်ခွင့်စည်းမျဉ်းကို ဖယ်ရှားမလား။"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "ဝင်ရောက်ခွင့် ဖယ်ရှားမလား?"
@@ -1415,11 +1475,11 @@ msgstr "ဝင်ရောက်ခွင့် ဖယ်ရှားမလာ�
 msgid "Remove interest"
 msgstr "စိတ်ဝင်စားမှု ဖယ်ရှား"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "ဝင်ရောက်ခွင့်ကို ဖယ်ရှားနေသည်..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "သိုလှောင်ရာကို အမည်ပြောင်းနေသည်..."
 
@@ -1450,7 +1510,7 @@ msgstr "Repository"
 msgid "Repository created"
 msgstr "Repository ဖန်တီးပြီးပါပြီ"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "Repository ဖျက်ပြီးပါပြီ"
 
@@ -1463,7 +1523,7 @@ msgstr "Repository ID လိုအပ်သည်"
 msgid "Repository link"
 msgstr "သိုလှောင်ခန်းလင့်ခ်"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "Repository အမည် လိုအပ်သည်"
 
@@ -1471,7 +1531,7 @@ msgstr "Repository အမည် လိုအပ်သည်"
 msgid "Repository not found"
 msgstr "Repository မတွေ့ပါ"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "Repository အမည် ပြောင်းပြီးပါပြီ"
 
@@ -1492,7 +1552,7 @@ msgstr "ဆက်တင်အားလုံးကို ပုံသေတန�
 msgid "Right to Left"
 msgstr "ညာမှ ဘယ်သို့"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "စာမျက်နှာတစ်ခုစီ၏ အတန်းများ"
 
@@ -1502,21 +1562,21 @@ msgstr "စနေနေ့"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "သိမ်းမည်"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "ဤ token ကို ယခု သိမ်းပါ။ ထပ်မမြင်နိုင်ပါ။"
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "ဤ token ကို လုံခြုံစွာ သိမ်းပါ။ ထပ်မမြင်နိုင်ပါ။"
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "ဆက်တင်များကို သိမ်းဆည်းနေသည်..."
 
@@ -1574,7 +1634,7 @@ msgstr "အကောင့်အမျိုးအစား ရွေးချ�
 msgid "Select branch"
 msgstr "ဌာနခွဲကို ရွေးပါ"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "ပုံသေဌာနခွဲကို ရွေးပါ"
 
@@ -1594,7 +1654,7 @@ msgstr "ဘေးဘားပုံစံကို ရွေးပါ"
 msgid "Select site direction"
 msgstr "ဆိုက်ဦးတည်ရာကို ရွေးပါ"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "မူရင်းဌာနခွဲကို ရွေးပါ"
@@ -1603,7 +1663,16 @@ msgstr "မူရင်းဌာနခွဲကို ရွေးပါ"
 msgid "Select theme preference"
 msgstr "အပြင်အဆင် ဦးစားပေးကို ရွေးပါ"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "ရွေးချယ်ထားသည်"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "ရွေးထား: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "ထပ်ပို့ပါ"
 
@@ -1633,7 +1702,7 @@ msgstr "စက်ရှင်သက်တမ်း ကုန်သွားပ�
 msgid "Set origin and destination"
 msgstr "မူရင်းနှင့် ဦးတည်ရာ သတ်မှတ်မည်"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "ဝင်ရောက်ခွင့်ကို သတ်မှတ်နေသည်..."
 
@@ -1642,13 +1711,12 @@ msgstr "ဝင်ရောက်ခွင့်ကို သတ်မှတ်�
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "ဆက်တင်များ"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "ဆက်တင်များ သိမ်းပြီး"
 
@@ -1684,7 +1752,7 @@ msgstr "Main သို့ ကျော်မည်"
 msgid "Small"
 msgstr "သေး"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "မူရင်းဌာနခွဲ"
@@ -1701,8 +1769,8 @@ msgstr "သို့သော် ဆက်လက်စောင့်ကြည�
 msgid "Subject"
 msgstr "ခေါင်းစဉ်"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "Subscribe လုပ်မည်"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "ဘရန်ချ်ပြောင်းပါ"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "Tag"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "Tags"
@@ -1757,13 +1825,17 @@ msgstr "စည်းကမ်းချက်များ"
 msgid "That code is incorrect or has expired."
 msgstr "ထိုကုဒ်မှားနေသည် သို့မဟုတ် သက်တမ်းကုန်သွားပြီ။"
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "သိုလှောင်ရာကို ကြည့်ရှုသည့်အခါ ပြသမည့် ဌာနခွဲ"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "တောင်းဆိုထားသော အကြောင်းအရာကို ရှာမတွေ့ပါ။"
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "ဤဆိုက်ကို ယခုအချိန်တွင် အသုံးပြု၍မရပါ။"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "အပြင်အဆင်"
 msgid "Theme Settings"
 msgstr "အပြင်အဆင် ဆက်တင်များ"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "ဤစာမျက်နှာကို မဖန်တီးရသေးပါ။"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ဤစာမျက်နှာသည် သိုလှောင်ရာ context လိုအပ်သည်။"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "၎င်းသည် \"{currentName}\" နှင့် ၎င်း၏ commit များ၊ ဌာနခွဲများနှင့် tag များ အားလုံးကို အပြီးတိုင် ဖျက်ပါမည်။ ဤလုပ်ဆောင်ချက်ကို ပြန်လုပ်၍မရပါ။"
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "၎င်းသည် ဤ token ကို အပြီးတိုင် ဖျက်ပါမည်။ ၎င်းကို သုံးနေသော git client များသည် authenticate ပြုလုပ်နိုင်တော့မည် မဟုတ်ပါ။"
 
@@ -1798,6 +1874,10 @@ msgstr "၎င်းသည် \"{repoName}\" ကို သင်၏ သိုလ
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "ကြာသပတေး"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "သို့"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "ဘေးဘား ဖွင့်/ပိတ်"
 msgid "Toggle theme"
 msgstr "အပြင်အဆင် ဖွင့်/ပိတ်"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "Token ဖန်တီးပြီး"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "Token ဖျက်ပြီး"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "Token အမည်"
 
@@ -1906,9 +1986,9 @@ msgstr "United States"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "Subscribe ဖြုတ်မည်"
 
@@ -1917,7 +1997,7 @@ msgstr "Subscribe ဖြုတ်မည်"
 msgid "Unsubscribe from repository?"
 msgstr "သိုလှောင်ရာမှ subscribe ဖြုတ်မှာလား?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "Subscribe ဖြုတ်ပြီး"
 
@@ -1929,7 +2009,7 @@ msgstr "သိုလှောင်ရာမှ subscribe ဖြုတ်ပြ�
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "Subscribe ဖြုတ်နေသည်..."
 
@@ -1937,11 +2017,11 @@ msgstr "Subscribe ဖြုတ်နေသည်..."
 msgid "Unverified"
 msgstr "အတည်ပြုမထား"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "ဝင်ရောက်ခွင့်ကို အပ်ဒိတ်လုပ်နေသည်..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "လမ်းကြောင်းကို အပ်ဒိတ်လုပ်နေသည်..."
 
@@ -1953,7 +2033,7 @@ msgstr "သင့်ပတ်စ်ကီးကို သုံးပါ"
 msgid "User"
 msgstr "သုံးစွဲသူ"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "အတည်ပြု ကုဒ်"
 
@@ -1967,7 +2047,7 @@ msgstr "အတည်ပြုခြင်း မအောင်မြင်ပ�
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "အတည်ပြုမည်"
 
@@ -1979,6 +2059,11 @@ msgstr "အီးမေးလ် လိပ်စာ အတည်ပြုမည�
 msgid "Video thumbnail"
 msgstr "ဗီဒီယို thumbnail"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "ဗီဒီယိုကြည့်ရှုစနစ်- {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "ကြည့်ရှုမည်"
@@ -1987,10 +2072,15 @@ msgstr "ကြည့်ရှုမည်"
 msgid "View all"
 msgstr "အားလုံး ကြည့်ရှုမည်"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "အသိပေးချက်များ အားလုံး ကြည့်ရှုမည်"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "<0>{0}</0> သို့ အတည်ပြုကုဒ် ပို့လိုက်ပါပြီ။ သင့်အီးမေးလ်လိပ်စာကို အတည်ပြုရန် အောက်တွင် ကုဒ်ထည့်ပါ။"
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "ဗုဒ္ဓဟူး"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "ဤအပိုင်းသို့ သင့်တွင် ဝင်ရောက်ခွင့်မရှိပါ။"
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "ဤအရင်းအမြစ်ကို ကြည့်ရှုရန် <0/>လိုအပ်သော ခွင့်ပြုချက် သင့်တွင်မရှိပါ။"
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

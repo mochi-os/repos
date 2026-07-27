@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "Интернет холболтоо шалгаад дахин оролдоно уу."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, one {# сонгогдсон} other {# сонгогдсон}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# файл өөрчлөгдсөн} other {# файл өөрчлөгдсөн}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# мөр} other {# мөр}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} commit"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{1} дээр {0}-г тэглэсэн"
@@ -49,6 +54,26 @@ msgstr "{1} дээр {0}-г тэглэсэн"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} тэг"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "{entityLabel} нэр"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, one {{entityName} сонгогдсон} other {{manyName} сонгогдсон}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, one {# {entityName} сонгогдсон. Бөөнөөр үйлдлийн хэрэгслийн мөр боломжтой.} other {# {manyName} сонгогдсон. Бөөнөөр үйлдлийн хэрэгслийн мөр боломжтой.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, one {# сонгогдсон} other {# сонгогдсон}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, one {# сонгосон {entityName}-д зориулсан бөөнөөр үйлдэл} other {# сонгосон {manyName}-д зориулсан бөөнөөр үйлдэл}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "Хандалт хориотой"
 msgid "Access level"
 msgstr "Хандалтын түвшин"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "Хандалтын түвшин шинэчлэгдсэн"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "Хандалтыг хассан"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "{subjectName}-д хандалт тохируулсан"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "Бүртгэл баталгаажсан"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "Нэмэх"
 
@@ -185,7 +210,7 @@ msgstr "Гэнэтийн алдаа гарлаа"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Гарахдаа итгэлтэй байна уу? Бүртгэлдээ дахин нэвтрэхдээ дахин нэвтрэх шаардлагатай."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Энэ агуулахын захиалгаас гарахдаа итгэлтэй байна уу?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Authenticator код"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "Буцах"
 
@@ -211,14 +236,14 @@ msgstr "Буцах"
 msgid "Back to commits"
 msgstr "Commit-уудад буцах"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "Нүүр хуудас руу буцах"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "Хоёртын файл ({0})"
 
@@ -227,27 +252,26 @@ msgstr "Хоёртын файл ({0})"
 msgid "Boost interest"
 msgstr "Сонирхлыг идэвхжүүлэх"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" салбар үүсгэгдлээ"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" салбар устгагдлаа"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Салбарын нэр"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Салбарын нэр шаардлагатай"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "Салбарууд"
@@ -260,20 +284,20 @@ msgstr "Салбарууд"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "Цуцлах"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "Засварыг цуцлах"
 
@@ -286,7 +310,7 @@ msgstr "Энэ мэдэгдлийн ангилал"
 msgid "Change notification category"
 msgstr "Мэдэгдлийн ангиллыг солих"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "Өөрчлөлтүүд"
 
@@ -324,36 +348,37 @@ msgstr "Цэвэрлэх"
 msgid "Clear all"
 msgstr "Бүгдийг цэвэрлэх"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "Шүүлтүүрүүдийг арилгах"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "Сонголтыг цэвэрлэх"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "Сонголтыг цэвэрлэх (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Хуулбарлах"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "Агуулахыг хуулбарлах"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "Хаах"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "Навигацийг хаах"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit олдсонгүй"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commit-ууд"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "{label}-р үргэлжлүүлэх"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "Хуулбарласан"
 
@@ -440,13 +464,13 @@ msgstr "Хуулбарласан"
 msgid "Copy"
 msgstr "Хуулах"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "commit SHA-г хуулах"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "Файлын агуулгыг хуулах"
 
@@ -466,12 +490,12 @@ msgstr "Дахин баталгаажуулалтыг эхлүүлж чадса�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Тэр бүртгэлээр баталгаажуулж чадсангүй. Дахин оролдоно уу."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Үүсгэх"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "Шинэ нэвтрэх токен үүсгэх."
 
@@ -479,8 +503,8 @@ msgstr "Шинэ нэвтрэх токен үүсгэх."
 msgid "Create a new repository"
 msgstr "Шинэ агуулах үүсгэх"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "Салбар үүсгэх"
 msgid "Create repository"
 msgstr "Агуулах үүсгэх"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "Токен үүсгэх"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "{0} үүссэн"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Салбар үүсгэж байна..."
@@ -511,11 +535,11 @@ msgstr "Салбар үүсгэж байна..."
 msgid "Creating repository..."
 msgstr "Сан үүсгэж байна..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "Токен үүсгэж байна..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Үүсгэж байна..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "Захиалгат"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "Харанхуй"
@@ -541,7 +566,7 @@ msgstr "Харанхуй горим"
 msgid "Data conflict"
 msgstr "Өгөгдлийн зөрчил"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "анхдагч"
@@ -554,48 +579,48 @@ msgstr "Үндсэн"
 msgid "Default AI account"
 msgstr "Үндсэн AI бүртгэл"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "Үндсэн салбар"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Устгах"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\"-г устгах уу? Энэ үйлдлийг буцаах боломжгүй."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Мөчрийг устгах"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Салбар устгах уу?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "Агуулах устгах"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "Агуулах устгах уу?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "Токен устгах"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "Токен устгах уу?"
 
@@ -603,20 +628,20 @@ msgstr "Токен устгах уу?"
 msgid "Delete your account on the old server"
 msgstr "Хуучин серверт байгаа бүртгэлээ устгана уу"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Салбар устгаж байна..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "Сан устгаж байна..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "Токен устгаж байна..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Устгаж байна..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "Буурахаар"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "Тайлбар"
 
@@ -662,13 +687,13 @@ msgstr "Болих"
 msgid "Displays the mobile sidebar."
 msgstr "Гар утасны хажуугийн самбарыг харуулна."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "Дууссан"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "Татах"
 msgid "Download failed"
 msgstr "Татаж чадсангүй"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "Файлыг татаж авах"
 
@@ -688,7 +713,7 @@ msgstr "Файлыг татаж авах"
 msgid "Dyslexia-friendly"
 msgstr "Дислексид зориулсан"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "жнь, Ажлын зөөврийн компьютер"
 
@@ -696,11 +721,11 @@ msgstr "жнь, Ажлын зөөврийн компьютер"
 msgid "Edit {label}"
 msgstr "{label} засах"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "Нэр засах"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "Замыг засах"
 
@@ -708,12 +733,11 @@ msgstr "Замыг засах"
 msgid "Email code"
 msgstr "Имэйл код"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "Хоосон директор"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "Хоосон репозитор"
 
@@ -725,7 +749,7 @@ msgstr "Имэйлд ирсэн кодоо оруулна уу"
 msgid "Enter your authenticator code"
 msgstr "Баталгаажуулагчийн кодоо оруулна уу"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "Entity:"
 
@@ -748,7 +772,7 @@ msgstr "Маш том"
 msgid "Failed to add account"
 msgstr "Бүртгэл нэмж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Салбар үүсгэж чадсангүй"
@@ -761,24 +785,24 @@ msgstr "Холбоос үүсгэж чадсангүй"
 msgid "Failed to create repository"
 msgstr "Репозитор үүсгэж чадсангүй"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "Token үүсгэж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Салбар устгаж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "Репозитор устгаж чадсангүй"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "Token устгаж чадсангүй"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "Татаж чадсангүй"
 
@@ -786,40 +810,47 @@ msgstr "Татаж чадсангүй"
 msgid "Failed to download archive"
 msgstr "Архив татаж чадсангүй"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "Token авч чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "Хандалтын дүрмүүд ачаалж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Салбарууд ачаалж чадсангүй"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "Commit ачаалж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Commit-уудыг ачаалж чадсангүй"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "Файлуудыг ачаалж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "Зургийг ачаалж чадсангүй"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Шошгууд ачаалж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "Видеог ачаалж чадсангүй"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "Хандалтыг хасч чадсангүй"
 
@@ -827,12 +858,12 @@ msgstr "Хандалтыг хасч чадсангүй"
 msgid "Failed to remove account"
 msgstr "Бүртгэл хасч чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "Репозиторын нэрийг өөрчилж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "Тохиргоо хадгалж чадсангүй"
 
@@ -840,7 +871,7 @@ msgstr "Тохиргоо хадгалж чадсангүй"
 msgid "Failed to send verification code"
 msgstr "Баталгаажуулах код илгээж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "Хандалтын түвшинг тохируулж чадсангүй"
 
@@ -852,11 +883,11 @@ msgstr "Захиалж чадсангүй"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "Захиалга цуцалж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "Хандалтын түвшинг шинэчилж чадсангүй"
 
@@ -864,11 +895,11 @@ msgstr "Хандалтын түвшинг шинэчилж чадсангүй"
 msgid "Failed to update category"
 msgstr "Ангилал шинэчилж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "Зам шинэчилж чадсангүй"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "Файлууд"
 msgid "Find repositories"
 msgstr "Репозитор хайх"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "Fingerprint:"
 
@@ -931,29 +962,29 @@ msgstr "Хүлээн авагч: {0}"
 msgid "Full layout"
 msgstr "Бүрэн зохион байгуулалт"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "Буцах"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "Эхний хуудас руу очих"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "Сүүлийн хуудас руу очих"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "Дараагийн хуудас руу очих"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "{pageNumber} хуудас руу очих"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "Өмнөх хуудас руу очих"
 
@@ -980,9 +1011,14 @@ msgstr "Нүүр"
 msgid "Hot"
 msgstr "Хот"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "Identity"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "Зураг үзэгч: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "Сонирхлууд"
 msgid "Invalid verification code"
 msgstr "Баталгаажуулах код хүчингүй"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "Таны хайж буй хуудас <0/>байхгүй эсвэл устгагдсан бололтой."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "Том"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "Сүүлд ашигласан {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "Зүүнээс баруун"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Цайвар"
@@ -1042,8 +1083,8 @@ msgstr "Контент ачааллаж байна…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "Ачаалж байна…"
+msgid "Loading..."
+msgstr "Ачаалж байна..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "Гарч байна…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Зөвхөн жижиг үсэг, тоо, зураас"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "Token удирдах"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "Бүгдийг уншсан гэж тэмдэглэх"
@@ -1099,8 +1140,8 @@ msgstr "Метрик"
 msgid "Monday"
 msgstr "Даваа"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "Илүү үйлдлүүд"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "Нэр"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Нэр < эсвэл > тэмдэгт агуулж болохгүй"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Нэр 100 тэмдэгтээс хэтрэхгүй байх ёстой"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "Нэр:"
 
@@ -1127,8 +1168,8 @@ msgstr "Нэр:"
 msgid "Network error"
 msgstr "Сүлжээний алдаа"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "Хэзээ ч"
 
@@ -1136,17 +1177,17 @@ msgstr "Хэзээ ч"
 msgid "New"
 msgstr "Шинэ"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Шинэ салбар"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "Дараагийн зураг"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "Хандах эрх байхгүй"
 
@@ -1154,12 +1195,12 @@ msgstr "Хандах эрх байхгүй"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "Хандалтын дүрэм тохируулагдаагүй байна. Энэ нөөцөд хэн хандах эрхтэй байхыг тохируулахын тулд дүрэм нэмнэ үү."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Салбар алга"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Commit алга"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "Репозитори олдсонгүй"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "Үр дүн олдсонгүй."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Tag алга"
@@ -1203,7 +1244,7 @@ msgstr "Tag алга"
 msgid "No time zone found."
 msgstr "Цагийн бүс олдсонгүй."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "Токен алга."
 
@@ -1240,6 +1281,11 @@ msgstr "Тохируулаагүй"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "Мэдэгдэл"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "Мэдэгдэл: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "Бусад"
 msgid "Owner"
 msgstr "Эзэмшигч"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "{totalPages}-с {currentPage}-р хуудас"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "Эх:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "Эхүүд:"
 
@@ -1302,19 +1353,19 @@ msgstr "Passkey-ууд"
 msgid "Path"
 msgstr "Зам"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "Зам шаардлагатай"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "Зам шинэчлэгдсэн"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "Зам:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "Энэ репозиторийг түүний бүх өгөгдөлтэй нь бүр мөсөн устгах"
 
@@ -1323,9 +1374,13 @@ msgstr "Энэ репозиторийг түүний бүх өгөгдөлтэй
 msgid "Please check your internet connection and try again."
 msgstr "Интернет холболтоо шалгаад дахин оролдоно уу."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "Токены нэрийг оруулна уу"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "Энэ нөөцөд хандахын тулд <0/> тохирох мэдээллээр нэвтэрнэ үү."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "Дахин оролдоно уу."
 msgid "Please wait a moment and try again."
 msgstr "Түр хүлээгээд дахин оролдоно уу."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "Өмнөх зураг"
 
@@ -1362,11 +1417,11 @@ msgstr "Энэ серверт бүртгэлүүдээ дахин холбоно
 msgid "Re-register your passkeys on this server"
 msgstr "Энэ серверт нэвтрэх түлхүүрээ дахин бүртгүүлнэ үү"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "Унших ба бичих"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "Зөвхөн уншиж болох"
 
@@ -1406,6 +1461,11 @@ msgstr "Хасах"
 msgid "Remove access rule"
 msgstr "Хандалтын дүрэм хасах"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "\"{0}\"-ийн хандалтын дүрмийг устгах уу?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "Хандалтыг хасах уу?"
@@ -1415,11 +1475,11 @@ msgstr "Хандалтыг хасах уу?"
 msgid "Remove interest"
 msgstr "Сонирхол хасах"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "Хандалтыг хасч байна..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "Сангийн нэрийг өөрчилж байна..."
 
@@ -1450,7 +1510,7 @@ msgstr "Репозитори"
 msgid "Repository created"
 msgstr "Репозитори үүсгэгдсэн"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "Репозитори устгагдсан"
 
@@ -1463,7 +1523,7 @@ msgstr "Репозиторын ID шаардлагатай"
 msgid "Repository link"
 msgstr "Репозиторын холбоос"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "Репозиторын нэр шаардлагатай"
 
@@ -1471,7 +1531,7 @@ msgstr "Репозиторын нэр шаардлагатай"
 msgid "Repository not found"
 msgstr "Репозитори олдсонгүй"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "Репозиторын нэр өөрчлөгдсөн"
 
@@ -1492,7 +1552,7 @@ msgstr "Бүх тохиргоог анхдагч утгад нь сэргээх"
 msgid "Right to Left"
 msgstr "Баруунаас зүүн"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "Хуудас тутамын мөр"
 
@@ -1502,21 +1562,21 @@ msgstr "Бямба"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "Хадгалах"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Энэ токенийг одоо хадгалаарай. Та дахин харах боломжгүй болно."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Энэ токенийг найдвартай хадгалаарай. Та дахин харах боломжгүй болно."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "Тохиргоог хадгалж байна..."
 
@@ -1574,7 +1634,7 @@ msgstr "Бүртгэлийн төрөл сонгох"
 msgid "Select branch"
 msgstr "Салбар сонгох"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "Үндсэн салбар сонгох"
 
@@ -1594,7 +1654,7 @@ msgstr "Хажуугийн самбарын хэв сонгох"
 msgid "Select site direction"
 msgstr "Сайтын чиглэл сонгох"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Эх салбар сонгох"
@@ -1603,7 +1663,16 @@ msgstr "Эх салбар сонгох"
 msgid "Select theme preference"
 msgstr "Загварын тохируулга сонгох"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "сонгогдсон"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "Сонгогдсон: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "Дахин илгээх"
 
@@ -1633,7 +1702,7 @@ msgstr "Сессийн хугацаа дууссан. Дахин нэвтэрн�
 msgid "Set origin and destination"
 msgstr "Эхлэл, очих газрыг тогтоох"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "Хандалтыг тохируулж байна..."
 
@@ -1642,13 +1711,12 @@ msgstr "Хандалтыг тохируулж байна..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Тохиргоо"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "Тохиргоо хадгалагдсан"
 
@@ -1684,7 +1752,7 @@ msgstr "Үндсэн рүү алгасах"
 msgid "Small"
 msgstr "Жижиг"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Эх салбар"
@@ -1701,8 +1769,8 @@ msgstr "Гэхдээ хүлээж бай!"
 msgid "Subject"
 msgstr "Сэдэв"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "Захиалах"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "Салбар солих"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "Тэг"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "Тэгүүд"
@@ -1757,13 +1825,17 @@ msgstr "Нөхцөл"
 msgid "That code is incorrect or has expired."
 msgstr "Энэ код буруу эсвэл хугацаа нь дууссан байна."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "Repository-г үзэх үед харагдах салбар"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "Хүссэн агуулга олдсонгүй."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "Сайт одоогоор боломжгүй байна."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "Загвар"
 msgid "Theme Settings"
 msgstr "Загварын тохиргоо"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "Энэ хуудсыг хараахан үүсгээгүй байна."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Энэ хуудас repository контекст шаарддаг."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Энэ нь \"{currentName}\" болон бүх commit, салбар, тэгүүдийг бүрмөсөн устгана. Үүнийг буцаах боломжгүй."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Энэ нь энэ токенийг бүрмөсөн устгана. Үүнийг ашиглаж байгаа аливаа git клиентүүд цаашид баталгаажуулах боломжгүй болно."
 
@@ -1798,6 +1874,10 @@ msgstr "Энэ нь \"{repoName}\"-г таны repository жагсаалтаас
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "Пүрэв гараг"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "Хаашаа"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "Хажуугийн самбарыг сэлгэх"
 msgid "Toggle theme"
 msgstr "Загварыг сэлгэх"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "Токен үүсгэгдсэн"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "Токен устгагдсан"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "Токены нэр"
 
@@ -1906,9 +1986,9 @@ msgstr "АНУ"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "Захиалгаас гарах"
 
@@ -1917,7 +1997,7 @@ msgstr "Захиалгаас гарах"
 msgid "Unsubscribe from repository?"
 msgstr "Repository-аас захиалгаа гаргах уу?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "Захиалгаас гарсан"
 
@@ -1929,7 +2009,7 @@ msgstr "Repository-аас захиалгаа гаргасан"
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "Захиалгаас гарч байна..."
 
@@ -1937,11 +2017,11 @@ msgstr "Захиалгаас гарч байна..."
 msgid "Unverified"
 msgstr "Баталгаажаагүй"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "Хандалтыг шинэчилж байна..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "Замыг шинэчилж байна..."
 
@@ -1953,7 +2033,7 @@ msgstr "Нэвтрэх түлхүүрээ ашиглах"
 msgid "User"
 msgstr "Хэрэглэгч"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "Баталгаажуулах код"
 
@@ -1967,7 +2047,7 @@ msgstr "Баталгаажуулалт амжилтгүй"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "Баталгаажуулах"
 
@@ -1979,6 +2059,11 @@ msgstr "Имэйл хаягийг баталгаажуулах"
 msgid "Video thumbnail"
 msgstr "Видеоны жижиг зураг"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "Видео үзэгч: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "Үзэх"
@@ -1987,10 +2072,15 @@ msgstr "Үзэх"
 msgid "View all"
 msgstr "Бүгдийг үзэх"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "Бүх мэдэгдлүүдийг үзэх"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "Бид <0>{0}</0> хаяг руу баталгаажуулах код илгээлээ. Имэйл хаягаа баталгаажуулахын тулд доор кодоо оруулна уу."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "Лхагва гараг"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "Та энэ хэсэгт хандах эрхгүй байна."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "Танд энэ нөөцийг үзэх <0/>шаардлагатай зөвшөөрөл байхгүй."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

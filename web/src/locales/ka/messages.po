@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "გთხოვთ, შეამოწმოთ ინტერნეტთან კავშირი და სცადოთ ხელახლა."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, other {# გაყიდვა}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, other {# ფაილი შეიცვალა}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, other {# ხაზი}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} ბრენჩი"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} პარამეტრები"
@@ -49,6 +54,26 @@ msgstr "{0} პარამეტრები"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} ტეგის მქონე {1}"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "{entityLabel}-ის სახელი"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, other {არჩეულია {manyName}}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, other {არჩეულია # {manyName}. მასობრივი მოქმედებების ზოლი ხელმისაწვდომია.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, other {# არჩეული}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, other {მასობრივი მოქმედებები # არჩეული {manyName}-სთვის}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "წვდომა აკრძალულია"
 msgid "Access level"
 msgstr "წვდომის დონე"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "წვდომის დონე განახლდა"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "წვდომა წაიშალა"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "წვდომა დაყენებულია {subjectName}-სთვის"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "ანგარიში დადასტურებულია"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "დამატება"
 
@@ -185,7 +210,7 @@ msgstr "მოხდა მოულოდნელი შეცდომა"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "დარწმუნებული ხართ, რომ გსურთ გასვლა? ანგარიშზე წვდომისთვის ხელახლა შესვლა მოგიწევთ."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "დარწმუნებული ხართ, რომ გსურთ ამ რეპოზიტორიდან გამოწერის გაუქმება?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Authenticator-ის კოდი"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "უკან"
 
@@ -211,14 +236,14 @@ msgstr "უკან"
 msgid "Back to commits"
 msgstr "უკან commit-ებში"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "მთავარზე დაბრუნება"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "ბინარული ფაილი ({0})"
 
@@ -227,27 +252,26 @@ msgstr "ბინარული ფაილი ({0})"
 msgid "Boost interest"
 msgstr "ინტერესის გაძლიერება"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "ფილიალი \"{name}\" შეიქმნა"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "ფილიალი \"{name}\" წაიშალა"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "ბრენჩის სახელი"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "ბრენჩის სახელი აუცილებელია"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "ბრენჩები"
@@ -260,20 +284,20 @@ msgstr "ბრენჩები"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "რედაქტირების გაუქმება"
 
@@ -286,7 +310,7 @@ msgstr "ამ შეტყობინების კატეგორია"
 msgid "Change notification category"
 msgstr "შეტყობინების კატეგორიის შეცვლა"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "ცვლილებები"
 
@@ -324,36 +348,37 @@ msgstr "გასუფთავება"
 msgid "Clear all"
 msgstr "ყველაფრის გასუფთავება"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "ფილტრების გასუფთავება"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "არჩევის გასუფთავება"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "არჩევის გასუფთავება (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "კლონირება"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "რეპოზიტორის კლონირება"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "დახურვა"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "ნავიგაციის დახურვა"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit ვერ მოიძებნა"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commit-ები"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "გაგრძელება {label}-ით"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "ბუფერში დაკოპირდა"
 
@@ -440,13 +464,13 @@ msgstr "ბუფერში დაკოპირდა"
 msgid "Copy"
 msgstr "კოპირება"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "commit-ის SHA-ის კოპირება"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "ფაილის შიგთავსის კოპირება"
 
@@ -466,12 +490,12 @@ msgstr "ხელახალი ავთენტიფიკაციის �
 msgid "Couldn't verify with that account. Please try again."
 msgstr "ამ ანგარიშით ვერ მოხერხდა გადამოწმება. გთხოვთ, სცადოთ თავიდან."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "შექმნა"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "ახალი ავთენტიფიკაციის ტოკენის შექმნა."
 
@@ -479,8 +503,8 @@ msgstr "ახალი ავთენტიფიკაციის ტოკ�
 msgid "Create a new repository"
 msgstr "ახალი რეპოზიტორის შექმნა"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "ბრენჩის შექმნა"
 msgid "Create repository"
 msgstr "რეპოზიტორის შექმნა"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "ტოკენის შექმნა"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "შექმნილია {0}"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "ფილიალის შექმნა..."
@@ -511,11 +535,11 @@ msgstr "ფილიალის შექმნა..."
 msgid "Creating repository..."
 msgstr "საცავის შექმნა..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "ტოკენის შექმნა..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "იქმნება..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "მორგებული"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "ბნელი"
@@ -541,7 +566,7 @@ msgstr "ბნელი რეჟიმი"
 msgid "Data conflict"
 msgstr "მონაცემთა კონფლიქტი"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "დღე"
@@ -554,48 +579,48 @@ msgstr "ნაგულისხმევი"
 msgid "Default AI account"
 msgstr "ნაგულისხმევი AI ანგარიში"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "ნაგულისხმევი ბრენჩი"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "წაშლა"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "„{branchToDelete}“-ის წაშლა? ეს შეუქცევადია."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "ტოტის წაშლა"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "ბრენჩის წაშლა?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "რეპოზიტორის წაშლა"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "რეპოზიტორის წაშლა?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "ტოკენის წაშლა"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "ტოკენის წაშლა?"
 
@@ -603,20 +628,20 @@ msgstr "ტოკენის წაშლა?"
 msgid "Delete your account on the old server"
 msgstr "წაშალეთ თქვენი ანგარიში ძველ სერვერზე"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "ფილიალის წაშლა..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "საცავის წაშლა..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "ტოკენის წაშლა..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "იშლება..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "კლებადობით"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "აღწერა"
 
@@ -662,13 +687,13 @@ msgstr "უარყოფა"
 msgid "Displays the mobile sidebar."
 msgstr "აჩვენებს მობილურის გვერდით პანელს."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "მზადაა"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "ჩამოტვირთვა"
 msgid "Download failed"
 msgstr "ჩამოტვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "ფაილის ჩამოტვირთვა"
 
@@ -688,7 +713,7 @@ msgstr "ფაილის ჩამოტვირთვა"
 msgid "Dyslexia-friendly"
 msgstr "დისლექსიის თავსებადი"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "მაგ., Feedly, NewsBlur"
 
@@ -696,11 +721,11 @@ msgstr "მაგ., Feedly, NewsBlur"
 msgid "Edit {label}"
 msgstr "{label}-ის რედაქტირება"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "სახელის რედაქტირება"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "ბილიკის რედაქტირება"
 
@@ -708,12 +733,11 @@ msgstr "ბილიკის რედაქტირება"
 msgid "Email code"
 msgstr "ელფოსტის კოდი"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "ცარიელი დირექტორია"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "ცარიელი საცავი"
 
@@ -725,7 +749,7 @@ msgstr "შეიყვანეთ კოდი თქვენი ელფო
 msgid "Enter your authenticator code"
 msgstr "შეიყვანეთ თქვენი authenticator-ის კოდი"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "ერთეული:"
 
@@ -748,7 +772,7 @@ msgstr "ძალიან დიდი"
 msgid "Failed to add account"
 msgstr "ანგარიშის დამატება ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "ტოტის შექმნა ვერ მოხერხდა"
@@ -761,24 +785,24 @@ msgstr "ბმულის შექმნა ვერ მოხერხდა
 msgid "Failed to create repository"
 msgstr "საცავის შექმნა ვერ მოხერხდა"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "ტოკენის შექმნა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "ტოტის წაშლა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "საცავის წაშლა ვერ მოხერხდა"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "ტოკენის წაშლა ვერ მოხერხდა"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "ჩამოტვირთვა ვერ მოხერხდა"
 
@@ -786,40 +810,47 @@ msgstr "ჩამოტვირთვა ვერ მოხერხდა"
 msgid "Failed to download archive"
 msgstr "არქივის ჩამოტვირთვა ვერ მოხერხდა"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "ტოკენის მიღება ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "წვდომის წესების ჩატვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "ტოტების ჩატვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "commit-ის ჩატვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "commit-ების ჩატვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "ფაილების ჩატვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "სურათის ჩატვირთვა ვერ მოხერხდა"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "ტეგების ჩატვირთვა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "ვიდეოს ჩატვირთვა ვერ მოხერხდა"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "წვდომის წაშლა ვერ მოხერხდა"
 
@@ -827,12 +858,12 @@ msgstr "წვდომის წაშლა ვერ მოხერხდა
 msgid "Failed to remove account"
 msgstr "ანგარიშის წაშლა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "საცავის გადარქმევა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "პარამეტრის შენახვა ვერ მოხერხდა"
 
@@ -840,7 +871,7 @@ msgstr "პარამეტრის შენახვა ვერ მოხ
 msgid "Failed to send verification code"
 msgstr "დადასტურების კოდის გაგზავნა ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "წვდომის დონის დაყენება ვერ მოხერხდა"
 
@@ -852,11 +883,11 @@ msgstr "გამოწერა ვერ მოხერხდა"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "გამოწერის გაუქმება ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "წვდომის დონის განახლება ვერ მოხერხდა"
 
@@ -864,11 +895,11 @@ msgstr "წვდომის დონის განახლება ვე
 msgid "Failed to update category"
 msgstr "კატეგორიის განახლება ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "გზის განახლება ვერ მოხერხდა"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "example.com ან *.example.com"
@@ -889,7 +920,7 @@ msgstr "ფაილები"
 msgid "Find repositories"
 msgstr "საცავების ძიება"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "ანაბეჭდი:"
 
@@ -931,29 +962,29 @@ msgstr "ვისგან: {0}"
 msgid "Full layout"
 msgstr "სრული განლაგება"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "უკან"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "პირველ გვერდზე გადასვლა"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "ბოლო გვერდზე გადასვლა"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "შემდეგ გვერდზე გადასვლა"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "გვერდი {pageNumber}-ზე გადასვლა"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "წინა გვერდზე გადასვლა"
 
@@ -980,9 +1011,14 @@ msgstr "მთავარი"
 msgid "Hot"
 msgstr "ცხელი"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "ვინაობა"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "სურათის მნახველი: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "ინტერესები"
 msgid "Invalid verification code"
 msgstr "არასწორი დადასტურების კოდი"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "როგორც ჩანს, გვერდი, რომელსაც ეძებთ, <0/>არ არსებობს ან წაშლილია."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "დიდი"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "ბოლოს გამოყენებული {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "მარცხნიდან მარჯვნივ"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "ღია"
@@ -1042,8 +1083,8 @@ msgstr "შიგთავსის ჩატვირთვა…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "იტვირთება…"
+msgid "Loading..."
+msgstr "იტვირთება..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "გასვლა…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "მხოლოდ პატარა ასოები, ციფრები და დეფისები"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "ტოკენების მართვა"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "ყველას წაკითხულად მონიშვნა"
@@ -1099,8 +1140,8 @@ msgstr "მეტრიკული"
 msgid "Monday"
 msgstr "ორშაბათი"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "მეტი მოქმედება"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "სახელი"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "სახელი ვერ შეიცავს < ან > სიმბოლოებს"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "სახელი უნდა იყოს 100 სიმბოლო ან ნაკლები"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "სახელი:"
 
@@ -1127,8 +1168,8 @@ msgstr "სახელი:"
 msgid "Network error"
 msgstr "ქსელის შეცდომა"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "არასოდეს"
 
@@ -1136,17 +1177,17 @@ msgstr "არასოდეს"
 msgid "New"
 msgstr "ახალი"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "ახალი ბრანჩი"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "შემდეგი სურათი"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "წვდომა არ არის"
 
@@ -1154,12 +1195,12 @@ msgstr "წვდომა არ არის"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "წვდომის წესები არ არის კონფიგურირებული. დაამატეთ წესები იმის მართვისთვის, თუ ვის აქვს წვდომა ამ რესურსზე."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "ბრანჩები ჯერ არ არის"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "კომიტები ჯერ არ არის"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "რეპოზიტორიები ვერ მოიძებნა"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "შედეგები ვერ მოიძებნა."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "ტეგები ჯერ არ არის"
@@ -1203,7 +1244,7 @@ msgstr "ტეგები ჯერ არ არის"
 msgid "No time zone found."
 msgstr "დროის სარტყელი ვერ მოიძებნა."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "ტოკენები ჯერ არ არის."
 
@@ -1240,6 +1281,11 @@ msgstr "არ არის დაყენებული"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "შეტყობინებები"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "შეტყობინებები: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "სხვა"
 msgid "Owner"
 msgstr "მფლობელი"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "გვერდი {currentPage} / {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "მშობელი:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "მშობლები:"
 
@@ -1302,19 +1353,19 @@ msgstr "Passkey-ები"
 msgid "Path"
 msgstr "ბილიკი"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "ბილიკი აუცილებელია"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "ბილიკი განახლდა"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "ბილიკი:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "სამუდამოდ წაშალეთ ეს რეპოზიტორია და მთელი მისი მონაცემები"
 
@@ -1323,9 +1374,13 @@ msgstr "სამუდამოდ წაშალეთ ეს რეპოზ
 msgid "Please check your internet connection and try again."
 msgstr "გთხოვთ, შეამოწმოთ ინტერნეტთან კავშირი და სცადოთ ხელახლა."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "გთხოვთ, შეიყვანოთ ტოკენის სახელი"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "ამ რესურსზე წვდომისთვის <0/> გთხოვთ, შეხვიდეთ შესაბამისი მონაცემებით."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "გთხოვთ, კიდევ სცადეთ."
 msgid "Please wait a moment and try again."
 msgstr "გთხოვთ, ცოტა ხნით მოიცადოთ და ხელახლა სცადოთ."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "წინა სურათი"
 
@@ -1362,11 +1417,11 @@ msgstr "ხელახლა დააკავშირეთ თქვენ�
 msgid "Re-register your passkeys on this server"
 msgstr "ხელახლა დაარეგისტრირეთ თქვენი წვდომის გასაღებები ამ სერვერზე"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "კითხვა და ჩაწერა"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "მხოლოდ წაკითხვადი"
 
@@ -1406,6 +1461,11 @@ msgstr "წაშლა"
 msgid "Remove access rule"
 msgstr "წვდომის წესის წაშლა"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "წავშალოთ წვდომის წესი „{0}“-ისთვის?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "წვდომის წაშლა?"
@@ -1415,11 +1475,11 @@ msgstr "წვდომის წაშლა?"
 msgid "Remove interest"
 msgstr "ინტერესის წაშლა"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "წვდომის წაშლა..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "საცავის სახელის შეცვლა..."
 
@@ -1450,7 +1510,7 @@ msgstr "რეპოზიტორია"
 msgid "Repository created"
 msgstr "რეპოზიტორია შეიქმნა"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "რეპოზიტორია წაიშალა"
 
@@ -1463,7 +1523,7 @@ msgstr "რეპოზიტორიის ID აუცილებელი�
 msgid "Repository link"
 msgstr "საცავის ბმული"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "რეპოზიტორიის სახელი აუცილებელია"
 
@@ -1471,7 +1531,7 @@ msgstr "რეპოზიტორიის სახელი აუცილ�
 msgid "Repository not found"
 msgstr "რეპოზიტორია ვერ მოიძებნა"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "რეპოზიტორიის სახელი შეიცვალა"
 
@@ -1492,7 +1552,7 @@ msgstr "ყველა პარამეტრის გადაყენე�
 msgid "Right to Left"
 msgstr "მარჯვნიდან მარცხნივ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "სტრიქონები გვერდზე"
 
@@ -1502,21 +1562,21 @@ msgstr "შაბათი"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "შენახვა"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "შეინახეთ ეს ტოკენი ახლა. ვერ ნახავთ თავიდან."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "შეინახეთ ეს ტოკენი უსაფრთხოდ. ვერ ნახავთ თავიდან."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "პარამეტრების შენახვა..."
 
@@ -1574,7 +1634,7 @@ msgstr "ანგარიშის ტიპის არჩევა"
 msgid "Select branch"
 msgstr "აირჩიეთ ბრენჩი"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "აირჩიეთ ნაგულისხმევი ბრენჩი"
 
@@ -1594,7 +1654,7 @@ msgstr "აირჩიეთ გვერდითი პანელის ს
 msgid "Select site direction"
 msgstr "აირჩიეთ საიტის მიმართულება"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "აირჩიეთ წყარო ბრენჩი"
@@ -1603,7 +1663,16 @@ msgstr "აირჩიეთ წყარო ბრენჩი"
 msgid "Select theme preference"
 msgstr "აირჩიეთ თემის პრიორიტეტი"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "არჩეული"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "არჩეული: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "თავიდან გაგზავნა"
 
@@ -1633,7 +1702,7 @@ msgstr "სესიის ვადა ამოიწურა. გთხო�
 msgid "Set origin and destination"
 msgstr "წყაროს და დანიშნულების დაყენება"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "წვდომის დაყენება..."
 
@@ -1642,13 +1711,12 @@ msgstr "წვდომის დაყენება..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "პარამეტრები"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "პარამეტრები შენახულია"
 
@@ -1684,7 +1752,7 @@ msgstr "ძირითადზე გადასვლა"
 msgid "Small"
 msgstr "პატარა"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "წყარო ბრენჩი"
@@ -1701,8 +1769,8 @@ msgstr "თუმცა იყავით ფხიზლად!"
 msgid "Subject"
 msgstr "თემა"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "გამოწერა"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "ფილიალის გადართვა"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "ტეგი"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "ტეგები"
@@ -1757,13 +1825,17 @@ msgstr "წესები და პირობები"
 msgid "That code is incorrect or has expired."
 msgstr "ეს კოდი არასწორია ან ვადაგასულია."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "ბრენჩი, რომელიც ნაჩვენებია რეპოზიტორის ნახვისას"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "მოთხოვნილი კონტენტი ვერ მოიძებნა."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "საიტი ამჟამად მიუწვდომელია."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "თემა"
 msgid "Theme Settings"
 msgstr "თემის პარამეტრები"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "ეს გვერდი ჯერ არ შექმნილა."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ამ გვერდს სჭირდება რეპოზიტორის კონტექსტი."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "ეს სამუდამოდ წაშლის \"{currentName}\"-ს და მის ყველა კომიტს, ბრენჩს და ტეგს. ეს მოქმედება ვერ გაუქმდება."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ეს სამუდამოდ წაშლის ამ ტოკენს. ნებისმიერი git კლიენტი, რომელიც მას იყენებდა, ვეღარ შეძლებს ავტენტიფიკაციას."
 
@@ -1798,6 +1874,10 @@ msgstr "ეს წაშლის \"{repoName}\"-ს თქვენი რე�
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "ხუთშაბათი"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "სად"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "გვერდითი პანელის გადართვა"
 msgid "Toggle theme"
 msgstr "თემის გადართვა"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "ტოკენი დაკოპირდა ბუფერში"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "ტოკენი შეიქმნა"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "ტოკენი წაიშალა"
 
@@ -1906,9 +1986,9 @@ msgstr "ამ ვიკის უნიკალური იდენტიფ
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "ამოუცნობი ანგარიში"
 
@@ -1917,7 +1997,7 @@ msgstr "ამოუცნობი ანგარიში"
 msgid "Unsubscribe from repository?"
 msgstr "გავაუქმოთ პროექტის გამოწერა?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "გავაუქმოთ რეპოზიტორის გამოწერა?"
 
@@ -1929,7 +2009,7 @@ msgstr "გამოწერა გაუქმებულია"
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "{feedName}-ის გამოწერა გაუქმდა"
 
@@ -1937,11 +2017,11 @@ msgstr "{feedName}-ის გამოწერა გაუქმდა"
 msgid "Unverified"
 msgstr "უსათაურო ლისტინგი"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "წვდომის განახლება..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "გზის განახლება..."
 
@@ -1953,7 +2033,7 @@ msgstr "გამოიყენეთ თქვენი passkey"
 msgid "User"
 msgstr "გამოიყენება წასაკითხი ID-ებისთვის, როგორიცაა {0}-1, {1}-2"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "შემოწმება"
 
@@ -1967,7 +2047,7 @@ msgstr "შემოწმების კოდი გაიგზავნა"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "შემოწმებული"
 
@@ -1979,6 +2059,11 @@ msgstr "შემოწმება და ჩართვა"
 msgid "Video thumbnail"
 msgstr "ვერსია {0} შეიქმნა."
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "ვიდეოს მნახველი: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "ვიდეოს ესკიზი"
@@ -1987,10 +2072,15 @@ msgstr "ვიდეოს ესკიზი"
 msgid "View all"
 msgstr "ნახვა"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "ყველას ნახვა"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "გავაგზავნეთ დამადასტურებელი კოდი მისამართზე <0>{0}</0>. შეიყვანეთ კოდი ქვემოთ თქვენი ელფოსტის დასადასტურებლად."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "ვებსაიტი ტექმომსახურებაშ�
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "ამ განყოფილებაზე წვდომა არ გაქვთ."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "თქვენ არ გაქვთ საჭირო ნებართვა <0/>ამ რესურსის სანახავად."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

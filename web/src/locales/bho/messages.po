@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "कृपया आपन इंटरनेट कनेक्शन जाँचीं आ फेर से कोसिस करीं।"
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, one {# चुनल} other {# चुनल}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# फाइल बदलल} other {# फाइल बदलल}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# लाइन} other {# लाइन}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} कमिट सब"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} पर टैग कइल गइल"
@@ -49,6 +54,26 @@ msgstr "{0} {1} पर टैग कइल गइल"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} टैग सब"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "{entityLabel} के नाम"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, one {{entityName} चुनल गइल} other {{manyName} चुनल गइल}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, one {# {entityName} चुनल गइल। थोक कार्रवाई पट्टी उपलब्ध बा।} other {# {manyName} चुनल गइल। थोक कार्रवाई पट्टी उपलब्ध बा।}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, one {# चुनल गइल} other {# चुनल गइल}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, one {# चुनल {entityName} खातिर थोक कार्रवाई} other {# चुनल {manyName} खातिर थोक कार्रवाई}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "पहुंच निषिद्ध"
 msgid "Access level"
 msgstr "पहुंच स्तर"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "पहुंच स्तर अद्यतन कइल गइल"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "पहुंच हटा दिहल गइल"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} खातिर पहुंच सेट कइल गइल"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "खाता सत्यापित कइल गइल"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "जोड़ीं"
 
@@ -185,7 +210,7 @@ msgstr "एगो अप्रत्याशित त्रुटि भइल
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "का रउआ लॉग आउट करे चाहत बानी? आपन खाता तक पहुंचे खातिर रउआ के फिर लॉग इन करे के पड़ी।"
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "का रउआ एह रिपॉजिटरी से सदस्यता वापस लेवे चाहत बानी?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Authenticator कोड"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "वापस"
 
@@ -211,14 +236,14 @@ msgstr "वापस"
 msgid "Back to commits"
 msgstr "Commit पर वापस"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "घर वापस जाईं"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "Binary फाइल ({0})"
 
@@ -227,27 +252,26 @@ msgstr "Binary फाइल ({0})"
 msgid "Boost interest"
 msgstr "रुचि बढ़ाईं"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "ब्रांच \"{name}\" बनल"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "ब्रांच \"{name}\" मेटावल गइल"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Branch नाम"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Branch नाम जरूरी बा"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "Branch"
@@ -260,20 +284,20 @@ msgstr "Branch"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "रद्द करीं"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "संपादन रद्द करीं"
 
@@ -286,7 +310,7 @@ msgstr "एह सूचना खातिर श्रेणी"
 msgid "Change notification category"
 msgstr "सूचना श्रेणी बदलीं"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "बदलाव"
 
@@ -324,36 +348,37 @@ msgstr "साफ करीं"
 msgid "Clear all"
 msgstr "सब साफ करीं"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "फिल्टर साफ करीं"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "चयन साफ करीं"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "चयन साफ करीं (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "रिपॉजिटरी Clone करीं"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "बंद करीं"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "नेविगेशन बंद करीं"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit ना मिलल"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commit"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "{label} के साथ आगे बढ़ीं"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "क्लिपबोर्ड पर कॉपी कइल गइल"
 
@@ -440,13 +464,13 @@ msgstr "क्लिपबोर्ड पर कॉपी कइल गइल"
 msgid "Copy"
 msgstr "कॉपी करीं"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "commit SHA कॉपी करीं"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "फाइल के सामग्री कॉपी करीं"
 
@@ -466,12 +490,12 @@ msgstr "फिर से प्रमाणीकरण शुरू ना ह�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "ओह खाता से सत्यापन ना हो सकल। कृपया फेर से कोसिस करीं।"
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "बनाईं"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "एगो नया प्रमाणीकरण टोकन बनाईं।"
 
@@ -479,8 +503,8 @@ msgstr "एगो नया प्रमाणीकरण टोकन बन�
 msgid "Create a new repository"
 msgstr "एगो नया रिपॉजिटरी बनाईं"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "Branch बनाईं"
 msgid "Create repository"
 msgstr "रिपॉजिटरी बनाईं"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "टोकन बनाईं"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "{0} बनावल गइल"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "ब्रांच बनावल जा रहल बा..."
@@ -511,11 +535,11 @@ msgstr "ब्रांच बनावल जा रहल बा..."
 msgid "Creating repository..."
 msgstr "रिपॉज़िटरी बनावल जा रहल बा..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "टोकन बनावल जा रहल बा..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "बनावल जा रहल बा..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "अनुकूलित"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "गहिरा"
@@ -541,7 +566,7 @@ msgstr "गहिरा मोड"
 msgid "Data conflict"
 msgstr "डेटा में टकराव"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "डिफ़ॉल्ट"
@@ -554,48 +579,48 @@ msgstr "डिफ़ॉल्ट"
 msgid "Default AI account"
 msgstr "डिफ़ॉल्ट AI खाता"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "डिफ़ॉल्ट Branch"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "मेटाईं"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" मेटाईं? ई वापस ना हो सकेला।"
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "शाखा हटाईं"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Branch मेटाईं?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "रिपॉजिटरी मेटाईं"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "रिपॉजिटरी मेटाईं?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "टोकन मेटाईं"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "टोकन मेटाईं?"
 
@@ -603,20 +628,20 @@ msgstr "टोकन मेटाईं?"
 msgid "Delete your account on the old server"
 msgstr "पुरान सर्वर पर आपन खाता मेटाईं"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "ब्रांच मेटावल जा रहल बा..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "रिपॉज़िटरी मेटावल जा रहल बा..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "टोकन मेटावल जा रहल बा..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "मेटा रहल बा..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "घटत क्रम"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "विवरण"
 
@@ -662,13 +687,13 @@ msgstr "खारिज करीं"
 msgid "Displays the mobile sidebar."
 msgstr "मोबाइल साइडबार देखावेला।"
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "हो गइल"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "डाउनलोड"
 msgid "Download failed"
 msgstr "डाउनलोड असफल भइल"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "फाइल डाउनलोड करीं"
 
@@ -688,7 +713,7 @@ msgstr "फाइल डाउनलोड करीं"
 msgid "Dyslexia-friendly"
 msgstr "डिस्लेक्सिया-अनुकूल"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "जइसे, काम के लैपटॉप"
 
@@ -696,11 +721,11 @@ msgstr "जइसे, काम के लैपटॉप"
 msgid "Edit {label}"
 msgstr "{label} संपादित करीं"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "नाम संपादित करीं"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "पथ संपादित करीं"
 
@@ -708,12 +733,11 @@ msgstr "पथ संपादित करीं"
 msgid "Email code"
 msgstr "ईमेल कोड"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "खाली डायरेक्टरी"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "खाली रिपॉजिटरी"
 
@@ -725,7 +749,7 @@ msgstr "आपन ईमेल से आइल कोड डालीं"
 msgid "Enter your authenticator code"
 msgstr "आपन प्रमाणक कोड डालीं"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "एंटिटी:"
 
@@ -748,7 +772,7 @@ msgstr "अतिरिक्त बड़ा"
 msgid "Failed to add account"
 msgstr "खाता जोड़े में विफल"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "ब्रांच बनावे में विफल"
@@ -761,24 +785,24 @@ msgstr "लिंक बनावे में विफल"
 msgid "Failed to create repository"
 msgstr "रिपॉजिटरी बनावे में विफल"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "टोकन बनावे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "ब्रांच मेटावे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "रिपॉजिटरी मेटावे में विफल"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "टोकन मेटावे में विफल"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "डाउनलोड करे में विफल"
 
@@ -786,40 +810,47 @@ msgstr "डाउनलोड करे में विफल"
 msgid "Failed to download archive"
 msgstr "आर्काइव डाउनलोड करे में विफल"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "टोकन पावे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "पहुँच नियम लोड करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "ब्रांच लोड करे में विफल"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "कमिट लोड करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "कमिट लोड करे में विफल"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "फाइल लोड करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "चित्र लोड ना भइल"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "टैग लोड करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "वीडियो लोड ना भइल"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "पहुँच हटावे में विफल"
 
@@ -827,12 +858,12 @@ msgstr "पहुँच हटावे में विफल"
 msgid "Failed to remove account"
 msgstr "खाता हटावे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "रिपॉजिटरी के नाम बदले में विफल"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "सेटिंग सहेजे में विफल"
 
@@ -840,7 +871,7 @@ msgstr "सेटिंग सहेजे में विफल"
 msgid "Failed to send verification code"
 msgstr "सत्यापन कोड भेजे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "पहुँच स्तर सेट करे में विफल"
 
@@ -852,11 +883,11 @@ msgstr "सब्सक्राइब करे में विफल"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "अनसब्सक्राइब करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "पहुँच स्तर अपडेट करे में विफल"
 
@@ -864,11 +895,11 @@ msgstr "पहुँच स्तर अपडेट करे में वि�
 msgid "Failed to update category"
 msgstr "श्रेणी अपडेट करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "पथ अपडेट करे में विफल"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "फाइल"
 msgid "Find repositories"
 msgstr "रिपॉजिटरी खोजीं"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "फिंगरप्रिंट:"
 
@@ -931,29 +962,29 @@ msgstr "से: {0}"
 msgid "Full layout"
 msgstr "पूरा लेआउट"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "वापस जाईं"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "पहिला पन्ना पर जाईं"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "आखिरी पन्ना पर जाईं"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "अगिला पन्ना पर जाईं"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "पृष्ठ {pageNumber} पर जाईं"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "पिछला पन्ना पर जाईं"
 
@@ -980,9 +1011,14 @@ msgstr "होम"
 msgid "Hot"
 msgstr "हॉट"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "पहचान"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "चित्र दर्शक: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "रुचि"
 msgid "Invalid verification code"
 msgstr "अमान्य सत्यापन कोड"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "लागत बा कि रउआ जवन पन्ना खोजत बानी <0/>ऊ नइखे भा हटा दिहल गइल बा।"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "बड़ा"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "आखिरी बेर इस्तेमाल {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "बायाँ से दहिने"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "हल्का"
@@ -1042,8 +1083,8 @@ msgstr "सामग्री लोड हो रहल बा…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "लोड हो रहल बा…"
+msgid "Loading..."
+msgstr "लोड हो रहल बा..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "लॉग आउट हो रहल बा…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "बस छोट अक्षर, संख्या आ हाइफन"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "टोकन प्रबंधित करीं"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "सब के पढ़ल चिह्नित करीं"
@@ -1099,8 +1140,8 @@ msgstr "मीट्रिक"
 msgid "Monday"
 msgstr "सोमवार"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "अउरी कार्रवाई"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "नाम"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "नाम में < भा > अक्षर ना रह सके"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "नाम 100 अक्षर भा ओकरा से कम होखे के चाहीं"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "नाम:"
 
@@ -1127,8 +1168,8 @@ msgstr "नाम:"
 msgid "Network error"
 msgstr "नेटवर्क त्रुटि"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "कबो ना"
 
@@ -1136,17 +1177,17 @@ msgstr "कबो ना"
 msgid "New"
 msgstr "नया"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "नया ब्रांच"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "अगिला तस्वीर"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "पहुँच नइखे"
 
@@ -1154,12 +1195,12 @@ msgstr "पहुँच नइखे"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "कौनो पहुँच नियम सेट नइखे। ए संसाधन पर के पहुँच कर सकेला, ओकरा खातिर नियम जोड़ीं।"
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "अबहीं तक कौनो ब्रांच नइखे"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "अबहीं तक कौनो commit नइखे"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "कौनो रिपॉजिटरी ना मिलल"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "कौनो परिणाम ना मिलल।"
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "अबहीं तक कौनो टैग नइखे"
@@ -1203,7 +1244,7 @@ msgstr "अबहीं तक कौनो टैग नइखे"
 msgid "No time zone found."
 msgstr "कौनो टाइम जोन ना मिलल।"
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "अबहीं तक कौनो टोकन नइखे।"
 
@@ -1240,6 +1281,11 @@ msgstr "सेट नइखे"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "सूचना"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "सूचना: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "दोसर"
 msgid "Owner"
 msgstr "मालिक"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "पन्ना {currentPage} / {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "मूल:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "मूल:"
 
@@ -1302,19 +1353,19 @@ msgstr "Passkey"
 msgid "Path"
 msgstr "पथ"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "पथ जरूरी बा"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "पथ अपडेट भइल"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "पथ:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "ए रिपॉजिटरी आ ओकर सब डेटा के स्थायी रूप से मिटाईं"
 
@@ -1323,9 +1374,13 @@ msgstr "ए रिपॉजिटरी आ ओकर सब डेटा के
 msgid "Please check your internet connection and try again."
 msgstr "कृपया आपन इंटरनेट कनेक्शन जाँचीं आ फेर से कोसिस करीं।"
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "टोकन नाम डालीं"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "ई संसाधन तक पहुँचे खातिर <0/> कृपया सही जानकारी से लॉग इन करीं।"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "कृपया फेर से कोशिश करीं।"
 msgid "Please wait a moment and try again."
 msgstr "कृपया तनी देर रुकीं आ फेर से कोशिश करीं।"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "पिछिला तस्वीर"
 
@@ -1362,11 +1417,11 @@ msgstr "एह सर्वर पर आपन खाता फिर से �
 msgid "Re-register your passkeys on this server"
 msgstr "एह सर्वर पर आपन पासकी फिर से रजिस्टर करीं"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "पढ़ीं आ लिखीं"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "खाली पढ़ीं"
 
@@ -1406,6 +1461,11 @@ msgstr "हटाईं"
 msgid "Remove access rule"
 msgstr "पहुँच नियम हटाईं"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "\"{0}\" खातिर पहुँच नियम हटावल जाव?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "पहुँच हटाईं?"
@@ -1415,11 +1475,11 @@ msgstr "पहुँच हटाईं?"
 msgid "Remove interest"
 msgstr "रुचि हटाईं"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "पहुँच हटावल जा रहल बा..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "रिपॉज़िटरी के नाम बदलल जा रहल बा..."
 
@@ -1450,7 +1510,7 @@ msgstr "रिपॉजिटरी"
 msgid "Repository created"
 msgstr "रिपॉजिटरी बनल"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "रिपॉजिटरी मिटावल गइल"
 
@@ -1463,7 +1523,7 @@ msgstr "रिपॉजिटरी ID जरूरी बा"
 msgid "Repository link"
 msgstr "रिपॉजिटरी लिंक"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "रिपॉजिटरी नाम जरूरी बा"
 
@@ -1471,7 +1531,7 @@ msgstr "रिपॉजिटरी नाम जरूरी बा"
 msgid "Repository not found"
 msgstr "रिपॉजिटरी ना मिलल"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "रिपॉजिटरी के नाम बदलल गइल"
 
@@ -1492,7 +1552,7 @@ msgstr "सब सेटिंग के डिफ़ॉल्ट मान प�
 msgid "Right to Left"
 msgstr "दहिने से बायें"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "हर पन्ना पर पंक्ति"
 
@@ -1502,21 +1562,21 @@ msgstr "शनिवार"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "सहेजीं"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "ए टोकन के अब सहेजीं। रउआ ओकरा के फेर ना देख सकीं।"
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "ए टोकन के सुरक्षित रूप से सहेजीं। रउआ ओकरा के फेर ना देख सकीं।"
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "सेटिंग सहेजल जा रहल बा..."
 
@@ -1574,7 +1634,7 @@ msgstr "खाता प्रकार चुनीं"
 msgid "Select branch"
 msgstr "शाखा चुनीं"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "डिफ़ॉल्ट शाखा चुनीं"
 
@@ -1594,7 +1654,7 @@ msgstr "साइडबार शैली चुनीं"
 msgid "Select site direction"
 msgstr "साइट दिशा चुनीं"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "स्रोत शाखा चुनीं"
@@ -1603,7 +1663,16 @@ msgstr "स्रोत शाखा चुनीं"
 msgid "Select theme preference"
 msgstr "थीम वरीयता चुनीं"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "चुनल गइल"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "चुनल गइल: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "फेरु भेजीं"
 
@@ -1633,7 +1702,7 @@ msgstr "सेशन खतम हो गइल। कृपया फेर स
 msgid "Set origin and destination"
 msgstr "मूल आ गंतव्य सेट करीं"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "पहुँच सेट कइल जा रहल बा..."
 
@@ -1642,13 +1711,12 @@ msgstr "पहुँच सेट कइल जा रहल बा..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "सेटिंग सब"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "सेटिंग सहेजल गइल"
 
@@ -1684,7 +1752,7 @@ msgstr "मुख्य पर जाईं"
 msgid "Small"
 msgstr "छोट"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "स्रोत शाखा"
@@ -1701,8 +1769,8 @@ msgstr "लेकिन ध्यान बनवले रहीं!"
 msgid "Subject"
 msgstr "विषय"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "सदस्यता लीं"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "ब्रांच बदलीं"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "टैग"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "टैग सब"
@@ -1757,13 +1825,17 @@ msgstr "नियम आ शर्त"
 msgid "That code is incorrect or has expired."
 msgstr "ऊ कोड गलत बा भा ओकर मियाद खतम हो गइल बा।"
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "रिपॉजिटरी देखत समय देखावल जाए वाली शाखा"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "मांगल गइल सामग्री ना मिलल।"
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "साइट अभी उपलब्ध नइखे।"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "थीम"
 msgid "Theme Settings"
 msgstr "थीम सेटिंग"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "ई पन्ना अबले ना बनल बा।"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "एह पन्ना के एगो रिपॉजिटरी संदर्भ चाहीं।"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "ई \"{currentName}\" आ ओकर सब कमिट, शाखा, आ टैग के स्थायी रूप से हटा दी। ई कार्य पूर्ववत ना कइल जा सके।"
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ई टोकन के स्थायी रूप से हटा दी। एकर उपयोग करे वाला कवनो git क्लाइंट अब प्रमाणित ना कर पाई।"
 
@@ -1798,6 +1874,10 @@ msgstr "ई \"{repoName}\" के आपके रिपॉजिटरी स�
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "बृहस्पतिवार"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "ले"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "साइडबार टॉगल करीं"
 msgid "Toggle theme"
 msgstr "थीम टॉगल करीं"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "टोकन बनल"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "टोकन हटावल गइल"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "टोकन के नाम"
 
@@ -1906,9 +1986,9 @@ msgstr "संयुक्त राज्य अमेरिका"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "सदस्यता रद्द करीं"
 
@@ -1917,7 +1997,7 @@ msgstr "सदस्यता रद्द करीं"
 msgid "Unsubscribe from repository?"
 msgstr "रिपॉजिटरी से सदस्यता रद्द करीं?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "सदस्यता रद्द भइल"
 
@@ -1929,7 +2009,7 @@ msgstr "रिपॉजिटरी से सदस्यता रद्द �
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "सदस्यता रद्द हो रहल बा..."
 
@@ -1937,11 +2017,11 @@ msgstr "सदस्यता रद्द हो रहल बा..."
 msgid "Unverified"
 msgstr "असत्यापित"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "पहुँच अपडेट कइल जा रहल बा..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "पथ अपडेट कइल जा रहल बा..."
 
@@ -1953,7 +2033,7 @@ msgstr "आपन पासकी इस्तेमाल करीं"
 msgid "User"
 msgstr "उपयोगकर्ता"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "सत्यापन कोड"
 
@@ -1967,7 +2047,7 @@ msgstr "सत्यापन विफल भइल"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "सत्यापित करीं"
 
@@ -1979,6 +2059,11 @@ msgstr "ईमेल पता सत्यापित करीं"
 msgid "Video thumbnail"
 msgstr "वीडियो थंबनेल"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "वीडियो दर्शक: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "देखीं"
@@ -1987,10 +2072,15 @@ msgstr "देखीं"
 msgid "View all"
 msgstr "सब देखीं"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "सब सूचना देखीं"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "हमनी <0>{0}</0> पर सत्यापन कोड भेजनी। आपन ईमेल पता सत्यापित करे खातिर नीचे कोड डालीं।"
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "बुधवार"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "रउआ के ए खंड तक पहुँच नइखे।"
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "ई संसाधन देखे खातिर <0/>रउआ लगे जरूरी अनुमति नइखे।"
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

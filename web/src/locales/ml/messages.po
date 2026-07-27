@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, one {# തിരഞ്ഞെടുത്തു} other {# തിരഞ്ഞെടുത്തു}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ഫയൽ മാറി} other {# ഫയലുകൾ മാറി}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# വരി} other {# വരികൾ}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} കമ്മിറ്റുകൾ"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} {1}-ൽ ടാഗ് ചെയ്തു"
@@ -49,6 +54,26 @@ msgstr "{0} {1}-ൽ ടാഗ് ചെയ്തു"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} ടാഗുകൾ"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "{entityLabel} പേര്"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, one {{entityName} തിരഞ്ഞെടുത്തു} other {{manyName} തിരഞ്ഞെടുത്തു}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, one {# {entityName} തിരഞ്ഞെടുത്തു. ബൾക്ക് പ്രവർത്തന ടൂൾബാർ ലഭ്യമാണ്.} other {# {manyName} തിരഞ്ഞെടുത്തു. ബൾക്ക് പ്രവർത്തന ടൂൾബാർ ലഭ്യമാണ്.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, one {# തിരഞ്ഞെടുത്തു} other {# തിരഞ്ഞെടുത്തു}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, one {# തിരഞ്ഞെടുത്ത {entityName} എന്നതിനുള്ള ബൾക്ക് പ്രവർത്തനങ്ങൾ} other {# തിരഞ്ഞെടുത്ത {manyName} എന്നതിനുള്ള ബൾക്ക് പ്രവർത്തനങ്ങൾ}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "ആക്സസ് നിഷിദ്ധം"
 msgid "Access level"
 msgstr "ആക്സസ് ലെവൽ"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "ആക്സസ് ലെവൽ അപ്ഡേറ്റ് ചെയ്തു"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "ആക്സസ് നീക്കം ചെയ്തു"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "{subjectName}-നായി ആക്സസ് സജ്ജമാക്കി"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "അക്കൗണ്ട് പരിശോധിച്ചുറപ്പിച്ചു"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "ചേർക്കുക"
 
@@ -185,7 +210,7 @@ msgstr "അപ്രതീക്ഷിത പിശക് സംഭവിച്�
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "ലോഗ് ഔട്ട് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ? നിങ്ങളുടെ അക്കൗണ്ട് ആക്സസ് ചെയ്യാൻ വീണ്ടും ലോഗിൻ ചെയ്യേണ്ടിവരും."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ഈ റിപ്പോസിറ്ററിയിൽ നിന്ന് അൺസബ്സ്ക്രൈബ് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Authenticator കോഡ്"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "തിരികെ"
 
@@ -211,14 +236,14 @@ msgstr "തിരികെ"
 msgid "Back to commits"
 msgstr "commits-ലേക്ക് തിരികെ"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "ഹോമിലേക്ക് മടങ്ങുക"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "ബൈനറി ഫയൽ ({0})"
 
@@ -227,27 +252,26 @@ msgstr "ബൈനറി ഫയൽ ({0})"
 msgid "Boost interest"
 msgstr "താൽപ്പര്യം വർദ്ധിപ്പിക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" ബ്രാഞ്ച് സൃഷ്ടിച്ചു"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" ബ്രാഞ്ച് ഇല്ലാതാക്കി"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Branch നാമം"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Branch നാമം ആവശ്യമാണ്"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "Branches"
@@ -260,20 +284,20 @@ msgstr "Branches"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "റദ്ദാക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "എഡിറ്റ് റദ്ദാക്കുക"
 
@@ -286,7 +310,7 @@ msgstr "ഈ അറിയിപ്പിനുള്ള വിഭാഗം"
 msgid "Change notification category"
 msgstr "അറിയിപ്പ് വിഭാഗം മാറ്റുക"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "മാറ്റങ്ങൾ"
 
@@ -324,36 +348,37 @@ msgstr "മായ്ക്കുക"
 msgid "Clear all"
 msgstr "എല്ലാം മായ്ക്കുക"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "ഫിൽട്ടറുകൾ മായ്ക്കുക"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "തിരഞ്ഞെടുപ്പ് മായ്ക്കുക"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "തിരഞ്ഞെടുപ്പ് മായ്ക്കുക (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "ശേഖരം ക്ലോൺ ചെയ്യുക"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "അടയ്ക്കുക"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "നാവിഗേഷൻ അടയ്ക്കുക"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "കമ്മിറ്റ് {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "Commit കണ്ടെത്തിയില്ല"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Commits"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "{label} ഉപയോഗിച്ച് തുടരുക"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി"
 
@@ -440,13 +464,13 @@ msgstr "ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത�
 msgid "Copy"
 msgstr "പകർത്തുക"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "commit SHA പകർത്തുക"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "ഫയൽ ഉള്ളടക്കം പകർത്തുക"
 
@@ -466,12 +490,12 @@ msgstr "വീണ്ടും പരിശോധന ആരംഭിക്കാ�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "ആ അക്കൗണ്ട് ഉപയോഗിച്ച് പരിശോധിക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "സൃഷ്ടിക്കുക"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "പുതിയ ഓതെന്റിക്കേഷൻ ടോക്കൺ സൃഷ്ടിക്കുക."
 
@@ -479,8 +503,8 @@ msgstr "പുതിയ ഓതെന്റിക്കേഷൻ ടോക്ക�
 msgid "Create a new repository"
 msgstr "ഒരു പുതിയ റിപ്പോസിറ്ററി സൃഷ്ടിക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "Branch സൃഷ്ടിക്കുക"
 msgid "Create repository"
 msgstr "റിപ്പോസിറ്ററി സൃഷ്ടിക്കുക"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "ടോക്കൺ സൃഷ്ടിക്കുക"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "സൃഷ്ടിച്ചത് {0}"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "ബ്രാഞ്ച് സൃഷ്ടിക്കുന്നു..."
@@ -511,11 +535,11 @@ msgstr "ബ്രാഞ്ച് സൃഷ്ടിക്കുന്നു..."
 msgid "Creating repository..."
 msgstr "റിപ്പോസിറ്ററി സൃഷ്ടിക്കുന്നു..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "ടോക്കൺ സൃഷ്ടിക്കുന്നു..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "സൃഷ്ടിക്കുന്നു..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "ഇഷ്ടാനുസൃതം"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "ഇരുണ്ടത്"
@@ -541,7 +566,7 @@ msgstr "ഡാർക്ക് മോഡ്"
 msgid "Data conflict"
 msgstr "ഡാറ്റ വൈരുദ്ധ്യം"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "സ്ഥിരസ്ഥിതി"
@@ -554,48 +579,48 @@ msgstr "ഡിഫോൾട്ട്"
 msgid "Default AI account"
 msgstr "ഡിഫോൾട്ട് AI അക്കൗണ്ട്"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "ഡിഫോൾട്ട് branch"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "ഇല്ലാതാക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "ശാഖ ഇല്ലാതാക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Branch ഇല്ലാതാക്കണോ?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "റിപ്പോസിറ്ററി ഇല്ലാതാക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "റിപ്പോസിറ്ററി ഇല്ലാതാക്കണോ?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "ടോക്കൺ ഇല്ലാതാക്കുക"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "ടോക്കൺ ഇല്ലാതാക്കണോ?"
 
@@ -603,20 +628,20 @@ msgstr "ടോക്കൺ ഇല്ലാതാക്കണോ?"
 msgid "Delete your account on the old server"
 msgstr "പഴയ സെർവറിൽ നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "ബ്രാഞ്ച് ഇല്ലാതാക്കുന്നു..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "റിപ്പോസിറ്ററി ഇല്ലാതാക്കുന്നു..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "ടോക്കൺ ഇല്ലാതാക്കുന്നു..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "ഇല്ലാതാക്കുന്നു..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "അവരോഹണ ക്രമം"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "വിവരണം"
 
@@ -662,13 +687,13 @@ msgstr "ഒഴിവാക്കുക"
 msgid "Displays the mobile sidebar."
 msgstr "മൊബൈൽ സൈഡ്‌ബാർ പ്രദർശിപ്പിക്കുന്നു."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "പൂർത്തിയായി"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "ഡൗൺലോഡ്"
 msgid "Download failed"
 msgstr "ഡൗൺലോഡ് പരാജയപ്പെട്ടു"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "ഫയൽ ഡൗൺലോഡ് ചെയ്യുക"
 
@@ -688,7 +713,7 @@ msgstr "ഫയൽ ഡൗൺലോഡ് ചെയ്യുക"
 msgid "Dyslexia-friendly"
 msgstr "ഡിസ്ലെക്സിയ-സൗഹൃദം"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "ഉദാ: ജോലി ലാപ്ടോപ്"
 
@@ -696,11 +721,11 @@ msgstr "ഉദാ: ജോലി ലാപ്ടോപ്"
 msgid "Edit {label}"
 msgstr "{label} എഡിറ്റ് ചെയ്യുക"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "പേര് എഡിറ്റ് ചെയ്യുക"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "പാത എഡിറ്റ് ചെയ്യുക"
 
@@ -708,12 +733,11 @@ msgstr "പാത എഡിറ്റ് ചെയ്യുക"
 msgid "Email code"
 msgstr "ഇമെയിൽ കോഡ്"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "ശൂന്യമായ ഡയറക്ടറി"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "ശൂന്യമായ റിപ്പോസിറ്ററി"
 
@@ -725,7 +749,7 @@ msgstr "നിങ്ങളുടെ ഇമെയിലിലെ കോഡ് ന
 msgid "Enter your authenticator code"
 msgstr "നിങ്ങളുടെ ഓതെന്റിക്കേറ്റർ കോഡ് നൽകുക"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "എന്റിറ്റി:"
 
@@ -748,7 +772,7 @@ msgstr "അധിക വലുത്"
 msgid "Failed to add account"
 msgstr "അക്കൗണ്ട് ചേർക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "ബ്രാഞ്ച് സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു"
@@ -761,24 +785,24 @@ msgstr "ലിങ്ക് സൃഷ്ടിക്കുന്നതിൽ പ�
 msgid "Failed to create repository"
 msgstr "റിപ്പോസിറ്ററി സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "ടോക്കൺ സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "ബ്രാഞ്ച് ഇല്ലാതാക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "റിപ്പോസിറ്ററി ഇല്ലാതാക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "ടോക്കൺ ഇല്ലാതാക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "ഡൗൺലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
@@ -786,40 +810,47 @@ msgstr "ഡൗൺലോഡ് ചെയ്യുന്നതിൽ പരാജ�
 msgid "Failed to download archive"
 msgstr "ആർക്കൈവ് ഡൗൺലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "ടോക്കൺ നേടുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "ആക്സസ് നിയമങ്ങൾ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "ബ്രാഞ്ചുകൾ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "കമ്മിറ്റ് ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "കമ്മിറ്റുകൾ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "ഫയലുകൾ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "ചിത്രം ലോഡ് ചെയ്യാനായില്ല"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "ടാഗുകൾ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "വീഡിയോ ലോഡ് ചെയ്യാനായില്ല"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "ആക്സസ് നീക്കം ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
@@ -827,12 +858,12 @@ msgstr "ആക്സസ് നീക്കം ചെയ്യുന്നതി�
 msgid "Failed to remove account"
 msgstr "അക്കൗണ്ട് നീക്കം ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "റിപ്പോസിറ്ററിയുടെ പേര് മാറ്റുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "ക്രമീകരണം സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
@@ -840,7 +871,7 @@ msgstr "ക്രമീകരണം സംരക്ഷിക്കുന്ന�
 msgid "Failed to send verification code"
 msgstr "സ്ഥിരീകരണ കോഡ് അയയ്ക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "ആക്സസ് ലെവൽ സജ്ജമാക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
@@ -852,11 +883,11 @@ msgstr "സബ്സ്ക്രൈബ് ചെയ്യുന്നതിൽ �
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "അൺസബ്സ്ക്രൈബ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "ആക്സസ് ലെവൽ പുതുക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
@@ -864,11 +895,11 @@ msgstr "ആക്സസ് ലെവൽ പുതുക്കുന്നതി�
 msgid "Failed to update category"
 msgstr "വിഭാഗം പുതുക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "പാത്ത് പുതുക്കുന്നതിൽ പരാജയപ്പെട്ടു"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "ഫയലുകൾ"
 msgid "Find repositories"
 msgstr "റിപ്പോസിറ്ററികൾ കണ്ടെത്തുക"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "ഫിംഗർപ്രിന്റ്:"
 
@@ -931,29 +962,29 @@ msgstr "നിന്ന്: {0}"
 msgid "Full layout"
 msgstr "പൂർണ്ണ ലേഔട്ട്"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "തിരികെ പോകുക"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "ആദ്യ പേജിലേക്ക് പോകുക"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "അവസാന പേജിലേക്ക് പോകുക"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "അടുത്ത പേജിലേക്ക് പോകുക"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "പേജ് {pageNumber}-ലേക്ക് പോകുക"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "മുൻ പേജിലേക്ക് പോകുക"
 
@@ -980,9 +1011,14 @@ msgstr "ഹോം"
 msgid "Hot"
 msgstr "ഹോട്ട്"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "സ്വത്വം"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "ചിത്ര വ്യൂവർ: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "താൽപ്പര്യങ്ങൾ"
 msgid "Invalid verification code"
 msgstr "അസാധുവായ സ്ഥിരീകരണ കോഡ്"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "നിങ്ങൾ തിരയുന്ന പേജ് <0/>നിലവിലില്ല അല്ലെങ്കിൽ നീക്കംചെയ്തിരിക്കാം."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "വലുത്"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "അവസാന ഉപയോഗം {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "ഇടത്ത് നിന്ന് വലത്തേക്ക്"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "ലൈറ്റ്"
@@ -1042,8 +1083,8 @@ msgstr "ഉള്ളടക്കം ലോഡ് ചെയ്യുന്നു�
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "ലോഡുചെയ്യുന്നു…"
+msgid "Loading..."
+msgstr "ലോഡുചെയ്യുന്നു..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "ലോഗ് ഔട്ട് ചെയ്യുന്നു…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "ചെറിയക്ഷരങ്ങൾ, അക്കങ്ങൾ, ഹൈഫനുകൾ മാത്രം"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "ടോക്കണുകൾ മാനേജ് ചെയ്യുക"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
@@ -1099,8 +1140,8 @@ msgstr "മെട്രിക്"
 msgid "Monday"
 msgstr "തിങ്കളാഴ്ച"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "കൂടുതൽ പ്രവർത്തനങ്ങൾ"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "പേര്"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "പേരിൽ < അല്ലെങ്കിൽ > പ്രതീകങ്ങൾ ഉണ്ടാകാൻ പാടില്ല"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "പേര് 100 പ്രതീകങ്ങൾ അല്ലെങ്കിൽ അതിൽ കുറവായിരിക്കണം"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "പേര്:"
 
@@ -1127,8 +1168,8 @@ msgstr "പേര്:"
 msgid "Network error"
 msgstr "നെറ്റ്‌വർക്ക് പിശക്"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "ഒരിക്കലുമില്ല"
 
@@ -1136,17 +1177,17 @@ msgstr "ഒരിക്കലുമില്ല"
 msgid "New"
 msgstr "പുതിയത്"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "പുതിയ branch"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "അടുത്ത ചിത്രം"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "ആക്സസ് ഇല്ല"
 
@@ -1154,12 +1195,12 @@ msgstr "ആക്സസ് ഇല്ല"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "ആക്സസ് നിയമങ്ങളൊന്നും കോൺഫിഗർ ചെയ്തിട്ടില്ല. ഈ റിസോഴ്സ് ആർക്കെല്ലാം ആക്സസ് ചെയ്യാമെന്ന് നിയന്ത്രിക്കാൻ നിയമങ്ങൾ ചേർക്കുക."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "branch-കളൊന്നും ഇതുവരെ ഇല്ല"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "commits-കളൊന്നും ഇതുവരെ ഇല്ല"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "റിപ്പോസിറ്ററികളൊന്നും കണ്ടെത്തിയില്ല"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "ടാഗുകളൊന്നും ഇതുവരെ ഇല്ല"
@@ -1203,7 +1244,7 @@ msgstr "ടാഗുകളൊന്നും ഇതുവരെ ഇല്ല"
 msgid "No time zone found."
 msgstr "സമയ മേഖലയൊന്നും കണ്ടെത്തിയില്ല."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "ടോക്കണുകളൊന്നും ഇതുവരെ ഇല്ല."
 
@@ -1240,6 +1281,11 @@ msgstr "സജ്ജമാക്കിയിട്ടില്ല"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "അറിയിപ്പുകൾ"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "അറിയിപ്പുകൾ: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "മറ്റുള്ളവ"
 msgid "Owner"
 msgstr "ഉടമ"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "പേജ് {currentPage} / {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "പേരന്റ്:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "പേരന്റുകൾ:"
 
@@ -1302,19 +1353,19 @@ msgstr "പാസ്കീകൾ"
 msgid "Path"
 msgstr "പാത്ത്"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "പാത്ത് ആവശ്യമാണ്"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "പാത്ത് അപ്ഡേറ്റ് ചെയ്തു"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "പാത്ത്:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "ഈ റിപ്പോസിറ്ററിയും അതിന്റെ എല്ലാ ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കുക"
 
@@ -1323,9 +1374,13 @@ msgstr "ഈ റിപ്പോസിറ്ററിയും അതിന്റ�
 msgid "Please check your internet connection and try again."
 msgstr "നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "ഒരു ടോക്കൺ പേര് നൽകുക"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "ഈ ഉറവിടം ആക്‌സസ് ചെയ്യാൻ <0/> ഉചിതമായ ക്രെഡൻഷ്യലുകൾ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "ദയവായി വീണ്ടും ശ്രമിക്കുക.
 msgid "Please wait a moment and try again."
 msgstr "അൽപ്പനേരം കാത്തിരുന്ന് വീണ്ടും ശ്രമിക്കുക."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "മുമ്പത്തെ ഫോട്ടോ"
 
@@ -1362,11 +1417,11 @@ msgstr "ഈ സെർവറിൽ നിങ്ങളുടെ അക്കൗണ
 msgid "Re-register your passkeys on this server"
 msgstr "ഈ സെർവറിൽ നിങ്ങളുടെ പാസ്‌കീകൾ വീണ്ടും രജിസ്റ്റർ ചെയ്യുക"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "വായിക്കുക മാത്രം"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "Mochi പരീക്ഷിക്കാൻ തയ്യാറാണോ?"
 
@@ -1406,6 +1461,11 @@ msgstr "നീക്കം ചെയ്യുക (അടുത്ത അറി�
 msgid "Remove access rule"
 msgstr "ആക്സസ് നീക്കം ചെയ്യണോ?"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "\"{0}\" എന്നതിനുള്ള ആക്‌സസ് നിയമം നീക്കംചെയ്യണോ?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "അക്കൗണ്ട് നീക്കം ചെയ്യണോ?"
@@ -1415,11 +1475,11 @@ msgstr "അക്കൗണ്ട് നീക്കം ചെയ്യണോ?"
 msgid "Remove interest"
 msgstr "item നീക്കം ചെയ്യുക"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "ആക്സസ് നീക്കം ചെയ്യുന്നു..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "റിപ്പോസിറ്ററി പുനർനാമകരണം ചെയ്യുന്നു..."
 
@@ -1450,7 +1510,7 @@ msgstr "ശേഖരം"
 msgid "Repository created"
 msgstr "റിപ്പോസിറ്ററി ഇല്ലാതാക്കി"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "റിപ്പോസിറ്ററി പേര് ആവശ്യമാണ്"
 
@@ -1463,7 +1523,7 @@ msgstr "റിപ്പോസിറ്ററി സൃഷ്ടിച്ചു"
 msgid "Repository link"
 msgstr "റിപ്പോസിറ്ററി ലിങ്ക്"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "റിപ്പോസിറ്ററി കണ്ടെത്തിയില്ല"
 
@@ -1471,7 +1531,7 @@ msgstr "റിപ്പോസിറ്ററി കണ്ടെത്തിയ�
 msgid "Repository not found"
 msgstr "റിപ്പോസിറ്ററി പുനർനാമകരണം ചെയ്തു"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "റീഫണ്ട് അഭ്യർത്ഥിക്കുക"
 
@@ -1492,7 +1552,7 @@ msgstr "മുൻഗണനകൾ റീസെറ്റ് ചെയ്യണോ?
 msgid "Right to Left"
 msgstr "വലത്തുനിന്ന് ഇടത്തേക്ക്"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "ഒരു പേജിലെ വരികൾ"
 
@@ -1502,21 +1562,21 @@ msgstr "ശനിയാഴ്ച"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "സേവ് ചെയ്യുക"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "ഈ ടോക്കൺ ഇപ്പോൾ സംരക്ഷിക്കുക. നിങ്ങൾക്കത് വീണ്ടും കാണാൻ കഴിയില്ല."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "ഈ ടോക്കൺ സുരക്ഷിതമായി സേവ് ചെയ്യുക. ഇത് വീണ്ടും കാണാൻ കഴിയില്ല."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "ക്രമീകരണങ്ങൾ സംരക്ഷിക്കുന്നു..."
 
@@ -1574,7 +1634,7 @@ msgstr "അക്കൗണ്ട് തരം തിരഞ്ഞെടുക്�
 msgid "Select branch"
 msgstr "ബ്രാഞ്ച് തിരഞ്ഞെടുക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "സ്ഥിരസ്ഥിതി ബ്രാഞ്ച് തിരഞ്ഞെടുക്കുക"
 
@@ -1594,7 +1654,7 @@ msgstr "സൈഡ്ബാർ ശൈലി തിരഞ്ഞെടുക്ക�
 msgid "Select site direction"
 msgstr "സൈറ്റ് ദിശ തിരഞ്ഞെടുക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "സോഴ്സ് ബ്രാഞ്ച് തിരഞ്ഞെടുക്കുക"
@@ -1603,7 +1663,16 @@ msgstr "സോഴ്സ് ബ്രാഞ്ച് തിരഞ്ഞെടു�
 msgid "Select theme preference"
 msgstr "തീം മുൻഗണന തിരഞ്ഞെടുക്കുക"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "തിരഞ്ഞെടുത്തു"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "തിരഞ്ഞെടുത്തത്: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "വീണ്ടും അയയ്ക്കുക"
 
@@ -1633,7 +1702,7 @@ msgstr "സെഷൻ കാലഹരണപ്പെട്ടു. വീണ്ട
 msgid "Set origin and destination"
 msgstr "ഉത്ഭവവും ലക്ഷ്യസ്ഥാനവും സജ്ജമാക്കുക"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "ആക്സസ് സജ്ജമാക്കുന്നു..."
 
@@ -1642,13 +1711,12 @@ msgstr "ആക്സസ് സജ്ജമാക്കുന്നു..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "ക്രമീകരണങ്ങൾ"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "ക്രമീകരണങ്ങൾ സേവ് ചെയ്തു"
 
@@ -1684,7 +1752,7 @@ msgstr "പ്രധാനഭാഗത്തേക്ക് പോകുക"
 msgid "Small"
 msgstr "ചെറുത്"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "സ്രോതസ്സ് ബ്രാഞ്ച്"
@@ -1701,8 +1769,8 @@ msgstr "ശ്രദ്ധിച്ചുകൊണ്ടിരിക്കുക
 msgid "Subject"
 msgstr "വിഷയം"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "സബ്സ്ക്രൈബ് ചെയ്യുക"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "ബ്രാഞ്ച് മാറുക"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "ടാഗ്"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "ടാഗുകൾ"
@@ -1757,13 +1825,17 @@ msgstr "നിബന്ധനകളും വ്യവസ്ഥകളും"
 msgid "That code is incorrect or has expired."
 msgstr "ആ കോഡ് തെറ്റാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "റിപ്പോസിറ്ററി കാണുമ്പോൾ കാണിക്കുന്ന ബ്രാഞ്ച്"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "അഭ്യർത്ഥിച്ച ഉള്ളടക്കം കണ്ടെത്താനായില്ല."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "സൈറ്റ് ഈ നിമിഷം ലഭ്യമല്ല."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "തീം"
 msgid "Theme Settings"
 msgstr "തീം ക്രമീകരണങ്ങൾ"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "ഈ പേജ് ഇതുവരെ സൃഷ്ടിച്ചിട്ടില്ല."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ഈ പേജിന് ഒരു റിപ്പോസിറ്ററി കോൺടെക്സ്റ്റ് ആവശ്യമാണ്."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "ഇത് \"{currentName}\"-ഉം അതിന്റെ എല്ലാ കമ്മിറ്റുകൾ, ബ്രാഞ്ചുകൾ, ടാഗുകൾ എന്നിവയും സ്ഥിരമായി ഇല്ലാതാക്കും. ഈ പ്രവർത്തനം പഴയപടിയാക്കാൻ കഴിയില്ല."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ഇത് ടോക്കൺ സ്ഥിരമായി ഇല്ലാതാക്കും. ഇത് ഉപയോഗിക്കുന്ന git ക്ലയന്റുകൾക്ക് ഇനി ഓതെന്റിക്കേറ്റ് ചെയ്യാൻ കഴിയില്ല."
 
@@ -1798,6 +1874,10 @@ msgstr "ഇത് നിങ്ങളുടെ റിപ്പോസിറ്റ�
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "വ്യാഴാഴ്ച"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "എവിടേക്ക്"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "സൈഡ്ബാർ ടോഗിൾ ചെയ്യുക"
 msgid "Toggle theme"
 msgstr "തീം ടോഗിൾ ചെയ്യുക"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "ടോക്കൺ സൃഷ്ടിച്ചു"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "ടോക്കൺ ഇല്ലാതാക്കി"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "ടോക്കൺ പേര്"
 
@@ -1906,9 +1986,9 @@ msgstr "യുണൈറ്റഡ് സ്റ്റേറ്റ്സ്"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "അൺസബ്സ്ക്രൈബ് ചെയ്യുക"
 
@@ -1917,7 +1997,7 @@ msgstr "അൺസബ്സ്ക്രൈബ് ചെയ്യുക"
 msgid "Unsubscribe from repository?"
 msgstr "റിപ്പോസിറ്ററിയിൽ നിന്ന് അൺസബ്സ്ക്രൈബ് ചെയ്യണോ?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "അൺസബ്സ്ക്രൈബ് ചെയ്തു"
 
@@ -1929,7 +2009,7 @@ msgstr "റിപ്പോസിറ്ററിയിൽ നിന്ന് അ�
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "അൺസബ്സ്ക്രൈബ് ചെയ്യുന്നു..."
 
@@ -1937,11 +2017,11 @@ msgstr "അൺസബ്സ്ക്രൈബ് ചെയ്യുന്നു..
 msgid "Unverified"
 msgstr "സ്ഥിരീകരിച്ചിട്ടില്ല"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "ആക്സസ് പുതുക്കുന്നു..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "പാത്ത് പുതുക്കുന്നു..."
 
@@ -1953,7 +2033,7 @@ msgstr "നിങ്ങളുടെ പാസ്‌കീ ഉപയോഗിക�
 msgid "User"
 msgstr "ഉപയോക്താവ്"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "സ്ഥിരീകരണ കോഡ്"
 
@@ -1967,7 +2047,7 @@ msgstr "സ്ഥിരീകരണം പരാജയപ്പെട്ടു"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "സ്ഥിരീകരിക്കുക"
 
@@ -1979,6 +2059,11 @@ msgstr "ഇമെയിൽ വിലാസം സ്ഥിരീകരിക്�
 msgid "Video thumbnail"
 msgstr "വീഡിയോ തംബ്നെയിൽ"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "വീഡിയോ വ്യൂവർ: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "കാണുക"
@@ -1987,10 +2072,15 @@ msgstr "കാണുക"
 msgid "View all"
 msgstr "എല്ലാം കാണുക"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "എല്ലാ അറിയിപ്പുകളും കാണുക"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "ഞങ്ങൾ <0>{0}</0> എന്നതിലേക്ക് ഒരു പരിശോധനാ കോഡ് അയച്ചു. നിങ്ങളുടെ ഇമെയിൽ വിലാസം പരിശോധിക്കാൻ താഴെ കോഡ് നൽകുക."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "ബുധനാഴ്ച"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "ഈ വിഭാഗത്തിലേക്ക് നിങ്ങൾക്ക് പ്രവേശനമില്ല."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "ഈ ഉറവിടം കാണാൻ <0/>നിങ്ങൾക്ക് ആവശ്യമായ അനുമതിയില്ല."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "Jọ̀wọ́ ṣàyẹ̀wò ìsopọ̀ íntánẹ́ẹ̀tì rẹ kí o sì gbìyànjú lẹ́ẹ̀kan sí i."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, one {# yan} other {# yan}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, other {fáìlì # yípadà}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, other {ìlà #}}"
 
@@ -40,7 +45,7 @@ msgstr "Commits {0}"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} ṣe ami sí {1}"
@@ -49,6 +54,26 @@ msgstr "{0} ṣe ami sí {1}"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "Ami {0}"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "Orúkọ {entityLabel}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, one {{entityName} tí a yàn} other {{manyName} tí a yàn}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, one {# {entityName} tí a yàn. Àkàwé ìṣe púpọ̀ wà.} other {# {manyName} tí a yàn. Àkàwé ìṣe púpọ̀ wà.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, one {# tí a yàn} other {# tí a yàn}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, one {Àwọn ìṣe púpọ̀ fún {entityName} # tí a yàn} other {Àwọn ìṣe púpọ̀ fún {manyName} # tí a yàn}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "Ìwọlé Léèwọ̀"
 msgid "Access level"
 msgstr "Ìpele ìwọlé"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "A ti ṣe àtúnyẹ̀wò ìpele ìwọlé"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "A ti yọ ìwọlé kúrò"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "A ti ṣètò ìwọlé fún {subjectName}"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "A ti fọwọ́sí àkáǹtì"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "Fi kún"
 
@@ -185,7 +210,7 @@ msgstr "Àṣìṣe àìròtẹ́lẹ̀ kan wáyé"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ṣé o dájú pé o fẹ́ jáde? Wàá nílò láti wọlé lẹ́ẹ̀kan sí i láti rí àkáǹtì rẹ."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ṣé o dájú pé o fẹ́ yọ orúkọ rẹ kúrò nínú repository yìí?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Kóòdù olùfọwọ́sí"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "Padà"
 
@@ -211,14 +236,14 @@ msgstr "Padà"
 msgid "Back to commits"
 msgstr "Padà sí àwọn commit"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "Pada si ile"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "Faili meji ({0})"
 
@@ -227,27 +252,26 @@ msgstr "Faili meji ({0})"
 msgid "Boost interest"
 msgstr "Mú ìfẹ́ pọ̀"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Ẹ̀ka \"{name}\" ti dá"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Ẹ̀ka \"{name}\" ti parẹ́"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Orúkọ branch"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Orúkọ branch ni a nílò"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "Àwọn branch"
@@ -260,20 +284,20 @@ msgstr "Àwọn branch"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "Fagilé"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "Fagilee atunṣe"
 
@@ -286,7 +310,7 @@ msgstr "Ẹ̀ka fún ìfitónilétí yìí"
 msgid "Change notification category"
 msgstr "Yí ẹ̀ka ìfitónilétí padà"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "Àwọn ìyípadà"
 
@@ -324,36 +348,37 @@ msgstr "Pa rẹ́"
 msgid "Clear all"
 msgstr "Pa gbogbo rẹ̀ rẹ́"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "Pa àwọn ásẹ̀ rẹ́"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "Pa ìyàn rẹ́"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "Pa ìyàn rẹ́ (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "Ìbátan"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "Daakọ ibi ipamọ"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "Tì"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "Ti ìṣíkiri"
 
@@ -396,11 +421,10 @@ msgstr "Commit"
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "A kò rí commit"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "Àwọn commit"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "Tẹ̀síwájú pẹ̀lú {label}"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "A ti ṣe àdàkọ sí clipboard"
 
@@ -440,13 +464,13 @@ msgstr "A ti ṣe àdàkọ sí clipboard"
 msgid "Copy"
 msgstr "Ṣe àdàkọ"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "Daakọ SHA ti commit"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "Daakọ akoonu faili"
 
@@ -466,12 +490,12 @@ msgstr "Kò lè bẹ̀rẹ̀ ìjẹ́rìísí-padà. Jọ̀wọ́ gbìyànjú l�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "A kò lè fọwọ́sí pẹ̀lú àkàùntì yẹn. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kansí."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Dá"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "Ṣẹda àmì àfìdíhàn tuntun."
 
@@ -479,8 +503,8 @@ msgstr "Ṣẹda àmì àfìdíhàn tuntun."
 msgid "Create a new repository"
 msgstr "Dá repository tuntun"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "Dá branch"
 msgid "Create repository"
 msgstr "Dá repository"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "Dá token"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "Ṣẹdá {0}"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Ń dá ẹ̀ka..."
@@ -511,11 +535,11 @@ msgstr "Ń dá ẹ̀ka..."
 msgid "Creating repository..."
 msgstr "Ń dá ibi ìkójọpọ̀..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "Ń dá àmì..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Ó ń dá..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "Àṣà"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "Òkùnkùn"
@@ -541,7 +566,7 @@ msgstr "Ọ̀nà òkùnkùn"
 msgid "Data conflict"
 msgstr "Ìtakora dátà"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "ìpilẹ̀ṣẹ̀"
@@ -554,48 +579,48 @@ msgstr "Àìpé"
 msgid "Default AI account"
 msgstr "Àkáǹtì AI àìpé"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "Branch àìpé"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Pa rẹ́"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Pa \"{branchToDelete}\" rẹ́? A kò lè yí èyí padà."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Pa ẹka rẹ́"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Pa branch rẹ́?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "Pa repository rẹ́"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "Pa repository rẹ́?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "Pa token rẹ́"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "Pa token rẹ́?"
 
@@ -603,20 +628,20 @@ msgstr "Pa token rẹ́?"
 msgid "Delete your account on the old server"
 msgstr "Pa akonti rẹ rẹ lori olupin atijọ"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Ń pa ẹ̀ka rẹ́..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "Ń pa ibi ìkójọpọ̀ rẹ́..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "Ń pa àmì rẹ́..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Ó ń pa rẹ́..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "Sọkalẹ̀"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "Àpèjúwe"
 
@@ -662,13 +687,13 @@ msgstr "Mú kúrò"
 msgid "Displays the mobile sidebar."
 msgstr "Ó ń fi sidebar fóònù hàn."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "Ti parí"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "Gbà sílẹ̀"
 msgid "Download failed"
 msgstr "Ìgbasílẹ̀ kùnà"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "Gba faili"
 
@@ -688,7 +713,7 @@ msgstr "Gba faili"
 msgid "Dyslexia-friendly"
 msgstr "Ẹ̀dá lóàfin fún àìmoọ̀rọ̀"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "fún àpẹẹrẹ Kọ̀ǹpútà alágbèéká iṣẹ́"
 
@@ -696,11 +721,11 @@ msgstr "fún àpẹẹrẹ Kọ̀ǹpútà alágbèéká iṣẹ́"
 msgid "Edit {label}"
 msgstr "Ṣàtúnṣe {label}"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "Ṣàtúnṣe orúkọ"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "Tunṣe ọ̀nà"
 
@@ -708,12 +733,11 @@ msgstr "Tunṣe ọ̀nà"
 msgid "Email code"
 msgstr "Kóòdù ímẹ́ẹ̀lì"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "Ìwé-ìtọ́ka tí ó ṣófo"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "Repository tí ó ṣófo"
 
@@ -725,7 +749,7 @@ msgstr "Tẹ koodu láti inú ímeèlì rẹ"
 msgid "Enter your authenticator code"
 msgstr "Tẹ kóòdù authenticator rẹ"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "Ẹ̀ka:"
 
@@ -748,7 +772,7 @@ msgstr "Tóbi gan"
 msgid "Failed to add account"
 msgstr "Kò lè fi àkántì kún"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Kò lè dá branch"
@@ -761,24 +785,24 @@ msgstr "Kò lè dá ìjápọ̀"
 msgid "Failed to create repository"
 msgstr "Kò lè dá repository"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "Kò lè dá token"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Kò lè pa branch rẹ́"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "Kò lè pa repository rẹ́"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "Kò lè pa token rẹ́"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "Kò lè gbà sílẹ̀"
 
@@ -786,40 +810,47 @@ msgstr "Kò lè gbà sílẹ̀"
 msgid "Failed to download archive"
 msgstr "Kò lè gbà archive sílẹ̀"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "Kò lè rí token"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "Kò lè ṣí àwọn òfin àyè lọ̀"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Kò lè ṣí àwọn branch lọ̀"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "Kò lè ṣí commit lọ̀"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Kò lè ṣí àwọn commit lọ̀"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "Kò lè ṣí àwọn fáìlì lọ̀"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "Kò ṣeé gbé àwòrán wọlé"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Kò lè ṣí àwọn tag lọ̀"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "Kò ṣeé gbé fídíò wọlé"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "Kò lè mú àyè kúrò"
 
@@ -827,12 +858,12 @@ msgstr "Kò lè mú àyè kúrò"
 msgid "Failed to remove account"
 msgstr "Kò lè mú àkántì kúrò"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "Kò lè tún sọ repository lórúkọ"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "Kò lè fi ètò pamọ́"
 
@@ -840,7 +871,7 @@ msgstr "Kò lè fi ètò pamọ́"
 msgid "Failed to send verification code"
 msgstr "Kò lè firanṣẹ́ kóòdù ìjẹ́rìí"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "Kò lè gbé ìpele àyè kalẹ̀"
 
@@ -852,11 +883,11 @@ msgstr "Kò lè ṣe alábàápín"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "Kò lè yọ alábàápín"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "Kò lè mú ìpele àyè dòde"
 
@@ -864,11 +895,11 @@ msgstr "Kò lè mú ìpele àyè dòde"
 msgid "Failed to update category"
 msgstr "Kò lè mú ẹ̀ka dòde"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "Kò lè mú ọ̀nà dòde"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "Àwọn fáìlì"
 msgid "Find repositories"
 msgstr "Wa àwọn repository"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "Àmì-ìka:"
 
@@ -931,29 +962,29 @@ msgstr "Láti: {0}"
 msgid "Full layout"
 msgstr "Àtòjọ kíkún"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "Padà"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "Lọ sí ojú-ewé àkọ́kọ́"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "Lọ sí ojú-ewé ìkẹyìn"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "Lọ sí ojú-ewé tí ó tẹ̀le"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "Lọ sí ojú-ìwé {pageNumber}"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "Lọ sí ojú-ewé tí ó ṣáájú"
 
@@ -980,9 +1011,14 @@ msgstr "Ilé"
 msgid "Hot"
 msgstr "Gbígbóná"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "Ìdánimọ̀"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "Ẹ̀rọ ìwo àwòrán: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "Àwọn ìfẹ́"
 msgid "Invalid verification code"
 msgstr "Kóòdù ìjẹ́rìí aláìdára"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "Ó dàbí pé ojú-ìwé tí o ń wá <0/>kò sí tàbí a ti yọ ọ́ kúrò."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "Tóbi"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "Lò ní ìgbẹ̀yìn {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "Òsì sí Ọ̀tún"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "Ìmọ́lẹ̀"
@@ -1042,8 +1083,8 @@ msgstr "Ìkójọpọ̀ àkóónú ń lọ…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "Ń ṣí…"
+msgid "Loading..."
+msgstr "Ń ṣí..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "Ń jáde…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Lẹ́tà kékeré, nọ́mbà, àti hyphen nìkan"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "Ṣàkóso àwọn token"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "Sàmì sí gbogbo gẹ́gẹ́ bí kíkà"
@@ -1099,8 +1140,8 @@ msgstr "Òṣùwọ̀n"
 msgid "Monday"
 msgstr "Ọjọ́ Ajé"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "Awọn iṣẹ síwájú síi"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "Orúkọ"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "Orúkọ kò lè ní àwọn lẹ́tà < tàbí >"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "Orúkọ gbọ́dọ̀ jẹ́ lẹ́tà 100 tàbí kéré"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "Orúkọ:"
 
@@ -1127,8 +1168,8 @@ msgstr "Orúkọ:"
 msgid "Network error"
 msgstr "Àṣìṣe nẹ́tíwọ́kì"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "Láéláé"
 
@@ -1136,17 +1177,17 @@ msgstr "Láéláé"
 msgid "New"
 msgstr "Tuntun"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Branch tuntun"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "Àwòrán tó kàn"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "Kò sí àyè"
 
@@ -1154,12 +1195,12 @@ msgstr "Kò sí àyè"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "A kò ṣètò àwọn òfin àyè kankan. Fi àwọn òfin kún láti ṣàkóso ẹni tó lè ní àyè sí ohun àmúṣọ̀rọ̀ yìí."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Kò sí branch síbẹ̀"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Kò sí commit síbẹ̀"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "A kò rí repo kankan"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "A kò rí àbájáde kankan."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Kò sí àmì síbẹ̀"
@@ -1203,7 +1244,7 @@ msgstr "Kò sí àmì síbẹ̀"
 msgid "No time zone found."
 msgstr "A kò rí àgbègbè àkókò kankan."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "Kò sí token síbẹ̀."
 
@@ -1240,6 +1281,11 @@ msgstr "A kò ṣètò"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "Àwọn ìfìtọ́nisí"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "Àwọn ìfitónilétí: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "Mìíràn"
 msgid "Owner"
 msgstr "Onílé"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "Ojú-ìwé {currentPage} nínú {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "Òbí:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "Àwọn òbí:"
 
@@ -1302,19 +1353,19 @@ msgstr "Àwọn passkey"
 msgid "Path"
 msgstr "Ọ̀nà"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "A nílò ọ̀nà"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "A ti dojú ọ̀nà ìwọ́n"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "Ọ̀nà:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "Pa repo yìí àti gbogbo data rẹ̀ rẹ́ pátápátá"
 
@@ -1323,9 +1374,13 @@ msgstr "Pa repo yìí àti gbogbo data rẹ̀ rẹ́ pátápátá"
 msgid "Please check your internet connection and try again."
 msgstr "Jọ̀wọ́ ṣàyẹ̀wò ìsopọ̀ íntánẹ́ẹ̀tì rẹ kí o sì gbìyànjú lẹ́ẹ̀kan sí i."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "Jọ̀wọ́ tẹ orúkọ token sí"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "Jọ̀wọ́ wọlé pẹ̀lú àwọn ẹ̀rí tó yẹ <0/> láti wọlé sí ohun àmúlò yìí."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan sí i."
 msgid "Please wait a moment and try again."
 msgstr "Jọ̀wọ́ dúró díẹ̀ kí o sì gbìyànjú lẹ́ẹ̀kansí."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "Àwòrán tó kọjá"
 
@@ -1362,11 +1417,11 @@ msgstr "Tun so akonti rẹ pọ lori olupin yii"
 msgid "Re-register your passkeys on this server"
 msgstr "Tún àwọn bọ́tìnì ìwọlé rẹ forúkọsílẹ̀ lórí olùpèsè yìí"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "Kà àti kọ"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "Kíkà nìkan"
 
@@ -1406,6 +1461,11 @@ msgstr "Yọ kúrò"
 msgid "Remove access rule"
 msgstr "Yọ òfin àyè kúrò"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "Yọ òfin ìwọlé fún \"{0}\" kúrò?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "Yọ àyè kúrò?"
@@ -1415,11 +1475,11 @@ msgstr "Yọ àyè kúrò?"
 msgid "Remove interest"
 msgstr "Yọ ìfẹ́ kúrò"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "Ń yọ ààyè kúrò..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "Ń tún ibi ìkójọpọ̀ lórúkọ..."
 
@@ -1450,7 +1510,7 @@ msgstr "Ibi-ìpamọ́"
 msgid "Repository created"
 msgstr "A ti dá repo"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "A ti pa repo rẹ́"
 
@@ -1463,7 +1523,7 @@ msgstr "A nílò ID repo"
 msgid "Repository link"
 msgstr "Ọna asopọ ibi-ipamọ"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "A nílò orúkọ repo"
 
@@ -1471,7 +1531,7 @@ msgstr "A nílò orúkọ repo"
 msgid "Repository not found"
 msgstr "A kò rí repo"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "A ti tún repo sọ orúkọ"
 
@@ -1492,7 +1552,7 @@ msgstr "Pa gbogbo ètò padà sí àwọn iye àbùdá"
 msgid "Right to Left"
 msgstr "Ọ̀tún sí Òsì"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "Àwọn ila fún ojú-ìwé kọ̀ọ̀kan"
 
@@ -1502,21 +1562,21 @@ msgstr "Ọjọ́ Àbámẹ́ta"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "Fi pamọ́"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Fipamọ́ àmì yìí báyìí. Iwọ kò ní lè rí i mọ́."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Fi token yìí pamọ́ ní àìléwu. Ìwọ kò ní lè rí i mọ́."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "Ń fi ìṣètò pamọ́..."
 
@@ -1574,7 +1634,7 @@ msgstr "Yan irú account"
 msgid "Select branch"
 msgstr "Yan branch"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "Yan branch ìpilẹ̀"
 
@@ -1594,7 +1654,7 @@ msgstr "Yan irú sidebar"
 msgid "Select site direction"
 msgstr "Yan ìtọ́sọ́nà síìtì"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Yan source branch"
@@ -1603,7 +1663,16 @@ msgstr "Yan source branch"
 msgid "Select theme preference"
 msgstr "Yan àfẹ́nilọ́kàn theme"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "tí a yàn"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "Yan: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "Fi ránṣẹ́ lẹ́ẹ̀kan sí i"
 
@@ -1633,7 +1702,7 @@ msgstr "Sáà náà ti parí. Jọ̀wọ́ tún wọlé lẹ́ẹ̀kansí."
 msgid "Set origin and destination"
 msgstr "Ṣètò ibi tí o ti wá àti ibi tí o ń lọ"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "Ń ṣètò ààyè..."
 
@@ -1642,13 +1711,12 @@ msgstr "Ń ṣètò ààyè..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Àwọn ìṣètò"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "Àwọn ìṣètò ti fi pamọ́"
 
@@ -1684,7 +1752,7 @@ msgstr "Fò sí Olórí"
 msgid "Small"
 msgstr "Kékeré"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Source branch"
@@ -1701,8 +1769,8 @@ msgstr "Ṣùgbọ́n dúró tì wá!"
 msgid "Subject"
 msgstr "Àkòrí"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "Forúkọsílẹ̀"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "Yí ẹ̀ka padà"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "Tag"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "Àwọn tag"
@@ -1757,13 +1825,17 @@ msgstr "Àwọn ọ̀rọ̀ àti àwọn ipò"
 msgid "That code is incorrect or has expired."
 msgstr "Kóòdù yẹn kò tọ̀nà tàbí ó ti pé."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "Branch tí a fihàn nígbà tí à ń wo repository"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "A kò rí àkóónú tí o béèrè fún."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "Ojúlé náà kò sí ní àkókò yìí."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "Theme"
 msgid "Theme Settings"
 msgstr "Àwọn ìṣètò Theme"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "A kò tí ì ṣẹ̀dá ojú-ìwé yìí."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Ojú-ìwé yìí nílò repository context."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Èyí yóò pa \"{currentName}\" àti gbogbo àwọn commits, branches, àti tags rẹ̀ rẹ́ títí láé. A kò lè yí ìṣe yìí padà."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Èyí yóò pa àmì yìí rẹ́ pátápátá. Àwọn git clients tí ń lò ó kò ní lè ṣe àfìdíhàn mọ́."
 
@@ -1798,6 +1874,10 @@ msgstr "Èyí yóò yọ \"{repoName}\" kúrò nínú àkójọ repository rẹ.
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "Ọjọ́bọ̀"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "Sí"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "Yí Sidebar"
 msgid "Toggle theme"
 msgstr "Yí theme"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "Tokini ti ṣẹ̀dá"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "Token ti pa rẹ́"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "Orúkọ token"
 
@@ -1906,9 +1986,9 @@ msgstr "United States"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "Yọ ìforúkọsílẹ̀ kúrò"
 
@@ -1917,7 +1997,7 @@ msgstr "Yọ ìforúkọsílẹ̀ kúrò"
 msgid "Unsubscribe from repository?"
 msgstr "Yọ ìforúkọsílẹ̀ kúrò lórí repository?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "Ti yọ ìforúkọsílẹ̀ kúrò"
 
@@ -1929,7 +2009,7 @@ msgstr "Ti yọ ìforúkọsílẹ̀ kúrò lórí repository"
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "Ń yọ ìforúkọsílẹ̀ kúrò..."
 
@@ -1937,11 +2017,11 @@ msgstr "Ń yọ ìforúkọsílẹ̀ kúrò..."
 msgid "Unverified"
 msgstr "Kò tíì jẹ́rìí sí"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "Ń ṣe àfikún ààyè..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "Ń ṣe àfikún ipa ọ̀nà..."
 
@@ -1953,7 +2033,7 @@ msgstr "Lo passkey rẹ"
 msgid "User"
 msgstr "User"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "Kóòdù ìjẹ́rìísí"
 
@@ -1967,7 +2047,7 @@ msgstr "Ìjẹ́rìísí kùnà"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "Jẹ́rìí sí"
 
@@ -1979,6 +2059,11 @@ msgstr "Jẹ́rìí sí àdírẹ́sì email"
 msgid "Video thumbnail"
 msgstr "Àwòrán kékeré fídíò"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "Ẹ̀rọ ìwo fídíò: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "Wo"
@@ -1987,10 +2072,15 @@ msgstr "Wo"
 msgid "View all"
 msgstr "Wo gbogbo"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "Wo gbogbo àwọn ìfitónilétí"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "A rán kóòdù ìjẹ́rìísí sí <0>{0}</0>. Tẹ kóòdù náà sí ìsàlẹ̀ láti fọwọ́sí àdírẹ́sì ímeèlì rẹ."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "Ọjọ́rú"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "O kò ní ààyè sí abala yìí."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "O kò ní àṣẹ tó yẹ <0/>láti wo ohun àmúlò yìí."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."

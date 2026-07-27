@@ -18,13 +18,18 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#. placeholder {0}: selectedValues.size
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:66
+msgid "{0, plural, one {# selected} other {# selected}}"
+msgstr "{0, plural, one {# ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ} other {# ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ}}"
+
 #. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx:140
+#: src/features/repository/commit-details.tsx:141
 msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ಫೈಲ್ ಬದಲಾಗಿದೆ} other {# ಫೈಲ್‌ಗಳು ಬದಲಾಗಿವೆ}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:167
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# ಸಾಲು} other {# ಸಾಲುಗಳು}}"
 
@@ -40,7 +45,7 @@ msgstr "{0} ಕಮಿಟ್‌ಗಳು"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:700
+#: src/features/repository/repository-tabs.tsx:704
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} ಗೆ ಟ್ಯಾಗ್ ಮಾಡಿದ್ದಾರೆ"
@@ -49,6 +54,26 @@ msgstr "{0} {1} ಗೆ ಟ್ಯಾಗ್ ಮಾಡಿದ್ದಾರೆ"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} ಟ್ಯಾಗ್‌ಗಳು"
+
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:173
+msgid "{entityLabel} name"
+msgstr "{entityLabel} ಹೆಸರು"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
+msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
+msgstr "{selectedCount, plural, one {{entityName} ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ} other {{manyName} ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:52
+msgid "{selectedCount, plural, one {# {entityName} selected. Bulk actions toolbar is available.} other {# {manyName} selected. Bulk actions toolbar is available.}}"
+msgstr "{selectedCount, plural, one {# {entityName} ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ. ಸಗಟು ಕ್ರಿಯೆ ಟೂಲ್‌ಬಾರ್ ಲಭ್ಯವಿದೆ.} other {# {manyName} ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ. ಸಗಟು ಕ್ರಿಯೆ ಟೂಲ್‌ಬಾರ್ ಲಭ್ಯವಿದೆ.}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:202
+msgid "{selectedCount, plural, one {# selected} other {# selected}}"
+msgstr "{selectedCount, plural, one {# ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ} other {# ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ}}"
+
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:149
+msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
+msgstr "{selectedCount, plural, one {# ಆಯ್ದ {entityName} ಗಾಗಿ ಸಗಟು ಕ್ರಿಯೆಗಳು} other {# ಆಯ್ದ {manyName} ಗಾಗಿ ಸಗಟು ಕ್ರಿಯೆಗಳು}}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
@@ -78,15 +103,15 @@ msgstr "ಪ್ರವೇಶ ನಿಷೇಧಿತ"
 msgid "Access level"
 msgstr "ಪ್ರವೇಶ ಮಟ್ಟ"
 
-#: src/features/repository/repository-tabs.tsx:1244
+#: src/features/repository/repository-tabs.tsx:1255
 msgid "Access level updated"
 msgstr "ಪ್ರವೇಶ ಮಟ್ಟವನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1224
+#: src/features/repository/repository-tabs.tsx:1235
 msgid "Access removed"
 msgstr "ಪ್ರವೇಶ ತೆಗೆದುಹಾಕಲಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:1215
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} ಗೆ ಪ್ರವೇಶ ಹೊಂದಿಸಲಾಗಿದೆ"
 
@@ -107,7 +132,7 @@ msgid "Account verified"
 msgstr "ಖಾತೆ ಪರಿಶೀಲಿಸಲಾಗಿದೆ"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
-#: src/features/repository/repository-tabs.tsx:1259
+#: src/features/repository/repository-tabs.tsx:1270
 msgid "Add"
 msgstr "ಸೇರಿಸಿ"
 
@@ -185,7 +210,7 @@ msgstr "ಅನಿರೀಕ್ಷಿತ ದೋಷ ಸಂಭವಿಸಿದೆ"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "ಲಾಗ್ ಔಟ್ ಮಾಡಲು ನೀವು ಖಚಿತವಾಗಿದ್ದೀರಾ? ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಪ್ರವೇಶಿಸಲು ನೀವು ಮತ್ತೆ ಲಾಗ್ ಇನ್ ಮಾಡಬೇಕಾಗುತ್ತದೆ."
 
-#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:364
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ಈ ರೆಪಾಸಿಟರಿಯಿಂದ ಅನ್‌ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಲು ನೀವು ಖಚಿತವಾಗಿದ್ದೀರಾ?"
 
@@ -202,8 +227,8 @@ msgid "Authenticator code"
 msgstr "Authenticator ಕೋಡ್"
 
 #: ../../../lib/web/src/components/place-picker.tsx:155
-#: src/components/clone-dialog.tsx:344
-#: src/components/clone-dialog.tsx:403
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:405
 msgid "Back"
 msgstr "ಹಿಂದೆ"
 
@@ -211,14 +236,14 @@ msgstr "ಹಿಂದೆ"
 msgid "Back to commits"
 msgstr "ಕಮಿಟ್‌ಗಳಿಗೆ ಹಿಂದೆ"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:26
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
+#: ../../../lib/web/src/features/errors/forbidden.tsx:28
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:28
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:28
 msgid "Back to home"
 msgstr "ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:195
+#: src/features/repository/blob-viewer.tsx:198
 msgid "Binary file ({0})"
 msgstr "ಬೈನರಿ ಫೈಲ್ ({0})"
 
@@ -227,27 +252,26 @@ msgstr "ಬೈನರಿ ಫೈಲ್ ({0})"
 msgid "Boost interest"
 msgstr "ಆಸಕ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:442
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" ಶಾಖೆ ರಚಿಸಲಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:460
+#: src/features/repository/repository-tabs.tsx:464
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" ಶಾಖೆ ಅಳಿಸಲಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:567
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "ಬ್ರ್ಯಾಂಚ್ ಹೆಸರು"
 
-#: src/features/repository/repository-tabs.tsx:429
+#: src/features/repository/repository-tabs.tsx:433
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "ಬ್ರ್ಯಾಂಚ್ ಹೆಸರು ಅಗತ್ಯವಿದೆ"
 
-#: src/features/repository/file-browser.tsx:103
 #: src/features/repository/tabs.tsx:32
 msgid "Branches"
 msgstr "ಬ್ರ್ಯಾಂಚ್‌ಗಳು"
@@ -260,20 +284,20 @@ msgstr "ಬ್ರ್ಯಾಂಚ್‌ಗಳು"
 #: ../../../lib/web/src/features/access/access-dialog.tsx:328
 #: ../../../lib/web/src/features/access/access-list.tsx:263
 #: ../../../lib/web/src/features/accounts/account-add.tsx:188
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:89
-#: src/components/clone-dialog.tsx:429
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:91
+#: src/components/clone-dialog.tsx:433
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:590
-#: src/features/repository/repository-tabs.tsx:609
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:594
+#: src/features/repository/repository-tabs.tsx:613
+#: src/features/repository/repository-tabs.tsx:1145
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
 msgstr "ರದ್ದುಮಾಡಿ"
 
-#: src/features/repository/repository-tabs.tsx:980
-#: src/features/repository/repository-tabs.tsx:1040
+#: src/features/repository/repository-tabs.tsx:984
+#: src/features/repository/repository-tabs.tsx:1044
 msgid "Cancel edit"
 msgstr "ಸಂಪಾದನೆ ರದ್ದುಮಾಡಿ"
 
@@ -286,7 +310,7 @@ msgstr "ಈ ಅಧಿಸೂಚನೆಗಾಗಿ ವರ್ಗ"
 msgid "Change notification category"
 msgstr "ಅಧಿಸೂಚನೆ ವರ್ಗವನ್ನು ಬದಲಾಯಿಸಿ"
 
-#: src/features/repository/commit-details.tsx:151
+#: src/features/repository/commit-details.tsx:152
 msgid "Changes"
 msgstr "ಬದಲಾವಣೆಗಳು"
 
@@ -324,36 +348,37 @@ msgstr "ತೆರವುಗೊಳಿಸಿ"
 msgid "Clear all"
 msgstr "ಎಲ್ಲವನ್ನೂ ತೆರವುಗೊಳಿಸಿ"
 
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:140
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:144
 msgid "Clear filters"
 msgstr "ಫಿಲ್ಟರ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:167
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:171
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:177
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:181
 msgid "Clear selection"
 msgstr "ಆಯ್ಕೆ ತೆರವುಗೊಳಿಸಿ"
 
-#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:168
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:178
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:185
 msgid "Clear selection (Escape)"
 msgstr "ಆಯ್ಕೆ ತೆರವುಗೊಳಿಸಿ (Escape)"
 
-#: src/components/clone-dialog.tsx:254
+#: src/components/clone-dialog.tsx:256
 msgid "Clone"
 msgstr "ಕ್ಲೋನ್"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Clone repository"
 msgstr "ರೆಪಾಸಿಟರಿ ಕ್ಲೋನ್ ಮಾಡಿ"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:354
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:357
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
 #: ../../../lib/web/src/components/ui/sheet.tsx:79
 msgid "Close"
 msgstr "ಮುಚ್ಚಿ"
 
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:107
-#: ../../../lib/web/src/components/layout/app-sidebar.tsx:112
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:108
+#: ../../../lib/web/src/components/layout/app-sidebar.tsx:113
 msgid "Close navigation"
 msgstr "ನ್ಯಾವಿಗೇಶನ್ ಮುಚ್ಚಿ"
 
@@ -396,11 +421,10 @@ msgstr "ಕಮಿಟ್"
 msgid "Commit {0} - {1}"
 msgstr "ಕಮಿಟ್ {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:65
+#: src/features/repository/commit-details.tsx:66
 msgid "Commit not found"
 msgstr "ಕಮಿಟ್ ಸಿಗಲಿಲ್ಲ"
 
-#: src/features/repository/file-browser.tsx:96
 #: src/features/repository/tabs.tsx:31
 msgid "Commits"
 msgstr "ಕಮಿಟ್‌ಗಳು"
@@ -432,7 +456,7 @@ msgid "Continue with {label}"
 msgstr "{label} ಮೂಲಕ ಮುಂದುವರಿಸಿ"
 
 #: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:188
+#: src/components/clone-dialog.tsx:189
 msgid "Copied to clipboard"
 msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ"
 
@@ -440,13 +464,13 @@ msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾ�
 msgid "Copy"
 msgstr "ನಕಲಿಸಿ"
 
-#: src/features/repository/commit-details.tsx:114
-#: src/features/repository/commit-details.tsx:118
+#: src/features/repository/commit-details.tsx:115
+#: src/features/repository/commit-details.tsx:119
 msgid "Copy commit SHA"
 msgstr "commit SHA ನಕಲಿಸಿ"
 
-#: src/features/repository/blob-viewer.tsx:174
-#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:177
+#: src/features/repository/blob-viewer.tsx:181
 msgid "Copy file contents"
 msgstr "ಫೈಲ್ ವಿಷಯವನ್ನು ನಕಲಿಸಿ"
 
@@ -466,12 +490,12 @@ msgstr "ಮರು-ದೃಢೀಕರಣವನ್ನು ಪ್ರಾರಂಭಿ�
 msgid "Couldn't verify with that account. Please try again."
 msgstr "ಆ ಖಾತೆಯೊಂದಿಗೆ ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: src/components/clone-dialog.tsx:409
+#: src/components/clone-dialog.tsx:413
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "ರಚಿಸಿ"
 
-#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:245
 msgid "Create a new authentication token."
 msgstr "ಹೊಸ ದೃಢೀಕರಣ ಟೋಕನ್ ರಚಿಸಿ."
 
@@ -479,8 +503,8 @@ msgstr "ಹೊಸ ದೃಢೀಕರಣ ಟೋಕನ್ ರಚಿಸಿ."
 msgid "Create a new repository"
 msgstr "ಹೊಸ ರೆಪಾಸಿಟರಿ ರಚಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:498
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -492,17 +516,17 @@ msgstr "ಬ್ರ್ಯಾಂಚ್ ರಚಿಸಿ"
 msgid "Create repository"
 msgstr "ರೆಪಾಸಿಟರಿ ರಚಿಸಿ"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:350
 msgid "Create token"
 msgstr "ಟೋಕನ್ ರಚಿಸಿ"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:324
+#: src/components/clone-dialog.tsx:326
 msgid "Created {0}"
 msgstr "ರಚಿಸಲಾಗಿದೆ {0}"
 
-#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:441
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "ಶಾಖೆ ರಚಿಸಲಾಗುತ್ತಿದೆ..."
@@ -511,11 +535,11 @@ msgstr "ಶಾಖೆ ರಚಿಸಲಾಗುತ್ತಿದೆ..."
 msgid "Creating repository..."
 msgstr "ರೆಪೊಸಿಟರಿ ರಚಿಸಲಾಗುತ್ತಿದೆ..."
 
-#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:202
 msgid "Creating token..."
 msgstr "ಟೋಕನ್ ರಚಿಸಲಾಗುತ್ತಿದೆ..."
 
-#: src/features/repository/repository-tabs.tsx:593
+#: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "ರಚಿಸಲಾಗುತ್ತಿದೆ..."
@@ -525,6 +549,7 @@ msgid "Custom"
 msgstr "ಕಸ್ಟಮ್"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:218
+#: ../../../lib/web/src/components/theme-switch.tsx:52
 #: ../../../lib/web/src/lib/preference-utils.ts:20
 msgid "Dark"
 msgstr "ಡಾರ್ಕ್"
@@ -541,7 +566,7 @@ msgstr "ಡಾರ್ಕ್ ಮೋಡ್"
 msgid "Data conflict"
 msgstr "ಡೇಟಾ ಸಂಘರ್ಷ"
 
-#: src/features/repository/repository-tabs.tsx:522
+#: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "ಡೀಫಾಲ್ಟ್"
@@ -554,48 +579,48 @@ msgstr "ಡೀಫಾಲ್ಟ್"
 msgid "Default AI account"
 msgstr "ಡೀಫಾಲ್ಟ್ AI ಖಾತೆ"
 
-#: src/features/repository/repository-tabs.tsx:1091
+#: src/features/repository/repository-tabs.tsx:1095
 msgid "Default branch"
 msgstr "ಡೀಫಾಲ್ಟ್ ಬ್ರ್ಯಾಂಚ್"
 
-#: src/components/clone-dialog.tsx:431
-#: src/features/repository/repository-tabs.tsx:611
-#: src/features/repository/repository-tabs.tsx:1142
+#: src/components/clone-dialog.tsx:435
+#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "ಅಳಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:605
+#: src/features/repository/repository-tabs.tsx:609
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" ಅಳಿಸಬೇಕೆ? ಇದನ್ನು ರದ್ದು ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ."
 
-#: src/features/repository/repository-tabs.tsx:541
-#: src/features/repository/repository-tabs.tsx:546
+#: src/features/repository/repository-tabs.tsx:545
+#: src/features/repository/repository-tabs.tsx:550
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "ಶಾಖೆ ಅಳಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:603
+#: src/features/repository/repository-tabs.tsx:607
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "ಬ್ರ್ಯಾಂಚ್ ಅಳಿಸಬೇಕೆ?"
 
-#: src/features/repository/repository-tabs.tsx:1117
-#: src/features/repository/repository-tabs.tsx:1128
+#: src/features/repository/repository-tabs.tsx:1121
+#: src/features/repository/repository-tabs.tsx:1132
 msgid "Delete repository"
 msgstr "ರೆಪಾಸಿಟರಿ ಅಳಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:1135
+#: src/features/repository/repository-tabs.tsx:1139
 msgid "Delete repository?"
 msgstr "ರೆಪಾಸಿಟರಿ ಅಳಿಸಬೇಕೆ?"
 
-#: src/components/clone-dialog.tsx:333
+#: src/components/clone-dialog.tsx:335
 msgid "Delete token"
 msgstr "ಟೋಕನ್ ಅಳಿಸಿ"
 
-#: src/components/clone-dialog.tsx:422
+#: src/components/clone-dialog.tsx:426
 msgid "Delete token?"
 msgstr "ಟೋಕನ್ ಅಳಿಸಬೇಕೆ?"
 
@@ -603,20 +628,20 @@ msgstr "ಟೋಕನ್ ಅಳಿಸಬೇಕೆ?"
 msgid "Delete your account on the old server"
 msgstr "ಹಳೆಯ ಸರ್ವರ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:459
+#: src/features/repository/repository-tabs.tsx:463
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "ಶಾಖೆ ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
 
-#: src/features/repository/repository-tabs.tsx:928
+#: src/features/repository/repository-tabs.tsx:932
 msgid "Deleting repository..."
 msgstr "ರೆಪೊಸಿಟರಿ ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Deleting token..."
 msgstr "ಟೋಕನ್ ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
 
-#: src/features/repository/repository-tabs.tsx:611
+#: src/features/repository/repository-tabs.tsx:615
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
@@ -630,7 +655,7 @@ msgid "Descending"
 msgstr "ಅವರೋಹಣ"
 
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1071
+#: src/features/repository/repository-tabs.tsx:1075
 msgid "Description"
 msgstr "ವಿವರಣೆ"
 
@@ -662,13 +687,13 @@ msgstr "ತಿರಸ್ಕರಿಸಿ"
 msgid "Displays the mobile sidebar."
 msgstr "ಮೊಬೈಲ್ ಸೈಡ್‌ಬಾರ್ ಪ್ರದರ್ಶಿಸುತ್ತದೆ."
 
-#: src/components/clone-dialog.tsx:297
-#: src/components/clone-dialog.tsx:382
+#: src/components/clone-dialog.tsx:299
+#: src/components/clone-dialog.tsx:384
 msgid "Done"
 msgstr "ಮುಗಿಯಿತು"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:338
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:348
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:342
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:352
 #: src/components/download-dropdown.tsx:68
 #: src/components/download-dropdown.tsx:83
 #: src/components/download-dropdown.tsx:94
@@ -679,8 +704,8 @@ msgstr "ಡೌನ್‌ಲೋಡ್"
 msgid "Download failed"
 msgstr "ಡೌನ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/blob-viewer.tsx:183
-#: src/features/repository/blob-viewer.tsx:187
+#: src/features/repository/blob-viewer.tsx:186
+#: src/features/repository/blob-viewer.tsx:190
 msgid "Download file"
 msgstr "ಫೈಲ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
 
@@ -688,7 +713,7 @@ msgstr "ಫೈಲ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
 msgid "Dyslexia-friendly"
 msgstr "ಡಿಸ್ಲೆಕ್ಸಿಯಾ-ಸ್ನೇಹಿ"
 
-#: src/components/clone-dialog.tsx:392
+#: src/components/clone-dialog.tsx:394
 msgid "e.g., Work laptop"
 msgstr "ಉದಾ. ಕೆಲಸದ ಲ್ಯಾಪ್‌ಟಾಪ್"
 
@@ -696,11 +721,11 @@ msgstr "ಉದಾ. ಕೆಲಸದ ಲ್ಯಾಪ್‌ಟಾಪ್"
 msgid "Edit {label}"
 msgstr "{label} ಸಂಪಾದಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:997
+#: src/features/repository/repository-tabs.tsx:1001
 msgid "Edit name"
 msgstr "ಹೆಸರು ಸಂಪಾದಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:1057
+#: src/features/repository/repository-tabs.tsx:1061
 msgid "Edit path"
 msgstr "ಮಾರ್ಗ ಸಂಪಾದಿಸಿ"
 
@@ -708,12 +733,11 @@ msgstr "ಮಾರ್ಗ ಸಂಪಾದಿಸಿ"
 msgid "Email code"
 msgstr "ಇಮೇಲ್ ಕೋಡ್"
 
-#: src/features/repository/file-browser.tsx:308
+#: src/features/repository/file-browser.tsx:119
 msgid "Empty directory"
 msgstr "ಖಾಲಿ ಡೈರೆಕ್ಟರಿ"
 
-#: src/features/repository/file-browser.tsx:183
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/repository-tabs.tsx:321
 msgid "Empty repository"
 msgstr "ಖಾಲಿ ರೆಪೊಸಿಟರಿ"
 
@@ -725,7 +749,7 @@ msgstr "ನಿಮ್ಮ ಇಮೇಲ್‌ನಿಂದ ಕೋಡ್ ನಮೂದ
 msgid "Enter your authenticator code"
 msgstr "ನಿಮ್ಮ authenticator ಕೋಡ್ ನಮೂದಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:1063
+#: src/features/repository/repository-tabs.tsx:1067
 msgid "Entity:"
 msgstr "ಎಂಟಿಟಿ:"
 
@@ -748,7 +772,7 @@ msgstr "ಹೆಚ್ಚುವರಿ ದೊಡ್ಡದು"
 msgid "Failed to add account"
 msgstr "ಖಾತೆ ಸೇರಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:439
+#: src/features/repository/repository-tabs.tsx:443
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "ಬ್ರಾಂಚ್ ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ"
@@ -761,24 +785,24 @@ msgstr "ಲಿಂಕ್ ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ"
 msgid "Failed to create repository"
 msgstr "ರೆಪೊಸಿಟರಿ ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:204
 msgid "Failed to create token"
 msgstr "ಟೋಕನ್ ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:461
+#: src/features/repository/repository-tabs.tsx:465
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "ಬ್ರಾಂಚ್ ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:930
+#: src/features/repository/repository-tabs.tsx:934
 msgid "Failed to delete repository"
 msgstr "ರೆಪೊಸಿಟರಿ ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to delete token"
 msgstr "ಟೋಕನ್ ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/blob-viewer.tsx:85
+#: src/features/repository/blob-viewer.tsx:88
 msgid "Failed to download"
 msgstr "ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
@@ -786,40 +810,47 @@ msgstr "ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದ�
 msgid "Failed to download archive"
 msgstr "ಆರ್ಕೈವ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/components/clone-dialog.tsx:170
+#: src/components/clone-dialog.tsx:169
 msgid "Failed to get token"
 msgstr "ಟೋಕನ್ ಪಡೆಯಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1188
+#: src/features/repository/repository-tabs.tsx:1192
 msgid "Failed to load access rules"
 msgstr "ಆಕ್ಸೆಸ್ ನಿಯಮಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:483
+#: src/features/repository/repository-tabs.tsx:487
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "ಬ್ರಾಂಚ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/commit-details.tsx:57
+#: src/features/repository/commit-details.tsx:58
 msgid "Failed to load commit"
 msgstr "ಕಮಿಟ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:357
+#: src/features/repository/repository-tabs.tsx:361
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "ಕಮಿಟ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/file-browser.tsx:179
-#: src/features/repository/file-browser.tsx:304
-#: src/features/repository/repository-tabs.tsx:313
+#: src/features/repository/file-browser.tsx:115
+#: src/features/repository/repository-tabs.tsx:317
 msgid "Failed to load files"
 msgstr "ಫೈಲ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:642
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load image"
+msgstr "ಚಿತ್ರವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
+
+#: src/features/repository/repository-tabs.tsx:646
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "ಟ್ಯಾಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1225
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:263
+msgid "Failed to load video"
+msgstr "ವೀಡಿಯೊ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
+
+#: src/features/repository/repository-tabs.tsx:1236
 msgid "Failed to remove access"
 msgstr "ಪ್ರವೇಶ ತೆಗೆದುಹಾಕಲು ವಿಫಲವಾಗಿದೆ"
 
@@ -827,12 +858,12 @@ msgstr "ಪ್ರವೇಶ ತೆಗೆದುಹಾಕಲು ವಿಫಲವಾ�
 msgid "Failed to remove account"
 msgstr "ಖಾತೆ ತೆಗೆದುಹಾಕಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:836
+#: src/features/repository/repository-tabs.tsx:840
 msgid "Failed to rename repository"
 msgstr "ರೆಪೊಸಿಟರಿ ಮರುಹೆಸರಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:906
-#: src/features/repository/repository-tabs.tsx:918
+#: src/features/repository/repository-tabs.tsx:910
+#: src/features/repository/repository-tabs.tsx:922
 msgid "Failed to save setting"
 msgstr "ಸೆಟ್ಟಿಂಗ್ ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
@@ -840,7 +871,7 @@ msgstr "ಸೆಟ್ಟಿಂಗ್ ಉಳಿಸಲು ವಿಫಲವಾಗಿ�
 msgid "Failed to send verification code"
 msgstr "ಪರಿಶೀಲನಾ ಕೋಡ್ ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1208
+#: src/features/repository/repository-tabs.tsx:1216
 msgid "Failed to set access level"
 msgstr "ಪ್ರವೇಶ ಮಟ್ಟವನ್ನು ಹೊಂದಿಸಲು ವಿಫಲವಾಗಿದೆ"
 
@@ -852,11 +883,11 @@ msgstr "ಚಂದಾದಾರರಾಗಲು ವಿಫಲವಾಗಿದೆ"
 
 #: src/features/repository/repository-header.tsx:76
 #: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:374
 msgid "Failed to unsubscribe"
 msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1245
+#: src/features/repository/repository-tabs.tsx:1256
 msgid "Failed to update access level"
 msgstr "ಪ್ರವೇಶ ಮಟ್ಟ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
@@ -864,11 +895,11 @@ msgstr "ಪ್ರವೇಶ ಮಟ್ಟ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು
 msgid "Failed to update category"
 msgstr "ವರ್ಗ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:886
+#: src/features/repository/repository-tabs.tsx:890
 msgid "Failed to update path"
 msgstr "ಪಾತ್ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:568
+#: src/features/repository/repository-tabs.tsx:572
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -889,7 +920,7 @@ msgstr "ಫೈಲ್‌ಗಳು"
 msgid "Find repositories"
 msgstr "ರೆಪೊಸಿಟರಿಗಳನ್ನು ಹುಡುಕಿ"
 
-#: src/features/repository/repository-tabs.tsx:1065
+#: src/features/repository/repository-tabs.tsx:1069
 msgid "Fingerprint:"
 msgstr "ಫಿಂಗರ್‌ಪ್ರಿಂಟ್:"
 
@@ -931,29 +962,29 @@ msgstr "ಇಂದ: {0}"
 msgid "Full layout"
 msgstr "ಪೂರ್ಣ ಲೇಔಟ್"
 
-#: ../../../lib/web/src/features/errors/forbidden.tsx:24
-#: ../../../lib/web/src/features/errors/not-found-error.tsx:24
-#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:24
+#: ../../../lib/web/src/features/errors/forbidden.tsx:26
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:26
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:26
 msgid "Go back"
 msgstr "ಹಿಂತಿರುಗಿ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:78
+#: ../../../lib/web/src/components/data-table/pagination.tsx:82
 msgid "Go to first page"
 msgstr "ಮೊದಲ ಪುಟಕ್ಕೆ ಹೋಗಿ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:128
 msgid "Go to last page"
 msgstr "ಕೊನೆಯ ಪುಟಕ್ಕೆ ಹೋಗಿ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:115
+#: ../../../lib/web/src/components/data-table/pagination.tsx:119
 msgid "Go to next page"
 msgstr "ಮುಂದಿನ ಪುಟಕ್ಕೆ ಹೋಗಿ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:102
+#: ../../../lib/web/src/components/data-table/pagination.tsx:106
 msgid "Go to page {pageNumber}"
 msgstr "ಪುಟ {pageNumber}ಗೆ ಹೋಗಿ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:87
+#: ../../../lib/web/src/components/data-table/pagination.tsx:91
 msgid "Go to previous page"
 msgstr "ಹಿಂದಿನ ಪುಟಕ್ಕೆ ಹೋಗಿ"
 
@@ -980,9 +1011,14 @@ msgstr "ಮುಖಪುಟ"
 msgid "Hot"
 msgstr "ಹಾಟ್"
 
-#: src/features/repository/repository-tabs.tsx:941
+#: src/features/repository/repository-tabs.tsx:945
 msgid "Identity"
 msgstr "ಗುರುತು"
+
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:247
+msgid "Image viewer: {0}"
+msgstr "ಚಿತ್ರ ವೀಕ್ಷಕ: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:86
 msgid "Imperial"
@@ -1000,13 +1036,17 @@ msgstr "ಆಸಕ್ತಿಗಳು"
 msgid "Invalid verification code"
 msgstr "ಅಮಾನ್ಯ ಪರಿಶೀಲನಾ ಕೋಡ್"
 
+#: ../../../lib/web/src/features/errors/not-found-error.tsx:18
+msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
+msgstr "ನೀವು ಹುಡುಕುತ್ತಿರುವ ಪುಟ <0/>ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ ಅಥವಾ ತೆಗೆದುಹಾಕಲಾಗಿದೆ ಎಂದು ತೋರುತ್ತದೆ."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:108
 #: ../../../lib/web/src/lib/preference-utils.ts:135
 msgid "Large"
 msgstr "ದೊಡ್ಡದು"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:327
 msgid "Last used {0}"
 msgstr "ಕೊನೆಯ ಬಳಕೆ {0}"
 
@@ -1024,6 +1064,7 @@ msgid "Left to Right"
 msgstr "ಎಡದಿಂದ ಬಲಕ್ಕೆ"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:213
+#: ../../../lib/web/src/components/theme-switch.tsx:45
 #: ../../../lib/web/src/lib/preference-utils.ts:19
 msgid "Light"
 msgstr "ಲೈಟ್"
@@ -1042,8 +1083,8 @@ msgstr "ವಿಷಯ ಲೋಡ್ ಆಗುತ್ತಿದೆ…"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:35
 #: ../../../lib/web/src/features/document/document-page.tsx:90
-msgid "Loading…"
-msgstr "ಲೋಡ್ ಆಗುತ್ತಿದೆ…"
+msgid "Loading..."
+msgstr "ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
 
 #: ../../../lib/web/src/components/layout/nav-user.tsx:101
 #: ../../../lib/web/src/components/layout/nav-user.tsx:167
@@ -1068,17 +1109,17 @@ msgid "Logging out…"
 msgstr "ಲಾಗ್ ಔಟ್ ಆಗುತ್ತಿದೆ…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:872
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "ಸಣ್ಣ ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು ಮತ್ತು ಹೈಫನ್‌ಗಳು ಮಾತ್ರ"
 
-#: src/components/clone-dialog.tsx:228
-#: src/components/clone-dialog.tsx:292
+#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:294
 msgid "Manage tokens"
 msgstr "ಟೋಕನ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:92
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:99
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "ಎಲ್ಲವನ್ನೂ ಓದಲಾಗಿದೆ ಎಂದು ಮಾರ್ಕ್ ಮಾಡಿ"
@@ -1099,8 +1140,8 @@ msgstr "ಮೆಟ್ರಿಕ್"
 msgid "Monday"
 msgstr "ಸೋಮವಾರ"
 
-#: src/routes/_authenticated/index.tsx:325
-#: src/routes/_authenticated/index.tsx:333
+#: src/routes/_authenticated/index.tsx:326
+#: src/routes/_authenticated/index.tsx:334
 msgid "More actions"
 msgstr "ಹೆಚ್ಚಿನ ಕ್ರಿಯೆಗಳು"
 
@@ -1109,16 +1150,16 @@ msgid "Name"
 msgstr "ಹೆಸರು"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:798
+#: src/features/repository/repository-tabs.tsx:802
 msgid "Name cannot contain < or > characters"
 msgstr "ಹೆಸರಿನಲ್ಲಿ < ಅಥವಾ > ಅಕ್ಷರಗಳು ಇರುವಂತಿಲ್ಲ"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:797
+#: src/features/repository/repository-tabs.tsx:801
 msgid "Name must be 100 characters or less"
 msgstr "ಹೆಸರು 100 ಅಕ್ಷರಗಳು ಅಥವಾ ಕಡಿಮೆ ಇರಬೇಕು"
 
-#: src/features/repository/repository-tabs.tsx:943
+#: src/features/repository/repository-tabs.tsx:947
 msgid "Name:"
 msgstr "ಹೆಸರು:"
 
@@ -1127,8 +1168,8 @@ msgstr "ಹೆಸರು:"
 msgid "Network error"
 msgstr "ನೆಟ್‌ವರ್ಕ್ ದೋಷ"
 
-#: src/components/clone-dialog.tsx:324
-#: src/components/clone-dialog.tsx:325
+#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:327
 msgid "Never"
 msgstr "ಎಂದಿಗೂ ಇಲ್ಲ"
 
@@ -1136,17 +1177,17 @@ msgstr "ಎಂದಿಗೂ ಇಲ್ಲ"
 msgid "New"
 msgstr "ಹೊಸ"
 
-#: src/features/repository/repository-tabs.tsx:559
+#: src/features/repository/repository-tabs.tsx:563
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "ಹೊಸ ಬ್ರಾಂಚ್"
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:388
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:393
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
 msgstr "ಮುಂದಿನ ಚಿತ್ರ"
 
-#: src/features/repository/repository-tabs.tsx:725
+#: src/features/repository/repository-tabs.tsx:729
 msgid "No access"
 msgstr "ಪ್ರವೇಶವಿಲ್ಲ"
 
@@ -1154,12 +1195,12 @@ msgstr "ಪ್ರವೇಶವಿಲ್ಲ"
 msgid "No access rules configured. Add rules to control who can access this resource."
 msgstr "ಯಾವುದೇ ಪ್ರವೇಶ ನಿಯಮಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ. ಈ ಸಂಪನ್ಮೂಲವನ್ನು ಯಾರು ಪ್ರವೇಶಿಸಬಹುದು ಎಂಬುದನ್ನು ನಿಯಂತ್ರಿಸಲು ನಿಯಮಗಳನ್ನು ಸೇರಿಸಿ."
 
-#: src/features/repository/repository-tabs.tsx:502
+#: src/features/repository/repository-tabs.tsx:506
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "ಇನ್ನೂ ಯಾವುದೇ ಬ್ರಾಂಚ್‌ಗಳಿಲ್ಲ"
 
-#: src/features/repository/repository-tabs.tsx:362
+#: src/features/repository/repository-tabs.tsx:366
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "ಇನ್ನೂ ಯಾವುದೇ ಕಮಿಟ್‌ಗಳಿಲ್ಲ"
@@ -1190,11 +1231,11 @@ msgid "No repositories found"
 msgstr "ಯಾವುದೇ ರೆಪೊಸಿಟರಿಗಳು ಸಿಗಲಿಲ್ಲ"
 
 #: ../../../lib/web/src/components/command-menu.tsx:55
-#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:90
+#: ../../../lib/web/src/components/data-table/faceted-filter.tsx:94
 msgid "No results found."
 msgstr "ಯಾವುದೇ ಫಲಿತಾಂಶಗಳು ಸಿಗಲಿಲ್ಲ."
 
-#: src/features/repository/repository-tabs.tsx:672
+#: src/features/repository/repository-tabs.tsx:676
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "ಇನ್ನೂ ಯಾವುದೇ ಟ್ಯಾಗ್‌ಗಳಿಲ್ಲ"
@@ -1203,7 +1244,7 @@ msgstr "ಇನ್ನೂ ಯಾವುದೇ ಟ್ಯಾಗ್‌ಗಳಿಲ್�
 msgid "No time zone found."
 msgstr "ಯಾವುದೇ ಟೈಮ್ ಜೋನ್ ಸಿಗಲಿಲ್ಲ."
 
-#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:314
 msgid "No tokens yet."
 msgstr "ಇನ್ನೂ ಯಾವುದೇ ಟೋಕನ್‌ಗಳಿಲ್ಲ."
 
@@ -1240,6 +1281,11 @@ msgstr "ಸೆಟ್ ಮಾಡಲಾಗಿಲ್ಲ"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:261
 msgid "Notifications"
 msgstr "ನೋಟಿಫಿಕೇಶನ್‌ಗಳು"
+
+#. placeholder {0}: unread.length
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+msgid "Notifications: {0}"
+msgstr "ಅಧಿಸೂಚನೆಗಳು: {0}"
 
 #: ../../../lib/web/src/features/errors/not-found-error.tsx:16
 msgid "Oops! Page Not Found!"
@@ -1278,11 +1324,16 @@ msgstr "ಇತರ"
 msgid "Owner"
 msgstr "ಮಾಲೀಕ"
 
-#: src/features/repository/commit-details.tsx:124
+#: ../../../lib/web/src/components/data-table/pagination.tsx:43
+#: ../../../lib/web/src/components/data-table/pagination.tsx:71
+msgid "Page {currentPage} of {totalPages}"
+msgstr "ಪುಟ {currentPage} / {totalPages}"
+
+#: src/features/repository/commit-details.tsx:125
 msgid "Parent:"
 msgstr "ಪೋಷಕ:"
 
-#: src/features/repository/commit-details.tsx:124
+#: src/features/repository/commit-details.tsx:125
 msgid "Parents:"
 msgstr "ಪೋಷಕರು:"
 
@@ -1302,19 +1353,19 @@ msgstr "ಪಾಸ್‌ಕೀಗಳು"
 msgid "Path"
 msgstr "ಪಥ"
 
-#: src/features/repository/repository-tabs.tsx:864
+#: src/features/repository/repository-tabs.tsx:868
 msgid "Path is required"
 msgstr "ಪಥ ಅಗತ್ಯವಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:889
 msgid "Path updated"
 msgstr "ಪಥ ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:1003
+#: src/features/repository/repository-tabs.tsx:1007
 msgid "Path:"
 msgstr "ಪಥ:"
 
-#: src/features/repository/repository-tabs.tsx:1119
+#: src/features/repository/repository-tabs.tsx:1123
 msgid "Permanently delete this repository and all its data"
 msgstr "ಈ ರೆಪೊಸಿಟರಿ ಮತ್ತು ಅದರ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಡಿಲೀಟ್ ಮಾಡಿ"
 
@@ -1323,9 +1374,13 @@ msgstr "ಈ ರೆಪೊಸಿಟರಿ ಮತ್ತು ಅದರ ಎಲ್ಲ�
 msgid "Please check your internet connection and try again."
 msgstr "ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: src/components/clone-dialog.tsx:195
+#: src/components/clone-dialog.tsx:197
 msgid "Please enter a token name"
 msgstr "ದಯವಿಟ್ಟು ಟೋಕನ್ ಹೆಸರನ್ನು ನಮೂದಿಸಿ"
+
+#: ../../../lib/web/src/features/errors/unauthorized-error.tsx:18
+msgid "Please log in with the appropriate credentials <0/> to access this resource."
+msgstr "ಈ ಸಂಪನ್ಮೂಲವನ್ನು ಪ್ರವೇಶಿಸಲು <0/> ದಯವಿಟ್ಟು ಸೂಕ್ತ ರುಜುವಾತುಗಳೊಂದಿಗೆ ಲಾಗಿನ್ ಮಾಡಿ."
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:83
 msgid "Please try again."
@@ -1335,8 +1390,8 @@ msgstr "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.
 msgid "Please wait a moment and try again."
 msgstr "ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯ ನಿರೀಕ್ಷಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:373
-#: ../../../lib/web/src/components/ui/image-lightbox.tsx:378
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:377
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:382
 msgid "Previous image"
 msgstr "ಹಿಂದಿನ ಚಿತ್ರ"
 
@@ -1362,11 +1417,11 @@ msgstr "ಈ ಸರ್ವರ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಖಾತೆಗ
 msgid "Re-register your passkeys on this server"
 msgstr "ಈ ಸರ್ವರ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಪಾಸ್‌ಕೀಗಳನ್ನು ಮರು-ನೋಂದಣಿ ಮಾಡಿ"
 
-#: src/features/repository/repository-tabs.tsx:723
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Read and write"
 msgstr "ಓದಿ ಮತ್ತು ಬರೆಯಿರಿ"
 
-#: src/features/repository/repository-tabs.tsx:724
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Read only"
 msgstr "ಓದಲು ಮಾತ್ರ"
 
@@ -1406,6 +1461,11 @@ msgstr "ತೆಗೆದುಹಾಕಿ"
 msgid "Remove access rule"
 msgstr "ಪ್ರವೇಶ ನಿಯಮವನ್ನು ತೆಗೆದುಹಾಕಿ"
 
+#. placeholder {0}: formatSubject(subject, data.name)
+#: ../../../lib/web/src/features/access/access-list.tsx:259
+msgid "Remove access rule for \"{0}\"?"
+msgstr "\"{0}\" ಗಾಗಿ ಪ್ರವೇಶ ನಿಯಮವನ್ನು ತೆಗೆದುಹಾಕುವುದೇ?"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:257
 msgid "Remove access?"
 msgstr "ಪ್ರವೇಶ ತೆಗೆದುಹಾಕಬೇಕೆ?"
@@ -1415,11 +1475,11 @@ msgstr "ಪ್ರವೇಶ ತೆಗೆದುಹಾಕಬೇಕೆ?"
 msgid "Remove interest"
 msgstr "ಆಸಕ್ತಿ ತೆಗೆದುಹಾಕಿ"
 
-#: src/features/repository/repository-tabs.tsx:1223
+#: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
 msgstr "ಪ್ರವೇಶ ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ..."
 
-#: src/features/repository/repository-tabs.tsx:834
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Renaming repository..."
 msgstr "ರೆಪೊಸಿಟರಿ ಮರುಹೆಸರಿಸಲಾಗುತ್ತಿದೆ..."
 
@@ -1450,7 +1510,7 @@ msgstr "ರೆಪಾಸಿಟರಿ"
 msgid "Repository created"
 msgstr "ರೆಪೊಸಿಟರಿ ರಚಿಸಲಾಗಿದೆ"
 
-#: src/features/repository/repository-tabs.tsx:929
+#: src/features/repository/repository-tabs.tsx:933
 msgid "Repository deleted"
 msgstr "ರೆಪೊಸಿಟರಿ ಡಿಲೀಟ್ ಮಾಡಲಾಗಿದೆ"
 
@@ -1463,7 +1523,7 @@ msgstr "ರೆಪೊಸಿಟರಿ ID ಅಗತ್ಯವಿದೆ"
 msgid "Repository link"
 msgstr "ರೆಪೊಸಿಟರಿ ಲಿಂಕ್"
 
-#: src/features/repository/repository-tabs.tsx:796
+#: src/features/repository/repository-tabs.tsx:800
 msgid "Repository name is required"
 msgstr "ರೆಪೊಸಿಟರಿ ಹೆಸರು ಅಗತ್ಯವಿದೆ"
 
@@ -1471,7 +1531,7 @@ msgstr "ರೆಪೊಸಿಟರಿ ಹೆಸರು ಅಗತ್ಯವಿದೆ"
 msgid "Repository not found"
 msgstr "ರೆಪೊಸಿಟರಿ ಸಿಗಲಿಲ್ಲ"
 
-#: src/features/repository/repository-tabs.tsx:835
+#: src/features/repository/repository-tabs.tsx:839
 msgid "Repository renamed"
 msgstr "ರೆಪೊಸಿಟರಿ ಮರುಹೆಸರಿಸಲಾಗಿದೆ"
 
@@ -1492,7 +1552,7 @@ msgstr "ಎಲ್ಲಾ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಡೀ�
 msgid "Right to Left"
 msgstr "ಬಲದಿಂದ ಎಡಕ್ಕೆ"
 
-#: ../../../lib/web/src/components/data-table/pagination.tsx:63
+#: ../../../lib/web/src/components/data-table/pagination.tsx:65
 msgid "Rows per page"
 msgstr "ಪ್ರತಿ ಪುಟಕ್ಕೆ ಸಾಲುಗಳು"
 
@@ -1502,21 +1562,21 @@ msgstr "ಶನಿವಾರ"
 
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:77
-#: src/features/repository/repository-tabs.tsx:1084
+#: src/features/repository/repository-tabs.tsx:1088
 msgid "Save"
 msgstr "ಉಳಿಸಿ"
 
-#: src/components/clone-dialog.tsx:242
+#: src/components/clone-dialog.tsx:244
 msgid "Save this token now. You won't be able to see it again."
 msgstr "ಈ ಟೋಕನ್ ಅನ್ನು ಈಗ ಉಳಿಸಿ. ನೀವು ಅದನ್ನು ಮತ್ತೆ ನೋಡಲು ಸಾಧ್ಯವಿಲ್ಲ."
 
-#: src/components/clone-dialog.tsx:285
-#: src/components/clone-dialog.tsx:372
+#: src/components/clone-dialog.tsx:287
+#: src/components/clone-dialog.tsx:374
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "ಈ ಟೋಕನ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಉಳಿಸಿ. ನೀವು ಅದನ್ನು ಮತ್ತೆ ನೋಡಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."
 
-#: src/features/repository/repository-tabs.tsx:904
-#: src/features/repository/repository-tabs.tsx:916
+#: src/features/repository/repository-tabs.tsx:908
+#: src/features/repository/repository-tabs.tsx:920
 msgid "Saving settings..."
 msgstr "ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ..."
 
@@ -1574,7 +1634,7 @@ msgstr "ಖಾತೆಯ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾ�
 msgid "Select branch"
 msgstr "ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ"
 
-#: src/features/repository/repository-tabs.tsx:1101
+#: src/features/repository/repository-tabs.tsx:1105
 msgid "Select default branch"
 msgstr "ಡೀಫಾಲ್ಟ್ ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ"
 
@@ -1594,7 +1654,7 @@ msgstr "ಸೈಡ್‌ಬಾರ್ ಶೈಲಿ ಆಯ್ಕೆಮಾಡಿ"
 msgid "Select site direction"
 msgstr "ಸೈಟ್ ದಿಕ್ಕನ್ನು ಆಯ್ಕೆಮಾಡಿ"
 
-#: src/features/repository/repository-tabs.tsx:576
+#: src/features/repository/repository-tabs.tsx:580
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "ಮೂಲ ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ"
@@ -1603,7 +1663,16 @@ msgstr "ಮೂಲ ಬ್ರಾಂಚ್ ಆಯ್ಕೆಮಾಡಿ"
 msgid "Select theme preference"
 msgstr "ಥೀಮ್ ಆದ್ಯತೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:98
+#: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
+msgid "selected"
+msgstr "ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ"
+
+#. placeholder {0}: getSelectedName()
+#: ../../../lib/web/src/features/access/access-dialog.tsx:309
+msgid "Selected: <0>{0}</0>"
+msgstr "ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ: <0>{0}</0>"
+
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:100
 msgid "Send again"
 msgstr "ಮತ್ತೆ ಕಳುಹಿಸಿ"
 
@@ -1633,7 +1702,7 @@ msgstr "ಸೆಷನ್ ಅವಧಿ ಮುಗಿದಿದೆ. ದಯವಿಟ�
 msgid "Set origin and destination"
 msgstr "ಮೂಲ ಮತ್ತು ಗಮ್ಯಸ್ಥಾನವನ್ನು ಹೊಂದಿಸಿ"
 
-#: src/features/repository/repository-tabs.tsx:1206
+#: src/features/repository/repository-tabs.tsx:1214
 msgid "Setting access..."
 msgstr "ಪ್ರವೇಶ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."
 
@@ -1642,13 +1711,12 @@ msgstr "ಪ್ರವೇಶ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ..."
 #: ../../../lib/web/src/components/layout/nav-user.tsx:84
 #: ../../../lib/web/src/components/layout/nav-user.tsx:148
 #: ../../../lib/web/src/components/layout/nav-user.tsx:198
-#: src/features/repository/file-browser.tsx:117
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
 
-#: src/features/repository/repository-tabs.tsx:905
-#: src/features/repository/repository-tabs.tsx:917
+#: src/features/repository/repository-tabs.tsx:909
+#: src/features/repository/repository-tabs.tsx:921
 msgid "Settings saved"
 msgstr "ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ"
 
@@ -1684,7 +1752,7 @@ msgstr "ಮುಖ್ಯಕ್ಕೆ ಸ್ಕಿಪ್ ಮಾಡಿ"
 msgid "Small"
 msgstr "ಸಣ್ಣ"
 
-#: src/features/repository/repository-tabs.tsx:573
+#: src/features/repository/repository-tabs.tsx:577
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "ಮೂಲ ಬ್ರಾಂಚ್"
@@ -1701,8 +1769,8 @@ msgstr "ಆದರೆ ಕಾದು ನೋಡಿ!"
 msgid "Subject"
 msgstr "ವಿಷಯ"
 
-#: src/features/repository/inline-repo-search.tsx:167
-#: src/routes/_authenticated/index.tsx:290
+#: src/features/repository/inline-repo-search.tsx:168
+#: src/routes/_authenticated/index.tsx:291
 msgid "Subscribe"
 msgstr "ಚಂದಾದಾರರಾಗಿ"
 
@@ -1728,6 +1796,7 @@ msgid "Switch branch"
 msgstr "ಶಾಖೆ ಬದಲಾಯಿಸಿ"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:208
+#: ../../../lib/web/src/components/theme-switch.tsx:59
 #: ../../../lib/web/src/lib/preference-utils.ts:21
 #: ../../../lib/web/src/lib/preference-utils.ts:144
 msgid "System"
@@ -1739,7 +1808,6 @@ msgstr "ಟ್ಯಾಗ್"
 
 #: ../../../lib/web/src/components/post-tags.tsx:101
 #: ../../../lib/web/src/components/post-tags.tsx:115
-#: src/features/repository/file-browser.tsx:110
 #: src/features/repository/tabs.tsx:33
 msgid "Tags"
 msgstr "ಟ್ಯಾಗ್‌ಗಳು"
@@ -1757,13 +1825,17 @@ msgstr "ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು"
 msgid "That code is incorrect or has expired."
 msgstr "ಆ ಕೋಡ್ ತಪ್ಪಾಗಿದೆ ಅಥವಾ ಅವಧಿ ಮೀರಿದೆ."
 
-#: src/features/repository/repository-tabs.tsx:1092
+#: src/features/repository/repository-tabs.tsx:1096
 msgid "The branch shown when viewing the repository"
 msgstr "ರೆಪೊಸಿಟರಿಯನ್ನು ವೀಕ್ಷಿಸುವಾಗ ತೋರಿಸುವ ಬ್ರಾಂಚ್"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx:68
 msgid "The requested content could not be found."
 msgstr "ವಿನಂತಿಸಿದ ವಿಷಯವನ್ನು ಹುಡುಕಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."
+
+#: ../../../lib/web/src/features/errors/maintenance-error.tsx:15
+msgid "The site is not available at the moment."
+msgstr "ಸೈಟ್ ಈ ಕ್ಷಣದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:194
 msgid "Theme"
@@ -1773,17 +1845,21 @@ msgstr "ಥೀಮ್"
 msgid "Theme Settings"
 msgstr "ಥೀಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
 
+#: ../../../lib/web/src/components/coming-soon.tsx:14
+msgid "This page has not been created yet."
+msgstr "ಈ ಪುಟವನ್ನು ಇನ್ನೂ ರಚಿಸಲಾಗಿಲ್ಲ."
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ಈ ಪುಟಕ್ಕೆ ರೆಪೊಸಿಟರಿ ಸಂದರ್ಭ ಬೇಕಾಗಿದೆ."
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:1141
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "ಇದು \"{currentName}\" ಮತ್ತು ಅದರ ಎಲ್ಲಾ ಕಮಿಟ್‌ಗಳು, ಬ್ರಾಂಚ್‌ಗಳು ಮತ್ತು ಟ್ಯಾಗ್‌ಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ಈ ಕ್ರಿಯೆಯನ್ನು ಹಿಂತಿರುಗಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: src/components/clone-dialog.tsx:424
+#: src/components/clone-dialog.tsx:428
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ಇದು ಈ ಟೋಕನ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ಅದನ್ನು ಬಳಸುವ ಯಾವುದೇ git ಕ್ಲೈಂಟ್‌ಗಳು ಇನ್ನು ಮುಂದೆ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."
 
@@ -1798,6 +1874,10 @@ msgstr "ಇದು ನಿಮ್ಮ ರೆಪೊಸಿಟರಿ ಪಟ್ಟಿಯ
 #: ../../../lib/web/src/lib/preference-utils.ts:62
 msgid "Thursday"
 msgstr "ಗುರುವಾರ"
+
+#: ../../../lib/web/src/components/travelling-picker.tsx:220
+msgid "To"
+msgstr "ಗೆ"
 
 #: ../../../lib/web/src/components/data-table/view-options.tsx:37
 msgid "Toggle columns"
@@ -1830,15 +1910,15 @@ msgstr "ಸೈಡ್‌ಬಾರ್ ಟಾಗಲ್ ಮಾಡಿ"
 msgid "Toggle theme"
 msgstr "ಥೀಮ್ ಟಾಗಲ್ ಮಾಡಿ"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:232
 msgid "Token created"
 msgstr "ಟೋಕನ್ ರಚಿಸಲಾಗಿದೆ"
 
-#: src/components/clone-dialog.tsx:214
+#: src/components/clone-dialog.tsx:216
 msgid "Token deleted"
 msgstr "ಟೋಕನ್ ಅಳಿಸಲಾಗಿದೆ"
 
-#: src/components/clone-dialog.tsx:389
+#: src/components/clone-dialog.tsx:391
 msgid "Token name"
 msgstr "ಟೋಕನ್ ಹೆಸರು"
 
@@ -1906,9 +1986,9 @@ msgstr "ಯುನೈಟೆಡ್ ಸ್ಟೇಟ್ಸ್"
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:342
-#: src/routes/_authenticated/index.tsx:362
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:343
+#: src/routes/_authenticated/index.tsx:363
+#: src/routes/_authenticated/index.tsx:365
 msgid "Unsubscribe"
 msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಿ"
 
@@ -1917,7 +1997,7 @@ msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಿ"
 msgid "Unsubscribe from repository?"
 msgstr "ರೆಪೊಸಿಟರಿಯಿಂದ ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಬೇಕೆ?"
 
-#: src/routes/_authenticated/index.tsx:372
+#: src/routes/_authenticated/index.tsx:373
 msgid "Unsubscribed"
 msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ"
 
@@ -1929,7 +2009,7 @@ msgstr "ರೆಪೊಸಿಟರಿಯಿಂದ ಚಂದಾದಾರಿಕೆ �
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
 #: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:371
+#: src/routes/_authenticated/index.tsx:372
 msgid "Unsubscribing..."
 msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ..."
 
@@ -1937,11 +2017,11 @@ msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಲಾಗ�
 msgid "Unverified"
 msgstr "ಪರಿಶೀಲಿಸದ"
 
-#: src/features/repository/repository-tabs.tsx:1243
+#: src/features/repository/repository-tabs.tsx:1254
 msgid "Updating access..."
 msgstr "ಪ್ರವೇಶ ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ..."
 
-#: src/features/repository/repository-tabs.tsx:884
+#: src/features/repository/repository-tabs.tsx:888
 msgid "Updating path..."
 msgstr "ಪಥ ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ..."
 
@@ -1953,7 +2033,7 @@ msgstr "ನಿಮ್ಮ ಪಾಸ್‌ಕೀ ಬಳಸಿ"
 msgid "User"
 msgstr "ಬಳಕೆದಾರ"
 
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:71
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:73
 msgid "Verification code"
 msgstr "ಪರಿಶೀಲನೆ ಕೋಡ್"
 
@@ -1967,7 +2047,7 @@ msgstr "ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx:388
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
-#: ../../../lib/web/src/features/accounts/account-verify.tsx:109
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
 msgstr "ಪರಿಶೀಲಿಸಿ"
 
@@ -1979,6 +2059,11 @@ msgstr "ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಪರಿಶೀಲಿಸ�
 msgid "Video thumbnail"
 msgstr "ವಿಡಿಯೋ ಥಂಬ್‌ನೇಲ್"
 
+#. placeholder {0}: currentMedia.name
+#: ../../../lib/web/src/components/ui/image-lightbox.tsx:246
+msgid "Video viewer: {0}"
+msgstr "ವೀಡಿಯೊ ವೀಕ್ಷಕ: {0}"
+
 #: ../../../lib/web/src/components/data-table/view-options.tsx:33
 msgid "View"
 msgstr "ವೀಕ್ಷಿಸಿ"
@@ -1987,10 +2072,15 @@ msgstr "ವೀಕ್ಷಿಸಿ"
 msgid "View all"
 msgstr "ಎಲ್ಲವನ್ನೂ ವೀಕ್ಷಿಸಿ"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:105
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:113
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
 msgid "View all notifications"
 msgstr "ಎಲ್ಲಾ ನೋಟಿಫಿಕೇಶನ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ"
+
+#. placeholder {0}: account.identifier
+#: ../../../lib/web/src/features/accounts/account-verify.tsx:63
+msgid "We sent a verification code to <0>{0}</0>. Enter the code below to verify your email address."
+msgstr "ನಾವು <0>{0}</0> ಗೆ ಪರಿಶೀಲನಾ ಕೋಡ್ ಕಳುಹಿಸಿದ್ದೇವೆ. ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಪರಿಶೀಲಿಸಲು ಕೆಳಗೆ ಕೋಡ್ ನಮೂದಿಸಿ."
 
 #: ../../../lib/web/src/features/errors/maintenance-error.tsx:16
 msgid "We'll be back online shortly."
@@ -2007,6 +2097,10 @@ msgstr "ಬುಧವಾರ"
 #: ../../../lib/web/src/features/errors/general-error.tsx:61
 msgid "You do not have access to this section."
 msgstr "ಈ ವಿಭಾಗಕ್ಕೆ ನಿಮಗೆ ಪ್ರವೇಶವಿಲ್ಲ."
+
+#: ../../../lib/web/src/features/errors/forbidden.tsx:18
+msgid "You don't have necessary permission <0/>to view this resource."
+msgstr "ಈ ಸಂಪನ್ಮೂಲವನ್ನು ವೀಕ್ಷಿಸಲು <0/>ನಿಮಗೆ ಅಗತ್ಯವಿರುವ ಅನುಮತಿ ಇಲ್ಲ."
 
 #: src/routes/_authenticated/index.tsx:238
 msgid "You have no repositories yet."
