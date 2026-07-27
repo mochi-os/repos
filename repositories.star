@@ -665,7 +665,7 @@ def action_refs(a):
         response = mochi.remote.request(repo["id"], "repositories", "refs", {"repository": repo["id"]}, peer)
         if not response.get("error"):
             return {"data": response}
-        return {"data": {"refs": []}}
+        return remote_error(a, response)
 
     # Local repository
     refs = mochi.git.refs(repo["id"])
@@ -690,7 +690,7 @@ def action_branches(a):
         response = mochi.remote.request(repo["id"], "repositories", "branches", {"repository": repo["id"]}, peer)
         if not response.get("error"):
             return {"data": response}
-        return {"data": {"branches": [], "default": repo.get("default_branch", "main")}}
+        return remote_error(a, response)
 
     # Local repository
     branches = mochi.git.branches(repo["id"])
@@ -764,7 +764,7 @@ def action_tags(a):
         response = mochi.remote.request(repo["id"], "repositories", "tags", {"repository": repo["id"]}, peer)
         if not response.get("error"):
             return {"data": response}
-        return {"data": {"tags": []}}
+        return remote_error(a, response)
 
     # Local repository
     tags = mochi.git.tags(repo["id"])
@@ -808,7 +808,7 @@ def action_commits(a):
         }, peer)
         if not response.get("error"):
             return {"data": response}
-        return {"data": {"commits": []}}
+        return remote_error(a, response)
 
     # Local repository
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
@@ -817,7 +817,7 @@ def action_commits(a):
         branches = mochi.git.branches(repo["id"])
         tags = mochi.git.tags(repo["id"])
         if (not branches or len(branches) == 0) and (not tags or len(tags) == 0):
-            return {"data": {"commits": []}}
+            return remote_error(a, response)
         return a.error.label(404, "errors.ref_not_found", ref=ref)
     return {"data": {"commits": commits or []}}
 
@@ -1614,19 +1614,19 @@ def event_info(e):
     # Get entity info
     entity = mochi.entity.info(repo_id)
     if not entity or entity.get("class") != "repository":
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Get repository details from database
     repo = mochi.db.row("select * from repositories where id = ?", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access for the requester
     requester = e.header("from")
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     e.stream.write({
@@ -1791,12 +1791,12 @@ def event_refs(e):
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     # Get refs
@@ -1811,12 +1811,12 @@ def event_branches(e):
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     # Get branches
@@ -1832,12 +1832,12 @@ def event_tags(e):
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     # Get tags
@@ -1852,12 +1852,12 @@ def event_commits(e):
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     # Get parameters
@@ -1890,12 +1890,12 @@ def event_tree(e):
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     # Get parameters
@@ -1924,12 +1924,12 @@ def event_blob(e):
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     # Check read access
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     # Get parameters
@@ -1944,7 +1944,7 @@ def event_blob(e):
     # Get blob metadata
     blob = mochi.git.blob.get(repo_id, ref, path)
     if not blob:
-        e.stream.write({"error": "File not found", "code": 404})
+        e.stream.write({"error": "errors.file_not_found", "code": 404})
         return
 
     # For small non-binary files, include content
@@ -1968,21 +1968,21 @@ def event_commit(e):
 
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     sha = e.content("sha", "")
     if not sha:
-        e.stream.write({"error": "Commit SHA is required", "code": 400})
+        e.stream.write({"error": "errors.commit_sha_is_required", "code": 400})
         return
 
     commit = mochi.git.commit.get(repo_id, sha)
     if not commit:
-        e.stream.write({"error": "Commit not found", "code": 404})
+        e.stream.write({"error": "errors.commit_not_found", "code": 404})
         return
 
     e.stream.write({"commit": commit})
@@ -1994,26 +1994,29 @@ def event_archive(e):
 
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
     if not repo:
-        e.stream.write({"error": "Repository not found", "code": 404})
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
         return
 
     if not mochi.access.check(requester, "repository/" + repo_id, "read"):
-        e.stream.write({"error": "Access denied", "code": 403})
+        e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
     format = e.content("format", "")
     if format not in ["zip", "tar.gz", "tar.bz2"]:
-        e.stream.write({"error": "Format must be zip, tar.gz, or tar.bz2", "code": 400})
+        e.stream.write({"error": "errors.format_must_be_zip_tar_gz_or_tar_bz2", "code": 400})
         return
 
     ref = e.content("ref", "HEAD")
     if not valid_ref(ref):
-        e.stream.write({"error": "Invalid ref", "code": 400})
+        e.stream.write({"error": "errors.invalid_ref", "code": 400})
         return
 
     commits = mochi.git.commit.list(repo_id, ref, 1, 0)
     if not commits:
-        e.stream.write({"error": "Branch, tag, or commit '%s' not found" % ref, "code": 404})
+        # A key, not prose: the subscriber resolves it in its own language. The
+        # ref cannot ride along - the stream carries no arguments - so this uses
+        # the unparameterised key rather than one whose {ref} would render empty.
+        e.stream.write({"error": "errors.ref_not_found_remote", "code": 404})
         return
     sha = commits[0]["sha"]
 
