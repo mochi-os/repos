@@ -27,7 +27,7 @@ import {
 import { useState, useEffect } from 'react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
 import { RefSelector } from '@/components/ref-selector'
-import { t } from '@lingui/core/macro'
+import { t, plural } from '@lingui/core/macro'
 import { Trans } from '@lingui/react/macro'
 
 interface BlobViewerProps {
@@ -164,7 +164,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
             <FileCode className="h-4 w-4" />
             <span>{fileName}</span>
             <span className="text-muted-foreground">
-              {formatFileSize(data.size)} · {lines.length} lines
+              {formatFileSize(data.size)} · {plural(lines.length, { one: '1 line', other: '# lines' })}
             </span>
           </div>
           <div className="flex items-center gap-1">

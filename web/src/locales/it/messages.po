@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "Controlla la connessione a internet e riprova."
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# file modificato} other {# file modificati}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# riga} other {# righe}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "Codice dell'autenticatore"
 msgid "Back"
 msgstr "Indietro"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "Torna ai commit"
 
@@ -276,7 +286,7 @@ msgstr "Categoria per questa notifica"
 msgid "Change notification category"
 msgstr "Cambia categoria di notifica"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "Modifiche"
 
@@ -375,18 +385,18 @@ msgstr "Comodo"
 msgid "Coming Soon!"
 msgstr "In arrivo!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "Commit"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "Commit non trovato"
 
@@ -430,8 +440,8 @@ msgstr "Copiato negli appunti"
 msgid "Copy"
 msgstr "Copia"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "Copia SHA del commit"
 
@@ -505,13 +515,10 @@ msgstr "Creazione repository..."
 msgid "Creating token..."
 msgstr "Creazione token..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Creazione in corso..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "Creazione in corso…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "Modalità scura"
 msgid "Data conflict"
 msgstr "Conflitto di dati"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "predefinito"
@@ -608,13 +616,10 @@ msgstr "Eliminazione repository..."
 msgid "Deleting token..."
 msgstr "Eliminazione token..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Eliminazione in corso..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "Eliminazione in corso…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "Impossibile caricare le regole di accesso"
 msgid "Failed to load branches"
 msgstr "Impossibile caricare i branch"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "Impossibile caricare il commit"
 
@@ -863,18 +868,19 @@ msgstr "Impossibile aggiornare la categoria"
 msgid "Failed to update path"
 msgstr "Impossibile aggiornare il percorso"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "file"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "File"
 
@@ -1272,11 +1278,11 @@ msgstr "Altro"
 msgid "Owner"
 msgstr "Proprietario"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "Genitore:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "Genitori:"
 
@@ -1432,11 +1438,11 @@ msgstr "Repository"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "Repository"
 
@@ -1461,7 +1467,7 @@ msgstr "Link del repository"
 msgid "Repository name is required"
 msgstr "Il nome del repository è obbligatorio"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "Repository non trovato"
 
@@ -1767,9 +1773,9 @@ msgstr "Tema"
 msgid "Theme Settings"
 msgstr "Impostazioni del tema"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Questa pagina richiede un contesto di repository."
 
@@ -1922,13 +1928,10 @@ msgstr "Iscrizione al repository annullata"
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "Annullamento iscrizione in corso..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "Annullamento iscrizione in corso…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "Verifica"
 msgid "Verify email address"
 msgstr "Verifica indirizzo email"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "Miniatura video"
 

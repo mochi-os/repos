@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "인터넷 연결을 확인하고 다시 시도하세요."
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, other {# 개 파일 변경됨}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, other {# 줄}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "인증 코드"
 msgid "Back"
 msgstr "뒤로"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "커밋으로 돌아가기"
 
@@ -276,7 +286,7 @@ msgstr "이 알림의 카테고리"
 msgid "Change notification category"
 msgstr "알림 카테고리 변경"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "변경 사항"
 
@@ -375,18 +385,18 @@ msgstr "편안한"
 msgid "Coming Soon!"
 msgstr "곧 출시!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "커밋"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "커밋 {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "커밋을 찾을 수 없어요"
 
@@ -430,8 +440,8 @@ msgstr "클립보드에 복사되었어요"
 msgid "Copy"
 msgstr "복사"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "커밋 SHA 복사"
 
@@ -505,13 +515,10 @@ msgstr "저장소 생성 중..."
 msgid "Creating token..."
 msgstr "토큰 생성 중..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "생성 중..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "생성 중…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "다크 모드"
 msgid "Data conflict"
 msgstr "데이터 충돌"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "기본값"
@@ -608,13 +616,10 @@ msgstr "저장소 삭제 중..."
 msgid "Deleting token..."
 msgstr "토큰 삭제 중..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "삭제 중..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "삭제 중…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "접근 규칙 불러오기에 실패했어요"
 msgid "Failed to load branches"
 msgstr "브랜치 불러오기에 실패했어요"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "커밋 불러오기에 실패했어요"
 
@@ -863,18 +868,19 @@ msgstr "카테고리 업데이트에 실패했어요"
 msgid "Failed to update path"
 msgstr "경로 업데이트에 실패했어요"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "파일"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "파일"
 
@@ -1272,11 +1278,11 @@ msgstr "기타"
 msgid "Owner"
 msgstr "소유자"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "부모:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "부모:"
 
@@ -1432,11 +1438,11 @@ msgstr "리포지토리"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "저장소"
 
@@ -1461,7 +1467,7 @@ msgstr "저장소 링크"
 msgid "Repository name is required"
 msgstr "리포지토리 이름은 필수예요"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "리포지토리를 찾을 수 없어요"
 
@@ -1767,9 +1773,9 @@ msgstr "테마"
 msgid "Theme Settings"
 msgstr "테마 설정"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "이 페이지는 저장소 컨텍스트가 필요해요."
 
@@ -1922,13 +1928,10 @@ msgstr "저장소 구독을 취소했어요"
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "구독 취소 중..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "구독 취소 중…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "확인"
 msgid "Verify email address"
 msgstr "이메일 주소 확인"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "동영상 미리보기 이미지"
 

@@ -227,7 +227,7 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
           <AlertDialogFooter>
             <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleUnsubscribe} disabled={isUnsubscribing}>
-              {isUnsubscribing ? <Trans>Unsubscribing…</Trans> : <Trans>Unsubscribe</Trans>}
+              {isUnsubscribing ? <Trans>Unsubscribing...</Trans> : <Trans>Unsubscribe</Trans>}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -519,7 +519,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
                     <div className="flex items-center gap-2">
                       <span className="font-medium">{branch.name}</span>
                       {branch.name === actualDefault && (
-                        <Badge variant="secondary">default</Badge>
+                        <Badge variant="secondary"><Trans>default</Trans></Badge>
                       )}
                     </div>
                   </div>
@@ -565,7 +565,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
                 id="branch-name"
                 value={newBranchName}
                 onChange={(e) => setNewBranchName(e.target.value)}
-                placeholder="feature/my-feature"
+                placeholder={t`feature/my-feature`}
                 autoFocus
               />
             </div>
@@ -590,7 +590,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
               <Trans>Cancel</Trans>
             </Button>
             <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? <Trans>Creating…</Trans> : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
+              {createBranch.isPending ? <Trans>Creating...</Trans> : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -608,7 +608,7 @@ function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTa
           <AlertDialogFooter>
             <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete} disabled={deleteBranch.isPending}>
-              {deleteBranch.isPending ? <Trans>Deleting…</Trans> : <Trans>Delete</Trans>}
+              {deleteBranch.isPending ? <Trans>Deleting...</Trans> : <Trans>Delete</Trans>}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

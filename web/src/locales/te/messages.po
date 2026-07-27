@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "దయచేసి మీ ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# ఫైల్ మార్చబడింది} other {# ఫైల్‌లు మార్చబడ్డాయి}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# పంక్తి} other {# పంక్తులు}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "ఆథెంటికేటర్ కోడ్"
 msgid "Back"
 msgstr "వెనుకకు"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "కమిట్‌లకు తిరిగి"
 
@@ -276,7 +286,7 @@ msgstr "ఈ నోటిఫికేషన్ కోసం వర్గం"
 msgid "Change notification category"
 msgstr "నోటిఫికేషన్ వర్గాన్ని మార్చండి"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "మార్పులు"
 
@@ -375,18 +385,18 @@ msgstr "సౌకర్యవంతమైన"
 msgid "Coming Soon!"
 msgstr "త్వరలో వస్తోంది!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "కమిట్"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "కమిట్ {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "కమిట్ కనుగొనబడలేదు"
 
@@ -430,8 +440,8 @@ msgstr "క్లిప్‌బోర్డ్‌కి కాపీ చేయ�
 msgid "Copy"
 msgstr "కాపీ చేయండి"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "commit SHA కాపీ చేయండి"
 
@@ -505,13 +515,10 @@ msgstr "రిపోజిటరీ సృష్టిస్తోంది..."
 msgid "Creating token..."
 msgstr "టోకెన్ సృష్టిస్తోంది..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "సృష్టిస్తోంది..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "సృష్టిస్తోంది…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "డార్క్ మోడ్"
 msgid "Data conflict"
 msgstr "డేటా వైరుధ్యం"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "డిఫాల్ట్"
@@ -608,13 +616,10 @@ msgstr "రిపోజిటరీ తొలగిస్తోంది..."
 msgid "Deleting token..."
 msgstr "టోకెన్ తొలగిస్తోంది..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "తొలగిస్తోంది..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "తొలగిస్తోంది…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "యాక్సెస్ నియమాలను లోడ్ చేయ
 msgid "Failed to load branches"
 msgstr "బ్రాంచ్‌లను లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "కమిట్‌ను లోడ్ చేయడంలో విఫలమైంది"
 
@@ -863,18 +868,19 @@ msgstr "విభాగాన్ని నవీకరించడంలో వ�
 msgid "Failed to update path"
 msgstr "పాత్‌ను నవీకరించడంలో విఫలమైంది"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "ఫైల్"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "ఫైళ్లు"
 
@@ -1272,11 +1278,11 @@ msgstr "ఇతర"
 msgid "Owner"
 msgstr "ఓనర్"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "పేరెంట్:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "పేరెంట్‌లు:"
 
@@ -1432,11 +1438,11 @@ msgstr "రిపాజిటరీలు"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "రిపోజిటరీ"
 
@@ -1461,7 +1467,7 @@ msgstr "రిపోజిటరీ లింక్"
 msgid "Repository name is required"
 msgstr "రిపాజిటరీ పేరు అవసరం"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "రిపాజిటరీ కనుగొనబడలేదు"
 
@@ -1767,9 +1773,9 @@ msgstr "థీమ్"
 msgid "Theme Settings"
 msgstr "థీమ్ సెట్టింగ్‌లు"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ఈ పేజీకి రిపాజిటరీ కాంటెక్స్ట్ అవసరం."
 
@@ -1922,13 +1928,10 @@ msgstr "రిపాజిటరీ నుండి చందా మానివ
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "చందా మానివేస్తోంది..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "చందా మానివేస్తోంది…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "ధృవీకరించండి"
 msgid "Verify email address"
 msgstr "ఇమెయిల్ చిరునామాను ధృవీకరించండి"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "వీడియో థంబ్‌నెయిల్"
 

@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "உங்கள் இணைய இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்."
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# கோப்பு மாற்றப்பட்டது} other {# கோப்புகள் மாற்றப்பட்டன}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# வரி} other {# வரிகள்}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "அங்கீகரிப்பு குறியீடு"
 msgid "Back"
 msgstr "பின்"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "Commits-க்கு திரும்பு"
 
@@ -276,7 +286,7 @@ msgstr "இந்த அறிவிப்புக்கான வகை"
 msgid "Change notification category"
 msgstr "அறிவிப்பு வகையை மாற்று"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "மாற்றங்கள்"
 
@@ -375,18 +385,18 @@ msgstr "வசதியான"
 msgid "Coming Soon!"
 msgstr "விரைவில் வருகிறது!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "Commit"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "Commit கிடைக்கவில்லை"
 
@@ -430,8 +440,8 @@ msgstr "கிளிப்போர்டுக்கு நகலெடுக�
 msgid "Copy"
 msgstr "நகலெடு"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "commit SHA-ஐ நகலெடு"
 
@@ -505,13 +515,10 @@ msgstr "களஞ்சியத்தை உருவாக்குகிற�
 msgid "Creating token..."
 msgstr "டோக்கனை உருவாக்குகிறது..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "உருவாக்குகிறது..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "உருவாக்குகிறது…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "இருள் முறை"
 msgid "Data conflict"
 msgstr "தரவு முரண்பாடு"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "இயல்பு"
@@ -608,13 +616,10 @@ msgstr "களஞ்சியத்தை நீக்குகிறது..."
 msgid "Deleting token..."
 msgstr "டோக்கனை நீக்குகிறது..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "நீக்குகிறது..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "நீக்குகிறது…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "அணுகல் விதிகளை ஏற்ற முடியவ
 msgid "Failed to load branches"
 msgstr "பிராஞ்சுகளை ஏற்ற முடியவில்லை"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "கமிட்டை ஏற்ற முடியவில்லை"
 
@@ -863,18 +868,19 @@ msgstr "வகையைப் புதுப்பிக்க முடிய�
 msgid "Failed to update path"
 msgstr "பாதையைப் புதுப்பிக்க முடியவில்லை"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "கோப்பு"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "கோப்புகள்"
 
@@ -1272,11 +1278,11 @@ msgstr "மற்றவை"
 msgid "Owner"
 msgstr "உரிமையாளர்"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "பெற்றோர்:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "பெற்றோர்கள்:"
 
@@ -1432,11 +1438,11 @@ msgstr "Repositoryக்கள்"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "களஞ்சியம்"
 
@@ -1461,7 +1467,7 @@ msgstr "களஞ்சிய இணைப்பு"
 msgid "Repository name is required"
 msgstr "Repository பெயர் தேவை"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "Repository கிடைக்கவில்லை"
 
@@ -1767,9 +1773,9 @@ msgstr "தீம்"
 msgid "Theme Settings"
 msgstr "தீம் அமைப்புகள்"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "இந்த பக்கத்திற்கு ரெபாசிட்டரி சூழல் தேவை."
 
@@ -1922,13 +1928,10 @@ msgstr "ரெபாசிட்டரியிலிருந்து சந�
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "சந்தா நீக்குகிறது..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "சந்தா நீக்குகிறது…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "சரிபார்"
 msgid "Verify email address"
 msgstr "மின்னஞ்சல் முகவரியை சரிபார்"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "வீடியோ சிறுபடம்"
 

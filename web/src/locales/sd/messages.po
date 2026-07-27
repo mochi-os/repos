@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "مهرباني ڪري پنهنجو انٽرنيٽ ڪنيڪشن چيڪ ڪريو ۽ ٻيهر ڪوشش ڪريو."
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# فائل تبديل ٿي} other {# فائلون تبديل ٿيون}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# لائين} other {# لائينون}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "Authenticator ڪوڊ"
 msgid "Back"
 msgstr "واپس"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "commits ڏانهن واپس"
 
@@ -276,7 +286,7 @@ msgstr "هن اطلاع لاءِ زمرو"
 msgid "Change notification category"
 msgstr "اطلاع جو زمرو تبديل ڪريو"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "تبديليون"
 
@@ -375,18 +385,18 @@ msgstr "آرامده"
 msgid "Coming Soon!"
 msgstr "جلد اچي رهيو آهي!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "Commit"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "Commit نه مليو"
 
@@ -430,8 +440,8 @@ msgstr "ڪلپ بورڊ تي ڪاپي ٿيو"
 msgid "Copy"
 msgstr "ڪاپي ڪريو"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "commit SHA نقل ڪريو"
 
@@ -505,13 +515,10 @@ msgstr "رپازٽري ٺهي رهي آهي..."
 msgid "Creating token..."
 msgstr "ٽوڪن ٺهي رهيو آهي..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "ٺاهي رهيو آهي..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "ٺاهي رهيو آهي…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "اونداهو موڊ"
 msgid "Data conflict"
 msgstr "ڊيٽا جو ٽڪراءُ"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "ڊفالٽ"
@@ -608,13 +616,10 @@ msgstr "رپازٽري ڊهي رهي آهي..."
 msgid "Deleting token..."
 msgstr "ٽوڪن ڊهي رهيو آهي..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "ختم ڪري رهيو آهي..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "ختم ڪري رهيو آهي…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "رسائي جا قاعدا لوڊ ڪرڻ ۾ ناڪام"
 msgid "Failed to load branches"
 msgstr "برانچن لوڊ ڪرڻ ۾ ناڪام"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "ڪميٽ لوڊ ڪرڻ ۾ ناڪام"
 
@@ -863,18 +868,19 @@ msgstr "زمرو اپڊيٽ ڪرڻ ۾ ناڪام"
 msgid "Failed to update path"
 msgstr "رستو اپڊيٽ ڪرڻ ۾ ناڪام"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "فائل"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "فائلون"
 
@@ -1272,11 +1278,11 @@ msgstr "ٻيو"
 msgid "Owner"
 msgstr "مالڪ"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "والدين:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "والدين:"
 
@@ -1432,11 +1438,11 @@ msgstr "Repositories"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "Repository"
 
@@ -1461,7 +1467,7 @@ msgstr "مخزن لنڪ"
 msgid "Repository name is required"
 msgstr "Repository جو نالو گهربل آهي"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "Repository نه مليو"
 
@@ -1767,9 +1773,9 @@ msgstr "ٿيم"
 msgid "Theme Settings"
 msgstr "ٿيم سيٽنگون"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ھن صفحي کي ريپازيٽري جي حوالي جي ضرورت آھي."
 
@@ -1922,13 +1928,10 @@ msgstr "ريپازيٽري کان ان سبسڪرائب ٿيو"
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "ان سبسڪرائب ٿي رهيو آھي..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "ان سبسڪرائب ٿي رهيو آھي…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "تصديق ڪريو"
 msgid "Verify email address"
 msgstr "اي ميل ايڊريس جي تصديق ڪريو"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "وڊيو ٿمب نيل"
 

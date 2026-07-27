@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "እባክዎ የበይነመረብ ግንኙነትዎን አረጋግጠው እንደገና ይሞክሩ።"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# ፋይል ተቀይሯል} other {# ፋይሎች ተቀይረዋል}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# መስመር} other {# መስመሮች}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "የማረጋገጫ ኮድ"
 msgid "Back"
 msgstr "ተመለስ"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "ወደ ኮሚቶች ተመለስ"
 
@@ -276,7 +286,7 @@ msgstr "ለዚህ ማሳወቂያ ምድብ"
 msgid "Change notification category"
 msgstr "የማሳወቂያ ምድብ ለውጥ"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "ለውጦች"
 
@@ -375,18 +385,18 @@ msgstr "ምቹ"
 msgid "Coming Soon!"
 msgstr "በቅርብ ይመጣል!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "ኮሚት"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "ኮሚት {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "ኮሚት አልተገኘም"
 
@@ -430,8 +440,8 @@ msgstr "ወደ ቅንጥብ ሰሌዳ ተቀድቷል"
 msgid "Copy"
 msgstr "ቅዳ"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "commit SHA ኮፒ አድርግ"
 
@@ -505,13 +515,10 @@ msgstr "ማከማቻ በመፍጠር ላይ..."
 msgid "Creating token..."
 msgstr "ቶከን በመፍጠር ላይ..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "በመፍጠር ላይ..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "በመፍጠር ላይ…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "ጨለማ ሁነታ"
 msgid "Data conflict"
 msgstr "የውሂብ ግጭት"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "ነባሪ"
@@ -608,13 +616,10 @@ msgstr "ማከማቻ በመሰረዝ ላይ..."
 msgid "Deleting token..."
 msgstr "ቶከን በመሰረዝ ላይ..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "በመሰረዝ ላይ..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "በመሰረዝ ላይ…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "የመዳረሻ ህጎችን መጫን አልተሳካም"
 msgid "Failed to load branches"
 msgstr "ቅርንጫፎችን መጫን አልተሳካም"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "ኮሚትን መጫን አልተሳካም"
 
@@ -863,18 +868,19 @@ msgstr "ምድብን ማዘመን አልተሳካም"
 msgid "Failed to update path"
 msgstr "መንገድን ማዘመን አልተሳካም"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "ፋይል"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "ፋይሎች"
 
@@ -1272,11 +1278,11 @@ msgstr "ሌላ"
 msgid "Owner"
 msgstr "ባለቤት"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "ወላጅ፡"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "ወላጆች፡"
 
@@ -1432,11 +1438,11 @@ msgstr "ሪፖዚቶሪዎች"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "ማከማቻ"
 
@@ -1461,7 +1467,7 @@ msgstr "የማከማቻ አገናኝ"
 msgid "Repository name is required"
 msgstr "የሪፖዚቶሪ ስም ያስፈልጋል"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "ሪፖዚቶሪ አልተገኘም"
 
@@ -1767,9 +1773,9 @@ msgstr "ገጽታ"
 msgid "Theme Settings"
 msgstr "የገጽታ ቅንብሮች"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ይህ ገጽ የሪፖዚቶሪ አውድ ያስፈልገዋል።"
 
@@ -1922,13 +1928,10 @@ msgstr "ከሪፖዚቶሪ ምዝገባ ተቋርጧል"
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "ምዝገባ በማቋረጥ ላይ..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "ምዝገባ በማቋረጥ ላይ…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "ያረጋግጡ"
 msgid "Verify email address"
 msgstr "የኢሜይል አድራሻ ያረጋግጡ"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "የቪዲዮ ጥፍር ምስል"
 

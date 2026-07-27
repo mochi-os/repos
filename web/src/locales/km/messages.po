@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក រួចព្យាយាមម្តងទៀត។"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, other {# ឯកសារ​បាន​ផ្លាស់ប្តូរ}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, other {# ជួរ}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "កូដ Authenticator"
 msgid "Back"
 msgstr "ត្រឡប់"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "ត្រឡប់ទៅ commits"
 
@@ -276,7 +286,7 @@ msgstr "ប្រភេទសម្រាប់ការជូនដំណឹង
 msgid "Change notification category"
 msgstr "ប្ដូរប្រភេទការជូនដំណឹង"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "ការផ្លាស់ប្តូរ"
 
@@ -375,18 +385,18 @@ msgstr "ផាសុកភាព"
 msgid "Coming Soon!"
 msgstr "នឹងមកដល់ឆាប់ៗ!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "Commit"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "Commit {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "រកមិនឃើញ commit"
 
@@ -430,8 +440,8 @@ msgstr "បានចម្លងទៅក្ដារតម្បៀតខ្ទ
 msgid "Copy"
 msgstr "ចម្លង"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "ចម្លង SHA នៃ commit"
 
@@ -505,13 +515,10 @@ msgstr "កំពុងបង្កើតឃ្លាំងផ្ទុក..."
 msgid "Creating token..."
 msgstr "កំពុងបង្កើតថូខិន..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "កំពុងបង្កើត..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "កំពុងបង្កើត…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "របៀបងងឹត"
 msgid "Data conflict"
 msgstr "ទំនាស់ទិន្នន័យ"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "លំនាំដើម"
@@ -608,13 +616,10 @@ msgstr "កំពុងលុបឃ្លាំងផ្ទុក..."
 msgid "Deleting token..."
 msgstr "កំពុងលុបថូខិន..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "កំពុងលុប..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "កំពុងលុប…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "បរាជ័យក្នុងការផ្ទុកច្បាប
 msgid "Failed to load branches"
 msgstr "បរាជ័យក្នុងការផ្ទុកសាខា"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "បរាជ័យក្នុងការផ្ទុក commit"
 
@@ -863,18 +868,19 @@ msgstr "បរាជ័យក្នុងការធ្វើបច្ចុប
 msgid "Failed to update path"
 msgstr "បរាជ័យក្នុងការធ្វើបច្ចុប្បន្នភាពផ្លូវ"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "ឯកសារ"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "ឯកសារ"
 
@@ -1272,11 +1278,11 @@ msgstr "ផ្សេងទៀត"
 msgid "Owner"
 msgstr "ម្ចាស់"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "មេ៖"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "មេ៖"
 
@@ -1432,11 +1438,11 @@ msgstr "ឃ្លាំង"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "ឃ្លាំង"
 
@@ -1461,7 +1467,7 @@ msgstr "តំណឃ្លាំង"
 msgid "Repository name is required"
 msgstr "តម្រូវឱ្យបញ្ចូលឈ្មោះឃ្លាំង"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "រកមិនឃើញឃ្លាំង"
 
@@ -1767,9 +1773,9 @@ msgstr "រូបរាង"
 msgid "Theme Settings"
 msgstr "ការកំណត់រូបរាង"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ទំព័រនេះត្រូវការបរិបទឃ្លាំងផ្ទុក។"
 
@@ -1922,12 +1928,9 @@ msgstr "បានឈប់ជាវពីឃ្លាំងផ្ទុក"
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
-msgstr "កំពុងឈប់ជាវ..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
 msgstr "កំពុងឈប់ជាវ..."
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
@@ -1972,7 +1975,7 @@ msgstr "ផ្ទៀងផ្ទាត់"
 msgid "Verify email address"
 msgstr "ផ្ទៀងផ្ទាត់អាសយដ្ឋានអ៊ីមែល"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "រូបភាពតូចវីដេអូ"
 

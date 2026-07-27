@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# ಫೈಲ್ ಬದಲಾಗಿದೆ} other {# ಫೈಲ್‌ಗಳು ಬದಲಾಗಿವೆ}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# ಸಾಲು} other {# ಸಾಲುಗಳು}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "Authenticator ಕೋಡ್"
 msgid "Back"
 msgstr "ಹಿಂದೆ"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "ಕಮಿಟ್‌ಗಳಿಗೆ ಹಿಂದೆ"
 
@@ -276,7 +286,7 @@ msgstr "ಈ ಅಧಿಸೂಚನೆಗಾಗಿ ವರ್ಗ"
 msgid "Change notification category"
 msgstr "ಅಧಿಸೂಚನೆ ವರ್ಗವನ್ನು ಬದಲಾಯಿಸಿ"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "ಬದಲಾವಣೆಗಳು"
 
@@ -375,18 +385,18 @@ msgstr "ಆರಾಮದಾಯಕ"
 msgid "Coming Soon!"
 msgstr "ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "ಕಮಿಟ್"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "ಕಮಿಟ್ {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "ಕಮಿಟ್ ಸಿಗಲಿಲ್ಲ"
 
@@ -430,8 +440,8 @@ msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾ�
 msgid "Copy"
 msgstr "ನಕಲಿಸಿ"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "commit SHA ನಕಲಿಸಿ"
 
@@ -505,13 +515,10 @@ msgstr "ರೆಪೊಸಿಟರಿ ರಚಿಸಲಾಗುತ್ತಿದೆ..
 msgid "Creating token..."
 msgstr "ಟೋಕನ್ ರಚಿಸಲಾಗುತ್ತಿದೆ..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "ರಚಿಸಲಾಗುತ್ತಿದೆ..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "ರಚಿಸಲಾಗುತ್ತಿದೆ…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "ಡಾರ್ಕ್ ಮೋಡ್"
 msgid "Data conflict"
 msgstr "ಡೇಟಾ ಸಂಘರ್ಷ"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "ಡೀಫಾಲ್ಟ್"
@@ -608,13 +616,10 @@ msgstr "ರೆಪೊಸಿಟರಿ ಅಳಿಸಲಾಗುತ್ತಿದೆ..
 msgid "Deleting token..."
 msgstr "ಟೋಕನ್ ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "ಅಳಿಸಲಾಗುತ್ತಿದೆ…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "ಆಕ್ಸೆಸ್ ನಿಯಮಗಳನ್ನು ಲೋಡ್ ಮಾ
 msgid "Failed to load branches"
 msgstr "ಬ್ರಾಂಚ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "ಕಮಿಟ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
@@ -863,18 +868,19 @@ msgstr "ವರ್ಗ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲವಾ
 msgid "Failed to update path"
 msgstr "ಪಾತ್ ಅಪ್‌ಡೇಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "ಫೈಲ್"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "ಫೈಲ್‌ಗಳು"
 
@@ -1272,11 +1278,11 @@ msgstr "ಇತರ"
 msgid "Owner"
 msgstr "ಮಾಲೀಕ"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "ಪೋಷಕ:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "ಪೋಷಕರು:"
 
@@ -1432,11 +1438,11 @@ msgstr "ರೆಪೊಸಿಟರಿಗಳು"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "ರೆಪಾಸಿಟರಿ"
 
@@ -1461,7 +1467,7 @@ msgstr "ರೆಪೊಸಿಟರಿ ಲಿಂಕ್"
 msgid "Repository name is required"
 msgstr "ರೆಪೊಸಿಟರಿ ಹೆಸರು ಅಗತ್ಯವಿದೆ"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "ರೆಪೊಸಿಟರಿ ಸಿಗಲಿಲ್ಲ"
 
@@ -1767,9 +1773,9 @@ msgstr "ಥೀಮ್"
 msgid "Theme Settings"
 msgstr "ಥೀಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "ಈ ಪುಟಕ್ಕೆ ರೆಪೊಸಿಟರಿ ಸಂದರ್ಭ ಬೇಕಾಗಿದೆ."
 
@@ -1922,13 +1928,10 @@ msgstr "ರೆಪೊಸಿಟರಿಯಿಂದ ಚಂದಾದಾರಿಕೆ �
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತಿದೆ…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "ಪರಿಶೀಲಿಸಿ"
 msgid "Verify email address"
 msgstr "ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಪರಿಶೀಲಿಸಿ"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "ವಿಡಿಯೋ ಥಂಬ್‌ನೇಲ್"
 

@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "Ստուգեք ձեր ինտերնետ կապը և կրկին փորձեք։"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# ֆայլ փոխվեց} other {# ֆայլ փոխվեց}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# տող} other {# տող}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "Հեղինակ"
 msgid "Back"
 msgstr "Հետ դեպի CRM"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "Հետ դեպի խմբագիր"
 
@@ -276,7 +286,7 @@ msgstr "Կատեգորիան թարմացված է"
 msgid "Change notification category"
 msgstr "Փոփոխություններ"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "Փոփոխություններ և մեկնաբանություններ"
 
@@ -375,18 +385,18 @@ msgstr "Շուտով!"
 msgid "Coming Soon!"
 msgstr "Մեկնաբանություն"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "Commit-ը չի գտնվել"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "Commit-ներ"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "Commit {0} - {1}"
 
@@ -430,8 +440,8 @@ msgstr "Պատճենել"
 msgid "Copy"
 msgstr "Պատճենել ամենը"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "Պատճենել commit-ի SHA-ն"
 
@@ -505,13 +515,10 @@ msgstr "Պահոցը ստեղծվում է..."
 msgid "Creating token..."
 msgstr "Թոքենը ստեղծվում է..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Ստեղծվում է…"
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "Արժանահավատություն"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "Վահանակ"
 msgid "Data conflict"
 msgstr "Տվյալների կոնֆլիկտ"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "կանխադրված"
@@ -608,13 +616,10 @@ msgstr "Պահոցը ջնջվում է..."
 msgid "Deleting token..."
 msgstr "Թոքենը ջնջվում է..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Ջնջվում է..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "Ջնջվում է…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "Չհաջողվեց բեռնել մուտքի կանոնները"
 msgid "Failed to load branches"
 msgstr "Չհաջողվեց բեռնել ճյուղերը"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "Չհաջողվեց բեռնել commit-ը"
 
@@ -863,18 +868,19 @@ msgstr "Չհաջողվեց թարմացնել կատեգորիան"
 msgid "Failed to update path"
 msgstr "Չհաջողվեց թարմացնել ուղին"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "ֆայլ"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "Ֆայլեր"
 
@@ -1272,11 +1278,11 @@ msgstr "Այլ"
 msgid "Owner"
 msgstr "Սեփականատեր"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "Ծնող՝"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "Ծնողներ՝"
 
@@ -1432,11 +1438,11 @@ msgstr "Պահոցներ"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "Պահոց"
 
@@ -1461,7 +1467,7 @@ msgstr "Պահոցի հղում"
 msgid "Repository name is required"
 msgstr "Պահոցի անունը պարտադիր է"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "Պահոցը չի գտնվել"
 
@@ -1767,9 +1773,9 @@ msgstr "Թեմա"
 msgid "Theme Settings"
 msgstr "Թեմայի կարգավորումներ"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Այս էջը պահանջում է պահոցի համատեքստ:"
 
@@ -1922,13 +1928,10 @@ msgstr "Հրաժարվեց պահոցի բաժանորդագրությունից
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "Հրաժարվում է բաժանորդագրությունից..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "Հրաժարվում է բաժանորդագրությունից…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "Ստուգել"
 msgid "Verify email address"
 msgstr "Ստուգել էլ. փոստի հասցեն"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "Տեսանյութի մանրապատկեր"
 

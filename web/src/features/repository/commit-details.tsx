@@ -5,6 +5,7 @@
 
 import { useState } from 'react'
 import { Trans, useLingui } from '@lingui/react/macro'
+import { plural } from '@lingui/core/macro'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -136,7 +137,7 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
 
           {commit.stats && (
             <div className="mt-4 flex items-center gap-4 text-sm">
-              <span>{commit.stats.files} file{commit.stats.files !== 1 ? 's' : ''} changed</span>
+              <span>{plural(commit.stats.files, { one: '1 file changed', other: '# files changed' })}</span>
               <span className="text-success">+{commit.stats.additions}</span>
               <span className="text-destructive">-{commit.stats.deletions}</span>
             </div>

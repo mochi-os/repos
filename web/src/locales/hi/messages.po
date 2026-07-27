@@ -18,6 +18,16 @@ msgstr ""
 msgid "Please check your internet connection and try again."
 msgstr "कृपया अपना इंटरनेट कनेक्शन जाँचें और फिर से प्रयास करें।"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx:140
+msgid "{0, plural, one {1 file changed} other {# files changed}}"
+msgstr "{0, plural, one {# फ़ाइल बदली} other {# फ़ाइलें बदलीं}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx:167
+msgid "{0, plural, one {1 line} other {# lines}}"
+msgstr "{0, plural, one {# पंक्ति} other {# पंक्तियाँ}}"
+
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx:77
 msgid "{0} branches"
@@ -197,7 +207,7 @@ msgstr "ऑथेंटिकेटर कोड"
 msgid "Back"
 msgstr "वापस"
 
-#: src/routes/_authenticated/commit/$sha.tsx:68
+#: src/routes/_authenticated/commit/$sha.tsx:67
 msgid "Back to commits"
 msgstr "कमिट्स पर वापस"
 
@@ -276,7 +286,7 @@ msgstr "इस नोटिफ़िकेशन की श्रेणी"
 msgid "Change notification category"
 msgstr "नोटिफ़िकेशन श्रेणी बदलें"
 
-#: src/features/repository/commit-details.tsx:150
+#: src/features/repository/commit-details.tsx:151
 msgid "Changes"
 msgstr "बदलाव"
 
@@ -375,18 +385,18 @@ msgstr "आरामदायक"
 msgid "Coming Soon!"
 msgstr "जल्द आ रहा है!"
 
-#: src/routes/_authenticated/commit/$sha.tsx:59
+#: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
 msgstr "कमिट"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:32
-#: src/routes/_authenticated/commit/$sha.tsx:35
+#: src/routes/_authenticated/commit/$sha.tsx:34
 msgid "Commit {0} - {1}"
 msgstr "कमिट {0} - {1}"
 
-#: src/features/repository/commit-details.tsx:64
+#: src/features/repository/commit-details.tsx:65
 msgid "Commit not found"
 msgstr "कमिट नहीं मिला"
 
@@ -430,8 +440,8 @@ msgstr "क्लिपबोर्ड पर कॉपी किया गय�
 msgid "Copy"
 msgstr "कॉपी करें"
 
-#: src/features/repository/commit-details.tsx:113
-#: src/features/repository/commit-details.tsx:117
+#: src/features/repository/commit-details.tsx:114
+#: src/features/repository/commit-details.tsx:118
 msgid "Copy commit SHA"
 msgstr "कमिट SHA कॉपी करें"
 
@@ -505,13 +515,10 @@ msgstr "रिपॉज़िटरी बनाई जा रही है..."
 msgid "Creating token..."
 msgstr "टोकन बनाया जा रहा है..."
 
+#: src/features/repository/repository-tabs.tsx:593
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "बना रहे हैं..."
-
-#: src/features/repository/repository-tabs.tsx:593
-msgid "Creating…"
-msgstr "बना रहे हैं…"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:260
 msgid "Custom"
@@ -534,6 +541,7 @@ msgstr "डार्क मोड"
 msgid "Data conflict"
 msgstr "डेटा विरोध"
 
+#: src/features/repository/repository-tabs.tsx:522
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "डिफ़ॉल्ट"
@@ -608,13 +616,10 @@ msgstr "रिपॉज़िटरी हटाई जा रही है..."
 msgid "Deleting token..."
 msgstr "टोकन हटाया जा रहा है..."
 
+#: src/features/repository/repository-tabs.tsx:611
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "हटा रहे हैं..."
-
-#: src/features/repository/repository-tabs.tsx:611
-msgid "Deleting…"
-msgstr "हटा रहे हैं…"
 
 #: ../../../lib/web/src/components/data-table/column-header.tsx:63
 msgid "Desc"
@@ -794,7 +799,7 @@ msgstr "एक्सेस नियम लोड करने में वि�
 msgid "Failed to load branches"
 msgstr "ब्रांच लोड करने में विफल"
 
-#: src/features/repository/commit-details.tsx:56
+#: src/features/repository/commit-details.tsx:57
 msgid "Failed to load commit"
 msgstr "कमिट लोड करने में विफल"
 
@@ -863,18 +868,19 @@ msgstr "श्रेणी अपडेट करने में विफल"
 msgid "Failed to update path"
 msgstr "पाथ अपडेट करने में विफल"
 
+#: src/features/repository/repository-tabs.tsx:568
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:32
-#: src/routes/_authenticated/blob/$ref/$.tsx:33
+#: src/routes/_authenticated/blob/$ref/$.tsx:32
 msgid "file"
 msgstr "फ़ाइल"
 
 #: src/features/repository/tabs.tsx:30
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:34
-#: src/routes/_authenticated/tree/$ref/$.tsx:33
+#: src/routes/_authenticated/tree/$ref/$.tsx:32
 msgid "Files"
 msgstr "फ़ाइलें"
 
@@ -1272,11 +1278,11 @@ msgstr "अन्य"
 msgid "Owner"
 msgstr "स्वामी"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parent:"
 msgstr "पैरेंट:"
 
-#: src/features/repository/commit-details.tsx:123
+#: src/features/repository/commit-details.tsx:124
 msgid "Parents:"
 msgstr "पैरेंट:"
 
@@ -1432,11 +1438,11 @@ msgstr "रिपॉज़िटरीज़"
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
-#: src/routes/_authenticated/blob/$ref/$.tsx:54
-#: src/routes/_authenticated/blob/$ref/$.tsx:65
+#: src/routes/_authenticated/blob/$ref/$.tsx:53
+#: src/routes/_authenticated/blob/$ref/$.tsx:64
 #: src/routes/_authenticated/index.tsx:107
-#: src/routes/_authenticated/tree/$ref/$.tsx:53
-#: src/routes/_authenticated/tree/$ref/$.tsx:64
+#: src/routes/_authenticated/tree/$ref/$.tsx:52
+#: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
 msgstr "रिपॉजिटरी"
 
@@ -1461,7 +1467,7 @@ msgstr "रिपॉजिटरी लिंक"
 msgid "Repository name is required"
 msgstr "रिपॉज़िटरी नाम आवश्यक है"
 
-#: src/routes/_authenticated/commit/$sha.tsx:41
+#: src/routes/_authenticated/commit/$sha.tsx:40
 msgid "Repository not found"
 msgstr "रिपॉज़िटरी नहीं मिली"
 
@@ -1767,9 +1773,9 @@ msgstr "थीम"
 msgid "Theme Settings"
 msgstr "थीम सेटिंग्स"
 
-#: src/routes/_authenticated/blob/$ref/$.tsx:40
-#: src/routes/_authenticated/commit/$sha.tsx:45
-#: src/routes/_authenticated/tree/$ref/$.tsx:39
+#: src/routes/_authenticated/blob/$ref/$.tsx:39
+#: src/routes/_authenticated/commit/$sha.tsx:44
+#: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "इस पेज के लिए रिपॉज़िटरी कॉन्टेक्स्ट ज़रूरी है।"
 
@@ -1922,13 +1928,10 @@ msgstr "रिपॉज़िटरी से अनसब्सक्राइ�
 
 #: src/features/repository/repository-header.tsx:74
 #: src/features/repository/repository-tabs.tsx:195
+#: src/features/repository/repository-tabs.tsx:230
 #: src/routes/_authenticated/index.tsx:371
 msgid "Unsubscribing..."
 msgstr "अनसब्सक्राइब किया जा रहा है..."
-
-#: src/features/repository/repository-tabs.tsx:230
-msgid "Unsubscribing…"
-msgstr "अनसब्सक्राइब किया जा रहा है…"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:135
 msgid "Unverified"
@@ -1972,7 +1975,7 @@ msgstr "वेरिफ़ाई करें"
 msgid "Verify email address"
 msgstr "ईमेल पता वेरिफ़ाई करें"
 
-#: ../../../lib/web/src/components/attachment-gallery.tsx:74
+#: ../../../lib/web/src/components/attachment-gallery.tsx:79
 msgid "Video thumbnail"
 msgstr "वीडियो थंबनेल"
 
