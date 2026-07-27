@@ -104,7 +104,21 @@ def resolve_ref(repo_id, combined):
     if not combined:
         return ("HEAD", "")
     parts = combined.split("/")
+    # Stop once the candidate passes the 256-character ceiling valid_ref
+    # enforces: no longer prefix can ever be a ref, so nothing is lost, and
+    # building them is what made this quadratic. valid_ref rejects on length,
+    # but only AFTER the join has been paid for, so the guard has to come
+    # first. Unbounded, a 1MB request path (MaxHeaderBytes) split into ~500k
+    # segments produced that many increasingly long joins - 20k segments
+    # already cost 15 seconds, so such a request ran to the 90-second Starlark
+    # timeout, anonymously, against any repository with a public read grant.
+    length = 0
     for i in range(1, len(parts) + 1):
+        length += len(parts[i - 1])
+        if i > 1:
+            length += 1
+        if length > 256:
+            break
         candidate = "/".join(parts[:i])
         if not valid_ref(candidate):
             continue
