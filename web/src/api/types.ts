@@ -60,15 +60,6 @@ export interface SearchResponse {
   results: SearchResult[]
 }
 
-export interface ProbeResponse {
-  id: string
-  name: string
-  fingerprint: string
-  description?: string
-  class: string
-  server: string
-  remote: boolean
-}
 
 export interface SubscribeResponse {
   fingerprint: string
@@ -150,15 +141,7 @@ export interface BlobResponse {
   content?: string
 }
 
-export interface AccessEntry {
-  subject: string
-  permission: string
-  owner?: string
-}
 
-export interface AccessResponse {
-  access: AccessEntry[]
-}
 
 export interface CreateRepoRequest {
   name: string

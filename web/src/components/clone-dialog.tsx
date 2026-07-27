@@ -31,8 +31,7 @@ import {
   useFormat,
   useAuthStore,
   getRouterBasepath,
-  isDomainEntityRouting,
-} from '@mochi/web'
+  isDomainEntityRouting, shellClipboardWrite,} from '@mochi/web'
 import {
   Code,
   Loader2,
@@ -172,21 +171,24 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     }
   }
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     if (cloneCommand) {
-      navigator.clipboard.writeText(cloneCommand)
-      setCopied(true)
-      toast.success(t`Copied to clipboard`)
-      setTimeout(() => setCopied(false), 2000)
+      // Only claim success once the write actually resolved.
+      if (await shellClipboardWrite(cloneCommand)) {
+        setCopied(true)
+        toast.success(t`Copied to clipboard`)
+        setTimeout(() => setCopied(false), 2000)
+      }
     }
   }
 
-  const handleCopyNewToken = () => {
+  const handleCopyNewToken = async () => {
     if (newToken) {
-      navigator.clipboard.writeText(buildCloneUrl(newToken))
-      setCopied(true)
-      toast.success(t`Copied to clipboard`)
-      setTimeout(() => setCopied(false), 2000)
+      if (await shellClipboardWrite(buildCloneUrl(newToken))) {
+        setCopied(true)
+        toast.success(t`Copied to clipboard`)
+        setTimeout(() => setCopied(false), 2000)
+      }
     }
   }
 
@@ -403,8 +405,10 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       <Trans>Back</Trans>
                     </Button>
                     <Button onClick={() => void handleCreate()} disabled={createMutation.isPending}>
-                      {createMutation.isPending && (
+                      {createMutation.isPending ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <Plus className="size-4" />
                       )}
                       <Trans>Create</Trans>
                     </Button>

@@ -8,6 +8,26 @@
 # transport failures (marked "transport") become a translated generic
 # error with the detail kept in the server log; far-end app answers
 # pass through unchanged.
+# Coerce a broadcast field to an integer regardless of how it arrived.
+#
+# The live path carries CBOR, which preserves int64, but the broadcast log
+# stores JSON, and JSON has no integer type. Core fixed the replay decode on
+# 2026-07-26 (broadcast_payload_decode with UseNumber), so a gap-recovered value
+# arrives as an int again - before that it came through as a float, str() of it
+# was "1.7534e+09", that failed the "integer" pattern, and the guard below fell
+# back to 0 so an OLDER update could overwrite a newer one, on the one path that
+# exists to repair missed deliveries. Defence in depth on top of the core fix,
+# matching what chat does.
+def broadcast_integer(value, fallback=0):
+    kind = type(value)
+    if kind == "int":
+        return value
+    if kind == "float":
+        return int(value)
+    if kind == "string" and mochi.text.valid(value, "integer"):
+        return int(value)
+    return fallback
+
 def remote_error(a, response, code=502):
     if response.get("transport"):
         mochi.log.info("Remote transport error: %s", response.get("error", ""))
@@ -59,7 +79,13 @@ def database_create():
     mochi.db.execute("create index subscribers_id on subscribers(id)")
 
 def valid_sha(s):
-    if len(s) < 4 or len(s) > 40:
+    # Full SHAs only. An abbreviated one was accepted here and then never
+    # resolved: core's git_resolve_ref passes a short string to
+    # plumbing.NewHash, which pads it into a hash that matches nothing, so the
+    # lookup 404s after doing the work. Rejecting up front gives the caller a
+    # clear "invalid" instead of a misleading "not found". Prefix resolution
+    # would have to be implemented in core before shortening this again.
+    if len(s) != 40:
         return False
     for c in s.elems():
         if c not in "0123456789abcdefABCDEF":
@@ -190,9 +216,15 @@ def get_repo(a):
 
 # idle_resync_age: how long without hearing metadata from a subscribed
 # repository's owner before the next view re-subscribes (the owner may have
-# pruned us after a long idle). Matches core's broadcast_log_age. Repos have no
-# durable broadcast stream, so seen is stamped only by touch (subscribe,
-# re-subscribe, and inbound metadata events) - never by core auto-advance.
+# pruned us after a long idle). Matches core's broadcast_log_age.
+#
+# seen is advanced two ways, both meaning "we genuinely heard from the owner":
+# touch() on subscribe and re-subscribe, and core stamping seen=now() on every
+# APPLIED broadcast. An earlier version of this comment claimed repositories has
+# no durable broadcast stream and that only touch stamps seen; both are wrong -
+# broadcast_update and broadcast_deleted use mochi.broadcast.send. The gate
+# below is correct either way, since core never advances seen without a real
+# message.
 idle_resync_age = 7 * 86400
 
 # maybe_resubscribe re-establishes a subscribed repository with its owner when
@@ -508,9 +540,10 @@ def action_delete(a):
     if not check_admin_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
 
-    # Notify subscribers before deletion (only for owned repos)
-    if repo.get("owner", 1) == 1:
-        broadcast_deleted(repo)
+    # Unconditional: check_admin_access above needs a local entity or an admin
+    # grant, and a subscription has neither, so only an owned repository reaches
+    # here. This was written as `if owner == 1`, which could never be false.
+    broadcast_deleted(repo)
 
     # Delete subscribers
     mochi.db.execute("delete from subscribers where repository = ?", repo["id"])
@@ -521,9 +554,8 @@ def action_delete(a):
     # Delete database record
     mochi.db.execute("delete from repositories where id = ?", repo["id"])
 
-    # Delete entity (only for owned repos - subscribed repos don't have a local entity)
-    if repo.get("owner", 1) == 1:
-        mochi.entity.delete(repo["id"])
+    # Likewise unconditional - see above.
+    mochi.entity.delete(repo["id"])
 
     return {"data": {"success": True}}
 
@@ -790,7 +822,7 @@ def action_commits(a):
     offset = int(offset_str)
     if limit < 1 or limit > 1000:
         limit = 50
-    if offset < 0:
+    if offset < 0 or offset > 100000:
         offset = 0
 
     # Check if remote repository
@@ -1712,18 +1744,10 @@ def event_update(e):
     # repositories-link-private flaked on exactly this). Older senders
     # without the field fall back to applying with local now, so this
     # is backwards-compatible.
-    incoming = str(e.content("updated", "0"))
-    if mochi.text.valid(incoming, "integer"):
-        incoming = int(incoming)
-    else:
-        incoming = 0
+    incoming = broadcast_integer(e.content("updated", 0))
     # The updated column is declared text, so coerce the stored side too -
     # int <= string is a runtime error in Starlark.
-    stored = str(repo["updated"] or "0")
-    if mochi.text.valid(stored, "integer"):
-        stored = int(stored)
-    else:
-        stored = 0
+    stored = broadcast_integer(repo["updated"])
     if incoming and stored and incoming < stored:
         return
 
@@ -1877,6 +1901,10 @@ def event_commits(e):
             limit = 50
     if offset_str.isdigit():
         offset = int(offset_str)
+        # Bounded like limit: an unbounded offset makes the owner walk that many
+        # commits on a peer's say-so. Matches the ceiling action_commits uses.
+        if offset > 100000:
+            offset = 0
 
     # Get commits
     commits = mochi.git.commit.list(repo_id, ref, limit, offset)
@@ -2072,8 +2100,10 @@ def event_merge(e):
 # error_message_timeout: core calls this when a fan-out to a subscriber aged
 # out undelivered. Remove them only when the directory shows no host left
 # (locations == 0) - definitely gone, not a transient outage or a server
-# migration in progress. repositories has no durable broadcast stream, so
-# there is no broadcast/gap handler.
+# migration in progress. (An earlier version of this comment said repositories
+# has no durable broadcast stream and therefore no broadcast/gap handler;
+# neither is true - error_broadcast_gap is defined below and registered in
+# app.json, and broadcast_update uses mochi.broadcast.send.)
 def error_message_timeout(e):
     if e.detail.get("locations", 1) != 0:
         return

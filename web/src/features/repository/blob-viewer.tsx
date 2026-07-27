@@ -14,8 +14,7 @@ import {
   TooltipContent,
   useFormat,
   toast,
-  shellSaveBlob,
-} from '@mochi/web'
+  shellSaveBlob, shellClipboardWrite,} from '@mochi/web'
 import {
   File,
   ChevronRight,
@@ -68,11 +67,15 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   const pathParts = path.split('/').filter(Boolean)
   const fileName = pathParts[pathParts.length - 1] || 'file'
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     if (data?.content) {
-      navigator.clipboard.writeText(data.content)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      // shellClipboardWrite, not navigator.clipboard: inside the shell's
+      // sandboxed iframe the bare call rejects, and the ignored promise meant
+      // the tick appeared whether or not anything reached the clipboard.
+      if (await shellClipboardWrite(data.content)) {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      }
     }
   }
 

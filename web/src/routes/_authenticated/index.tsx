@@ -279,6 +279,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                                 )}
                               </div>
                             </div>
+                            {/* button-icon-ok: Subscribe has no conventional glyph; feeds and forums ship it text-only */}
                             <Button
                               size="sm"
                               onClick={() => handleSubscribeRecommendation(rec)}

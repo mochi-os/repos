@@ -156,6 +156,7 @@ export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchP
                       )}
                     </div>
                   </div>
+                  {/* button-icon-ok: Subscribe has no conventional glyph; feeds and forums ship it text-only */}
                   <Button
                     size="sm"
                     onClick={() => handleSubscribe(repo)}

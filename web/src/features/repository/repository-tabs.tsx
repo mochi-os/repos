@@ -262,8 +262,12 @@ function FilesTab({
 
   // Sort entries: directories first, then files
   const sortedEntries = [...entries].sort((a, b) => {
-    if (a.type === 'tree' && b.type !== 'tree') return -1
-    if (a.type !== 'tree' && b.type === 'tree') return 1
+    // The server sends "dir"; "tree" is git's own word for the same thing and
+    // appears in some responses, so both count. Checking only "tree" meant this
+    // branch never fired and directories sorted in among the files.
+    const aIsDir = a.type === 'tree' || a.type === 'dir'
+    const bIsDir = b.type === 'tree' || b.type === 'dir'
+    if (aIsDir !== bIsDir) return aIsDir ? -1 : 1
     return naturalCompare(a.name, b.name)
   })
 
@@ -1196,19 +1200,26 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
   }, [loadRules])
 
   const handleAdd = async (subject: string, subjectName: string, operation: string) => {
-    await toastAction(
-      reposRequest.post(
-        endpoints.repo.accessSet,
-        { subject, permission: operation },
-        { baseURL: repoBasePath(repoId) }
-      ),
-      {
-        loading: t`Setting access...`,
-        success: t`Access set for ${subjectName}`,
-        error: (e) => getErrorMessage(e, t`Failed to set access level`),
-      }
-    )
-    void loadRules()
+    // try/catch to match handleRevoke: toastAction surfaces the message but
+    // still rejects, and AccessDialog does not catch, so the bare await left an
+    // unhandled rejection on every failed grant.
+    try {
+      await toastAction(
+        reposRequest.post(
+          endpoints.repo.accessSet,
+          { subject, permission: operation },
+          { baseURL: repoBasePath(repoId) }
+        ),
+        {
+          loading: t`Setting access...`,
+          success: t`Access set for ${subjectName}`,
+          error: (e) => getErrorMessage(e, t`Failed to set access level`),
+        }
+      )
+      void loadRules()
+    } catch {
+      // toast already shown
+    }
   }
 
   const handleRevoke = async (subject: string) => {
@@ -1283,8 +1294,4 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     </div>
   )
 }
-
-// ============================================================================
-// Utility Functions
-// ============================================================================
 

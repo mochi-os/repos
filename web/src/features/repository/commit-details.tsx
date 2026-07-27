@@ -19,8 +19,7 @@ import {
   TooltipTrigger,
   TooltipContent,
   getErrorMessage,
-  useFormat,
-} from '@mochi/web'
+  useFormat, shellClipboardWrite,} from '@mochi/web'
 import { GitCommit, Calendar, Copy, Check } from 'lucide-react'
 import { useCommit } from '@/hooks/use-repository'
 
@@ -36,10 +35,12 @@ export function CommitDetails({ repoId, fingerprint, sha }: CommitDetailsProps) 
   const { data, isLoading, error } = useCommit(repoId, sha)
   const [copied, setCopied] = useState(false)
 
-  const handleCopySha = () => {
-    navigator.clipboard.writeText(sha)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+  const handleCopySha = async () => {
+    // See blob-viewer: the bare clipboard call silently rejects in the shell.
+    if (await shellClipboardWrite(sha)) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
   }
 
   if (isLoading) {
