@@ -1064,7 +1064,16 @@ def action_token_create(a):
     name = (a.input("name") or "Git access").strip()
     if len(name) > 100:
         return a.error.label(400, "errors.token_name_is_too_long_max_100_characters")
-    token = mochi.token.create(name, [], 0)
+    # A git credential is stored by the user's git client, so it has to cover
+    # clone and push on every repository that user can reach - hence no entity
+    # binding, with per-repository access still decided by the ACL. It must not
+    # cover managing repositories, which is a web function, so it is bound to
+    # the git route: web_action compares the binding against the action pattern
+    # before dispatch, so presenting this token as a Bearer credential to
+    # -/create, delete or access/set is refused. Git itself authenticates over
+    # Basic, where no api_token is parsed and the binding is never consulted -
+    # git_authenticate gates that side on the "git" scope instead.
+    token = mochi.token.create(name, ["git"], 0, ":repository/git/*path", "")
     if not token:
         return a.error.label(500, "errors.failed_to_create_token")
 
