@@ -14,13 +14,12 @@ import {
 } from '@mochi/web'
 import { FolderGit2, ArrowLeft } from 'lucide-react'
 import { reposRequest } from '@/api/request'
-import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { CommitDetails } from '@/features/repository/commit-details'
 
 export const Route = createFileRoute('/_authenticated/commit/$sha')({
   loader: async () => {
-    const info = await reposRequest.get<InfoResponse>(endpoints.repo.info)
+    const info = await reposRequest.get<InfoResponse>('info')
     return info
   },
   component: CommitPage,

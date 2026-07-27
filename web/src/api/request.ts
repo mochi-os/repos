@@ -7,7 +7,7 @@
 // Computes API basepath fresh each request to handle both class and entity context
 
 import axios, { type AxiosRequestConfig } from 'axios'
-import { useAuthStore, isInShell, isDomainEntityRouting, shellSaveBlob } from '@mochi/web'
+import { useAuthStore, isInShell, isDomainEntityRouting, shellSaveBlob, getAppPath } from '@mochi/web'
 
 // Known class-level routes that should not be treated as entity IDs
 const CLASS_ROUTES = ['new', 'settings']
@@ -17,12 +17,19 @@ function isEntityIdentifier(s: string): boolean {
   return /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(s) || /^[1-9A-HJ-NP-Za-km-z]{50,51}$/.test(s)
 }
 
-// Get app-level base path (class context, not entity context)
-// Always returns /<app>/ regardless of current entity context
+// Get app-level base path (class context, not entity context).
+// Always returns /<app>/ regardless of current entity context.
+//
+// This delegates to getAppPath rather than reading the first path segment,
+// because under direct-entity routing (/<fingerprint>/...) and domain routing
+// that segment IS the entity, not the app. Building a class URL on it produced
+// /<fingerprint>/-/groups and, via endpoints.repo.share, /<fp>/<fp>/-/share -
+// neither of which is a registered action, so both fell through to the SPA
+// catch-all and returned index.html, surfacing as "Server returned HTML
+// instead of JSON". getAppPath prefers the server's mochi:app meta tag, which
+// is authoritative in every routing context. Same reasoning as wikis.
 export function appBasePath(): string {
-  const pathname = window.location.pathname
-  const match = pathname.match(/^(\/[^/]+)/)
-  return match ? `${match[1]}/` : '/'
+  return `${getAppPath()}/`
 }
 
 // Entity-level base path for a specific repository, valid in all three routing contexts:

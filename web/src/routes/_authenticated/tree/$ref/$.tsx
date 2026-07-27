@@ -11,14 +11,13 @@ import {
   requestHelpers,
   GeneralError,
 } from '@mochi/web'
-import endpoints from '@/api/endpoints'
 import type { InfoResponse } from '@/api/types'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 import { FileTree } from '@/features/repository/file-browser'
 
 export const Route = createFileRoute('/_authenticated/tree/$ref/$')({
   loader: async () => {
-    const info = await requestHelpers.get<InfoResponse>(endpoints.repo.info)
+    const info = await requestHelpers.get<InfoResponse>('info')
     return info
   },
   component: TreePage,
