@@ -98,6 +98,27 @@ def archive_label(ref, sha):
         return sha[:7]
     return ref.replace("/", "-")
 
+# Make a string safe to interpolate into a quoted Content-Disposition filename.
+# The archive proxy takes this from the peer's stream header, so a hostile
+# repository owner controls it. Go's net/http strips CR and LF from header
+# values, which blocks response splitting, but it does not strip a double
+# quote - so without this the peer could close the quoted parameter and choose
+# the name and extension under which the subscriber's browser saves the bytes.
+# Quotes, backslashes and path separators go; control characters go; the length
+# is capped so one field cannot dominate the header.
+def safe_filename(name, fallback):
+    out = ""
+    for c in str(name).elems():
+        if c in '"\\/':
+            continue
+        if ord(c) < 32 or ord(c) == 127:
+            continue
+        out += c
+    out = out.strip()
+    if not out:
+        return fallback
+    return out[:100]
+
 # Resolve a ref and file path from a combined path like "feature/hello-world/src/main.ts".
 # Tries progressively longer prefixes as git refs until one matches.
 def resolve_ref(repo_id, combined):
@@ -316,6 +337,11 @@ def action_create(a):
 
     if not name:
         return a.error.label(400, "errors.name_is_required")
+
+    # Same check action_rename applies: the two disagreed, so a name refused on
+    # rename could be set at creation. It also feeds the archive filename.
+    if not mochi.text.valid(name, "name"):
+        return a.error.label(400, "errors.invalid_name")
 
     if len(name) > 100:
         return a.error.label(400, "errors.name_is_too_long_max_100_characters")
@@ -564,6 +590,23 @@ def action_access_set(a):
 
     if permission not in ["read", "write", "none"]:
         return a.error.label(400, "errors.invalid_permission")
+
+    # A grant may name one identity or one group, and nothing else. permission
+    # was already checked but subject was passed straight through, so
+    # subject="*" wrote a wildcard grant - and access_check matches "*" against
+    # the empty identity of an unauthenticated caller, which for permission
+    # "write" is anonymous git push to a private repository (verified: the
+    # receive-pack probe goes from 401 to 200 the moment that row exists).
+    # "+" is any authenticated user and "#..." are role subjects; neither is
+    # this action's to hand out. The one legitimate wildcard is the "*" READ
+    # grant, written by allow_read in action_settings_set, which is gated on
+    # admin access and cannot express write. Mirrors how action_access_list
+    # classifies subjects.
+    if subject.startswith("@"):
+        if not mochi.text.valid(subject[1:], "entity"):
+            return a.error.label(400, "errors.invalid_subject")
+    elif not mochi.text.valid(subject, "entity"):
+        return a.error.label(400, "errors.invalid_subject")
 
     resource = "repository/" + repo["id"]
     granter = a.user.identity.id if a.user and a.user.identity else ""
@@ -999,7 +1042,8 @@ def action_archive(a):
             return a.error.label(502, "errors.remote_server_does_not_support_archive_download")
 
         a.header("Content-Type", content_types[format])
-        a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
+        a.header("Content-Disposition",
+                 'attachment; filename="%s"' % safe_filename(filename, "archive." + format))
         a.write.stream(s)
         return None
 
@@ -1014,7 +1058,8 @@ def action_archive(a):
     filename = "%s-%s.%s" % (base, label, format)
 
     a.header("Content-Type", content_types[format])
-    a.header("Content-Disposition", 'attachment; filename="%s"' % filename)
+    a.header("Content-Disposition",
+             'attachment; filename="%s"' % safe_filename(filename, "archive." + format))
 
     mochi.git.archive(repo["id"], sha, format, base)
     return None
