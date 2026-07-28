@@ -816,7 +816,10 @@ def action_commits(a):
         return a.error.label(400, "errors.invalid_ref")
     limit_str = a.input("limit", "50")
     offset_str = a.input("offset", "0")
-    if not limit_str.isdigit() or not offset_str.isdigit():
+    # isdigit() is not a safe guard for int(): it accepts Unicode digit
+    # forms (Arabic-Indic, Devanagari) that int() then rejects, aborting the
+    # action as a 500. The range checks below clamp the sign this admits.
+    if not mochi.text.valid(limit_str, "integer") or not mochi.text.valid(offset_str, "integer"):
         return a.error.label(400, "errors.invalid_pagination_parameters")
     limit = int(limit_str)
     offset = int(offset_str)
@@ -1895,15 +1898,19 @@ def event_commits(e):
     offset = 0
     limit_str = str(e.content("limit", ""))
     offset_str = str(e.content("offset", ""))
-    if limit_str.isdigit():
+    # isdigit() is not a safe guard for int(): it accepts Unicode digit forms
+    # that int() then rejects, and here the string comes from a peer, so that
+    # would let one abort this handler at will.
+    if mochi.text.valid(limit_str, "integer"):
         limit = int(limit_str)
         if limit < 1 or limit > 1000:
             limit = 50
-    if offset_str.isdigit():
+    if mochi.text.valid(offset_str, "integer"):
         offset = int(offset_str)
         # Bounded like limit: an unbounded offset makes the owner walk that many
         # commits on a peer's say-so. Matches the ceiling action_commits uses.
-        if offset > 100000:
+        # The lower bound matters now the check admits a leading sign.
+        if offset < 0 or offset > 100000:
             offset = 0
 
     # Get commits
