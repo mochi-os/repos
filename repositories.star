@@ -1767,7 +1767,13 @@ def event_update(e):
     if path and valid_path(path):
         updates.append("path = ?")
         params.append(path)
-    if description and len(description) <= 2000:
+    # Present-and-empty, not truthy: an update carries a full metadata snapshot,
+    # so an owner who cleared their description sends "" and a truthiness test
+    # skipped it - leaving our cached copy on the old text permanently, since
+    # every later snapshot carries the same empty value and is skipped too. A
+    # peer that omits the field entirely still sends None, which correctly means
+    # "leave this alone" rather than "clear it".
+    if description != None and len(description) <= 2000:
         updates.append("description = ?")
         params.append(description)
     if default_branch:
