@@ -68,6 +68,10 @@ msgstr "Назив {entityLabel}"
 msgid "{entityLabel} name is required"
 msgstr "Назив за {entityLabel} је обавезан"
 
+#: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx:29
+msgid "{opponentName} offered a draw"
+msgstr "{opponentName} је понудио нерешено"
+
 #: ../../../lib/web/src/components/data-table/bulk-actions.tsx:210
 msgid "{selectedCount, plural, one {{entityName} selected} other {{manyName} selected}}"
 msgstr "{selectedCount, plural, one {{entityName} изабран} few {{manyName} изабрана} other {{manyName} изабраних}}"
@@ -92,6 +96,11 @@ msgstr "{sentLabel} од {totalLabel}"
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Отвори мени (# непрочитано обавештење)} few {Отвори мени (# непрочитана обавештења)} other {Отвори мени (# непрочитаних обавештења)}}"
 
+#. placeholder {0}: countDeepChildren(object.id)
+#: ../../../lib/web/src/components/entity/entity-board-card.tsx:421
+msgid "+{0} nested"
+msgstr "+{0} угнежђених"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:42
 msgid "12 hours"
 msgstr "12 сати"
@@ -103,6 +112,10 @@ msgstr "24 сата"
 #: ../../../lib/web/src/lib/preference-utils.ts:51
 msgid "Absolute (date and time)"
 msgstr "Апсолутно (датум и време)"
+
+#: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx:45
+msgid "Accept"
+msgstr "Прихвати"
 
 #: src/features/repository/tabs.tsx:34
 msgid "Access"
@@ -148,6 +161,7 @@ msgstr "Тип налога"
 msgid "Account verified"
 msgstr "Налог верификован"
 
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:717
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:196
 #: src/features/repository/repository-tabs.tsx:1270
@@ -170,6 +184,14 @@ msgstr "Додај налог"
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:297
 msgid "Add an account to receive notifications and use services."
 msgstr "Додајте налог да примате обавештења и користите услуге."
+
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:687
+msgid "Add checklist item"
+msgstr "Додај ставку чек-листе"
+
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:705
+msgid "Add item..."
+msgstr "Додај ставку..."
 
 #: ../../../lib/web/src/features/accounts/account-picker.tsx:102
 msgid "Add new account"
@@ -305,6 +327,11 @@ msgstr "Банер"
 msgid "Binary file ({0})"
 msgstr "Бинарна датотека ({0})"
 
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:156
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:166
+msgid "Blocked navigation to untrusted link"
+msgstr "Блокирана навигација на непоуздану везу"
+
 #: ../../../lib/web/src/components/post-tags.tsx:180
 #: ../../../lib/web/src/components/post-tags.tsx:192
 msgid "Boost interest"
@@ -379,6 +406,10 @@ msgstr "Измене"
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:198
 msgid "Check \"All\" to see your past notifications."
 msgstr "Означите „Све“ да бисте видели ранија обавештења."
+
+#: ../../../lib/web/src/components/game/game-empty-state.tsx:38
+msgid "Choose a game from the sidebar or start a new one."
+msgstr "Изаберите игру из бочне траке или започните нову."
 
 #: ../../../lib/web/src/components/config-drawer.tsx:329
 msgid "Choose between default expanded, compact icon-only, or full layout mode"
@@ -671,6 +702,10 @@ msgstr "Тамни режим"
 msgid "Data conflict"
 msgstr "Конфликт података"
 
+#: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx:41
+msgid "Decline"
+msgstr "Одбиј"
+
 #: src/features/repository/repository-tabs.tsx:526
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
@@ -729,7 +764,7 @@ msgstr "Обриши токен"
 msgid "Delete token?"
 msgstr "Обрисати токен?"
 
-#: ../../../lib/web/src/components/restore-banner.tsx:99
+#: ../../../lib/web/src/components/restore-banner.tsx:115
 msgid "Delete your account on the old server"
 msgstr "Обришите свој налог на старом серверу"
 
@@ -801,8 +836,8 @@ msgstr "Одбацити нацрт?"
 msgid "Disconnected"
 msgstr "Није повезано"
 
-#: ../../../lib/web/src/components/restore-banner.tsx:79
-#: ../../../lib/web/src/components/restore-banner.tsx:85
+#: ../../../lib/web/src/components/restore-banner.tsx:94
+#: ../../../lib/web/src/components/restore-banner.tsx:100
 msgid "Dismiss"
 msgstr "Одбаци"
 
@@ -1072,7 +1107,7 @@ msgstr "Пронађи складишта"
 msgid "Fingerprint:"
 msgstr "Отисак прста:"
 
-#: ../../../lib/web/src/components/restore-banner.tsx:88
+#: ../../../lib/web/src/components/restore-banner.tsx:103
 msgid "Finish moving your account"
 msgstr "Завршите премештање налога"
 
@@ -1201,6 +1236,10 @@ msgstr "Унутрашње"
 msgid "Interests"
 msgstr "Интересовања"
 
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:550
+msgid "Invalid date"
+msgstr "Неважећи датум"
+
 #: ../../../lib/web/src/components/tag-input.tsx:38
 msgid "Invalid tag: letters, numbers, spaces, hyphens, and slashes only (max 50 chars)"
 msgstr "Неважећа ознака: само слова, бројеви, размаци, цртице и косе црте (највише 50 знакова)"
@@ -1303,8 +1342,8 @@ msgstr "Управљај токенима"
 msgid "Manage your connected accounts for notifications and services."
 msgstr "Управљајте повезаним налозима за обавештења и услуге."
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:93
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:100
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:118
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:125
 #: ../../../lib/web/src/components/notifications-dropdown.tsx:224
 msgid "Mark all as read"
 msgstr "Означи све као прочитано"
@@ -1320,6 +1359,10 @@ msgstr "Средње"
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:173
 msgid "Menu"
 msgstr "Мени"
+
+#: ../../../lib/web/src/components/game/game-chat-input.tsx:35
+msgid "Message"
+msgstr "Порука"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:85
 msgid "Metric"
@@ -1383,6 +1426,11 @@ msgstr "Ново"
 msgid "New branch"
 msgstr "Нова грана"
 
+#: ../../../lib/web/src/components/game/game-empty-state.tsx:42
+#: ../../../lib/web/src/components/game/game-empty-state.tsx:54
+msgid "New game"
+msgstr "Нова игра"
+
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:392
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:397
 msgid "Next image"
@@ -1410,6 +1458,10 @@ msgstr "Још нема commit-ова"
 msgid "No connected accounts"
 msgstr "Нема повезаних налога"
 
+#: ../../../lib/web/src/components/game/game-empty-state.tsx:51
+msgid "No games yet"
+msgstr "Још нема игара"
+
 #: ../../../lib/web/src/features/access/access-dialog.tsx:241
 msgid "No groups available"
 msgstr "Нема доступних група"
@@ -1418,6 +1470,7 @@ msgstr "Нема доступних група"
 msgid "No notifications yet"
 msgstr "Још нема обавештења"
 
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:336
 #: ../../../lib/web/src/components/person-picker.tsx:84
 msgid "No people found"
 msgstr "Нема пронађених особа"
@@ -1498,7 +1551,7 @@ msgid "Notifications"
 msgstr "Обавештења"
 
 #. placeholder {0}: unread.length
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:86
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:111
 msgid "Notifications: {0}"
 msgstr "Обавештења: {0}"
 
@@ -1568,7 +1621,7 @@ msgstr "Приступни кључ"
 msgid "Passkey verification failed. Please try again."
 msgstr "Провера приступног кључа није успела. Покушајте поново."
 
-#: ../../../lib/web/src/components/restore-banner.tsx:135
+#: ../../../lib/web/src/components/restore-banner.tsx:152
 msgid "Passkeys"
 msgstr "Passkey-еви"
 
@@ -1649,11 +1702,11 @@ msgstr "Push обавештење"
 msgid "Raised"
 msgstr "Издигнуто"
 
-#: ../../../lib/web/src/components/restore-banner.tsx:107
+#: ../../../lib/web/src/components/restore-banner.tsx:124
 msgid "Re-link your accounts on this server"
 msgstr "Поново повежите налоге на овом серверу"
 
-#: ../../../lib/web/src/components/restore-banner.tsx:129
+#: ../../../lib/web/src/components/restore-banner.tsx:146
 msgid "Re-register your passkeys on this server"
 msgstr "Поново региструјте своје приступне кључеве на овом серверу"
 
@@ -1725,6 +1778,10 @@ msgstr "Уклонити приступ?"
 #: ../../../lib/web/src/components/post-tags.tsx:232
 msgid "Remove interest"
 msgstr "Уклони интересовање"
+
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:671
+msgid "Remove item"
+msgstr "Уклони ставку"
 
 #: src/features/repository/repository-tabs.tsx:1234
 msgid "Removing access..."
@@ -1899,6 +1956,10 @@ msgstr "Претраживање..."
 msgid "Select {0}"
 msgstr "Изабери {0}"
 
+#: ../../../lib/web/src/components/game/game-empty-state.tsx:37
+msgid "Select a game"
+msgstr "Изабери игру"
+
 #: ../../../lib/web/src/features/access/access-dialog.tsx:150
 msgid "Select a user, group, or other rule to grant access."
 msgstr "Изаберите корисника, групу или друго правило за доделу приступа."
@@ -1956,6 +2017,11 @@ msgstr "Изабери изворну грану"
 msgid "Select theme preference"
 msgstr "Изабери поставке теме"
 
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:252
+#: ../../../lib/web/src/components/entity/entity-field-editor.tsx:335
+msgid "Select..."
+msgstr "Изабери..."
+
 #: ../../../lib/web/src/components/data-table/bulk-actions.tsx:216
 msgid "selected"
 msgstr "изабрано"
@@ -1972,6 +2038,11 @@ msgstr "Пошаљи поново"
 #: ../../../lib/web/src/components/step-up-dialog.tsx:307
 msgid "Send email"
 msgstr "Пошаљи имејл"
+
+#: ../../../lib/web/src/components/game/game-chat-input.tsx:52
+#: ../../../lib/web/src/components/game/game-chat-input.tsx:61
+msgid "Send message"
+msgstr "Пошаљи поруку"
 
 #: ../../../lib/web/src/lib/preference-utils.ts:145
 msgid "Serif"
@@ -2256,6 +2327,10 @@ msgstr "Уторак"
 msgid "Type a command or search..."
 msgstr "Откуцај команду или претрагу..."
 
+#: ../../../lib/web/src/components/game/game-chat-input.tsx:39
+msgid "Type a message…"
+msgstr "Откуцај поруку…"
+
 #: ../../../lib/web/src/features/access/access-dialog.tsx:191
 msgid "Type to search users"
 msgstr "Куцај да би тражио кориснике"
@@ -2389,8 +2464,8 @@ msgstr "Прикажи"
 msgid "View all"
 msgstr "Прикажи све"
 
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:106
-#: ../../../lib/web/src/components/layout/notification-menu.tsx:114
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:131
+#: ../../../lib/web/src/components/layout/notification-menu.tsx:139
 msgid "View all notifications"
 msgstr "Прикажи сва обавештења"
 
@@ -2439,7 +2514,7 @@ msgstr "Послали сте следеће вредности:"
 msgid "You're all caught up!"
 msgstr "Све сте прегледали!"
 
-#: ../../../lib/web/src/components/restore-banner.tsx:91
+#: ../../../lib/web/src/components/restore-banner.tsx:106
 msgid "Your account was moved here from {source}. Until you delete it there, messages and notifications may reach both servers, some of your content keeps being served from the old server, and followers may take a few minutes to find you here."
 msgstr "Ваш налог је премештен овде са {source}. Све док га тамо не обришете, поруке и обавештења могу стизати на оба сервера, неки ваш садржај ће и даље бити сервиран са старог сервера, а пратиоцима може требати неколико минута да вас пронађу овде."
 
