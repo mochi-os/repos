@@ -848,11 +848,13 @@ def action_commits(a):
     # Local repository
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
     if commits == None:
-        # Check if repository is empty (no branches or tags at all)
+        # A repository with no refs at all is empty, which is a normal state
+        # (a freshly created repo before its first push), not an error. A ref
+        # that fails to resolve in a repo WITH refs stays a 404.
         branches = mochi.git.branches(repo["id"])
         tags = mochi.git.tags(repo["id"])
         if (not branches or len(branches) == 0) and (not tags or len(tags) == 0):
-            return remote_error(a, response)
+            return {"data": {"commits": []}}
         return a.error.label(404, "errors.ref_not_found", ref=ref)
     return {"data": {"commits": commits or []}}
 

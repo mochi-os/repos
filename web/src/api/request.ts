@@ -7,7 +7,7 @@
 // Computes API basepath fresh each request to handle both class and entity context
 
 import axios, { type AxiosRequestConfig } from 'axios'
-import { useAuthStore, isInShell, isDomainEntityRouting, shellSaveBlob, getAppPath } from '@mochi/web'
+import { useAuthStore, isInShell, isDomainEntityRouting, shellSaveBlob, getAppPath, isSameOriginRequest } from '@mochi/web'
 
 // Known class-level routes that should not be treated as entity IDs
 const CLASS_ROUTES = ['new', 'settings']
@@ -101,7 +101,7 @@ reposClient.interceptors.request.use((config) => {
   // Add auth token
   const token = useAuthStore.getState().token
 
-  if (token) {
+  if (token && isSameOriginRequest(config.baseURL, config.url)) {
     // HTTP Authorization header — protocol literal, never translated.
     // eslint-disable-next-line lingui/no-unlocalized-strings
     config.headers.Authorization = token.startsWith('Bearer ') ? token : `Bearer ${token}`
