@@ -9,18 +9,19 @@
 // / branches are fetched on demand from the owner. When the owner edits the
 // metadata (event_update) or pushes new activity (event_activity), the
 // subscriber's cached view stays stale until a manual reload. The Starlark side
-// now emits {"type":"repository/update"} on those events; here we listen and
+// emits {"type":"repository/update"} on those events; here we listen and
 // invalidate the repository query tree so the view refreshes the moment the
 // change lands.
 //
-// The connection itself comes from the shared entityWebsocketManager; the event
-// vocabulary below is the only part that is repos-specific.
+// The connection itself is the shared entityWebsocketManager, whose close path
+// detaches handlers so the resubscribe on a token refresh cannot orphan a
+// socket that keeps delivering events.
 
 import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import {
-  entityWebsocketManager,
   useAuthStore,
+  entityWebsocketManager,
   type EntityWebsocketEvent,
 } from "@mochi/web";
 
