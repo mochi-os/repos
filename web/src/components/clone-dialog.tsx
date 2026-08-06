@@ -71,6 +71,19 @@ interface CloneDialogProps {
 
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
+// A subscribed repository's path comes from its owner, a remote peer, and lands
+// in a command the user is invited to copy into a shell. The server validates it
+// before caching, and this repeats the same rule as the last step before the
+// clipboard: anything outside it becomes a fixed name rather than reaching a
+// terminal. Mirrors valid_path in repositories.star.
+function cloneTarget(path: string) {
+  const safe =
+    /^[a-z0-9-]{1,100}$/.test(path) &&
+    !path.startsWith('-') &&
+    !path.endsWith('-')
+  return safe ? path : 'repo'
+}
+
 export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const { t } = useLingui()
   const { formatTimestamp } = useFormat()
@@ -105,7 +118,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     }
     // git clone command — git literal, never translated.
     // eslint-disable-next-line lingui/no-unlocalized-strings
-    return `git clone ${url.toString()} ${repoPath || 'repo'}`
+    return `git clone ${url.toString()} ${cloneTarget(repoPath)}`
   }
 
   const { data: tokensData, isLoading: tokensLoading } = useQuery({
@@ -161,7 +174,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     try {
       const response = await reposRequest.post<TokenGetResponse>(
         'token/create',
-        { name: repoPath || 'repo' }
+        { name: cloneTarget(repoPath) }
       )
       setCloneCommand(buildCloneUrl(response.token))
       setView('clone')

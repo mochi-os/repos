@@ -116,6 +116,31 @@ def valid_ref(r):
         return False
     return True
 
+# Accept one metadata field from a subscribed repository's owner. The owner is
+# a remote peer, so everything it sends is untrusted: it is cached, displayed,
+# and - for path - rendered into the clone command the user is invited to copy
+# straight into a shell. Apply the same validation the owner enforces on itself
+# and keep the fallback when it fails, so a hostile owner can neither poison the
+# cache nor choose what a subscriber pastes into a terminal.
+def remote_field(field, value, fallback):
+    if value == None:
+        return fallback
+    if field == "name":
+        if mochi.text.valid(value, "name") and len(value) <= 100:
+            return value
+    elif field == "path":
+        if valid_path(value):
+            return value
+    elif field == "description":
+        if len(value) <= 2000:
+            return value
+    elif field == "default_branch":
+        # The owner requires the branch to exist; a subscriber holds no clone to
+        # check against, so ref syntax is as far as it can go.
+        if valid_ref(value):
+            return value
+    return fallback
+
 # Build a filename-safe label for an archive: tag/branch name when the ref is a
 # name (so users see "repo-v1.0.zip"), short commit SHA when the ref is a raw
 # hash or HEAD. Slashes in names are flattened to hyphens.
@@ -268,24 +293,29 @@ def action_info_entity(a):
         peer = mochi.remote.peer(server) if server else None
         response = mochi.remote.request(repo["id"], "repositories", "info", {"repository": repo["id"]}, peer)
         if not response.get("error"):
+            name = remote_field("name", response.get("name"), repo["name"])
+            path = remote_field("path", response.get("path"), repo.get("path", ""))
+            description = remote_field("description", response.get("description"), repo["description"])
+            default_branch = remote_field("default_branch", response.get("default_branch"), repo["default_branch"])
+
             # Update cached data
             mochi.db.execute("""
                 update repositories set name = ?, path = ?, description = ?, default_branch = ?, updated = ?
                 where id = ?
-            """, response.get("name", repo["name"]),
-                response.get("path", repo.get("path", "")),
-                response.get("description", repo["description"]),
-                response.get("default_branch", repo["default_branch"]),
+            """, name, path, description, default_branch,
                 response.get("updated", repo["updated"]), repo["id"])
 
             return {"data": {
                 "entity": True,
                 "id": repo["id"],
-                "fingerprint": response.get("fingerprint", mochi.entity.fingerprint(repo["id"])),
-                "name": response.get("name", repo["name"]),
-                "path": response.get("path", repo.get("path", "")),
-                "description": response.get("description", repo["description"]),
-                "default_branch": response.get("default_branch", repo["default_branch"]),
+                # Derived from the entity id we already hold: the fingerprint is
+                # what subscribers route and clone through, so the peer does not
+                # get to choose it.
+                "fingerprint": mochi.entity.fingerprint(repo["id"]),
+                "name": name,
+                "path": path,
+                "description": description,
+                "default_branch": default_branch,
                 "size": repo["size"],
                 "created": repo["created"],
                 "updated": repo["updated"],
@@ -1446,9 +1476,10 @@ def action_probe(a):
             return remote_error(a, response, 404)
         return {"data": {
             "id": link_repo,
-            "name": response.get("name", ""),
-            "description": response.get("description", ""),
-            "fingerprint": response.get("fingerprint", ""),
+            "name": remote_field("name", response.get("name"), ""),
+            "description": remote_field("description", response.get("description"), ""),
+            # Derived from the entity id in the link, not taken from the peer.
+            "fingerprint": mochi.entity.fingerprint(link_repo) or "",
             "class": "repository",
             "peer": link_peer,  # subscribe pins the same peer for its initial sync
             "remote": True
@@ -1517,9 +1548,10 @@ def action_probe(a):
     # Return repository info as a directory-like entry in results array format
     return {"data": {"results": [{
         "id": repo_id,
-        "name": response.get("name", ""),
-        "description": response.get("description", ""),
-        "fingerprint": response.get("fingerprint", ""),
+        "name": remote_field("name", response.get("name"), ""),
+        "description": remote_field("description", response.get("description"), ""),
+        # Derived from the entity id we resolved, not taken from the peer.
+        "fingerprint": mochi.entity.fingerprint(repo_id) or "",
         "class": "repository",
         "server": server,
         "remote": True
@@ -1576,20 +1608,20 @@ def action_subscribe(a):
         response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id}, peer)
         if response.get("error"):
             return a.error.label(502, "errors.remote_request_failed")
-        repo_name = response.get("name", "")
-        repo_path = response.get("path", "")
-        repo_description = response.get("description", "")
-        repo_fingerprint = response.get("fingerprint", "")
-        default_branch = response.get("default_branch", "main")
+        # First contact, so there is no cached value to fall back to - a field
+        # the owner sends malformed is dropped rather than stored.
+        repo_name = remote_field("name", response.get("name"), "")
+        repo_path = remote_field("path", response.get("path"), "")
+        repo_description = remote_field("description", response.get("description"), "")
+        default_branch = remote_field("default_branch", response.get("default_branch"), "main")
     else:
         # Use directory lookup when no server specified
         directory = mochi.directory.get(repo_id)
         if not directory:
             return a.error.label(404, "errors.unable_to_find_repository_in_directory_please_provide_the_re")
-        repo_name = directory.get("name", "")
+        repo_name = remote_field("name", directory.get("name"), "")
         repo_path = ""
         repo_description = ""
-        repo_fingerprint = mochi.entity.fingerprint(repo_id)
         default_branch = "main"
         # For directory-only subscriptions, server will be empty
         # This means git operations won't work, only basic metadata
@@ -1610,7 +1642,8 @@ def action_subscribe(a):
         mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
     mochi.broadcast.touch(repo_id)
 
-    return {"data": {"fingerprint": repo_fingerprint, "name": repo_name}}
+    # fp, not a fingerprint the owner supplied: this is what the client routes to.
+    return {"data": {"fingerprint": fp, "name": repo_name}}
 
 # Action: Unsubscribe from a remote repository
 def action_unsubscribe(a):
@@ -1761,24 +1794,30 @@ def event_update(e):
 
     # Apply the same field validation the owner enforces locally
     # (action_settings_set / action_rename), so a malformed or oversized value
-    # from a remote owner can't land in our cached copy. Invalid fields are
-    # skipped, keeping the existing cached value.
-    if name and mochi.text.valid(name, "name") and len(name) <= 100:
+    # from a remote owner can't land in our cached copy. remote_field returns
+    # the fallback - None here - for a value it rejects, so an invalid field is
+    # skipped and the existing cached value stands.
+    #
+    # Present-and-empty is distinct from absent: an update carries a full
+    # metadata snapshot, so an owner who cleared their description sends "" and
+    # a truthiness test skipped it - leaving our cached copy on the old text
+    # permanently, since every later snapshot carries the same empty value and
+    # is skipped too. A peer that omits the field entirely sends None, which
+    # correctly means "leave this alone" rather than "clear it".
+    name = remote_field("name", name, None)
+    if name != None:
         updates.append("name = ?")
         params.append(name)
-    if path and valid_path(path):
+    path = remote_field("path", path, None)
+    if path != None:
         updates.append("path = ?")
         params.append(path)
-    # Present-and-empty, not truthy: an update carries a full metadata snapshot,
-    # so an owner who cleared their description sends "" and a truthiness test
-    # skipped it - leaving our cached copy on the old text permanently, since
-    # every later snapshot carries the same empty value and is skipped too. A
-    # peer that omits the field entirely still sends None, which correctly means
-    # "leave this alone" rather than "clear it".
-    if description != None and len(description) <= 2000:
+    description = remote_field("description", description, None)
+    if description != None:
         updates.append("description = ?")
         params.append(description)
-    if default_branch:
+    default_branch = remote_field("default_branch", default_branch, None)
+    if default_branch != None:
         updates.append("default_branch = ?")
         params.append(default_branch)
 
@@ -2166,7 +2205,7 @@ def broadcast_deleted(repo):
 # fresh info fetch from the owner (peer=None resolves the private repo via the
 # learned user directory). Owners are the canonical source and never resync.
 def error_broadcast_gap(e):
-    row = mochi.db.row("select server from repositories where id=? and owner=0", e.entity)
+    row = mochi.db.row("select * from repositories where id=? and owner=0", e.entity)
     if not row:
         return
     server = row["server"] or ""
@@ -2175,7 +2214,10 @@ def error_broadcast_gap(e):
     if not response or response.get("error"):
         return
     mochi.db.execute("update repositories set name=?, path=?, description=?, default_branch=?, updated=? where id=?",
-        response.get("name", ""), response.get("path", ""), response.get("description", ""),
-        response.get("default_branch", "main"), response.get("updated", mochi.time.now()), e.entity)
+        remote_field("name", response.get("name"), row["name"]),
+        remote_field("path", response.get("path"), row.get("path", "")),
+        remote_field("description", response.get("description"), row["description"]),
+        remote_field("default_branch", response.get("default_branch"), row["default_branch"]),
+        response.get("updated", mochi.time.now()), e.entity)
     mochi.broadcast.touch(e.entity)
     notify_websocket(e.entity)
