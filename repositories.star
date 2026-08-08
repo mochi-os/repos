@@ -261,11 +261,12 @@ def maybe_resubscribe(a, repo_id):
     user_id = a.user.identity.id if a.user else None
     if not user_id:
         return
-    if not mochi.db.row("select 1 from repositories where id=? and owner=0", repo_id):
+    row = mochi.db.row("select server from repositories where id=? and owner=0", repo_id)
+    if not row:
         return
     if mochi.time.now() - mochi.broadcast.seen(repo_id) <= idle_resync_age:
         return
-    mochi.message.send(headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
+    registration_send(row["server"], headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
     mochi.broadcast.touch(repo_id)
 
 # Action: Get entity info - returns repository details for entity context
@@ -1349,6 +1350,20 @@ def check_admin_access(a, repo_id):
 def headers(from_id, to_id, event):
     return {"from": from_id, "to": to_id, "service": "repositories", "event": event}
 
+# Helper: deliver a subscription-lifecycle event (subscribe, unsubscribe) to an
+# owner whose entity may no longer be resolvable: private entities never list
+# in the directory, and public entries expire while the owner is offline. A
+# stored directory-form "p2p/<peer>" server pins the queue row to that peer, so
+# an undeliverable send parks and revives when the peer reconnects, instead of
+# parking unresolvable forever. Hostname servers still route via the directory -
+# resolving one here would put a network dial on a view path.
+def registration_send(server, headers, content):
+    peer = server[len("p2p/"):] if server and server.startswith("p2p/") else ""
+    if peer:
+        mochi.message.send.peer(peer, headers, content)
+    else:
+        mochi.message.send(headers, content)
+
 # Action: Get repository recommendations
 # Read the user's BCP 47 language tag, or "en" if unset / anonymous
 def user_language(a):
@@ -1677,7 +1692,7 @@ def action_unsubscribe(a):
     mochi.db.execute("delete from repositories where id = ?", repo_id)
 
     # Notify remote owner
-    mochi.message.send(headers(user_id, repo_id, "unsubscribe"), {})
+    registration_send(repo["server"], headers(user_id, repo_id, "unsubscribe"), {})
 
     return {"data": {"success": True}}
 
