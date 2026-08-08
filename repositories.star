@@ -1120,7 +1120,13 @@ def action_archive(a):
         return a.error.label(404, "errors.ref_or_commit_not_found", ref=ref)
     sha = commits[0]["sha"]
 
-    base = repo.get("path") or repo.get("name") or "repo"
+    # safe_filename, not the raw field: path is strictly validated but falls
+    # back to "" for a subscribed or directory-only repository, so base drops
+    # through to name - and name is only checked against mochi.text.valid
+    # "name", which is ^[^<>\r\n]{1,1000}$ and admits "/" and "..". This value
+    # becomes the archive's entry prefix, so a peer could shape the paths
+    # inside an archive their subscribers download.
+    base = safe_filename(repo.get("path") or repo.get("name") or "repo", "repo")
     label = archive_label(ref, sha)
     filename = "%s-%s.%s" % (base, label, format)
 
@@ -2102,7 +2108,13 @@ def event_archive(e):
         return
     sha = commits[0]["sha"]
 
-    base = repo.get("path") or repo.get("name") or "repo"
+    # safe_filename, not the raw field: path is strictly validated but falls
+    # back to "" for a subscribed or directory-only repository, so base drops
+    # through to name - and name is only checked against mochi.text.valid
+    # "name", which is ^[^<>\r\n]{1,1000}$ and admits "/" and "..". This value
+    # becomes the archive's entry prefix, so a peer could shape the paths
+    # inside an archive their subscribers download.
+    base = safe_filename(repo.get("path") or repo.get("name") or "repo", "repo")
     label = archive_label(ref, sha)
     filename = "%s-%s.%s" % (base, label, format)
 
