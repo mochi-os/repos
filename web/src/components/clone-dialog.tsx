@@ -45,7 +45,10 @@ import {
 import { reposRequest } from '@/api/request'
 
 interface TokenGetResponse {
-  token: string
+  // Absent when the user already holds this credential: a token's plaintext
+  // exists only at creation, so there is nothing to hand back a second time.
+  token?: string
+  existing?: boolean
 }
 
 interface TokenCreateResponse {
@@ -172,11 +175,16 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     // Fetch token status on open
     setView('loading')
     try {
+      // ensure, not create: create mints unconditionally with no expiry, so
+      // opening this dialog repeatedly left a permanent credential behind
+      // each time. ensure mints only the first time; afterwards it reports
+      // that the credential already exists and we show the credential-less
+      // URL, which works against the one already stored in the git client.
       const response = await reposRequest.post<TokenGetResponse>(
-        'token/create',
+        'token/ensure',
         { name: cloneTarget(repoPath) }
       )
-      setCloneCommand(buildCloneUrl(response.token))
+      setCloneCommand(buildCloneUrl(response.token ?? null))
       setView('clone')
     } catch (error) {
       toast.error(getErrorMessage(error, t`Failed to get token`))

@@ -439,6 +439,28 @@ def action_create(a):
         mochi.entity.delete(entity_id)
         return a.error.label(500, "errors.failed_to_initialize_git_repository")
 
+    # Re-check uniqueness now that the slow work is done.
+    #
+    # The checks above run before entity.create and git.init, which touch the
+    # directory and take real time - a wide window for a second create to slip
+    # between them. name and path carry ordinary indexes, not unique ones, so
+    # the loser does not fail: it INSERTS, and two repositories then share a
+    # path, one shadowing the other's git route. Making the index unique is
+    # not the fix on its own - Starlark has no try/except, so the losing
+    # insert would abort the handler and leave the entity and git directory
+    # behind with nothing to clean them.
+    #
+    # Re-checking here narrows the window to the gap between this select and
+    # the insert, and gives the loser somewhere to unwind to.
+    if mochi.db.exists("select 1 from repositories where name = ?", name):
+        mochi.git.delete(entity_id)
+        mochi.entity.delete(entity_id)
+        return a.error.label(400, "errors.a_repository_with_that_name_already_exists")
+    if mochi.db.exists("select 1 from repositories where path = ?", path):
+        mochi.git.delete(entity_id)
+        mochi.entity.delete(entity_id)
+        return a.error.label(400, "errors.repository_path_taken")
+
     # Create database record
     now = mochi.time.now()
     fp = mochi.entity.fingerprint(entity_id) or ""
@@ -1112,7 +1134,12 @@ def action_archive(a):
         a.header("Content-Type", content_types[format])
         a.header("Content-Disposition",
                  'attachment; filename="%s"' % safe_filename(filename, "archive." + format))
-        a.write.stream(s)
+        # Bounded: these are bytes from another peer's repository, relayed
+        # straight into the browser's download. Without a cap a hostile or
+        # broken owner can stream without end into every clone that asks.
+        # 1GB is far above any repository archive this app produces and still
+        # a limit rather than none.
+        a.write.stream(s, maximum=1024 * 1024 * 1024)
         return None
 
     # Resolve ref to its tip commit so we can fail early on bad refs
@@ -1206,6 +1233,39 @@ def action_token_create(a):
     # -/create, delete or access/set is refused. Git itself authenticates over
     # Basic, where no api_token is parsed and the binding is never consulted -
     # git_authenticate gates that side on the "git" scope instead.
+    token = mochi.token.create(name, ["git"], 0, ":repository/git/*path", "")
+    if not token:
+        return a.error.label(500, "errors.failed_to_create_token")
+
+    return {"data": {"token": token}}
+
+# Action: Get a git credential for the clone dialog, minting one only if the
+# user does not already have it.
+#
+# The dialog opens straight onto a clone command, so it used to POST
+# token/create every time it was opened - and action_token_create mints
+# unconditionally with expiry 0. Every peek at the dialog therefore left
+# another permanent git credential behind, unbounded, with nothing in the
+# interface to list or revoke them. (The response type was already called
+# TokenGetResponse, so a get-or-create was what the caller believed it had.)
+#
+# A token's plaintext exists only at creation - mochi.token.list returns the
+# hash - so this cannot hand back an existing one. It reports that the user
+# already has it instead, and the dialog then shows the credential-less clone
+# URL, which is the same one anonymous viewers get and works against the
+# credential already stored in their git client.
+def action_token_ensure(a):
+    if not a.user:
+        return a.error.label(401, "errors.not_logged_in")
+
+    name = a.input("name", "").strip()
+    if not name or len(name) > 100:
+        return a.error.label(400, "errors.token_name_is_too_long_max_100_characters")
+
+    for existing in mochi.token.list() or []:
+        if existing.get("name") == name:
+            return {"data": {"existing": True}}
+
     token = mochi.token.create(name, ["git"], 0, ":repository/git/*path", "")
     if not token:
         return a.error.label(500, "errors.failed_to_create_token")
@@ -1733,7 +1793,13 @@ def event_info(e):
 def event_subscribe(e):
     repo_id = e.header("to")
     subscriber_id = e.header("from")
+    # The subscriber names ITSELF, and the row is keyed (repository, id), so
+    # an unbounded value is stored verbatim per subscriber. The local paths
+    # that accept a name validate it; this one took whatever arrived. "name"
+    # caps at 1000 characters and excludes angle brackets and newlines.
     name = e.content("name", "")
+    if type(name) != "string" or (name and not mochi.text.valid(name, "name")):
+        name = ""
 
     # Verify repository exists and we own it
     repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
