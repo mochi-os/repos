@@ -3,176 +3,91 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
-import { useEffect, useState } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
-import { useNavigate } from '@tanstack/react-router'
-import { useQueryClient } from '@tanstack/react-query'
-import { Search, Loader2, FolderGit2 } from 'lucide-react'
-import { Button, Input, toastAction, getErrorMessage } from '@mochi/web'
-import { reposRequest, appBasePath } from '@/api/request'
-import endpoints from '@/api/endpoints'
-import type { SearchResult, SearchResponse } from '@/api/types'
-import { repoKeys, useSubscribe } from '@/hooks/use-repository'
+import { useLingui } from "@lingui/react/macro";
+import { useNavigate } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { FolderGit2 } from "lucide-react";
+import { InlineEntitySearch, toastAction, getErrorMessage } from "@mochi/web";
+import { reposRequest, appBasePath } from "@/api/request";
+import endpoints from "@/api/endpoints";
+import type { SearchResult, SearchResponse } from "@/api/types";
+import { repoKeys, useSubscribe } from "@/hooks/use-repository";
 
 interface InlineRepoSearchProps {
-  subscribedIds: Set<string>
-  onRefresh?: () => void
+  subscribedIds: Set<string>;
+  onRefresh?: () => void;
 }
 
-export function InlineRepoSearch({ subscribedIds, onRefresh }: InlineRepoSearchProps) {
-  const { t } = useLingui()
-  const [searchQuery, setSearchQuery] = useState('')
-  const [debouncedQuery, setDebouncedQuery] = useState('')
-  const [results, setResults] = useState<SearchResult[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [pendingRepoId, setPendingRepoId] = useState<string | null>(null)
-  const navigate = useNavigate()
-  const queryClient = useQueryClient()
-  const subscribe = useSubscribe()
+export function InlineRepoSearch({
+  subscribedIds,
+  onRefresh,
+}: InlineRepoSearchProps) {
+  const { t } = useLingui();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const subscribe = useSubscribe();
 
-  // Debounce search query
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedQuery(searchQuery)
-    }, 500)
-    return () => clearTimeout(timer)
-  }, [searchQuery])
-
-  // Search when debounced query changes
-  useEffect(() => {
-    if (debouncedQuery.length === 0) {
-      setResults([])
-      return
+  const search = async (query: string): Promise<SearchResult[]> => {
+    try {
+      const response = await reposRequest.get<SearchResponse>(
+        `${endpoints.repo.search}?search=${encodeURIComponent(query)}`,
+        { baseURL: appBasePath() },
+      );
+      return response.results ?? [];
+    } catch (error) {
+      // The panel shows error.message, so the server's own wording has to be
+      // pulled out here rather than left inside the axios error.
+      throw new Error(getErrorMessage(error, t`Failed to search repositories`));
     }
+  };
 
-    const search = async () => {
-      setIsLoading(true)
-      try {
-        // A pasted link (mochi://<peer>/<repo> or a web URL) resolves via probe -
-        // a directory search can't find a private/unlisted repo or match a URL.
-        if (/^(mochi:|https?:\/\/)/i.test(debouncedQuery)) {
-          const probe = await reposRequest.post<{ data?: SearchResult } & Partial<SearchResult>>(
-            endpoints.repo.probe, { url: debouncedQuery }, { baseURL: appBasePath() }
-          ).catch(() => null)
-          const data: Partial<SearchResult> = probe?.data ?? probe ?? {}
-          setResults(data.id
-            ? [{ id: data.id, name: data.name ?? '', fingerprint: data.fingerprint ?? '',
-                 server: data.server, peer: data.peer }]
-            : [])
-          return
-        }
-        const response = await reposRequest.get<SearchResponse>(
-          `${endpoints.repo.search}?search=${encodeURIComponent(debouncedQuery)}`,
-          { baseURL: appBasePath() }
-        )
-        setResults(response.results ?? [])
-      } catch {
-        setResults([])
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    void search()
-  }, [debouncedQuery])
+  const probe = async (url: string): Promise<SearchResult[]> => {
+    const probed = await reposRequest.post<
+      { data?: SearchResult } & Partial<SearchResult>
+    >(endpoints.repo.probe, { url }, { baseURL: appBasePath() });
+    const data: Partial<SearchResult> = probed?.data ?? probed ?? {};
+    return data.id
+      ? [
+          {
+            id: data.id,
+            name: data.name ?? "",
+            fingerprint: data.fingerprint ?? "",
+            server: data.server,
+            peer: data.peer,
+          } as SearchResult,
+        ]
+      : [];
+  };
 
   const handleSubscribe = async (repo: SearchResult) => {
-    setPendingRepoId(repo.id)
-    try {
-      await toastAction(
-        subscribe.mutateAsync({
-          repository: repo.id,
-          server: repo.server || undefined,
-          peer: repo.peer,
-        }),
-        {
-          loading: t`Subscribing...`,
-          success: t`Subscribed`,
-          error: (e) => getErrorMessage(e, t`Failed to subscribe`),
-        }
-      )
-      void queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-      onRefresh?.()
-      void navigate({ to: '/$repoId', params: { repoId: repo.id } })
-    } catch {
-      // toast already shown
-    } finally {
-      setPendingRepoId(null)
-    }
-  }
-
-  const showResults = debouncedQuery.length > 0
-  const showLoading = isLoading && debouncedQuery.length > 0
+    await toastAction(
+      subscribe.mutateAsync({
+        repository: repo.id,
+        server: repo.server || undefined,
+        peer: repo.peer,
+      }),
+      {
+        loading: t`Subscribing...`,
+        success: t`Subscribed`,
+        error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+      },
+    );
+    void queryClient.invalidateQueries({ queryKey: repoKeys.info() });
+    onRefresh?.();
+    void navigate({ to: "/$repoId", params: { repoId: repo.id } });
+  };
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      {/* Search Input */}
-      <div className="relative mb-4">
-        <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
-        <Input
-          placeholder={t`Search for repositories...`}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="h-10 ps-9"
-          autoFocus
-        />
-      </div>
-
-      {/* Results */}
-      {showLoading && (
-        <div className="flex items-center justify-center py-8">
-          <Loader2 className="text-muted-foreground h-6 w-6 animate-spin" />
-        </div>
-      )}
-
-      {!isLoading && showResults && results.length === 0 && (
-        <p className="text-muted-foreground text-sm text-center py-4">
-          <Trans>No repositories found</Trans>
-        </p>
-      )}
-
-      {!isLoading && results.length > 0 && (
-        <div className="divide-border divide-y rounded-lg border">
-          {results
-            .filter((repo) => !subscribedIds.has(repo.id) && !subscribedIds.has(repo.fingerprint))
-            .map((repo) => {
-              const isPending = pendingRepoId === repo.id
-
-              return (
-                <div
-                  key={repo.id}
-                  className="flex items-center justify-between gap-3 px-4 py-3 transition-colors hover:bg-hover"
-                >
-                  <div className="flex min-w-0 flex-1 items-center gap-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10">
-                      <FolderGit2 className="h-4 w-4 text-primary" />
-                    </div>
-                    <div className="flex min-w-0 flex-1 flex-col text-start">
-                      <span className="truncate text-sm font-medium">{repo.name}</span>
-                      {repo.fingerprint && (
-                        <span className="text-muted-foreground truncate text-xs">
-                          {repo.fingerprint.match(/.{1,3}/g)?.join('-')}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  {/* button-icon-ok: Subscribe has no conventional glyph; feeds and forums ship it text-only */}
-                  <Button
-                    size="sm"
-                    onClick={() => handleSubscribe(repo)}
-                    disabled={isPending}
-                  >
-                    {isPending ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Trans>Subscribe</Trans>
-                    )}
-                  </Button>
-                </div>
-              )
-            })}
-        </div>
-      )}
-    </div>
-  )
+    <InlineEntitySearch
+      subscribedIds={subscribedIds}
+      search={search}
+      probe={probe}
+      onSubscribe={handleSubscribe}
+      icon={FolderGit2}
+      placeholder={t`Search for repositories...`}
+      emptyMessage={t`No repositories found`}
+      searchErrorMessage={t`Failed to search repositories`}
+      subscribeLabel={t`Subscribe`}
+    />
+  );
 }
