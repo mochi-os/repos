@@ -120,7 +120,7 @@ msgstr "{selectedCount, plural, one {# પસંદ કરેલ} other {# પ�
 msgid "{selectedCount, plural, one {Bulk actions for # selected {entityName}} other {Bulk actions for # selected {manyName}}}"
 msgstr "{selectedCount, plural, one {# પસંદ કરેલ {entityName} માટે બલ્ક ક્રિયાઓ} other {# પસંદ કરેલ {manyName} માટે બલ્ક ક્રિયાઓ}}"
 
-#: ../../../lib/web/src/components/attachment-composer.tsx:150
+#: ../../../lib/web/src/components/attachment-composer.tsx:189
 #: ../../../lib/web/src/components/ui/upload-progress.tsx:52
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel}માંથી {sentLabel}"
@@ -347,7 +347,7 @@ msgstr "લોગ ઇન થયેલ કોઈપણ"
 
 #: ../../../lib/web/src/components/options-menu.tsx:249
 msgid "Anything subscribed to this feed will stop receiving it. You can copy a new URL afterwards."
-msgstr ""
+msgstr "આ ફીડ પર સબ્સ્ક્રાઇબ થયેલું બધું તે મળવાનું બંધ કરશે. પછી તમે નવું URL કૉપિ કરી શકો છો."
 
 #. placeholder {0}: deleteTarget?.name
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:308
@@ -358,7 +358,7 @@ msgstr "શું તમે ખરેખર \"{0}\" કાઢી નાખવા
 msgid "Are you sure you want to delete the \"{name}\" column? This cannot be undone."
 msgstr "શું તમે ખરેખર \"{name}\" કૉલમ કાઢી નાખવા માંગો છો? આ પૂર્વવત્ કરી શકાતું નથી."
 
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:490
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:491
 msgid "Are you sure you want to delete this comment? This will also delete all replies."
 msgstr "શું તમે ખરેખર આ ટિપ્પણી કાઢી નાખવા માંગો છો? આ બધા જવાબો પણ કાઢી નાખશે."
 
@@ -378,13 +378,13 @@ msgstr "ચડતા"
 msgid "Ascending"
 msgstr "ચઢતો ક્રમ"
 
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:405
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:410
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:406
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:411
 msgid "Attach comment files"
 msgstr "ટિપ્પણી ફાઇલો જોડો"
 
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:444
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:449
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:445
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:450
 msgid "Attach reply files"
 msgstr "જવાબ ફાઇલો જોડો"
 
@@ -410,8 +410,8 @@ msgid "Avatar for {name}"
 msgstr "{name} માટે અવતાર"
 
 #: ../../../lib/web/src/components/place-picker.tsx:156
-#: src/components/clone-dialog.tsx:359
-#: src/components/clone-dialog.tsx:418
+#: src/components/clone-dialog.tsx:367
+#: src/components/clone-dialog.tsx:426
 msgid "Back"
 msgstr "પાછળ"
 
@@ -502,7 +502,7 @@ msgstr "બ્રાઉઝર સૂચનાઓ"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:446
+#: src/components/clone-dialog.tsx:454
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:594
@@ -513,8 +513,8 @@ msgstr "બ્રાઉઝર સૂચનાઓ"
 msgid "Cancel"
 msgstr "રદ કરો"
 
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:422
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:427
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:423
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:428
 msgid "Cancel comment"
 msgstr "ટિપ્પણી રદ કરો"
 
@@ -523,8 +523,8 @@ msgstr "ટિપ્પણી રદ કરો"
 msgid "Cancel edit"
 msgstr "સંપાદન રદ કરો"
 
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:460
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:465
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:461
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:466
 msgid "Cancel reply"
 msgstr "જવાબ રદ કરો"
 
@@ -609,11 +609,11 @@ msgstr "પસંદગી સાફ કરો"
 msgid "Clear selection (Escape)"
 msgstr "પસંદગી સાફ કરો (Escape)"
 
-#: src/components/clone-dialog.tsx:269
+#: src/components/clone-dialog.tsx:277
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:247
+#: src/components/clone-dialog.tsx:255
 msgid "Clone repository"
 msgstr "ભંડાર ક્લોન કરો"
 
@@ -766,8 +766,8 @@ msgid "Copied"
 msgstr "કૉપિ થયું"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:192
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:200
+#: src/components/clone-dialog.tsx:210
 msgid "Copied to clipboard"
 msgstr "ક્લિપબોર્ડ પર કૉપિ કર્યું"
 
@@ -808,9 +808,9 @@ msgstr "તે ખાતા વડે ચકાસણી કરી શકાઈ 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:564
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:703
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:468
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:624
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:426
+#: src/components/clone-dialog.tsx:434
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "બનાવો"
@@ -820,7 +820,7 @@ msgstr "બનાવો"
 msgid "Create {0}"
 msgstr "{0} બનાવો"
 
-#: src/components/clone-dialog.tsx:258
+#: src/components/clone-dialog.tsx:266
 msgid "Create a new authentication token."
 msgstr "નવો પ્રમાણીકરણ ટોકન બનાવો."
 
@@ -845,8 +845,8 @@ msgstr "નવી આઇટમ બનાવો"
 msgid "Create repository"
 msgstr "repository બનાવો"
 
-#: src/components/clone-dialog.tsx:245
-#: src/components/clone-dialog.tsx:363
+#: src/components/clone-dialog.tsx:253
+#: src/components/clone-dialog.tsx:371
 msgid "Create token"
 msgstr "token બનાવો"
 
@@ -856,7 +856,7 @@ msgid "Created"
 msgstr "બનાવ્યું"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:339
+#: src/components/clone-dialog.tsx:347
 msgid "Created {0}"
 msgstr "બનાવેલ {0}"
 
@@ -869,11 +869,11 @@ msgstr "શાખા બનાવી રહ્યું છે..."
 msgid "Creating repository..."
 msgstr "રિપોઝિટરી બનાવી રહ્યું છે..."
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:223
 msgid "Creating token..."
 msgstr "ટોકન બનાવી રહ્યું છે..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:624
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
 #: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -936,12 +936,12 @@ msgstr "ડિફૉલ્ટ સૉર્ટ"
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:644
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:319
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:362
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:491
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:492
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:196
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:201
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:250
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:309
-#: src/components/clone-dialog.tsx:448
+#: src/components/clone-dialog.tsx:456
 #: src/features/repository/repository-tabs.tsx:615
 #: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
@@ -973,7 +973,7 @@ msgstr "બ્રાંચ કાઢી નાખવી છે?"
 msgid "Delete column"
 msgstr "કૉલમ કાઢી નાખો"
 
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:489
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:490
 msgid "Delete comment"
 msgstr "ટિપ્પણી કાઢી નાખો"
 
@@ -1000,11 +1000,11 @@ msgstr "repository કાઢી નાખો"
 msgid "Delete repository?"
 msgstr "repository કાઢી નાખવું છે?"
 
-#: src/components/clone-dialog.tsx:348
+#: src/components/clone-dialog.tsx:356
 msgid "Delete token"
 msgstr "token કાઢી નાખો"
 
-#: src/components/clone-dialog.tsx:439
+#: src/components/clone-dialog.tsx:447
 msgid "Delete token?"
 msgstr "token કાઢી નાખવો છે?"
 
@@ -1025,7 +1025,7 @@ msgstr "શાખા કાઢી રહ્યું છે..."
 msgid "Deleting repository..."
 msgstr "રિપોઝિટરી કાઢી રહ્યું છે..."
 
-#: src/components/clone-dialog.tsx:228
+#: src/components/clone-dialog.tsx:236
 msgid "Deleting token..."
 msgstr "ટોકન કાઢી રહ્યું છે..."
 
@@ -1071,11 +1071,11 @@ msgstr "દિશા"
 msgid "Directory"
 msgstr "નિર્દેશિકા"
 
-#: ../../../lib/web/src/components/comment-composer.tsx:284
+#: ../../../lib/web/src/components/comment-composer.tsx:288
 msgid "Discard"
 msgstr "રદ કરો"
 
-#: ../../../lib/web/src/components/comment-composer.tsx:282
+#: ../../../lib/web/src/components/comment-composer.tsx:286
 msgid "Discard draft?"
 msgstr "ડ્રાફ્ટ રદ કરવો?"
 
@@ -1095,8 +1095,8 @@ msgstr "મોબાઇલ સાઇડબાર દર્શાવે છે."
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:305
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:524
-#: src/components/clone-dialog.tsx:312
-#: src/components/clone-dialog.tsx:397
+#: src/components/clone-dialog.tsx:320
+#: src/components/clone-dialog.tsx:405
 msgid "Done"
 msgstr "થઈ ગયું"
 
@@ -1126,7 +1126,7 @@ msgstr "ડુપ્લિકેટ"
 msgid "Dyslexia-friendly"
 msgstr "ડિસ્લેક્સિયા-મૈત્રીપૂર્ણ"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:415
 msgid "e.g., Work laptop"
 msgstr "દા.ત. કામનું લેપટોપ"
 
@@ -1248,7 +1248,7 @@ msgstr "લિંક બનાવવામાં નિષ્ફળ"
 msgid "Failed to create repository"
 msgstr "રિપોઝિટરી બનાવવામાં નિષ્ફળ"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:225
 msgid "Failed to create token"
 msgstr "ટોકન બનાવવામાં નિષ્ફળ"
 
@@ -1273,7 +1273,7 @@ msgstr "લિંક કાઢી નાખવામાં નિષ્ફળ"
 msgid "Failed to delete repository"
 msgstr "રિપોઝિટરી કાઢી નાખવામાં નિષ્ફળ"
 
-#: src/components/clone-dialog.tsx:230
+#: src/components/clone-dialog.tsx:238
 msgid "Failed to delete token"
 msgstr "ટોકન કાઢી નાખવામાં નિષ્ફળ"
 
@@ -1289,7 +1289,7 @@ msgstr "આર્કાઇવ ડાઉનલોડ કરવામાં નિ
 msgid "Failed to get RSS token"
 msgstr "RSS ટોકન મેળવવામાં નિષ્ફળ"
 
-#: src/components/clone-dialog.tsx:182
+#: src/components/clone-dialog.tsx:190
 msgid "Failed to get token"
 msgstr "ટોકન મેળવવામાં નિષ્ફળ"
 
@@ -1365,7 +1365,7 @@ msgstr "સેટિંગ સેવ કરવામાં નિષ્ફળ"
 #: src/features/repository/inline-repo-search.tsx:40
 #: src/features/repository/inline-repo-search.tsx:89
 msgid "Failed to search repositories"
-msgstr ""
+msgstr "રિપોઝિટરી શોધવામાં નિષ્ફળ"
 
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:257
 msgid "Failed to send verification code"
@@ -1610,7 +1610,7 @@ msgid "Large"
 msgstr "મોટું"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:340
+#: src/components/clone-dialog.tsx:348
 msgid "Last used {0}"
 msgstr "છેલ્લે ઉપયોગ {0}"
 
@@ -1692,8 +1692,8 @@ msgstr "માત્ર નાના અક્ષરો, સંખ્યાઓ �
 msgid "Manage categories"
 msgstr "શ્રેણીઓ મેનેજ કરો"
 
-#: src/components/clone-dialog.tsx:243
-#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:251
+#: src/components/clone-dialog.tsx:315
 msgid "Manage tokens"
 msgstr "ટોકન્સ મેનેજ કરો"
 
@@ -1797,8 +1797,8 @@ msgstr "નામ:"
 msgid "Network error"
 msgstr "નેટવર્ક ભૂલ"
 
-#: src/components/clone-dialog.tsx:339
-#: src/components/clone-dialog.tsx:340
+#: src/components/clone-dialog.tsx:347
+#: src/components/clone-dialog.tsx:348
 msgid "Never"
 msgstr "ક્યારેય નહીં"
 
@@ -1843,7 +1843,7 @@ msgstr "હજુ સુધી કોઈ પ્રવૃત્તિ નથી"
 msgid "No branches yet"
 msgstr "હજુ સુધી કોઈ બ્રાન્ચ્સ નથી"
 
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:457
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:458
 msgid "No comments yet"
 msgstr "હજુ સુધી કોઈ કૉમેન્ટ્સ નથી"
 
@@ -1924,7 +1924,7 @@ msgstr "હજુ સુધી કોઈ ટેગ્સ નથી"
 msgid "No time zone found."
 msgstr "કોઈ ટાઇમ ઝોન મળ્યો નથી."
 
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:335
 msgid "No tokens yet."
 msgstr "હજુ સુધી કોઈ ટોકન્સ નથી."
 
@@ -2133,7 +2133,7 @@ msgstr "તારીખ પસંદ કરો"
 msgid "Please check your internet connection and try again."
 msgstr "કૃપા કરી તમારું ઇન્ટરનેટ કનેક્શન તપાસો અને ફરી પ્રયાસ કરો."
 
-#: src/components/clone-dialog.tsx:210
+#: src/components/clone-dialog.tsx:218
 msgid "Please enter a token name"
 msgstr "કૃપા કરીને ટોકન નામ દાખલ કરો"
 
@@ -2237,8 +2237,8 @@ msgstr "સાપેક્ષ (5m, 3h, 2d)"
 msgid "Relative within 24 hours, else absolute"
 msgstr "24 કલાકની અંદર સાપેક્ષ, અન્યથા સંપૂર્ણ"
 
-#: ../../../lib/web/src/components/attachment-composer.tsx:171
-#: ../../../lib/web/src/components/attachment-composer.tsx:208
+#: ../../../lib/web/src/components/attachment-composer.tsx:210
+#: ../../../lib/web/src/components/attachment-composer.tsx:247
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx:190
 #: ../../../lib/web/src/features/access/access-list.tsx:270
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:180
@@ -2384,13 +2384,13 @@ msgstr "{title} રીસેટ કરો"
 msgid "Reset all settings to default values"
 msgstr "તમામ સેટિંગ્સને ડિફૉલ્ટ મૂલ્યો પર રીસેટ કરો"
 
-#: ../../../lib/web/src/components/attachment-composer.tsx:225
+#: ../../../lib/web/src/components/attachment-composer.tsx:264
 msgid "Retry"
 msgstr "ફરી પ્રયાસ કરો"
 
 #: ../../../lib/web/src/components/options-menu.tsx:250
 msgid "Revoke"
-msgstr ""
+msgstr "રદ કરો"
 
 #: ../../../lib/web/src/components/options-menu.tsx:184
 msgid "Revoke access"
@@ -2398,7 +2398,7 @@ msgstr "ઍક્સેસ રદ કરો"
 
 #: ../../../lib/web/src/components/options-menu.tsx:244
 msgid "Revoke RSS access?"
-msgstr ""
+msgstr "RSS ઍક્સેસ રદ કરવો છે?"
 
 #: ../../../lib/web/src/components/config-drawer.tsx:362
 msgid "Right to Left"
@@ -2441,12 +2441,12 @@ msgstr "શનિવાર"
 msgid "Save"
 msgstr "સાચવો"
 
-#: src/components/clone-dialog.tsx:257
+#: src/components/clone-dialog.tsx:265
 msgid "Save this token now. You won't be able to see it again."
 msgstr "આ ટોકન હવે સાચવો. તમે તેને ફરીથી જોઈ શકશો નહીં."
 
-#: src/components/clone-dialog.tsx:300
-#: src/components/clone-dialog.tsx:387
+#: src/components/clone-dialog.tsx:308
+#: src/components/clone-dialog.tsx:395
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "આ ટોકન સુરક્ષિત રીતે સાચવો. તમે તેને ફરીથી જોઈ શકશો નહીં."
 
@@ -2734,7 +2734,7 @@ msgstr "સ્રોતો"
 msgid "Spacious"
 msgstr "વિશાળ"
 
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:458
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:459
 msgid "Start the discussion by adding the first comment."
 msgstr "પ્રથમ ટિપ્પણી ઉમેરીને ચર્ચા શરૂ કરો."
 
@@ -2746,13 +2746,13 @@ msgstr "છતાં અમારી સાથે જોડાયેલા ર�
 msgid "Subject"
 msgstr "વિષય"
 
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:438
-#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:447
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:439
+#: ../../../lib/web/src/components/entity/entity-comment-list.tsx:448
 msgid "Submit comment"
 msgstr "ટિપ્પણી સબમિટ કરો"
 
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:475
-#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:480
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:476
+#: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:481
 msgid "Submit reply"
 msgstr "જવાબ સબમિટ કરો"
 
@@ -2871,7 +2871,7 @@ msgstr "આ પૃષ્ઠ માટે રિપોઝિટરી સંદ�
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "આ \"{currentName}\" અને તેના તમામ કમિટ્સ, શાખાઓ અને ટૅગ્સને કાયમ માટે કાઢી નાખશે. આ ક્રિયા પૂર્વવત્ કરી શકાતી નથી."
 
-#: src/components/clone-dialog.tsx:441
+#: src/components/clone-dialog.tsx:449
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "આ આ ટોકનને કાયમ માટે કાઢી નાખશે. તેનો ઉપયોગ કરતા કોઈપણ git ક્લાયન્ટ હવે પ્રમાણીકરણ કરી શકશે નહીં."
 
@@ -2931,15 +2931,15 @@ msgstr "દૃશ્ય વિકલ્પો ટૉગલ કરો"
 msgid "Toggle watched filter"
 msgstr "વૉચ કરેલ ફિલ્ટર ટૉગલ કરો"
 
-#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:253
 msgid "Token created"
 msgstr "ટોકન બનાવ્યું"
 
-#: src/components/clone-dialog.tsx:229
+#: src/components/clone-dialog.tsx:237
 msgid "Token deleted"
 msgstr "ટોકન કાઢી નાખ્યું"
 
-#: src/components/clone-dialog.tsx:404
+#: src/components/clone-dialog.tsx:412
 msgid "Token name"
 msgstr "ટોકન નામ"
 
@@ -3076,7 +3076,7 @@ msgstr "ઍક્સેસ અપડેટ કરી રહ્યું છે..
 msgid "Updating path..."
 msgstr "પાથ અપડેટ કરી રહ્યું છે..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:606
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:607
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:296
 msgid "Upload"
 msgstr "અપલોડ કરો"
@@ -3193,14 +3193,14 @@ msgstr "તમે બધું જોઈ લીધું!"
 msgid "Your account was moved here from {source}. Until you delete it there, messages and notifications may reach both servers, some of your content keeps being served from the old server, and followers may take a few minutes to find you here."
 msgstr "તમારું ખાતું {source} પરથી અહીં ખસેડવામાં આવ્યું. જ્યાં સુધી તમે ત્યાં તેને કાઢી ન નાખો, સંદેશા અને સૂચનાઓ બંને સર્વર સુધી પહોંચી શકે, કેટલીક સામગ્રી જૂના સર્વરથી પ્રદાન કરાતી રહે, અને ફૉલોઅર્સ ને તમને અહીં શોધવામાં થોડી મિનિટ લાગી શકે."
 
-#: ../../../lib/web/src/components/comment-composer.tsx:275
+#: ../../../lib/web/src/components/comment-composer.tsx:279
 msgid "Your attachments will be lost."
 msgstr "તમારા જોડાણો ખોવાઈ જશે."
 
-#: ../../../lib/web/src/components/comment-composer.tsx:273
+#: ../../../lib/web/src/components/comment-composer.tsx:277
 msgid "Your text and attachments will be lost."
 msgstr "તમારું લખાણ અને જોડાણો ખોવાઈ જશે."
 
-#: ../../../lib/web/src/components/comment-composer.tsx:276
+#: ../../../lib/web/src/components/comment-composer.tsx:280
 msgid "Your text will be lost."
 msgstr "તમારું લખાણ ખોવાઈ જશે."
