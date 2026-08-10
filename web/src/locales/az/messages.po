@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: ../../../lib/web/src/lib/error-normalizer.ts:236
+#: ../../../lib/web/src/lib/error-normalizer.ts:244
 msgid "Please check your internet connection and try again."
 msgstr "İnternet bağlantınızı yoxlayıb yenidən cəhd edin."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:292
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:293
 msgid " or "
 msgstr " və ya "
 
@@ -75,6 +75,22 @@ msgstr "{0} {1} tarixində etiketləndi"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} etiket"
+
+#: ../../../lib/web/src/lib/locale-format.ts:121
+msgid "{count, plural, one {#d} other {#d}}"
+msgstr "{count, plural, one {#g} other {#g}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:117
+msgid "{count, plural, one {#h} other {#h}}"
+msgstr "{count, plural, one {#s} other {#s}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:113
+msgid "{count, plural, one {#m} other {#m}}"
+msgstr "{count, plural, one {#dəq} other {#dəq}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:125
+msgid "{count, plural, one {#w} other {#w}}"
+msgstr "{count, plural, one {#h} other {#h}}"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:174
 msgid "{entityLabel} name"
@@ -329,6 +345,10 @@ msgstr "İstənilən şəxs"
 msgid "Anyone who is logged in"
 msgstr "Daxil olmuş hər kəs"
 
+#: ../../../lib/web/src/components/options-menu.tsx:249
+msgid "Anything subscribed to this feed will stop receiving it. You can copy a new URL afterwards."
+msgstr ""
+
 #. placeholder {0}: deleteTarget?.name
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:308
 msgid "Are you sure you want to delete \"{0}\"?"
@@ -373,7 +393,7 @@ msgstr "Cavab fayllarını qoş"
 msgid "Authenticated users"
 msgstr "Kimliyi təsdiqlənmiş istifadəçilər"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:315
+#: ../../../lib/web/src/components/step-up-dialog.tsx:329
 msgid "Authenticator code"
 msgstr "Authenticator kodu"
 
@@ -390,8 +410,8 @@ msgid "Avatar for {name}"
 msgstr "{name} üçün avatar"
 
 #: ../../../lib/web/src/components/place-picker.tsx:156
-#: src/components/clone-dialog.tsx:346
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:418
 msgid "Back"
 msgstr "Geri"
 
@@ -474,7 +494,7 @@ msgstr "Brauzer bildirişləri"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:169
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:186
 #: ../../../lib/web/src/components/responsive-confirm-dialog.tsx:67
-#: ../../../lib/web/src/components/step-up-dialog.tsx:363
+#: ../../../lib/web/src/components/step-up-dialog.tsx:377
 #: ../../../lib/web/src/components/travelling-picker.tsx:308
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:249
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:132
@@ -482,7 +502,7 @@ msgstr "Brauzer bildirişləri"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:433
+#: src/components/clone-dialog.tsx:446
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:594
@@ -589,16 +609,16 @@ msgstr "Seçimi təmizlə"
 msgid "Clear selection (Escape)"
 msgstr "Seçimi təmizlə (Escape)"
 
-#: src/components/clone-dialog.tsx:256
+#: src/components/clone-dialog.tsx:269
 msgid "Clone"
 msgstr "Klonla"
 
-#: src/components/clone-dialog.tsx:234
+#: src/components/clone-dialog.tsx:247
 msgid "Clone repository"
 msgstr "Repozitoriyanı klonla"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:477
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:482
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:478
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:483
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
@@ -737,7 +757,7 @@ msgstr "Kontekstual məlumat və təfərrüatlar."
 msgid "Continue"
 msgstr "Davam et"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:352
+#: ../../../lib/web/src/components/step-up-dialog.tsx:366
 msgid "Continue with {label}"
 msgstr "{label} ilə davam edin"
 
@@ -746,8 +766,8 @@ msgid "Copied"
 msgstr "Kopyalandı"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:189
+#: src/components/clone-dialog.tsx:192
+#: src/components/clone-dialog.tsx:202
 msgid "Copied to clipboard"
 msgstr "Mübadilə yaddaşına kopyalandı"
 
@@ -773,24 +793,24 @@ msgstr "Bu sənəd yüklənə bilmədi. Daha sonra yenidən cəhd edin."
 msgid "Couldn't load notifications"
 msgstr "Bildirişlər yüklənə bilmədi"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:184
+#: ../../../lib/web/src/components/step-up-dialog.tsx:193
 msgid "Couldn't send the code. Please try again."
 msgstr "Kodu göndərmək mümkün olmadı. Zəhmət olmasa yenidən cəhd edin."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:136
+#: ../../../lib/web/src/components/step-up-dialog.tsx:145
 msgid "Couldn't start re-authentication. Please try again."
 msgstr "Yenidən autentifikasiyanı başlatmaq mümkün olmadı. Zəhmət olmasa yenidən cəhd edin."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:221
+#: ../../../lib/web/src/components/step-up-dialog.tsx:235
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Bu hesabla doğrulama mümkün olmadı. Zəhmət olmasa, yenidən cəhd edin."
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:564
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:703
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:467
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:468
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:413
+#: src/components/clone-dialog.tsx:426
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Yarat"
@@ -800,7 +820,7 @@ msgstr "Yarat"
 msgid "Create {0}"
 msgstr "{0} yarat"
 
-#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:258
 msgid "Create a new authentication token."
 msgstr "Yeni autentifikasiya tokeni yarat."
 
@@ -825,8 +845,8 @@ msgstr "Yeni element yarat"
 msgid "Create repository"
 msgstr "Repozitoriya yarat"
 
-#: src/components/clone-dialog.tsx:232
-#: src/components/clone-dialog.tsx:350
+#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:363
 msgid "Create token"
 msgstr "Token yarat"
 
@@ -836,7 +856,7 @@ msgid "Created"
 msgstr "Yaradıldı"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:339
 msgid "Created {0}"
 msgstr "{0} yaradıldı"
 
@@ -849,11 +869,11 @@ msgstr "Budaq yaradılır..."
 msgid "Creating repository..."
 msgstr "Anbar yaradılır..."
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:215
 msgid "Creating token..."
 msgstr "Token yaradılır..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
 #: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -921,7 +941,7 @@ msgstr "Default sıralama"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:201
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:250
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:309
-#: src/components/clone-dialog.tsx:435
+#: src/components/clone-dialog.tsx:448
 #: src/features/repository/repository-tabs.tsx:615
 #: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
@@ -980,11 +1000,11 @@ msgstr "Repozitoriyanı sil"
 msgid "Delete repository?"
 msgstr "Repozitoriya silinsin?"
 
-#: src/components/clone-dialog.tsx:335
+#: src/components/clone-dialog.tsx:348
 msgid "Delete token"
 msgstr "Tokeni sil"
 
-#: src/components/clone-dialog.tsx:426
+#: src/components/clone-dialog.tsx:439
 msgid "Delete token?"
 msgstr "Token silinsin?"
 
@@ -1005,7 +1025,7 @@ msgstr "Budaq silinir..."
 msgid "Deleting repository..."
 msgstr "Anbar silinir..."
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:228
 msgid "Deleting token..."
 msgstr "Token silinir..."
 
@@ -1075,8 +1095,8 @@ msgstr "Mobil yan paneli göstərir."
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:305
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:524
-#: src/components/clone-dialog.tsx:299
-#: src/components/clone-dialog.tsx:384
+#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:397
 msgid "Done"
 msgstr "Hazırdır"
 
@@ -1106,7 +1126,7 @@ msgstr "Dublikatlar"
 msgid "Dyslexia-friendly"
 msgstr "Disleksiya üçün uyğun"
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:407
 msgid "e.g., Work laptop"
 msgstr "example.com və ya *.example.com"
 
@@ -1157,7 +1177,7 @@ msgstr "Görünüşü redaktə et"
 msgid "Email"
 msgstr "E-poçt"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:289
+#: ../../../lib/web/src/components/step-up-dialog.tsx:303
 msgid "Email code"
 msgstr "E-poçt kodu"
 
@@ -1169,11 +1189,11 @@ msgstr "Boş qovluq"
 msgid "Empty repository"
 msgstr "Boş repozitor"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:299
+#: ../../../lib/web/src/components/step-up-dialog.tsx:313
 msgid "Enter the code from your email"
 msgstr "E-poçtunuzdakı kodu daxil edin"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:324
+#: ../../../lib/web/src/components/step-up-dialog.tsx:338
 msgid "Enter your authenticator code"
 msgstr "Autentifikator kodunuzu daxil edin"
 
@@ -1219,7 +1239,7 @@ msgid "Failed to create branch"
 msgstr "Budaq yaratmaq alınmadı"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
-#: ../../../lib/web/src/components/options-menu.tsx:99
+#: ../../../lib/web/src/components/options-menu.tsx:101
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
 msgstr "Link yaratmaq alınmadı"
@@ -1228,7 +1248,7 @@ msgstr "Link yaratmaq alınmadı"
 msgid "Failed to create repository"
 msgstr "Repozitor yaratmaq alınmadı"
 
-#: src/components/clone-dialog.tsx:204
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to create token"
 msgstr "Token yaratmaq alınmadı"
 
@@ -1253,7 +1273,7 @@ msgstr "Linki silmək alınmadı"
 msgid "Failed to delete repository"
 msgstr "Repozitoru silmək alınmadı"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:230
 msgid "Failed to delete token"
 msgstr "Tokeni silmək alınmadı"
 
@@ -1265,11 +1285,11 @@ msgstr "Yükləmək alınmadı"
 msgid "Failed to download archive"
 msgstr "Arxivi yükləmək alınmadı"
 
-#: ../../../lib/web/src/components/options-menu.tsx:123
+#: ../../../lib/web/src/components/options-menu.tsx:125
 msgid "Failed to get RSS token"
 msgstr "RSS tokenini almaq alınmadı"
 
-#: src/components/clone-dialog.tsx:169
+#: src/components/clone-dialog.tsx:182
 msgid "Failed to get token"
 msgstr "Tokeni almaq alınmadı"
 
@@ -1333,7 +1353,7 @@ msgstr "Hesabı silmək alınmadı"
 msgid "Failed to rename repository"
 msgstr "Repozitorun adını dəyişmək alınmadı"
 
-#: ../../../lib/web/src/components/options-menu.tsx:133
+#: ../../../lib/web/src/components/options-menu.tsx:136
 msgid "Failed to revoke RSS access"
 msgstr "RSS girişini ləğv etmək alınmadı"
 
@@ -1393,7 +1413,7 @@ msgstr "feature/my-feature"
 msgid "file"
 msgstr "şah"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:559
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:153
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:173
 #: src/features/repository/tabs.tsx:30
@@ -1576,7 +1596,7 @@ msgstr "Etibarsız doğrulama kodu"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Axtardığınız səhifə <0/>mövcud deyil və ya silinib."
 
-#: ../../../lib/web/src/lib/locale-format.ts:62
+#: ../../../lib/web/src/lib/locale-format.ts:110
 msgid "Just now"
 msgstr "İndicə"
 
@@ -1590,7 +1610,7 @@ msgid "Large"
 msgstr "Böyük"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:340
 msgid "Last used {0}"
 msgstr "Son istifadə {0}"
 
@@ -1618,7 +1638,7 @@ msgstr "Yalnız hərf, rəqəm, boşluq və defis"
 msgid "Light"
 msgstr "İşıqlı"
 
-#: ../../../lib/web/src/components/options-menu.tsx:190
+#: ../../../lib/web/src/components/options-menu.tsx:193
 #: src/components/repository-link-button.tsx:68
 msgid "Link"
 msgstr "Keçid"
@@ -1672,8 +1692,8 @@ msgstr "Yalnız kiçik hərflər, rəqəmlər və defislər"
 msgid "Manage categories"
 msgstr "Kateqoriyaları idarə et"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:294
+#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:307
 msgid "Manage tokens"
 msgstr "Tokenləri idarə et"
 
@@ -1723,7 +1743,7 @@ msgstr "Minimum uzunluq"
 msgid "Mochi web"
 msgstr "Mochi veb"
 
-#: ../../../lib/web/src/components/options-menu.tsx:164
+#: ../../../lib/web/src/components/options-menu.tsx:167
 msgid "Moderation"
 msgstr ""
 
@@ -1736,8 +1756,8 @@ msgstr "Bazar ertəsi"
 msgid "More actions"
 msgstr "Daha çox hərəkət"
 
-#: ../../../lib/web/src/components/options-menu.tsx:145
-#: ../../../lib/web/src/components/options-menu.tsx:152
+#: ../../../lib/web/src/components/options-menu.tsx:148
+#: ../../../lib/web/src/components/options-menu.tsx:155
 msgid "More options"
 msgstr "Digər seçimlər"
 
@@ -1777,12 +1797,12 @@ msgstr "Ad:"
 msgid "Network error"
 msgstr "Şəbəkə xətası"
 
-#: src/components/clone-dialog.tsx:326
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:339
+#: src/components/clone-dialog.tsx:340
 msgid "Never"
 msgstr "Heç vaxt"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:452
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:453
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Yeni"
@@ -1802,7 +1822,7 @@ msgstr "Yeni oyun"
 msgid "Next image"
 msgstr "Növbəti şəkil"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:525
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:526
 msgid "No {parentClassNames} to add to"
 msgstr "Əlavə ediləcək {parentClassNames} yoxdur"
 
@@ -1844,7 +1864,7 @@ msgstr "Hələ oyun yoxdur"
 msgid "No groups available"
 msgstr "Mövcud qrup yoxdur"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:493
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Hələ heç bir element növü yaradıla bilməz. Əvvəlcə tələb olunan əsas elementləri yaradın."
 
@@ -1904,7 +1924,7 @@ msgstr "Hələ teq yoxdur"
 msgid "No time zone found."
 msgstr "Saat qurşağı tapılmadı."
 
-#: src/components/clone-dialog.tsx:314
+#: src/components/clone-dialog.tsx:327
 msgid "No tokens yet."
 msgstr "Hələ token yoxdur."
 
@@ -1925,9 +1945,9 @@ msgid "No views"
 msgstr "Baxış yoxdur"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:508
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:511
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:515
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:509
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:512
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:516
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:365
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:391
@@ -2055,7 +2075,7 @@ msgstr "Sahibi"
 msgid "Page {currentPage} of {totalPages}"
 msgstr "Səhifə {currentPage} / {totalPages}"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:500
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:501
 msgid "Parent"
 msgstr "Əsas"
 
@@ -2067,11 +2087,11 @@ msgstr "Əsas:"
 msgid "Parents:"
 msgstr "Əsaslar:"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:334
+#: ../../../lib/web/src/components/step-up-dialog.tsx:348
 msgid "Passkey"
 msgstr "Giriş açarı"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:209
+#: ../../../lib/web/src/components/step-up-dialog.tsx:218
 msgid "Passkey verification failed. Please try again."
 msgstr "Giriş açarının doğrulanması alınmadı. Zəhmət olmasa yenidən cəhd edin."
 
@@ -2113,7 +2133,7 @@ msgstr "Tarix seçin"
 msgid "Please check your internet connection and try again."
 msgstr "İnternet bağlantınızı yoxlayıb yenidən cəhd edin."
 
-#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:210
 msgid "Please enter a token name"
 msgstr "Token adını daxil edin"
 
@@ -2129,11 +2149,11 @@ msgstr "Zəhmət olmasa yenidən cəhd edin."
 msgid "Please wait a moment and try again."
 msgstr "Zəhmət olmasa, bir az gözləyin və yenidən cəhd edin."
 
-#: ../../../lib/web/src/components/options-menu.tsx:175
+#: ../../../lib/web/src/components/options-menu.tsx:178
 msgid "Posts"
 msgstr "Postlar"
 
-#: ../../../lib/web/src/components/options-menu.tsx:178
+#: ../../../lib/web/src/components/options-menu.tsx:181
 msgid "Posts and comments"
 msgstr "Postlar və şərhlər"
 
@@ -2346,7 +2366,7 @@ msgstr "Repozitoriyanın adı dəyişdirildi"
 msgid "Required"
 msgstr "Tələb olunur"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:367
+#: ../../../lib/web/src/components/step-up-dialog.tsx:381
 msgid "Resend email"
 msgstr "E-poçtu yenidən göndər"
 
@@ -2368,9 +2388,17 @@ msgstr "Bütün parametrləri standart dəyərlərə sıfırla"
 msgid "Retry"
 msgstr "Yenidən cəhd et"
 
-#: ../../../lib/web/src/components/options-menu.tsx:181
+#: ../../../lib/web/src/components/options-menu.tsx:250
+msgid "Revoke"
+msgstr ""
+
+#: ../../../lib/web/src/components/options-menu.tsx:184
 msgid "Revoke access"
 msgstr "Girişi ləğv et"
+
+#: ../../../lib/web/src/components/options-menu.tsx:244
+msgid "Revoke RSS access?"
+msgstr ""
 
 #: ../../../lib/web/src/components/config-drawer.tsx:362
 msgid "Right to Left"
@@ -2389,15 +2417,15 @@ msgstr "Sətirlər qruplaşdır"
 msgid "Rows per page"
 msgstr "Səhifə başına sətir"
 
-#: ../../../lib/web/src/components/options-menu.tsx:131
+#: ../../../lib/web/src/components/options-menu.tsx:134
 msgid "RSS access revoked"
 msgstr "RSS girişi ləğv edildi"
 
-#: ../../../lib/web/src/components/options-menu.tsx:171
+#: ../../../lib/web/src/components/options-menu.tsx:174
 msgid "RSS feed"
 msgstr "RSS lenti"
 
-#: ../../../lib/web/src/components/options-menu.tsx:121
+#: ../../../lib/web/src/components/options-menu.tsx:123
 msgid "RSS URL copied to clipboard"
 msgstr "RSS URL panelə kopyalandı"
 
@@ -2413,12 +2441,12 @@ msgstr "Şənbə"
 msgid "Save"
 msgstr "Saxla"
 
-#: src/components/clone-dialog.tsx:244
+#: src/components/clone-dialog.tsx:257
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Bu tokeni indi saxla. Onu yenidən görə bilməyəcəksiniz."
 
-#: src/components/clone-dialog.tsx:287
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:300
+#: src/components/clone-dialog.tsx:387
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Bu tokeni təhlükəsiz saxla. Onu yenidən görə bilməyəcəksiniz."
 
@@ -2593,7 +2621,7 @@ msgstr "Seçildi: <0>{0}</0>"
 msgid "Send again"
 msgstr "Yenidən göndər"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:307
+#: ../../../lib/web/src/components/step-up-dialog.tsx:321
 msgid "Send email"
 msgstr "E-poçt göndər"
 
@@ -2630,7 +2658,7 @@ msgstr "Giriş təyin edilir..."
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:126
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:132
-#: ../../../lib/web/src/components/options-menu.tsx:196
+#: ../../../lib/web/src/components/options-menu.tsx:199
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Parametrlər"
@@ -2698,7 +2726,7 @@ msgstr "Sırala"
 msgid "Source branch"
 msgstr "Mənbə budağı"
 
-#: ../../../lib/web/src/components/options-menu.tsx:158
+#: ../../../lib/web/src/components/options-menu.tsx:161
 msgid "Sources"
 msgstr "Mənbələr"
 
@@ -2801,7 +2829,7 @@ msgstr "Şərtlər və qaydalar"
 msgid "Text"
 msgstr "Mətn"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:195
+#: ../../../lib/web/src/components/step-up-dialog.tsx:204
 msgid "That code is incorrect or has expired."
 msgstr "Bu kod yanlışdır və ya vaxtı bitib."
 
@@ -2843,7 +2871,7 @@ msgstr "Bu yazı silinmiş ola bilər və ya mövcud deyil."
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Bu, \"{currentName}\" və onun bütün commit, budaq və teqlərini həmişəlik siləcək. Bu əməliyyat geri qaytarıla bilməz."
 
-#: src/components/clone-dialog.tsx:428
+#: src/components/clone-dialog.tsx:441
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Bu, həmin tokeni həmişəlik siləcək. Ondan istifadə edən git müştəriləri artıq kimlik doğrulaya bilməyəcək."
 
@@ -2903,15 +2931,15 @@ msgstr "Token mübadilə yaddaşına kopyalandı"
 msgid "Toggle watched filter"
 msgstr "Token yaradıldı"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:245
 msgid "Token created"
 msgstr "Token adı"
 
-#: src/components/clone-dialog.tsx:216
+#: src/components/clone-dialog.tsx:229
 msgid "Token deleted"
 msgstr "Tokenlər"
 
-#: src/components/clone-dialog.tsx:391
+#: src/components/clone-dialog.tsx:404
 msgid "Token name"
 msgstr "Çox böyük"
 
@@ -2993,7 +3021,7 @@ msgstr "Naməlum"
 msgid "Unknown"
 msgstr "Naməlum cihaz"
 
-#: ../../../lib/web/src/components/options-menu.tsx:211
+#: ../../../lib/web/src/components/options-menu.tsx:214
 #: src/features/repository/repository-header.tsx:120
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
@@ -3025,7 +3053,7 @@ msgstr "Abunəlikdən çıxılır..."
 msgid "Unsubscribing..."
 msgstr "Dayandırmanı götür"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:276
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:277
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
 msgid "Untitled"
@@ -3048,7 +3076,7 @@ msgstr "Giriş yenilənir..."
 msgid "Updating path..."
 msgstr "Yol yenilənir..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:599
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:606
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:296
 msgid "Upload"
 msgstr "Yeni versiyanı yüklə"
@@ -3057,7 +3085,7 @@ msgstr "Yeni versiyanı yüklə"
 msgid "Upload progress"
 msgstr "Yükləmə gedişatı"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:338
+#: ../../../lib/web/src/components/step-up-dialog.tsx:352
 msgid "Use your passkey"
 msgstr "Giriş açarınızdan istifadə edin"
 
@@ -3079,7 +3107,7 @@ msgstr "Yoxlanıldı"
 msgid "Verification failed"
 msgstr "Doğrulama uğursuz oldu"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:388
+#: ../../../lib/web/src/components/step-up-dialog.tsx:402
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"

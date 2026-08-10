@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: ../../../lib/web/src/lib/error-normalizer.ts:236
+#: ../../../lib/web/src/lib/error-normalizer.ts:244
 msgid "Please check your internet connection and try again."
 msgstr "Mangga priksa sambungan internet sampeyan lan coba maneh."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:292
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:293
 msgid " or "
 msgstr " utawa "
 
@@ -75,6 +75,22 @@ msgstr "{0} ditandhani ing {1}"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} tag"
+
+#: ../../../lib/web/src/lib/locale-format.ts:121
+msgid "{count, plural, one {#d} other {#d}}"
+msgstr "{count, plural, one {#dina} other {#dina}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:117
+msgid "{count, plural, one {#h} other {#h}}"
+msgstr "{count, plural, one {#jam} other {#jam}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:113
+msgid "{count, plural, one {#m} other {#m}}"
+msgstr "{count, plural, one {#mnt} other {#mnt}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:125
+msgid "{count, plural, one {#w} other {#w}}"
+msgstr "{count, plural, one {#mgg} other {#mgg}}"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:174
 msgid "{entityLabel} name"
@@ -329,6 +345,10 @@ msgstr "Sapa wae"
 msgid "Anyone who is logged in"
 msgstr "Sapa wae sing wis mlebu"
 
+#: ../../../lib/web/src/components/options-menu.tsx:249
+msgid "Anything subscribed to this feed will stop receiving it. You can copy a new URL afterwards."
+msgstr ""
+
 #. placeholder {0}: deleteTarget?.name
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:308
 msgid "Are you sure you want to delete \"{0}\"?"
@@ -373,7 +393,7 @@ msgstr "Lampirké berkas balesan"
 msgid "Authenticated users"
 msgstr "Panganggo sing wis diverifikasi"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:315
+#: ../../../lib/web/src/components/step-up-dialog.tsx:329
 msgid "Authenticator code"
 msgstr "Kode authenticator"
 
@@ -390,8 +410,8 @@ msgid "Avatar for {name}"
 msgstr "Avatar kanggo {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:156
-#: src/components/clone-dialog.tsx:346
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:418
 msgid "Back"
 msgstr "Bali"
 
@@ -474,7 +494,7 @@ msgstr "Pemberitahuan browser"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:169
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:186
 #: ../../../lib/web/src/components/responsive-confirm-dialog.tsx:67
-#: ../../../lib/web/src/components/step-up-dialog.tsx:363
+#: ../../../lib/web/src/components/step-up-dialog.tsx:377
 #: ../../../lib/web/src/components/travelling-picker.tsx:308
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:249
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:132
@@ -482,7 +502,7 @@ msgstr "Pemberitahuan browser"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:433
+#: src/components/clone-dialog.tsx:446
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:594
@@ -589,16 +609,16 @@ msgstr "Resiki pilihan"
 msgid "Clear selection (Escape)"
 msgstr "Resiki pilihan (Escape)"
 
-#: src/components/clone-dialog.tsx:256
+#: src/components/clone-dialog.tsx:269
 msgid "Clone"
 msgstr "Klona"
 
-#: src/components/clone-dialog.tsx:234
+#: src/components/clone-dialog.tsx:247
 msgid "Clone repository"
 msgstr "Klona repositori"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:477
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:482
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:478
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:483
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
@@ -737,7 +757,7 @@ msgstr "Informasi kontekstual lan rincian."
 msgid "Continue"
 msgstr "Terus"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:352
+#: ../../../lib/web/src/components/step-up-dialog.tsx:366
 msgid "Continue with {label}"
 msgstr "Terusake nganggo {label}"
 
@@ -746,8 +766,8 @@ msgid "Copied"
 msgstr "Wis disalin"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:189
+#: src/components/clone-dialog.tsx:192
+#: src/components/clone-dialog.tsx:202
 msgid "Copied to clipboard"
 msgstr "Disalin menyang clipboard"
 
@@ -773,24 +793,24 @@ msgstr "Ora bisa muat dokumen iki. Coba manèh mengko."
 msgid "Couldn't load notifications"
 msgstr "Ora bisa ngunggah kabar"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:184
+#: ../../../lib/web/src/components/step-up-dialog.tsx:193
 msgid "Couldn't send the code. Please try again."
 msgstr "Ora bisa ngirim kode. Coba maneh."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:136
+#: ../../../lib/web/src/components/step-up-dialog.tsx:145
 msgid "Couldn't start re-authentication. Please try again."
 msgstr "Ora bisa miwiti otentikasi ulang. Coba maneh."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:221
+#: ../../../lib/web/src/components/step-up-dialog.tsx:235
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Ora bisa verifikasi nganggo akun kasebut. Mangga coba maneh."
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:564
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:703
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:467
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:468
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:413
+#: src/components/clone-dialog.tsx:426
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Gawé"
@@ -800,7 +820,7 @@ msgstr "Gawé"
 msgid "Create {0}"
 msgstr "Gawe {0}"
 
-#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:258
 msgid "Create a new authentication token."
 msgstr "Gawé token autentikasi anyar."
 
@@ -825,8 +845,8 @@ msgstr "Gawé item anyar"
 msgid "Create repository"
 msgstr "Gawé repositori"
 
-#: src/components/clone-dialog.tsx:232
-#: src/components/clone-dialog.tsx:350
+#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:363
 msgid "Create token"
 msgstr "Gawé token"
 
@@ -836,7 +856,7 @@ msgid "Created"
 msgstr "Digawé"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:339
 msgid "Created {0}"
 msgstr "Digawé {0}"
 
@@ -849,11 +869,11 @@ msgstr "Nggawe cabang..."
 msgid "Creating repository..."
 msgstr "Nggawe repositori..."
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:215
 msgid "Creating token..."
 msgstr "Nggawe token..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
 #: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -921,7 +941,7 @@ msgstr "Urutan standar"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:201
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:250
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:309
-#: src/components/clone-dialog.tsx:435
+#: src/components/clone-dialog.tsx:448
 #: src/features/repository/repository-tabs.tsx:615
 #: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
@@ -980,11 +1000,11 @@ msgstr "Busak repositori"
 msgid "Delete repository?"
 msgstr "Busak repositori?"
 
-#: src/components/clone-dialog.tsx:335
+#: src/components/clone-dialog.tsx:348
 msgid "Delete token"
 msgstr "Busak token"
 
-#: src/components/clone-dialog.tsx:426
+#: src/components/clone-dialog.tsx:439
 msgid "Delete token?"
 msgstr "Busak token?"
 
@@ -1005,7 +1025,7 @@ msgstr "Mbusak cabang..."
 msgid "Deleting repository..."
 msgstr "Mbusak repositori..."
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:228
 msgid "Deleting token..."
 msgstr "Mbusak token..."
 
@@ -1075,8 +1095,8 @@ msgstr "Nampilaké sidebar mobile."
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:305
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:524
-#: src/components/clone-dialog.tsx:299
-#: src/components/clone-dialog.tsx:384
+#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:397
 msgid "Done"
 msgstr "Rampung"
 
@@ -1106,7 +1126,7 @@ msgstr "Duplikat"
 msgid "Dyslexia-friendly"
 msgstr "Cocok kanggo disleksia"
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:407
 msgid "e.g., Work laptop"
 msgstr "cth., Laptop kerja"
 
@@ -1157,7 +1177,7 @@ msgstr "Owahi tampilan"
 msgid "Email"
 msgstr "Email"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:289
+#: ../../../lib/web/src/components/step-up-dialog.tsx:303
 msgid "Email code"
 msgstr "Kode email"
 
@@ -1169,11 +1189,11 @@ msgstr "Direktori kosong"
 msgid "Empty repository"
 msgstr "Repository kosong"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:299
+#: ../../../lib/web/src/components/step-up-dialog.tsx:313
 msgid "Enter the code from your email"
 msgstr "Ketik kode saka email panjenengan"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:324
+#: ../../../lib/web/src/components/step-up-dialog.tsx:338
 msgid "Enter your authenticator code"
 msgstr "Lebokna kode authenticator sampeyan"
 
@@ -1219,7 +1239,7 @@ msgid "Failed to create branch"
 msgstr "Gagal nggawé branch"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
-#: ../../../lib/web/src/components/options-menu.tsx:99
+#: ../../../lib/web/src/components/options-menu.tsx:101
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
 msgstr "Gagal nggawé link"
@@ -1228,7 +1248,7 @@ msgstr "Gagal nggawé link"
 msgid "Failed to create repository"
 msgstr "Gagal nggawé repository"
 
-#: src/components/clone-dialog.tsx:204
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to create token"
 msgstr "Gagal nggawé token"
 
@@ -1253,7 +1273,7 @@ msgstr "Gagal mbusak link"
 msgid "Failed to delete repository"
 msgstr "Gagal mbusak repository"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:230
 msgid "Failed to delete token"
 msgstr "Gagal mbusak token"
 
@@ -1265,11 +1285,11 @@ msgstr "Gagal ndownload"
 msgid "Failed to download archive"
 msgstr "Gagal ndownload arsip"
 
-#: ../../../lib/web/src/components/options-menu.tsx:123
+#: ../../../lib/web/src/components/options-menu.tsx:125
 msgid "Failed to get RSS token"
 msgstr "Gagal njupuk token RSS"
 
-#: src/components/clone-dialog.tsx:169
+#: src/components/clone-dialog.tsx:182
 msgid "Failed to get token"
 msgstr "Gagal njupuk token"
 
@@ -1333,7 +1353,7 @@ msgstr "Gagal mbusak akun"
 msgid "Failed to rename repository"
 msgstr "Gagal ngganti jeneng repository"
 
-#: ../../../lib/web/src/components/options-menu.tsx:133
+#: ../../../lib/web/src/components/options-menu.tsx:136
 msgid "Failed to revoke RSS access"
 msgstr "Gagal mbatalake akses RSS"
 
@@ -1393,7 +1413,7 @@ msgstr "feature/fitur-ku"
 msgid "file"
 msgstr "file"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:559
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:153
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:173
 #: src/features/repository/tabs.tsx:30
@@ -1576,7 +1596,7 @@ msgstr "Kode verifikasi ora valid"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Kayane kaca sing sampeyan golèki <0/>ora ana utawa wis dibusak."
 
-#: ../../../lib/web/src/lib/locale-format.ts:62
+#: ../../../lib/web/src/lib/locale-format.ts:110
 msgid "Just now"
 msgstr "Lagi wae"
 
@@ -1590,7 +1610,7 @@ msgid "Large"
 msgstr "Gedhe"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:340
 msgid "Last used {0}"
 msgstr "Pungkasan dienggo {0}"
 
@@ -1618,7 +1638,7 @@ msgstr "Mung aksara, angka, spasi, lan tanda pisah"
 msgid "Light"
 msgstr "Padhang"
 
-#: ../../../lib/web/src/components/options-menu.tsx:190
+#: ../../../lib/web/src/components/options-menu.tsx:193
 #: src/components/repository-link-button.tsx:68
 msgid "Link"
 msgstr "Tautan"
@@ -1672,8 +1692,8 @@ msgstr "Mung huruf cilik, angka, lan tanda hubung"
 msgid "Manage categories"
 msgstr "Kelola kategori"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:294
+#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:307
 msgid "Manage tokens"
 msgstr "Atur token"
 
@@ -1723,7 +1743,7 @@ msgstr "Dawa paling sithik"
 msgid "Mochi web"
 msgstr "Web Mochi"
 
-#: ../../../lib/web/src/components/options-menu.tsx:164
+#: ../../../lib/web/src/components/options-menu.tsx:167
 msgid "Moderation"
 msgstr ""
 
@@ -1736,8 +1756,8 @@ msgstr "Senin"
 msgid "More actions"
 msgstr "Tindakan liyané"
 
-#: ../../../lib/web/src/components/options-menu.tsx:145
-#: ../../../lib/web/src/components/options-menu.tsx:152
+#: ../../../lib/web/src/components/options-menu.tsx:148
+#: ../../../lib/web/src/components/options-menu.tsx:155
 msgid "More options"
 msgstr "Pilihan liyane"
 
@@ -1777,12 +1797,12 @@ msgstr "Jeneng:"
 msgid "Network error"
 msgstr "Kaluputan jaringan"
 
-#: src/components/clone-dialog.tsx:326
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:339
+#: src/components/clone-dialog.tsx:340
 msgid "Never"
 msgstr "Ora tau"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:452
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:453
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Anyar"
@@ -1802,7 +1822,7 @@ msgstr "Game anyar"
 msgid "Next image"
 msgstr "Gambar sabanjure"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:525
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:526
 msgid "No {parentClassNames} to add to"
 msgstr "Ora ana {parentClassNames} kanggo ditambahaké"
 
@@ -1844,7 +1864,7 @@ msgstr "Durung ana game"
 msgid "No groups available"
 msgstr "Ora ana grup kasedhiya"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:493
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Durung ana jenis item sing bisa digawé. Gawé item induk sing dibutuhaké luwih dhisik."
 
@@ -1904,7 +1924,7 @@ msgstr "Durung ana tag"
 msgid "No time zone found."
 msgstr "Ora ana zona wektu ditemokaké."
 
-#: src/components/clone-dialog.tsx:314
+#: src/components/clone-dialog.tsx:327
 msgid "No tokens yet."
 msgstr "Durung ana token."
 
@@ -1925,9 +1945,9 @@ msgid "No views"
 msgstr "Ora ana tampilan"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:508
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:511
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:515
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:509
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:512
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:516
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:365
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:391
@@ -2055,7 +2075,7 @@ msgstr "Sing duwé"
 msgid "Page {currentPage} of {totalPages}"
 msgstr "Kaca {currentPage} saka {totalPages}"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:500
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:501
 msgid "Parent"
 msgstr "Induk"
 
@@ -2067,11 +2087,11 @@ msgstr "Induk:"
 msgid "Parents:"
 msgstr "Induk:"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:334
+#: ../../../lib/web/src/components/step-up-dialog.tsx:348
 msgid "Passkey"
 msgstr "Passkey"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:209
+#: ../../../lib/web/src/components/step-up-dialog.tsx:218
 msgid "Passkey verification failed. Please try again."
 msgstr "Verifikasi passkey gagal. Coba maneh."
 
@@ -2113,7 +2133,7 @@ msgstr "Pilih tanggal"
 msgid "Please check your internet connection and try again."
 msgstr "Mangga priksa sambungan internet sampeyan lan coba maneh."
 
-#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:210
 msgid "Please enter a token name"
 msgstr "Mangga lebokaké jeneng token"
 
@@ -2129,11 +2149,11 @@ msgstr "Coba maneh."
 msgid "Please wait a moment and try again."
 msgstr "Mangga enteni sedhela, banjur coba maneh."
 
-#: ../../../lib/web/src/components/options-menu.tsx:175
+#: ../../../lib/web/src/components/options-menu.tsx:178
 msgid "Posts"
 msgstr "Postingan"
 
-#: ../../../lib/web/src/components/options-menu.tsx:178
+#: ../../../lib/web/src/components/options-menu.tsx:181
 msgid "Posts and comments"
 msgstr "Postingan lan komentar"
 
@@ -2346,7 +2366,7 @@ msgstr "Repositori diowahi jenenge"
 msgid "Required"
 msgstr "Dibutuhaké"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:367
+#: ../../../lib/web/src/components/step-up-dialog.tsx:381
 msgid "Resend email"
 msgstr "Kirim ulang email"
 
@@ -2368,9 +2388,17 @@ msgstr "Reset kabèh setelan menyang nilai default"
 msgid "Retry"
 msgstr "Coba maneh"
 
-#: ../../../lib/web/src/components/options-menu.tsx:181
+#: ../../../lib/web/src/components/options-menu.tsx:250
+msgid "Revoke"
+msgstr ""
+
+#: ../../../lib/web/src/components/options-menu.tsx:184
 msgid "Revoke access"
 msgstr "Batalake akses"
+
+#: ../../../lib/web/src/components/options-menu.tsx:244
+msgid "Revoke RSS access?"
+msgstr ""
 
 #: ../../../lib/web/src/components/config-drawer.tsx:362
 msgid "Right to Left"
@@ -2389,15 +2417,15 @@ msgstr "Baris dikelompokaké miturut"
 msgid "Rows per page"
 msgstr "Baris saben kaca"
 
-#: ../../../lib/web/src/components/options-menu.tsx:131
+#: ../../../lib/web/src/components/options-menu.tsx:134
 msgid "RSS access revoked"
 msgstr "Akses RSS dibatalake"
 
-#: ../../../lib/web/src/components/options-menu.tsx:171
+#: ../../../lib/web/src/components/options-menu.tsx:174
 msgid "RSS feed"
 msgstr "Feed RSS"
 
-#: ../../../lib/web/src/components/options-menu.tsx:121
+#: ../../../lib/web/src/components/options-menu.tsx:123
 msgid "RSS URL copied to clipboard"
 msgstr "URL RSS disalin menyang clipboard"
 
@@ -2413,12 +2441,12 @@ msgstr "Setu"
 msgid "Save"
 msgstr "Simpen"
 
-#: src/components/clone-dialog.tsx:244
+#: src/components/clone-dialog.tsx:257
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Simpen token iki saiki. Sampéyan ora bakal bisa ndelok manèh."
 
-#: src/components/clone-dialog.tsx:287
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:300
+#: src/components/clone-dialog.tsx:387
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Simpen token iki kanthi aman. Sampéyan ora bakal bisa ndelok manèh."
 
@@ -2593,7 +2621,7 @@ msgstr "Dipilih: <0>{0}</0>"
 msgid "Send again"
 msgstr "Kirim maneh"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:307
+#: ../../../lib/web/src/components/step-up-dialog.tsx:321
 msgid "Send email"
 msgstr "Kirim email"
 
@@ -2630,7 +2658,7 @@ msgstr "Nyetel akses..."
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:126
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:132
-#: ../../../lib/web/src/components/options-menu.tsx:196
+#: ../../../lib/web/src/components/options-menu.tsx:199
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Setelan"
@@ -2698,7 +2726,7 @@ msgstr "Urut"
 msgid "Source branch"
 msgstr "Cabang sumber"
 
-#: ../../../lib/web/src/components/options-menu.tsx:158
+#: ../../../lib/web/src/components/options-menu.tsx:161
 msgid "Sources"
 msgstr "Sumber"
 
@@ -2801,7 +2829,7 @@ msgstr "Syarat lan ketentuan"
 msgid "Text"
 msgstr "Teks"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:195
+#: ../../../lib/web/src/components/step-up-dialog.tsx:204
 msgid "That code is incorrect or has expired."
 msgstr "Kode kasebut salah utawa wis kadaluwarsa."
 
@@ -2843,7 +2871,7 @@ msgstr "Halaman iki butuh konteks repository."
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Iki bakal mbusak \"{currentName}\" lan kabeh commit, cabang, lan tag kanthi permanen. Tindakan iki ora bisa dibatalaké."
 
-#: src/components/clone-dialog.tsx:428
+#: src/components/clone-dialog.tsx:441
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Iki bakal mbusak token iki kanthi permanen. Klien git apa wae sing nganggo iku ora bakal bisa otentikasi manèh."
 
@@ -2903,15 +2931,15 @@ msgstr "Toggle pilihan tampilan"
 msgid "Toggle watched filter"
 msgstr "Toggle saringan tonton"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:245
 msgid "Token created"
 msgstr "Token digawe"
 
-#: src/components/clone-dialog.tsx:216
+#: src/components/clone-dialog.tsx:229
 msgid "Token deleted"
 msgstr "Token dibusak"
 
-#: src/components/clone-dialog.tsx:391
+#: src/components/clone-dialog.tsx:404
 msgid "Token name"
 msgstr "Jeneng token"
 
@@ -2993,7 +3021,7 @@ msgstr "Amerika Serikat"
 msgid "Unknown"
 msgstr "Ora dimangerteni"
 
-#: ../../../lib/web/src/components/options-menu.tsx:211
+#: ../../../lib/web/src/components/options-menu.tsx:214
 #: src/features/repository/repository-header.tsx:120
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
@@ -3025,7 +3053,7 @@ msgstr "Wis mbatalaké langganan saka repository"
 msgid "Unsubscribing..."
 msgstr "Lagi mbatalaké langganan..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:276
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:277
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
 msgid "Untitled"
@@ -3048,7 +3076,7 @@ msgstr "Nganyari akses..."
 msgid "Updating path..."
 msgstr "Nganyari path..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:599
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:606
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:296
 msgid "Upload"
 msgstr "Unggah"
@@ -3057,7 +3085,7 @@ msgstr "Unggah"
 msgid "Upload progress"
 msgstr "Kemajuan unggahan"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:338
+#: ../../../lib/web/src/components/step-up-dialog.tsx:352
 msgid "Use your passkey"
 msgstr "Gunakake passkey sampeyan"
 
@@ -3079,7 +3107,7 @@ msgstr "Kode verifikasi dikirim"
 msgid "Verification failed"
 msgstr "Verifikasi gagal"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:388
+#: ../../../lib/web/src/components/step-up-dialog.tsx:402
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"

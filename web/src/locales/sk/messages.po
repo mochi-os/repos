@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: ../../../lib/web/src/lib/error-normalizer.ts:236
+#: ../../../lib/web/src/lib/error-normalizer.ts:244
 msgid "Please check your internet connection and try again."
 msgstr "Skontrolujte pripojenie na internet a skúste to znova."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:292
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:293
 msgid " or "
 msgstr " alebo "
 
@@ -75,6 +75,22 @@ msgstr "{0} otagované {1}"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} tagov"
+
+#: ../../../lib/web/src/lib/locale-format.ts:121
+msgid "{count, plural, one {#d} other {#d}}"
+msgstr "{count, plural, one {#d} other {#d}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:117
+msgid "{count, plural, one {#h} other {#h}}"
+msgstr "{count, plural, one {#h} other {#h}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:113
+msgid "{count, plural, one {#m} other {#m}}"
+msgstr "{count, plural, one {#min} other {#min}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:125
+msgid "{count, plural, one {#w} other {#w}}"
+msgstr "{count, plural, one {#týž} other {#týž}}"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:174
 msgid "{entityLabel} name"
@@ -329,6 +345,10 @@ msgstr "Ktokoľvek"
 msgid "Anyone who is logged in"
 msgstr "Ktokoľvek, kto je prihlásený"
 
+#: ../../../lib/web/src/components/options-menu.tsx:249
+msgid "Anything subscribed to this feed will stop receiving it. You can copy a new URL afterwards."
+msgstr ""
+
 #. placeholder {0}: deleteTarget?.name
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:308
 msgid "Are you sure you want to delete \"{0}\"?"
@@ -373,7 +393,7 @@ msgstr "Pripojiť súbory odpovede"
 msgid "Authenticated users"
 msgstr "Prihlásení používatelia"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:315
+#: ../../../lib/web/src/components/step-up-dialog.tsx:329
 msgid "Authenticator code"
 msgstr "Autentifikačný kód"
 
@@ -390,8 +410,8 @@ msgid "Avatar for {name}"
 msgstr "Avatar používateľa {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:156
-#: src/components/clone-dialog.tsx:346
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:418
 msgid "Back"
 msgstr "Späť"
 
@@ -474,7 +494,7 @@ msgstr "Notifikácie prehliadača"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:169
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:186
 #: ../../../lib/web/src/components/responsive-confirm-dialog.tsx:67
-#: ../../../lib/web/src/components/step-up-dialog.tsx:363
+#: ../../../lib/web/src/components/step-up-dialog.tsx:377
 #: ../../../lib/web/src/components/travelling-picker.tsx:308
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:249
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:132
@@ -482,7 +502,7 @@ msgstr "Notifikácie prehliadača"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:433
+#: src/components/clone-dialog.tsx:446
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:594
@@ -589,16 +609,16 @@ msgstr "Zrušiť výber"
 msgid "Clear selection (Escape)"
 msgstr "Zrušiť výber (Escape)"
 
-#: src/components/clone-dialog.tsx:256
+#: src/components/clone-dialog.tsx:269
 msgid "Clone"
 msgstr "Klonovať"
 
-#: src/components/clone-dialog.tsx:234
+#: src/components/clone-dialog.tsx:247
 msgid "Clone repository"
 msgstr "Klonovať repozitár"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:477
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:482
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:478
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:483
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
@@ -737,7 +757,7 @@ msgstr "Kontextové informácie a podrobnosti."
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:352
+#: ../../../lib/web/src/components/step-up-dialog.tsx:366
 msgid "Continue with {label}"
 msgstr "Pokračovať s {label}"
 
@@ -746,8 +766,8 @@ msgid "Copied"
 msgstr "Skopírované"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:189
+#: src/components/clone-dialog.tsx:192
+#: src/components/clone-dialog.tsx:202
 msgid "Copied to clipboard"
 msgstr "Skopírované do schránky"
 
@@ -773,24 +793,24 @@ msgstr "Tento dokument sa nepodarilo načítať. Skúste to neskôr."
 msgid "Couldn't load notifications"
 msgstr "Nepodarilo sa načítať oznámenia"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:184
+#: ../../../lib/web/src/components/step-up-dialog.tsx:193
 msgid "Couldn't send the code. Please try again."
 msgstr "Kód sa nepodarilo odoslať. Skúste to znova."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:136
+#: ../../../lib/web/src/components/step-up-dialog.tsx:145
 msgid "Couldn't start re-authentication. Please try again."
 msgstr "Opätovné overenie sa nepodarilo spustiť. Skúste to znova."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:221
+#: ../../../lib/web/src/components/step-up-dialog.tsx:235
 msgid "Couldn't verify with that account. Please try again."
 msgstr "S týmto účtom sa nepodarilo overiť. Skúste to znova."
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:564
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:703
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:467
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:468
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:413
+#: src/components/clone-dialog.tsx:426
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Vytvoriť"
@@ -800,7 +820,7 @@ msgstr "Vytvoriť"
 msgid "Create {0}"
 msgstr "Vytvoriť {0}"
 
-#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:258
 msgid "Create a new authentication token."
 msgstr "Vytvorte nový autentifikačný token."
 
@@ -825,8 +845,8 @@ msgstr "Vytvoriť novú položku"
 msgid "Create repository"
 msgstr "Vytvoriť repozitár"
 
-#: src/components/clone-dialog.tsx:232
-#: src/components/clone-dialog.tsx:350
+#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:363
 msgid "Create token"
 msgstr "Vytvoriť token"
 
@@ -836,7 +856,7 @@ msgid "Created"
 msgstr "Vytvorené"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:339
 msgid "Created {0}"
 msgstr "Vytvorené {0}"
 
@@ -849,11 +869,11 @@ msgstr "Vytvára sa vetva..."
 msgid "Creating repository..."
 msgstr "Vytvára sa repozitár..."
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:215
 msgid "Creating token..."
 msgstr "Vytvára sa token..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
 #: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -921,7 +941,7 @@ msgstr "Predvolené triedenie"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:201
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:250
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:309
-#: src/components/clone-dialog.tsx:435
+#: src/components/clone-dialog.tsx:448
 #: src/features/repository/repository-tabs.tsx:615
 #: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
@@ -980,11 +1000,11 @@ msgstr "Odstrániť repozitár"
 msgid "Delete repository?"
 msgstr "Odstrániť repozitár?"
 
-#: src/components/clone-dialog.tsx:335
+#: src/components/clone-dialog.tsx:348
 msgid "Delete token"
 msgstr "Odstrániť token"
 
-#: src/components/clone-dialog.tsx:426
+#: src/components/clone-dialog.tsx:439
 msgid "Delete token?"
 msgstr "Odstrániť token?"
 
@@ -1005,7 +1025,7 @@ msgstr "Odstraňuje sa vetva..."
 msgid "Deleting repository..."
 msgstr "Odstraňuje sa repozitár..."
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:228
 msgid "Deleting token..."
 msgstr "Odstraňuje sa token..."
 
@@ -1075,8 +1095,8 @@ msgstr "Zobrazí mobilný bočný panel."
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:305
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:524
-#: src/components/clone-dialog.tsx:299
-#: src/components/clone-dialog.tsx:384
+#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:397
 msgid "Done"
 msgstr "Hotovo"
 
@@ -1106,7 +1126,7 @@ msgstr "Duplikáty"
 msgid "Dyslexia-friendly"
 msgstr "Vhodné pre dyslexiu"
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:407
 msgid "e.g., Work laptop"
 msgstr "napr. Pracovný laptop"
 
@@ -1157,7 +1177,7 @@ msgstr "Upraviť pohľad"
 msgid "Email"
 msgstr "E-mail"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:289
+#: ../../../lib/web/src/components/step-up-dialog.tsx:303
 msgid "Email code"
 msgstr "E-mailový kód"
 
@@ -1169,11 +1189,11 @@ msgstr "Prázdny adresár"
 msgid "Empty repository"
 msgstr "Prázdny repozitár"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:299
+#: ../../../lib/web/src/components/step-up-dialog.tsx:313
 msgid "Enter the code from your email"
 msgstr "Zadajte kód z e-mailu"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:324
+#: ../../../lib/web/src/components/step-up-dialog.tsx:338
 msgid "Enter your authenticator code"
 msgstr "Zadajte kód z autentifikačnej aplikácie"
 
@@ -1219,7 +1239,7 @@ msgid "Failed to create branch"
 msgstr "Nepodarilo sa vytvoriť vetvu"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
-#: ../../../lib/web/src/components/options-menu.tsx:99
+#: ../../../lib/web/src/components/options-menu.tsx:101
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
 msgstr "Nepodarilo sa vytvoriť odkaz"
@@ -1228,7 +1248,7 @@ msgstr "Nepodarilo sa vytvoriť odkaz"
 msgid "Failed to create repository"
 msgstr "Nepodarilo sa vytvoriť repozitár"
 
-#: src/components/clone-dialog.tsx:204
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to create token"
 msgstr "Nepodarilo sa vytvoriť token"
 
@@ -1253,7 +1273,7 @@ msgstr "Nepodarilo sa zmazať odkaz"
 msgid "Failed to delete repository"
 msgstr "Nepodarilo sa zmazať repozitár"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:230
 msgid "Failed to delete token"
 msgstr "Nepodarilo sa zmazať token"
 
@@ -1265,11 +1285,11 @@ msgstr "Nepodarilo sa stiahnuť"
 msgid "Failed to download archive"
 msgstr "Nepodarilo sa stiahnuť archív"
 
-#: ../../../lib/web/src/components/options-menu.tsx:123
+#: ../../../lib/web/src/components/options-menu.tsx:125
 msgid "Failed to get RSS token"
 msgstr "Nepodarilo sa získať RSS token"
 
-#: src/components/clone-dialog.tsx:169
+#: src/components/clone-dialog.tsx:182
 msgid "Failed to get token"
 msgstr "Nepodarilo sa získať token"
 
@@ -1333,7 +1353,7 @@ msgstr "Nepodarilo sa odstrániť účet"
 msgid "Failed to rename repository"
 msgstr "Nepodarilo sa premenovať repozitár"
 
-#: ../../../lib/web/src/components/options-menu.tsx:133
+#: ../../../lib/web/src/components/options-menu.tsx:136
 msgid "Failed to revoke RSS access"
 msgstr "Zrušenie prístupu RSS zlyhalo"
 
@@ -1393,7 +1413,7 @@ msgstr "feature/moja-funkcia"
 msgid "file"
 msgstr "súbor"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:559
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:153
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:173
 #: src/features/repository/tabs.tsx:30
@@ -1576,7 +1596,7 @@ msgstr "Neplatný overovací kód"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Zdá sa, že stránka, ktorú hľadáte, <0/>neexistuje alebo bola odstránená."
 
-#: ../../../lib/web/src/lib/locale-format.ts:62
+#: ../../../lib/web/src/lib/locale-format.ts:110
 msgid "Just now"
 msgstr "Práve teraz"
 
@@ -1590,7 +1610,7 @@ msgid "Large"
 msgstr "Veľké"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:340
 msgid "Last used {0}"
 msgstr "Naposledy použité {0}"
 
@@ -1618,7 +1638,7 @@ msgstr "Iba písmená, číslice, medzery a pomlčky"
 msgid "Light"
 msgstr "Svetlý"
 
-#: ../../../lib/web/src/components/options-menu.tsx:190
+#: ../../../lib/web/src/components/options-menu.tsx:193
 #: src/components/repository-link-button.tsx:68
 msgid "Link"
 msgstr "Odkaz"
@@ -1672,8 +1692,8 @@ msgstr "Iba malé písmená, čísla a pomlčky"
 msgid "Manage categories"
 msgstr "Spravovať kategórie"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:294
+#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:307
 msgid "Manage tokens"
 msgstr "Spravovať tokeny"
 
@@ -1723,7 +1743,7 @@ msgstr "Min. dĺžka"
 msgid "Mochi web"
 msgstr "Mochi web"
 
-#: ../../../lib/web/src/components/options-menu.tsx:164
+#: ../../../lib/web/src/components/options-menu.tsx:167
 msgid "Moderation"
 msgstr ""
 
@@ -1736,8 +1756,8 @@ msgstr "Pondelok"
 msgid "More actions"
 msgstr "Ďalšie akcie"
 
-#: ../../../lib/web/src/components/options-menu.tsx:145
-#: ../../../lib/web/src/components/options-menu.tsx:152
+#: ../../../lib/web/src/components/options-menu.tsx:148
+#: ../../../lib/web/src/components/options-menu.tsx:155
 msgid "More options"
 msgstr "Ďalšie možnosti"
 
@@ -1777,12 +1797,12 @@ msgstr "Názov:"
 msgid "Network error"
 msgstr "Chyba siete"
 
-#: src/components/clone-dialog.tsx:326
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:339
+#: src/components/clone-dialog.tsx:340
 msgid "Never"
 msgstr "Nikdy"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:452
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:453
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Nový"
@@ -1802,7 +1822,7 @@ msgstr "Nová hra"
 msgid "Next image"
 msgstr "Ďalší obrázok"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:525
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:526
 msgid "No {parentClassNames} to add to"
 msgstr "Žiadne {parentClassNames} na pridanie"
 
@@ -1844,7 +1864,7 @@ msgstr "Zatiaľ žiadne hry"
 msgid "No groups available"
 msgstr "Nie sú dostupné žiadne skupiny"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:493
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Zatiaľ sa nedajú vytvoriť žiadne typy položiek. Najprv vytvorte požadované nadradené položky."
 
@@ -1904,7 +1924,7 @@ msgstr "Zatiaľ žiadne štítky"
 msgid "No time zone found."
 msgstr "Nenašlo sa žiadne časové pásmo."
 
-#: src/components/clone-dialog.tsx:314
+#: src/components/clone-dialog.tsx:327
 msgid "No tokens yet."
 msgstr "Zatiaľ žiadne tokeny."
 
@@ -1925,9 +1945,9 @@ msgid "No views"
 msgstr "Žiadne zobrazenia"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:508
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:511
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:515
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:509
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:512
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:516
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:365
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:391
@@ -2055,7 +2075,7 @@ msgstr "Vlastník"
 msgid "Page {currentPage} of {totalPages}"
 msgstr "Stránka {currentPage} z {totalPages}"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:500
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:501
 msgid "Parent"
 msgstr "Rodič"
 
@@ -2067,11 +2087,11 @@ msgstr "Rodič:"
 msgid "Parents:"
 msgstr "Rodičia:"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:334
+#: ../../../lib/web/src/components/step-up-dialog.tsx:348
 msgid "Passkey"
 msgstr "Prístupový kľúč"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:209
+#: ../../../lib/web/src/components/step-up-dialog.tsx:218
 msgid "Passkey verification failed. Please try again."
 msgstr "Overenie prístupového kľúča zlyhalo. Skúste to znova."
 
@@ -2113,7 +2133,7 @@ msgstr "Vyberte dátum"
 msgid "Please check your internet connection and try again."
 msgstr "Skontrolujte pripojenie na internet a skúste to znova."
 
-#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:210
 msgid "Please enter a token name"
 msgstr "Zadajte názov tokenu"
 
@@ -2129,11 +2149,11 @@ msgstr "Skúste to znova."
 msgid "Please wait a moment and try again."
 msgstr "Chvíľu počkajte a skúste to znova."
 
-#: ../../../lib/web/src/components/options-menu.tsx:175
+#: ../../../lib/web/src/components/options-menu.tsx:178
 msgid "Posts"
 msgstr "Príspevky"
 
-#: ../../../lib/web/src/components/options-menu.tsx:178
+#: ../../../lib/web/src/components/options-menu.tsx:181
 msgid "Posts and comments"
 msgstr "Príspevky a komentáre"
 
@@ -2346,7 +2366,7 @@ msgstr "Repozitár premenovaný"
 msgid "Required"
 msgstr "Povinné"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:367
+#: ../../../lib/web/src/components/step-up-dialog.tsx:381
 msgid "Resend email"
 msgstr "Odoslať e-mail znova"
 
@@ -2368,9 +2388,17 @@ msgstr "Obnoviť všetky nastavenia na predvolené hodnoty"
 msgid "Retry"
 msgstr "Skúsiť znova"
 
-#: ../../../lib/web/src/components/options-menu.tsx:181
+#: ../../../lib/web/src/components/options-menu.tsx:250
+msgid "Revoke"
+msgstr ""
+
+#: ../../../lib/web/src/components/options-menu.tsx:184
 msgid "Revoke access"
 msgstr "Zrušiť prístup"
+
+#: ../../../lib/web/src/components/options-menu.tsx:244
+msgid "Revoke RSS access?"
+msgstr ""
 
 #: ../../../lib/web/src/components/config-drawer.tsx:362
 msgid "Right to Left"
@@ -2389,15 +2417,15 @@ msgstr "Zoskupiť riadky podľa"
 msgid "Rows per page"
 msgstr "Riadkov na stránku"
 
-#: ../../../lib/web/src/components/options-menu.tsx:131
+#: ../../../lib/web/src/components/options-menu.tsx:134
 msgid "RSS access revoked"
 msgstr "Prístup RSS zrušený"
 
-#: ../../../lib/web/src/components/options-menu.tsx:171
+#: ../../../lib/web/src/components/options-menu.tsx:174
 msgid "RSS feed"
 msgstr "RSS kanál"
 
-#: ../../../lib/web/src/components/options-menu.tsx:121
+#: ../../../lib/web/src/components/options-menu.tsx:123
 msgid "RSS URL copied to clipboard"
 msgstr "URL RSS skopírovaná do schránky"
 
@@ -2413,12 +2441,12 @@ msgstr "Sobota"
 msgid "Save"
 msgstr "Uložiť"
 
-#: src/components/clone-dialog.tsx:244
+#: src/components/clone-dialog.tsx:257
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Uložte si tento token teraz. Už ho neuvidíte."
 
-#: src/components/clone-dialog.tsx:287
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:300
+#: src/components/clone-dialog.tsx:387
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Uložte si tento token bezpečne. Už ho neuvidíte."
 
@@ -2593,7 +2621,7 @@ msgstr "Vybraté: <0>{0}</0>"
 msgid "Send again"
 msgstr "Odoslať znova"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:307
+#: ../../../lib/web/src/components/step-up-dialog.tsx:321
 msgid "Send email"
 msgstr "Odoslať e-mail"
 
@@ -2630,7 +2658,7 @@ msgstr "Nastavuje sa prístup..."
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:126
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:132
-#: ../../../lib/web/src/components/options-menu.tsx:196
+#: ../../../lib/web/src/components/options-menu.tsx:199
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Nastavenia"
@@ -2698,7 +2726,7 @@ msgstr "Zoradiť"
 msgid "Source branch"
 msgstr "Zdrojová vetva"
 
-#: ../../../lib/web/src/components/options-menu.tsx:158
+#: ../../../lib/web/src/components/options-menu.tsx:161
 msgid "Sources"
 msgstr "Zdroje"
 
@@ -2801,7 +2829,7 @@ msgstr "Podmienky používania"
 msgid "Text"
 msgstr "Text"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:195
+#: ../../../lib/web/src/components/step-up-dialog.tsx:204
 msgid "That code is incorrect or has expired."
 msgstr "Tento kód je nesprávny alebo vypršal."
 
@@ -2843,7 +2871,7 @@ msgstr "Táto stránka vyžaduje kontext repozitára."
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Týmto sa natrvalo odstráni „{currentName}“ a všetky jeho commity, vetvy a tagy. Túto akciu nemožno vrátiť."
 
-#: src/components/clone-dialog.tsx:428
+#: src/components/clone-dialog.tsx:441
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Týmto sa natrvalo odstráni tento token. Žiadni git klienti, ktorí ho používajú, sa už nebudú môcť autentifikovať."
 
@@ -2903,15 +2931,15 @@ msgstr "Prepnúť možnosti zobrazenia"
 msgid "Toggle watched filter"
 msgstr "Prepnúť filter sledovaných"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:245
 msgid "Token created"
 msgstr "Token vytvorený"
 
-#: src/components/clone-dialog.tsx:216
+#: src/components/clone-dialog.tsx:229
 msgid "Token deleted"
 msgstr "Token odstránený"
 
-#: src/components/clone-dialog.tsx:391
+#: src/components/clone-dialog.tsx:404
 msgid "Token name"
 msgstr "Názov tokenu"
 
@@ -2993,7 +3021,7 @@ msgstr "Spojené štáty"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: ../../../lib/web/src/components/options-menu.tsx:211
+#: ../../../lib/web/src/components/options-menu.tsx:214
 #: src/features/repository/repository-header.tsx:120
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
@@ -3025,7 +3053,7 @@ msgstr "Odber repozitára zrušený"
 msgid "Unsubscribing..."
 msgstr "Odhlasuje sa odber..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:276
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:277
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
 msgid "Untitled"
@@ -3048,7 +3076,7 @@ msgstr "Aktualizuje sa prístup..."
 msgid "Updating path..."
 msgstr "Aktualizuje sa cesta..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:599
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:606
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:296
 msgid "Upload"
 msgstr "Nahrať"
@@ -3057,7 +3085,7 @@ msgstr "Nahrať"
 msgid "Upload progress"
 msgstr "Priebeh nahrávania"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:338
+#: ../../../lib/web/src/components/step-up-dialog.tsx:352
 msgid "Use your passkey"
 msgstr "Použite svoj prístupový kľúč"
 
@@ -3079,7 +3107,7 @@ msgstr "Overovací kód odoslaný"
 msgid "Verification failed"
 msgstr "Overenie zlyhalo"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:388
+#: ../../../lib/web/src/components/step-up-dialog.tsx:402
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"

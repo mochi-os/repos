@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: ../../../lib/web/src/lib/error-normalizer.ts:236
+#: ../../../lib/web/src/lib/error-normalizer.ts:244
 msgid "Please check your internet connection and try again."
 msgstr "Vui lòng kiểm tra kết nối internet và thử lại."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:292
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:293
 msgid " or "
 msgstr " hoặc "
 
@@ -75,6 +75,22 @@ msgstr "{0} đã gắn tag vào {1}"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} tag"
+
+#: ../../../lib/web/src/lib/locale-format.ts:121
+msgid "{count, plural, one {#d} other {#d}}"
+msgstr "{count, plural, one {#ng} other {#ng}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:117
+msgid "{count, plural, one {#h} other {#h}}"
+msgstr "{count, plural, one {#g} other {#g}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:113
+msgid "{count, plural, one {#m} other {#m}}"
+msgstr "{count, plural, one {#ph} other {#ph}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:125
+msgid "{count, plural, one {#w} other {#w}}"
+msgstr "{count, plural, one {#tu} other {#tu}}"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:174
 msgid "{entityLabel} name"
@@ -329,6 +345,10 @@ msgstr "Bất kỳ ai"
 msgid "Anyone who is logged in"
 msgstr "Bất kỳ ai đã đăng nhập"
 
+#: ../../../lib/web/src/components/options-menu.tsx:249
+msgid "Anything subscribed to this feed will stop receiving it. You can copy a new URL afterwards."
+msgstr ""
+
 #. placeholder {0}: deleteTarget?.name
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:308
 msgid "Are you sure you want to delete \"{0}\"?"
@@ -373,7 +393,7 @@ msgstr "Đính kèm tệp phản hồi"
 msgid "Authenticated users"
 msgstr "Người dùng đã xác thực"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:315
+#: ../../../lib/web/src/components/step-up-dialog.tsx:329
 msgid "Authenticator code"
 msgstr "Mã xác thực"
 
@@ -390,8 +410,8 @@ msgid "Avatar for {name}"
 msgstr "Ảnh đại diện của {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:156
-#: src/components/clone-dialog.tsx:346
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:418
 msgid "Back"
 msgstr "Quay lại"
 
@@ -474,7 +494,7 @@ msgstr "Thông báo trình duyệt"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:169
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:186
 #: ../../../lib/web/src/components/responsive-confirm-dialog.tsx:67
-#: ../../../lib/web/src/components/step-up-dialog.tsx:363
+#: ../../../lib/web/src/components/step-up-dialog.tsx:377
 #: ../../../lib/web/src/components/travelling-picker.tsx:308
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:249
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:132
@@ -482,7 +502,7 @@ msgstr "Thông báo trình duyệt"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:433
+#: src/components/clone-dialog.tsx:446
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:594
@@ -589,16 +609,16 @@ msgstr "Bỏ chọn"
 msgid "Clear selection (Escape)"
 msgstr "Bỏ chọn (Escape)"
 
-#: src/components/clone-dialog.tsx:256
+#: src/components/clone-dialog.tsx:269
 msgid "Clone"
 msgstr "Sao chép"
 
-#: src/components/clone-dialog.tsx:234
+#: src/components/clone-dialog.tsx:247
 msgid "Clone repository"
 msgstr "Sao chép kho lưu trữ"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:477
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:482
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:478
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:483
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
@@ -737,7 +757,7 @@ msgstr "Thông tin và chi tiết theo ngữ cảnh."
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:352
+#: ../../../lib/web/src/components/step-up-dialog.tsx:366
 msgid "Continue with {label}"
 msgstr "Tiếp tục với {label}"
 
@@ -746,8 +766,8 @@ msgid "Copied"
 msgstr "Đã sao chép"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:189
+#: src/components/clone-dialog.tsx:192
+#: src/components/clone-dialog.tsx:202
 msgid "Copied to clipboard"
 msgstr "Đã sao chép vào bộ nhớ tạm"
 
@@ -773,24 +793,24 @@ msgstr "Không thể tải tài liệu này. Vui lòng thử lại sau."
 msgid "Couldn't load notifications"
 msgstr "Không thể tải thông báo"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:184
+#: ../../../lib/web/src/components/step-up-dialog.tsx:193
 msgid "Couldn't send the code. Please try again."
 msgstr "Không thể gửi mã. Vui lòng thử lại."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:136
+#: ../../../lib/web/src/components/step-up-dialog.tsx:145
 msgid "Couldn't start re-authentication. Please try again."
 msgstr "Không thể bắt đầu xác thực lại. Vui lòng thử lại."
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:221
+#: ../../../lib/web/src/components/step-up-dialog.tsx:235
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Không thể xác minh bằng tài khoản đó. Vui lòng thử lại."
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:564
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:703
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:467
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:468
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:413
+#: src/components/clone-dialog.tsx:426
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Tạo"
@@ -800,7 +820,7 @@ msgstr "Tạo"
 msgid "Create {0}"
 msgstr "Tạo {0}"
 
-#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:258
 msgid "Create a new authentication token."
 msgstr "Tạo mã thông báo xác thực mới."
 
@@ -825,8 +845,8 @@ msgstr "Tạo mục mới"
 msgid "Create repository"
 msgstr "Tạo kho lưu trữ"
 
-#: src/components/clone-dialog.tsx:232
-#: src/components/clone-dialog.tsx:350
+#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:363
 msgid "Create token"
 msgstr "Tạo token"
 
@@ -836,7 +856,7 @@ msgid "Created"
 msgstr "Đã tạo"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:339
 msgid "Created {0}"
 msgstr "Đã tạo {0}"
 
@@ -849,11 +869,11 @@ msgstr "Đang tạo nhánh..."
 msgid "Creating repository..."
 msgstr "Đang tạo kho lưu trữ..."
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:215
 msgid "Creating token..."
 msgstr "Đang tạo token..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
 #: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -921,7 +941,7 @@ msgstr "Sắp xếp mặc định"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:201
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:250
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:309
-#: src/components/clone-dialog.tsx:435
+#: src/components/clone-dialog.tsx:448
 #: src/features/repository/repository-tabs.tsx:615
 #: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
@@ -980,11 +1000,11 @@ msgstr "Xóa kho lưu trữ"
 msgid "Delete repository?"
 msgstr "Xóa kho lưu trữ?"
 
-#: src/components/clone-dialog.tsx:335
+#: src/components/clone-dialog.tsx:348
 msgid "Delete token"
 msgstr "Xóa token"
 
-#: src/components/clone-dialog.tsx:426
+#: src/components/clone-dialog.tsx:439
 msgid "Delete token?"
 msgstr "Xóa token?"
 
@@ -1005,7 +1025,7 @@ msgstr "Đang xóa nhánh..."
 msgid "Deleting repository..."
 msgstr "Đang xóa kho lưu trữ..."
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:228
 msgid "Deleting token..."
 msgstr "Đang xóa token..."
 
@@ -1075,8 +1095,8 @@ msgstr "Hiển thị thanh bên di động."
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:305
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:524
-#: src/components/clone-dialog.tsx:299
-#: src/components/clone-dialog.tsx:384
+#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:397
 msgid "Done"
 msgstr "Xong"
 
@@ -1106,7 +1126,7 @@ msgstr "Trùng lặp"
 msgid "Dyslexia-friendly"
 msgstr "Thân thiện với chứng khó đọc"
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:407
 msgid "e.g., Work laptop"
 msgstr "vd. Laptop công việc"
 
@@ -1157,7 +1177,7 @@ msgstr "Sửa chế độ xem"
 msgid "Email"
 msgstr "Email"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:289
+#: ../../../lib/web/src/components/step-up-dialog.tsx:303
 msgid "Email code"
 msgstr "Mã email"
 
@@ -1169,11 +1189,11 @@ msgstr "Thư mục trống"
 msgid "Empty repository"
 msgstr "Kho lưu trữ trống"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:299
+#: ../../../lib/web/src/components/step-up-dialog.tsx:313
 msgid "Enter the code from your email"
 msgstr "Nhập mã từ email của bạn"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:324
+#: ../../../lib/web/src/components/step-up-dialog.tsx:338
 msgid "Enter your authenticator code"
 msgstr "Nhập mã từ ứng dụng xác thực của bạn"
 
@@ -1219,7 +1239,7 @@ msgid "Failed to create branch"
 msgstr "Không tạo nhánh được"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
-#: ../../../lib/web/src/components/options-menu.tsx:99
+#: ../../../lib/web/src/components/options-menu.tsx:101
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
 msgstr "Không tạo liên kết được"
@@ -1228,7 +1248,7 @@ msgstr "Không tạo liên kết được"
 msgid "Failed to create repository"
 msgstr "Không tạo kho lưu trữ được"
 
-#: src/components/clone-dialog.tsx:204
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to create token"
 msgstr "Không tạo token được"
 
@@ -1253,7 +1273,7 @@ msgstr "Không xoá liên kết được"
 msgid "Failed to delete repository"
 msgstr "Không xoá kho lưu trữ được"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:230
 msgid "Failed to delete token"
 msgstr "Không xoá token được"
 
@@ -1265,11 +1285,11 @@ msgstr "Không tải xuống được"
 msgid "Failed to download archive"
 msgstr "Không tải xuống bản lưu trữ được"
 
-#: ../../../lib/web/src/components/options-menu.tsx:123
+#: ../../../lib/web/src/components/options-menu.tsx:125
 msgid "Failed to get RSS token"
 msgstr "Không lấy token RSS được"
 
-#: src/components/clone-dialog.tsx:169
+#: src/components/clone-dialog.tsx:182
 msgid "Failed to get token"
 msgstr "Không lấy token được"
 
@@ -1333,7 +1353,7 @@ msgstr "Không xoá tài khoản được"
 msgid "Failed to rename repository"
 msgstr "Không đổi tên kho lưu trữ được"
 
-#: ../../../lib/web/src/components/options-menu.tsx:133
+#: ../../../lib/web/src/components/options-menu.tsx:136
 msgid "Failed to revoke RSS access"
 msgstr "Không thể thu hồi quyền truy cập RSS"
 
@@ -1393,7 +1413,7 @@ msgstr "feature/my-feature"
 msgid "file"
 msgstr "tệp"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:559
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:153
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:173
 #: src/features/repository/tabs.tsx:30
@@ -1576,7 +1596,7 @@ msgstr "Mã xác minh không hợp lệ"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Có vẻ như trang bạn đang tìm <0/>không tồn tại hoặc đã bị xóa."
 
-#: ../../../lib/web/src/lib/locale-format.ts:62
+#: ../../../lib/web/src/lib/locale-format.ts:110
 msgid "Just now"
 msgstr "Vừa xong"
 
@@ -1590,7 +1610,7 @@ msgid "Large"
 msgstr "Lớn"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:340
 msgid "Last used {0}"
 msgstr "Sử dụng cuối {0}"
 
@@ -1618,7 +1638,7 @@ msgstr "Chỉ chữ cái, chữ số, khoảng trắng và dấu gạch nối"
 msgid "Light"
 msgstr "Sáng"
 
-#: ../../../lib/web/src/components/options-menu.tsx:190
+#: ../../../lib/web/src/components/options-menu.tsx:193
 #: src/components/repository-link-button.tsx:68
 msgid "Link"
 msgstr "Liên kết"
@@ -1672,8 +1692,8 @@ msgstr "Chỉ chữ thường, số và dấu gạch ngang"
 msgid "Manage categories"
 msgstr "Quản lý danh mục"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:294
+#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:307
 msgid "Manage tokens"
 msgstr "Quản lý token"
 
@@ -1723,7 +1743,7 @@ msgstr "Độ dài tối thiểu"
 msgid "Mochi web"
 msgstr "Mochi web"
 
-#: ../../../lib/web/src/components/options-menu.tsx:164
+#: ../../../lib/web/src/components/options-menu.tsx:167
 msgid "Moderation"
 msgstr ""
 
@@ -1736,8 +1756,8 @@ msgstr "Thứ Hai"
 msgid "More actions"
 msgstr "Hành động khác"
 
-#: ../../../lib/web/src/components/options-menu.tsx:145
-#: ../../../lib/web/src/components/options-menu.tsx:152
+#: ../../../lib/web/src/components/options-menu.tsx:148
+#: ../../../lib/web/src/components/options-menu.tsx:155
 msgid "More options"
 msgstr "Tùy chọn khác"
 
@@ -1777,12 +1797,12 @@ msgstr "Tên:"
 msgid "Network error"
 msgstr "Lỗi mạng"
 
-#: src/components/clone-dialog.tsx:326
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:339
+#: src/components/clone-dialog.tsx:340
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:452
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:453
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Mới"
@@ -1802,7 +1822,7 @@ msgstr "Trò chơi mới"
 msgid "Next image"
 msgstr "Hình tiếp theo"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:525
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:526
 msgid "No {parentClassNames} to add to"
 msgstr "Không có {parentClassNames} để thêm vào"
 
@@ -1844,7 +1864,7 @@ msgstr "Chưa có trò chơi"
 msgid "No groups available"
 msgstr "Không có nhóm nào"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:493
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Chưa thể tạo loại mục nào. Hãy tạo các mục cha cần thiết trước."
 
@@ -1904,7 +1924,7 @@ msgstr "Chưa có thẻ"
 msgid "No time zone found."
 msgstr "Không tìm thấy múi giờ."
 
-#: src/components/clone-dialog.tsx:314
+#: src/components/clone-dialog.tsx:327
 msgid "No tokens yet."
 msgstr "Chưa có token."
 
@@ -1925,9 +1945,9 @@ msgid "No views"
 msgstr "Không có lượt xem"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:508
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:511
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:515
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:509
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:512
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:516
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:365
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:391
@@ -2055,7 +2075,7 @@ msgstr "Chủ sở hữu"
 msgid "Page {currentPage} of {totalPages}"
 msgstr "Trang {currentPage} trên {totalPages}"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:500
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:501
 msgid "Parent"
 msgstr "Cha"
 
@@ -2067,11 +2087,11 @@ msgstr "Cha:"
 msgid "Parents:"
 msgstr "Cha:"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:334
+#: ../../../lib/web/src/components/step-up-dialog.tsx:348
 msgid "Passkey"
 msgstr "Mã khóa"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:209
+#: ../../../lib/web/src/components/step-up-dialog.tsx:218
 msgid "Passkey verification failed. Please try again."
 msgstr "Xác minh mã khóa không thành công. Vui lòng thử lại."
 
@@ -2113,7 +2133,7 @@ msgstr "Chọn ngày"
 msgid "Please check your internet connection and try again."
 msgstr "Vui lòng kiểm tra kết nối internet và thử lại."
 
-#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:210
 msgid "Please enter a token name"
 msgstr "Vui lòng nhập tên token"
 
@@ -2129,11 +2149,11 @@ msgstr "Vui lòng thử lại."
 msgid "Please wait a moment and try again."
 msgstr "Vui lòng đợi một lát rồi thử lại."
 
-#: ../../../lib/web/src/components/options-menu.tsx:175
+#: ../../../lib/web/src/components/options-menu.tsx:178
 msgid "Posts"
 msgstr "Bài viết"
 
-#: ../../../lib/web/src/components/options-menu.tsx:178
+#: ../../../lib/web/src/components/options-menu.tsx:181
 msgid "Posts and comments"
 msgstr "Bài viết và bình luận"
 
@@ -2346,7 +2366,7 @@ msgstr "Đã đổi tên kho lưu trữ"
 msgid "Required"
 msgstr "Bắt buộc"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:367
+#: ../../../lib/web/src/components/step-up-dialog.tsx:381
 msgid "Resend email"
 msgstr "Gửi lại email"
 
@@ -2368,9 +2388,17 @@ msgstr "Đặt lại tất cả cài đặt về giá trị mặc định"
 msgid "Retry"
 msgstr "Thử lại"
 
-#: ../../../lib/web/src/components/options-menu.tsx:181
+#: ../../../lib/web/src/components/options-menu.tsx:250
+msgid "Revoke"
+msgstr ""
+
+#: ../../../lib/web/src/components/options-menu.tsx:184
 msgid "Revoke access"
 msgstr "Thu hồi quyền truy cập"
+
+#: ../../../lib/web/src/components/options-menu.tsx:244
+msgid "Revoke RSS access?"
+msgstr ""
 
 #: ../../../lib/web/src/components/config-drawer.tsx:362
 msgid "Right to Left"
@@ -2389,15 +2417,15 @@ msgstr "Nhóm hàng theo"
 msgid "Rows per page"
 msgstr "Số hàng mỗi trang"
 
-#: ../../../lib/web/src/components/options-menu.tsx:131
+#: ../../../lib/web/src/components/options-menu.tsx:134
 msgid "RSS access revoked"
 msgstr "Đã thu hồi quyền truy cập RSS"
 
-#: ../../../lib/web/src/components/options-menu.tsx:171
+#: ../../../lib/web/src/components/options-menu.tsx:174
 msgid "RSS feed"
 msgstr "Feed RSS"
 
-#: ../../../lib/web/src/components/options-menu.tsx:121
+#: ../../../lib/web/src/components/options-menu.tsx:123
 msgid "RSS URL copied to clipboard"
 msgstr "Đã sao chép URL RSS vào clipboard"
 
@@ -2413,12 +2441,12 @@ msgstr "Thứ bảy"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/clone-dialog.tsx:244
+#: src/components/clone-dialog.tsx:257
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Lưu mã thông báo này ngay. Bạn sẽ không thể xem lại."
 
-#: src/components/clone-dialog.tsx:287
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:300
+#: src/components/clone-dialog.tsx:387
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Lưu token này một cách an toàn. Bạn sẽ không thể xem lại nó nữa."
 
@@ -2593,7 +2621,7 @@ msgstr "Đã chọn: <0>{0}</0>"
 msgid "Send again"
 msgstr "Gửi lại"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:307
+#: ../../../lib/web/src/components/step-up-dialog.tsx:321
 msgid "Send email"
 msgstr "Gửi email"
 
@@ -2630,7 +2658,7 @@ msgstr "Đang thiết lập quyền truy cập..."
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:126
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:132
-#: ../../../lib/web/src/components/options-menu.tsx:196
+#: ../../../lib/web/src/components/options-menu.tsx:199
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Cài đặt"
@@ -2698,7 +2726,7 @@ msgstr "Sắp xếp"
 msgid "Source branch"
 msgstr "Nhánh nguồn"
 
-#: ../../../lib/web/src/components/options-menu.tsx:158
+#: ../../../lib/web/src/components/options-menu.tsx:161
 msgid "Sources"
 msgstr "Nguồn"
 
@@ -2801,7 +2829,7 @@ msgstr "Điều khoản và điều kiện"
 msgid "Text"
 msgstr "Văn bản"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:195
+#: ../../../lib/web/src/components/step-up-dialog.tsx:204
 msgid "That code is incorrect or has expired."
 msgstr "Mã đó không đúng hoặc đã hết hạn."
 
@@ -2843,7 +2871,7 @@ msgstr "Trang này yêu cầu ngữ cảnh kho lưu trữ."
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Thao tác này sẽ xóa vĩnh viễn \"{currentName}\" cùng toàn bộ commit, nhánh và thẻ. Hành động này không thể hoàn tác."
 
-#: src/components/clone-dialog.tsx:428
+#: src/components/clone-dialog.tsx:441
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Điều này sẽ xóa vĩnh viễn mã thông báo. Các client git sử dụng nó sẽ không thể xác thực nữa."
 
@@ -2903,15 +2931,15 @@ msgstr "Bật/tắt tùy chọn xem"
 msgid "Toggle watched filter"
 msgstr "Bật/tắt bộ lọc đã theo dõi"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:245
 msgid "Token created"
 msgstr "Đã tạo token"
 
-#: src/components/clone-dialog.tsx:216
+#: src/components/clone-dialog.tsx:229
 msgid "Token deleted"
 msgstr "Đã xóa token"
 
-#: src/components/clone-dialog.tsx:391
+#: src/components/clone-dialog.tsx:404
 msgid "Token name"
 msgstr "Tên token"
 
@@ -2993,7 +3021,7 @@ msgstr "Hoa Kỳ"
 msgid "Unknown"
 msgstr "Không rõ"
 
-#: ../../../lib/web/src/components/options-menu.tsx:211
+#: ../../../lib/web/src/components/options-menu.tsx:214
 #: src/features/repository/repository-header.tsx:120
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
@@ -3025,7 +3053,7 @@ msgstr "Đã hủy đăng ký kho lưu trữ"
 msgid "Unsubscribing..."
 msgstr "Đang hủy đăng ký..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:276
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:277
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
 msgid "Untitled"
@@ -3048,7 +3076,7 @@ msgstr "Đang cập nhật quyền truy cập..."
 msgid "Updating path..."
 msgstr "Đang cập nhật đường dẫn..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:599
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:606
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:296
 msgid "Upload"
 msgstr "Tải lên"
@@ -3057,7 +3085,7 @@ msgstr "Tải lên"
 msgid "Upload progress"
 msgstr "Tiến trình tải lên"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:338
+#: ../../../lib/web/src/components/step-up-dialog.tsx:352
 msgid "Use your passkey"
 msgstr "Dùng mã khóa của bạn"
 
@@ -3079,7 +3107,7 @@ msgstr "Đã gửi mã xác minh"
 msgid "Verification failed"
 msgstr "Xác minh thất bại"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:388
+#: ../../../lib/web/src/components/step-up-dialog.tsx:402
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"

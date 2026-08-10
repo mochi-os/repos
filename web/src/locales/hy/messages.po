@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: ../../../lib/web/src/lib/error-normalizer.ts:236
+#: ../../../lib/web/src/lib/error-normalizer.ts:244
 msgid "Please check your internet connection and try again."
 msgstr "Ստուգեք ձեր ինտերնետ կապը և կրկին փորձեք։"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:292
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:293
 msgid " or "
 msgstr " կամ "
 
@@ -75,6 +75,22 @@ msgstr "{0}-ը թեգավորված է {1}-ին"
 #: src/routes/_authenticated/$repoId_.tags.tsx:38
 msgid "{0} tags"
 msgstr "{0} թեգեր"
+
+#: ../../../lib/web/src/lib/locale-format.ts:121
+msgid "{count, plural, one {#d} other {#d}}"
+msgstr "{count, plural, one {#օր} other {#օր}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:117
+msgid "{count, plural, one {#h} other {#h}}"
+msgstr "{count, plural, one {#ժ} other {#ժ}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:113
+msgid "{count, plural, one {#m} other {#m}}"
+msgstr "{count, plural, one {#ր} other {#ր}}"
+
+#: ../../../lib/web/src/lib/locale-format.ts:125
+msgid "{count, plural, one {#w} other {#w}}"
+msgstr "{count, plural, one {#շաբ} other {#շաբ}}"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:174
 msgid "{entityLabel} name"
@@ -329,6 +345,10 @@ msgstr "Ցանկացած ոք"
 msgid "Anyone who is logged in"
 msgstr "Ցանկացած մուտք գործած անձ"
 
+#: ../../../lib/web/src/components/options-menu.tsx:249
+msgid "Anything subscribed to this feed will stop receiving it. You can copy a new URL afterwards."
+msgstr ""
+
 #. placeholder {0}: deleteTarget?.name
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:308
 msgid "Are you sure you want to delete \"{0}\"?"
@@ -373,7 +393,7 @@ msgstr "Կցորդը ջնջված է"
 msgid "Authenticated users"
 msgstr "Նույնականացված օգտատերեր"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:315
+#: ../../../lib/web/src/components/step-up-dialog.tsx:329
 msgid "Authenticator code"
 msgstr "Նույնականացուցիչի կոդ"
 
@@ -390,8 +410,8 @@ msgid "Avatar for {name}"
 msgstr "{name}-ի ավատար"
 
 #: ../../../lib/web/src/components/place-picker.tsx:156
-#: src/components/clone-dialog.tsx:346
-#: src/components/clone-dialog.tsx:405
+#: src/components/clone-dialog.tsx:359
+#: src/components/clone-dialog.tsx:418
 msgid "Back"
 msgstr "Հետ դեպի CRM"
 
@@ -474,7 +494,7 @@ msgstr "Build ֆայլ (.zip)"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:169
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:186
 #: ../../../lib/web/src/components/responsive-confirm-dialog.tsx:67
-#: ../../../lib/web/src/components/step-up-dialog.tsx:363
+#: ../../../lib/web/src/components/step-up-dialog.tsx:377
 #: ../../../lib/web/src/components/travelling-picker.tsx:308
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:249
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:132
@@ -482,7 +502,7 @@ msgstr "Build ֆայլ (.zip)"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:433
+#: src/components/clone-dialog.tsx:446
 #: src/features/repository/repository-header.tsx:131
 #: src/features/repository/repository-tabs.tsx:228
 #: src/features/repository/repository-tabs.tsx:594
@@ -589,16 +609,16 @@ msgstr "Մաքրել ընտրությունը (Escape)"
 msgid "Clear selection (Escape)"
 msgstr "Կլոնավորել"
 
-#: src/components/clone-dialog.tsx:256
+#: src/components/clone-dialog.tsx:269
 msgid "Clone"
 msgstr "Կլոնավորել պահեստը"
 
-#: src/components/clone-dialog.tsx:234
+#: src/components/clone-dialog.tsx:247
 msgid "Clone repository"
 msgstr "Կլոնավորել պահոցը"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:477
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:482
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:478
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:483
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:358
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:361
@@ -737,7 +757,7 @@ msgstr "Համատեքստային տեղեկություններ և մանրա�
 msgid "Continue"
 msgstr "Շարունակել վճարումը"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:352
+#: ../../../lib/web/src/components/step-up-dialog.tsx:366
 msgid "Continue with {label}"
 msgstr "Շարունակել {label}-ով"
 
@@ -746,8 +766,8 @@ msgid "Copied"
 msgstr "Պատճենվեց"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:179
-#: src/components/clone-dialog.tsx:189
+#: src/components/clone-dialog.tsx:192
+#: src/components/clone-dialog.tsx:202
 msgid "Copied to clipboard"
 msgstr "Պատճենել"
 
@@ -773,24 +793,24 @@ msgstr "Չհաջողվեց բեռնել այս փաստաթուղթը։ Խնդր
 msgid "Couldn't load notifications"
 msgstr "Չհաջողվեց բեռնել ծանուցումները"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:184
+#: ../../../lib/web/src/components/step-up-dialog.tsx:193
 msgid "Couldn't send the code. Please try again."
 msgstr "Չհաջողվեց ուղարկել կոդը։ Խնդրում ենք նորից փորձել։"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:136
+#: ../../../lib/web/src/components/step-up-dialog.tsx:145
 msgid "Couldn't start re-authentication. Please try again."
 msgstr "Չհաջողվեց սկսել վերանույնականացումը։ Խնդրում ենք նորից փորձել։"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:221
+#: ../../../lib/web/src/components/step-up-dialog.tsx:235
 msgid "Couldn't verify with that account. Please try again."
 msgstr "Չհաջողվեց ստուգել այդ հաշվով։ Խնդրում ենք նորից փորձել։"
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:564
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:703
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:467
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:468
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:413
+#: src/components/clone-dialog.tsx:426
 #: src/features/repository/create-repository-dialog.tsx:189
 msgid "Create"
 msgstr "Ստեղծել CRM"
@@ -800,7 +820,7 @@ msgstr "Ստեղծել CRM"
 msgid "Create {0}"
 msgstr "Ստեղծել {0}"
 
-#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:258
 msgid "Create a new authentication token."
 msgstr "Ստեղծել նոր զրույց"
 
@@ -825,8 +845,8 @@ msgstr "Ստեղծել նոր էջ"
 msgid "Create repository"
 msgstr "Ստեղծել առաջին գրառումը"
 
-#: src/components/clone-dialog.tsx:232
-#: src/components/clone-dialog.tsx:350
+#: src/components/clone-dialog.tsx:245
+#: src/components/clone-dialog.tsx:363
 msgid "Create token"
 msgstr "Ստեղծել track"
 
@@ -836,7 +856,7 @@ msgid "Created"
 msgstr "Ստեղծված"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:326
+#: src/components/clone-dialog.tsx:339
 msgid "Created {0}"
 msgstr "Ստեղծվել է {0}"
 
@@ -849,11 +869,11 @@ msgstr "Ճյուղը ստեղծվում է..."
 msgid "Creating repository..."
 msgstr "Պահոցը ստեղծվում է..."
 
-#: src/components/clone-dialog.tsx:202
+#: src/components/clone-dialog.tsx:215
 msgid "Creating token..."
 msgstr "Թոքենը ստեղծվում է..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:616
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:623
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
 #: src/features/repository/repository-tabs.tsx:597
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -921,7 +941,7 @@ msgstr "Լռելյայն տեսակավորում"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:201
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:250
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:309
-#: src/components/clone-dialog.tsx:435
+#: src/components/clone-dialog.tsx:448
 #: src/features/repository/repository-tabs.tsx:615
 #: src/features/repository/repository-tabs.tsx:1146
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
@@ -980,11 +1000,11 @@ msgstr "Ջնջել պահեստը"
 msgid "Delete repository?"
 msgstr "Ջնջե՞լ պահեստը։"
 
-#: src/components/clone-dialog.tsx:335
+#: src/components/clone-dialog.tsx:348
 msgid "Delete token"
 msgstr "Ջնջել թոքենը"
 
-#: src/components/clone-dialog.tsx:426
+#: src/components/clone-dialog.tsx:439
 msgid "Delete token?"
 msgstr "Ջնջե՞լ թոքենը։"
 
@@ -1005,7 +1025,7 @@ msgstr "Ճյուղը ջնջվում է..."
 msgid "Deleting repository..."
 msgstr "Պահոցը ջնջվում է..."
 
-#: src/components/clone-dialog.tsx:215
+#: src/components/clone-dialog.tsx:228
 msgid "Deleting token..."
 msgstr "Թոքենը ջնջվում է..."
 
@@ -1075,8 +1095,8 @@ msgstr "Ցուցադրում է բջջային կողագոտին։"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:305
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:524
-#: src/components/clone-dialog.tsx:299
-#: src/components/clone-dialog.tsx:384
+#: src/components/clone-dialog.tsx:312
+#: src/components/clone-dialog.tsx:397
 msgid "Done"
 msgstr "Կատարված է"
 
@@ -1106,7 +1126,7 @@ msgstr "Կրկնօրինակներ"
 msgid "Dyslexia-friendly"
 msgstr "Դիսլեքսիայի հարմար"
 
-#: src/components/clone-dialog.tsx:394
+#: src/components/clone-dialog.tsx:407
 msgid "e.g., Work laptop"
 msgstr "օր.՝ Աշխատանքային նոթբուք"
 
@@ -1157,7 +1177,7 @@ msgstr "Խմբագրել տեսքը"
 msgid "Email"
 msgstr "Էլ․ փոստ"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:289
+#: ../../../lib/web/src/components/step-up-dialog.tsx:303
 msgid "Email code"
 msgstr "Էլ․ փոստի կոդ"
 
@@ -1169,11 +1189,11 @@ msgstr "Դատարկ թղթապանակ"
 msgid "Empty repository"
 msgstr "Դատարկ պահոց"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:299
+#: ../../../lib/web/src/components/step-up-dialog.tsx:313
 msgid "Enter the code from your email"
 msgstr "Մուտքագրեք ձեր էլ. փոստից ստացած կոդը"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:324
+#: ../../../lib/web/src/components/step-up-dialog.tsx:338
 msgid "Enter your authenticator code"
 msgstr "Մուտքագրեք ձեր նույնականացուցիչի կոդը"
 
@@ -1219,7 +1239,7 @@ msgid "Failed to create branch"
 msgstr "Չհաջողվեց ստեղծել ճյուղը"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
-#: ../../../lib/web/src/components/options-menu.tsx:99
+#: ../../../lib/web/src/components/options-menu.tsx:101
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
 msgstr "Չհաջողվեց ստեղծել հղումը"
@@ -1228,7 +1248,7 @@ msgstr "Չհաջողվեց ստեղծել հղումը"
 msgid "Failed to create repository"
 msgstr "Չհաջողվեց ստեղծել պահոցը"
 
-#: src/components/clone-dialog.tsx:204
+#: src/components/clone-dialog.tsx:217
 msgid "Failed to create token"
 msgstr "Չհաջողվեց ստեղծել տոկենը"
 
@@ -1253,7 +1273,7 @@ msgstr "Չհաջողվեց ջնջել հղումը"
 msgid "Failed to delete repository"
 msgstr "Չհաջողվեց ջնջել պահոցը"
 
-#: src/components/clone-dialog.tsx:217
+#: src/components/clone-dialog.tsx:230
 msgid "Failed to delete token"
 msgstr "Չհաջողվեց ջնջել տոկենը"
 
@@ -1265,11 +1285,11 @@ msgstr "Չհաջողվեց ներբեռնել"
 msgid "Failed to download archive"
 msgstr "Չհաջողվեց ներբեռնել արխիվը"
 
-#: ../../../lib/web/src/components/options-menu.tsx:123
+#: ../../../lib/web/src/components/options-menu.tsx:125
 msgid "Failed to get RSS token"
 msgstr "Չհաջողվեց ստանալ RSS տոկենը"
 
-#: src/components/clone-dialog.tsx:169
+#: src/components/clone-dialog.tsx:182
 msgid "Failed to get token"
 msgstr "Չհաջողվեց ստանալ տոկենը"
 
@@ -1333,7 +1353,7 @@ msgstr "Չհաջողվեց հեռացնել հաշիվը"
 msgid "Failed to rename repository"
 msgstr "Չհաջողվեց վերանվանել պահոցը"
 
-#: ../../../lib/web/src/components/options-menu.tsx:133
+#: ../../../lib/web/src/components/options-menu.tsx:136
 msgid "Failed to revoke RSS access"
 msgstr "RSS մուտքի չեղարկումը ձախողվեց"
 
@@ -1393,7 +1413,7 @@ msgstr "feature/my-feature"
 msgid "file"
 msgstr "ֆայլ"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:559
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:153
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:173
 #: src/features/repository/tabs.tsx:30
@@ -1576,7 +1596,7 @@ msgstr "Հրավերը չեղարկվեց"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Կարծես թե ձեր փնտրած էջը <0/>գոյություն չունի կամ հեռացվել է։"
 
-#: ../../../lib/web/src/lib/locale-format.ts:62
+#: ../../../lib/web/src/lib/locale-format.ts:110
 msgid "Just now"
 msgstr "Հենց հիմա"
 
@@ -1590,7 +1610,7 @@ msgid "Large"
 msgstr "Մեծ"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:340
 msgid "Last used {0}"
 msgstr "Վերջին օգտագործումը՝ {0}"
 
@@ -1618,7 +1638,7 @@ msgstr "Միայն տառեր, թվեր, բացատներ և գծիկներ"
 msgid "Light"
 msgstr "Կապել հաշիվը"
 
-#: ../../../lib/web/src/components/options-menu.tsx:190
+#: ../../../lib/web/src/components/options-menu.tsx:193
 #: src/components/repository-link-button.tsx:68
 msgid "Link"
 msgstr "Հղում"
@@ -1672,8 +1692,8 @@ msgstr "Կատարեք թեստային գնումներ 4242 4242 4242 4242 ք�
 msgid "Manage categories"
 msgstr "Կառավարել կատեգորիաները"
 
-#: src/components/clone-dialog.tsx:230
-#: src/components/clone-dialog.tsx:294
+#: src/components/clone-dialog.tsx:243
+#: src/components/clone-dialog.tsx:307
 msgid "Manage tokens"
 msgstr "Ձեռքով"
 
@@ -1723,7 +1743,7 @@ msgstr "Նվազագույն երկարություն"
 msgid "Mochi web"
 msgstr "Mochi վեբ"
 
-#: ../../../lib/web/src/components/options-menu.tsx:164
+#: ../../../lib/web/src/components/options-menu.tsx:167
 msgid "Moderation"
 msgstr ""
 
@@ -1736,8 +1756,8 @@ msgstr "Ամենավերջին"
 msgid "More actions"
 msgstr "Տեղափոխել կցորդը աջ"
 
-#: ../../../lib/web/src/components/options-menu.tsx:145
-#: ../../../lib/web/src/components/options-menu.tsx:152
+#: ../../../lib/web/src/components/options-menu.tsx:148
+#: ../../../lib/web/src/components/options-menu.tsx:155
 msgid "More options"
 msgstr "Լրացուցիչ ընտրանքներ"
 
@@ -1777,12 +1797,12 @@ msgstr "Անուն՝"
 msgid "Network error"
 msgstr "Ցանցի սխալ"
 
-#: src/components/clone-dialog.tsx:326
-#: src/components/clone-dialog.tsx:327
+#: src/components/clone-dialog.tsx:339
+#: src/components/clone-dialog.tsx:340
 msgid "Never"
 msgstr "Երբեք"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:452
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:453
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Նոր"
@@ -1802,7 +1822,7 @@ msgstr "Նոր խաղ"
 msgid "Next image"
 msgstr "Հաջորդ նկարը"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:525
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:526
 msgid "No {parentClassNames} to add to"
 msgstr "Ավելացնելու {parentClassNames} չկան"
 
@@ -1844,7 +1864,7 @@ msgstr "Դեռ խաղեր չկան"
 msgid "No groups available"
 msgstr "Հասանելի խմբեր չկան"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:493
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Տարրերի տեսակներ դեռ հնարավոր չէ ստեղծել։ Նախ ստեղծեք պահանջվող ծնող տարրերը։"
 
@@ -1904,7 +1924,7 @@ msgstr "Դեռ թեգեր չկան"
 msgid "No time zone found."
 msgstr "Ժամային գոտի չի գտնվել։"
 
-#: src/components/clone-dialog.tsx:314
+#: src/components/clone-dialog.tsx:327
 msgid "No tokens yet."
 msgstr "Դեռ թոքեններ չկան։"
 
@@ -1925,9 +1945,9 @@ msgid "No views"
 msgstr "Դիտումներ չկան"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:508
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:511
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:515
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:509
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:512
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:516
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:365
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:391
@@ -2055,7 +2075,7 @@ msgstr "Սեփականատեր"
 msgid "Page {currentPage} of {totalPages}"
 msgstr "Էջ {currentPage} / {totalPages}"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:500
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:501
 msgid "Parent"
 msgstr "Ծնող"
 
@@ -2067,11 +2087,11 @@ msgstr "Ծնող՝"
 msgid "Parents:"
 msgstr "Ծնողներ՝"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:334
+#: ../../../lib/web/src/components/step-up-dialog.tsx:348
 msgid "Passkey"
 msgstr "Անցաբանալի"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:209
+#: ../../../lib/web/src/components/step-up-dialog.tsx:218
 msgid "Passkey verification failed. Please try again."
 msgstr "Անցաբանալու ստուգումը ձախողվեց։ Խնդրում ենք նորից փորձել։"
 
@@ -2113,7 +2133,7 @@ msgstr "Ընտրեք ամսաթիվ"
 msgid "Please check your internet connection and try again."
 msgstr "Ստուգեք ձեր ինտերնետ կապը և կրկին փորձեք։"
 
-#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:210
 msgid "Please enter a token name"
 msgstr "Խնդրում ենք մուտքագրել թոքենի անունը"
 
@@ -2129,11 +2149,11 @@ msgstr "Խնդրում ենք կրկին փորձել։"
 msgid "Please wait a moment and try again."
 msgstr "Խնդրում ենք մի փոքր սպասել և նորից փորձել։"
 
-#: ../../../lib/web/src/components/options-menu.tsx:175
+#: ../../../lib/web/src/components/options-menu.tsx:178
 msgid "Posts"
 msgstr "Գրառումներ"
 
-#: ../../../lib/web/src/components/options-menu.tsx:178
+#: ../../../lib/web/src/components/options-menu.tsx:181
 msgid "Posts and comments"
 msgstr "Գրառումներ և մեկնաբանություններ"
 
@@ -2346,7 +2366,7 @@ msgstr "Պահոցը վերանվանվեց"
 msgid "Required"
 msgstr "Պարտադիր է"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:367
+#: ../../../lib/web/src/components/step-up-dialog.tsx:381
 msgid "Resend email"
 msgstr "Կրկին ուղարկել նամակը"
 
@@ -2368,9 +2388,17 @@ msgstr "Վերականգնել բոլոր կարգավորումները լռե�
 msgid "Retry"
 msgstr "Կրկին փորձել"
 
-#: ../../../lib/web/src/components/options-menu.tsx:181
+#: ../../../lib/web/src/components/options-menu.tsx:250
+msgid "Revoke"
+msgstr ""
+
+#: ../../../lib/web/src/components/options-menu.tsx:184
 msgid "Revoke access"
 msgstr "Չեղարկել մուտքը"
+
+#: ../../../lib/web/src/components/options-menu.tsx:244
+msgid "Revoke RSS access?"
+msgstr ""
 
 #: ../../../lib/web/src/components/config-drawer.tsx:362
 msgid "Right to Left"
@@ -2389,15 +2417,15 @@ msgstr "Տողերը խմբավորվում են ըստ"
 msgid "Rows per page"
 msgstr "Տողեր մեկ էջում"
 
-#: ../../../lib/web/src/components/options-menu.tsx:131
+#: ../../../lib/web/src/components/options-menu.tsx:134
 msgid "RSS access revoked"
 msgstr "RSS մուտքը չեղարկվել է"
 
-#: ../../../lib/web/src/components/options-menu.tsx:171
+#: ../../../lib/web/src/components/options-menu.tsx:174
 msgid "RSS feed"
 msgstr "RSS հոսք"
 
-#: ../../../lib/web/src/components/options-menu.tsx:121
+#: ../../../lib/web/src/components/options-menu.tsx:123
 msgid "RSS URL copied to clipboard"
 msgstr "RSS URL-ը պատճենվեց clipboard-ին"
 
@@ -2413,12 +2441,12 @@ msgstr "Շաբաթ"
 msgid "Save"
 msgstr "Պահպանել"
 
-#: src/components/clone-dialog.tsx:244
+#: src/components/clone-dialog.tsx:257
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Պահպանեք այս թոքենը հիմա։ Դուք այլևս չեք կարող տեսնել այն։"
 
-#: src/components/clone-dialog.tsx:287
-#: src/components/clone-dialog.tsx:374
+#: src/components/clone-dialog.tsx:300
+#: src/components/clone-dialog.tsx:387
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Պահպանեք այս թոքենը ապահով։ Դուք այլևս չեք կարող տեսնել այն։"
 
@@ -2593,7 +2621,7 @@ msgstr "Ընտրված է՝ <0>{0}</0>"
 msgid "Send again"
 msgstr "Ուղարկել կրկին"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:307
+#: ../../../lib/web/src/components/step-up-dialog.tsx:321
 msgid "Send email"
 msgstr "Ուղարկել էլ. փոստ"
 
@@ -2630,7 +2658,7 @@ msgstr "Մուտքը սահմանվում է..."
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:126
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx:132
-#: ../../../lib/web/src/components/options-menu.tsx:196
+#: ../../../lib/web/src/components/options-menu.tsx:199
 #: src/features/repository/tabs.tsx:35
 msgid "Settings"
 msgstr "Կարգավորումներ"
@@ -2698,7 +2726,7 @@ msgstr "Տեսակավորել"
 msgid "Source branch"
 msgstr "Սկզբնաղբյուր ճյուղ"
 
-#: ../../../lib/web/src/components/options-menu.tsx:158
+#: ../../../lib/web/src/components/options-menu.tsx:161
 msgid "Sources"
 msgstr "Աղբյուրներ"
 
@@ -2801,7 +2829,7 @@ msgstr "Պայմաններ և կանոններ"
 msgid "Text"
 msgstr "Տեքստ"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:195
+#: ../../../lib/web/src/components/step-up-dialog.tsx:204
 msgid "That code is incorrect or has expired."
 msgstr "Այդ կոդը սխալ է կամ ժամկետանց է։"
 
@@ -2843,7 +2871,7 @@ msgstr "Այս էջը պահանջում է պահոցի համատեքստ:"
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Սա մշտապես կջնջի \"{currentName}\"-ը և նրա բոլոր կոմիտները, ճյուղերը և թեգերը: Այս գործողությունը հնարավոր չէ չեղարկել:"
 
-#: src/components/clone-dialog.tsx:428
+#: src/components/clone-dialog.tsx:441
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Սա մշտապես կջնջի այս թոքենը: Այն օգտագործող ցանկացած git հաճախորդ այլևս չի կարող իսկորոշվել:"
 
@@ -2903,15 +2931,15 @@ msgstr "Տեսքի տարբերակների փոխարկում"
 msgid "Toggle watched filter"
 msgstr "Հետևված զտիչի փոխարկում"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:245
 msgid "Token created"
 msgstr "Թոքենը ստեղծվեց"
 
-#: src/components/clone-dialog.tsx:216
+#: src/components/clone-dialog.tsx:229
 msgid "Token deleted"
 msgstr "Թոքենը ջնջվեց"
 
-#: src/components/clone-dialog.tsx:391
+#: src/components/clone-dialog.tsx:404
 msgid "Token name"
 msgstr "Թոքենի անունը"
 
@@ -2993,7 +3021,7 @@ msgstr "Միացյալ Նահանգներ"
 msgid "Unknown"
 msgstr "Անհայտ"
 
-#: ../../../lib/web/src/components/options-menu.tsx:211
+#: ../../../lib/web/src/components/options-menu.tsx:214
 #: src/features/repository/repository-header.tsx:120
 #: src/features/repository/repository-header.tsx:132
 #: src/features/repository/repository-tabs.tsx:217
@@ -3025,7 +3053,7 @@ msgstr "Հրաժարվեց պահոցի բաժանորդագրությունից
 msgid "Unsubscribing..."
 msgstr "Հրաժարվում է բաժանորդագրությունից..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:276
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:277
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
 msgid "Untitled"
@@ -3048,7 +3076,7 @@ msgstr "Մուտքը թարմացվում է..."
 msgid "Updating path..."
 msgstr "Ուղին թարմացվում է..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:599
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:606
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:296
 msgid "Upload"
 msgstr "Վերբեռնել"
@@ -3057,7 +3085,7 @@ msgstr "Վերբեռնել"
 msgid "Upload progress"
 msgstr "Վերբեռնման ընթացքը"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:338
+#: ../../../lib/web/src/components/step-up-dialog.tsx:352
 msgid "Use your passkey"
 msgstr "Օգտագործեք ձեր անցաբանալին"
 
@@ -3079,7 +3107,7 @@ msgstr "Ստուգման կոդը ուղարկվեց"
 msgid "Verification failed"
 msgstr "Ստուգումը ձախողվեց"
 
-#: ../../../lib/web/src/components/step-up-dialog.tsx:388
+#: ../../../lib/web/src/components/step-up-dialog.tsx:402
 #: ../../../lib/web/src/features/accounts/account-manager.tsx:172
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:111
 msgid "Verify"
