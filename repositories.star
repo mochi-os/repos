@@ -1819,6 +1819,9 @@ def event_subscribe(e):
         replace into subscribers (repository, id, name, subscribed)
         values (?, ?, ?, ?)
     """, repo_id, subscriber_id, name, now)
+    # Record them for replay now rather than waiting for the next broadcast to
+    # do it, so a gap before that can still be healed.
+    mochi.broadcast.subscriber.add(repo_id, subscriber_id)
 
 # Handle unsubscription
 def event_unsubscribe(e):
@@ -1827,6 +1830,10 @@ def event_unsubscribe(e):
 
     # Remove from subscribers
     mochi.db.execute("delete from subscribers where repository = ? and id = ?", repo_id, subscriber_id)
+    # Dropping them from the fan-out list stops new events but not replay: core
+    # keeps a subscription record so a lagging subscriber can resync, and it
+    # lives on the log's own clock.
+    mochi.broadcast.subscriber.remove(repo_id, subscriber_id)
 
 # Handle metadata update from remote repository owner
 # unsubscribe_stale tells a repository owner to drop this subscriber when a
