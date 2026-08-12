@@ -279,12 +279,12 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                                 )}
                               </div>
                             </div>
-                            {/* button-icon-ok: Subscribe has no conventional glyph; feeds and forums ship it text-only */}
                             <Button
                               size="sm"
                               onClick={() => handleSubscribeRecommendation(rec)}
                               disabled={isPending}
                             >
+                              {/* button-icon-ok: Subscribe has no conventional glyph; every sibling app ships it text-only */}
                               {isPending ? (
                                 <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
