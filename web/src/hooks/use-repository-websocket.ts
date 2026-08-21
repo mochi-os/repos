@@ -4,18 +4,6 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
 // WebSocket hook for real-time repository updates.
-//
-// A subscribed repository caches its metadata locally, and its commits / files
-// / branches are fetched on demand from the owner. When the owner edits the
-// metadata (event_update) or pushes new activity (event_activity), the
-// subscriber's cached view stays stale until a manual reload. The Starlark side
-// emits {"type":"repository/update"} on those events; here we listen and
-// invalidate the repository query tree so the view refreshes the moment the
-// change lands.
-//
-// The connection itself is the shared entityWebsocketManager, whose close path
-// detaches handlers so the resubscribe on a token refresh cannot orphan a
-// socket that keeps delivering events.
 
 import { useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";

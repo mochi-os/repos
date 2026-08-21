@@ -4,20 +4,9 @@
 # This file is part of Mochi, licensed under the GNU AGPL v3 with the
 # Mochi Application Interface Exception - see license.txt and license-exception.md.
 
-# remote_error surfaces a failed mochi.remote.request: core-authored
-# transport failures (marked "transport") become a translated generic
-# error with the detail kept in the server log; far-end app answers
-# pass through unchanged.
-# Coerce a broadcast field to an integer regardless of how it arrived.
-#
-# The live path carries CBOR, which preserves int64, but the broadcast log
-# stores JSON, and JSON has no integer type. Core fixed the replay decode on
-# 2026-07-26 (broadcast_payload_decode with UseNumber), so a gap-recovered value
-# arrives as an int again - before that it came through as a float, str() of it
-# was "1.7534e+09", that failed the "integer" pattern, and the guard below fell
-# back to 0 so an OLDER update could overwrite a newer one, on the one path that
-# exists to repair missed deliveries. Defence in depth on top of the core fix,
-# matching what chat does.
+# Coerce a broadcast field to an integer however it arrived: the live path
+# carries CBOR int64, but the broadcast log replays JSON, where the value may be
+# a float or a numeric string.
 def broadcast_integer(value, fallback=0):
     kind = type(value)
     if kind == "int":
@@ -38,9 +27,8 @@ def remote_error(a, response, code=502):
 
 def database_upgrade(version):
     if version == 2:
-        # Drop the pre-2026-07 broadcast tables left in the app data DB when
-        # broadcast state moved to the per-app system DB - inert, but stale
-        # sequence/log copies mislead diagnosis.
+        # Drop the broadcast tables left in the app data DB when broadcast state
+        # moved to the per-app system DB - stale copies mislead diagnosis.
         for table in ["sequence", "log", "acknowledged", "received"]:
             mochi.db.execute("drop table if exists " + table)
 
@@ -79,12 +67,8 @@ def database_create():
     mochi.db.execute("create index subscribers_id on subscribers(id)")
 
 def valid_sha(s):
-    # Full SHAs only. An abbreviated one was accepted here and then never
-    # resolved: core's git_resolve_ref passes a short string to
-    # plumbing.NewHash, which pads it into a hash that matches nothing, so the
-    # lookup 404s after doing the work. Rejecting up front gives the caller a
-    # clear "invalid" instead of a misleading "not found". Prefix resolution
-    # would have to be implemented in core before shortening this again.
+    # Full SHAs only: core's git_resolve_ref pads a short SHA into a hash that
+    # matches nothing, so an abbreviated one 404s instead of resolving.
     if len(s) != 40:
         return False
     for c in s.elems():
@@ -116,12 +100,9 @@ def valid_ref(r):
         return False
     return True
 
-# Accept one metadata field from a subscribed repository's owner. The owner is
-# a remote peer, so everything it sends is untrusted: it is cached, displayed,
-# and - for path - rendered into the clone command the user is invited to copy
-# straight into a shell. Apply the same validation the owner enforces on itself
-# and keep the fallback when it fails, so a hostile owner can neither poison the
-# cache nor choose what a subscriber pastes into a terminal.
+# Validate a metadata field from a subscribed repository's owner, a remote peer:
+# path in particular is pasted into a shell via the clone command. Returns
+# fallback when the value fails the owner-side rule.
 def remote_field(field, value, fallback):
     if value == None:
         return fallback
@@ -149,14 +130,9 @@ def archive_label(ref, sha):
         return sha[:7]
     return ref.replace("/", "-")
 
-# Make a string safe to interpolate into a quoted Content-Disposition filename.
-# The archive proxy takes this from the peer's stream header, so a hostile
-# repository owner controls it. Go's net/http strips CR and LF from header
-# values, which blocks response splitting, but it does not strip a double
-# quote - so without this the peer could close the quoted parameter and choose
-# the name and extension under which the subscriber's browser saves the bytes.
-# Quotes, backslashes and path separators go; control characters go; the length
-# is capped so one field cannot dominate the header.
+# Sanitise a peer-supplied Content-Disposition filename. net/http strips CR and
+# LF from header values but not double quotes, so a hostile owner could
+# otherwise close the quoted parameter and pick the saved name and extension.
 def safe_filename(name, fallback):
     out = ""
     for c in str(name).elems():
@@ -176,14 +152,9 @@ def resolve_ref(repo_id, combined):
     if not combined:
         return ("HEAD", "")
     parts = combined.split("/")
-    # Stop once the candidate passes the 256-character ceiling valid_ref
-    # enforces: no longer prefix can ever be a ref, so nothing is lost, and
-    # building them is what made this quadratic. valid_ref rejects on length,
-    # but only AFTER the join has been paid for, so the guard has to come
-    # first. Unbounded, a 1MB request path (MaxHeaderBytes) split into ~500k
-    # segments produced that many increasingly long joins - 20k segments
-    # already cost 15 seconds, so such a request ran to the 90-second Starlark
-    # timeout, anonymously, against any repository with a public read grant.
+    # Stop past valid_ref's 256-character ceiling before paying for the join: no
+    # longer prefix can be a ref, and unbounded joins made a long request path
+    # quadratic (a 1MB path ran to the Starlark timeout).
     length = 0
     for i in range(1, len(parts) + 1):
         length += len(parts[i - 1])
@@ -239,24 +210,14 @@ def get_repo(a):
     repo = mochi.db.row("select * from repositories where fingerprint = ?", repo_param)
     return repo
 
-# idle_resync_age: how long without hearing metadata from a subscribed
-# repository's owner before the next view re-subscribes (the owner may have
-# pruned us after a long idle). Matches core's broadcast_log_age.
-#
-# seen is advanced two ways, both meaning "we genuinely heard from the owner":
-# touch() on subscribe and re-subscribe, and core stamping seen=now() on every
-# APPLIED broadcast. An earlier version of this comment claimed repositories has
-# no durable broadcast stream and that only touch stamps seen; both are wrong -
-# broadcast_update and broadcast_deleted use mochi.broadcast.send. The gate
-# below is correct either way, since core never advances seen without a real
-# message.
+# Idle time without metadata from a subscribed repository's owner before the
+# next view re-subscribes (the owner may have pruned us). Matches core's
+# broadcast_log_age; seen advances on touch() and on every applied broadcast.
 idle_resync_age = 7 * 86400
 
-# maybe_resubscribe re-establishes a subscribed repository with its owner when
-# we've heard no metadata within idle_resync_age. The owner's event_subscribe is
-# idempotent (re-adds us to the push list); git content is pull-on-demand, so
-# there is nothing to reconcile. touch() throttles to once per window and keeps a
-# dead owner from being re-poked per view.
+# Re-subscribe with the owner when no metadata has arrived within
+# idle_resync_age. event_subscribe is idempotent; touch() throttles to once per
+# window so a dead owner is not re-poked on every view.
 def maybe_resubscribe(a, repo_id):
     user_id = a.user.identity.id if a.user else None
     if not user_id:
@@ -275,11 +236,8 @@ def action_info_entity(a):
     if not repo:
         return a.error.label(404, "errors.repository_not_found")
 
-    # This route is public, and an anonymous request runs in the repository
-    # owner's database context, so it needs its own gate: without one any
-    # anonymous caller who knew a fingerprint could read a private repository's
-    # name, path, description, default branch and privacy - for a locally-owned
-    # repository as well as a subscribed one, and for every user on the host.
+    # Public route: an anonymous request runs as the owner, so the gate has to
+    # be explicit or any fingerprint reads private metadata.
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
 
@@ -439,19 +397,9 @@ def action_create(a):
         mochi.entity.delete(entity_id)
         return a.error.label(500, "errors.failed_to_initialize_git_repository")
 
-    # Re-check uniqueness now that the slow work is done.
-    #
-    # The checks above run before entity.create and git.init, which touch the
-    # directory and take real time - a wide window for a second create to slip
-    # between them. name and path carry ordinary indexes, not unique ones, so
-    # the loser does not fail: it INSERTS, and two repositories then share a
-    # path, one shadowing the other's git route. Making the index unique is
-    # not the fix on its own - Starlark has no try/except, so the losing
-    # insert would abort the handler and leave the entity and git directory
-    # behind with nothing to clean them.
-    #
-    # Re-checking here narrows the window to the gap between this select and
-    # the insert, and gives the loser somewhere to unwind to.
+    # Re-check uniqueness after the slow entity/git work: name and path are not
+    # unique indexes (a failing insert would abort with nothing to clean up), so
+    # a concurrent create can only be caught by looking again.
     if mochi.db.exists("select 1 from repositories where name = ?", name):
         mochi.git.delete(entity_id)
         mochi.entity.delete(entity_id)
@@ -676,17 +624,10 @@ def action_access_set(a):
     if permission not in ["read", "write", "none"]:
         return a.error.label(400, "errors.invalid_permission")
 
-    # A grant may name one identity or one group, and nothing else. permission
-    # was already checked but subject was passed straight through, so
-    # subject="*" wrote a wildcard grant - and access_check matches "*" against
-    # the empty identity of an unauthenticated caller, which for permission
-    # "write" is anonymous git push to a private repository (verified: the
-    # receive-pack probe goes from 401 to 200 the moment that row exists).
-    # "+" is any authenticated user and "#..." are role subjects; neither is
-    # this action's to hand out. The one legitimate wildcard is the "*" READ
-    # grant, written by allow_read in action_settings_set, which is gated on
-    # admin access and cannot express write. Mirrors how action_access_list
-    # classifies subjects.
+    # A grant names one identity or one group only. "*" would match the empty
+    # identity of an anonymous caller (anonymous push for "write"); "+" and
+    # "#..." roles are not this action's to hand out. Only allow_read writes
+    # "*".
     if subject.startswith("@"):
         if not mochi.text.valid(subject[1:], "entity"):
             return a.error.label(400, "errors.invalid_subject")
@@ -1134,11 +1075,8 @@ def action_archive(a):
         a.header("Content-Type", content_types[format])
         a.header("Content-Disposition",
                  'attachment; filename="%s"' % safe_filename(filename, "archive." + format))
-        # Bounded: these are bytes from another peer's repository, relayed
-        # straight into the browser's download. Without a cap a hostile or
-        # broken owner can stream without end into every clone that asks.
-        # 1GB is far above any repository archive this app produces and still
-        # a limit rather than none.
+        # Cap the relay: the bytes come from another peer, and without a bound a
+        # hostile owner could stream without end.
         a.write.stream(s, maximum=1024 * 1024 * 1024)
         return None
 
@@ -1148,12 +1086,8 @@ def action_archive(a):
         return a.error.label(404, "errors.ref_or_commit_not_found", ref=ref)
     sha = commits[0]["sha"]
 
-    # safe_filename, not the raw field: path is strictly validated but falls
-    # back to "" for a subscribed or directory-only repository, so base drops
-    # through to name - and name is only checked against mochi.text.valid
-    # "name", which is ^[^<>\r\n]{1,1000}$ and admits "/" and "..". This value
-    # becomes the archive's entry prefix, so a peer could shape the paths
-    # inside an archive their subscribers download.
+    # safe_filename, not the raw field: path can be "" and name admits "/" and
+    # "..", and this becomes the archive's entry prefix.
     base = safe_filename(repo.get("path") or repo.get("name") or "repo", "repo")
     label = archive_label(ref, sha)
     filename = "%s-%s.%s" % (base, label, format)
@@ -1165,14 +1099,8 @@ def action_archive(a):
     mochi.git.archive(repo["id"], sha, format, base)
     return None
 
-# Open Graph meta tags.
-#
-# Core invokes an opengraph hook with a params DICT, not an action, and swallows
-# any error - so the previous action-shaped version (which called get_repo(a) ->
-# a.input) raised on every request and this app silently rendered no tags at
-# all. Repairing the signature without adding the gate below would have turned a
-# dead function into a live disclosure, because core runs opengraph as the
-# entity OWNER even for anonymous crawlers.
+# Open Graph meta tags. Core calls this with a params dict, not an action, runs
+# it as the entity owner even for anonymous crawlers, and swallows errors.
 def action_opengraph(params):
     og = {
         "title": mochi.app.label("app.name"),
@@ -1188,11 +1116,8 @@ def action_opengraph(params):
     if not row:
         return og
 
-    # Treat every request as untrusted: a private repository must leak nothing,
-    # not even its name. mochi.access.check(None, ...) consults the "*" grant
-    # alone, which action_create adds only when the repository is world
-    # readable. NOT check_read_access(), which needs an action and whose
-    # subscription short-circuit has no meaning without a caller identity.
+    # mochi.access.check(None, ...) consults only the "*" grant, which exists
+    # only for world-readable repositories; check_read_access needs an action.
     if not mochi.access.check(None, "repository/" + row["id"], "read"):
         return og
 
@@ -1224,36 +1149,19 @@ def action_token_create(a):
     name = (a.input("name") or "Git access").strip()
     if len(name) > 100:
         return a.error.label(400, "errors.token_name_is_too_long_max_100_characters")
-    # A git credential is stored by the user's git client, so it has to cover
-    # clone and push on every repository that user can reach - hence no entity
-    # binding, with per-repository access still decided by the ACL. It must not
-    # cover managing repositories, which is a web function, so it is bound to
-    # the git route: web_action compares the binding against the action pattern
-    # before dispatch, so presenting this token as a Bearer credential to
-    # -/create, delete or access/set is refused. Git itself authenticates over
-    # Basic, where no api_token is parsed and the binding is never consulted -
-    # git_authenticate gates that side on the "git" scope instead.
+    # No entity binding - the git client stores one credential for every
+    # repository the user can reach - but bound to the git route so it cannot
+    # manage repositories over Bearer. Git's Basic auth is gated on the "git"
+    # scope.
     token = mochi.token.create(name, ["git"], 0, ":repository/git/*path", "")
     if not token:
         return a.error.label(500, "errors.failed_to_create_token")
 
     return {"data": {"token": token}}
 
-# Action: Get a git credential for the clone dialog, minting one only if the
-# user does not already have it.
-#
-# The dialog opens straight onto a clone command, so it used to POST
-# token/create every time it was opened - and action_token_create mints
-# unconditionally with expiry 0. Every peek at the dialog therefore left
-# another permanent git credential behind, unbounded, with nothing in the
-# interface to list or revoke them. (The response type was already called
-# TokenGetResponse, so a get-or-create was what the caller believed it had.)
-#
-# A token's plaintext exists only at creation - mochi.token.list returns the
-# hash - so this cannot hand back an existing one. It reports that the user
-# already has it instead, and the dialog then shows the credential-less clone
-# URL, which is the same one anonymous viewers get and works against the
-# credential already stored in their git client.
+# Action: Mint the clone dialog's git credential once. A token's plaintext
+# exists only at creation, so an existing one is reported as {existing: True}
+# and the dialog shows the credential-less clone URL instead.
 def action_token_ensure(a):
     if not a.user:
         return a.error.label(401, "errors.not_logged_in")
@@ -1296,15 +1204,9 @@ def action_token_delete(a):
 
 def service_list(s, params=None):
     """List repositories owned by current user"""
-    # Owned repositories only. The table also holds subscribed ones (owner=0),
-    # which are other people's repositories shared with this user - re-sharing
-    # those to whichever app holds repositories/read is not this user's call to
-    # make, and the owners never consented to it. They would be useless here in
-    # any case: a subscription has no local git storage, so every git-backed
-    # function below fails for one, and offering them to a caller advertises a
-    # choice that cannot be followed through. Serving remote repositories to
-    # other apps needs the is_remote branch the actions above have, routing
-    # through mochi.remote.request; until that exists this stays local-only.
+    # Owned repositories only: subscribed rows (owner=0) are other people's
+    # repositories, have no local git storage, and are not this user's to
+    # re-share with other apps.
     return mochi.db.rows("select id, name, description, default_branch from repositories where owner = 1")
 
 def service_branches(s, params=None):
@@ -1374,15 +1276,9 @@ def check_read_access(a, repo_id):
     # Pass None for anonymous users - "*" would be treated as a logged-in user
     user_id = a.user.identity.id if a.user and a.user.identity else None
 
-    # For subscribed remote repositories (owner=0) the subscription IS the
-    # grant: the app database is per user, so any authenticated caller reaching
-    # this row is the subscriber. It must be a REAL authenticated caller. For an
-    # anonymous request to a public action core substitutes the entity owner as
-    # the effective user, so without the `user_id and` guard an anonymous
-    # stranger passed this check and the proxied refs/tree/blob/commit/archive
-    # actions then fetched over P2P stamped with the SUBSCRIBER's identity -
-    # the owner answered an authorised request and this server relayed private
-    # repository content to an unauthenticated caller.
+    # For a subscribed repository (owner=0) the subscription is the grant, but
+    # only for a real authenticated caller: anonymous requests run as the owner,
+    # and the proxied fetches would carry the subscriber's identity.
     repo = mochi.db.row("select owner from repositories where id = ?", repo_id)
     if user_id and repo and repo.get("owner", 1) == 0:
         return True
@@ -1410,13 +1306,10 @@ def check_admin_access(a, repo_id):
 def headers(from_id, to_id, event):
     return {"from": from_id, "to": to_id, "service": "repositories", "event": event}
 
-# Helper: deliver a subscription-lifecycle event (subscribe, unsubscribe) to an
-# owner whose entity may no longer be resolvable: private entities never list
-# in the directory, and public entries expire while the owner is offline. A
-# stored directory-form "p2p/<peer>" server pins the queue row to that peer, so
-# an undeliverable send parks and revives when the peer reconnects, instead of
-# parking unresolvable forever. Hostname servers still route via the directory -
-# resolving one here would put a network dial on a view path.
+# Send a subscribe/unsubscribe to an owner whose entity may not resolve (private
+# entities never list, public entries expire offline). A stored "p2p/<peer>"
+# server pins the queue row to that peer so the send parks until it reconnects;
+# hostname servers still route via the directory.
 def registration_send(server, headers, content):
     peer = server[len("p2p/"):] if server and server.startswith("p2p/") else ""
     if peer:
@@ -1835,14 +1728,9 @@ def event_unsubscribe(e):
     # lives on the log's own clock.
     mochi.broadcast.subscriber.remove(repo_id, subscriber_id)
 
-# Handle metadata update from remote repository owner
-# unsubscribe_stale tells a repository owner to drop this subscriber when a
-# broadcast arrives for a repo the subscriber no longer holds locally. Subscribe
-# writes the local repositories(owner=0) row before notifying the owner, so a
-# missing row in a broadcast handler always means a stale roster entry, never an
-# in-flight subscribe. event_unsubscribe deletes by (repository, subscriber), so
-# a non-subscriber unsubscribe is a harmless no-op. Headers invert: from=repo,
-# to=this subscriber.
+# Tell a repository owner to drop this subscriber: subscribe writes the local
+# owner=0 row before notifying the owner, so a missing row in a broadcast
+# handler is a stale roster entry. Headers invert: from=repo, to=subscriber.
 def unsubscribe_stale(e):
     repo_id = e.header("from")
     member_id = e.header("to")
@@ -1866,16 +1754,9 @@ def event_update(e):
     description = e.content("description")
     default_branch = e.content("default_branch")
 
-    # LWW gate: drop the event when its `updated` is OLDER than our
-    # locally-stored repositories.updated for this repo. Strictly older,
-    # not older-or-equal: repo metadata has exactly one writer (the
-    # owner), so an equal timestamp is a same-second successor, not a
-    # concurrent conflict - the subscribe-time snapshot stamps the
-    # owner's row.updated, and an owner edit in that same second must
-    # still apply (tie-DROPPING lost it permanently; the flow
-    # repositories-link-private flaked on exactly this). Older senders
-    # without the field fall back to applying with local now, so this
-    # is backwards-compatible.
+    # Drop events strictly older than the stored updated. Equal is not a
+    # conflict: the owner is the only writer and the subscribe snapshot stamps
+    # the owner's updated, so a same-second edit must still apply.
     incoming = broadcast_integer(e.content("updated", 0))
     # The updated column is declared text, so coerce the stored side too -
     # int <= string is a runtime error in Starlark.
@@ -1886,18 +1767,9 @@ def event_update(e):
     updates = []
     params = []
 
-    # Apply the same field validation the owner enforces locally
-    # (action_settings_set / action_rename), so a malformed or oversized value
-    # from a remote owner can't land in our cached copy. remote_field returns
-    # the fallback - None here - for a value it rejects, so an invalid field is
-    # skipped and the existing cached value stands.
-    #
-    # Present-and-empty is distinct from absent: an update carries a full
-    # metadata snapshot, so an owner who cleared their description sends "" and
-    # a truthiness test skipped it - leaving our cached copy on the old text
-    # permanently, since every later snapshot carries the same empty value and
-    # is skipped too. A peer that omits the field entirely sends None, which
-    # correctly means "leave this alone" rather than "clear it".
+    # Validate as the owner does locally; remote_field returns None for a
+    # rejected value, which is skipped. "" is a cleared field and must apply -
+    # the update is a full snapshot, so a truthiness test would never clear it.
     name = remote_field("name", name, None)
     if name != None:
         updates.append("name = ?")
@@ -2080,12 +1952,10 @@ def event_tree(e):
         ref = repo.get("default_branch", "main")
     path = e.content("path", "")
 
-    # The subscriber has no ref list, so it splits the combined
-    # /tree/feature/login/src URL on the first slash and a slash-containing
-    # branch arrives as ref "feature", path "login/src". Recombine and resolve
-    # against the real refs, as the local path does: git forbids a ref and a
-    # ref directory sharing a name, so at most one prefix is a real ref and
-    # the resolution is unambiguous.
+    # The subscriber splits the URL on the first slash, so a slash-containing
+    # branch arrives as ref "feature", path "login/src": recombine and resolve
+    # against the real refs. Git forbids a ref and a ref directory sharing a
+    # name.
     ref, path = resolve_ref(repo_id, ref + "/" + path if path else ref)
 
     # Get tree entries
@@ -2210,13 +2080,9 @@ def event_archive(e):
     e.stream.write({"filename": filename, "sha": sha, "prefix": base})
     mochi.git.archive(repo_id, sha, format, base, e.stream)
 
-# Handle a merge request from another app or a remote user (P2P request-response).
-# The repository's own ACL governs the merge: we authorize the cryptographically
-# verified P2P sender (e.header("from")) against repository/<id> write - the same
-# grant a git push requires - NOT the caller's project access. This handler runs
-# on the repository owner's host as the owner, so core's git_can_write would see
-# the owner; this from-check is the real gate for a remote initiator. Error
-# strings are label keys resolved by the calling app (e.g. projects).
+# Merge requested over P2P. Authorise the verified sender (e.header("from"))
+# against repository write - this runs as the owner, so git_can_write would
+# pass. Error strings are label keys resolved by the calling app.
 def event_merge(e):
     repo_id = e.header("to")
     requester = e.header("from")
@@ -2251,13 +2117,9 @@ def event_merge(e):
 
 # BROADCAST FUNCTIONS (for sending updates to subscribers)
 
-# error_message_timeout: core calls this when a fan-out to a subscriber aged
-# out undelivered. Remove them only when the directory shows no host left
-# (locations == 0) - definitely gone, not a transient outage or a server
-# migration in progress. (An earlier version of this comment said repositories
-# has no durable broadcast stream and therefore no broadcast/gap handler;
-# neither is true - error_broadcast_gap is defined below and registered in
-# app.json, and broadcast_update uses mochi.broadcast.send.)
+# error_message_timeout: a fan-out to this subscriber aged out undelivered. Drop
+# them only when the directory shows no host left (locations == 0), not on a
+# transient outage or a migration in progress.
 def error_message_timeout(e):
     if e.detail.get("locations", 1) != 0:
         return

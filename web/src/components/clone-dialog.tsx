@@ -74,11 +74,9 @@ interface CloneDialogProps {
 
 type DialogView = 'loading' | 'clone' | 'manage' | 'create'
 
-// A subscribed repository's path comes from its owner, a remote peer, and lands
-// in a command the user is invited to copy into a shell. The server validates it
-// before caching, and this repeats the same rule as the last step before the
-// clipboard: anything outside it becomes a fixed name rather than reaching a
-// terminal. Mirrors valid_path in repositories.star.
+// Last check before the clipboard: a subscribed repository's path comes from a
+// remote peer. Mirrors valid_path in repositories.star; anything else is
+// "repo".
 function cloneTarget(path: string) {
   const safe =
     /^[a-z0-9-]{1,100}$/.test(path) &&
@@ -175,11 +173,8 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
     // Fetch token status on open
     setView('loading')
     try {
-      // ensure, not create: create mints unconditionally with no expiry, so
-      // opening this dialog repeatedly left a permanent credential behind
-      // each time. ensure mints only the first time; afterwards it reports
-      // that the credential already exists and we show the credential-less
-      // URL, which works against the one already stored in the git client.
+      // ensure, not create: create mints a permanent credential on every call;
+      // ensure mints once and afterwards reports it exists.
       const response = await reposRequest.post<TokenGetResponse>(
         'token/ensure',
         { name: cloneTarget(repoPath) }

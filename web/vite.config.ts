@@ -29,12 +29,9 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@', replacement: path.resolve(__dirname, './src') },
-      // jiti is a Node-only build tool pulled in via @lingui/conf's peer-dep
-      // chain. Vite tree-shakes it out on Node 22+, but on Node 20.18 (sansho)
-      // it leaks into the browser bundle and fails because jiti.mjs imports
-      // createRequire from "node:module", which Vite's __vite-browser-external
-      // shim does not provide on sub-20.19 Nodes. Aliasing to an empty stub
-      // keeps the build green regardless of Node version.
+      // jiti is Node-only, pulled in via @lingui/conf. On Node < 20.19 Vite
+      // leaks it into the browser bundle (createRequire from "node:module" is
+      // missing from the shim), so alias it to an empty stub.
       { find: /^jiti(\/.*)?$/, replacement: path.resolve(__dirname, './empty.mjs') },
     ],
   },

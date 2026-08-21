@@ -17,17 +17,9 @@ function isEntityIdentifier(s: string): boolean {
   return /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(s) || /^[1-9A-HJ-NP-Za-km-z]{50,51}$/.test(s)
 }
 
-// Get app-level base path (class context, not entity context).
-// Always returns /<app>/ regardless of current entity context.
-//
-// This delegates to getAppPath rather than reading the first path segment,
-// because under direct-entity routing (/<fingerprint>/...) and domain routing
-// that segment IS the entity, not the app. Building a class URL on it produced
-// /<fingerprint>/-/groups and, via endpoints.repo.share, /<fp>/<fp>/-/share -
-// neither of which is a registered action, so both fell through to the SPA
-// catch-all and returned index.html, surfacing as "Server returned HTML
-// instead of JSON". getAppPath prefers the server's mochi:app meta tag, which
-// is authoritative in every routing context. Same reasoning as wikis.
+// App-level base path (class context). Uses getAppPath rather than the first
+// path segment: under direct-entity and domain routing that segment is the
+// entity, and a class URL built on it falls through to the SPA catch-all.
 export function appBasePath(): string {
   return `${getAppPath()}/`
 }

@@ -199,12 +199,9 @@ const queryClient = createQueryClient({
   onServerError: () => router.navigate({ to: '/500' }),
 })
 
-// getAppBasepath keeps the entity fingerprint out of the basepath — the routes
-// carry it as $repoId — and follows the domain route path when the page is
-// served through one. No createAppHistory here: this route tree is already
-// domain-aware (top-level blob/commit/tree, isDomainEntityRouting branches),
-// so on an entity domain route the URL genuinely has no fingerprint and
-// splicing one in would misroute the root.
+// getAppBasepath keeps the fingerprint out of the basepath (routes carry it as
+// $repoId). No createAppHistory: this route tree is already domain-aware, and
+// splicing a fingerprint in on an entity domain route would misroute the root.
 const router = createRouter({
   routeTree,
   context: { queryClient },
