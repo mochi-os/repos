@@ -40,7 +40,7 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, other {# 個檔案已變更}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:170
+#: src/features/repository/blob-viewer.tsx:169
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, other {# 行}}"
 
@@ -56,7 +56,7 @@ msgstr "{0} 個提交"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:704
+#: src/features/repository/repository-tabs.tsx:711
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} 於 {1} 加上標籤"
@@ -148,15 +148,15 @@ msgstr "拒絕存取"
 msgid "Access level"
 msgstr "存取層級"
 
-#: src/features/repository/repository-tabs.tsx:1255
+#: src/features/repository/repository-tabs.tsx:1321
 msgid "Access level updated"
 msgstr "存取層級已更新"
 
-#: src/features/repository/repository-tabs.tsx:1235
+#: src/features/repository/repository-tabs.tsx:1301
 msgid "Access removed"
 msgstr "存取已移除"
 
-#: src/features/repository/repository-tabs.tsx:1215
+#: src/features/repository/repository-tabs.tsx:1281
 msgid "Access set for {subjectName}"
 msgstr "已為 {subjectName} 設定存取權"
 
@@ -167,7 +167,7 @@ msgstr "帳戶類型"
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:720
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1270
+#: src/features/repository/repository-tabs.tsx:1336
 msgid "Add"
 msgstr "新增"
 
@@ -248,6 +248,7 @@ msgid "All repositories"
 msgstr "所有儲存庫"
 
 #: src/features/repository/create-repository-dialog.tsx:182
+#: src/features/repository/repository-tabs.tsx:1175
 msgid "Allow anyone to read repository"
 msgstr "允許任何人讀取儲存庫"
 
@@ -257,6 +258,7 @@ msgid "Allow anyone to search for {0}"
 msgstr "允許任何人搜尋{0}"
 
 #: src/features/repository/create-repository-dialog.tsx:177
+#: src/features/repository/repository-tabs.tsx:1163
 msgid "Allow anyone to search for repository"
 msgstr "允許任何人搜尋儲存庫"
 
@@ -306,7 +308,7 @@ msgstr "您確定要刪除此留言嗎?這也會刪除所有回覆。"
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "您確定要登出嗎?您將需要再次登入才能存取您的帳戶。"
 
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "您確定要取消訂閱此儲存庫嗎?"
 
@@ -363,7 +365,7 @@ msgid "Banner"
 msgstr "橫幅"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:198
+#: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "二進位檔案 ({0})"
 
@@ -394,22 +396,22 @@ msgstr "提升興趣"
 msgid "Border colour"
 msgstr "邊框顏色"
 
-#: src/features/repository/repository-tabs.tsx:442
+#: src/features/repository/repository-tabs.tsx:449
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "已建立分支「{name}」"
 
-#: src/features/repository/repository-tabs.tsx:464
+#: src/features/repository/repository-tabs.tsx:471
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "已刪除分支「{name}」"
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "分支名稱"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:440
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "分支名稱為必填"
@@ -437,11 +439,11 @@ msgstr "瀏覽器通知"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
 #: src/components/clone-dialog.tsx:449
-#: src/features/repository/repository-header.tsx:131
-#: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:594
-#: src/features/repository/repository-tabs.tsx:613
-#: src/features/repository/repository-tabs.tsx:1145
+#: src/features/repository/repository-header.tsx:133
+#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:620
+#: src/features/repository/repository-tabs.tsx:1211
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
@@ -451,8 +453,8 @@ msgstr "取消"
 msgid "Cancel comment"
 msgstr "取消留言"
 
-#: src/features/repository/repository-tabs.tsx:984
-#: src/features/repository/repository-tabs.tsx:1044
+#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1086
 msgid "Cancel edit"
 msgstr "取消編輯"
 
@@ -679,8 +681,8 @@ msgstr "複製"
 msgid "Copy commit SHA"
 msgstr "複製提交 SHA"
 
-#: src/features/repository/blob-viewer.tsx:177
-#: src/features/repository/blob-viewer.tsx:181
+#: src/features/repository/blob-viewer.tsx:176
+#: src/features/repository/blob-viewer.tsx:180
 msgid "Copy file contents"
 msgstr "複製檔案內容"
 
@@ -723,12 +725,12 @@ msgstr "建立{0}"
 msgid "Create a new authentication token."
 msgstr "建立新的驗證權杖。"
 
-#: src/routes/_authenticated/index.tsx:245
+#: src/routes/_authenticated/index.tsx:248
 msgid "Create a new repository"
 msgstr "建立新儲存庫"
 
-#: src/features/repository/repository-tabs.tsx:498
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:505
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -759,7 +761,7 @@ msgstr "已建立"
 msgid "Created {0}"
 msgstr "建立於 {0}"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "正在建立分支..."
@@ -774,7 +776,7 @@ msgstr "正在建立權杖..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:656
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "建立中..."
@@ -803,7 +805,7 @@ msgstr "日期"
 msgid "Decline"
 msgstr "拒絕"
 
-#: src/features/repository/repository-tabs.tsx:526
+#: src/features/repository/repository-tabs.tsx:533
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "預設"
@@ -812,7 +814,7 @@ msgstr "預設"
 msgid "Default AI account"
 msgstr "預設 AI 帳戶"
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1137
 msgid "Default branch"
 msgstr "預設分支"
 
@@ -830,13 +832,13 @@ msgstr "預設排序"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:252
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:314
 #: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:615
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:622
+#: src/features/repository/repository-tabs.tsx:1212
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "刪除"
 
-#: src/features/repository/repository-tabs.tsx:609
+#: src/features/repository/repository-tabs.tsx:616
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "刪除「{branchToDelete}」?此操作無法復原。"
@@ -845,14 +847,14 @@ msgstr "刪除「{branchToDelete}」?此操作無法復原。"
 msgid "Delete attachment"
 msgstr "刪除附件"
 
-#: src/features/repository/repository-tabs.tsx:545
-#: src/features/repository/repository-tabs.tsx:550
+#: src/features/repository/repository-tabs.tsx:552
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "刪除分支"
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:614
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "刪除分支?"
@@ -879,12 +881,12 @@ msgstr "刪除選項"
 msgid "Delete option {0}"
 msgstr "刪除選項 {0}"
 
-#: src/features/repository/repository-tabs.tsx:1121
-#: src/features/repository/repository-tabs.tsx:1132
+#: src/features/repository/repository-tabs.tsx:1187
+#: src/features/repository/repository-tabs.tsx:1198
 msgid "Delete repository"
 msgstr "刪除儲存庫"
 
-#: src/features/repository/repository-tabs.tsx:1139
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Delete repository?"
 msgstr "刪除儲存庫?"
 
@@ -904,12 +906,12 @@ msgstr "刪除檢視"
 msgid "Delete your account on the old server"
 msgstr "刪除您在舊伺服器上的帳號"
 
-#: src/features/repository/repository-tabs.tsx:463
+#: src/features/repository/repository-tabs.tsx:470
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "正在刪除分支..."
 
-#: src/features/repository/repository-tabs.tsx:932
+#: src/features/repository/repository-tabs.tsx:974
 msgid "Deleting repository..."
 msgstr "正在刪除儲存庫..."
 
@@ -917,7 +919,7 @@ msgstr "正在刪除儲存庫..."
 msgid "Deleting token..."
 msgstr "正在刪除權杖..."
 
-#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "刪除中..."
@@ -928,7 +930,7 @@ msgstr "降冪"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:83
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1075
+#: src/features/repository/repository-tabs.tsx:1117
 msgid "Description"
 msgstr "說明"
 
@@ -993,8 +995,8 @@ msgstr "下載"
 msgid "Download failed"
 msgstr "下載失敗"
 
-#: src/features/repository/blob-viewer.tsx:186
-#: src/features/repository/blob-viewer.tsx:190
+#: src/features/repository/blob-viewer.tsx:185
+#: src/features/repository/blob-viewer.tsx:189
 msgid "Download file"
 msgstr "下載檔案"
 
@@ -1031,7 +1033,7 @@ msgstr "編輯欄位"
 msgid "Edit field settings"
 msgstr "編輯欄位設定"
 
-#: src/features/repository/repository-tabs.tsx:1001
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Edit name"
 msgstr "編輯名稱"
 
@@ -1045,7 +1047,7 @@ msgstr "編輯選項"
 msgid "Edit option {0}"
 msgstr "編輯選項 {0}"
 
-#: src/features/repository/repository-tabs.tsx:1061
+#: src/features/repository/repository-tabs.tsx:1103
 msgid "Edit path"
 msgstr "編輯路徑"
 
@@ -1065,11 +1067,11 @@ msgstr "電子郵件"
 msgid "Email code"
 msgstr "電子郵件代碼"
 
-#: src/features/repository/file-browser.tsx:119
+#: src/features/repository/file-browser.tsx:131
 msgid "Empty directory"
 msgstr "空目錄"
 
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Empty repository"
 msgstr "空儲存庫"
 
@@ -1081,7 +1083,7 @@ msgstr "輸入電子郵件中的驗證碼"
 msgid "Enter your authenticator code"
 msgstr "請輸入您的驗證器代碼"
 
-#: src/features/repository/repository-tabs.tsx:1067
+#: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "實體:"
 
@@ -1109,7 +1111,7 @@ msgstr "特大"
 msgid "Failed to copy"
 msgstr "複製失敗"
 
-#: src/features/repository/repository-tabs.tsx:443
+#: src/features/repository/repository-tabs.tsx:450
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "建立分支失敗"
@@ -1132,7 +1134,7 @@ msgstr "建立權杖失敗"
 msgid "Failed to delete attachment"
 msgstr "刪除附件失敗"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:472
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "刪除分支失敗"
@@ -1145,7 +1147,7 @@ msgstr "刪除留言失敗"
 msgid "Failed to delete link"
 msgstr "刪除連結失敗"
 
-#: src/features/repository/repository-tabs.tsx:934
+#: src/features/repository/repository-tabs.tsx:976
 msgid "Failed to delete repository"
 msgstr "刪除儲存庫失敗"
 
@@ -1173,11 +1175,11 @@ msgstr "取得權杖失敗"
 msgid "Failed to load"
 msgstr "載入失敗"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1258
 msgid "Failed to load access rules"
 msgstr "載入存取規則失敗"
 
-#: src/features/repository/repository-tabs.tsx:487
+#: src/features/repository/repository-tabs.tsx:494
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "載入分支失敗"
@@ -1186,13 +1188,13 @@ msgstr "載入分支失敗"
 msgid "Failed to load commit"
 msgstr "載入提交失敗"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "載入提交失敗"
 
-#: src/features/repository/file-browser.tsx:115
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/file-browser.tsx:127
+#: src/features/repository/repository-tabs.tsx:324
 msgid "Failed to load files"
 msgstr "載入檔案失敗"
 
@@ -1204,7 +1206,7 @@ msgstr "載入記錄失敗"
 msgid "Failed to load image"
 msgstr "無法載入圖片"
 
-#: src/features/repository/repository-tabs.tsx:646
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "載入標籤失敗"
@@ -1217,11 +1219,11 @@ msgstr "無法載入影片"
 msgid "Failed to post comment"
 msgstr "張貼留言失敗"
 
-#: src/features/repository/repository-tabs.tsx:1236
+#: src/features/repository/repository-tabs.tsx:1302
 msgid "Failed to remove access"
 msgstr "移除存取權失敗"
 
-#: src/features/repository/repository-tabs.tsx:840
+#: src/features/repository/repository-tabs.tsx:853
 msgid "Failed to rename repository"
 msgstr "重新命名儲存庫失敗"
 
@@ -1229,8 +1231,10 @@ msgstr "重新命名儲存庫失敗"
 msgid "Failed to revoke RSS access"
 msgstr "撤銷 RSS 存取權限失敗"
 
-#: src/features/repository/repository-tabs.tsx:910
-#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:923
+#: src/features/repository/repository-tabs.tsx:939
+#: src/features/repository/repository-tabs.tsx:952
+#: src/features/repository/repository-tabs.tsx:964
 msgid "Failed to save setting"
 msgstr "儲存設定失敗"
 
@@ -1239,23 +1243,23 @@ msgstr "儲存設定失敗"
 msgid "Failed to search repositories"
 msgstr "搜尋儲存庫失敗"
 
-#: src/features/repository/repository-tabs.tsx:1216
+#: src/features/repository/repository-tabs.tsx:1282
 msgid "Failed to set access level"
 msgstr "設定存取層級失敗"
 
 #: src/features/repository/inline-repo-search.tsx:72
 #: src/routes/_authenticated/find.tsx:61
-#: src/routes/_authenticated/index.tsx:202
+#: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "訂閱失敗"
 
-#: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:374
+#: src/features/repository/repository-header.tsx:78
+#: src/features/repository/repository-tabs.tsx:204
+#: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "取消訂閱失敗"
 
-#: src/features/repository/repository-tabs.tsx:1256
+#: src/features/repository/repository-tabs.tsx:1322
 msgid "Failed to update access level"
 msgstr "更新存取層級失敗"
 
@@ -1263,7 +1267,7 @@ msgstr "更新存取層級失敗"
 msgid "Failed to update comment"
 msgstr "更新留言失敗"
 
-#: src/features/repository/repository-tabs.tsx:890
+#: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "更新路徑失敗"
 
@@ -1271,7 +1275,7 @@ msgstr "更新路徑失敗"
 msgid "Failed to upload attachment"
 msgstr "上傳附件失敗"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:579
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -1295,7 +1299,7 @@ msgstr "檔案"
 msgid "Find repositories"
 msgstr "尋找儲存庫"
 
-#: src/features/repository/repository-tabs.tsx:1069
+#: src/features/repository/repository-tabs.tsx:1111
 msgid "Fingerprint:"
 msgstr "指紋:"
 
@@ -1331,8 +1335,8 @@ msgstr "來自"
 msgid "From theme"
 msgstr "來自主題"
 
-#. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:146
+#. placeholder {0}: serverHost(server)
+#: src/features/repository/repository-header.tsx:148
 msgid "From: {0}"
 msgstr "來自:{0}"
 
@@ -1373,7 +1377,7 @@ msgstr "熱門"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:945
+#: src/features/repository/repository-tabs.tsx:987
 msgid "Identity"
 msgstr "身分"
 
@@ -1484,7 +1488,7 @@ msgid "Logging out…"
 msgstr "正在登出…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:872
+#: src/features/repository/repository-tabs.tsx:885
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "僅限小寫字母、數字和連字號"
 
@@ -1546,8 +1550,8 @@ msgstr "審核"
 msgid "Monday"
 msgstr "星期一"
 
-#: src/routes/_authenticated/index.tsx:326
-#: src/routes/_authenticated/index.tsx:334
+#: src/routes/_authenticated/index.tsx:329
+#: src/routes/_authenticated/index.tsx:337
 msgid "More actions"
 msgstr "更多操作"
 
@@ -1566,7 +1570,7 @@ msgid "Name"
 msgstr "名稱"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:815
 msgid "Name cannot contain < or > characters"
 msgstr "名稱不能包含 < 或 > 字元"
 
@@ -1575,7 +1579,7 @@ msgid "Name cannot contain angle brackets, backslash, semicolon, quotes or backt
 msgstr "名稱不能包含角括號、反斜線、分號、引號或反引號"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:814
 msgid "Name must be 100 characters or less"
 msgstr "名稱必須為 100 個字元或更少"
 
@@ -1583,7 +1587,7 @@ msgstr "名稱必須為 100 個字元或更少"
 msgid "Name must be 1000 characters or less"
 msgstr "名稱必須為 1000 個字元或更少"
 
-#: src/features/repository/repository-tabs.tsx:947
+#: src/features/repository/repository-tabs.tsx:989
 msgid "Name:"
 msgstr "名稱:"
 
@@ -1602,7 +1606,7 @@ msgstr "永不"
 msgid "New"
 msgstr "新增"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:570
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "新分支"
@@ -1621,7 +1625,7 @@ msgstr "下一張圖片"
 msgid "No {parentClassNames} to add to"
 msgstr "沒有可加入的 {parentClassNames}"
 
-#: src/features/repository/repository-tabs.tsx:729
+#: src/features/repository/repository-tabs.tsx:736
 msgid "No access"
 msgstr "無存取權"
 
@@ -1633,7 +1637,7 @@ msgstr "未設定存取規則。新增規則以控制誰可以存取此資源。
 msgid "No activity yet"
 msgstr "尚無活動"
 
-#: src/features/repository/repository-tabs.tsx:506
+#: src/features/repository/repository-tabs.tsx:513
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "尚無分支"
@@ -1642,7 +1646,7 @@ msgstr "尚無分支"
 msgid "No comments yet"
 msgstr "尚無留言"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:373
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "尚無提交"
@@ -1672,7 +1676,7 @@ msgstr "找不到人員"
 msgid "No places found"
 msgstr "找不到地點"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "No public repositories."
 msgstr "尚無公開儲存庫。"
 
@@ -1696,7 +1700,7 @@ msgstr "找不到結果。"
 msgid "No status"
 msgstr "無狀態"
 
-#: src/features/repository/repository-tabs.tsx:676
+#: src/features/repository/repository-tabs.tsx:683
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "尚無標籤"
@@ -1856,15 +1860,15 @@ msgstr "Passkey"
 msgid "Path"
 msgstr "路徑"
 
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:881
 msgid "Path is required"
 msgstr "需要路徑"
 
-#: src/features/repository/repository-tabs.tsx:889
+#: src/features/repository/repository-tabs.tsx:902
 msgid "Path updated"
 msgstr "路徑已更新"
 
-#: src/features/repository/repository-tabs.tsx:1007
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Path:"
 msgstr "路徑:"
 
@@ -1872,7 +1876,7 @@ msgstr "路徑:"
 msgid "Pattern (regex)"
 msgstr "格式(正規表示式)"
 
-#: src/features/repository/repository-tabs.tsx:1123
+#: src/features/repository/repository-tabs.tsx:1189
 msgid "Permanently delete this repository and all its data"
 msgstr "永久刪除此儲存庫及其所有資料"
 
@@ -1940,11 +1944,11 @@ msgstr "在此伺服器上重新連結您的帳號"
 msgid "Re-register your passkeys on this server"
 msgstr "在此伺服器上重新註冊您的通行密鑰"
 
-#: src/features/repository/repository-tabs.tsx:727
+#: src/features/repository/repository-tabs.tsx:734
 msgid "Read and write"
 msgstr "讀取和寫入"
 
-#: src/features/repository/repository-tabs.tsx:728
+#: src/features/repository/repository-tabs.tsx:735
 msgid "Read only"
 msgstr "唯讀"
 
@@ -1952,7 +1956,7 @@ msgstr "唯讀"
 msgid "Recommended"
 msgstr "推薦"
 
-#: src/routes/_authenticated/index.tsx:256
+#: src/routes/_authenticated/index.tsx:259
 msgid "Recommended repositories"
 msgstr "推薦的儲存庫"
 
@@ -2022,7 +2026,7 @@ msgstr "移除項目"
 msgid "Remove link"
 msgstr "移除連結"
 
-#: src/features/repository/repository-tabs.tsx:1234
+#: src/features/repository/repository-tabs.tsx:1300
 msgid "Removing access..."
 msgstr "正在移除存取權..."
 
@@ -2039,7 +2043,7 @@ msgstr "重新命名欄位"
 msgid "Rename this board column"
 msgstr "重新命名此看板欄位"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:851
 msgid "Renaming repository..."
 msgstr "正在重新命名儲存庫..."
 
@@ -2053,9 +2057,9 @@ msgstr "回覆"
 msgid "Reply to {0}..."
 msgstr "回覆 {0}..."
 
-#: src/routes/_authenticated/index.tsx:153
-#: src/routes/_authenticated/index.tsx:228
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:156
+#: src/routes/_authenticated/index.tsx:231
+#: src/routes/_authenticated/index.tsx:239
 msgid "Repositories"
 msgstr "儲存庫"
 
@@ -2070,7 +2074,7 @@ msgstr "儲存庫"
 #: src/routes/_authenticated/$repoId.tsx:56
 #: src/routes/_authenticated/blob/$ref/$.tsx:53
 #: src/routes/_authenticated/blob/$ref/$.tsx:64
-#: src/routes/_authenticated/index.tsx:107
+#: src/routes/_authenticated/index.tsx:108
 #: src/routes/_authenticated/tree/$ref/$.tsx:52
 #: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
@@ -2080,7 +2084,7 @@ msgstr "儲存庫"
 msgid "Repository created"
 msgstr "已建立儲存庫"
 
-#: src/features/repository/repository-tabs.tsx:933
+#: src/features/repository/repository-tabs.tsx:975
 msgid "Repository deleted"
 msgstr "已刪除儲存庫"
 
@@ -2093,7 +2097,7 @@ msgstr "需要儲存庫 ID"
 msgid "Repository link"
 msgstr "儲存庫連結"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:813
 msgid "Repository name is required"
 msgstr "需要儲存庫名稱"
 
@@ -2101,7 +2105,7 @@ msgstr "需要儲存庫名稱"
 msgid "Repository not found"
 msgstr "找不到儲存庫"
 
-#: src/features/repository/repository-tabs.tsx:839
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Repository renamed"
 msgstr "已重新命名儲存庫"
 
@@ -2159,7 +2163,7 @@ msgstr "星期六"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:170
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1088
+#: src/features/repository/repository-tabs.tsx:1130
 msgid "Save"
 msgstr "儲存"
 
@@ -2172,8 +2176,10 @@ msgstr "請立即儲存此權杖。您將無法再次查看。"
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "請安全地儲存此權杖。之後將無法再次看到。"
 
-#: src/features/repository/repository-tabs.tsx:908
-#: src/features/repository/repository-tabs.tsx:920
+#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:937
+#: src/features/repository/repository-tabs.tsx:950
+#: src/features/repository/repository-tabs.tsx:962
 msgid "Saving settings..."
 msgstr "正在儲存設定..."
 
@@ -2269,7 +2275,7 @@ msgstr "選擇帳戶類型"
 msgid "Select branch"
 msgstr "選擇分支"
 
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Select default branch"
 msgstr "選擇預設分支"
 
@@ -2293,7 +2299,7 @@ msgstr "選擇人員..."
 msgid "Select previous card"
 msgstr "選擇上一張卡片"
 
-#: src/features/repository/repository-tabs.tsx:580
+#: src/features/repository/repository-tabs.tsx:587
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "選擇來源分支"
@@ -2343,7 +2349,7 @@ msgstr "工作階段已過期，請重新登入。"
 msgid "Set origin and destination"
 msgstr "設定出發地與目的地"
 
-#: src/features/repository/repository-tabs.tsx:1214
+#: src/features/repository/repository-tabs.tsx:1280
 msgid "Setting access..."
 msgstr "正在設定存取權..."
 
@@ -2354,8 +2360,10 @@ msgstr "正在設定存取權..."
 msgid "Settings"
 msgstr "設定"
 
-#: src/features/repository/repository-tabs.tsx:909
-#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:938
+#: src/features/repository/repository-tabs.tsx:951
+#: src/features/repository/repository-tabs.tsx:963
 msgid "Settings saved"
 msgstr "設定已儲存"
 
@@ -2402,7 +2410,7 @@ msgstr "小"
 msgid "Sort"
 msgstr "排序"
 
-#: src/features/repository/repository-tabs.tsx:577
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "來源分支"
@@ -2435,20 +2443,20 @@ msgstr "送出回覆"
 #: ../../../lib/web/src/components/recommended-entities.tsx:58
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
 #: src/features/repository/inline-repo-search.tsx:90
-#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "訂閱"
 
 #: src/features/repository/inline-repo-search.tsx:71
-#: src/features/repository/repository-header.tsx:101
+#: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
-#: src/routes/_authenticated/index.tsx:201
+#: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "已訂閱"
 
 #: src/features/repository/inline-repo-search.tsx:70
 #: src/routes/_authenticated/find.tsx:59
-#: src/routes/_authenticated/index.tsx:200
+#: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
 msgstr "訂閱中..."
 
@@ -2506,7 +2514,7 @@ msgstr "無法傳送。檔案可能太大，或您的連線失敗。請嘗試較
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "檔案太大，無法上傳。請移除或縮小檔案後再試。"
 
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-tabs.tsx:1138
 msgid "The branch shown when viewing the repository"
 msgstr "檢視儲存庫時顯示的分支"
 
@@ -2524,7 +2532,7 @@ msgstr "伺服器傳回網頁而非資料。"
 msgid "This page requires a repository context."
 msgstr "此頁面需要儲存庫情境。"
 
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "這將永久刪除「{currentName}」及其所有提交、分支與標籤。此動作無法復原。"
 
@@ -2532,11 +2540,11 @@ msgstr "這將永久刪除「{currentName}」及其所有提交、分支與標�
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "這將永久刪除此權杖。使用它的 git 用戶端將無法再驗證。"
 
-#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-header.tsx:129
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "這將從您的儲存庫清單中移除「{name}」。您之後可以再次訂閱。"
 
-#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:231
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "這將從您的儲存庫清單中移除「{repoName}」。您之後可以再次訂閱。"
 
@@ -2667,34 +2675,34 @@ msgid "Unknown"
 msgstr "未知"
 
 #: ../../../lib/web/src/components/options-menu.tsx:211
-#: src/features/repository/repository-header.tsx:120
-#: src/features/repository/repository-header.tsx:132
-#: src/features/repository/repository-tabs.tsx:217
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:343
-#: src/routes/_authenticated/index.tsx:363
-#: src/routes/_authenticated/index.tsx:365
+#: src/features/repository/repository-header.tsx:122
+#: src/features/repository/repository-header.tsx:134
+#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:346
+#: src/routes/_authenticated/index.tsx:366
+#: src/routes/_authenticated/index.tsx:368
 msgid "Unsubscribe"
 msgstr "取消訂閱"
 
-#: src/features/repository/repository-header.tsx:125
-#: src/features/repository/repository-tabs.tsx:222
+#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-tabs.tsx:229
 msgid "Unsubscribe from repository?"
 msgstr "取消訂閱儲存庫?"
 
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:376
 msgid "Unsubscribed"
 msgstr "已取消訂閱"
 
-#: src/features/repository/repository-header.tsx:75
-#: src/features/repository/repository-tabs.tsx:196
+#: src/features/repository/repository-header.tsx:77
+#: src/features/repository/repository-tabs.tsx:203
 msgid "Unsubscribed from repository"
 msgstr "已取消訂閱儲存庫"
 
-#: src/features/repository/repository-header.tsx:74
-#: src/features/repository/repository-tabs.tsx:195
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:372
+#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "取消訂閱中..."
 
@@ -2709,11 +2717,11 @@ msgstr "未命名"
 msgid "Updated"
 msgstr "已更新"
 
-#: src/features/repository/repository-tabs.tsx:1254
+#: src/features/repository/repository-tabs.tsx:1320
 msgid "Updating access..."
 msgstr "正在更新存取權..."
 
-#: src/features/repository/repository-tabs.tsx:888
+#: src/features/repository/repository-tabs.tsx:901
 msgid "Updating path..."
 msgstr "正在更新路徑..."
 
@@ -2789,7 +2797,7 @@ msgstr "星期三"
 msgid "You do not have access to this section."
 msgstr "您沒有存取此區段的權限。"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "You have no repositories yet."
 msgstr "您還沒有儲存庫。"
 

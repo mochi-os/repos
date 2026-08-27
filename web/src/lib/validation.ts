@@ -10,3 +10,18 @@ export const DISALLOWED_NAME_CHARS = /[<>\r\n]/
 export function isValidPath(p: string): boolean {
   return /^[a-z0-9][a-z0-9-]{0,98}[a-z0-9]$/.test(p) || /^[a-z0-9]$/.test(p)
 }
+
+// Hostname of a subscribed repository's server, or null when it is not a URL
+// we can render. The stored value is whatever a.input("server", "") accepted at
+// subscribe time, so "http" and "httpx" both reach here; new URL() throws on
+// them, and an exception during render takes the whole page down.
+export function serverHost(server?: string): string | null {
+  if (!server) return null
+  try {
+    const parsed = new URL(server)
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null
+    return parsed.hostname || null
+  } catch {
+    return null
+  }
+}

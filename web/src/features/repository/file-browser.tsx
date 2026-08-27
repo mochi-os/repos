@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from 'react'
 import { Trans, useLingui } from '@lingui/react/macro'
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { Card, CardContent, Skeleton, getErrorMessage, naturalCompare } from '@mochi/web'
 import { ChevronRight } from 'lucide-react'
 import { useTree, useBranches } from '@/hooks/use-repository'
@@ -31,8 +31,20 @@ export function FileTree({
   currentPath: initialPath,
 }: FileTreeProps) {
   const { t } = useLingui()
+  const navigate = useNavigate()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
+
+  // Navigate rather than only setting state, as the blob viewer does: without
+  // this the tree re-renders on the new branch while the URL still names the
+  // old one, so a reload or a shared link shows something else.
+  const handleBranchChange = (newRef: string) => {
+    setCurrentRef(newRef)
+    navigate({
+      to: '/$repoId/tree/$ref/$',
+      params: { repoId: fingerprint, ref: newRef, _splat: currentPath },
+    })
+  }
 
   // Sync from props when URL changes (useState only uses initial value on mount)
   useEffect(() => { setCurrentRef(initialRef || defaultBranch) }, [initialRef, defaultBranch])
@@ -47,7 +59,7 @@ export function FileTree({
       if (treeData.ref && treeData.ref !== currentRef) setCurrentRef(treeData.ref)
       if (treeData.path !== undefined && treeData.path !== currentPath) setCurrentPath(treeData.path)
     }
-  }, [treeData?.ref, treeData?.path])
+  }, [treeData, currentRef, currentPath])
 
   const branches = branchesData?.branches || []
   const entries = treeData?.entries || []
@@ -66,7 +78,7 @@ export function FileTree({
     <div className="space-y-4">
       {/* Branch selector */}
       {branches.length > 0 && (
-        <RefSelector branches={branches} value={currentRef} onValueChange={setCurrentRef} />
+        <RefSelector branches={branches} value={currentRef} onValueChange={handleBranchChange} />
       )}
 
       {/* Breadcrumb */}

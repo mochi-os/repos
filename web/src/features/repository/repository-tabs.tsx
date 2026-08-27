@@ -17,6 +17,7 @@ import {
   Textarea,
   Skeleton,
   Select,
+  Switch,
   SelectContent,
   SelectItem,
   SelectTrigger,
@@ -86,6 +87,8 @@ interface RepositoryTabsProps {
   path: string
   defaultBranch: string
   description?: string
+  allowRead?: boolean
+  privacy?: string
   isOwner?: boolean
   activeTab: RepositoryTabId
   onTabChange: (tab: RepositoryTabId) => void
@@ -100,6 +103,8 @@ export function RepositoryTabs({
   path,
   defaultBranch,
   description,
+  allowRead,
+  privacy,
   isOwner,
   activeTab,
   onTabChange,
@@ -167,6 +172,8 @@ export function RepositoryTabs({
             path={path}
             description={description}
             defaultBranch={defaultBranch}
+            allowRead={allowRead}
+            privacy={privacy}
           />
         )}
         {activeTab === 'access' && isOwner && (
@@ -737,6 +744,8 @@ interface GeneralSettingsTabProps {
   path: string
   description?: string
   defaultBranch: string
+  allowRead?: boolean
+  privacy?: string
 }
 
 
@@ -747,6 +756,8 @@ function GeneralSettingsTab({
   path: initialPath,
   description: initialDescription,
   defaultBranch: initialDefaultBranch,
+  allowRead: initialAllowRead,
+  privacy: initialPrivacy,
 }: GeneralSettingsTabProps) {
   const { t } = useLingui()
   const navigate = useNavigate()
@@ -755,6 +766,8 @@ function GeneralSettingsTab({
   const [currentPath, setCurrentPath] = useState(initialPath || '')
   const [description, setDescription] = useState(initialDescription || '')
   const [selectedBranch, setSelectedBranch] = useState(initialDefaultBranch || 'main')
+  const [allowRead, setAllowRead] = useState(initialAllowRead !== false)
+  const [privacy, setPrivacy] = useState(initialPrivacy !== 'private')
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
 
   // Inline edit state for name
@@ -911,6 +924,35 @@ function GeneralSettingsTab({
       })
     } catch {
       setSelectedBranch(previous)
+    }
+  }
+
+  // Both are access-control settings the server reserves for admins, and both
+  // were previously settable only at creation: a repository created public
+  // could not be made private afterwards.
+  const handleAllowReadChange = async (value: boolean) => {
+    setAllowRead(value)
+    try {
+      await toastAction(updateSetting.mutateAsync({ allow_read: value ? 'true' : 'false' }), {
+        loading: t`Saving settings...`,
+        success: t`Settings saved`,
+        error: (e) => getErrorMessage(e, t`Failed to save setting`),
+      })
+    } catch {
+      setAllowRead(!value)
+    }
+  }
+
+  const handlePrivacyChange = async (value: boolean) => {
+    setPrivacy(value)
+    try {
+      await toastAction(updateSetting.mutateAsync({ privacy: value ? 'public' : 'private' }), {
+        loading: t`Saving settings...`,
+        success: t`Settings saved`,
+        error: (e) => getErrorMessage(e, t`Failed to save setting`),
+      })
+    } catch {
+      setPrivacy(!value)
     }
   }
 
@@ -1115,6 +1157,30 @@ function GeneralSettingsTab({
           </div>
         </div>
       )}
+
+      <div className="flex items-center justify-between py-4">
+        <Label htmlFor="settings-privacy" className="text-base">
+          <Trans>Allow anyone to search for repository</Trans>
+        </Label>
+        <Switch
+          id="settings-privacy"
+          checked={privacy}
+          onCheckedChange={(value) => void handlePrivacyChange(value)}
+          disabled={updateSetting.isPending}
+        />
+      </div>
+
+      <div className="flex items-center justify-between py-4">
+        <Label htmlFor="settings-allow-read" className="text-base">
+          <Trans>Allow anyone to read repository</Trans>
+        </Label>
+        <Switch
+          id="settings-allow-read"
+          checked={allowRead}
+          onCheckedChange={(value) => void handleAllowReadChange(value)}
+          disabled={updateSetting.isPending}
+        />
+      </div>
 
       <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-0.5">

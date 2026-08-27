@@ -31,6 +31,7 @@ import { CloneDialog } from '@/components/clone-dialog'
 import { DownloadDropdown } from '@/components/download-dropdown'
 import { RepositoryLinkButton } from '@/components/repository-link-button'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
+import { serverHost } from '@/lib/validation'
 
 
 interface RepositoryHeaderProps {
@@ -61,6 +62,7 @@ export function RepositoryHeader({
   showDownload = true,
 }: RepositoryHeaderProps) {
   const { t } = useLingui()
+  const host = serverHost(server)
   const navigate = useNavigate()
   const unsubscribe = useUnsubscribe()
   const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
@@ -141,9 +143,9 @@ export function RepositoryHeader({
         <CardDescription className="text-base">{description}</CardDescription>
       )}
 
-      {isRemote && server && server.startsWith('http') && (
+      {isRemote && host && (
         <p className="text-sm text-muted-foreground">
-          <Trans>From: {new URL(server).hostname}</Trans>
+          <Trans>From: {serverHost(server)}</Trans>
         </p>
       )}
 

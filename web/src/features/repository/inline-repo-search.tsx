@@ -74,7 +74,7 @@ export function InlineRepoSearch({
     );
     void queryClient.invalidateQueries({ queryKey: repoKeys.info() });
     onRefresh?.();
-    void navigate({ to: "/$repoId", params: { repoId: repo.id } });
+    void navigate({ to: "/$repoId", params: { repoId: repo.fingerprint || repo.id } });
   };
 
   return (

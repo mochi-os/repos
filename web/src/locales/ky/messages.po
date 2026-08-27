@@ -40,7 +40,7 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# файл өзгөрдү} other {# файл өзгөрдү}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:170
+#: src/features/repository/blob-viewer.tsx:169
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# сап} other {# сап}}"
 
@@ -56,7 +56,7 @@ msgstr "{0} коммит"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:704
+#: src/features/repository/repository-tabs.tsx:711
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{1} датасында {0} тегделди"
@@ -148,15 +148,15 @@ msgstr "Жетки четке кагылды"
 msgid "Access level"
 msgstr "Жетки деңгээли"
 
-#: src/features/repository/repository-tabs.tsx:1255
+#: src/features/repository/repository-tabs.tsx:1321
 msgid "Access level updated"
 msgstr "Жетки деңгээли жаңыланды"
 
-#: src/features/repository/repository-tabs.tsx:1235
+#: src/features/repository/repository-tabs.tsx:1301
 msgid "Access removed"
 msgstr "Жетки алынып салынды"
 
-#: src/features/repository/repository-tabs.tsx:1215
+#: src/features/repository/repository-tabs.tsx:1281
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} үчүн жетки коюлду"
 
@@ -167,7 +167,7 @@ msgstr "Аккаунт түрү"
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:720
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1270
+#: src/features/repository/repository-tabs.tsx:1336
 msgid "Add"
 msgstr "Кошуу"
 
@@ -248,6 +248,7 @@ msgid "All repositories"
 msgstr "Бардык репозиторийлер"
 
 #: src/features/repository/create-repository-dialog.tsx:182
+#: src/features/repository/repository-tabs.tsx:1175
 msgid "Allow anyone to read repository"
 msgstr "Репозиторийди ар кимге окууга уруксат берүү"
 
@@ -257,6 +258,7 @@ msgid "Allow anyone to search for {0}"
 msgstr "Ар кимге {0} издөөгө уруксат берүү"
 
 #: src/features/repository/create-repository-dialog.tsx:177
+#: src/features/repository/repository-tabs.tsx:1163
 msgid "Allow anyone to search for repository"
 msgstr "Репозиторийди издөөгө ар кимге уруксат берүү"
 
@@ -306,7 +308,7 @@ msgstr "Бул комментарийди жок кылууну каалайсы
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Чыгууну каалайсызбы? Аккаунтуңузга кайра кирүү керек болот."
 
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Бул репозиторийден жазылбоону каалайсызбы?"
 
@@ -363,7 +365,7 @@ msgid "Banner"
 msgstr "Баннер"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:198
+#: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Бинардык файл ({0})"
 
@@ -394,22 +396,22 @@ msgstr "Кызыгууну күчөтүү"
 msgid "Border colour"
 msgstr "Чек ара түсү"
 
-#: src/features/repository/repository-tabs.tsx:442
+#: src/features/repository/repository-tabs.tsx:449
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" бутагы түзүлдү"
 
-#: src/features/repository/repository-tabs.tsx:464
+#: src/features/repository/repository-tabs.tsx:471
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" бутагы өчүрүлдү"
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Бутактын аты"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:440
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Бутактын аты талап кылынат"
@@ -437,11 +439,11 @@ msgstr "Браузер эскертүүлөрү"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
 #: src/components/clone-dialog.tsx:449
-#: src/features/repository/repository-header.tsx:131
-#: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:594
-#: src/features/repository/repository-tabs.tsx:613
-#: src/features/repository/repository-tabs.tsx:1145
+#: src/features/repository/repository-header.tsx:133
+#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:620
+#: src/features/repository/repository-tabs.tsx:1211
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
@@ -451,8 +453,8 @@ msgstr "Жокко чыгаруу"
 msgid "Cancel comment"
 msgstr "Комментарийди жокко чыгаруу"
 
-#: src/features/repository/repository-tabs.tsx:984
-#: src/features/repository/repository-tabs.tsx:1044
+#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1086
 msgid "Cancel edit"
 msgstr "Түзөтүүнү жокко чыгаруу"
 
@@ -679,8 +681,8 @@ msgstr "Көчүрүү"
 msgid "Copy commit SHA"
 msgstr "commit SHA-сын көчүрүү"
 
-#: src/features/repository/blob-viewer.tsx:177
-#: src/features/repository/blob-viewer.tsx:181
+#: src/features/repository/blob-viewer.tsx:176
+#: src/features/repository/blob-viewer.tsx:180
 msgid "Copy file contents"
 msgstr "Файлдын мазмунун көчүрүү"
 
@@ -723,12 +725,12 @@ msgstr "{0} түзүү"
 msgid "Create a new authentication token."
 msgstr "Жаңы аутентификация токенин түзүү."
 
-#: src/routes/_authenticated/index.tsx:245
+#: src/routes/_authenticated/index.tsx:248
 msgid "Create a new repository"
 msgstr "Жаңы репозиторий түзүү"
 
-#: src/features/repository/repository-tabs.tsx:498
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:505
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -759,7 +761,7 @@ msgstr "Түзүлдү"
 msgid "Created {0}"
 msgstr "Түзүлдү {0}"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Бутак түзүлүүдө..."
@@ -774,7 +776,7 @@ msgstr "Токен түзүлүүдө..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:656
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Түзүлүүдө..."
@@ -803,7 +805,7 @@ msgstr "Күн"
 msgid "Decline"
 msgstr "Четке кагуу"
 
-#: src/features/repository/repository-tabs.tsx:526
+#: src/features/repository/repository-tabs.tsx:533
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "демейки"
@@ -812,7 +814,7 @@ msgstr "демейки"
 msgid "Default AI account"
 msgstr "Демейки AI аккаунту"
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1137
 msgid "Default branch"
 msgstr "Демейки бутак"
 
@@ -830,13 +832,13 @@ msgstr "Демейки иргөө"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:252
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:314
 #: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:615
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:622
+#: src/features/repository/repository-tabs.tsx:1212
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Жок кылуу"
 
-#: src/features/repository/repository-tabs.tsx:609
+#: src/features/repository/repository-tabs.tsx:616
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" жок кылабызбы? Бул аракетти артка кайтаруу мүмкүн эмес."
@@ -845,14 +847,14 @@ msgstr "\"{branchToDelete}\" жок кылабызбы? Бул аракетти 
 msgid "Delete attachment"
 msgstr "Тиркемени жок кылуу"
 
-#: src/features/repository/repository-tabs.tsx:545
-#: src/features/repository/repository-tabs.tsx:550
+#: src/features/repository/repository-tabs.tsx:552
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Бутакты өчүрүү"
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:614
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Бутакты жок кылабызбы?"
@@ -879,12 +881,12 @@ msgstr "Тандоону жок кылуу"
 msgid "Delete option {0}"
 msgstr "{0} тандоосун жок кылуу"
 
-#: src/features/repository/repository-tabs.tsx:1121
-#: src/features/repository/repository-tabs.tsx:1132
+#: src/features/repository/repository-tabs.tsx:1187
+#: src/features/repository/repository-tabs.tsx:1198
 msgid "Delete repository"
 msgstr "Репозиторийди жок кылуу"
 
-#: src/features/repository/repository-tabs.tsx:1139
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Delete repository?"
 msgstr "Репозиторийди жок кылабызбы?"
 
@@ -904,12 +906,12 @@ msgstr "Көрүнүштү жок кылуу"
 msgid "Delete your account on the old server"
 msgstr "Эски серверден аккаунтуңузду жок кылыңыз"
 
-#: src/features/repository/repository-tabs.tsx:463
+#: src/features/repository/repository-tabs.tsx:470
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Бутак өчүрүлүүдө..."
 
-#: src/features/repository/repository-tabs.tsx:932
+#: src/features/repository/repository-tabs.tsx:974
 msgid "Deleting repository..."
 msgstr "Репозиторий өчүрүлүүдө..."
 
@@ -917,7 +919,7 @@ msgstr "Репозиторий өчүрүлүүдө..."
 msgid "Deleting token..."
 msgstr "Токен өчүрүлүүдө..."
 
-#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Жок кылынууда..."
@@ -928,7 +930,7 @@ msgstr "Кемүү тартибинде"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:83
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1075
+#: src/features/repository/repository-tabs.tsx:1117
 msgid "Description"
 msgstr "Сүрөттөмө"
 
@@ -993,8 +995,8 @@ msgstr "Жүктөп алуу"
 msgid "Download failed"
 msgstr "Жүктөп алуу ишке ашкан жок"
 
-#: src/features/repository/blob-viewer.tsx:186
-#: src/features/repository/blob-viewer.tsx:190
+#: src/features/repository/blob-viewer.tsx:185
+#: src/features/repository/blob-viewer.tsx:189
 msgid "Download file"
 msgstr "Файлды жүктөө"
 
@@ -1031,7 +1033,7 @@ msgstr "Талааны түзөтүү"
 msgid "Edit field settings"
 msgstr "Талаа жөндөөлөрүн түзөтүү"
 
-#: src/features/repository/repository-tabs.tsx:1001
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Edit name"
 msgstr "Атын түзөтүү"
 
@@ -1045,7 +1047,7 @@ msgstr "Тандоону түзөтүү"
 msgid "Edit option {0}"
 msgstr "{0} тандоосун түзөтүү"
 
-#: src/features/repository/repository-tabs.tsx:1061
+#: src/features/repository/repository-tabs.tsx:1103
 msgid "Edit path"
 msgstr "Жолду өзгөртүү"
 
@@ -1065,11 +1067,11 @@ msgstr "Электрондук почта"
 msgid "Email code"
 msgstr "Электрондук почта коду"
 
-#: src/features/repository/file-browser.tsx:119
+#: src/features/repository/file-browser.tsx:131
 msgid "Empty directory"
 msgstr "Бош каталог"
 
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Empty repository"
 msgstr "Бош сактагыч"
 
@@ -1081,7 +1083,7 @@ msgstr "Электрондук почтаңыздагы кодду киргиз�
 msgid "Enter your authenticator code"
 msgstr "Authenticator кодун киргизиңиз"
 
-#: src/features/repository/repository-tabs.tsx:1067
+#: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Субъект:"
 
@@ -1109,7 +1111,7 @@ msgstr "Өтө чоң"
 msgid "Failed to copy"
 msgstr "Көчүрүү ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:443
+#: src/features/repository/repository-tabs.tsx:450
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Бутак түзүү ишке ашкан жок"
@@ -1132,7 +1134,7 @@ msgstr "Токен түзүү ишке ашкан жок"
 msgid "Failed to delete attachment"
 msgstr "Тиркемени өчүрүү ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:472
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Бутакты өчүрүү ишке ашкан жок"
@@ -1145,7 +1147,7 @@ msgstr "Комментарийди өчүрүү ишке ашкан жок"
 msgid "Failed to delete link"
 msgstr "Шилтемени өчүрүү ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:934
+#: src/features/repository/repository-tabs.tsx:976
 msgid "Failed to delete repository"
 msgstr "Сактагычты өчүрүү ишке ашкан жок"
 
@@ -1173,11 +1175,11 @@ msgstr "Токенди алуу ишке ашкан жок"
 msgid "Failed to load"
 msgstr "Жүктөө ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1258
 msgid "Failed to load access rules"
 msgstr "Жетишүү эрежелерин жүктөө ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:487
+#: src/features/repository/repository-tabs.tsx:494
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Бутактарды жүктөө ишке ашкан жок"
@@ -1186,13 +1188,13 @@ msgstr "Бутактарды жүктөө ишке ашкан жок"
 msgid "Failed to load commit"
 msgstr "Коммитти жүктөө ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Коммиттерди жүктөө ишке ашкан жок"
 
-#: src/features/repository/file-browser.tsx:115
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/file-browser.tsx:127
+#: src/features/repository/repository-tabs.tsx:324
 msgid "Failed to load files"
 msgstr "Файлдарды жүктөө ишке ашкан жок"
 
@@ -1204,7 +1206,7 @@ msgstr "Тарыхты жүктөө ишке ашкан жок"
 msgid "Failed to load image"
 msgstr "Сүрөттү жүктөө мүмкүн болбоду"
 
-#: src/features/repository/repository-tabs.tsx:646
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Тегдерди жүктөө ишке ашкан жок"
@@ -1217,11 +1219,11 @@ msgstr "Видеону жүктөө мүмкүн болбоду"
 msgid "Failed to post comment"
 msgstr "Комментарий жазуу ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:1236
+#: src/features/repository/repository-tabs.tsx:1302
 msgid "Failed to remove access"
 msgstr "Жетишүүнү алып салуу ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:840
+#: src/features/repository/repository-tabs.tsx:853
 msgid "Failed to rename repository"
 msgstr "Сактагычтын атын өзгөртүү ишке ашкан жок"
 
@@ -1229,8 +1231,10 @@ msgstr "Сактагычтын атын өзгөртүү ишке ашкан ж�
 msgid "Failed to revoke RSS access"
 msgstr "RSS мүмкүнчүлүгүн кайтарып алуу ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:910
-#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:923
+#: src/features/repository/repository-tabs.tsx:939
+#: src/features/repository/repository-tabs.tsx:952
+#: src/features/repository/repository-tabs.tsx:964
 msgid "Failed to save setting"
 msgstr "Жөндөөнү сактоо ишке ашкан жок"
 
@@ -1239,23 +1243,23 @@ msgstr "Жөндөөнү сактоо ишке ашкан жок"
 msgid "Failed to search repositories"
 msgstr "Репозиторийлерди издөө ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:1216
+#: src/features/repository/repository-tabs.tsx:1282
 msgid "Failed to set access level"
 msgstr "Жетишүү деңгээлин коюу ишке ашкан жок"
 
 #: src/features/repository/inline-repo-search.tsx:72
 #: src/routes/_authenticated/find.tsx:61
-#: src/routes/_authenticated/index.tsx:202
+#: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Жазылуу ишке ашкан жок"
 
-#: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:374
+#: src/features/repository/repository-header.tsx:78
+#: src/features/repository/repository-tabs.tsx:204
+#: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Жазылуудан чыгуу ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:1256
+#: src/features/repository/repository-tabs.tsx:1322
 msgid "Failed to update access level"
 msgstr "Жетишүү деңгээлин жаңылоо ишке ашкан жок"
 
@@ -1263,7 +1267,7 @@ msgstr "Жетишүү деңгээлин жаңылоо ишке ашкан ж�
 msgid "Failed to update comment"
 msgstr "Комментарийди жаңылоо ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:890
+#: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Жолду жаңылоо ишке ашкан жок"
 
@@ -1271,7 +1275,7 @@ msgstr "Жолду жаңылоо ишке ашкан жок"
 msgid "Failed to upload attachment"
 msgstr "Тиркемени жүктөө ишке ашкан жок"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:579
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -1295,7 +1299,7 @@ msgstr "Файлдар"
 msgid "Find repositories"
 msgstr "Сактагычтарды табуу"
 
-#: src/features/repository/repository-tabs.tsx:1069
+#: src/features/repository/repository-tabs.tsx:1111
 msgid "Fingerprint:"
 msgstr "Манжа изи:"
 
@@ -1331,8 +1335,8 @@ msgstr "Кимден"
 msgid "From theme"
 msgstr "Темадан"
 
-#. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:146
+#. placeholder {0}: serverHost(server)
+#: src/features/repository/repository-header.tsx:148
 msgid "From: {0}"
 msgstr "Кимден: {0}"
 
@@ -1373,7 +1377,7 @@ msgstr "Ысык"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:945
+#: src/features/repository/repository-tabs.tsx:987
 msgid "Identity"
 msgstr "Идентификация"
 
@@ -1484,7 +1488,7 @@ msgid "Logging out…"
 msgstr "Чыгууда…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:872
+#: src/features/repository/repository-tabs.tsx:885
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Кичине тамгалар, сандар жана дефистер гана"
 
@@ -1546,8 +1550,8 @@ msgstr "Модерация"
 msgid "Monday"
 msgstr "Дүйшөмбү"
 
-#: src/routes/_authenticated/index.tsx:326
-#: src/routes/_authenticated/index.tsx:334
+#: src/routes/_authenticated/index.tsx:329
+#: src/routes/_authenticated/index.tsx:337
 msgid "More actions"
 msgstr "Дагы аракеттер"
 
@@ -1566,7 +1570,7 @@ msgid "Name"
 msgstr "Аты"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:815
 msgid "Name cannot contain < or > characters"
 msgstr "Атта < же > символдору болбошу керек"
 
@@ -1575,7 +1579,7 @@ msgid "Name cannot contain angle brackets, backslash, semicolon, quotes or backt
 msgstr "Аталышта бурчтуу кашаалар, кайра кыйгач сызык, чекиттүү үтүр, тырмакчалар же кайра тырмакчалар болбошу керек"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:814
 msgid "Name must be 100 characters or less"
 msgstr "Аты 100 символдон ашпашы керек"
 
@@ -1583,7 +1587,7 @@ msgstr "Аты 100 символдон ашпашы керек"
 msgid "Name must be 1000 characters or less"
 msgstr "Аты 1000 символдон ашпашы керек"
 
-#: src/features/repository/repository-tabs.tsx:947
+#: src/features/repository/repository-tabs.tsx:989
 msgid "Name:"
 msgstr "Аты:"
 
@@ -1602,7 +1606,7 @@ msgstr "Эч качан"
 msgid "New"
 msgstr "Жаңы"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:570
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Жаңы бутак"
@@ -1621,7 +1625,7 @@ msgstr "Кийинки сүрөт"
 msgid "No {parentClassNames} to add to"
 msgstr "{parentClassNames} кошуу үчүн жок"
 
-#: src/features/repository/repository-tabs.tsx:729
+#: src/features/repository/repository-tabs.tsx:736
 msgid "No access"
 msgstr "Кирүү жок"
 
@@ -1633,7 +1637,7 @@ msgstr "Кирүү эрежелери жок. Бул ресурска ким к�
 msgid "No activity yet"
 msgstr "Активдүүлүк азырынча жок"
 
-#: src/features/repository/repository-tabs.tsx:506
+#: src/features/repository/repository-tabs.tsx:513
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Бутактар азырынча жок"
@@ -1642,7 +1646,7 @@ msgstr "Бутактар азырынча жок"
 msgid "No comments yet"
 msgstr "Комментарийлер азырынча жок"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:373
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Коммиттер азырынча жок"
@@ -1672,7 +1676,7 @@ msgstr "Адамдар табылган жок"
 msgid "No places found"
 msgstr "Жерлер табылган жок"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "No public repositories."
 msgstr "Ачык репозиторийлер жок."
 
@@ -1696,7 +1700,7 @@ msgstr "Натыйжалар табылган жок."
 msgid "No status"
 msgstr "Абалы жок"
 
-#: src/features/repository/repository-tabs.tsx:676
+#: src/features/repository/repository-tabs.tsx:683
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Тегтер азырынча жок"
@@ -1856,15 +1860,15 @@ msgstr "Кирүү ачкычтары"
 msgid "Path"
 msgstr "Жол"
 
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:881
 msgid "Path is required"
 msgstr "Жол талап кылынат"
 
-#: src/features/repository/repository-tabs.tsx:889
+#: src/features/repository/repository-tabs.tsx:902
 msgid "Path updated"
 msgstr "Жол жаңыртылды"
 
-#: src/features/repository/repository-tabs.tsx:1007
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Path:"
 msgstr "Жол:"
 
@@ -1872,7 +1876,7 @@ msgstr "Жол:"
 msgid "Pattern (regex)"
 msgstr "Үлгү (regex)"
 
-#: src/features/repository/repository-tabs.tsx:1123
+#: src/features/repository/repository-tabs.tsx:1189
 msgid "Permanently delete this repository and all its data"
 msgstr "Бул репозиторийди жана анын бардык маалыматын биротоло өчүрүү"
 
@@ -1940,11 +1944,11 @@ msgstr "Бул серверде аккаунттарыңызды кайра ба
 msgid "Re-register your passkeys on this server"
 msgstr "Бул серверде кирүү ачкычтарыңызды кайра каттаңыз"
 
-#: src/features/repository/repository-tabs.tsx:727
+#: src/features/repository/repository-tabs.tsx:734
 msgid "Read and write"
 msgstr "Окуу жана жазуу"
 
-#: src/features/repository/repository-tabs.tsx:728
+#: src/features/repository/repository-tabs.tsx:735
 msgid "Read only"
 msgstr "Окуу гана"
 
@@ -1952,7 +1956,7 @@ msgstr "Окуу гана"
 msgid "Recommended"
 msgstr "Сунушталган"
 
-#: src/routes/_authenticated/index.tsx:256
+#: src/routes/_authenticated/index.tsx:259
 msgid "Recommended repositories"
 msgstr "Сунушталган репозиторийлер"
 
@@ -2022,7 +2026,7 @@ msgstr "Нерсени алуу"
 msgid "Remove link"
 msgstr "Шилтемени өчүрүү"
 
-#: src/features/repository/repository-tabs.tsx:1234
+#: src/features/repository/repository-tabs.tsx:1300
 msgid "Removing access..."
 msgstr "Уруксат алынып салынууда..."
 
@@ -2039,7 +2043,7 @@ msgstr "Тилкенин атын өзгөртүү"
 msgid "Rename this board column"
 msgstr "Такта тилкесинин атын өзгөртүү"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:851
 msgid "Renaming repository..."
 msgstr "Репозиторийдин аты өзгөртүлүүдө..."
 
@@ -2053,9 +2057,9 @@ msgstr "Жооп"
 msgid "Reply to {0}..."
 msgstr "{0}-га жооп..."
 
-#: src/routes/_authenticated/index.tsx:153
-#: src/routes/_authenticated/index.tsx:228
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:156
+#: src/routes/_authenticated/index.tsx:231
+#: src/routes/_authenticated/index.tsx:239
 msgid "Repositories"
 msgstr "Репозиторийлер"
 
@@ -2070,7 +2074,7 @@ msgstr "Репозиторийлер"
 #: src/routes/_authenticated/$repoId.tsx:56
 #: src/routes/_authenticated/blob/$ref/$.tsx:53
 #: src/routes/_authenticated/blob/$ref/$.tsx:64
-#: src/routes/_authenticated/index.tsx:107
+#: src/routes/_authenticated/index.tsx:108
 #: src/routes/_authenticated/tree/$ref/$.tsx:52
 #: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
@@ -2080,7 +2084,7 @@ msgstr "Репозиторий"
 msgid "Repository created"
 msgstr "Репозиторий түзүлдү"
 
-#: src/features/repository/repository-tabs.tsx:933
+#: src/features/repository/repository-tabs.tsx:975
 msgid "Repository deleted"
 msgstr "Репозиторий өчүрүлдү"
 
@@ -2093,7 +2097,7 @@ msgstr "Репозиторий ID талап кылынат"
 msgid "Repository link"
 msgstr "Репозиторий шилтемеси"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:813
 msgid "Repository name is required"
 msgstr "Репозиторий аты талап кылынат"
 
@@ -2101,7 +2105,7 @@ msgstr "Репозиторий аты талап кылынат"
 msgid "Repository not found"
 msgstr "Репозиторий табылган жок"
 
-#: src/features/repository/repository-tabs.tsx:839
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Repository renamed"
 msgstr "Репозиторийдин аты өзгөртүлдү"
 
@@ -2159,7 +2163,7 @@ msgstr "Ишемби"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:170
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1088
+#: src/features/repository/repository-tabs.tsx:1130
 msgid "Save"
 msgstr "Сактоо"
 
@@ -2172,8 +2176,10 @@ msgstr "Бул токенди азыр сактаңыз. Аны кайра кө�
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Бул токенди коопсуз сактаңыз. Аны кайра көрө албайсыз."
 
-#: src/features/repository/repository-tabs.tsx:908
-#: src/features/repository/repository-tabs.tsx:920
+#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:937
+#: src/features/repository/repository-tabs.tsx:950
+#: src/features/repository/repository-tabs.tsx:962
 msgid "Saving settings..."
 msgstr "Жөндөөлөр сакталууда..."
 
@@ -2269,7 +2275,7 @@ msgstr "Аккаунт түрүн тандоо"
 msgid "Select branch"
 msgstr "Бутакты тандоо"
 
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Select default branch"
 msgstr "Демейки бутакты тандоо"
 
@@ -2293,7 +2299,7 @@ msgstr "Адамды тандаңыз..."
 msgid "Select previous card"
 msgstr "Мурунку картаны тандоо"
 
-#: src/features/repository/repository-tabs.tsx:580
+#: src/features/repository/repository-tabs.tsx:587
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Булак бутакты тандоо"
@@ -2343,7 +2349,7 @@ msgstr "Сеанстын мөөнөтү аяктады. Кайра кириңи�
 msgid "Set origin and destination"
 msgstr "Чыгуу жана баруу жерин коюу"
 
-#: src/features/repository/repository-tabs.tsx:1214
+#: src/features/repository/repository-tabs.tsx:1280
 msgid "Setting access..."
 msgstr "Уруксат орнотулууда..."
 
@@ -2354,8 +2360,10 @@ msgstr "Уруксат орнотулууда..."
 msgid "Settings"
 msgstr "Жөндөөлөр"
 
-#: src/features/repository/repository-tabs.tsx:909
-#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:938
+#: src/features/repository/repository-tabs.tsx:951
+#: src/features/repository/repository-tabs.tsx:963
 msgid "Settings saved"
 msgstr "Жөндөөлөр сакталды"
 
@@ -2402,7 +2410,7 @@ msgstr "Кичине"
 msgid "Sort"
 msgstr "Сорттоо"
 
-#: src/features/repository/repository-tabs.tsx:577
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Булак бутак"
@@ -2435,20 +2443,20 @@ msgstr "Жоопту жөнөтүү"
 #: ../../../lib/web/src/components/recommended-entities.tsx:58
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
 #: src/features/repository/inline-repo-search.tsx:90
-#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Жазылуу"
 
 #: src/features/repository/inline-repo-search.tsx:71
-#: src/features/repository/repository-header.tsx:101
+#: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
-#: src/routes/_authenticated/index.tsx:201
+#: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Жазылдыңыз"
 
 #: src/features/repository/inline-repo-search.tsx:70
 #: src/routes/_authenticated/find.tsx:59
-#: src/routes/_authenticated/index.tsx:200
+#: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
 msgstr "Жазылууда..."
 
@@ -2506,7 +2514,7 @@ msgstr "Жөнөтүлгөн жок. Файлдар өтө чоң болушу �
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Жүктөө үчүн өтө чоң болду. Файлдарды алып салыңыз же кичирейтип, кайра аракет кылыңыз."
 
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-tabs.tsx:1138
 msgid "The branch shown when viewing the repository"
 msgstr "Репозиторийди көргөндө көрсөтүлүүчү бутак"
 
@@ -2524,7 +2532,7 @@ msgstr "Сервер маалыматтын ордуна веб-баракты �
 msgid "This page requires a repository context."
 msgstr "Бул бет репозиторий контекстин талап кылат."
 
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Бул \"{currentName}\" жана анын бардык коммиттерин, бутактарын жана тегдерин биротоло өчүрөт. Бул аракет жокко чыгарылбайт."
 
@@ -2532,11 +2540,11 @@ msgstr "Бул \"{currentName}\" жана анын бардык коммитте
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Бул токенди биротоло өчүрөт. Аны колдонгон git кардарлары аутентификация кыла албай калат."
 
-#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-header.tsx:129
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Бул сиздин репозиторий тизмеңизден \"{name}\" дегенди алып салат. Кийин кайра жазылса болот."
 
-#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:231
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Бул сиздин репозиторий тизмеңизден \"{repoName}\" дегенди алып салат. Кийин кайра жазылса болот."
 
@@ -2667,34 +2675,34 @@ msgid "Unknown"
 msgstr "Белгисиз"
 
 #: ../../../lib/web/src/components/options-menu.tsx:211
-#: src/features/repository/repository-header.tsx:120
-#: src/features/repository/repository-header.tsx:132
-#: src/features/repository/repository-tabs.tsx:217
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:343
-#: src/routes/_authenticated/index.tsx:363
-#: src/routes/_authenticated/index.tsx:365
+#: src/features/repository/repository-header.tsx:122
+#: src/features/repository/repository-header.tsx:134
+#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:346
+#: src/routes/_authenticated/index.tsx:366
+#: src/routes/_authenticated/index.tsx:368
 msgid "Unsubscribe"
 msgstr "Жазылуудан баш тартуу"
 
-#: src/features/repository/repository-header.tsx:125
-#: src/features/repository/repository-tabs.tsx:222
+#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-tabs.tsx:229
 msgid "Unsubscribe from repository?"
 msgstr "Репозиторийден жазылуудан баш тартасызбы?"
 
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:376
 msgid "Unsubscribed"
 msgstr "Жазылуудан баш тартылды"
 
-#: src/features/repository/repository-header.tsx:75
-#: src/features/repository/repository-tabs.tsx:196
+#: src/features/repository/repository-header.tsx:77
+#: src/features/repository/repository-tabs.tsx:203
 msgid "Unsubscribed from repository"
 msgstr "Репозиторийден жазылуудан баш тартылды"
 
-#: src/features/repository/repository-header.tsx:74
-#: src/features/repository/repository-tabs.tsx:195
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:372
+#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Жазылуудан баш тартылууда..."
 
@@ -2709,11 +2717,11 @@ msgstr "Аталышсыз"
 msgid "Updated"
 msgstr "Жаңыланды"
 
-#: src/features/repository/repository-tabs.tsx:1254
+#: src/features/repository/repository-tabs.tsx:1320
 msgid "Updating access..."
 msgstr "Уруксат жаңыртылууда..."
 
-#: src/features/repository/repository-tabs.tsx:888
+#: src/features/repository/repository-tabs.tsx:901
 msgid "Updating path..."
 msgstr "Жол жаңыртылууда..."
 
@@ -2789,7 +2797,7 @@ msgstr "Шаршемби"
 msgid "You do not have access to this section."
 msgstr "Сизде бул бөлүмгө кирүү мүмкүнчүлүгү жок."
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "You have no repositories yet."
 msgstr "Сизде азырынча репозиторийлер жок."
 

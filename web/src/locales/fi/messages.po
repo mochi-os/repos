@@ -40,7 +40,7 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# tiedosto muuttui} other {# tiedostoa muuttui}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:170
+#: src/features/repository/blob-viewer.tsx:169
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# rivi} other {# riviä}}"
 
@@ -56,7 +56,7 @@ msgstr "{0}-commitit"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:704
+#: src/features/repository/repository-tabs.tsx:711
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} tagatti {1}"
@@ -148,15 +148,15 @@ msgstr "Käyttö evätty"
 msgid "Access level"
 msgstr "Käyttöoikeustaso"
 
-#: src/features/repository/repository-tabs.tsx:1255
+#: src/features/repository/repository-tabs.tsx:1321
 msgid "Access level updated"
 msgstr "Käyttöoikeustaso päivitetty"
 
-#: src/features/repository/repository-tabs.tsx:1235
+#: src/features/repository/repository-tabs.tsx:1301
 msgid "Access removed"
 msgstr "Käyttöoikeus poistettu"
 
-#: src/features/repository/repository-tabs.tsx:1215
+#: src/features/repository/repository-tabs.tsx:1281
 msgid "Access set for {subjectName}"
 msgstr "Käyttöoikeus asetettu kohteelle {subjectName}"
 
@@ -167,7 +167,7 @@ msgstr "Tilin tyyppi"
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:720
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1270
+#: src/features/repository/repository-tabs.tsx:1336
 msgid "Add"
 msgstr "Lisää"
 
@@ -248,6 +248,7 @@ msgid "All repositories"
 msgstr "Kaikki tietovarastot"
 
 #: src/features/repository/create-repository-dialog.tsx:182
+#: src/features/repository/repository-tabs.tsx:1175
 msgid "Allow anyone to read repository"
 msgstr "Salli kenen tahansa lukea tietovarastoa"
 
@@ -257,6 +258,7 @@ msgid "Allow anyone to search for {0}"
 msgstr "Salli kenen tahansa hakea {0}"
 
 #: src/features/repository/create-repository-dialog.tsx:177
+#: src/features/repository/repository-tabs.tsx:1163
 msgid "Allow anyone to search for repository"
 msgstr "Salli kenen tahansa etsiä tietovarastoa"
 
@@ -306,7 +308,7 @@ msgstr "Haluatko varmasti poistaa tämän kommentin? Tämä poistaa myös kaikki
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Haluatko varmasti kirjautua ulos? Sinun täytyy kirjautua uudelleen sisään päästäksesi tilillesi."
 
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Haluatko varmasti peruuttaa tämän tietovaraston tilauksen?"
 
@@ -363,7 +365,7 @@ msgid "Banner"
 msgstr "Banneri"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:198
+#: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Binääritiedosto ({0})"
 
@@ -394,22 +396,22 @@ msgstr "Korosta kiinnostusta"
 msgid "Border colour"
 msgstr "Reunan väri"
 
-#: src/features/repository/repository-tabs.tsx:442
+#: src/features/repository/repository-tabs.tsx:449
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Haara \"{name}\" luotu"
 
-#: src/features/repository/repository-tabs.tsx:464
+#: src/features/repository/repository-tabs.tsx:471
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Haara \"{name}\" poistettu"
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Haaran nimi"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:440
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Haaran nimi on pakollinen"
@@ -437,11 +439,11 @@ msgstr "Selaimen ilmoitukset"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
 #: src/components/clone-dialog.tsx:449
-#: src/features/repository/repository-header.tsx:131
-#: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:594
-#: src/features/repository/repository-tabs.tsx:613
-#: src/features/repository/repository-tabs.tsx:1145
+#: src/features/repository/repository-header.tsx:133
+#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:620
+#: src/features/repository/repository-tabs.tsx:1211
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
@@ -451,8 +453,8 @@ msgstr "Peruuta"
 msgid "Cancel comment"
 msgstr "Peruuta kommentti"
 
-#: src/features/repository/repository-tabs.tsx:984
-#: src/features/repository/repository-tabs.tsx:1044
+#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1086
 msgid "Cancel edit"
 msgstr "Peruuta muokkaus"
 
@@ -679,8 +681,8 @@ msgstr "Kopioi"
 msgid "Copy commit SHA"
 msgstr "Kopioi commitin SHA"
 
-#: src/features/repository/blob-viewer.tsx:177
-#: src/features/repository/blob-viewer.tsx:181
+#: src/features/repository/blob-viewer.tsx:176
+#: src/features/repository/blob-viewer.tsx:180
 msgid "Copy file contents"
 msgstr "Kopioi tiedoston sisältö"
 
@@ -723,12 +725,12 @@ msgstr "Luo {0}"
 msgid "Create a new authentication token."
 msgstr "Luo uusi todennustunnus."
 
-#: src/routes/_authenticated/index.tsx:245
+#: src/routes/_authenticated/index.tsx:248
 msgid "Create a new repository"
 msgstr "Luo uusi tietovarasto"
 
-#: src/features/repository/repository-tabs.tsx:498
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:505
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -759,7 +761,7 @@ msgstr "Luotu"
 msgid "Created {0}"
 msgstr "Luotu {0}"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Luodaan haaraa..."
@@ -774,7 +776,7 @@ msgstr "Luodaan tunnusta..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:656
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Luodaan..."
@@ -803,7 +805,7 @@ msgstr "Päivämäärä"
 msgid "Decline"
 msgstr "Hylkää"
 
-#: src/features/repository/repository-tabs.tsx:526
+#: src/features/repository/repository-tabs.tsx:533
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "oletus"
@@ -812,7 +814,7 @@ msgstr "oletus"
 msgid "Default AI account"
 msgstr "Oletustekoälytili"
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1137
 msgid "Default branch"
 msgstr "Oletushaara"
 
@@ -830,13 +832,13 @@ msgstr "Oletuslajittelu"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:252
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:314
 #: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:615
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:622
+#: src/features/repository/repository-tabs.tsx:1212
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Poista"
 
-#: src/features/repository/repository-tabs.tsx:609
+#: src/features/repository/repository-tabs.tsx:616
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Poistetaanko \"{branchToDelete}\"? Tätä ei voi kumota."
@@ -845,14 +847,14 @@ msgstr "Poistetaanko \"{branchToDelete}\"? Tätä ei voi kumota."
 msgid "Delete attachment"
 msgstr "Poista liite"
 
-#: src/features/repository/repository-tabs.tsx:545
-#: src/features/repository/repository-tabs.tsx:550
+#: src/features/repository/repository-tabs.tsx:552
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Poista haara"
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:614
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Poistetaanko haara?"
@@ -879,12 +881,12 @@ msgstr "Poista vaihtoehto"
 msgid "Delete option {0}"
 msgstr "Poista vaihtoehto {0}"
 
-#: src/features/repository/repository-tabs.tsx:1121
-#: src/features/repository/repository-tabs.tsx:1132
+#: src/features/repository/repository-tabs.tsx:1187
+#: src/features/repository/repository-tabs.tsx:1198
 msgid "Delete repository"
 msgstr "Poista tietovarasto"
 
-#: src/features/repository/repository-tabs.tsx:1139
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Delete repository?"
 msgstr "Poistetaanko tietovarasto?"
 
@@ -904,12 +906,12 @@ msgstr "Poista näkymä"
 msgid "Delete your account on the old server"
 msgstr "Poista tilisi vanhalta palvelimelta"
 
-#: src/features/repository/repository-tabs.tsx:463
+#: src/features/repository/repository-tabs.tsx:470
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Poistetaan haaraa..."
 
-#: src/features/repository/repository-tabs.tsx:932
+#: src/features/repository/repository-tabs.tsx:974
 msgid "Deleting repository..."
 msgstr "Poistetaan tietovarastoa..."
 
@@ -917,7 +919,7 @@ msgstr "Poistetaan tietovarastoa..."
 msgid "Deleting token..."
 msgstr "Poistetaan tunnusta..."
 
-#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Poistetaan..."
@@ -928,7 +930,7 @@ msgstr "Laskeva"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:83
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1075
+#: src/features/repository/repository-tabs.tsx:1117
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -993,8 +995,8 @@ msgstr "Lataa"
 msgid "Download failed"
 msgstr "Lataus epäonnistui"
 
-#: src/features/repository/blob-viewer.tsx:186
-#: src/features/repository/blob-viewer.tsx:190
+#: src/features/repository/blob-viewer.tsx:185
+#: src/features/repository/blob-viewer.tsx:189
 msgid "Download file"
 msgstr "Lataa tiedosto"
 
@@ -1031,7 +1033,7 @@ msgstr "Muokkaa kenttää"
 msgid "Edit field settings"
 msgstr "Muokkaa kentän asetuksia"
 
-#: src/features/repository/repository-tabs.tsx:1001
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Edit name"
 msgstr "Muokkaa nimeä"
 
@@ -1045,7 +1047,7 @@ msgstr "Muokkaa vaihtoehtoa"
 msgid "Edit option {0}"
 msgstr "Muokkaa vaihtoehtoa {0}"
 
-#: src/features/repository/repository-tabs.tsx:1061
+#: src/features/repository/repository-tabs.tsx:1103
 msgid "Edit path"
 msgstr "Muokkaa polkua"
 
@@ -1065,11 +1067,11 @@ msgstr "Sähköposti"
 msgid "Email code"
 msgstr "Sähköpostikoodi"
 
-#: src/features/repository/file-browser.tsx:119
+#: src/features/repository/file-browser.tsx:131
 msgid "Empty directory"
 msgstr "Tyhjä hakemisto"
 
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Empty repository"
 msgstr "Tyhjä arkisto"
 
@@ -1081,7 +1083,7 @@ msgstr "Anna sähköpostiisi saamasi koodi"
 msgid "Enter your authenticator code"
 msgstr "Anna todennussovelluksen koodi"
 
-#: src/features/repository/repository-tabs.tsx:1067
+#: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Entiteetti:"
 
@@ -1109,7 +1111,7 @@ msgstr "Erittäin suuri"
 msgid "Failed to copy"
 msgstr "Kopiointi epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:443
+#: src/features/repository/repository-tabs.tsx:450
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Haaran luominen epäonnistui"
@@ -1132,7 +1134,7 @@ msgstr "Tunnisteen luominen epäonnistui"
 msgid "Failed to delete attachment"
 msgstr "Liitteen poistaminen epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:472
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Haaran poistaminen epäonnistui"
@@ -1145,7 +1147,7 @@ msgstr "Kommentin poistaminen epäonnistui"
 msgid "Failed to delete link"
 msgstr "Linkin poistaminen epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:934
+#: src/features/repository/repository-tabs.tsx:976
 msgid "Failed to delete repository"
 msgstr "Arkiston poistaminen epäonnistui"
 
@@ -1173,11 +1175,11 @@ msgstr "Tunnisteen hakeminen epäonnistui"
 msgid "Failed to load"
 msgstr "Lataus epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1258
 msgid "Failed to load access rules"
 msgstr "Käyttöoikeussääntöjen lataus epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:487
+#: src/features/repository/repository-tabs.tsx:494
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Haarojen lataus epäonnistui"
@@ -1186,13 +1188,13 @@ msgstr "Haarojen lataus epäonnistui"
 msgid "Failed to load commit"
 msgstr "Sitoumuksen lataus epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Sitoumusten lataus epäonnistui"
 
-#: src/features/repository/file-browser.tsx:115
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/file-browser.tsx:127
+#: src/features/repository/repository-tabs.tsx:324
 msgid "Failed to load files"
 msgstr "Tiedostojen lataus epäonnistui"
 
@@ -1204,7 +1206,7 @@ msgstr "Historian lataus epäonnistui"
 msgid "Failed to load image"
 msgstr "Kuvan lataus epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:646
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Tunnisteiden lataus epäonnistui"
@@ -1217,11 +1219,11 @@ msgstr "Videon lataus epäonnistui"
 msgid "Failed to post comment"
 msgstr "Kommentin lähettäminen epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:1236
+#: src/features/repository/repository-tabs.tsx:1302
 msgid "Failed to remove access"
 msgstr "Pääsyn poisto epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:840
+#: src/features/repository/repository-tabs.tsx:853
 msgid "Failed to rename repository"
 msgstr "Arkiston uudelleennimeäminen epäonnistui"
 
@@ -1229,8 +1231,10 @@ msgstr "Arkiston uudelleennimeäminen epäonnistui"
 msgid "Failed to revoke RSS access"
 msgstr "RSS-käyttöoikeuden peruuttaminen epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:910
-#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:923
+#: src/features/repository/repository-tabs.tsx:939
+#: src/features/repository/repository-tabs.tsx:952
+#: src/features/repository/repository-tabs.tsx:964
 msgid "Failed to save setting"
 msgstr "Asetuksen tallennus epäonnistui"
 
@@ -1239,23 +1243,23 @@ msgstr "Asetuksen tallennus epäonnistui"
 msgid "Failed to search repositories"
 msgstr "Säilöjen haku epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:1216
+#: src/features/repository/repository-tabs.tsx:1282
 msgid "Failed to set access level"
 msgstr "Käyttöoikeustason asettaminen epäonnistui"
 
 #: src/features/repository/inline-repo-search.tsx:72
 #: src/routes/_authenticated/find.tsx:61
-#: src/routes/_authenticated/index.tsx:202
+#: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Tilaaminen epäonnistui"
 
-#: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:374
+#: src/features/repository/repository-header.tsx:78
+#: src/features/repository/repository-tabs.tsx:204
+#: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Tilauksen peruutus epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:1256
+#: src/features/repository/repository-tabs.tsx:1322
 msgid "Failed to update access level"
 msgstr "Käyttöoikeustason päivitys epäonnistui"
 
@@ -1263,7 +1267,7 @@ msgstr "Käyttöoikeustason päivitys epäonnistui"
 msgid "Failed to update comment"
 msgstr "Kommentin päivitys epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:890
+#: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Polun päivitys epäonnistui"
 
@@ -1271,7 +1275,7 @@ msgstr "Polun päivitys epäonnistui"
 msgid "Failed to upload attachment"
 msgstr "Liitteen lähetys epäonnistui"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:579
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -1295,7 +1299,7 @@ msgstr "Tiedostot"
 msgid "Find repositories"
 msgstr "Etsi arkistoja"
 
-#: src/features/repository/repository-tabs.tsx:1069
+#: src/features/repository/repository-tabs.tsx:1111
 msgid "Fingerprint:"
 msgstr "Sormenjälki:"
 
@@ -1331,8 +1335,8 @@ msgstr "Lähettäjä"
 msgid "From theme"
 msgstr "Teemasta"
 
-#. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:146
+#. placeholder {0}: serverHost(server)
+#: src/features/repository/repository-header.tsx:148
 msgid "From: {0}"
 msgstr "Lähettäjä: {0}"
 
@@ -1373,7 +1377,7 @@ msgstr "Kuuma"
 msgid "ID"
 msgstr "Tunnus"
 
-#: src/features/repository/repository-tabs.tsx:945
+#: src/features/repository/repository-tabs.tsx:987
 msgid "Identity"
 msgstr "Identiteetti"
 
@@ -1484,7 +1488,7 @@ msgid "Logging out…"
 msgstr "Kirjaudutaan ulos…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:872
+#: src/features/repository/repository-tabs.tsx:885
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Vain pieniä kirjaimia, numeroita ja yhdysmerkkejä"
 
@@ -1546,8 +1550,8 @@ msgstr "Moderointi"
 msgid "Monday"
 msgstr "Maanantai"
 
-#: src/routes/_authenticated/index.tsx:326
-#: src/routes/_authenticated/index.tsx:334
+#: src/routes/_authenticated/index.tsx:329
+#: src/routes/_authenticated/index.tsx:337
 msgid "More actions"
 msgstr "Lisää toimintoja"
 
@@ -1566,7 +1570,7 @@ msgid "Name"
 msgstr "Nimi"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:815
 msgid "Name cannot contain < or > characters"
 msgstr "Nimi ei voi sisältää merkkejä < tai >"
 
@@ -1575,7 +1579,7 @@ msgid "Name cannot contain angle brackets, backslash, semicolon, quotes or backt
 msgstr "Nimi ei saa sisältää kulmasulkeita, kenoviivaa, puolipistettä, lainausmerkkejä tai gravis-merkkejä"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:814
 msgid "Name must be 100 characters or less"
 msgstr "Nimen on oltava enintään 100 merkkiä"
 
@@ -1583,7 +1587,7 @@ msgstr "Nimen on oltava enintään 100 merkkiä"
 msgid "Name must be 1000 characters or less"
 msgstr "Nimen on oltava enintään 1000 merkkiä"
 
-#: src/features/repository/repository-tabs.tsx:947
+#: src/features/repository/repository-tabs.tsx:989
 msgid "Name:"
 msgstr "Nimi:"
 
@@ -1602,7 +1606,7 @@ msgstr "Ei koskaan"
 msgid "New"
 msgstr "Uusi"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:570
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Uusi haara"
@@ -1621,7 +1625,7 @@ msgstr "Seuraava kuva"
 msgid "No {parentClassNames} to add to"
 msgstr "Ei {parentClassNames}, johon lisätä"
 
-#: src/features/repository/repository-tabs.tsx:729
+#: src/features/repository/repository-tabs.tsx:736
 msgid "No access"
 msgstr "Ei käyttöoikeutta"
 
@@ -1633,7 +1637,7 @@ msgstr "Käyttöoikeussääntöjä ei ole määritetty. Lisää sääntöjä hal
 msgid "No activity yet"
 msgstr "Ei vielä toimintaa"
 
-#: src/features/repository/repository-tabs.tsx:506
+#: src/features/repository/repository-tabs.tsx:513
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Ei vielä haaroja"
@@ -1642,7 +1646,7 @@ msgstr "Ei vielä haaroja"
 msgid "No comments yet"
 msgstr "Ei vielä kommentteja"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:373
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Ei vielä committeja"
@@ -1672,7 +1676,7 @@ msgstr "Henkilöitä ei löytynyt"
 msgid "No places found"
 msgstr "Paikkoja ei löytynyt"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "No public repositories."
 msgstr "Ei julkisia repositoryjä."
 
@@ -1696,7 +1700,7 @@ msgstr "Tuloksia ei löytynyt."
 msgid "No status"
 msgstr "Ei tilaa"
 
-#: src/features/repository/repository-tabs.tsx:676
+#: src/features/repository/repository-tabs.tsx:683
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Ei vielä tunnisteita"
@@ -1856,15 +1860,15 @@ msgstr "Avainkoodit"
 msgid "Path"
 msgstr "Polku"
 
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:881
 msgid "Path is required"
 msgstr "Polku vaaditaan"
 
-#: src/features/repository/repository-tabs.tsx:889
+#: src/features/repository/repository-tabs.tsx:902
 msgid "Path updated"
 msgstr "Polku päivitetty"
 
-#: src/features/repository/repository-tabs.tsx:1007
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Path:"
 msgstr "Polku:"
 
@@ -1872,7 +1876,7 @@ msgstr "Polku:"
 msgid "Pattern (regex)"
 msgstr "Kuvio (regex)"
 
-#: src/features/repository/repository-tabs.tsx:1123
+#: src/features/repository/repository-tabs.tsx:1189
 msgid "Permanently delete this repository and all its data"
 msgstr "Poista tämä repositorio ja kaikki sen tiedot pysyvästi"
 
@@ -1940,11 +1944,11 @@ msgstr "Yhdistä tilisi uudelleen tällä palvelimella"
 msgid "Re-register your passkeys on this server"
 msgstr "Rekisteröi pääsyavaimesi uudelleen tällä palvelimella"
 
-#: src/features/repository/repository-tabs.tsx:727
+#: src/features/repository/repository-tabs.tsx:734
 msgid "Read and write"
 msgstr "Luku ja kirjoitus"
 
-#: src/features/repository/repository-tabs.tsx:728
+#: src/features/repository/repository-tabs.tsx:735
 msgid "Read only"
 msgstr "Vain luku"
 
@@ -1952,7 +1956,7 @@ msgstr "Vain luku"
 msgid "Recommended"
 msgstr "Suositeltu"
 
-#: src/routes/_authenticated/index.tsx:256
+#: src/routes/_authenticated/index.tsx:259
 msgid "Recommended repositories"
 msgstr "Suositellut repositoriot"
 
@@ -2022,7 +2026,7 @@ msgstr "Poista kohde"
 msgid "Remove link"
 msgstr "Poista linkki"
 
-#: src/features/repository/repository-tabs.tsx:1234
+#: src/features/repository/repository-tabs.tsx:1300
 msgid "Removing access..."
 msgstr "Poistetaan käyttöoikeutta..."
 
@@ -2039,7 +2043,7 @@ msgstr "Nimeä sarake uudelleen"
 msgid "Rename this board column"
 msgstr "Nimeä tämä taulun sarake uudelleen"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:851
 msgid "Renaming repository..."
 msgstr "Nimetään tietovarastoa uudelleen..."
 
@@ -2053,9 +2057,9 @@ msgstr "Vastaa"
 msgid "Reply to {0}..."
 msgstr "Vastaa käyttäjälle {0}..."
 
-#: src/routes/_authenticated/index.tsx:153
-#: src/routes/_authenticated/index.tsx:228
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:156
+#: src/routes/_authenticated/index.tsx:231
+#: src/routes/_authenticated/index.tsx:239
 msgid "Repositories"
 msgstr "Repositoriot"
 
@@ -2070,7 +2074,7 @@ msgstr "Repositoriot"
 #: src/routes/_authenticated/$repoId.tsx:56
 #: src/routes/_authenticated/blob/$ref/$.tsx:53
 #: src/routes/_authenticated/blob/$ref/$.tsx:64
-#: src/routes/_authenticated/index.tsx:107
+#: src/routes/_authenticated/index.tsx:108
 #: src/routes/_authenticated/tree/$ref/$.tsx:52
 #: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
@@ -2080,7 +2084,7 @@ msgstr "Repository"
 msgid "Repository created"
 msgstr "Repositorio luotu"
 
-#: src/features/repository/repository-tabs.tsx:933
+#: src/features/repository/repository-tabs.tsx:975
 msgid "Repository deleted"
 msgstr "Repositorio poistettu"
 
@@ -2093,7 +2097,7 @@ msgstr "Säilön tunnus vaaditaan"
 msgid "Repository link"
 msgstr "Tietovaraston linkki"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:813
 msgid "Repository name is required"
 msgstr "Repositorion nimi vaaditaan"
 
@@ -2101,7 +2105,7 @@ msgstr "Repositorion nimi vaaditaan"
 msgid "Repository not found"
 msgstr "Repositoriota ei löytynyt"
 
-#: src/features/repository/repository-tabs.tsx:839
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Repository renamed"
 msgstr "Repositorio nimetty uudelleen"
 
@@ -2159,7 +2163,7 @@ msgstr "Lauantai"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:170
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1088
+#: src/features/repository/repository-tabs.tsx:1130
 msgid "Save"
 msgstr "Tallenna"
 
@@ -2172,8 +2176,10 @@ msgstr "Tallenna tämä tunnus nyt. Et voi nähdä sitä uudelleen."
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Tallenna tämä tunniste turvallisesti. Et voi enää nähdä sitä."
 
-#: src/features/repository/repository-tabs.tsx:908
-#: src/features/repository/repository-tabs.tsx:920
+#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:937
+#: src/features/repository/repository-tabs.tsx:950
+#: src/features/repository/repository-tabs.tsx:962
 msgid "Saving settings..."
 msgstr "Tallennetaan asetuksia..."
 
@@ -2269,7 +2275,7 @@ msgstr "Valitse tilityyppi"
 msgid "Select branch"
 msgstr "Valitse haara"
 
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Select default branch"
 msgstr "Valitse oletushaara"
 
@@ -2293,7 +2299,7 @@ msgstr "Valitse henkilö..."
 msgid "Select previous card"
 msgstr "Valitse edellinen kortti"
 
-#: src/features/repository/repository-tabs.tsx:580
+#: src/features/repository/repository-tabs.tsx:587
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Valitse lähdehaara"
@@ -2343,7 +2349,7 @@ msgstr "Istunto on vanhentunut. Kirjaudu sisään uudelleen."
 msgid "Set origin and destination"
 msgstr "Aseta lähtöpaikka ja määränpää"
 
-#: src/features/repository/repository-tabs.tsx:1214
+#: src/features/repository/repository-tabs.tsx:1280
 msgid "Setting access..."
 msgstr "Asetetaan käyttöoikeutta..."
 
@@ -2354,8 +2360,10 @@ msgstr "Asetetaan käyttöoikeutta..."
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/features/repository/repository-tabs.tsx:909
-#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:938
+#: src/features/repository/repository-tabs.tsx:951
+#: src/features/repository/repository-tabs.tsx:963
 msgid "Settings saved"
 msgstr "Asetukset tallennettu"
 
@@ -2402,7 +2410,7 @@ msgstr "Pieni"
 msgid "Sort"
 msgstr "Lajittele"
 
-#: src/features/repository/repository-tabs.tsx:577
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Lähdehaara"
@@ -2435,20 +2443,20 @@ msgstr "Lähetä vastaus"
 #: ../../../lib/web/src/components/recommended-entities.tsx:58
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
 #: src/features/repository/inline-repo-search.tsx:90
-#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Tilaa"
 
 #: src/features/repository/inline-repo-search.tsx:71
-#: src/features/repository/repository-header.tsx:101
+#: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
-#: src/routes/_authenticated/index.tsx:201
+#: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Tilattu"
 
 #: src/features/repository/inline-repo-search.tsx:70
 #: src/routes/_authenticated/find.tsx:59
-#: src/routes/_authenticated/index.tsx:200
+#: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
 msgstr "Tilataan..."
 
@@ -2506,7 +2514,7 @@ msgstr "Lähetys epäonnistui. Tiedostot voivat olla liian suuria tai yhteys kat
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Se oli liian suuri ladattavaksi. Poista tai pienennä tiedostoja ja yritä uudelleen."
 
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-tabs.tsx:1138
 msgid "The branch shown when viewing the repository"
 msgstr "Haara, joka näkyy arkistoa katseltaessa"
 
@@ -2524,7 +2532,7 @@ msgstr "Palvelin palautti verkkosivun tietojen sijaan."
 msgid "This page requires a repository context."
 msgstr "Tämä sivu vaatii arkistokontekstin."
 
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Tämä poistaa pysyvästi kohteen \"{currentName}\" sekä kaikki sen committit, haarat ja tunnisteet. Toimintoa ei voi kumota."
 
@@ -2532,11 +2540,11 @@ msgstr "Tämä poistaa pysyvästi kohteen \"{currentName}\" sekä kaikki sen com
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Tämä poistaa tunnuksen pysyvästi. Sitä käyttävät git-asiakkaat eivät enää voi todentua."
 
-#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-header.tsx:129
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Tämä poistaa kohteen \"{name}\" arkistoluettelostasi. Voit tilata sen uudelleen myöhemmin."
 
-#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:231
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Tämä poistaa kohteen \"{repoName}\" arkistoluettelostasi. Voit tilata sen uudelleen myöhemmin."
 
@@ -2667,34 +2675,34 @@ msgid "Unknown"
 msgstr "Tuntematon"
 
 #: ../../../lib/web/src/components/options-menu.tsx:211
-#: src/features/repository/repository-header.tsx:120
-#: src/features/repository/repository-header.tsx:132
-#: src/features/repository/repository-tabs.tsx:217
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:343
-#: src/routes/_authenticated/index.tsx:363
-#: src/routes/_authenticated/index.tsx:365
+#: src/features/repository/repository-header.tsx:122
+#: src/features/repository/repository-header.tsx:134
+#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:346
+#: src/routes/_authenticated/index.tsx:366
+#: src/routes/_authenticated/index.tsx:368
 msgid "Unsubscribe"
 msgstr "Peru tilaus"
 
-#: src/features/repository/repository-header.tsx:125
-#: src/features/repository/repository-tabs.tsx:222
+#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-tabs.tsx:229
 msgid "Unsubscribe from repository?"
 msgstr "Perutaanko arkiston tilaus?"
 
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:376
 msgid "Unsubscribed"
 msgstr "Tilaus peruttu"
 
-#: src/features/repository/repository-header.tsx:75
-#: src/features/repository/repository-tabs.tsx:196
+#: src/features/repository/repository-header.tsx:77
+#: src/features/repository/repository-tabs.tsx:203
 msgid "Unsubscribed from repository"
 msgstr "Arkiston tilaus peruttu"
 
-#: src/features/repository/repository-header.tsx:74
-#: src/features/repository/repository-tabs.tsx:195
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:372
+#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Perutaan tilausta..."
 
@@ -2709,11 +2717,11 @@ msgstr "Nimetön"
 msgid "Updated"
 msgstr "Päivitetty"
 
-#: src/features/repository/repository-tabs.tsx:1254
+#: src/features/repository/repository-tabs.tsx:1320
 msgid "Updating access..."
 msgstr "Päivitetään käyttöoikeutta..."
 
-#: src/features/repository/repository-tabs.tsx:888
+#: src/features/repository/repository-tabs.tsx:901
 msgid "Updating path..."
 msgstr "Päivitetään polkua..."
 
@@ -2789,7 +2797,7 @@ msgstr "Keskiviikko"
 msgid "You do not have access to this section."
 msgstr "Sinulla ei ole pääsyä tähän osioon."
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "You have no repositories yet."
 msgstr "Sinulla ei ole vielä repositoryjä."
 

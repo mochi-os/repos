@@ -120,7 +120,6 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   }
 
   const lines = data.content?.split('\n') || []
-  const language = getLanguageFromFileName(fileName)
 
   return (
     <div className="space-y-4">
@@ -200,7 +199,7 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
           ) : (
             <div className="overflow-x-auto">
               <pre className="text-sm">
-                <code className={language ? `language-${language}` : ''}>
+                <code>
                   <table className="w-full border-collapse">
                     <tbody>
                       {lines.map((line, index) => (
@@ -221,70 +220,4 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
       </Card>
     </div>
   )
-}
-
-function getLanguageFromFileName(fileName: string): string | null {
-  const ext = fileName.split('.').pop()?.toLowerCase()
-  const languageMap: Record<string, string> = {
-    js: 'javascript',
-    jsx: 'javascript',
-    ts: 'typescript',
-    tsx: 'typescript',
-    py: 'python',
-    rb: 'ruby',
-    go: 'go',
-    rs: 'rust',
-    java: 'java',
-    c: 'c',
-    cpp: 'cpp',
-    h: 'c',
-    hpp: 'cpp',
-    cs: 'csharp',
-    php: 'php',
-    swift: 'swift',
-    kt: 'kotlin',
-    scala: 'scala',
-    sh: 'bash',
-    bash: 'bash',
-    zsh: 'bash',
-    fish: 'fish',
-    ps1: 'powershell',
-    sql: 'sql',
-    html: 'html',
-    css: 'css',
-    scss: 'scss',
-    sass: 'sass',
-    less: 'less',
-    json: 'json',
-    yaml: 'yaml',
-    yml: 'yaml',
-    xml: 'xml',
-    md: 'markdown',
-    markdown: 'markdown',
-    txt: 'text',
-    dockerfile: 'dockerfile',
-    makefile: 'makefile',
-    toml: 'toml',
-    ini: 'ini',
-    cfg: 'ini',
-    conf: 'nginx',
-    vim: 'vim',
-    lua: 'lua',
-    r: 'r',
-    m: 'matlab',
-    pl: 'perl',
-    ex: 'elixir',
-    exs: 'elixir',
-    erl: 'erlang',
-    hrl: 'erlang',
-    clj: 'clojure',
-    hs: 'haskell',
-    ml: 'ocaml',
-    fs: 'fsharp',
-    elm: 'elm',
-    vue: 'vue',
-    svelte: 'svelte',
-    astro: 'astro',
-  }
-  return ext ? languageMap[ext] || null : null
 }

@@ -103,6 +103,40 @@ def valid_ref(r):
 # Validate a metadata field from a subscribed repository's owner, a remote peer:
 # path in particular is pasted into a shell via the clone command. Returns
 # fallback when the value fails the owner-side rule.
+# Read a text field from a peer-supplied payload. A non-string returns the
+# fallback so the caller's own validation rejects it; len(), .split() or
+# concatenation on a dict or an integer would abort the whole handler instead.
+def event_text(e, field, fallback=""):
+    value = e.content(field, fallback)
+    if type(value) != "string":
+        return fallback
+    return value
+
+# True when this request arrived on a hosted domain route carrying a context.
+# Core's principal_storage then hands mochi.db the ROUTE OWNER's database
+# rather than the caller's, so "every row here is mine" stops being true and a
+# list handler has to fall back to a real grant per row.
+def routed_context(a):
+    route = a.domain.route
+    if route and route.context:
+        return True
+    return False
+
+# Ceiling on subscribers per repository. A world-readable repository carries
+# the "*" read grant, so the access check in event_subscribe passes for any
+# identity on the network and every stored row is fanned out on each
+# broadcast. Generous enough that no real subscriber base reaches it, low
+# enough that the row count cannot be driven up without bound.
+subscribers_maximum = 10000
+
+# Minimum gap between archive builds for one repository. action_archive is
+# public, so an anonymous caller can ask for a full archive of any ref in any
+# of three formats, and each request rebuilds one from scratch.
+archive_age = 10
+
+# Minimum gap between unsubscribe replies to one sender - see unsubscribe_stale.
+unsubscribe_stale_age = 3600
+
 def remote_field(field, value, fallback):
     if value == None:
         return fallback
@@ -177,6 +211,17 @@ def action_info_class(a):
     if is_logged_in:
         # Logged-in users see all repositories (owned + subscribed)
         repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories")
+        # Normally this database is the caller's own, so every row is theirs or
+        # one they subscribed to. Under a context-bearing domain route it is
+        # the route owner's instead, and returning it unfiltered would hand the
+        # visitor the owner's private repositories - strictly more than the
+        # anonymous branch below gives them. Fall back to a real grant per row.
+        if routed_context(a):
+            granted = []
+            for repo in repos or []:
+                if mochi.access.check(a.user.identity.id, "repository/" + repo["id"], "read"):
+                    granted.append(repo)
+            repos = granted
     else:
         # Anonymous users see only local repositories with public read access
         repos = mochi.db.rows("select id, name, path, description, default_branch, size, owner, server, created, updated from repositories where owner=1")
@@ -230,11 +275,71 @@ def maybe_resubscribe(a, repo_id):
     registration_send(row["server"], headers(user_id, repo_id, "subscribe"), {"name": a.user.identity.name})
     mochi.broadcast.touch(repo_id)
 
+# A repository this database holds no row for. mochi.db is the CALLER's database
+# (core's principal_storage), so a repository someone else owns is simply absent
+# from it - which is why a signed-in visitor used to get 404 where an anonymous
+# one, who reads the owner's database, saw a public repository fine.
+#
+# Ask the owner over the same P2P path a subscribed repository already uses. No
+# peer argument: core routes a local entity itself. This grants nothing new -
+# the owner's event_* handler runs with the owner's storage and applies its own
+# mochi.access.check, so a private repository stays refused.
+#
+# Deliberately NOT folded into get_repo: the write actions call that too, and a
+# proxied row there would have them editing something this account does not hold.
+def proxy_entity(a):
+    entity = a.entity
+    if entity and entity.get("class") == "repository":
+        return entity["id"]
+    return None
+
+def proxy_read(a, event, payload={}):
+    repo_id = proxy_entity(a)
+    if not repo_id:
+        return a.error.label(404, "errors.repository_not_found")
+    body = {"repository": repo_id}
+    for key in payload:
+        body[key] = payload[key]
+    response = mochi.remote.request(repo_id, "repositories", event, body)
+    if not response or response.get("error"):
+        return remote_error(a, response or {"code": 404, "error": "errors.repository_not_found"})
+    return {"data": response}
+
+# The page shape for a proxied repository. Not "remote": that flag means "I hold
+# a subscribed copy" and drives the Unsubscribe button, which would refuse here.
+def proxy_info(a):
+    repo_id = proxy_entity(a)
+    if not repo_id:
+        return a.error.label(404, "errors.repository_not_found")
+    response = mochi.remote.request(repo_id, "repositories", "info", {"repository": repo_id})
+    if not response or response.get("error"):
+        return remote_error(a, response or {"code": 404, "error": "errors.repository_not_found"})
+    return {"data": {
+        "entity": True,
+        "id": repo_id,
+        "fingerprint": mochi.entity.fingerprint(repo_id),
+        "name": remote_field("name", response.get("name"), ""),
+        "path": remote_field("path", response.get("path"), ""),
+        "description": remote_field("description", response.get("description"), ""),
+        "default_branch": remote_field("default_branch", response.get("default_branch"), "main"),
+        "size": 0,
+        "created": "",
+        "updated": "",
+        "branches": 0,
+        "tags": 0,
+        "allow_read": True,
+        "privacy": "public",
+        "isAdmin": False,
+        "owner": 0,
+        "server": "",
+        "remote": False,
+    }}
+
 # Action: Get entity info - returns repository details for entity context
 def action_info_entity(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        return proxy_info(a)
 
     # Public route: an anonymous request runs as the owner, so the gate has to
     # be explicit or any fingerprint reads private metadata.
@@ -519,6 +624,11 @@ def action_rename(a):
     if len(name) > 100:
         return a.error.label(400, "errors.name_is_too_long_max_100_characters")
 
+    # action_create refuses a duplicate name twice over; renaming re-created the
+    # collision it exists to prevent.
+    if mochi.db.exists("select 1 from repositories where name=? and id!=?", name, repo["id"]):
+        return a.error.label(400, "errors.a_repository_with_that_name_already_exists")
+
     # Update entity (handles directory, network publishing)
     mochi.entity.update(repo["id"], name=name)
 
@@ -551,6 +661,16 @@ def action_delete(a):
 
     # Delete git repository
     mochi.git.delete(repo["id"])
+
+    # Revoke every rule naming this repository: the owner's "*" and, on a
+    # public one, the wildcard read that action_create wrote, plus anything the
+    # Access tab added since. Without this the rules outlive the resource.
+    resource = "repository/" + repo["id"]
+    for rule in mochi.access.list.resource(resource) or []:
+        subject = rule.get("subject", "")
+        if subject:
+            for op in ["read", "write", "*"]:
+                mochi.access.revoke(subject, resource, op)
 
     # Delete database record
     mochi.db.execute("delete from repositories where id = ?", repo["id"])
@@ -624,11 +744,16 @@ def action_access_set(a):
     if permission not in ["read", "write", "none"]:
         return a.error.label(400, "errors.invalid_permission")
 
-    # A grant names one identity or one group only. "*" would match the empty
-    # identity of an anonymous caller (anonymous push for "write"); "+" and
-    # "#..." roles are not this action's to hand out. Only allow_read writes
-    # "*".
-    if subject.startswith("@"):
+    # A grant names one identity or one group, with one exception: "*" is the
+    # public-read subject the Access tab renders as "Anyone", and setting it to
+    # "No access" is how a repository is made private. It stays refused for
+    # "write", where it would match the empty identity of an anonymous caller
+    # and mean anonymous push. "+" and "#..." roles are not this action's to
+    # hand out.
+    if subject == "*":
+        if permission == "write":
+            return a.error.label(400, "errors.invalid_subject")
+    elif subject.startswith("@"):
         if not mochi.text.valid(subject[1:], "entity"):
             return a.error.label(400, "errors.invalid_subject")
     elif not mochi.text.valid(subject, "entity"):
@@ -676,7 +801,7 @@ def action_access_revoke(a):
 def action_refs(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        return proxy_read(a, "refs")
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -701,7 +826,7 @@ def action_refs(a):
 def action_branches(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        return proxy_read(a, "branches")
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -742,6 +867,11 @@ def action_branch_create(a):
         return a.error.label(400, "errors.branch_name_is_required")
     if len(name) > 256:
         return a.error.label(400, "errors.branch_name_is_too_long")
+    # Without this core rejects the name inside git_branch_reference and the
+    # sl_error aborts the call, answering 500 where every other ref-taking
+    # action answers 400.
+    if not valid_ref(name) or not valid_ref(source):
+        return a.error.label(400, "errors.invalid_ref")
 
     result = mochi.git.branch.create(repo["id"], name, source)
     if not result:
@@ -760,6 +890,8 @@ def action_branch_delete(a):
     name = a.input("name")
     if not name:
         return a.error.label(400, "errors.branch_name_is_required")
+    if not valid_ref(name):
+        return a.error.label(400, "errors.invalid_ref")
 
     default = mochi.git.branch.default.get(repo["id"])
     if name == default:
@@ -775,7 +907,7 @@ def action_branch_delete(a):
 def action_tags(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        return proxy_read(a, "tags")
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -800,7 +932,9 @@ def action_tags(a):
 def action_commits(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        return proxy_read(a, "commits", {"ref": a.input("ref", "HEAD"),
+                                          "limit": a.input("limit", "50"),
+                                          "offset": a.input("offset", "0")})
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -856,7 +990,7 @@ def action_commits(a):
 def action_commit(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        return proxy_read(a, "commit", {"sha": a.input("sha", "")})
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -892,7 +1026,12 @@ def action_commit(a):
 def action_tree(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        combined = a.input("treepath", "")
+        parts = combined.split("/", 1) if combined else []
+        return proxy_read(a, "tree", {
+            "ref": (parts[0] if parts and parts[0] else a.input("ref", "HEAD")),
+            "path": (parts[1] if len(parts) > 1 else a.input("path", "")),
+        })
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -960,7 +1099,12 @@ def action_tree(a):
 def action_blob(a):
     repo = get_repo(a)
     if not repo:
-        return a.error.label(404, "errors.repository_not_found")
+        combined = a.input("blobpath", "")
+        parts = combined.split("/", 1) if combined else []
+        return proxy_read(a, "blob", {
+            "ref": (parts[0] if parts and parts[0] else a.input("ref", "HEAD")),
+            "path": (parts[1] if len(parts) > 1 else a.input("path", "")),
+        })
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
@@ -1025,12 +1169,23 @@ def action_blob(a):
 
 # Action: Download repository archive (zip, tar.gz, tar.bz2)
 def action_archive(a):
+    # Unlike the JSON reads this one streams, so the proxy goes through the same
+    # relay the subscribed branch uses rather than a one-line fallback: a
+    # repository this database holds no row for is answered over P2P with no
+    # peer, and the owner's event_archive applies its own access check.
     repo = get_repo(a)
-    if not repo:
-        return a.error.label(404, "errors.repository_not_found")
-
-    if not check_read_access(a, repo["id"]):
-        return a.error.label(403, "errors.access_denied")
+    if repo:
+        repo_id = repo["id"]
+        if not check_read_access(a, repo_id):
+            return a.error.label(403, "errors.access_denied")
+        is_remote = repo.get("owner", 1) == 0
+        server = repo.get("server", "")
+    else:
+        repo_id = proxy_entity(a)
+        if not repo_id:
+            return a.error.label(404, "errors.repository_not_found")
+        is_remote = True
+        server = ""
 
     format = a.input("format", "")
     if format not in ["zip", "tar.gz", "tar.bz2"]:
@@ -1040,20 +1195,25 @@ def action_archive(a):
     if not valid_ref(ref):
         return a.error.label(400, "errors.invalid_ref")
 
+    # This action is public, and every request builds a whole archive. Throttle
+    # per repository - that is whose server does the work.
+    throttle = "archive/" + repo_id
+    if mochi.time.now() - mochi.broadcast.seen(throttle) < archive_age:
+        return a.error.label(429, "errors.too_many_requests")
+    mochi.broadcast.touch(throttle)
+
     content_types = {
         "zip": "application/zip",
         "tar.gz": "application/gzip",
         "tar.bz2": "application/x-bzip2",
     }
 
-    is_remote = repo.get("owner", 1) == 0
     if is_remote:
         # Proxy to the owning peer over P2P. The peer resolves the ref, picks
         # the prefix, and streams archive bytes back; we relay the bytes to
         # the browser unchanged.
-        server = repo.get("server", "")
         peer = mochi.remote.peer(server) if server else None
-        s = mochi.remote.stream(repo["id"], "repositories", "archive", {
+        s = mochi.remote.stream(repo_id, "repositories", "archive", {
             "ref": ref,
             "format": format,
         }, peer)
@@ -1081,7 +1241,7 @@ def action_archive(a):
         return None
 
     # Resolve ref to its tip commit so we can fail early on bad refs
-    commits = mochi.git.commit.list(repo["id"], ref, 1, 0)
+    commits = mochi.git.commit.list(repo_id, ref, 1, 0)
     if not commits:
         return a.error.label(404, "errors.ref_or_commit_not_found", ref=ref)
     sha = commits[0]["sha"]
@@ -1096,7 +1256,7 @@ def action_archive(a):
     a.header("Content-Disposition",
              'attachment; filename="%s"' % safe_filename(filename, "archive." + format))
 
-    mochi.git.archive(repo["id"], sha, format, base)
+    mochi.git.archive(repo_id, sha, format, base)
     return None
 
 # Open Graph meta tags. Core calls this with a params dict, not an action, runs
@@ -1706,6 +1866,13 @@ def event_subscribe(e):
     if not mochi.access.check(subscriber_id, "repository/" + repo_id, "read"):
         return
 
+    # Cap the table. An existing subscriber re-subscribing must still be
+    # accepted, so only a new row is measured against the ceiling.
+    if not mochi.db.exists("select 1 from subscribers where repository=? and id=?", repo_id, subscriber_id):
+        held = mochi.db.row("select count(*) as subscribers from subscribers where repository=?", repo_id)
+        if held and held["subscribers"] >= subscribers_maximum:
+            return
+
     # Add to subscribers table
     now = mochi.time.now()
     mochi.db.execute("""
@@ -1731,11 +1898,24 @@ def event_unsubscribe(e):
 # Tell a repository owner to drop this subscriber: subscribe writes the local
 # owner=0 row before notifying the owner, so a missing row in a broadcast
 # handler is a stale roster entry. Headers invert: from=repo, to=subscriber.
+# Answer an update or activity broadcast for a repository we do not hold as a
+# subscription by asking the sender to stop. Nothing here proves we ever
+# subscribed, and it cannot: after a local unsubscribe the row is gone, which
+# is exactly the case this exists for. So the row cannot be the gate, and
+# without one every bogus event a peer sends becomes an outbound message.
+# Throttle per sender instead.
 def unsubscribe_stale(e):
     repo_id = e.header("from")
     member_id = e.header("to")
-    if repo_id and member_id:
-        mochi.message.send(headers(member_id, repo_id, "unsubscribe"), {})
+    if not repo_id or not member_id:
+        return
+    # A key of its own: the bare id is the idle-resync timer for a live
+    # subscription, and this path is by definition not one.
+    throttle = "stale/" + repo_id
+    if mochi.time.now() - mochi.broadcast.seen(throttle) <= unsubscribe_stale_age:
+        return
+    mochi.broadcast.touch(throttle)
+    mochi.message.send(headers(member_id, repo_id, "unsubscribe"), {})
 
 def event_update(e):
     repo_id = e.header("from")
@@ -1947,16 +2127,20 @@ def event_tree(e):
         return
 
     # Get parameters
-    ref = e.content("ref", "")
+    ref = event_text(e, "ref")
     if not ref:
         ref = repo.get("default_branch", "main")
-    path = e.content("path", "")
+    path = event_text(e, "path")
 
     # The subscriber splits the URL on the first slash, so a slash-containing
     # branch arrives as ref "feature", path "login/src": recombine and resolve
     # against the real refs. Git forbids a ref and a ref directory sharing a
     # name.
-    ref, path = resolve_ref(repo_id, ref + "/" + path if path else ref)
+    combined = ref + "/" + path if path else ref
+    if not valid_ref(combined):
+        e.stream.write({"error": "errors.invalid_ref", "code": 400})
+        return
+    ref, path = resolve_ref(repo_id, combined)
 
     # Get tree entries
     entries = mochi.git.tree(repo_id, ref, path)
@@ -1979,13 +2163,17 @@ def event_blob(e):
         return
 
     # Get parameters
-    ref = e.content("ref", "")
+    ref = event_text(e, "ref")
     if not ref:
         ref = repo.get("default_branch", "main")
-    path = e.content("path", "")
+    path = event_text(e, "path")
 
     # Same slash-containing-ref recombination as event_tree above.
-    ref, path = resolve_ref(repo_id, ref + "/" + path if path else ref)
+    combined = ref + "/" + path if path else ref
+    if not valid_ref(combined):
+        e.stream.write({"error": "errors.invalid_ref", "code": 400})
+        return
+    ref, path = resolve_ref(repo_id, combined)
 
     # Get blob metadata
     blob = mochi.git.blob.get(repo_id, ref, path)
@@ -2021,9 +2209,14 @@ def event_commit(e):
         e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
-    sha = e.content("sha", "")
+    sha = event_text(e, "sha")
     if not sha:
         e.stream.write({"error": "errors.commit_sha_is_required", "code": 400})
+        return
+    # action_commit requires this of an HTTP caller; a peer was trusted to send
+    # a real one, and plumbing.NewHash silently hashes whatever arrives.
+    if not valid_sha(sha):
+        e.stream.write({"error": "errors.invalid_commit_sha", "code": 400})
         return
 
     commit = mochi.git.commit.get(repo_id, sha)
@@ -2098,10 +2291,13 @@ def event_merge(e):
         e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
-    source = e.content("source")
-    target = e.content("target")
+    source = event_text(e, "source")
+    target = event_text(e, "target")
     if not source or not target:
         e.stream.write({"error": "errors.repository_source_and_target_required", "code": 400})
+        return
+    if not valid_ref(source) or not valid_ref(target):
+        e.stream.write({"error": "errors.invalid_ref", "code": 400})
         return
 
     message = e.content("message") or "Merge branch"

@@ -58,9 +58,12 @@ function RepositoryPage() {
   usePageTitle(name)
 
   // Refresh a subscribed repository the moment the owner's metadata edit or
-  // push activity lands locally, instead of waiting for a manual reload. The
-  // websocket key is the repo's fingerprint (data.repoId is the URL fingerprint).
-  useRepositoryWebsocket(data.repoId)
+  // push activity lands locally, instead of waiting for a manual reload.
+  // notify_websocket writes to the fingerprint, and data.repoId is only the URL
+  // segment - which is the entity id whenever the user arrived from search or
+  // from find, exactly the case this exists for. Use the resolved fingerprint.
+  const fingerprint = data.fingerprint || data.repoId
+  useRepositoryWebsocket(fingerprint)
 
   // Store last visited repository for restoration on next entry (authenticated users only)
   const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
@@ -77,9 +80,9 @@ function RepositoryPage() {
             <h1 className="text-lg font-semibold">{name}</h1>
           </div>
           <div className="flex items-center gap-2">
-            <CloneDialog repoPath={data.path || ''} fingerprint={data.repoId} />
+            <CloneDialog repoPath={data.path || ''} fingerprint={fingerprint} />
             <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
-            <RepositoryLinkButton fingerprint={data.repoId} isOwner={data.isAdmin} />
+            <RepositoryLinkButton fingerprint={fingerprint} isOwner={data.isAdmin} />
             {data.remote && (
               <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
             )}
@@ -90,11 +93,13 @@ function RepositoryPage() {
         <RepositoryTabs
           key={data.repoId}
           repoId={data.id || data.repoId}
-          fingerprint={data.repoId}
+          fingerprint={fingerprint}
           name={name}
           path={data.path || ''}
           defaultBranch={data.default_branch || 'main'}
           description={data.description}
+          allowRead={data.allow_read}
+          privacy={data.privacy}
           isOwner={data.isAdmin}
           activeTab={tab ?? 'files'}
           onTabChange={setActiveTab}

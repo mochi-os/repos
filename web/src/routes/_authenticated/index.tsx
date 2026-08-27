@@ -38,6 +38,7 @@ import { getLastRepo, clearLastRepo, setLastRepo } from '@/hooks/use-repos-stora
 import { useSidebarContext } from '@/context/sidebar-context'
 import { InlineRepoSearch } from '@/features/repository/inline-repo-search'
 import { useSubscribe, useUnsubscribe } from '@/hooks/use-repository'
+import { serverHost } from '@/lib/validation'
 
 const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
 
@@ -135,6 +136,8 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
           path={data.path || ''}
           defaultBranch={data.default_branch || 'main'}
           description={data.description}
+          allowRead={data.allow_read}
+          privacy={data.privacy}
           isOwner={data.isAdmin}
           activeTab={tab ?? 'files'}
           onTabChange={setActiveTab}
@@ -345,9 +348,9 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 )}
-                {repo.owner === 0 && repo.server && repo.server.startsWith('http') && (
+                {repo.owner === 0 && serverHost(repo.server) && (
                   <span className="text-xs text-muted-foreground shrink-0">
-                    {new URL(repo.server).hostname}
+                    {serverHost(repo.server)}
                   </span>
                 )}
               </Link>

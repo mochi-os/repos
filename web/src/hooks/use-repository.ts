@@ -61,6 +61,10 @@ export function useTags(repoId: string) {
     queryKey: repoKeys.tags(repoId),
     queryFn: () => reposRequest.get<TagsResponse>(endpoints.repo.tags),
     enabled: !!repoId,
+    select: (response) => ({
+      ...response,
+      tags: [...response.tags].sort((a, b) => naturalCompare(a.name, b.name)),
+    }),
   })
 }
 

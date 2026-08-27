@@ -40,7 +40,7 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {ifayela # lishintshiwe} other {amafayela # ashintshiwe}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:170
+#: src/features/repository/blob-viewer.tsx:169
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {umugqa #} other {imigqa #}}"
 
@@ -56,7 +56,7 @@ msgstr "Ama-commit {0}"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:704
+#: src/features/repository/repository-tabs.tsx:711
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "U-{0} ufake ithegi nge-{1}"
@@ -148,15 +148,15 @@ msgstr "Ukufinyelela kuvinjelwe"
 msgid "Access level"
 msgstr "Izinga lokufinyelela"
 
-#: src/features/repository/repository-tabs.tsx:1255
+#: src/features/repository/repository-tabs.tsx:1321
 msgid "Access level updated"
 msgstr "Izinga lokufinyelela libuyekeziwe"
 
-#: src/features/repository/repository-tabs.tsx:1235
+#: src/features/repository/repository-tabs.tsx:1301
 msgid "Access removed"
 msgstr "Ukufinyelela kususiwe"
 
-#: src/features/repository/repository-tabs.tsx:1215
+#: src/features/repository/repository-tabs.tsx:1281
 msgid "Access set for {subjectName}"
 msgstr "Ukufinyelela kusethelwe u-{subjectName}"
 
@@ -167,7 +167,7 @@ msgstr "Uhlobo lwe-akhawunti"
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:720
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1270
+#: src/features/repository/repository-tabs.tsx:1336
 msgid "Add"
 msgstr "Engeza"
 
@@ -248,6 +248,7 @@ msgid "All repositories"
 msgstr "Zonke izingobo"
 
 #: src/features/repository/create-repository-dialog.tsx:182
+#: src/features/repository/repository-tabs.tsx:1175
 msgid "Allow anyone to read repository"
 msgstr "Vumela noma ngubani ukuthi afunde ingobo"
 
@@ -257,6 +258,7 @@ msgid "Allow anyone to search for {0}"
 msgstr "Vumela noma ubani asesha i-{0}"
 
 #: src/features/repository/create-repository-dialog.tsx:177
+#: src/features/repository/repository-tabs.tsx:1163
 msgid "Allow anyone to search for repository"
 msgstr "Vumela noma ngubani ukuthi asesheshe ingobo"
 
@@ -306,7 +308,7 @@ msgstr "Uqinisekile ufuna ukususa lo mbono? Lokhu kuzosusa nazo zonke izimpendul
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Uqinisekile ufuna ukuphuma? Kuzodingeka ungene futhi ukuze ufinyelele i-akhawunti yakho."
 
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Uqinisekile ufuna ukukhansela ukubhalisa kule ngobo?"
 
@@ -363,7 +365,7 @@ msgid "Banner"
 msgstr "Ibhena"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:198
+#: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Ifayela le-binary ({0})"
 
@@ -394,22 +396,22 @@ msgstr "Khulisa intshisekelo"
 msgid "Border colour"
 msgstr "Umbala womngcele"
 
-#: src/features/repository/repository-tabs.tsx:442
+#: src/features/repository/repository-tabs.tsx:449
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Igatsha \"{name}\" lidaliwe"
 
-#: src/features/repository/repository-tabs.tsx:464
+#: src/features/repository/repository-tabs.tsx:471
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Igatsha \"{name}\" lisusiwe"
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Igama legatsha"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:440
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Igama legatsha liyadingeka"
@@ -437,11 +439,11 @@ msgstr "Izaziso zebhrawuza"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
 #: src/components/clone-dialog.tsx:449
-#: src/features/repository/repository-header.tsx:131
-#: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:594
-#: src/features/repository/repository-tabs.tsx:613
-#: src/features/repository/repository-tabs.tsx:1145
+#: src/features/repository/repository-header.tsx:133
+#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:620
+#: src/features/repository/repository-tabs.tsx:1211
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
@@ -451,8 +453,8 @@ msgstr "Khansela"
 msgid "Cancel comment"
 msgstr "Khansela umbono"
 
-#: src/features/repository/repository-tabs.tsx:984
-#: src/features/repository/repository-tabs.tsx:1044
+#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1086
 msgid "Cancel edit"
 msgstr "Khansela ukuhlela"
 
@@ -679,8 +681,8 @@ msgstr "Kopisha"
 msgid "Copy commit SHA"
 msgstr "Kopisha i-SHA ye-commit"
 
-#: src/features/repository/blob-viewer.tsx:177
-#: src/features/repository/blob-viewer.tsx:181
+#: src/features/repository/blob-viewer.tsx:176
+#: src/features/repository/blob-viewer.tsx:180
 msgid "Copy file contents"
 msgstr "Kopisha okuqukethwe efayili"
 
@@ -723,12 +725,12 @@ msgstr "Dala {0}"
 msgid "Create a new authentication token."
 msgstr "Yakha ithokeni entsha yokuqinisekisa."
 
-#: src/routes/_authenticated/index.tsx:245
+#: src/routes/_authenticated/index.tsx:248
 msgid "Create a new repository"
 msgstr "Dala ingobo entsha"
 
-#: src/features/repository/repository-tabs.tsx:498
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:505
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -759,7 +761,7 @@ msgstr "Kudaliwe"
 msgid "Created {0}"
 msgstr "Kudaliwe {0}"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Kudalwa igatsha..."
@@ -774,7 +776,7 @@ msgstr "Kudalwa ithokheni..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:656
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Kuyadalwa..."
@@ -803,7 +805,7 @@ msgstr "Usuku"
 msgid "Decline"
 msgstr "Yenqaba"
 
-#: src/features/repository/repository-tabs.tsx:526
+#: src/features/repository/repository-tabs.tsx:533
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "okuzenzakalelayo"
@@ -812,7 +814,7 @@ msgstr "okuzenzakalelayo"
 msgid "Default AI account"
 msgstr "I-akhawunti ye-AI ezenzakalelayo"
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1137
 msgid "Default branch"
 msgstr "Igatsha lokuzenzakalela"
 
@@ -830,13 +832,13 @@ msgstr "Ukuhlunga okuzenzakalelayo"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:252
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:314
 #: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:615
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:622
+#: src/features/repository/repository-tabs.tsx:1212
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Susa"
 
-#: src/features/repository/repository-tabs.tsx:609
+#: src/features/repository/repository-tabs.tsx:616
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Susa \"{branchToDelete}\"? Lokhu akukwazi ukuhlehliswa."
@@ -845,14 +847,14 @@ msgstr "Susa \"{branchToDelete}\"? Lokhu akukwazi ukuhlehliswa."
 msgid "Delete attachment"
 msgstr "Susa okunamathiselwe"
 
-#: src/features/repository/repository-tabs.tsx:545
-#: src/features/repository/repository-tabs.tsx:550
+#: src/features/repository/repository-tabs.tsx:552
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Susa igatsha"
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:614
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Susa igatsha?"
@@ -879,12 +881,12 @@ msgstr "Susa inketho"
 msgid "Delete option {0}"
 msgstr "Susa inketho {0}"
 
-#: src/features/repository/repository-tabs.tsx:1121
-#: src/features/repository/repository-tabs.tsx:1132
+#: src/features/repository/repository-tabs.tsx:1187
+#: src/features/repository/repository-tabs.tsx:1198
 msgid "Delete repository"
 msgstr "Susa ingobo"
 
-#: src/features/repository/repository-tabs.tsx:1139
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Delete repository?"
 msgstr "Susa ingobo?"
 
@@ -904,12 +906,12 @@ msgstr "Susa umbukiso"
 msgid "Delete your account on the old server"
 msgstr "Susa i-akhawunti yakho eservereni endala"
 
-#: src/features/repository/repository-tabs.tsx:463
+#: src/features/repository/repository-tabs.tsx:470
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Kususwa igatsha..."
 
-#: src/features/repository/repository-tabs.tsx:932
+#: src/features/repository/repository-tabs.tsx:974
 msgid "Deleting repository..."
 msgstr "Kususwa indawo yokugcina..."
 
@@ -917,7 +919,7 @@ msgstr "Kususwa indawo yokugcina..."
 msgid "Deleting token..."
 msgstr "Kususwa ithokheni..."
 
-#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Kususwa..."
@@ -928,7 +930,7 @@ msgstr "Ukwehla"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:83
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1075
+#: src/features/repository/repository-tabs.tsx:1117
 msgid "Description"
 msgstr "Incazelo"
 
@@ -993,8 +995,8 @@ msgstr "Landa"
 msgid "Download failed"
 msgstr "Ukulanda kuhlulekile"
 
-#: src/features/repository/blob-viewer.tsx:186
-#: src/features/repository/blob-viewer.tsx:190
+#: src/features/repository/blob-viewer.tsx:185
+#: src/features/repository/blob-viewer.tsx:189
 msgid "Download file"
 msgstr "Layisha ifayili"
 
@@ -1031,7 +1033,7 @@ msgstr "Hlela inkambu"
 msgid "Edit field settings"
 msgstr "Hlela izilungiselelo zenkambu"
 
-#: src/features/repository/repository-tabs.tsx:1001
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Edit name"
 msgstr "Hlela igama"
 
@@ -1045,7 +1047,7 @@ msgstr "Hlela inketho"
 msgid "Edit option {0}"
 msgstr "Hlela inketho engu-{0}"
 
-#: src/features/repository/repository-tabs.tsx:1061
+#: src/features/repository/repository-tabs.tsx:1103
 msgid "Edit path"
 msgstr "Hlela indlela"
 
@@ -1065,11 +1067,11 @@ msgstr "I-imeyili"
 msgid "Email code"
 msgstr "Ikhodi ye-imeyili"
 
-#: src/features/repository/file-browser.tsx:119
+#: src/features/repository/file-browser.tsx:131
 msgid "Empty directory"
 msgstr "Uhla olungenalutho"
 
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Empty repository"
 msgstr "Inqolobane engenalutho"
 
@@ -1081,7 +1083,7 @@ msgstr "Faka ikhodi evela ku-imeyili yakho"
 msgid "Enter your authenticator code"
 msgstr "Faka ikhodi yakho yesiqinisekisi"
 
-#: src/features/repository/repository-tabs.tsx:1067
+#: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Uhlaka:"
 
@@ -1109,7 +1111,7 @@ msgstr "Okukhulu kakhulu"
 msgid "Failed to copy"
 msgstr "Kuhlulekile ukukopisha"
 
-#: src/features/repository/repository-tabs.tsx:443
+#: src/features/repository/repository-tabs.tsx:450
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Kuhlulekile ukudala igatsha"
@@ -1132,7 +1134,7 @@ msgstr "Kuhlulekile ukudala ithokeni"
 msgid "Failed to delete attachment"
 msgstr "Kuhlulekile ukususa okunanyathiselwe"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:472
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Kuhlulekile ukususa igatsha"
@@ -1145,7 +1147,7 @@ msgstr "Kuhlulekile ukususa ukuphawula"
 msgid "Failed to delete link"
 msgstr "Kuhlulekile ukususa isixhumanisi"
 
-#: src/features/repository/repository-tabs.tsx:934
+#: src/features/repository/repository-tabs.tsx:976
 msgid "Failed to delete repository"
 msgstr "Kuhlulekile ukususa inqolobane"
 
@@ -1173,11 +1175,11 @@ msgstr "Kuhlulekile ukuthola ithokeni"
 msgid "Failed to load"
 msgstr "Kuhlulekile ukulayisha"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1258
 msgid "Failed to load access rules"
 msgstr "Kuhlulekile ukulayisha imithetho yokufinyelela"
 
-#: src/features/repository/repository-tabs.tsx:487
+#: src/features/repository/repository-tabs.tsx:494
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Kuhlulekile ukulayisha amagatsha"
@@ -1186,13 +1188,13 @@ msgstr "Kuhlulekile ukulayisha amagatsha"
 msgid "Failed to load commit"
 msgstr "Kuhlulekile ukulayisha i-commit"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Kuhlulekile ukulayisha ama-commit"
 
-#: src/features/repository/file-browser.tsx:115
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/file-browser.tsx:127
+#: src/features/repository/repository-tabs.tsx:324
 msgid "Failed to load files"
 msgstr "Kuhlulekile ukulayisha amafayela"
 
@@ -1204,7 +1206,7 @@ msgstr "Kuhlulekile ukulayisha umlando"
 msgid "Failed to load image"
 msgstr "Yehlulekile ukulayisha isithombe"
 
-#: src/features/repository/repository-tabs.tsx:646
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Kuhlulekile ukulayisha amathegi"
@@ -1217,11 +1219,11 @@ msgstr "Yehlulekile ukulayisha ividiyo"
 msgid "Failed to post comment"
 msgstr "Kuhlulekile ukuthumela ukuphawula"
 
-#: src/features/repository/repository-tabs.tsx:1236
+#: src/features/repository/repository-tabs.tsx:1302
 msgid "Failed to remove access"
 msgstr "Kuhlulekile ukususa ukufinyelela"
 
-#: src/features/repository/repository-tabs.tsx:840
+#: src/features/repository/repository-tabs.tsx:853
 msgid "Failed to rename repository"
 msgstr "Kuhlulekile ukuqamba kabusha inqolobane"
 
@@ -1229,8 +1231,10 @@ msgstr "Kuhlulekile ukuqamba kabusha inqolobane"
 msgid "Failed to revoke RSS access"
 msgstr "Yehlulekile ukubuyisela ukufinyelela kwe-RSS"
 
-#: src/features/repository/repository-tabs.tsx:910
-#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:923
+#: src/features/repository/repository-tabs.tsx:939
+#: src/features/repository/repository-tabs.tsx:952
+#: src/features/repository/repository-tabs.tsx:964
 msgid "Failed to save setting"
 msgstr "Kuhlulekile ukulondoloza isilungiselelo"
 
@@ -1239,23 +1243,23 @@ msgstr "Kuhlulekile ukulondoloza isilungiselelo"
 msgid "Failed to search repositories"
 msgstr "Ukusesha izinqolobane kuhlulekile"
 
-#: src/features/repository/repository-tabs.tsx:1216
+#: src/features/repository/repository-tabs.tsx:1282
 msgid "Failed to set access level"
 msgstr "Kuhlulekile ukusetha izinga lokufinyelela"
 
 #: src/features/repository/inline-repo-search.tsx:72
 #: src/routes/_authenticated/find.tsx:61
-#: src/routes/_authenticated/index.tsx:202
+#: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Kuhlulekile ukubhalisa"
 
-#: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:374
+#: src/features/repository/repository-header.tsx:78
+#: src/features/repository/repository-tabs.tsx:204
+#: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Kuhlulekile ukukhansela ukubhalisa"
 
-#: src/features/repository/repository-tabs.tsx:1256
+#: src/features/repository/repository-tabs.tsx:1322
 msgid "Failed to update access level"
 msgstr "Kuhlulekile ukubuyekeza izinga lokufinyelela"
 
@@ -1263,7 +1267,7 @@ msgstr "Kuhlulekile ukubuyekeza izinga lokufinyelela"
 msgid "Failed to update comment"
 msgstr "Kuhlulekile ukubuyekeza ukuphawula"
 
-#: src/features/repository/repository-tabs.tsx:890
+#: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Kuhlulekile ukubuyekeza indlela"
 
@@ -1271,7 +1275,7 @@ msgstr "Kuhlulekile ukubuyekeza indlela"
 msgid "Failed to upload attachment"
 msgstr "Kuhlulekile ukulayisha okunanyathiselwe"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:579
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -1295,7 +1299,7 @@ msgstr "Amafayela"
 msgid "Find repositories"
 msgstr "Thola izinqolobane"
 
-#: src/features/repository/repository-tabs.tsx:1069
+#: src/features/repository/repository-tabs.tsx:1111
 msgid "Fingerprint:"
 msgstr "Isigxivizo somunwe:"
 
@@ -1331,8 +1335,8 @@ msgstr "Kusukela"
 msgid "From theme"
 msgstr "Kusukela endikimbeni"
 
-#. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:146
+#. placeholder {0}: serverHost(server)
+#: src/features/repository/repository-header.tsx:148
 msgid "From: {0}"
 msgstr "Kusuka ku-{0}"
 
@@ -1373,7 +1377,7 @@ msgstr "Okushisayo"
 msgid "ID"
 msgstr "I-ID"
 
-#: src/features/repository/repository-tabs.tsx:945
+#: src/features/repository/repository-tabs.tsx:987
 msgid "Identity"
 msgstr "Ubunikazi"
 
@@ -1484,7 +1488,7 @@ msgid "Logging out…"
 msgstr "Iyaphuma…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:872
+#: src/features/repository/repository-tabs.tsx:885
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Izinhlamvu ezincane, izinombolo, namahayifeni kuphela"
 
@@ -1546,8 +1550,8 @@ msgstr "Ukulawula"
 msgid "Monday"
 msgstr "UMsombuluko"
 
-#: src/routes/_authenticated/index.tsx:326
-#: src/routes/_authenticated/index.tsx:334
+#: src/routes/_authenticated/index.tsx:329
+#: src/routes/_authenticated/index.tsx:337
 msgid "More actions"
 msgstr "Izinyathelo ezengeziwe"
 
@@ -1566,7 +1570,7 @@ msgid "Name"
 msgstr "Igama"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:815
 msgid "Name cannot contain < or > characters"
 msgstr "Igama alikwazi ukuqukatha izinhlamvu ezithi < noma >"
 
@@ -1575,7 +1579,7 @@ msgid "Name cannot contain angle brackets, backslash, semicolon, quotes or backt
 msgstr "Igama alikwazi ukuqukatha izibiyeli zamakhona, umudwa ongemuva, ikholoni enesiqinti, izimpawu zokucaphuna noma ama-backtick"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:814
 msgid "Name must be 100 characters or less"
 msgstr "Igama kufanele libe nezinhlamvu ezingu-100 noma ngaphansi"
 
@@ -1583,7 +1587,7 @@ msgstr "Igama kufanele libe nezinhlamvu ezingu-100 noma ngaphansi"
 msgid "Name must be 1000 characters or less"
 msgstr "Igama kufanele libe nezinhlamvu ezingu-1000 noma ngaphansi"
 
-#: src/features/repository/repository-tabs.tsx:947
+#: src/features/repository/repository-tabs.tsx:989
 msgid "Name:"
 msgstr "Igama:"
 
@@ -1602,7 +1606,7 @@ msgstr "Akekho"
 msgid "New"
 msgstr "Okusha"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:570
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Igatsha elisha"
@@ -1621,7 +1625,7 @@ msgstr "Isithombe esilandelayo"
 msgid "No {parentClassNames} to add to"
 msgstr "Asikho i-{parentClassNames} okufanele kwengezwe kuyo"
 
-#: src/features/repository/repository-tabs.tsx:729
+#: src/features/repository/repository-tabs.tsx:736
 msgid "No access"
 msgstr "Akukho ukufinyelela"
 
@@ -1633,7 +1637,7 @@ msgstr "Awekho amarela okufinyelela acushiwe. Engeza amarela ukulawula ukuthi ub
 msgid "No activity yet"
 msgstr "Awukho umsebenzi okwamanje"
 
-#: src/features/repository/repository-tabs.tsx:506
+#: src/features/repository/repository-tabs.tsx:513
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Awekho amagatsha okwamanje"
@@ -1642,7 +1646,7 @@ msgstr "Awekho amagatsha okwamanje"
 msgid "No comments yet"
 msgstr "Awekho amazwana okwamanje"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:373
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Akukho ukuzibophezela okwamanje"
@@ -1672,7 +1676,7 @@ msgstr "Abakho abantu abatholakele"
 msgid "No places found"
 msgstr "Azikho izindawo ezitholakele"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "No public repositories."
 msgstr "Azikho izindawo zokugcina zomphakathi."
 
@@ -1696,7 +1700,7 @@ msgstr "Imiphumela ayitholakali."
 msgid "No status"
 msgstr "Asikho isimo"
 
-#: src/features/repository/repository-tabs.tsx:676
+#: src/features/repository/repository-tabs.tsx:683
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Awekho amathegi okwamanje"
@@ -1856,15 +1860,15 @@ msgstr "Ama-passkey"
 msgid "Path"
 msgstr "Indlela"
 
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:881
 msgid "Path is required"
 msgstr "Kudingeka indlela"
 
-#: src/features/repository/repository-tabs.tsx:889
+#: src/features/repository/repository-tabs.tsx:902
 msgid "Path updated"
 msgstr "Indlela ibuyekeziwe"
 
-#: src/features/repository/repository-tabs.tsx:1007
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Path:"
 msgstr "Indlela:"
 
@@ -1872,7 +1876,7 @@ msgstr "Indlela:"
 msgid "Pattern (regex)"
 msgstr "Iphethini (i-regex)"
 
-#: src/features/repository/repository-tabs.tsx:1123
+#: src/features/repository/repository-tabs.tsx:1189
 msgid "Permanently delete this repository and all its data"
 msgstr "Susa unomphela le-repository nayo yonke idatha yayo"
 
@@ -1940,11 +1944,11 @@ msgstr "Xhuma kabusha ama-akhawunti akho kule server"
 msgid "Re-register your passkeys on this server"
 msgstr "Phinda ubhalise okhiye bakho bokungena kule seva"
 
-#: src/features/repository/repository-tabs.tsx:727
+#: src/features/repository/repository-tabs.tsx:734
 msgid "Read and write"
 msgstr "Funda futhi ubhale"
 
-#: src/features/repository/repository-tabs.tsx:728
+#: src/features/repository/repository-tabs.tsx:735
 msgid "Read only"
 msgstr "Funda kuphela"
 
@@ -1952,7 +1956,7 @@ msgstr "Funda kuphela"
 msgid "Recommended"
 msgstr "Kunconywayo"
 
-#: src/routes/_authenticated/index.tsx:256
+#: src/routes/_authenticated/index.tsx:259
 msgid "Recommended repositories"
 msgstr "Ama-repository anconywayo"
 
@@ -2022,7 +2026,7 @@ msgstr "Khipha into"
 msgid "Remove link"
 msgstr "Susa isixhumanisi"
 
-#: src/features/repository/repository-tabs.tsx:1234
+#: src/features/repository/repository-tabs.tsx:1300
 msgid "Removing access..."
 msgstr "Kususwa ukufinyelela..."
 
@@ -2039,7 +2043,7 @@ msgstr "Qamba kabusha ikholomu"
 msgid "Rename this board column"
 msgstr "Qamba kabusha leli kholomu lebhodi"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:851
 msgid "Renaming repository..."
 msgstr "Kuqanjwa kabusha indawo yokugcina..."
 
@@ -2053,9 +2057,9 @@ msgstr "Phendula"
 msgid "Reply to {0}..."
 msgstr "Phendula ku-{0}..."
 
-#: src/routes/_authenticated/index.tsx:153
-#: src/routes/_authenticated/index.tsx:228
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:156
+#: src/routes/_authenticated/index.tsx:231
+#: src/routes/_authenticated/index.tsx:239
 msgid "Repositories"
 msgstr "Ama-repository"
 
@@ -2070,7 +2074,7 @@ msgstr "Ama-repository"
 #: src/routes/_authenticated/$repoId.tsx:56
 #: src/routes/_authenticated/blob/$ref/$.tsx:53
 #: src/routes/_authenticated/blob/$ref/$.tsx:64
-#: src/routes/_authenticated/index.tsx:107
+#: src/routes/_authenticated/index.tsx:108
 #: src/routes/_authenticated/tree/$ref/$.tsx:52
 #: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
@@ -2080,7 +2084,7 @@ msgstr "Indawo yokugcina"
 msgid "Repository created"
 msgstr "I-repository idaliwe"
 
-#: src/features/repository/repository-tabs.tsx:933
+#: src/features/repository/repository-tabs.tsx:975
 msgid "Repository deleted"
 msgstr "I-repository isusiwe"
 
@@ -2093,7 +2097,7 @@ msgstr "Kudingeka i-ID ye-repository"
 msgid "Repository link"
 msgstr "Isixhumanisi senqolobane"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:813
 msgid "Repository name is required"
 msgstr "Kudingeka igama le-repository"
 
@@ -2101,7 +2105,7 @@ msgstr "Kudingeka igama le-repository"
 msgid "Repository not found"
 msgstr "I-repository ayitholakali"
 
-#: src/features/repository/repository-tabs.tsx:839
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Repository renamed"
 msgstr "I-repository iqanjwe kabusha"
 
@@ -2159,7 +2163,7 @@ msgstr "UMgqibelo"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:170
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1088
+#: src/features/repository/repository-tabs.tsx:1130
 msgid "Save"
 msgstr "Londoloza"
 
@@ -2172,8 +2176,10 @@ msgstr "Gcina le thokeni manje. Ngeke ukwazi ukuyibona futhi."
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Londoloza le thokheni ngokuphephile. Ngeke ukwazi ukuyibona futhi."
 
-#: src/features/repository/repository-tabs.tsx:908
-#: src/features/repository/repository-tabs.tsx:920
+#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:937
+#: src/features/repository/repository-tabs.tsx:950
+#: src/features/repository/repository-tabs.tsx:962
 msgid "Saving settings..."
 msgstr "Kulondolozwa izilungiselelo..."
 
@@ -2269,7 +2275,7 @@ msgstr "Khetha uhlobo lwe-akhawunti"
 msgid "Select branch"
 msgstr "Khetha igatsha"
 
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Select default branch"
 msgstr "Khetha igatsha elizenzakalelayo"
 
@@ -2293,7 +2299,7 @@ msgstr "Khetha umuntu..."
 msgid "Select previous card"
 msgstr "Khetha ikhadi langaphambili"
 
-#: src/features/repository/repository-tabs.tsx:580
+#: src/features/repository/repository-tabs.tsx:587
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Khetha igatsha lomthombo"
@@ -2343,7 +2349,7 @@ msgstr "Iseshini iphelelwe yisikhathi. Sicela uphinde ungene ngemvume."
 msgid "Set origin and destination"
 msgstr "Misa indawo yokuqala neyokuya"
 
-#: src/features/repository/repository-tabs.tsx:1214
+#: src/features/repository/repository-tabs.tsx:1280
 msgid "Setting access..."
 msgstr "Kusethwa ukufinyelela..."
 
@@ -2354,8 +2360,10 @@ msgstr "Kusethwa ukufinyelela..."
 msgid "Settings"
 msgstr "Izilungiselelo"
 
-#: src/features/repository/repository-tabs.tsx:909
-#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:938
+#: src/features/repository/repository-tabs.tsx:951
+#: src/features/repository/repository-tabs.tsx:963
 msgid "Settings saved"
 msgstr "Izilungiselelo zilondoloziwe"
 
@@ -2402,7 +2410,7 @@ msgstr "Okuncane"
 msgid "Sort"
 msgstr "Hlunga"
 
-#: src/features/repository/repository-tabs.tsx:577
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Igatsha lomthombo"
@@ -2435,20 +2443,20 @@ msgstr "Hambisa impendulo"
 #: ../../../lib/web/src/components/recommended-entities.tsx:58
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
 #: src/features/repository/inline-repo-search.tsx:90
-#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Bhalisa"
 
 #: src/features/repository/inline-repo-search.tsx:71
-#: src/features/repository/repository-header.tsx:101
+#: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
-#: src/routes/_authenticated/index.tsx:201
+#: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Kubhalisiwe"
 
 #: src/features/repository/inline-repo-search.tsx:70
 #: src/routes/_authenticated/find.tsx:59
-#: src/routes/_authenticated/index.tsx:200
+#: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
 msgstr "Kuyabhaliswa..."
 
@@ -2506,7 +2514,7 @@ msgstr "Akukwazanga ukuthunyelwa. Amafayela angase abe makhulu kakhulu, noma uxh
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Bekukukhulu kakhulu ukuthi kulayishwe. Susa noma unciphise amafayela bese uzama futhi."
 
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-tabs.tsx:1138
 msgid "The branch shown when viewing the repository"
 msgstr "Igatsha eliboniswayo lapho ubona indawo yokugcina"
 
@@ -2524,7 +2532,7 @@ msgstr "Iseva ibuyise ikhasi lewebhu esikhundleni sedatha."
 msgid "This page requires a repository context."
 msgstr "Leli khasi lidinga umongo wendawo yokugcina."
 
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Lokhu kuzosusa \"{currentName}\" unomphela kanye nawo wonke ama-commit, amagatsha, namathegi. Lesi senzo asikwazi ukuhlehliswa."
 
@@ -2532,11 +2540,11 @@ msgstr "Lokhu kuzosusa \"{currentName}\" unomphela kanye nawo wonke ama-commit, 
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Lokhu kuzosusa le thokeni unomphela. Noma yimaphi amakhasimende e-git asebenzisa wona ngeke akwazi ukuqinisekisa."
 
-#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-header.tsx:129
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Lokhu kuzosusa \"{name}\" ohlwini lwakho lwezindawo zokugcina. Ungaphinda ubhalise futhi kamuva."
 
-#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:231
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Lokhu kuzosusa \"{repoName}\" ohlwini lwakho lwezindawo zokugcina. Ungaphinda ubhalise futhi kamuva."
 
@@ -2667,34 +2675,34 @@ msgid "Unknown"
 msgstr "Akwaziwa"
 
 #: ../../../lib/web/src/components/options-menu.tsx:211
-#: src/features/repository/repository-header.tsx:120
-#: src/features/repository/repository-header.tsx:132
-#: src/features/repository/repository-tabs.tsx:217
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:343
-#: src/routes/_authenticated/index.tsx:363
-#: src/routes/_authenticated/index.tsx:365
+#: src/features/repository/repository-header.tsx:122
+#: src/features/repository/repository-header.tsx:134
+#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:346
+#: src/routes/_authenticated/index.tsx:366
+#: src/routes/_authenticated/index.tsx:368
 msgid "Unsubscribe"
 msgstr "Susa ukubhalisa"
 
-#: src/features/repository/repository-header.tsx:125
-#: src/features/repository/repository-tabs.tsx:222
+#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-tabs.tsx:229
 msgid "Unsubscribe from repository?"
 msgstr "Susa ukubhalisa kwindawo yokugcina?"
 
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:376
 msgid "Unsubscribed"
 msgstr "Kususiwe ukubhalisa"
 
-#: src/features/repository/repository-header.tsx:75
-#: src/features/repository/repository-tabs.tsx:196
+#: src/features/repository/repository-header.tsx:77
+#: src/features/repository/repository-tabs.tsx:203
 msgid "Unsubscribed from repository"
 msgstr "Kususiwe ukubhalisa kwindawo yokugcina"
 
-#: src/features/repository/repository-header.tsx:74
-#: src/features/repository/repository-tabs.tsx:195
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:372
+#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Kuyasuswa ukubhalisa..."
 
@@ -2709,11 +2717,11 @@ msgstr "Akunasihloko"
 msgid "Updated"
 msgstr "Kubuyekeziwe"
 
-#: src/features/repository/repository-tabs.tsx:1254
+#: src/features/repository/repository-tabs.tsx:1320
 msgid "Updating access..."
 msgstr "Kubuyekezwa ukufinyelela..."
 
-#: src/features/repository/repository-tabs.tsx:888
+#: src/features/repository/repository-tabs.tsx:901
 msgid "Updating path..."
 msgstr "Kubuyekezwa indlela..."
 
@@ -2789,7 +2797,7 @@ msgstr "ULwesithathu"
 msgid "You do not have access to this section."
 msgstr "Awunakho ukufinyelela kule ngxenye."
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "You have no repositories yet."
 msgstr "Awunazo izindawo zokugcina okwamanje."
 

@@ -40,7 +40,7 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# file ang nabago} other {# file ang nabago}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:170
+#: src/features/repository/blob-viewer.tsx:169
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# linya} other {# linya}}"
 
@@ -56,7 +56,7 @@ msgstr "{0} commit"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:704
+#: src/features/repository/repository-tabs.tsx:711
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} ay nag-tag sa {1}"
@@ -148,15 +148,15 @@ msgstr "Tinanggihan ang access"
 msgid "Access level"
 msgstr "Antas ng access"
 
-#: src/features/repository/repository-tabs.tsx:1255
+#: src/features/repository/repository-tabs.tsx:1321
 msgid "Access level updated"
 msgstr "Na-update ang antas ng access"
 
-#: src/features/repository/repository-tabs.tsx:1235
+#: src/features/repository/repository-tabs.tsx:1301
 msgid "Access removed"
 msgstr "Tinanggal ang access"
 
-#: src/features/repository/repository-tabs.tsx:1215
+#: src/features/repository/repository-tabs.tsx:1281
 msgid "Access set for {subjectName}"
 msgstr "Naitakda ang access para kay {subjectName}"
 
@@ -167,7 +167,7 @@ msgstr "Uri ng account"
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:720
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1270
+#: src/features/repository/repository-tabs.tsx:1336
 msgid "Add"
 msgstr "Idagdag"
 
@@ -248,6 +248,7 @@ msgid "All repositories"
 msgstr "Lahat ng repository"
 
 #: src/features/repository/create-repository-dialog.tsx:182
+#: src/features/repository/repository-tabs.tsx:1175
 msgid "Allow anyone to read repository"
 msgstr "Payagan ang sinuman na basahin ang repository"
 
@@ -257,6 +258,7 @@ msgid "Allow anyone to search for {0}"
 msgstr "Payagan ang sinuman na maghanap ng {0}"
 
 #: src/features/repository/create-repository-dialog.tsx:177
+#: src/features/repository/repository-tabs.tsx:1163
 msgid "Allow anyone to search for repository"
 msgstr "Payagan ang sinuman na maghanap ng repository"
 
@@ -306,7 +308,7 @@ msgstr "Sigurado ka bang gusto mong i-delete ang komentong ito? Made-delete din 
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Sigurado ka bang gusto mong mag-log out? Kakailanganin mong mag-log in muli para ma-access ang iyong account."
 
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Sigurado ka bang gusto mong mag-unsubscribe sa repository na ito?"
 
@@ -363,7 +365,7 @@ msgid "Banner"
 msgstr "Banner"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:198
+#: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Binary file ({0})"
 
@@ -394,22 +396,22 @@ msgstr "Palakasin ang interes"
 msgid "Border colour"
 msgstr "Kulay ng border"
 
-#: src/features/repository/repository-tabs.tsx:442
+#: src/features/repository/repository-tabs.tsx:449
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "Nalikha ang branch na \"{name}\""
 
-#: src/features/repository/repository-tabs.tsx:464
+#: src/features/repository/repository-tabs.tsx:471
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "Natanggal ang branch na \"{name}\""
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Pangalan ng branch"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:440
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Kinakailangan ang pangalan ng branch"
@@ -437,11 +439,11 @@ msgstr "Mga notification ng browser"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
 #: src/components/clone-dialog.tsx:449
-#: src/features/repository/repository-header.tsx:131
-#: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:594
-#: src/features/repository/repository-tabs.tsx:613
-#: src/features/repository/repository-tabs.tsx:1145
+#: src/features/repository/repository-header.tsx:133
+#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:620
+#: src/features/repository/repository-tabs.tsx:1211
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
@@ -451,8 +453,8 @@ msgstr "Kanselahin"
 msgid "Cancel comment"
 msgstr "Kanselahin ang komento"
 
-#: src/features/repository/repository-tabs.tsx:984
-#: src/features/repository/repository-tabs.tsx:1044
+#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1086
 msgid "Cancel edit"
 msgstr "Kanselahin ang pag-edit"
 
@@ -679,8 +681,8 @@ msgstr "Kopyahin"
 msgid "Copy commit SHA"
 msgstr "Kopyahin ang SHA ng commit"
 
-#: src/features/repository/blob-viewer.tsx:177
-#: src/features/repository/blob-viewer.tsx:181
+#: src/features/repository/blob-viewer.tsx:176
+#: src/features/repository/blob-viewer.tsx:180
 msgid "Copy file contents"
 msgstr "Kopyahin ang nilalaman ng file"
 
@@ -723,12 +725,12 @@ msgstr "Gumawa ng {0}"
 msgid "Create a new authentication token."
 msgstr "Gumawa ng bagong authentication token."
 
-#: src/routes/_authenticated/index.tsx:245
+#: src/routes/_authenticated/index.tsx:248
 msgid "Create a new repository"
 msgstr "Gumawa ng bagong repository"
 
-#: src/features/repository/repository-tabs.tsx:498
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:505
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -759,7 +761,7 @@ msgstr "Nagawa"
 msgid "Created {0}"
 msgstr "Ginawa noong {0}"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Gumagawa ng branch..."
@@ -774,7 +776,7 @@ msgstr "Gumagawa ng token..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:656
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Ginagawa..."
@@ -803,7 +805,7 @@ msgstr "Petsa"
 msgid "Decline"
 msgstr "Tanggihan"
 
-#: src/features/repository/repository-tabs.tsx:526
+#: src/features/repository/repository-tabs.tsx:533
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "default"
@@ -812,7 +814,7 @@ msgstr "default"
 msgid "Default AI account"
 msgstr "Default na AI account"
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1137
 msgid "Default branch"
 msgstr "Default na branch"
 
@@ -830,13 +832,13 @@ msgstr "Default na sort"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:252
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:314
 #: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:615
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:622
+#: src/features/repository/repository-tabs.tsx:1212
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "I-delete"
 
-#: src/features/repository/repository-tabs.tsx:609
+#: src/features/repository/repository-tabs.tsx:616
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "I-delete ang \"{branchToDelete}\"? Hindi na ito maibabalik."
@@ -845,14 +847,14 @@ msgstr "I-delete ang \"{branchToDelete}\"? Hindi na ito maibabalik."
 msgid "Delete attachment"
 msgstr "I-delete ang attachment"
 
-#: src/features/repository/repository-tabs.tsx:545
-#: src/features/repository/repository-tabs.tsx:550
+#: src/features/repository/repository-tabs.tsx:552
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Burahin ang sanga"
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:614
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "I-delete ang branch?"
@@ -879,12 +881,12 @@ msgstr "I-delete ang option"
 msgid "Delete option {0}"
 msgstr "I-delete ang option {0}"
 
-#: src/features/repository/repository-tabs.tsx:1121
-#: src/features/repository/repository-tabs.tsx:1132
+#: src/features/repository/repository-tabs.tsx:1187
+#: src/features/repository/repository-tabs.tsx:1198
 msgid "Delete repository"
 msgstr "I-delete ang repository"
 
-#: src/features/repository/repository-tabs.tsx:1139
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Delete repository?"
 msgstr "I-delete ang repository?"
 
@@ -904,12 +906,12 @@ msgstr "I-delete ang view"
 msgid "Delete your account on the old server"
 msgstr "Burahin ang iyong account sa lumang server"
 
-#: src/features/repository/repository-tabs.tsx:463
+#: src/features/repository/repository-tabs.tsx:470
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Tinatanggal ang branch..."
 
-#: src/features/repository/repository-tabs.tsx:932
+#: src/features/repository/repository-tabs.tsx:974
 msgid "Deleting repository..."
 msgstr "Tinatanggal ang repository..."
 
@@ -917,7 +919,7 @@ msgstr "Tinatanggal ang repository..."
 msgid "Deleting token..."
 msgstr "Tinatanggal ang token..."
 
-#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Dini-delete..."
@@ -928,7 +930,7 @@ msgstr "Pababa"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:83
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1075
+#: src/features/repository/repository-tabs.tsx:1117
 msgid "Description"
 msgstr "Paglalarawan"
 
@@ -993,8 +995,8 @@ msgstr "I-download"
 msgid "Download failed"
 msgstr "Nabigo ang pag-download"
 
-#: src/features/repository/blob-viewer.tsx:186
-#: src/features/repository/blob-viewer.tsx:190
+#: src/features/repository/blob-viewer.tsx:185
+#: src/features/repository/blob-viewer.tsx:189
 msgid "Download file"
 msgstr "I-download ang file"
 
@@ -1031,7 +1033,7 @@ msgstr "I-edit ang field"
 msgid "Edit field settings"
 msgstr "I-edit ang field settings"
 
-#: src/features/repository/repository-tabs.tsx:1001
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Edit name"
 msgstr "I-edit ang pangalan"
 
@@ -1045,7 +1047,7 @@ msgstr "I-edit ang pagpipilian"
 msgid "Edit option {0}"
 msgstr "I-edit ang option {0}"
 
-#: src/features/repository/repository-tabs.tsx:1061
+#: src/features/repository/repository-tabs.tsx:1103
 msgid "Edit path"
 msgstr "I-edit ang path"
 
@@ -1065,11 +1067,11 @@ msgstr "Email"
 msgid "Email code"
 msgstr "Code ng email"
 
-#: src/features/repository/file-browser.tsx:119
+#: src/features/repository/file-browser.tsx:131
 msgid "Empty directory"
 msgstr "Walang laman ang directory"
 
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Empty repository"
 msgstr "Walang laman ang repository"
 
@@ -1081,7 +1083,7 @@ msgstr "Ilagay ang code mula sa iyong email"
 msgid "Enter your authenticator code"
 msgstr "Ilagay ang iyong authenticator code"
 
-#: src/features/repository/repository-tabs.tsx:1067
+#: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Entity:"
 
@@ -1109,7 +1111,7 @@ msgstr "Sobrang laki"
 msgid "Failed to copy"
 msgstr "Nabigong kumopya"
 
-#: src/features/repository/repository-tabs.tsx:443
+#: src/features/repository/repository-tabs.tsx:450
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Nabigong gumawa ng branch"
@@ -1132,7 +1134,7 @@ msgstr "Nabigong gumawa ng token"
 msgid "Failed to delete attachment"
 msgstr "Nabigong magdelete ng attachment"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:472
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Nabigong magdelete ng branch"
@@ -1145,7 +1147,7 @@ msgstr "Nabigong magdelete ng comment"
 msgid "Failed to delete link"
 msgstr "Nabigong magdelete ng link"
 
-#: src/features/repository/repository-tabs.tsx:934
+#: src/features/repository/repository-tabs.tsx:976
 msgid "Failed to delete repository"
 msgstr "Nabigong magdelete ng repository"
 
@@ -1173,11 +1175,11 @@ msgstr "Nabigong makakuha ng token"
 msgid "Failed to load"
 msgstr "Nabigong i-load"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1258
 msgid "Failed to load access rules"
 msgstr "Nabigong i-load ang access rules"
 
-#: src/features/repository/repository-tabs.tsx:487
+#: src/features/repository/repository-tabs.tsx:494
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Nabigong i-load ang mga branch"
@@ -1186,13 +1188,13 @@ msgstr "Nabigong i-load ang mga branch"
 msgid "Failed to load commit"
 msgstr "Nabigong i-load ang commit"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Nabigong i-load ang mga commit"
 
-#: src/features/repository/file-browser.tsx:115
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/file-browser.tsx:127
+#: src/features/repository/repository-tabs.tsx:324
 msgid "Failed to load files"
 msgstr "Nabigong i-load ang mga file"
 
@@ -1204,7 +1206,7 @@ msgstr "Nabigong i-load ang history"
 msgid "Failed to load image"
 msgstr "Nabigong i-load ang larawan"
 
-#: src/features/repository/repository-tabs.tsx:646
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Nabigong i-load ang mga tag"
@@ -1217,11 +1219,11 @@ msgstr "Nabigong i-load ang video"
 msgid "Failed to post comment"
 msgstr "Nabigong mag-post ng comment"
 
-#: src/features/repository/repository-tabs.tsx:1236
+#: src/features/repository/repository-tabs.tsx:1302
 msgid "Failed to remove access"
 msgstr "Nabigong tanggalin ang access"
 
-#: src/features/repository/repository-tabs.tsx:840
+#: src/features/repository/repository-tabs.tsx:853
 msgid "Failed to rename repository"
 msgstr "Nabigong i-rename ang repository"
 
@@ -1229,8 +1231,10 @@ msgstr "Nabigong i-rename ang repository"
 msgid "Failed to revoke RSS access"
 msgstr "Nabigong bawiin ang RSS access"
 
-#: src/features/repository/repository-tabs.tsx:910
-#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:923
+#: src/features/repository/repository-tabs.tsx:939
+#: src/features/repository/repository-tabs.tsx:952
+#: src/features/repository/repository-tabs.tsx:964
 msgid "Failed to save setting"
 msgstr "Nabigong i-save ang setting"
 
@@ -1239,23 +1243,23 @@ msgstr "Nabigong i-save ang setting"
 msgid "Failed to search repositories"
 msgstr "Hindi nahanap ang mga repository"
 
-#: src/features/repository/repository-tabs.tsx:1216
+#: src/features/repository/repository-tabs.tsx:1282
 msgid "Failed to set access level"
 msgstr "Nabigong i-set ang access level"
 
 #: src/features/repository/inline-repo-search.tsx:72
 #: src/routes/_authenticated/find.tsx:61
-#: src/routes/_authenticated/index.tsx:202
+#: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Nabigong mag-subscribe"
 
-#: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:374
+#: src/features/repository/repository-header.tsx:78
+#: src/features/repository/repository-tabs.tsx:204
+#: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Nabigong mag-unsubscribe"
 
-#: src/features/repository/repository-tabs.tsx:1256
+#: src/features/repository/repository-tabs.tsx:1322
 msgid "Failed to update access level"
 msgstr "Nabigong i-update ang access level"
 
@@ -1263,7 +1267,7 @@ msgstr "Nabigong i-update ang access level"
 msgid "Failed to update comment"
 msgstr "Nabigong i-update ang comment"
 
-#: src/features/repository/repository-tabs.tsx:890
+#: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Nabigong i-update ang path"
 
@@ -1271,7 +1275,7 @@ msgstr "Nabigong i-update ang path"
 msgid "Failed to upload attachment"
 msgstr "Nabigong mag-upload ng attachment"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:579
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
@@ -1295,7 +1299,7 @@ msgstr "Mga file"
 msgid "Find repositories"
 msgstr "Maghanap ng mga repository"
 
-#: src/features/repository/repository-tabs.tsx:1069
+#: src/features/repository/repository-tabs.tsx:1111
 msgid "Fingerprint:"
 msgstr "Fingerprint:"
 
@@ -1331,8 +1335,8 @@ msgstr "Mula sa"
 msgid "From theme"
 msgstr "Mula sa tema"
 
-#. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:146
+#. placeholder {0}: serverHost(server)
+#: src/features/repository/repository-header.tsx:148
 msgid "From: {0}"
 msgstr "Mula sa: {0}"
 
@@ -1373,7 +1377,7 @@ msgstr "Hot"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:945
+#: src/features/repository/repository-tabs.tsx:987
 msgid "Identity"
 msgstr "Identity"
 
@@ -1484,7 +1488,7 @@ msgid "Logging out…"
 msgstr "Nagla-log out…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:872
+#: src/features/repository/repository-tabs.tsx:885
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Maliliit na titik, numero, at gitling lamang"
 
@@ -1546,8 +1550,8 @@ msgstr "Moderasyon"
 msgid "Monday"
 msgstr "Lunes"
 
-#: src/routes/_authenticated/index.tsx:326
-#: src/routes/_authenticated/index.tsx:334
+#: src/routes/_authenticated/index.tsx:329
+#: src/routes/_authenticated/index.tsx:337
 msgid "More actions"
 msgstr "Higit pang aksyon"
 
@@ -1566,7 +1570,7 @@ msgid "Name"
 msgstr "Pangalan"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:815
 msgid "Name cannot contain < or > characters"
 msgstr "Hindi maaaring maglaman ng < o > na karakter ang pangalan"
 
@@ -1575,7 +1579,7 @@ msgid "Name cannot contain angle brackets, backslash, semicolon, quotes or backt
 msgstr "Hindi maaaring maglaman ang pangalan ng angle bracket, backslash, semicolon, panipi, o backtick"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:814
 msgid "Name must be 100 characters or less"
 msgstr "Ang pangalan ay dapat 100 karakter o mas mababa"
 
@@ -1583,7 +1587,7 @@ msgstr "Ang pangalan ay dapat 100 karakter o mas mababa"
 msgid "Name must be 1000 characters or less"
 msgstr "Ang pangalan ay dapat 1000 karakter o mas mababa"
 
-#: src/features/repository/repository-tabs.tsx:947
+#: src/features/repository/repository-tabs.tsx:989
 msgid "Name:"
 msgstr "Pangalan:"
 
@@ -1602,7 +1606,7 @@ msgstr "Hindi kailanman"
 msgid "New"
 msgstr "Bago"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:570
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Bagong branch"
@@ -1621,7 +1625,7 @@ msgstr "Susunod na imahe"
 msgid "No {parentClassNames} to add to"
 msgstr "Walang {parentClassNames} na maaaring idagdag"
 
-#: src/features/repository/repository-tabs.tsx:729
+#: src/features/repository/repository-tabs.tsx:736
 msgid "No access"
 msgstr "Walang access"
 
@@ -1633,7 +1637,7 @@ msgstr "Walang naka-configure na access rule. Magdagdag ng mga rule upang kontro
 msgid "No activity yet"
 msgstr "Wala pang aktibidad"
 
-#: src/features/repository/repository-tabs.tsx:506
+#: src/features/repository/repository-tabs.tsx:513
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Wala pang branch"
@@ -1642,7 +1646,7 @@ msgstr "Wala pang branch"
 msgid "No comments yet"
 msgstr "Wala pang komento"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:373
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Wala pang commit"
@@ -1672,7 +1676,7 @@ msgstr "Walang nakitang tao"
 msgid "No places found"
 msgstr "Walang nakitang lugar"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "No public repositories."
 msgstr "Walang pampublikong repository."
 
@@ -1696,7 +1700,7 @@ msgstr "Walang nakitang resulta."
 msgid "No status"
 msgstr "Walang status"
 
-#: src/features/repository/repository-tabs.tsx:676
+#: src/features/repository/repository-tabs.tsx:683
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Wala pang tag"
@@ -1856,15 +1860,15 @@ msgstr "Mga Passkey"
 msgid "Path"
 msgstr "Path"
 
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:881
 msgid "Path is required"
 msgstr "Kailangan ang path"
 
-#: src/features/repository/repository-tabs.tsx:889
+#: src/features/repository/repository-tabs.tsx:902
 msgid "Path updated"
 msgstr "Na-update ang path"
 
-#: src/features/repository/repository-tabs.tsx:1007
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Path:"
 msgstr "Path:"
 
@@ -1872,7 +1876,7 @@ msgstr "Path:"
 msgid "Pattern (regex)"
 msgstr "Pattern (regex)"
 
-#: src/features/repository/repository-tabs.tsx:1123
+#: src/features/repository/repository-tabs.tsx:1189
 msgid "Permanently delete this repository and all its data"
 msgstr "Permanenteng burahin ang repository na ito at ang lahat ng data nito"
 
@@ -1940,11 +1944,11 @@ msgstr "I-relink ang iyong mga account sa server na ito"
 msgid "Re-register your passkeys on this server"
 msgstr "Muling irehistro ang iyong mga passkey sa server na ito"
 
-#: src/features/repository/repository-tabs.tsx:727
+#: src/features/repository/repository-tabs.tsx:734
 msgid "Read and write"
 msgstr "Magbasa at magsulat"
 
-#: src/features/repository/repository-tabs.tsx:728
+#: src/features/repository/repository-tabs.tsx:735
 msgid "Read only"
 msgstr "Pagbasa lamang"
 
@@ -1952,7 +1956,7 @@ msgstr "Pagbasa lamang"
 msgid "Recommended"
 msgstr "Inirerekomenda"
 
-#: src/routes/_authenticated/index.tsx:256
+#: src/routes/_authenticated/index.tsx:259
 msgid "Recommended repositories"
 msgstr "Mga inirerekomendang repository"
 
@@ -2022,7 +2026,7 @@ msgstr "Alisin ang item"
 msgid "Remove link"
 msgstr "Alisin ang link"
 
-#: src/features/repository/repository-tabs.tsx:1234
+#: src/features/repository/repository-tabs.tsx:1300
 msgid "Removing access..."
 msgstr "Inaalis ang access..."
 
@@ -2039,7 +2043,7 @@ msgstr "Palitan ang pangalan ng column"
 msgid "Rename this board column"
 msgstr "Palitan ang pangalan ng board column na ito"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:851
 msgid "Renaming repository..."
 msgstr "Pinapalitan ang pangalan ng repository..."
 
@@ -2053,9 +2057,9 @@ msgstr "Tumugon"
 msgid "Reply to {0}..."
 msgstr "Sagutin si {0}..."
 
-#: src/routes/_authenticated/index.tsx:153
-#: src/routes/_authenticated/index.tsx:228
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:156
+#: src/routes/_authenticated/index.tsx:231
+#: src/routes/_authenticated/index.tsx:239
 msgid "Repositories"
 msgstr "Mga Repository"
 
@@ -2070,7 +2074,7 @@ msgstr "Mga Repository"
 #: src/routes/_authenticated/$repoId.tsx:56
 #: src/routes/_authenticated/blob/$ref/$.tsx:53
 #: src/routes/_authenticated/blob/$ref/$.tsx:64
-#: src/routes/_authenticated/index.tsx:107
+#: src/routes/_authenticated/index.tsx:108
 #: src/routes/_authenticated/tree/$ref/$.tsx:52
 #: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
@@ -2080,7 +2084,7 @@ msgstr "Repository"
 msgid "Repository created"
 msgstr "Nagawa ang repository"
 
-#: src/features/repository/repository-tabs.tsx:933
+#: src/features/repository/repository-tabs.tsx:975
 msgid "Repository deleted"
 msgstr "Natanggal ang repository"
 
@@ -2093,7 +2097,7 @@ msgstr "Kailangan ang ID ng repository"
 msgid "Repository link"
 msgstr "Link ng repositoryo"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:813
 msgid "Repository name is required"
 msgstr "Kailangan ang pangalan ng repository"
 
@@ -2101,7 +2105,7 @@ msgstr "Kailangan ang pangalan ng repository"
 msgid "Repository not found"
 msgstr "Hindi nahanap ang repository"
 
-#: src/features/repository/repository-tabs.tsx:839
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Repository renamed"
 msgstr "Napalitan ang pangalan ng repository"
 
@@ -2159,7 +2163,7 @@ msgstr "Sabado"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:170
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1088
+#: src/features/repository/repository-tabs.tsx:1130
 msgid "Save"
 msgstr "I-save"
 
@@ -2172,8 +2176,10 @@ msgstr "I-save ang token na ito ngayon. Hindi mo na ito makikita ulit."
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "I-save nang ligtas ang token na ito. Hindi mo na muli itong makikita."
 
-#: src/features/repository/repository-tabs.tsx:908
-#: src/features/repository/repository-tabs.tsx:920
+#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:937
+#: src/features/repository/repository-tabs.tsx:950
+#: src/features/repository/repository-tabs.tsx:962
 msgid "Saving settings..."
 msgstr "Sini-save ang mga setting..."
 
@@ -2269,7 +2275,7 @@ msgstr "Pumili ng uri ng account"
 msgid "Select branch"
 msgstr "Pumili ng branch"
 
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Select default branch"
 msgstr "Pumili ng default na branch"
 
@@ -2293,7 +2299,7 @@ msgstr "Pumili ng tao..."
 msgid "Select previous card"
 msgstr "Piliin ang nakaraang card"
 
-#: src/features/repository/repository-tabs.tsx:580
+#: src/features/repository/repository-tabs.tsx:587
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Pumili ng source branch"
@@ -2343,7 +2349,7 @@ msgstr "Nag-expire na ang session. Mag-log in muli."
 msgid "Set origin and destination"
 msgstr "Itakda ang origin at destination"
 
-#: src/features/repository/repository-tabs.tsx:1214
+#: src/features/repository/repository-tabs.tsx:1280
 msgid "Setting access..."
 msgstr "Itinatakda ang access..."
 
@@ -2354,8 +2360,10 @@ msgstr "Itinatakda ang access..."
 msgid "Settings"
 msgstr "Mga setting"
 
-#: src/features/repository/repository-tabs.tsx:909
-#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:938
+#: src/features/repository/repository-tabs.tsx:951
+#: src/features/repository/repository-tabs.tsx:963
 msgid "Settings saved"
 msgstr "Na-save ang mga setting"
 
@@ -2402,7 +2410,7 @@ msgstr "Maliit"
 msgid "Sort"
 msgstr "Ayusin"
 
-#: src/features/repository/repository-tabs.tsx:577
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Source branch"
@@ -2435,20 +2443,20 @@ msgstr "Ipasa ang sagot"
 #: ../../../lib/web/src/components/recommended-entities.tsx:58
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
 #: src/features/repository/inline-repo-search.tsx:90
-#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Mag-subscribe"
 
 #: src/features/repository/inline-repo-search.tsx:71
-#: src/features/repository/repository-header.tsx:101
+#: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
-#: src/routes/_authenticated/index.tsx:201
+#: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Naka-subscribe"
 
 #: src/features/repository/inline-repo-search.tsx:70
 #: src/routes/_authenticated/find.tsx:59
-#: src/routes/_authenticated/index.tsx:200
+#: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
 msgstr "Nag-su-subscribe..."
 
@@ -2506,7 +2514,7 @@ msgstr "Hindi maipadala. Maaaring masyadong malaki ang mga file, o nabigo ang iy
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Masyadong malaki para i-upload. Alisin o paliitin ang mga file at subukang muli."
 
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-tabs.tsx:1138
 msgid "The branch shown when viewing the repository"
 msgstr "Ang branch na ipapakita kapag tinitingnan ang repository"
 
@@ -2524,7 +2532,7 @@ msgstr "Nagbalik ang server ng web page sa halip na data."
 msgid "This page requires a repository context."
 msgstr "Kailangan ng repository context ang page na ito."
 
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Permanenteng tatanggalin nito ang \"{currentName}\" at lahat ng commit, branch, at tag nito. Hindi maaaring bawiin ang aksyong ito."
 
@@ -2532,11 +2540,11 @@ msgstr "Permanenteng tatanggalin nito ang \"{currentName}\" at lahat ng commit, 
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Permanenteng tatanggalin nito ang token. Ang anumang git clients na gumagamit nito ay hindi na makaka-authenticate."
 
-#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-header.tsx:129
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Tatanggalin nito ang \"{name}\" mula sa iyong listahan ng repository. Maaari kang muling mag-subscribe mamaya."
 
-#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:231
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Tatanggalin nito ang \"{repoName}\" mula sa iyong listahan ng repository. Maaari kang muling mag-subscribe mamaya."
 
@@ -2667,34 +2675,34 @@ msgid "Unknown"
 msgstr "Hindi alam"
 
 #: ../../../lib/web/src/components/options-menu.tsx:211
-#: src/features/repository/repository-header.tsx:120
-#: src/features/repository/repository-header.tsx:132
-#: src/features/repository/repository-tabs.tsx:217
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:343
-#: src/routes/_authenticated/index.tsx:363
-#: src/routes/_authenticated/index.tsx:365
+#: src/features/repository/repository-header.tsx:122
+#: src/features/repository/repository-header.tsx:134
+#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:346
+#: src/routes/_authenticated/index.tsx:366
+#: src/routes/_authenticated/index.tsx:368
 msgid "Unsubscribe"
 msgstr "Mag-unsubscribe"
 
-#: src/features/repository/repository-header.tsx:125
-#: src/features/repository/repository-tabs.tsx:222
+#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-tabs.tsx:229
 msgid "Unsubscribe from repository?"
 msgstr "Mag-unsubscribe sa repository?"
 
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:376
 msgid "Unsubscribed"
 msgstr "Hindi na naka-subscribe"
 
-#: src/features/repository/repository-header.tsx:75
-#: src/features/repository/repository-tabs.tsx:196
+#: src/features/repository/repository-header.tsx:77
+#: src/features/repository/repository-tabs.tsx:203
 msgid "Unsubscribed from repository"
 msgstr "Hindi na naka-subscribe sa repository"
 
-#: src/features/repository/repository-header.tsx:74
-#: src/features/repository/repository-tabs.tsx:195
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:372
+#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Nag-a-unsubscribe..."
 
@@ -2709,11 +2717,11 @@ msgstr "Walang pamagat"
 msgid "Updated"
 msgstr "Na-update"
 
-#: src/features/repository/repository-tabs.tsx:1254
+#: src/features/repository/repository-tabs.tsx:1320
 msgid "Updating access..."
 msgstr "Ina-update ang access..."
 
-#: src/features/repository/repository-tabs.tsx:888
+#: src/features/repository/repository-tabs.tsx:901
 msgid "Updating path..."
 msgstr "Ina-update ang path..."
 
@@ -2789,7 +2797,7 @@ msgstr "Miyerkules"
 msgid "You do not have access to this section."
 msgstr "Wala kang access sa seksyong ito."
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "You have no repositories yet."
 msgstr "Wala ka pang mga repository."
 

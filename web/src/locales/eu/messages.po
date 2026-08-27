@@ -40,7 +40,7 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {fitxategi # aldatuta} other {# fitxategi aldatuta}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:170
+#: src/features/repository/blob-viewer.tsx:169
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {lerro #} other {# lerro}}"
 
@@ -56,7 +56,7 @@ msgstr "{0} commit"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:704
+#: src/features/repository/repository-tabs.tsx:711
 #: src/routes/_authenticated/$repoId_.tags.tsx:124
 msgid "{0} tagged on {1}"
 msgstr "{0} {1}-(e)an etiketatua"
@@ -148,15 +148,15 @@ msgstr "Sarbidea ukatua"
 msgid "Access level"
 msgstr "Sarbide maila"
 
-#: src/features/repository/repository-tabs.tsx:1255
+#: src/features/repository/repository-tabs.tsx:1321
 msgid "Access level updated"
 msgstr "Sarbide maila eguneratua"
 
-#: src/features/repository/repository-tabs.tsx:1235
+#: src/features/repository/repository-tabs.tsx:1301
 msgid "Access removed"
 msgstr "Sarbidea kendua"
 
-#: src/features/repository/repository-tabs.tsx:1215
+#: src/features/repository/repository-tabs.tsx:1281
 msgid "Access set for {subjectName}"
 msgstr "Sarbidea ezarria {subjectName}-rentzat"
 
@@ -167,7 +167,7 @@ msgstr "Kontu mota"
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:720
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1270
+#: src/features/repository/repository-tabs.tsx:1336
 msgid "Add"
 msgstr "Gehitu"
 
@@ -248,6 +248,7 @@ msgid "All repositories"
 msgstr "Biltegi guztiak"
 
 #: src/features/repository/create-repository-dialog.tsx:182
+#: src/features/repository/repository-tabs.tsx:1175
 msgid "Allow anyone to read repository"
 msgstr "Baimendu edonori biltegia irakurtzea"
 
@@ -257,6 +258,7 @@ msgid "Allow anyone to search for {0}"
 msgstr "Baimendu edonork {0} bilatzea"
 
 #: src/features/repository/create-repository-dialog.tsx:177
+#: src/features/repository/repository-tabs.tsx:1163
 msgid "Allow anyone to search for repository"
 msgstr "Baimendu edonori biltegia bilatzea"
 
@@ -306,7 +308,7 @@ msgstr "Ziur al zaude iruzkin hau ezabatu nahi duzula? Honek erantzun guztiak er
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Ziur al zaude saioa amaitu nahi duzula? Berriro hasi beharko duzu saioa zure kontura sartzeko."
 
-#: src/routes/_authenticated/index.tsx:364
+#: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ziur al zaude biltegi honetatik harpidetza kendu nahi duzula?"
 
@@ -363,7 +365,7 @@ msgid "Banner"
 msgstr "Iragarki-banda"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:198
+#: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Fitxategi bitarra ({0})"
 
@@ -394,22 +396,22 @@ msgstr "Bultzatu interesa"
 msgid "Border colour"
 msgstr "Ertzaren kolorea"
 
-#: src/features/repository/repository-tabs.tsx:442
+#: src/features/repository/repository-tabs.tsx:449
 #: src/routes/_authenticated/$repoId_.branches.tsx:90
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" adarra sortu da"
 
-#: src/features/repository/repository-tabs.tsx:464
+#: src/features/repository/repository-tabs.tsx:471
 #: src/routes/_authenticated/$repoId_.branches.tsx:112
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" adarra ezabatu da"
 
-#: src/features/repository/repository-tabs.tsx:567
+#: src/features/repository/repository-tabs.tsx:574
 #: src/routes/_authenticated/$repoId_.branches.tsx:160
 msgid "Branch name"
 msgstr "Adarraren izena"
 
-#: src/features/repository/repository-tabs.tsx:433
+#: src/features/repository/repository-tabs.tsx:440
 #: src/routes/_authenticated/$repoId_.branches.tsx:81
 msgid "Branch name is required"
 msgstr "Adarraren izena beharrezkoa da"
@@ -437,11 +439,11 @@ msgstr "Nabigatzaile jakinarazpenak"
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
 #: src/components/clone-dialog.tsx:449
-#: src/features/repository/repository-header.tsx:131
-#: src/features/repository/repository-tabs.tsx:228
-#: src/features/repository/repository-tabs.tsx:594
-#: src/features/repository/repository-tabs.tsx:613
-#: src/features/repository/repository-tabs.tsx:1145
+#: src/features/repository/repository-header.tsx:133
+#: src/features/repository/repository-tabs.tsx:235
+#: src/features/repository/repository-tabs.tsx:601
+#: src/features/repository/repository-tabs.tsx:620
+#: src/features/repository/repository-tabs.tsx:1211
 #: src/routes/_authenticated/$repoId_.branches.tsx:187
 #: src/routes/_authenticated/$repoId_.branches.tsx:206
 msgid "Cancel"
@@ -451,8 +453,8 @@ msgstr "Utzi"
 msgid "Cancel comment"
 msgstr "Utzi iruzkina"
 
-#: src/features/repository/repository-tabs.tsx:984
-#: src/features/repository/repository-tabs.tsx:1044
+#: src/features/repository/repository-tabs.tsx:1026
+#: src/features/repository/repository-tabs.tsx:1086
 msgid "Cancel edit"
 msgstr "Utzi edizioa"
 
@@ -679,8 +681,8 @@ msgstr "Kopiatu"
 msgid "Copy commit SHA"
 msgstr "Kopiatu commit-aren SHA"
 
-#: src/features/repository/blob-viewer.tsx:177
-#: src/features/repository/blob-viewer.tsx:181
+#: src/features/repository/blob-viewer.tsx:176
+#: src/features/repository/blob-viewer.tsx:180
 msgid "Copy file contents"
 msgstr "Kopiatu fitxategiaren edukia"
 
@@ -723,12 +725,12 @@ msgstr "Sortu {0}"
 msgid "Create a new authentication token."
 msgstr "Sortu autentifikazio token berri bat."
 
-#: src/routes/_authenticated/index.tsx:245
+#: src/routes/_authenticated/index.tsx:248
 msgid "Create a new repository"
 msgstr "Sortu biltegi berri bat"
 
-#: src/features/repository/repository-tabs.tsx:498
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:505
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:140
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Create branch"
@@ -759,7 +761,7 @@ msgstr "Sortua"
 msgid "Created {0}"
 msgstr "{0} sortua"
 
-#: src/features/repository/repository-tabs.tsx:441
+#: src/features/repository/repository-tabs.tsx:448
 #: src/routes/_authenticated/$repoId_.branches.tsx:89
 msgid "Creating branch..."
 msgstr "Adarra sortzen..."
@@ -774,7 +776,7 @@ msgstr "Tokena sortzen..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:656
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:258
-#: src/features/repository/repository-tabs.tsx:597
+#: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
 msgid "Creating..."
 msgstr "Sortzen..."
@@ -803,7 +805,7 @@ msgstr "Data"
 msgid "Decline"
 msgstr "Ukatu"
 
-#: src/features/repository/repository-tabs.tsx:526
+#: src/features/repository/repository-tabs.tsx:533
 #: src/routes/_authenticated/$repoId_.branches.tsx:276
 msgid "default"
 msgstr "lehenetsia"
@@ -812,7 +814,7 @@ msgstr "lehenetsia"
 msgid "Default AI account"
 msgstr "Lehenetsitako AA kontua"
 
-#: src/features/repository/repository-tabs.tsx:1095
+#: src/features/repository/repository-tabs.tsx:1137
 msgid "Default branch"
 msgstr "Lehenetsitako adarra"
 
@@ -830,13 +832,13 @@ msgstr "Lehenetsitako ordena"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:252
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:314
 #: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:615
-#: src/features/repository/repository-tabs.tsx:1146
+#: src/features/repository/repository-tabs.tsx:622
+#: src/features/repository/repository-tabs.tsx:1212
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: src/features/repository/repository-tabs.tsx:609
+#: src/features/repository/repository-tabs.tsx:616
 #: src/routes/_authenticated/$repoId_.branches.tsx:202
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Ezabatu \"{branchToDelete}\"? Hau ezin da desegin."
@@ -845,14 +847,14 @@ msgstr "Ezabatu \"{branchToDelete}\"? Hau ezin da desegin."
 msgid "Delete attachment"
 msgstr "Ezabatu eranskina"
 
-#: src/features/repository/repository-tabs.tsx:545
-#: src/features/repository/repository-tabs.tsx:550
+#: src/features/repository/repository-tabs.tsx:552
+#: src/features/repository/repository-tabs.tsx:557
 #: src/routes/_authenticated/$repoId_.branches.tsx:296
 #: src/routes/_authenticated/$repoId_.branches.tsx:301
 msgid "Delete branch"
 msgstr "Ezabatu adarra"
 
-#: src/features/repository/repository-tabs.tsx:607
+#: src/features/repository/repository-tabs.tsx:614
 #: src/routes/_authenticated/$repoId_.branches.tsx:200
 msgid "Delete branch?"
 msgstr "Ezabatu adarra?"
@@ -879,12 +881,12 @@ msgstr "Ezabatu aukera"
 msgid "Delete option {0}"
 msgstr "Ezabatu {0} aukera"
 
-#: src/features/repository/repository-tabs.tsx:1121
-#: src/features/repository/repository-tabs.tsx:1132
+#: src/features/repository/repository-tabs.tsx:1187
+#: src/features/repository/repository-tabs.tsx:1198
 msgid "Delete repository"
 msgstr "Ezabatu biltegia"
 
-#: src/features/repository/repository-tabs.tsx:1139
+#: src/features/repository/repository-tabs.tsx:1205
 msgid "Delete repository?"
 msgstr "Ezabatu biltegia?"
 
@@ -904,12 +906,12 @@ msgstr "Ezabatu ikuspegia"
 msgid "Delete your account on the old server"
 msgstr "Ezabatu zure kontua zerbitzari zaharrean"
 
-#: src/features/repository/repository-tabs.tsx:463
+#: src/features/repository/repository-tabs.tsx:470
 #: src/routes/_authenticated/$repoId_.branches.tsx:111
 msgid "Deleting branch..."
 msgstr "Adarra ezabatzen..."
 
-#: src/features/repository/repository-tabs.tsx:932
+#: src/features/repository/repository-tabs.tsx:974
 msgid "Deleting repository..."
 msgstr "Biltegia ezabatzen..."
 
@@ -917,7 +919,7 @@ msgstr "Biltegia ezabatzen..."
 msgid "Deleting token..."
 msgstr "Tokena ezabatzen..."
 
-#: src/features/repository/repository-tabs.tsx:615
+#: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
 msgstr "Ezabatzen..."
@@ -928,7 +930,7 @@ msgstr "Beherakorra"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:83
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1075
+#: src/features/repository/repository-tabs.tsx:1117
 msgid "Description"
 msgstr "Deskribapena"
 
@@ -993,8 +995,8 @@ msgstr "Deskargatu"
 msgid "Download failed"
 msgstr "Deskargak huts egin du"
 
-#: src/features/repository/blob-viewer.tsx:186
-#: src/features/repository/blob-viewer.tsx:190
+#: src/features/repository/blob-viewer.tsx:185
+#: src/features/repository/blob-viewer.tsx:189
 msgid "Download file"
 msgstr "Deskargatu fitxategia"
 
@@ -1031,7 +1033,7 @@ msgstr "Editatu eremua"
 msgid "Edit field settings"
 msgstr "Editatu eremuaren ezarpenak"
 
-#: src/features/repository/repository-tabs.tsx:1001
+#: src/features/repository/repository-tabs.tsx:1043
 msgid "Edit name"
 msgstr "Editatu izena"
 
@@ -1045,7 +1047,7 @@ msgstr "Editatu aukera"
 msgid "Edit option {0}"
 msgstr "Editatu {0} aukera"
 
-#: src/features/repository/repository-tabs.tsx:1061
+#: src/features/repository/repository-tabs.tsx:1103
 msgid "Edit path"
 msgstr "Editatu bidea"
 
@@ -1065,11 +1067,11 @@ msgstr "Posta elektronikoa"
 msgid "Email code"
 msgstr "Posta elektronikoko kodea"
 
-#: src/features/repository/file-browser.tsx:119
+#: src/features/repository/file-browser.tsx:131
 msgid "Empty directory"
 msgstr "Direktorio hutsa"
 
-#: src/features/repository/repository-tabs.tsx:321
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Empty repository"
 msgstr "Biltegi hutsa"
 
@@ -1081,7 +1083,7 @@ msgstr "Sartu zure mezu elektronikoko kodea"
 msgid "Enter your authenticator code"
 msgstr "Sartu zure autentifikazio-aplikazioaren kodea"
 
-#: src/features/repository/repository-tabs.tsx:1067
+#: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Entitatea:"
 
@@ -1109,7 +1111,7 @@ msgstr "Oso handia"
 msgid "Failed to copy"
 msgstr "Ezin izan da kopiatu"
 
-#: src/features/repository/repository-tabs.tsx:443
+#: src/features/repository/repository-tabs.tsx:450
 #: src/routes/_authenticated/$repoId_.branches.tsx:91
 msgid "Failed to create branch"
 msgstr "Ezin izan da adarra sortu"
@@ -1132,7 +1134,7 @@ msgstr "Ezin izan da tokena sortu"
 msgid "Failed to delete attachment"
 msgstr "Ezin izan da eranskina ezabatu"
 
-#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:472
 #: src/routes/_authenticated/$repoId_.branches.tsx:113
 msgid "Failed to delete branch"
 msgstr "Ezin izan da adarra ezabatu"
@@ -1145,7 +1147,7 @@ msgstr "Ezin izan da iruzkina ezabatu"
 msgid "Failed to delete link"
 msgstr "Ezin izan da esteka ezabatu"
 
-#: src/features/repository/repository-tabs.tsx:934
+#: src/features/repository/repository-tabs.tsx:976
 msgid "Failed to delete repository"
 msgstr "Ezin izan da biltegia ezabatu"
 
@@ -1173,11 +1175,11 @@ msgstr "Ezin izan da tokena lortu"
 msgid "Failed to load"
 msgstr "Ezin izan da kargatu"
 
-#: src/features/repository/repository-tabs.tsx:1192
+#: src/features/repository/repository-tabs.tsx:1258
 msgid "Failed to load access rules"
 msgstr "Ezin izan dira sarbide-arauak kargatu"
 
-#: src/features/repository/repository-tabs.tsx:487
+#: src/features/repository/repository-tabs.tsx:494
 #: src/routes/_authenticated/$repoId_.branches.tsx:241
 msgid "Failed to load branches"
 msgstr "Ezin izan dira adarrak kargatu"
@@ -1186,13 +1188,13 @@ msgstr "Ezin izan dira adarrak kargatu"
 msgid "Failed to load commit"
 msgstr "Ezin izan da egikaritzapena kargatu"
 
-#: src/features/repository/repository-tabs.tsx:361
+#: src/features/repository/repository-tabs.tsx:368
 #: src/routes/_authenticated/$repoId_.commits.tsx:92
 msgid "Failed to load commits"
 msgstr "Ezin izan dira egikaritzapenak kargatu"
 
-#: src/features/repository/file-browser.tsx:115
-#: src/features/repository/repository-tabs.tsx:317
+#: src/features/repository/file-browser.tsx:127
+#: src/features/repository/repository-tabs.tsx:324
 msgid "Failed to load files"
 msgstr "Ezin izan dira fitxategiak kargatu"
 
@@ -1204,7 +1206,7 @@ msgstr "Ezin izan da historia kargatu"
 msgid "Failed to load image"
 msgstr "Ezin izan da irudia kargatu"
 
-#: src/features/repository/repository-tabs.tsx:646
+#: src/features/repository/repository-tabs.tsx:653
 #: src/routes/_authenticated/$repoId_.tags.tsx:84
 msgid "Failed to load tags"
 msgstr "Ezin izan dira etiketak kargatu"
@@ -1217,11 +1219,11 @@ msgstr "Ezin izan da bideoa kargatu"
 msgid "Failed to post comment"
 msgstr "Ezin izan da iruzkina argitaratu"
 
-#: src/features/repository/repository-tabs.tsx:1236
+#: src/features/repository/repository-tabs.tsx:1302
 msgid "Failed to remove access"
 msgstr "Ezin izan da sarbidea kendu"
 
-#: src/features/repository/repository-tabs.tsx:840
+#: src/features/repository/repository-tabs.tsx:853
 msgid "Failed to rename repository"
 msgstr "Ezin izan da biltegia berrizendatu"
 
@@ -1229,8 +1231,10 @@ msgstr "Ezin izan da biltegia berrizendatu"
 msgid "Failed to revoke RSS access"
 msgstr "Ezin izan da RSS sarbidea ezeztatu"
 
-#: src/features/repository/repository-tabs.tsx:910
-#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:923
+#: src/features/repository/repository-tabs.tsx:939
+#: src/features/repository/repository-tabs.tsx:952
+#: src/features/repository/repository-tabs.tsx:964
 msgid "Failed to save setting"
 msgstr "Ezin izan da ezarpena gorde"
 
@@ -1239,23 +1243,23 @@ msgstr "Ezin izan da ezarpena gorde"
 msgid "Failed to search repositories"
 msgstr "Ezin izan dira biltegiak bilatu"
 
-#: src/features/repository/repository-tabs.tsx:1216
+#: src/features/repository/repository-tabs.tsx:1282
 msgid "Failed to set access level"
 msgstr "Ezin izan da sarbide-maila ezarri"
 
 #: src/features/repository/inline-repo-search.tsx:72
 #: src/routes/_authenticated/find.tsx:61
-#: src/routes/_authenticated/index.tsx:202
+#: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Ezin izan da harpidetu"
 
-#: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:197
-#: src/routes/_authenticated/index.tsx:374
+#: src/features/repository/repository-header.tsx:78
+#: src/features/repository/repository-tabs.tsx:204
+#: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Ezin izan da harpidetza utzi"
 
-#: src/features/repository/repository-tabs.tsx:1256
+#: src/features/repository/repository-tabs.tsx:1322
 msgid "Failed to update access level"
 msgstr "Ezin izan da sarbide-maila eguneratu"
 
@@ -1263,7 +1267,7 @@ msgstr "Ezin izan da sarbide-maila eguneratu"
 msgid "Failed to update comment"
 msgstr "Ezin izan da iruzkina eguneratu"
 
-#: src/features/repository/repository-tabs.tsx:890
+#: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Ezin izan da bide-izena eguneratu"
 
@@ -1271,7 +1275,7 @@ msgstr "Ezin izan da bide-izena eguneratu"
 msgid "Failed to upload attachment"
 msgstr "Ezin izan da eranskina igo"
 
-#: src/features/repository/repository-tabs.tsx:572
+#: src/features/repository/repository-tabs.tsx:579
 #: src/routes/_authenticated/$repoId_.branches.tsx:165
 msgid "feature/my-feature"
 msgstr "feature/nire-funtzioa"
@@ -1295,7 +1299,7 @@ msgstr "Fitxategiak"
 msgid "Find repositories"
 msgstr "Aurkitu biltegiak"
 
-#: src/features/repository/repository-tabs.tsx:1069
+#: src/features/repository/repository-tabs.tsx:1111
 msgid "Fingerprint:"
 msgstr "Hatz-marka:"
 
@@ -1331,8 +1335,8 @@ msgstr "Nondik"
 msgid "From theme"
 msgstr "Gaiatik"
 
-#. placeholder {0}: new URL(server).hostname
-#: src/features/repository/repository-header.tsx:146
+#. placeholder {0}: serverHost(server)
+#: src/features/repository/repository-header.tsx:148
 msgid "From: {0}"
 msgstr "Nondik: {0}"
 
@@ -1373,7 +1377,7 @@ msgstr "Beroa"
 msgid "ID"
 msgstr "IDa"
 
-#: src/features/repository/repository-tabs.tsx:945
+#: src/features/repository/repository-tabs.tsx:987
 msgid "Identity"
 msgstr "Identitatea"
 
@@ -1484,7 +1488,7 @@ msgid "Logging out…"
 msgstr "Saioa amaitzen…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:872
+#: src/features/repository/repository-tabs.tsx:885
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Letra xeheak, zenbakiak eta marratxoak soilik"
 
@@ -1546,8 +1550,8 @@ msgstr "Moderazioa"
 msgid "Monday"
 msgstr "Astelehena"
 
-#: src/routes/_authenticated/index.tsx:326
-#: src/routes/_authenticated/index.tsx:334
+#: src/routes/_authenticated/index.tsx:329
+#: src/routes/_authenticated/index.tsx:337
 msgid "More actions"
 msgstr "Ekintza gehiago"
 
@@ -1566,7 +1570,7 @@ msgid "Name"
 msgstr "Izena"
 
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:802
+#: src/features/repository/repository-tabs.tsx:815
 msgid "Name cannot contain < or > characters"
 msgstr "Izenak ezin du < edo > karaktererik eduki"
 
@@ -1575,7 +1579,7 @@ msgid "Name cannot contain angle brackets, backslash, semicolon, quotes or backt
 msgstr "Izenak ezin du angeluzuzenik, alderantzizko barrarik, puntu eta komarik, komatxorik edo alderantzizko komatxorik izan"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:801
+#: src/features/repository/repository-tabs.tsx:814
 msgid "Name must be 100 characters or less"
 msgstr "Izenak 100 karaktere edo gutxiago izan behar ditu"
 
@@ -1583,7 +1587,7 @@ msgstr "Izenak 100 karaktere edo gutxiago izan behar ditu"
 msgid "Name must be 1000 characters or less"
 msgstr "Izenak 1000 karaktere edo gutxiago izan behar ditu"
 
-#: src/features/repository/repository-tabs.tsx:947
+#: src/features/repository/repository-tabs.tsx:989
 msgid "Name:"
 msgstr "Izena:"
 
@@ -1602,7 +1606,7 @@ msgstr "Inoiz ez"
 msgid "New"
 msgstr "Berria"
 
-#: src/features/repository/repository-tabs.tsx:563
+#: src/features/repository/repository-tabs.tsx:570
 #: src/routes/_authenticated/$repoId_.branches.tsx:156
 msgid "New branch"
 msgstr "Adar berria"
@@ -1621,7 +1625,7 @@ msgstr "Hurrengo irudia"
 msgid "No {parentClassNames} to add to"
 msgstr "Ez dago {parentClassNames} gehitzeko"
 
-#: src/features/repository/repository-tabs.tsx:729
+#: src/features/repository/repository-tabs.tsx:736
 msgid "No access"
 msgstr "Sarbiderik ez"
 
@@ -1633,7 +1637,7 @@ msgstr "Ez da sarbide-araurik konfiguratu. Gehitu arauak baliabide honetara nork
 msgid "No activity yet"
 msgstr "Oraindik jardueririk ez"
 
-#: src/features/repository/repository-tabs.tsx:506
+#: src/features/repository/repository-tabs.tsx:513
 #: src/routes/_authenticated/$repoId_.branches.tsx:252
 msgid "No branches yet"
 msgstr "Oraindik adarrik ez"
@@ -1642,7 +1646,7 @@ msgstr "Oraindik adarrik ez"
 msgid "No comments yet"
 msgstr "Oraindik iruzkinik ez"
 
-#: src/features/repository/repository-tabs.tsx:366
+#: src/features/repository/repository-tabs.tsx:373
 #: src/routes/_authenticated/$repoId_.commits.tsx:97
 msgid "No commits yet"
 msgstr "Oraindik commit-ik ez"
@@ -1672,7 +1676,7 @@ msgstr "Ez da pertsonarik aurkitu"
 msgid "No places found"
 msgstr "Ez da lekurik aurkitu"
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "No public repositories."
 msgstr "Biltegi publikorik ez."
 
@@ -1696,7 +1700,7 @@ msgstr "Ez da emaitzarik aurkitu."
 msgid "No status"
 msgstr "Egoerarik ez"
 
-#: src/features/repository/repository-tabs.tsx:676
+#: src/features/repository/repository-tabs.tsx:683
 #: src/routes/_authenticated/$repoId_.tags.tsx:95
 msgid "No tags yet"
 msgstr "Oraindik etiketarik ez"
@@ -1856,15 +1860,15 @@ msgstr "Passkey-ak"
 msgid "Path"
 msgstr "Bidea"
 
-#: src/features/repository/repository-tabs.tsx:868
+#: src/features/repository/repository-tabs.tsx:881
 msgid "Path is required"
 msgstr "Bidea beharrezkoa da"
 
-#: src/features/repository/repository-tabs.tsx:889
+#: src/features/repository/repository-tabs.tsx:902
 msgid "Path updated"
 msgstr "Bidea eguneratu da"
 
-#: src/features/repository/repository-tabs.tsx:1007
+#: src/features/repository/repository-tabs.tsx:1049
 msgid "Path:"
 msgstr "Bidea:"
 
@@ -1872,7 +1876,7 @@ msgstr "Bidea:"
 msgid "Pattern (regex)"
 msgstr "Eredua (regex)"
 
-#: src/features/repository/repository-tabs.tsx:1123
+#: src/features/repository/repository-tabs.tsx:1189
 msgid "Permanently delete this repository and all its data"
 msgstr "Ezabatu betiko biltegi hau eta bere datu guztiak"
 
@@ -1940,11 +1944,11 @@ msgstr "Berriro lotu zure kontuak zerbitzari honetan"
 msgid "Re-register your passkeys on this server"
 msgstr "Erregistratu berriro zure sarbide-gakoak zerbitzari honetan"
 
-#: src/features/repository/repository-tabs.tsx:727
+#: src/features/repository/repository-tabs.tsx:734
 msgid "Read and write"
 msgstr "Irakurri eta idatzi"
 
-#: src/features/repository/repository-tabs.tsx:728
+#: src/features/repository/repository-tabs.tsx:735
 msgid "Read only"
 msgstr "Irakurri soilik"
 
@@ -1952,7 +1956,7 @@ msgstr "Irakurri soilik"
 msgid "Recommended"
 msgstr "Gomendatua"
 
-#: src/routes/_authenticated/index.tsx:256
+#: src/routes/_authenticated/index.tsx:259
 msgid "Recommended repositories"
 msgstr "Gomendatutako biltegiak"
 
@@ -2022,7 +2026,7 @@ msgstr "Kendu elementua"
 msgid "Remove link"
 msgstr "Kendu esteka"
 
-#: src/features/repository/repository-tabs.tsx:1234
+#: src/features/repository/repository-tabs.tsx:1300
 msgid "Removing access..."
 msgstr "Sarbidea kentzen..."
 
@@ -2039,7 +2043,7 @@ msgstr "Aldatu zutabearen izena"
 msgid "Rename this board column"
 msgstr "Aldatu taula honetako zutabearen izena"
 
-#: src/features/repository/repository-tabs.tsx:838
+#: src/features/repository/repository-tabs.tsx:851
 msgid "Renaming repository..."
 msgstr "Biltegia berrizendatzen..."
 
@@ -2053,9 +2057,9 @@ msgstr "Erantzun"
 msgid "Reply to {0}..."
 msgstr "Erantzun {0}-(r)i..."
 
-#: src/routes/_authenticated/index.tsx:153
-#: src/routes/_authenticated/index.tsx:228
-#: src/routes/_authenticated/index.tsx:236
+#: src/routes/_authenticated/index.tsx:156
+#: src/routes/_authenticated/index.tsx:231
+#: src/routes/_authenticated/index.tsx:239
 msgid "Repositories"
 msgstr "Biltegiak"
 
@@ -2070,7 +2074,7 @@ msgstr "Biltegiak"
 #: src/routes/_authenticated/$repoId.tsx:56
 #: src/routes/_authenticated/blob/$ref/$.tsx:53
 #: src/routes/_authenticated/blob/$ref/$.tsx:64
-#: src/routes/_authenticated/index.tsx:107
+#: src/routes/_authenticated/index.tsx:108
 #: src/routes/_authenticated/tree/$ref/$.tsx:52
 #: src/routes/_authenticated/tree/$ref/$.tsx:63
 msgid "Repository"
@@ -2080,7 +2084,7 @@ msgstr "Biltegia"
 msgid "Repository created"
 msgstr "Biltegia sortu da"
 
-#: src/features/repository/repository-tabs.tsx:933
+#: src/features/repository/repository-tabs.tsx:975
 msgid "Repository deleted"
 msgstr "Biltegia ezabatu da"
 
@@ -2093,7 +2097,7 @@ msgstr "Biltegiaren IDa beharrezkoa da"
 msgid "Repository link"
 msgstr "Biltegiaren esteka"
 
-#: src/features/repository/repository-tabs.tsx:800
+#: src/features/repository/repository-tabs.tsx:813
 msgid "Repository name is required"
 msgstr "Biltegiaren izena beharrezkoa da"
 
@@ -2101,7 +2105,7 @@ msgstr "Biltegiaren izena beharrezkoa da"
 msgid "Repository not found"
 msgstr "Ez da biltegia aurkitu"
 
-#: src/features/repository/repository-tabs.tsx:839
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Repository renamed"
 msgstr "Biltegiaren izena aldatu da"
 
@@ -2159,7 +2163,7 @@ msgstr "Larunbata"
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:170
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:122
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1088
+#: src/features/repository/repository-tabs.tsx:1130
 msgid "Save"
 msgstr "Gorde"
 
@@ -2172,8 +2176,10 @@ msgstr "Gorde token hau orain. Ezin izango duzu berriro ikusi."
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Gorde token hau modu seguruan. Ezin izango duzu berriro ikusi."
 
-#: src/features/repository/repository-tabs.tsx:908
-#: src/features/repository/repository-tabs.tsx:920
+#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:937
+#: src/features/repository/repository-tabs.tsx:950
+#: src/features/repository/repository-tabs.tsx:962
 msgid "Saving settings..."
 msgstr "Ezarpenak gordetzen..."
 
@@ -2269,7 +2275,7 @@ msgstr "Hautatu kontu mota"
 msgid "Select branch"
 msgstr "Hautatu adarra"
 
-#: src/features/repository/repository-tabs.tsx:1105
+#: src/features/repository/repository-tabs.tsx:1147
 msgid "Select default branch"
 msgstr "Hautatu adar lehenetsia"
 
@@ -2293,7 +2299,7 @@ msgstr "Hautatu pertsona..."
 msgid "Select previous card"
 msgstr "Hautatu aurreko txartela"
 
-#: src/features/repository/repository-tabs.tsx:580
+#: src/features/repository/repository-tabs.tsx:587
 #: src/routes/_authenticated/$repoId_.branches.tsx:173
 msgid "Select source branch"
 msgstr "Hautatu jatorrizko adarra"
@@ -2343,7 +2349,7 @@ msgstr "Saioa iraungi da. Hasi saioa berriro."
 msgid "Set origin and destination"
 msgstr "Ezarri jatorria eta helmuga"
 
-#: src/features/repository/repository-tabs.tsx:1214
+#: src/features/repository/repository-tabs.tsx:1280
 msgid "Setting access..."
 msgstr "Sarbidea ezartzen..."
 
@@ -2354,8 +2360,10 @@ msgstr "Sarbidea ezartzen..."
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: src/features/repository/repository-tabs.tsx:909
-#: src/features/repository/repository-tabs.tsx:921
+#: src/features/repository/repository-tabs.tsx:922
+#: src/features/repository/repository-tabs.tsx:938
+#: src/features/repository/repository-tabs.tsx:951
+#: src/features/repository/repository-tabs.tsx:963
 msgid "Settings saved"
 msgstr "Ezarpenak gorde dira"
 
@@ -2402,7 +2410,7 @@ msgstr "Txikia"
 msgid "Sort"
 msgstr "Ordenatu"
 
-#: src/features/repository/repository-tabs.tsx:577
+#: src/features/repository/repository-tabs.tsx:584
 #: src/routes/_authenticated/$repoId_.branches.tsx:170
 msgid "Source branch"
 msgstr "Jatorrizko adarra"
@@ -2435,20 +2443,20 @@ msgstr "Bidali erantzuna"
 #: ../../../lib/web/src/components/recommended-entities.tsx:58
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
 #: src/features/repository/inline-repo-search.tsx:90
-#: src/routes/_authenticated/index.tsx:291
+#: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Harpidetu"
 
 #: src/features/repository/inline-repo-search.tsx:71
-#: src/features/repository/repository-header.tsx:101
+#: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
-#: src/routes/_authenticated/index.tsx:201
+#: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Harpidetuta"
 
 #: src/features/repository/inline-repo-search.tsx:70
 #: src/routes/_authenticated/find.tsx:59
-#: src/routes/_authenticated/index.tsx:200
+#: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
 msgstr "Harpidetzen..."
 
@@ -2506,7 +2514,7 @@ msgstr "Ezin izan da bidali. Fitxategiak handiegiak izan daitezke, edo konexioak
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Handiegia zen igotzeko. Kendu edo txikitu fitxategiak eta saiatu berriro."
 
-#: src/features/repository/repository-tabs.tsx:1096
+#: src/features/repository/repository-tabs.tsx:1138
 msgid "The branch shown when viewing the repository"
 msgstr "Biltegia ikustean erakutsiko den adarra"
 
@@ -2524,7 +2532,7 @@ msgstr "Zerbitzariak web-orri bat itzuli du datuen ordez."
 msgid "This page requires a repository context."
 msgstr "Orrialde honek biltegi-testuingurua eskatzen du."
 
-#: src/features/repository/repository-tabs.tsx:1141
+#: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Honek \"{currentName}\" eta bere commit, branch eta tag guztiak betiko ezabatuko ditu. Ekintza hau ezin da desegin."
 
@@ -2532,11 +2540,11 @@ msgstr "Honek \"{currentName}\" eta bere commit, branch eta tag guztiak betiko e
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Honek token hau betiko ezabatuko du. Hau erabiltzen duten git bezeroek ezingo dute autentifikatu."
 
-#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-header.tsx:129
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Honek \"{name}\" zure biltegi-zerrendatik kenduko du. Geroago berriro harpidetu zaitezke."
 
-#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:231
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Honek \"{repoName}\" zure biltegi-zerrendatik kenduko du. Geroago berriro harpidetu zaitezke."
 
@@ -2667,34 +2675,34 @@ msgid "Unknown"
 msgstr "Ezezaguna"
 
 #: ../../../lib/web/src/components/options-menu.tsx:211
-#: src/features/repository/repository-header.tsx:120
-#: src/features/repository/repository-header.tsx:132
-#: src/features/repository/repository-tabs.tsx:217
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:343
-#: src/routes/_authenticated/index.tsx:363
-#: src/routes/_authenticated/index.tsx:365
+#: src/features/repository/repository-header.tsx:122
+#: src/features/repository/repository-header.tsx:134
+#: src/features/repository/repository-tabs.tsx:224
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:346
+#: src/routes/_authenticated/index.tsx:366
+#: src/routes/_authenticated/index.tsx:368
 msgid "Unsubscribe"
 msgstr "Harpidetza kendu"
 
-#: src/features/repository/repository-header.tsx:125
-#: src/features/repository/repository-tabs.tsx:222
+#: src/features/repository/repository-header.tsx:127
+#: src/features/repository/repository-tabs.tsx:229
 msgid "Unsubscribe from repository?"
 msgstr "Biltegitik harpidetza kendu?"
 
-#: src/routes/_authenticated/index.tsx:373
+#: src/routes/_authenticated/index.tsx:376
 msgid "Unsubscribed"
 msgstr "Harpidetza kenduta"
 
-#: src/features/repository/repository-header.tsx:75
-#: src/features/repository/repository-tabs.tsx:196
+#: src/features/repository/repository-header.tsx:77
+#: src/features/repository/repository-tabs.tsx:203
 msgid "Unsubscribed from repository"
 msgstr "Biltegitik harpidetza kenduta"
 
-#: src/features/repository/repository-header.tsx:74
-#: src/features/repository/repository-tabs.tsx:195
-#: src/features/repository/repository-tabs.tsx:230
-#: src/routes/_authenticated/index.tsx:372
+#: src/features/repository/repository-header.tsx:76
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:237
+#: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Harpidetza kentzen..."
 
@@ -2709,11 +2717,11 @@ msgstr "Izengabea"
 msgid "Updated"
 msgstr "Eguneratuta"
 
-#: src/features/repository/repository-tabs.tsx:1254
+#: src/features/repository/repository-tabs.tsx:1320
 msgid "Updating access..."
 msgstr "Sarbidea eguneratzen..."
 
-#: src/features/repository/repository-tabs.tsx:888
+#: src/features/repository/repository-tabs.tsx:901
 msgid "Updating path..."
 msgstr "Bidea eguneratzen..."
 
@@ -2789,7 +2797,7 @@ msgstr "Asteazkena"
 msgid "You do not have access to this section."
 msgstr "Ez duzu atal honetarako sarbiderik."
 
-#: src/routes/_authenticated/index.tsx:238
+#: src/routes/_authenticated/index.tsx:241
 msgid "You have no repositories yet."
 msgstr "Oraindik ez duzu biltegirik."
 
