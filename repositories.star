@@ -100,6 +100,23 @@ def valid_ref(r):
         return False
     return True
 
+# The default branch a client should browse. The stored column is seeded 'main'
+# at creation, before any push, so on a repository whose first push named
+# anything else it names a branch that never existed; core repoints HEAD on that
+# push, so git is what knows. The column still wins when it names a branch that
+# exists - that is the owner's explicit choice. A replica holds no local
+# repository to ask, so its synced value is all there is.
+def repo_branch_default(repo):
+    stored = repo.get("default_branch", "") or "main"
+    if repo.get("server", ""):
+        return stored
+    branches = mochi.git.branches(repo["id"])
+    if not branches:
+        return stored
+    if stored in [b["name"] for b in branches]:
+        return stored
+    return mochi.git.branch.default.get(repo["id"]) or stored
+
 # Validate a metadata field from a subscribed repository's owner, a remote peer:
 # path in particular is pasted into a shell via the clone command. Returns
 # fallback when the value fails the owner-side rule.
@@ -439,7 +456,7 @@ def action_info_entity(a):
         "name": repo["name"],
         "path": repo.get("path", ""),
         "description": repo["description"],
-        "default_branch": repo["default_branch"],
+        "default_branch": repo_branch_default(repo),
         "size": repo["size"],
         "created": repo["created"],
         "updated": repo["updated"],
@@ -1838,7 +1855,7 @@ def event_info(e):
         "name": repo["name"],
         "path": repo.get("path", ""),
         "description": repo["description"],
-        "default_branch": repo["default_branch"],
+        "default_branch": repo_branch_default(repo),
         "fingerprint": mochi.entity.fingerprint(repo_id),
     })
 
@@ -2083,7 +2100,7 @@ def event_commits(e):
     # Get parameters
     ref = e.content("ref", "")
     if not ref:
-        ref = repo.get("default_branch", "main")
+        ref = repo_branch_default(repo)
 
     # Pagination, forwarded by the subscriber as strings; same validation and
     # cap as action_commits. Older subscribers send neither - default 50/0.
@@ -2129,7 +2146,7 @@ def event_tree(e):
     # Get parameters
     ref = event_text(e, "ref")
     if not ref:
-        ref = repo.get("default_branch", "main")
+        ref = repo_branch_default(repo)
     path = event_text(e, "path")
 
     # The subscriber splits the URL on the first slash, so a slash-containing
@@ -2165,7 +2182,7 @@ def event_blob(e):
     # Get parameters
     ref = event_text(e, "ref")
     if not ref:
-        ref = repo.get("default_branch", "main")
+        ref = repo_branch_default(repo)
     path = event_text(e, "path")
 
     # Same slash-containing-ref recombination as event_tree above.
@@ -2349,7 +2366,7 @@ def broadcast_update(repo):
     if not subscriber_ids:
         return
     mochi.broadcast.send(repo["id"], repo["id"], subscriber_ids, "repositories", "update",
-        {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo["default_branch"], "updated": repo.get("updated", 0)})
+        {"name": repo["name"], "path": repo.get("path", ""), "description": repo["description"], "default_branch": repo_branch_default(repo), "updated": repo.get("updated", 0)})
 
 # Broadcast deletion notification to all subscribers via the broadcast log.
 def broadcast_deleted(repo):
