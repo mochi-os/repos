@@ -304,6 +304,15 @@ def maybe_resubscribe(a, repo_id):
 #
 # Deliberately NOT folded into get_repo: the write actions call that too, and a
 # proxied row there would have them editing something this account does not hold.
+#
+# Bounded to callers on THIS server, and that is the intended bound. a.entity is
+# core's resolution of the URL's entity segment, which reads this server's own
+# entities table and never the directory, so a repository hosted elsewhere does
+# not route here at all and proxy_entity returns None. Reaching one is what
+# action_subscribe is for: the owner shares mochi://<peer>/<repository>, or the
+# id alone and the peer comes from the directory. Do not "fix" the 404 by
+# resolving the segment through the directory - that would change entity routing
+# for every app to serve a URL no client builds.
 def proxy_entity(a):
     entity = a.entity
     if entity and entity.get("class") == "repository":
