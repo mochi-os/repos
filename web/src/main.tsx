@@ -195,9 +195,7 @@ const catalogs: Catalogs = {
   ar: () => import('./locales/ar/messages.po'),
 }
 
-const queryClient = createQueryClient({
-  onServerError: () => router.navigate({ to: '/500' }),
-})
+const queryClient = createQueryClient()
 
 // getAppBasepath keeps the fingerprint out of the basepath (routes carry it as
 // $repoId). No createAppHistory: this route tree is already domain-aware, and
