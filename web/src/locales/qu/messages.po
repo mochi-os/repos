@@ -162,6 +162,10 @@ msgstr "Yaykuy churasqa {subjectName}-paq"
 msgid "Account type"
 msgstr "Cuenta laya"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+msgid "Activity"
+msgstr "Kawsay"
+
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
@@ -206,7 +210,7 @@ msgstr "Campo yapay"
 msgid "Add item..."
 msgstr "Item yapay..."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:320
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:314
 msgid "Add link"
 msgstr "Link yapay"
 
@@ -294,6 +298,10 @@ msgstr "Kay feed-ta suscribisqa tukuy imapas manaña chaskinqachu. Chaymanta mus
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "\"{0}\"-ta wischuyta munanki?"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
+msgstr "\"{title}\"-ta wischuyta munanki? Kay ruway mana kutichipuy atinmanchu."
+
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:631
 msgid "Are you sure you want to delete the \"{name}\" column? This cannot be undone."
 msgstr "\"{name}\" columna-ta wischuyta munanki? Kayqa mana kutichipuy atinmanchu."
@@ -305,6 +313,14 @@ msgstr "Kay comentario-ta wischuyta munanki? Kayqa kutichikunatapas wischunqa."
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Lluqsiyta munanki? Kutichiy yaykunaykipaq cuenta-yki-pi."
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:39
+msgid "Are you sure you want to resign?"
+msgstr "Saqiyta munanki?"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:38
+msgid "Are you sure you want to resign? {opponentName} will win the game."
+msgstr "Saqiyta munanki? {opponentName} pukllayta atipanqa."
 
 #: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
@@ -358,17 +374,26 @@ msgstr "Commits-man kutichiy"
 msgid "Back to home"
 msgstr "Wasiman kutiy"
 
+#: ../../../lib/web/src/components/banner-section.tsx:80
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "Banner"
+
+#: ../../../lib/web/src/components/banner-section.tsx:69
+msgid "Banner removed"
+msgstr "Banner hurqusqa"
+
+#: ../../../lib/web/src/components/banner-section.tsx:69
+msgid "Banner updated"
+msgstr "Banner musuqchasqa"
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Binario archivo ({0})"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:68
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:215
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:72
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:209
 msgid "Blocked by"
 msgstr "Hark'aq"
 
@@ -377,7 +402,7 @@ msgstr "Hark'aq"
 msgid "Blocked navigation to untrusted link"
 msgstr "Mana iñikuq link-man yaykuy hark'asqa"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:66
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:70
 msgid "Blocks"
 msgstr "Bloques"
 
@@ -517,6 +542,7 @@ msgstr "Pukllay akllay sidebar-manta utaq musuq qallariy."
 msgid "Choose language"
 msgstr "Simi akllay"
 
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -542,8 +568,8 @@ msgstr "Llamk'apuy"
 msgid "Clone repository"
 msgstr "Repositorio llamk'apuy"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:523
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:528
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:517
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:522
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:480
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:483
@@ -617,6 +643,11 @@ msgstr "Rimanakuy ruraykuna"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:455
 msgid "Comments"
 msgstr "Comentarios"
+
+#. placeholder {0}: data.comment_count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+msgid "Comments ({0})"
+msgstr "Comentarios ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
@@ -728,8 +759,8 @@ msgstr "Chay cuentawanqa mana takyachiyta atikurqachu. Ama hina kaspa watiqmanta
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:551
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:691
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:513
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:682
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
 #: src/components/clone-dialog.tsx:429
 #: src/features/repository/create-repository-dialog.tsx:189
@@ -798,7 +829,7 @@ msgstr "Waqaychanata kamarichkan..."
 msgid "Creating token..."
 msgstr "Tokenta kamarichkan..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:682
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
 #: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -860,6 +891,8 @@ msgstr "Default sort"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
 #: src/components/clone-dialog.tsx:451
 #: src/features/repository/repository-tabs.tsx:622
 #: src/features/repository/repository-tabs.tsx:1212
@@ -899,6 +932,16 @@ msgstr "Comentario wischuy"
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:304
 msgid "Delete field"
 msgstr "Campo wischuy"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:69
+msgid "Delete game?"
+msgstr "Pukllayta wischuy?"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+msgid "Delete item"
+msgstr "Item wischuy"
 
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:117
 msgid "Delete option"
@@ -956,6 +999,7 @@ msgstr "Waqaychanata pichachkan..."
 msgid "Deleting token..."
 msgstr "Tokenta pichachkan..."
 
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
 #: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
@@ -1017,6 +1061,7 @@ msgid "Does not match the required pattern"
 msgstr "Mana mañakusqa patrónwan tupanchu"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
 #: src/components/clone-dialog.tsx:315
 #: src/components/clone-dialog.tsx:400
@@ -1042,7 +1087,7 @@ msgstr "Urayachiy mana atikurqanchu"
 msgid "Download file"
 msgstr "Faylta urayachiy"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:67
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:71
 msgid "Duplicates"
 msgstr "Iskaynisqakuna"
 
@@ -1117,6 +1162,10 @@ msgstr "Ch'usaq directorio"
 msgid "Empty repository"
 msgstr "Ch'usaq repositorio"
 
+#: ../../../lib/web/src/components/banner-section.tsx:88
+msgid "Enter banner text (markdown supported)..."
+msgstr "Banner qillqayta qillqay (markdown haypaqsi)..."
+
 #: ../../../lib/web/src/components/step-up-dialog.tsx:290
 msgid "Enter the code from your email"
 msgstr "Email nikiymanta hamuq código yaykuchiy"
@@ -1128,6 +1177,10 @@ msgstr "Takyachiqniykiq codigonta yaykuchiy"
 #: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Entity:"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+msgid "Error"
+msgstr "Pantay"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
@@ -1162,7 +1215,7 @@ msgstr "Mana kikinchayta atinchu"
 msgid "Failed to create branch"
 msgstr "Mana branchta paqarichiyta atinchu"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:131
 #: ../../../lib/web/src/components/options-menu.tsx:98
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
@@ -1175,6 +1228,10 @@ msgstr "Mana repositoriota paqarichiyta atinchu"
 #: src/components/clone-dialog.tsx:220
 msgid "Failed to create token"
 msgstr "Mana tokenta paqarichiyta atinchu"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:303
+msgid "Failed to delete"
+msgstr "Mana pichayta atinchu"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:130
 msgid "Failed to delete attachment"
@@ -1189,7 +1246,7 @@ msgstr "Mana branchta pichayta atinchu"
 msgid "Failed to delete comment"
 msgstr "Mana comentariota pichayta atinchu"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:159
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:153
 msgid "Failed to delete link"
 msgstr "Mana enlaceta pichayta atinchu"
 
@@ -1252,6 +1309,11 @@ msgstr "Mana historiata wichachiyta atinchu"
 msgid "Failed to load image"
 msgstr "Manam rikchata cargayta atikunchu"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+msgid "Failed to load item"
+msgstr "Mana itemta wichachiyta atinchu"
+
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:213
 msgid "Failed to load prompts"
 msgstr "Mana promptkunata wichachiyta atinchu"
@@ -1264,6 +1326,10 @@ msgstr "Mana tagkunata wichachiyta atinchu"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:350
 msgid "Failed to load video"
 msgstr "Manam videota cargayta atikunchu"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:317
+msgid "Failed to move"
+msgstr "Mana kuyuchiyta atinchu"
 
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx:155
 msgid "Failed to post comment"
@@ -1284,6 +1350,10 @@ msgstr "Mana promptta kaqmanta churayta atinchu"
 #: ../../../lib/web/src/components/options-menu.tsx:133
 msgid "Failed to revoke RSS access"
 msgstr "Mana atikunchu RSS yaykuyta chinkachiy"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:273
+msgid "Failed to save"
+msgstr "Mana waqaychayta atinchu"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:111
 msgid "Failed to save prompt"
@@ -1321,6 +1391,10 @@ msgstr "Mana mana suscribiyta atinchu"
 msgid "Failed to update access level"
 msgstr "Mana yaykuy nivelta musuqyachiyta atinchu"
 
+#: ../../../lib/web/src/components/banner-section.tsx:71
+msgid "Failed to update banner"
+msgstr "Mana bannerta musuqyachiyta atinchu"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx:175
 msgid "Failed to update comment"
 msgstr "Mana comentariota musuqyachiyta atinchu"
@@ -1328,6 +1402,10 @@ msgstr "Mana comentariota musuqyachiyta atinchu"
 #: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Mana ñanta musuqyachiyta atinchu"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:288
+msgid "Failed to update watching"
+msgstr "Qhawayta mana musuqchayta atinchu"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:114
 msgid "Failed to upload attachment"
@@ -1343,7 +1421,7 @@ msgstr "feature/my-feature"
 msgid "file"
 msgstr "file"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:611
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:605
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:160
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:180
 #: src/features/repository/tabs.tsx:30
@@ -1476,6 +1554,10 @@ msgstr "Mana allin pacha"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Maskasqayki p'anqaqa <0/>manam kanchu icha qichusqam."
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+msgid "Item details"
+msgstr "Item willakuy"
+
 #: ../../../lib/web/src/lib/locale-format.ts:180
 msgid "Just now"
 msgstr "Kunanlla"
@@ -1511,7 +1593,7 @@ msgstr "Sut'i"
 msgid "Link"
 msgstr "T'inki"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:279
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:273
 msgid "Links"
 msgstr "Enlacekuna"
 
@@ -1526,6 +1608,14 @@ msgstr "Aswan wichachiy"
 #: ../../../lib/web/src/components/ui/loading-content.tsx:26
 msgid "Loading content…"
 msgstr "Contenido kargachkan…"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+msgid "Loading item"
+msgstr "Item wichachichkan"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+msgid "Loading item details"
+msgstr "Item willakuy wichachichkan"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:39
 #: ../../../lib/web/src/features/document/document-page.tsx:88
@@ -1680,7 +1770,7 @@ msgstr "Redpi pantay"
 msgid "Never"
 msgstr "Mana hayk'aqpas"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:498
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Musuq"
@@ -1700,7 +1790,7 @@ msgstr "Musuq pukllay"
 msgid "Next image"
 msgstr "Qatiqnin imagen"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:577
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:571
 msgid "No {parentClassNames} to add to"
 msgstr "Mana yapanapaq {parentClassNames}"
 
@@ -1738,11 +1828,11 @@ msgstr "Manaraq pukllaykuna"
 msgid "No groups available"
 msgstr "Mana grupokuna atikuq"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:544
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:538
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Manaraq item niraqkuna ruwakuyta atin. Ñawpaqta munasqa parent itemkunata ruway."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:360
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:354
 msgid "No matching objects"
 msgstr "Mana tupaq objetokuna"
 
@@ -1809,9 +1899,13 @@ msgid "No views"
 msgstr "Mana qhawaykuna"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:563
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:567
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -1911,7 +2005,9 @@ msgstr "Huk"
 msgid "Owner"
 msgstr "Apuq"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:552
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
 msgid "Parent"
 msgstr "Yaya"
 
@@ -2012,6 +2108,10 @@ msgstr "Ruwakuchkan…"
 msgid "Prompt saved"
 msgstr "Prompt waqaychasqa"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+msgid "Properties"
+msgstr "Kayninkuna"
+
 #: ../../../lib/web/src/features/accounts/types.ts:21
 msgid "Push notification"
 msgstr "Push willakuy"
@@ -2065,7 +2165,7 @@ msgstr "Yaykuyman redirigshan."
 msgid "Reduce interest"
 msgstr "Munayta pisichiy"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:65
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:69
 msgid "Relates"
 msgstr "Tupachikun"
 
@@ -2121,8 +2221,8 @@ msgstr "Munayta qichuy"
 msgid "Remove item"
 msgstr "Itemta qichuy"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:304
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:309
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:298
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:303
 msgid "Remove link"
 msgstr "Tinkita qichuy"
 
@@ -2217,6 +2317,18 @@ msgstr "Munasqa"
 msgid "Resend email"
 msgstr "Correota kutiy apachiy"
 
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:48
+msgid "Resign"
+msgstr "Saqirakapuy"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:35
+msgid "Resign game?"
+msgstr "Pukllayta saqirakapuy?"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:45
+msgid "Resigning..."
+msgstr "Saqirakapushan..."
+
 #: ../../../lib/web/src/components/attachment-composer.tsx:348
 msgid "Retry"
 msgstr "Wakmanta ruway"
@@ -2260,6 +2372,7 @@ msgstr "Sábado"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
+#: ../../../lib/web/src/components/banner-section.tsx:99
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
@@ -2323,7 +2436,7 @@ msgstr "Origenpaq maskay..."
 msgid "Search for repositories..."
 msgstr "Repositoriokunapaq maskay..."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:337
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:331
 msgid "Search objects..."
 msgstr "Objetokunata maskay..."
 
@@ -2536,6 +2649,11 @@ msgstr "Hatun"
 msgid "Start the discussion by adding the first comment."
 msgstr "Ñawpaq comentariota churaspa rimanakuyta qallariy."
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+msgid "Stop watching"
+msgstr "Qhaway saqiy"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:196
 msgid "Subject"
 msgstr "Tema"
@@ -2660,6 +2778,10 @@ msgstr "Kay aplicacionqa manam passkeykita llamk'achiyta atinchu. Ajustes ukhupi
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Kay página repositorio contextota munan."
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:70
+msgid "This permanently deletes the game and its chat. This cannot be undone."
+msgstr "Kayqa pukllayta rimanakuywantin wiñaypaq wischun. Kayta mana kutichinachu."
 
 #: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
@@ -2833,9 +2955,8 @@ msgstr "Repositoriomanta suscripcion saqisqa"
 msgid "Unsubscribing..."
 msgstr "Suscripcionta saqichkan..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:299
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:178
+#: ../../../lib/web/src/lib/entity-title.ts:40
 msgid "Untitled"
 msgstr "Mana sutinchayniyuq"
 
@@ -2857,7 +2978,7 @@ msgstr "Yaykunata musuqyachichkan..."
 msgid "Updating path..."
 msgstr "Ñanta musuqyachichkan..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:661
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:655
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:304
 msgid "Upload"
 msgstr "Upload"
@@ -2907,6 +3028,10 @@ msgstr "Video qhawana: {0}"
 msgid "View all notifications"
 msgstr "Llapan willakuykunata qhaway"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+msgid "View and edit item details"
+msgstr "Itemq detallenkunata qhaway hinaspa tikray"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx:170
 msgid "View controls"
 msgstr "Qhaway controlkuna"
@@ -2914,6 +3039,11 @@ msgstr "Qhaway controlkuna"
 #: ../../../lib/web/src/lib/shell-errors.ts:33
 msgid "Voice recording is not supported in this browser"
 msgstr "Kay navegadorpiqa manam kunka grabay atikunchu"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+msgid "Watch"
+msgstr "Qhaway"
 
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx:269
 #: ../../../lib/web/src/components/filter-bar.tsx:35

@@ -162,6 +162,10 @@ msgstr "Juurdepääs määratud kasutajale {subjectName}"
 msgid "Account type"
 msgstr "Konto tüüp"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+msgid "Activity"
+msgstr "Tegevus"
+
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
@@ -206,7 +210,7 @@ msgstr "Lisa väli"
 msgid "Add item..."
 msgstr "Lisa kirje..."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:320
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:314
 msgid "Add link"
 msgstr "Lisa link"
 
@@ -294,6 +298,10 @@ msgstr "Kõik, mis on selle voo tellinud, lakkab seda saamast. Pärast saad kope
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "Kas oled kindel, et soovid kustutada \"{0}\"?"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
+msgstr "Kas oled kindel, et soovid kustutada \"{title}\"? Seda toimingut ei saa tagasi võtta."
+
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:631
 msgid "Are you sure you want to delete the \"{name}\" column? This cannot be undone."
 msgstr "Kas oled kindel, et soovid kustutada veeru \"{name}\"? Seda ei saa tagasi võtta."
@@ -305,6 +313,14 @@ msgstr "Kas oled kindel, et soovid selle kommentaari kustutada? See kustutab ka 
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Kas oled kindel, et soovid välja logida? Konto kasutamiseks pead uuesti sisse logima."
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:39
+msgid "Are you sure you want to resign?"
+msgstr "Kas oled kindel, et soovid alla anda?"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:38
+msgid "Are you sure you want to resign? {opponentName} will win the game."
+msgstr "Kas oled kindel, et soovid alla anda? {opponentName} võidab mängu."
 
 #: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
@@ -358,17 +374,26 @@ msgstr "Tagasi sissekannete juurde"
 msgid "Back to home"
 msgstr "Tagasi avalehele"
 
+#: ../../../lib/web/src/components/banner-section.tsx:80
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "Bänner"
+
+#: ../../../lib/web/src/components/banner-section.tsx:69
+msgid "Banner removed"
+msgstr "Bänner eemaldatud"
+
+#: ../../../lib/web/src/components/banner-section.tsx:69
+msgid "Banner updated"
+msgstr "Bänner uuendatud"
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "Binaarfail ({0})"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:68
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:215
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:72
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:209
 msgid "Blocked by"
 msgstr "Blokeeritud"
 
@@ -377,7 +402,7 @@ msgstr "Blokeeritud"
 msgid "Blocked navigation to untrusted link"
 msgstr "Liikumine usaldamata lingile blokeeritud"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:66
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:70
 msgid "Blocks"
 msgstr "Blokid"
 
@@ -517,6 +542,7 @@ msgstr "Vali külgribalt mäng või alusta uut."
 msgid "Choose language"
 msgstr "Vali keel"
 
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -542,8 +568,8 @@ msgstr "Klooni"
 msgid "Clone repository"
 msgstr "Klooni repositoorium"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:523
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:528
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:517
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:522
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:480
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:483
@@ -617,6 +643,11 @@ msgstr "Kommentaari toimingud"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:455
 msgid "Comments"
 msgstr "Kommentaarid"
+
+#. placeholder {0}: data.comment_count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+msgid "Comments ({0})"
+msgstr "Kommentaarid ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
@@ -728,8 +759,8 @@ msgstr "Selle kontoga ei õnnestunud kinnitada. Palun proovi uuesti."
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:551
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:691
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:513
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:682
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
 #: src/components/clone-dialog.tsx:429
 #: src/features/repository/create-repository-dialog.tsx:189
@@ -798,7 +829,7 @@ msgstr "Hoidla loomine..."
 msgid "Creating token..."
 msgstr "Loa loomine..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:682
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
 #: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -860,6 +891,8 @@ msgstr "Vaikimisi sortimine"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
 #: src/components/clone-dialog.tsx:451
 #: src/features/repository/repository-tabs.tsx:622
 #: src/features/repository/repository-tabs.tsx:1212
@@ -899,6 +932,16 @@ msgstr "Kustuta kommentaar"
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:304
 msgid "Delete field"
 msgstr "Kustuta väli"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:69
+msgid "Delete game?"
+msgstr "Kas kustutada mäng?"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+msgid "Delete item"
+msgstr "Kustuta kirje"
 
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:117
 msgid "Delete option"
@@ -956,6 +999,7 @@ msgstr "Hoidla kustutamine..."
 msgid "Deleting token..."
 msgstr "Loa kustutamine..."
 
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
 #: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
@@ -1017,6 +1061,7 @@ msgid "Does not match the required pattern"
 msgstr "Ei vasta nõutud mustrile"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
 #: src/components/clone-dialog.tsx:315
 #: src/components/clone-dialog.tsx:400
@@ -1042,7 +1087,7 @@ msgstr "Allalaadimine ebaõnnestus"
 msgid "Download file"
 msgstr "Laadi fail alla"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:67
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:71
 msgid "Duplicates"
 msgstr "Duplikaadid"
 
@@ -1117,6 +1162,10 @@ msgstr "Tühi kataloog"
 msgid "Empty repository"
 msgstr "Tühi hoidla"
 
+#: ../../../lib/web/src/components/banner-section.tsx:88
+msgid "Enter banner text (markdown supported)..."
+msgstr "Sisesta bännerteksti tekst (markdown toetatud)…"
+
 #: ../../../lib/web/src/components/step-up-dialog.tsx:290
 msgid "Enter the code from your email"
 msgstr "Sisesta e-kirjas saadud kood"
@@ -1128,6 +1177,10 @@ msgstr "Sisestage oma autentimisrakenduse kood"
 #: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Olem:"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+msgid "Error"
+msgstr "Viga"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
@@ -1162,7 +1215,7 @@ msgstr "Kopeerimine ebaõnnestus"
 msgid "Failed to create branch"
 msgstr "Haru loomine ebaõnnestus"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:131
 #: ../../../lib/web/src/components/options-menu.tsx:98
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
@@ -1175,6 +1228,10 @@ msgstr "Hoidla loomine ebaõnnestus"
 #: src/components/clone-dialog.tsx:220
 msgid "Failed to create token"
 msgstr "Tokeni loomine ebaõnnestus"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:303
+msgid "Failed to delete"
+msgstr "Kustutamine ebaõnnestus"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:130
 msgid "Failed to delete attachment"
@@ -1189,7 +1246,7 @@ msgstr "Haru kustutamine ebaõnnestus"
 msgid "Failed to delete comment"
 msgstr "Kommentaari kustutamine ebaõnnestus"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:159
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:153
 msgid "Failed to delete link"
 msgstr "Lingi kustutamine ebaõnnestus"
 
@@ -1252,6 +1309,11 @@ msgstr "Ajaloo laadimine ebaõnnestus"
 msgid "Failed to load image"
 msgstr "Pildi laadimine ebaõnnestus"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+msgid "Failed to load item"
+msgstr "Elemendi laadimine ebaõnnestus"
+
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:213
 msgid "Failed to load prompts"
 msgstr "Viipade laadimine ebaõnnestus"
@@ -1264,6 +1326,10 @@ msgstr "Siltide laadimine ebaõnnestus"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:350
 msgid "Failed to load video"
 msgstr "Video laadimine ebaõnnestus"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:317
+msgid "Failed to move"
+msgstr "Teisaldamine ebaõnnestus"
 
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx:155
 msgid "Failed to post comment"
@@ -1284,6 +1350,10 @@ msgstr "Viiba lähtestamine ebaõnnestus"
 #: ../../../lib/web/src/components/options-menu.tsx:133
 msgid "Failed to revoke RSS access"
 msgstr "RSS-juurdepääsu tühistamine ebaõnnestus"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:273
+msgid "Failed to save"
+msgstr "Salvestamine ebaõnnestus"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:111
 msgid "Failed to save prompt"
@@ -1321,6 +1391,10 @@ msgstr "Tellimusest loobumine ebaõnnestus"
 msgid "Failed to update access level"
 msgstr "Pääsutaseme värskendamine ebaõnnestus"
 
+#: ../../../lib/web/src/components/banner-section.tsx:71
+msgid "Failed to update banner"
+msgstr "Bännertekst värskendamine ebaõnnestus"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx:175
 msgid "Failed to update comment"
 msgstr "Kommentaari värskendamine ebaõnnestus"
@@ -1328,6 +1402,10 @@ msgstr "Kommentaari värskendamine ebaõnnestus"
 #: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Tee värskendamine ebaõnnestus"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:288
+msgid "Failed to update watching"
+msgstr "Jälgimise uuendamine ebaõnnestus"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:114
 msgid "Failed to upload attachment"
@@ -1343,7 +1421,7 @@ msgstr "feature/my-feature"
 msgid "file"
 msgstr "fail"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:611
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:605
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:160
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:180
 #: src/features/repository/tabs.tsx:30
@@ -1476,6 +1554,10 @@ msgstr "Vigane kuupäev"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Näib, et otsitavat lehte <0/>pole olemas või on see eemaldatud."
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+msgid "Item details"
+msgstr "Elemendi üksikasjad"
+
 #: ../../../lib/web/src/lib/locale-format.ts:180
 msgid "Just now"
 msgstr "Just praegu"
@@ -1511,7 +1593,7 @@ msgstr "Hele"
 msgid "Link"
 msgstr "Link"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:279
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:273
 msgid "Links"
 msgstr "Lingid"
 
@@ -1526,6 +1608,14 @@ msgstr "Lae rohkem"
 #: ../../../lib/web/src/components/ui/loading-content.tsx:26
 msgid "Loading content…"
 msgstr "Sisu laadimine…"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+msgid "Loading item"
+msgstr "Elemendi laadimine"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+msgid "Loading item details"
+msgstr "Elemendi üksikasjade laadimine"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:39
 #: ../../../lib/web/src/features/document/document-page.tsx:88
@@ -1680,7 +1770,7 @@ msgstr "Võrguviga"
 msgid "Never"
 msgstr "Mitte kunagi"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:498
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Uus"
@@ -1700,7 +1790,7 @@ msgstr "Uus mäng"
 msgid "Next image"
 msgstr "Järgmine pilt"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:577
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:571
 msgid "No {parentClassNames} to add to"
 msgstr "Pole {parentClassNames}, kuhu lisada"
 
@@ -1738,11 +1828,11 @@ msgstr "Mänge veel pole"
 msgid "No groups available"
 msgstr "Saadaolevaid gruppe pole"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:544
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:538
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "Ühtegi tüüpi ei saa veel luua. Loo kõigepealt vajalikud vanemüksused."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:360
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:354
 msgid "No matching objects"
 msgstr "Vastavaid objekte pole"
 
@@ -1809,9 +1899,13 @@ msgid "No views"
 msgstr "Vaatamisi pole"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:563
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:567
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -1911,7 +2005,9 @@ msgstr "Muu"
 msgid "Owner"
 msgstr "Omanik"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:552
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
 msgid "Parent"
 msgstr "Vanem"
 
@@ -2012,6 +2108,10 @@ msgstr "Töötlemine…"
 msgid "Prompt saved"
 msgstr "Viip salvestatud"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+msgid "Properties"
+msgstr "Atribuudid"
+
 #: ../../../lib/web/src/features/accounts/types.ts:21
 msgid "Push notification"
 msgstr "Tõuketeatis"
@@ -2065,7 +2165,7 @@ msgstr "Ümbersuunamine sisselogimisele."
 msgid "Reduce interest"
 msgstr "Vähenda huvi"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:65
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:69
 msgid "Relates"
 msgstr "Seosed"
 
@@ -2121,8 +2221,8 @@ msgstr "Eemalda huvi"
 msgid "Remove item"
 msgstr "Eemalda üksus"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:304
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:309
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:298
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:303
 msgid "Remove link"
 msgstr "Eemalda link"
 
@@ -2217,6 +2317,18 @@ msgstr "Kohustuslik"
 msgid "Resend email"
 msgstr "Saada e-kiri uuesti"
 
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:48
+msgid "Resign"
+msgstr "Anna alla"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:35
+msgid "Resign game?"
+msgstr "Kas anda mäng alla?"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:45
+msgid "Resigning..."
+msgstr "Allaandmine..."
+
 #: ../../../lib/web/src/components/attachment-composer.tsx:348
 msgid "Retry"
 msgstr "Proovi uuesti"
@@ -2260,6 +2372,7 @@ msgstr "Laupäev"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
+#: ../../../lib/web/src/components/banner-section.tsx:99
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
@@ -2323,7 +2436,7 @@ msgstr "Otsi lähtekohta..."
 msgid "Search for repositories..."
 msgstr "Otsi repositooriume..."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:337
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:331
 msgid "Search objects..."
 msgstr "Otsi objekte..."
 
@@ -2536,6 +2649,11 @@ msgstr "Avar"
 msgid "Start the discussion by adding the first comment."
 msgstr "Alusta arutelu, lisades esimese kommentaari."
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+msgid "Stop watching"
+msgstr "Lõpeta jälgimine"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:196
 msgid "Subject"
 msgstr "Teema"
@@ -2660,6 +2778,10 @@ msgstr "Sellel rakendusel pole luba sinu pääsuvõtit kasutada. Luba see Seadet
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "See leht vajab repositooriumi konteksti."
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:70
+msgid "This permanently deletes the game and its chat. This cannot be undone."
+msgstr "See kustutab mängu ja selle vestluse jäädavalt. Seda ei saa tagasi võtta."
 
 #: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
@@ -2833,9 +2955,8 @@ msgstr "Repositooriumi tellimus tühistatud"
 msgid "Unsubscribing..."
 msgstr "Tühistan tellimust..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:299
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:178
+#: ../../../lib/web/src/lib/entity-title.ts:40
 msgid "Untitled"
 msgstr "Pealkirjata"
 
@@ -2857,7 +2978,7 @@ msgstr "Juurdepääsu uuendamine..."
 msgid "Updating path..."
 msgstr "Tee uuendamine..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:661
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:655
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:304
 msgid "Upload"
 msgstr "Lae üles"
@@ -2907,6 +3028,10 @@ msgstr "Videovaatur: {0}"
 msgid "View all notifications"
 msgstr "Vaata kõiki teateid"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+msgid "View and edit item details"
+msgstr "Vaata ja muuda elemendi üksikasju"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx:170
 msgid "View controls"
 msgstr "Vaate juhtelemendid"
@@ -2914,6 +3039,11 @@ msgstr "Vaate juhtelemendid"
 #: ../../../lib/web/src/lib/shell-errors.ts:33
 msgid "Voice recording is not supported in this browser"
 msgstr "Häälsalvestust ei toetata selles brauseris"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+msgid "Watch"
+msgstr "Jälgi"
 
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx:269
 #: ../../../lib/web/src/components/filter-bar.tsx:35

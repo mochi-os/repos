@@ -162,6 +162,10 @@ msgstr "Aċċess stabbilit għal {subjectName}"
 msgid "Account type"
 msgstr "Tip ta' kont"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+msgid "Activity"
+msgstr "Attività"
+
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
@@ -206,7 +210,7 @@ msgstr "Żid kamp"
 msgid "Add item..."
 msgstr "Żid item..."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:320
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:314
 msgid "Add link"
 msgstr "Żid link"
 
@@ -294,6 +298,10 @@ msgstr "Kull ma huwa abbonat għal din il-feed se jieqaf jirċeviha. Wara tista'
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "Żgur trid tħassar \"{0}\"?"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
+msgstr "Żgur trid tħassar \"{title}\"? Din l-azzjoni ma tistax tiġi ndirizzata."
+
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:631
 msgid "Are you sure you want to delete the \"{name}\" column? This cannot be undone."
 msgstr "Żgur trid tħassar il-kolonna \"{name}\"? Dan ma jistax jiġi ndirizzat."
@@ -305,6 +313,14 @@ msgstr "Żgur trid tħassar dan il-kumment? Dan iħassar ukoll ir-risposti kollh
 #: ../../../lib/web/src/components/sign-out-dialog.tsx:27
 msgid "Are you sure you want to log out? You will need to log in again to access your account."
 msgstr "Żgur trid toħroġ? Trid terġa' tidħol biex taċċessa l-kont tiegħek."
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:39
+msgid "Are you sure you want to resign?"
+msgstr "Żgur trid tirriżenja?"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:38
+msgid "Are you sure you want to resign? {opponentName} will win the game."
+msgstr "Żgur trid tirriżenja? {opponentName} tirbaħ il-logħba."
 
 #: src/routes/_authenticated/index.tsx:367
 msgid "Are you sure you want to unsubscribe from this repository?"
@@ -358,17 +374,26 @@ msgstr "Lura għall-commits"
 msgid "Back to home"
 msgstr "Lura għall-paġna ewlenija"
 
+#: ../../../lib/web/src/components/banner-section.tsx:80
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "Banner"
+
+#: ../../../lib/web/src/components/banner-section.tsx:69
+msgid "Banner removed"
+msgstr "Banner imneħħi"
+
+#: ../../../lib/web/src/components/banner-section.tsx:69
+msgid "Banner updated"
+msgstr "Banner aġġornat"
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx:197
 msgid "Binary file ({0})"
 msgstr "File binarju ({0})"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:68
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:215
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:72
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:209
 msgid "Blocked by"
 msgstr "Imblokkat minn"
 
@@ -377,7 +402,7 @@ msgstr "Imblokkat minn"
 msgid "Blocked navigation to untrusted link"
 msgstr "Navigazzjoni mblokkata lejn link mhux fdat"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:66
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:70
 msgid "Blocks"
 msgstr "Blocks"
 
@@ -517,6 +542,7 @@ msgstr "Agħżel logħba mill-barra tal-ġenb jew ibda waħda ġdida."
 msgid "Choose language"
 msgstr "Agħżel lingwa"
 
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -542,8 +568,8 @@ msgstr "Iklonja"
 msgid "Clone repository"
 msgstr "Iklonja r-repożitorju"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:523
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:528
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:517
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:522
 #: ../../../lib/web/src/components/ui/dialog.tsx:78
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:480
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:483
@@ -617,6 +643,11 @@ msgstr "Azzjonijiet tal-kumment"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:455
 msgid "Comments"
 msgstr "Kummenti"
+
+#. placeholder {0}: data.comment_count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+msgid "Comments ({0})"
+msgstr "Kummenti ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx:58
 msgid "Commit"
@@ -728,8 +759,8 @@ msgstr "Ma stajniex nivverifikaw b'dak il-kont. Jekk jogħġbok erġa' pprova."
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:551
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx:691
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:513
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:682
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
 #: src/components/clone-dialog.tsx:429
 #: src/features/repository/create-repository-dialog.tsx:189
@@ -798,7 +829,7 @@ msgstr "Qed jinħoloq repożitorju..."
 msgid "Creating token..."
 msgstr "Qed jinħoloq token..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:682
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
 #: src/features/repository/repository-tabs.tsx:604
 #: src/routes/_authenticated/$repoId_.branches.tsx:190
@@ -860,6 +891,8 @@ msgstr "Ssortjar default"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
 #: src/components/clone-dialog.tsx:451
 #: src/features/repository/repository-tabs.tsx:622
 #: src/features/repository/repository-tabs.tsx:1212
@@ -899,6 +932,16 @@ msgstr "Ħassar kumment"
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:304
 msgid "Delete field"
 msgstr "Ħassar kamp"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:69
+msgid "Delete game?"
+msgstr "Ħassar il-logħba?"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+msgid "Delete item"
+msgstr "Ħassar item"
 
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:117
 msgid "Delete option"
@@ -956,6 +999,7 @@ msgstr "Qed jitħassar ir-repożitorju..."
 msgid "Deleting token..."
 msgstr "Qed jitħassar it-token..."
 
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
 #: src/features/repository/repository-tabs.tsx:622
 #: src/routes/_authenticated/$repoId_.branches.tsx:208
 msgid "Deleting..."
@@ -1017,6 +1061,7 @@ msgid "Does not match the required pattern"
 msgstr "Ma jaqbilx mal-mudell meħtieġ"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
 #: src/components/clone-dialog.tsx:315
 #: src/components/clone-dialog.tsx:400
@@ -1042,7 +1087,7 @@ msgstr "It-tniżżil falla"
 msgid "Download file"
 msgstr "Niżżel il-fajl"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:67
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:71
 msgid "Duplicates"
 msgstr "Duplikati"
 
@@ -1117,6 +1162,10 @@ msgstr "Direttorju vojt"
 msgid "Empty repository"
 msgstr "Repożitorju vojt"
 
+#: ../../../lib/web/src/components/banner-section.tsx:88
+msgid "Enter banner text (markdown supported)..."
+msgstr "Daħħal it-test tal-banner (markdown sapportit)..."
+
 #: ../../../lib/web/src/components/step-up-dialog.tsx:290
 msgid "Enter the code from your email"
 msgstr "Daħħal il-kodiċi mill-email tiegħek"
@@ -1128,6 +1177,10 @@ msgstr "Daħħal il-kodiċi tal-awtentikatur tiegħek"
 #: src/features/repository/repository-tabs.tsx:1109
 msgid "Entity:"
 msgstr "Entità:"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+msgid "Error"
+msgstr "Żball"
 
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:101
 #: ../../../lib/web/src/components/comment-tree-layout.tsx:110
@@ -1162,7 +1215,7 @@ msgstr "Ma rnexxiex jiġi kkupjat"
 msgid "Failed to create branch"
 msgstr "Ma rnexxiex jinħoloq il-fergħa"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:137
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:131
 #: ../../../lib/web/src/components/options-menu.tsx:98
 #: src/components/repository-link-button.tsx:51
 msgid "Failed to create link"
@@ -1175,6 +1228,10 @@ msgstr "Ma rnexxiex jinħoloq ir-repożitorju"
 #: src/components/clone-dialog.tsx:220
 msgid "Failed to create token"
 msgstr "Ma rnexxiex jinħoloq it-token"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:303
+msgid "Failed to delete"
+msgstr "Ma rnexxiex jitħassar"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:130
 msgid "Failed to delete attachment"
@@ -1189,7 +1246,7 @@ msgstr "Ma rnexxiex titħassar il-fergħa"
 msgid "Failed to delete comment"
 msgstr "Ma rnexxiex jitħassar il-kumment"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:159
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:153
 msgid "Failed to delete link"
 msgstr "Ma rnexxiex jitħassar il-link"
 
@@ -1252,6 +1309,11 @@ msgstr "Ma rnexxiex titgħabba l-istorja"
 msgid "Failed to load image"
 msgstr "Ma rnexxielux jitgħabba l-istampa"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+msgid "Failed to load item"
+msgstr "Ma rnexxiex jitgħabba l-oġġett"
+
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:213
 msgid "Failed to load prompts"
 msgstr "Ma rnexxiex jitgħabbew il-prompts"
@@ -1264,6 +1326,10 @@ msgstr "Ma rnexxiex jitgħabbew it-tags"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx:350
 msgid "Failed to load video"
 msgstr "Ma rnexxielux jitgħabba l-vidjo"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:317
+msgid "Failed to move"
+msgstr "Ma rnexxiex jiġi mċaqlaq"
 
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx:155
 msgid "Failed to post comment"
@@ -1284,6 +1350,10 @@ msgstr "Ma rnexxiex jiġi reset il-prompt"
 #: ../../../lib/web/src/components/options-menu.tsx:133
 msgid "Failed to revoke RSS access"
 msgstr "Ma rnexxiex jiġi rrevokat l-aċċess RSS"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:273
+msgid "Failed to save"
+msgstr "Ma rnexxiex jiġi ssejvjat"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:111
 msgid "Failed to save prompt"
@@ -1321,6 +1391,10 @@ msgstr "Ma rnexxiex tiġi unsubscribed"
 msgid "Failed to update access level"
 msgstr "Ma rnexxiex jiġi aġġornat il-livell tal-aċċess"
 
+#: ../../../lib/web/src/components/banner-section.tsx:71
+msgid "Failed to update banner"
+msgstr "Ma rnexxiex jiġi aġġornat il-banner"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx:175
 msgid "Failed to update comment"
 msgstr "Ma rnexxiex jiġi aġġornat il-kumment"
@@ -1328,6 +1402,10 @@ msgstr "Ma rnexxiex jiġi aġġornat il-kumment"
 #: src/features/repository/repository-tabs.tsx:903
 msgid "Failed to update path"
 msgstr "Ma rnexxiex jiġi aġġornat il-path"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:288
+msgid "Failed to update watching"
+msgstr "Ma rnexxiex jiġi aġġornat is-segwitu"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:114
 msgid "Failed to upload attachment"
@@ -1343,7 +1421,7 @@ msgstr "feature/my-feature"
 msgid "file"
 msgstr "fajl"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:611
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:605
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:160
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:180
 #: src/features/repository/tabs.tsx:30
@@ -1476,6 +1554,10 @@ msgstr "Data invalida"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Jidher li l-paġna li qed tfittex <0/>ma teżistix jew tneħħiet."
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+msgid "Item details"
+msgstr "Dettalji tal-oġġett"
+
 #: ../../../lib/web/src/lib/locale-format.ts:180
 msgid "Just now"
 msgstr "Issa"
@@ -1511,7 +1593,7 @@ msgstr "Ċar"
 msgid "Link"
 msgstr "Ħolqa"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:279
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:273
 msgid "Links"
 msgstr "Links"
 
@@ -1526,6 +1608,14 @@ msgstr "Tella' aktar"
 #: ../../../lib/web/src/components/ui/loading-content.tsx:26
 msgid "Loading content…"
 msgstr "Qed jitgħabba l-kontenut…"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+msgid "Loading item"
+msgstr "Qed jitgħabba l-oġġett"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+msgid "Loading item details"
+msgstr "Qed jitgħabbew id-dettalji tal-oġġett"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx:39
 #: ../../../lib/web/src/features/document/document-page.tsx:88
@@ -1680,7 +1770,7 @@ msgstr "Żball tan-network"
 msgid "Never"
 msgstr "Qatt"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:498
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:492
 #: ../../../lib/web/src/components/ui/sort-selector.tsx:43
 msgid "New"
 msgstr "Ġdid"
@@ -1700,7 +1790,7 @@ msgstr "Logħba ġdida"
 msgid "Next image"
 msgstr "Stampa li jmiss"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:577
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:571
 msgid "No {parentClassNames} to add to"
 msgstr "L-ebda {parentClassNames} biex iżżid magħhom"
 
@@ -1738,11 +1828,11 @@ msgstr "L-ebda logħob s'issa"
 msgid "No groups available"
 msgstr "L-ebda gruppi disponibbli"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:544
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:538
 msgid "No item types can be created yet. Create the required parent items first."
 msgstr "L-ebda tipi ta' oġġetti jistgħu jinħolqu għadhom. Oħloq l-oġġetti tal-ġenitur meħtieġa l-ewwel."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:360
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:354
 msgid "No matching objects"
 msgstr "L-ebda oġġetti li jaqblu"
 
@@ -1809,9 +1899,13 @@ msgid "No views"
 msgstr "L-ebda views"
 
 #: ../../../lib/web/src/components/colour-picker.tsx:349
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:560
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:563
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:567
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -1911,7 +2005,9 @@ msgstr "Oħra"
 msgid "Owner"
 msgstr "Sid"
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:552
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
 msgid "Parent"
 msgstr "Ġenitur"
 
@@ -2012,6 +2108,10 @@ msgstr "Qed jiġi pproċessat…"
 msgid "Prompt saved"
 msgstr "Prompt issejvjat"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+msgid "Properties"
+msgstr "Proprjetajiet"
+
 #: ../../../lib/web/src/features/accounts/types.ts:21
 msgid "Push notification"
 msgstr "Notifika push"
@@ -2065,7 +2165,7 @@ msgstr "Qed nirredirezzjona għal-login."
 msgid "Reduce interest"
 msgstr "Naqqas l-interess"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:65
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:69
 msgid "Relates"
 msgstr "Relates"
 
@@ -2121,8 +2221,8 @@ msgstr "Neħħi interess"
 msgid "Remove item"
 msgstr "Neħħi oġġett"
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:304
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:309
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:298
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:303
 msgid "Remove link"
 msgstr "Neħħi l-link"
 
@@ -2217,6 +2317,18 @@ msgstr "Meħtieġ"
 msgid "Resend email"
 msgstr "Erġa' ibgħat l-email"
 
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:48
+msgid "Resign"
+msgstr "Irriżenja"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:35
+msgid "Resign game?"
+msgstr "Tirriżenja l-logħba?"
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:45
+msgid "Resigning..."
+msgstr "Qed jirriżenja..."
+
 #: ../../../lib/web/src/components/attachment-composer.tsx:348
 msgid "Retry"
 msgstr "Erġa' pprova"
@@ -2260,6 +2372,7 @@ msgstr "Is-Sibt"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
+#: ../../../lib/web/src/components/banner-section.tsx:99
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
@@ -2323,7 +2436,7 @@ msgstr "Fittex oriġini..."
 msgid "Search for repositories..."
 msgstr "Fittex repożitorji..."
 
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:337
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:331
 msgid "Search objects..."
 msgstr "Fittex oġġetti..."
 
@@ -2536,6 +2649,11 @@ msgstr "Wiesa'"
 msgid "Start the discussion by adding the first comment."
 msgstr "Ibda d-diskussjoni billi żżid l-ewwel kumment."
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+msgid "Stop watching"
+msgstr "Ieqaf segwi"
+
 #: ../../../lib/web/src/features/access/access-list.tsx:196
 msgid "Subject"
 msgstr "Suġġett"
@@ -2660,6 +2778,10 @@ msgstr "Din l-app mhijiex permessa tuża l-passkey tiegħek. Ippermettiha fis-Se
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
 msgid "This page requires a repository context."
 msgstr "Din il-paġna teħtieġ kuntest ta' repożitorju."
+
+#: ../../../lib/web/src/components/game/game-end-dialogs.tsx:70
+msgid "This permanently deletes the game and its chat. This cannot be undone."
+msgstr "Dan għad iħassar il-logħba u ċ-chat tagħha b'mod permanenti. Din l-azzjoni ma tistax titħassar."
 
 #: src/features/repository/repository-tabs.tsx:1207
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
@@ -2833,9 +2955,8 @@ msgstr "Diżabbonat minn repożitorju"
 msgid "Unsubscribing..."
 msgstr "Qed jiddiżabbona..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:299
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:103
-#: ../../../lib/web/src/components/entity/entity-object-links.tsx:184
+#: ../../../lib/web/src/components/entity/entity-object-links.tsx:178
+#: ../../../lib/web/src/lib/entity-title.ts:40
 msgid "Untitled"
 msgstr "Bla titlu"
 
@@ -2857,7 +2978,7 @@ msgstr "Qed jiġi aġġornat l-aċċess..."
 msgid "Updating path..."
 msgstr "Qed jiġi aġġornat il-path..."
 
-#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:661
+#: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:655
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:304
 msgid "Upload"
 msgstr "Tella'"
@@ -2907,6 +3028,10 @@ msgstr "Viewer tal-vidjo: {0}"
 msgid "View all notifications"
 msgstr "Ara n-notifiki kollha"
 
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+msgid "View and edit item details"
+msgstr "Ara u editja d-dettalji tal-oġġett"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx:170
 msgid "View controls"
 msgstr "Ara l-kontrolli"
@@ -2914,6 +3039,11 @@ msgstr "Ara l-kontrolli"
 #: ../../../lib/web/src/lib/shell-errors.ts:33
 msgid "Voice recording is not supported in this browser"
 msgstr "Ir-reġistrazzjoni tal-vuċi mhijiex appoġġjata f'dan il-brawżer"
+
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+msgid "Watch"
+msgstr "Segwi"
 
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx:269
 #: ../../../lib/web/src/components/filter-bar.tsx:35
