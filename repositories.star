@@ -1443,6 +1443,15 @@ def service_can_merge(s, params=None):
     target = p.get("target", "")
     return mochi.git.merge.check(repo_id, source, target)
 
+# The merge author arrives as {"name", "email"}; a peer can send anything, so
+# only strings are honoured and the name falls back to the platform's own.
+def merge_author(author):
+    if type(author) != "dict":
+        author = {}
+    name = author.get("name")
+    email = author.get("email")
+    return (name if type(name) == "string" and name else "Mochi", email if type(email) == "string" else "")
+
 def service_merge(s, params=None):
     """Perform merge of source branch into target branch"""
     p = params or s
@@ -1450,8 +1459,7 @@ def service_merge(s, params=None):
     source = p.get("source", "")
     target = p.get("target", "")
     message = p.get("message", "") or "Merge branch"
-    author_name = p.get("author_name", "") or "Mochi"
-    author_email = p.get("author_email", "") or ""
+    author_name, author_email = merge_author(p.get("author"))
     method = p.get("method", "") or "merge"
     return mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email, method)
 
@@ -2328,8 +2336,7 @@ def event_merge(e):
 
     message = e.content("message") or "Merge branch"
     method = e.content("method") or "merge"
-    author_name = e.content("author_name") or "Mochi"
-    author_email = e.content("author_email") or ""
+    author_name, author_email = merge_author(e.content("author"))
 
     result = mochi.git.merge.perform(repo_id, source, target, message, author_name, author_email, method)
     if result == None:
