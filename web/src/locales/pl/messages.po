@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {zmieniono # plik} few {zmieniono # pliki} many {zmieniono # plików} other {zmieniono # pliku}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# wiersz} few {# wiersze} many {# wierszy} other {# wiersza}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} gałęzi"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} commitów"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} otagowano {1}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} tagów"
 
@@ -125,6 +124,10 @@ msgstr "24 godziny"
 msgid "A recording is already in progress."
 msgstr "Nagrywanie już trwa."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "Token dla tego repozytorium został już wcześniej wydany i nie można go ponownie wyświetlić."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "Bezwzględna (data i godzina)"
@@ -146,15 +149,15 @@ msgstr "Odmowa dostępu"
 msgid "Access level"
 msgstr "Poziom dostępu"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "Poziom dostępu zaktualizowany"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "Dostęp usunięty"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "Dostęp ustawiony dla {subjectName}"
 
@@ -162,14 +165,14 @@ msgstr "Dostęp ustawiony dla {subjectName}"
 msgid "Account type"
 msgstr "Typ konta"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "Aktywność"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "Dodaj"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "Wszystkie repozytoria"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "Zezwól każdemu na odczyt repozytorium"
 
@@ -258,8 +261,8 @@ msgstr "Zezwól każdemu na odczyt repozytorium"
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "Pozwól każdemu wyszukać {entityLabel}"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "Zezwól każdemu na wyszukiwanie repozytorium"
 
@@ -298,7 +301,7 @@ msgstr "Wszystko, co subskrybuje ten kanał, przestanie go otrzymywać. Potem mo
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "Czy na pewno chcesz usunąć \"{0}\"?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "Czy na pewno chcesz usunąć \"{title}\"? Tej akcji nie można cofnąć."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "Awatar użytkownika {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "Wstecz"
 
@@ -374,21 +377,21 @@ msgstr "Powrót do commitów"
 msgid "Back to home"
 msgstr "Wróć na stronę główną"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "Baner"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "Banner usunięty"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "Banner zaktualizowany"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "Plik binarny ({0})"
 
@@ -419,23 +422,19 @@ msgstr "Zwiększ zainteresowanie"
 msgid "Border colour"
 msgstr "Kolor obramowania"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "Utworzono gałąź \"{name}\""
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "Usunięto gałąź \"{name}\""
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "Nazwa gałęzi"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "Nazwa gałęzi jest wymagana"
 
@@ -469,14 +468,12 @@ msgstr "Kamera niedostępna"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -484,8 +481,8 @@ msgstr "Anuluj"
 msgid "Cancel comment"
 msgstr "Anuluj komentarz"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "Anuluj edycję"
 
@@ -542,7 +539,7 @@ msgstr "Wybierz grę z paska bocznego lub rozpocznij nową."
 msgid "Choose language"
 msgstr "Wybierz język"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "Wyczyść wszystko"
 msgid "Clear search"
 msgstr "Wyczyść wyszukiwanie"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "Klonuj"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "Klonuj repozytorium"
 
@@ -644,8 +641,8 @@ msgstr "Działania komentarza"
 msgid "Comments"
 msgstr "Komentarze"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "Komentarze ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "Skopiowano"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "Skopiowano do schowka"
 
@@ -732,8 +729,8 @@ msgstr "Kopiuj"
 msgid "Copy commit SHA"
 msgstr "Kopiuj SHA commita"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "Kopiuj zawartość pliku"
 
@@ -762,8 +759,8 @@ msgstr "Nie udało się zweryfikować przy użyciu tego konta. Spróbuj ponownie
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "Utwórz"
 
@@ -771,7 +768,7 @@ msgstr "Utwórz"
 msgid "Create {entityLabel}"
 msgstr "Utwórz {entityLabel}"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "Utwórz nowy token uwierzytelniania."
 
@@ -779,10 +776,8 @@ msgstr "Utwórz nowy token uwierzytelniania."
 msgid "Create a new repository"
 msgstr "Utwórz nowe repozytorium"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "Utwórz gałąź"
 
@@ -796,8 +791,8 @@ msgstr "Utwórz nowy element"
 msgid "Create repository"
 msgstr "Utwórz repozytorium"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "Utwórz token"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "Utworzone"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "Utworzono {0}"
 
@@ -816,8 +811,7 @@ msgstr "Utworzono {0}"
 msgid "Created {field}"
 msgstr "Utworzono {field}"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "Tworzenie gałęzi..."
 
@@ -825,14 +819,13 @@ msgstr "Tworzenie gałęzi..."
 msgid "Creating repository..."
 msgstr "Tworzenie repozytorium..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "Tworzenie tokena..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "Tworzenie..."
 
@@ -861,8 +854,7 @@ msgstr "Data"
 msgid "Decline"
 msgstr "Odrzuć"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "domyślny"
 
@@ -874,7 +866,7 @@ msgstr "Domyślny"
 msgid "Default AI account"
 msgstr "Domyślne konto AI"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "Domyślna gałąź"
 
@@ -891,17 +883,15 @@ msgstr "Domyślne sortowanie"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "Usuń"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "Usunąć \"{branchToDelete}\"? Tego nie można cofnąć."
 
@@ -909,15 +899,12 @@ msgstr "Usunąć \"{branchToDelete}\"? Tego nie można cofnąć."
 msgid "Delete attachment"
 msgstr "Usuń załącznik"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "Usuń gałąź"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "Usunąć gałąź?"
 
@@ -937,9 +924,9 @@ msgstr "Usuń pole"
 msgid "Delete game?"
 msgstr "Usunąć grę?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "Usuń element"
 
@@ -953,20 +940,20 @@ msgstr "Usuń opcję"
 msgid "Delete option {0}"
 msgstr "Usuń opcję {0}"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "Usuń repozytorium"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "Usunąć repozytorium?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "Usuń token"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "Usunąć token?"
 
@@ -986,22 +973,20 @@ msgstr "Usunięto"
 msgid "Deleted {field}"
 msgstr "Usunięto {field}"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "Usuwanie gałęzi..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "Usuwanie repozytorium..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "Usuwanie tokena..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "Usuwanie..."
 
@@ -1011,7 +996,7 @@ msgstr "Malejąco"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "Opis"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "Nie pasuje do wymaganego wzorca"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "Gotowe"
 
@@ -1082,8 +1067,8 @@ msgstr "Pobierz"
 msgid "Download failed"
 msgstr "Pobieranie nie powiodło się"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "Pobierz plik"
 
@@ -1095,7 +1080,7 @@ msgstr "Duplikuje"
 msgid "Dyslexia-friendly"
 msgstr "Przyjazna dla dysleksji"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "np. Laptop służbowy"
 
@@ -1120,7 +1105,7 @@ msgstr "Edytuj pole"
 msgid "Edit field settings"
 msgstr "Edytuj ustawienia pola"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "Edytuj nazwę"
 
@@ -1134,7 +1119,7 @@ msgstr "Edytuj opcję"
 msgid "Edit option {0}"
 msgstr "Edytuj opcję {0}"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "Edytuj ścieżkę"
 
@@ -1154,15 +1139,15 @@ msgstr "E-mail"
 msgid "Email code"
 msgstr "Kod e-mail"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "Pusty katalog"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "Puste repozytorium"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "Wprowadź tekst banera (markdown obsługiwany)..."
 
@@ -1174,11 +1159,11 @@ msgstr "Wprowadź kod z wiadomości e-mail"
 msgid "Enter your authenticator code"
 msgstr "Wprowadź kod z aplikacji uwierzytelniającej"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "Encja:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "Błąd"
 
@@ -1210,8 +1195,7 @@ msgstr "Nie udało się dodać konta"
 msgid "Failed to copy"
 msgstr "Nie udało się skopiować"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "Nie udało się utworzyć gałęzi"
 
@@ -1225,7 +1209,7 @@ msgstr "Nie udało się utworzyć linku"
 msgid "Failed to create repository"
 msgstr "Nie udało się utworzyć repozytorium"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "Nie udało się utworzyć tokenu"
 
@@ -1237,8 +1221,7 @@ msgstr "Nie udało się usunąć"
 msgid "Failed to delete attachment"
 msgstr "Nie udało się usunąć załącznika"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "Nie udało się usunąć gałęzi"
 
@@ -1250,11 +1233,11 @@ msgstr "Nie udało się usunąć komentarza"
 msgid "Failed to delete link"
 msgstr "Nie udało się usunąć linku"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "Nie udało się usunąć repozytorium"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "Nie udało się usunąć tokenu"
 
@@ -1270,7 +1253,7 @@ msgstr "Nie udało się pobrać archiwum"
 msgid "Failed to get RSS token"
 msgstr "Nie udało się pobrać tokenu RSS"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "Nie udało się pobrać tokenu"
 
@@ -1278,12 +1261,15 @@ msgstr "Nie udało się pobrać tokenu"
 msgid "Failed to load"
 msgstr "Nie udało się załadować"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "Nie udało się załadować reguł dostępu"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "Nie udało się wczytać banera"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "Nie udało się załadować gałęzi"
 
@@ -1291,17 +1277,15 @@ msgstr "Nie udało się załadować gałęzi"
 msgid "Failed to load commit"
 msgstr "Nie udało się załadować commita"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "Nie udało się załadować commitów"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "Nie udało się załadować plików"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "Nie udało się załadować historii"
 
@@ -1309,8 +1293,8 @@ msgstr "Nie udało się załadować historii"
 msgid "Failed to load image"
 msgstr "Nie udało się wczytać obrazu"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "Nie udało się załadować elementu"
 
@@ -1318,8 +1302,7 @@ msgstr "Nie udało się załadować elementu"
 msgid "Failed to load prompts"
 msgstr "Nie udało się załadować poleceń"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "Nie udało się załadować tagów"
 
@@ -1335,11 +1318,11 @@ msgstr "Nie udało się przenieść"
 msgid "Failed to post comment"
 msgstr "Nie udało się opublikować komentarza"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "Nie udało się usunąć dostępu"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "Nie udało się zmienić nazwy repozytorium"
 
@@ -1359,39 +1342,39 @@ msgstr "Nie udało się zapisać"
 msgid "Failed to save prompt"
 msgstr "Nie udało się zapisać polecenia"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "Nie udało się zapisać ustawienia"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "Wyszukiwanie repozytoriów nie powiodło się"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "Nie udało się ustawić poziomu dostępu"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Nie udało się zasubskrybować"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Nie udało się anulować subskrypcji"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "Nie udało się zaktualizować poziomu dostępu"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "Nie udało się zaktualizować banera"
 
@@ -1399,7 +1382,7 @@ msgstr "Nie udało się zaktualizować banera"
 msgid "Failed to update comment"
 msgstr "Nie udało się zaktualizować komentarza"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "Nie udało się zaktualizować ścieżki"
 
@@ -1411,8 +1394,7 @@ msgstr "Nie udało się zaktualizować obserwowania"
 msgid "Failed to upload attachment"
 msgstr "Nie udało się przesłać załącznika"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "Pliki"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "Znajdź repozytoria"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "Odcisk palca:"
 
@@ -1494,7 +1476,7 @@ msgstr "Grupuj według"
 msgid "Group: {0}"
 msgstr "Grupa: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "Historia"
 
@@ -1513,7 +1495,7 @@ msgstr "Popularne"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "Tożsamość"
 
@@ -1554,7 +1536,7 @@ msgstr "Nieprawidłowa data"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Wygląda na to, że strona, której szukasz, <0/>nie istnieje lub została usunięta."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "Szczegóły elementu"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "Duży"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "Ostatnio użyto {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "Załaduj więcej"
 msgid "Loading content…"
 msgstr "Ładowanie treści…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "Ładowanie elementu"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "Ładowanie szczegółów elementu"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "Wylogowywanie…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Tylko małe litery, cyfry i myślniki"
 
@@ -1648,8 +1630,8 @@ msgstr "Tylko małe litery, cyfry i myślniki"
 msgid "Manage categories"
 msgstr "Zarządzaj kategoriami"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "Zarządzaj tokenami"
 
@@ -1739,7 +1721,7 @@ msgstr "Nazwa"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "Nazwa nie może zawierać znaków < ani >"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "Nazwa jest wymagana"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "Nazwa może mieć maksymalnie 100 znaków"
 
@@ -1756,7 +1738,7 @@ msgstr "Nazwa może mieć maksymalnie 100 znaków"
 msgid "Name must be 1000 characters or less"
 msgstr "Nazwa może mieć maksymalnie 1000 znaków"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "Nazwa:"
 
@@ -1765,8 +1747,8 @@ msgstr "Nazwa:"
 msgid "Network error"
 msgstr "Błąd sieci"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "Nigdy"
 
@@ -1775,8 +1757,7 @@ msgstr "Nigdy"
 msgid "New"
 msgstr "Nowy"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "Nowa gałąź"
 
@@ -1794,7 +1775,7 @@ msgstr "Następny obraz"
 msgid "No {parentClassNames} to add to"
 msgstr "Brak {parentClassNames} do dodania"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "Brak dostępu"
 
@@ -1806,8 +1787,7 @@ msgstr "Nie skonfigurowano żadnych reguł dostępu. Dodaj reguły, aby kontrolo
 msgid "No activity yet"
 msgstr "Brak aktywności"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "Brak gałęzi"
 
@@ -1815,8 +1795,7 @@ msgstr "Brak gałęzi"
 msgid "No comments yet"
 msgstr "Brak komentarzy"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "Brak commitów"
 
@@ -1849,8 +1828,8 @@ msgstr "Nie znaleziono miejsc"
 msgid "No public repositories."
 msgstr "Brak publicznych repozytoriów."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "Nie znaleziono repozytoriów"
 
@@ -1869,8 +1848,7 @@ msgstr "Nie znaleziono wyników."
 msgid "No status"
 msgstr "Brak statusu"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "Brak tagów"
 
@@ -1878,7 +1856,7 @@ msgstr "Brak tagów"
 msgid "No time zone found."
 msgstr "Nie znaleziono strefy czasowej."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "Brak tokenów."
 
@@ -1902,10 +1880,10 @@ msgstr "Brak wyświetleń"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "Właściciel"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "Rodzic"
 
@@ -2040,15 +2018,15 @@ msgstr "Klucze dostępu nie są dostępne w tej przeglądarce"
 msgid "Path"
 msgstr "Ścieżka"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "Ścieżka jest wymagana"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "Zaktualizowano ścieżkę"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "Ścieżka:"
 
@@ -2060,7 +2038,7 @@ msgstr "Wzorzec (wyrażenie regularne)"
 msgid "People"
 msgstr "Osoby"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "Trwale usuń to repozytorium i wszystkie jego dane"
 
@@ -2070,7 +2048,7 @@ msgstr "Trwale usuń to repozytorium i wszystkie jego dane"
 msgid "Please check your internet connection and try again."
 msgstr "Sprawdź połączenie internetowe i spróbuj ponownie."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "Wprowadź nazwę tokena"
 
@@ -2108,7 +2086,7 @@ msgstr "Przetwarzanie…"
 msgid "Prompt saved"
 msgstr "Zapisano prompt"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "Właściwości"
 
@@ -2128,11 +2106,11 @@ msgstr "Ponownie powiąż swoje konta na tym serwerze"
 msgid "Re-register your passkeys on this server"
 msgstr "Zarejestruj ponownie swoje klucze dostępu na tym serwerze"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "Odczyt i zapis"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "Tylko do odczytu"
 
@@ -2226,7 +2204,7 @@ msgstr "Usuń element"
 msgid "Remove link"
 msgstr "Usuń link"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "Usuwanie dostępu..."
 
@@ -2243,7 +2221,7 @@ msgstr "Zmień nazwę kolumny"
 msgid "Rename this board column"
 msgstr "Zmień nazwę tej kolumny tablicy"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "Zmiana nazwy repozytorium..."
 
@@ -2265,10 +2243,10 @@ msgstr "Repozytoria"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "Repozytorium"
 msgid "Repository created"
 msgstr "Utworzono repozytorium"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "Usunięto repozytorium"
 
@@ -2297,7 +2275,7 @@ msgstr "Identyfikator repozytorium jest wymagany"
 msgid "Repository link"
 msgstr "Link do repozytorium"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "Nazwa repozytorium jest wymagana"
 
@@ -2305,7 +2283,7 @@ msgstr "Nazwa repozytorium jest wymagana"
 msgid "Repository not found"
 msgstr "Nie znaleziono repozytorium"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "Zmieniono nazwę repozytorium"
 
@@ -2372,28 +2350,28 @@ msgstr "Sobota"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Zapisz token teraz. Nie będziesz mógł zobaczyć go ponownie."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Zapisz ten token bezpiecznie. Nie będzie można go ponownie zobaczyć."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "Zapisywanie ustawień..."
 
@@ -2408,7 +2386,7 @@ msgstr "Zapisywanie..."
 msgid "Search"
 msgstr "Szukaj"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Szukaj według nazwy, ID, identyfikatora lub adresu URL..."
 
@@ -2432,7 +2410,7 @@ msgstr "Szukaj celu..."
 msgid "Search for origin..."
 msgstr "Szukaj źródła..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "Szukaj repozytoriów..."
 
@@ -2493,7 +2471,7 @@ msgstr "Wybierz typ konta"
 msgid "Select branch"
 msgstr "Wybierz gałąź"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "Wybierz gałąź domyślną"
 
@@ -2517,8 +2495,7 @@ msgstr "Wybierz osobę..."
 msgid "Select previous card"
 msgstr "Wybierz poprzednią kartę"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "Wybierz gałąź źródłową"
 
@@ -2567,7 +2544,7 @@ msgstr "Sesja wygasła. Zaloguj się ponownie."
 msgid "Set origin and destination"
 msgstr "Ustaw źródło i cel"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "Ustawianie dostępu..."
 
@@ -2578,10 +2555,10 @@ msgstr "Ustawianie dostępu..."
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "Ustawienia zapisane"
 
@@ -2632,8 +2609,7 @@ msgstr "Mały"
 msgid "Sort"
 msgstr "Sortuj"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "Gałąź źródłowa"
 
@@ -2649,8 +2625,8 @@ msgstr "Przestronne"
 msgid "Start the discussion by adding the first comment."
 msgstr "Rozpocznij dyskusję, dodając pierwszy komentarz."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "Przestań obserwować"
 
@@ -2669,19 +2645,19 @@ msgstr "Wyślij odpowiedź"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Subskrybuj"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Zasubskrybowano"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "Przełącz gałąź"
 msgid "Switch to view 1-9"
 msgstr "Przełącz na widok 1-9"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "Nie udało się wysłać. Pliki mogą być za duże lub połączenie zos
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "To było za duże do przesłania. Usuń lub zmniejsz pliki i spróbuj ponownie."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "Gałąź wyświetlana podczas przeglądania repozytorium"
 
@@ -2773,6 +2749,11 @@ msgstr "Serwer zwrócił stronę internetową zamiast danych."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Ta aplikacja nie może używać Twojego klucza dostępu. Zezwól na to w Ustawieniach, w sekcji Uprawnienia."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "Ten plik jest za duży, aby go wyświetlić ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "Ta strona wymaga kontekstu repozytorium."
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "To trwale usunie grę i jej czat. Tej czynności nie można cofnąć."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Spowoduje to trwałe usunięcie „{currentName}” i wszystkich jego commitów, gałęzi i tagów. Tego działania nie można cofnąć."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Trwale usunie to token. Klienci git używający go nie będą mogli się uwierzytelnić."
 
@@ -2795,7 +2776,7 @@ msgstr "Trwale usunie to token. Klienci git używający go nie będą mogli się
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Spowoduje to usunięcie „{name}” z listy repozytoriów. Możesz zasubskrybować ponownie później."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Spowoduje to usunięcie „{repoName}” z listy repozytoriów. Możesz zasubskrybować ponownie później."
 
@@ -2830,15 +2811,15 @@ msgstr "Przełącz opcje widoku"
 msgid "Toggle watched filter"
 msgstr "Przełącz filtr obserwowanych"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "Token utworzony"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "Token usunięty"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "Nazwa tokenu"
 
@@ -2914,7 +2895,7 @@ msgstr "Nieoczekiwany błąd API"
 msgid "United States"
 msgstr "Stany Zjednoczone"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "Nieznany"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "Anuluj subskrypcję"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "Anulować subskrypcję repozytorium?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "Anulowano subskrypcję"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "Anulowano subskrypcję repozytorium"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Anulowanie subskrypcji..."
@@ -2970,11 +2951,11 @@ msgstr "Zaktualizowano"
 msgid "Updated {field}"
 msgstr "Zaktualizowano {field}"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "Aktualizowanie dostępu..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "Aktualizowanie ścieżki..."
 
@@ -3028,7 +3009,7 @@ msgstr "Odtwarzacz wideo: {0}"
 msgid "View all notifications"
 msgstr "Zobacz wszystkie powiadomienia"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "Zobacz i edytuj szczegóły elementu"
 
@@ -3040,8 +3021,8 @@ msgstr "Zobacz elementy sterujące"
 msgid "Voice recording is not supported in this browser"
 msgstr "Nagrywanie głosu nie jest obsługiwane w tej przeglądarce"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "Obserwuj"
 

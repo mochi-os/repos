@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ፋይል ተቀይሯል} other {# ፋይሎች ተቀይረዋል}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# መስመር} other {# መስመሮች}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "የ{0} ቅርንጫፎች"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "የ{0} ኮሚቶች"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} ላይ ተሰየመ"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "የ{0} መለያዎች"
 
@@ -125,6 +124,10 @@ msgstr "24 ሰዓት"
 msgid "A recording is already in progress."
 msgstr "ቀረጻ አስቀድሞ በሂደት ላይ ነው።"
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "ለዚህ ማከማቻ ቶከን ቀደም ብሎ ተሰጥቷል እና እንደገና ሊታይ አይችልም።"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "ፍጹም (ቀንና ሰዓት)"
@@ -146,15 +149,15 @@ msgstr "መዳረሻ ተከልክሏል"
 msgid "Access level"
 msgstr "የመዳረሻ ደረጃ"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "የመዳረሻ ደረጃ ተዘምኗል"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "መዳረሻ ተወግዷል"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "ለ{subjectName} መዳረሻ ተዘጋጅቷል"
 
@@ -162,14 +165,14 @@ msgstr "ለ{subjectName} መዳረሻ ተዘጋጅቷል"
 msgid "Account type"
 msgstr "የመለያ ዓይነት"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "እንቅስቃሴ"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "ጨምር"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "ሁሉም ማከማቻዎች"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "ማንኛውም ሰው ማከማቻን እንዲያነብ ፍቀድ"
 
@@ -258,8 +261,8 @@ msgstr "ማንኛውም ሰው ማከማቻን እንዲያነብ ፍቀድ"
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "ማንኛውም ሰው {entityLabel} እንዲፈልግ ፍቀድ"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "ማንኛውም ሰው ማከማቻ እንዲፈልግ ፍቀድ"
 
@@ -298,7 +301,7 @@ msgstr "በዚህ ምግብ የተመዘገበ ማንኛውም ነገር መቀ�
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "\"{0}\"ን መሰረዝ እንደምትፈልግ እርግጠኛ ነህ?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "\"{title}\"ን መሰረዝ እንደምትፈልግ እርግጠኛ ነህ? ይህ እርምጃ ሊቀለበስ አይችልም።"
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "የ{name} አምሳያ"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "ተመለስ"
 
@@ -374,21 +377,21 @@ msgstr "ወደ ኮሚቶች ተመለስ"
 msgid "Back to home"
 msgstr "ወደ መነሻ ተመለስ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "ሰንደቅ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "ባነር ተወግዷል"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "ባነር ተዘምኗል"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "ሁለትዮሽ ፋይል ({0})"
 
@@ -419,23 +422,19 @@ msgstr "ፍላጎትን አሳድግ"
 msgid "Border colour"
 msgstr "የጠርዝ ቀለም"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "ቅርንጫፍ \"{name}\" ተፈጥሯል"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "ቅርንጫፍ \"{name}\" ተሰርዟል"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "የቅርንጫፍ ስም"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "የቅርንጫፍ ስም ያስፈልጋል"
 
@@ -469,14 +468,12 @@ msgstr "ካሜራ አይገኝም"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "ይቅር"
 
@@ -484,8 +481,8 @@ msgstr "ይቅር"
 msgid "Cancel comment"
 msgstr "አስተያየት ሰርዝ"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "ማስተካከያን ሰርዝ"
 
@@ -542,7 +539,7 @@ msgstr "ከጎን አሞሌ ጨዋታ ምረጥ ወይም አዲስ ጀምር።
 msgid "Choose language"
 msgstr "ቋንቋ ምረጥ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "ሁሉንም አጽዳ"
 msgid "Clear search"
 msgstr "ፍለጋ አጽዳ"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "ቅዳ"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "ማከማቻ ቅዳ"
 
@@ -644,8 +641,8 @@ msgstr "የአስተያየት እርምጃዎች"
 msgid "Comments"
 msgstr "አስተያየቶች"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "አስተያየቶች ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "ተቀድቷል"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "ወደ ቅንጥብ ሰሌዳ ተቀድቷል"
 
@@ -732,8 +729,8 @@ msgstr "ቅዳ"
 msgid "Copy commit SHA"
 msgstr "commit SHA ኮፒ አድርግ"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "የፋይል ይዘት ኮፒ አድርግ"
 
@@ -762,8 +759,8 @@ msgstr "በዚያ መለያ ማረጋገጥ አልተቻለም። እባክዎ �
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "ፍጠር"
 
@@ -771,7 +768,7 @@ msgstr "ፍጠር"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} ፍጠር"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "አዲስ የማረጋገጫ ቶከን ይፍጠሩ።"
 
@@ -779,10 +776,8 @@ msgstr "አዲስ የማረጋገጫ ቶከን ይፍጠሩ።"
 msgid "Create a new repository"
 msgstr "አዲስ ማከማቻ ፍጠር"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "ቅርንጫፍ ፍጠር"
 
@@ -796,8 +791,8 @@ msgstr "አዲስ ንጥል ፍጠር"
 msgid "Create repository"
 msgstr "ማከማቻ ፍጠር"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "ቶከን ፍጠር"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "ተፈጥሯል"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "የተፈጠረ {0}"
 
@@ -816,8 +811,7 @@ msgstr "የተፈጠረ {0}"
 msgid "Created {field}"
 msgstr "{field} ተፈጥሯል"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "ቅርንጫፍ በመፍጠር ላይ..."
 
@@ -825,14 +819,13 @@ msgstr "ቅርንጫፍ በመፍጠር ላይ..."
 msgid "Creating repository..."
 msgstr "ማከማቻ በመፍጠር ላይ..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "ቶከን በመፍጠር ላይ..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "በመፍጠር ላይ..."
 
@@ -861,8 +854,7 @@ msgstr "ቀን"
 msgid "Decline"
 msgstr "አትቀበል"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "ነባሪ"
 
@@ -874,7 +866,7 @@ msgstr "ነባሪ"
 msgid "Default AI account"
 msgstr "ነባሪ የAI መለያ"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "ነባሪ ቅርንጫፍ"
 
@@ -891,17 +883,15 @@ msgstr "ነባሪ ቅደም ተከተል"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "ሰርዝ"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" ይሰረዝ? ይህ ሊቀለበስ አይችልም።"
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\" ይሰረዝ? ይህ ሊቀለበስ አይችል�
 msgid "Delete attachment"
 msgstr "አባሪ ሰርዝ"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "ቅርንጫፍ ሰርዝ"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "ቅርንጫፍ ይሰረዝ?"
 
@@ -937,9 +924,9 @@ msgstr "መስክ ሰርዝ"
 msgid "Delete game?"
 msgstr "ጨዋታ ይሰረዝ?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "ንጥል ሰርዝ"
 
@@ -953,20 +940,20 @@ msgstr "አማራጭ ሰርዝ"
 msgid "Delete option {0}"
 msgstr "አማራጭ {0} ሰርዝ"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "ማከማቻ ሰርዝ"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "ማከማቻ ይሰረዝ?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "ቶከን ሰርዝ"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "ቶከን ይሰረዝ?"
 
@@ -986,22 +973,20 @@ msgstr "ተሰርዟል"
 msgid "Deleted {field}"
 msgstr "{field} ተሰርዟል"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "ቅርንጫፍ በመሰረዝ ላይ..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "ማከማቻ በመሰረዝ ላይ..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "ቶከን በመሰረዝ ላይ..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "በመሰረዝ ላይ..."
 
@@ -1011,7 +996,7 @@ msgstr "ከላይ ወደ ታች"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "መግለጫ"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "ከሚያስፈልገው ስርዓተ ጥለት ጋር አይዛመድም"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "ተጠናቅቋል"
 
@@ -1082,8 +1067,8 @@ msgstr "አውርድ"
 msgid "Download failed"
 msgstr "ማውረድ አልተሳካም"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "ፋይል አውርድ"
 
@@ -1095,7 +1080,7 @@ msgstr "ይባዛል"
 msgid "Dyslexia-friendly"
 msgstr "ለዲስሌክሲያ ምቹ"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "ለምሳሌ ሥራ ላፕቶፕ"
 
@@ -1120,7 +1105,7 @@ msgstr "መስክ አስተካክል"
 msgid "Edit field settings"
 msgstr "የመስክ ቅንብሮችን አስተካክል"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "ስም አስተካክል"
 
@@ -1134,7 +1119,7 @@ msgstr "አማራጭን አርትዕ"
 msgid "Edit option {0}"
 msgstr "አማራጭ {0} አስተካክል"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "መንገድ አስተካክል"
 
@@ -1154,15 +1139,15 @@ msgstr "ኢሜይል"
 msgid "Email code"
 msgstr "የኢሜይል ኮድ"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "ባዶ ማውጫ"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "ባዶ ሪፖዚቶሪ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "የባነር ጽሑፍ አስገባ (ማርክዳውን ይደገፋል)..."
 
@@ -1174,11 +1159,11 @@ msgstr "ከኢሜይልዎ የመጣውን ኮድ ያስገቡ"
 msgid "Enter your authenticator code"
 msgstr "የአረጋጋጭዎን ኮድ ያስገቡ"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "አካል:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "ስህተት"
 
@@ -1210,8 +1195,7 @@ msgstr "መለያ መጨመር አልተሳካም"
 msgid "Failed to copy"
 msgstr "መቅዳት አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "ቅርንጫፍ መፍጠር አልተሳካም"
 
@@ -1225,7 +1209,7 @@ msgstr "አገናኝ መፍጠር አልተሳካም"
 msgid "Failed to create repository"
 msgstr "ሪፖዚቶሪ መፍጠር አልተሳካም"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "ቶከን መፍጠር አልተሳካም"
 
@@ -1237,8 +1221,7 @@ msgstr "መሰረዝ አልተሳካም"
 msgid "Failed to delete attachment"
 msgstr "አባሪ መሰረዝ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "ቅርንጫፍ መሰረዝ አልተሳካም"
 
@@ -1250,11 +1233,11 @@ msgstr "አስተያየት መሰረዝ አልተሳካም"
 msgid "Failed to delete link"
 msgstr "አገናኝ መሰረዝ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "ሪፖዚቶሪ መሰረዝ አልተሳካም"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "ቶከን መሰረዝ አልተሳካም"
 
@@ -1270,7 +1253,7 @@ msgstr "መዝገብ ማውረድ አልተሳካም"
 msgid "Failed to get RSS token"
 msgstr "የRSS ቶከን ማግኘት አልተሳካም"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "ቶከን ማግኘት አልተሳካም"
 
@@ -1278,12 +1261,15 @@ msgstr "ቶከን ማግኘት አልተሳካም"
 msgid "Failed to load"
 msgstr "መጫን አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "የመዳረሻ ህጎችን መጫን አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "ባነርን መጫን አልተሳካም"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "ቅርንጫፎችን መጫን አልተሳካም"
 
@@ -1291,17 +1277,15 @@ msgstr "ቅርንጫፎችን መጫን አልተሳካም"
 msgid "Failed to load commit"
 msgstr "ኮሚትን መጫን አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "ኮሚቶችን መጫን አልተሳካም"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "ፋይሎችን መጫን አልተሳካም"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "ታሪክን መጫን አልተሳካም"
 
@@ -1309,8 +1293,8 @@ msgstr "ታሪክን መጫን አልተሳካም"
 msgid "Failed to load image"
 msgstr "ምስሉን መጫን አልተሳካም"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "ንጥልን መጫን አልተሳካም"
 
@@ -1318,8 +1302,7 @@ msgstr "ንጥልን መጫን አልተሳካም"
 msgid "Failed to load prompts"
 msgstr "ጥያቄዎችን መጫን አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "መለያዎችን መጫን አልተሳካም"
 
@@ -1335,11 +1318,11 @@ msgstr "ማንቀሳቀስ አልተሳካም"
 msgid "Failed to post comment"
 msgstr "አስተያየት መለጠፍ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "መዳረሻን ማስወገድ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "ሪፖዚቶሪ መሰየም አልተሳካም"
 
@@ -1359,39 +1342,39 @@ msgstr "ማስቀመጥ አልተሳካም"
 msgid "Failed to save prompt"
 msgstr "ጥያቄ ማስቀመጥ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "ቅንብር ማስቀመጥ አልተሳካም"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "ማከማቻዎችን መፈለግ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "የመዳረሻ ደረጃ ማቀናበር አልተሳካም"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "መመዝገብ አልተሳካም"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "ምዝገባን መሰረዝ አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "የመዳረሻ ደረጃን ማዘመን አልተሳካም"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "ባነርን ማዘመን አልተሳካም"
 
@@ -1399,7 +1382,7 @@ msgstr "ባነርን ማዘመን አልተሳካም"
 msgid "Failed to update comment"
 msgstr "አስተያየትን ማዘመን አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "መንገድን ማዘመን አልተሳካም"
 
@@ -1411,8 +1394,7 @@ msgstr "መከታተልን ማዘመን አልተሳካም"
 msgid "Failed to upload attachment"
 msgstr "አባሪ መስቀል አልተሳካም"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "ፋይሎች"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "ሪፖዚቶሪዎችን ፈልግ"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "ጣት አሻራ:"
 
@@ -1494,7 +1476,7 @@ msgstr "በቡድን ይመድቡ"
 msgid "Group: {0}"
 msgstr "ቡድን፦ {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "ታሪክ"
 
@@ -1513,7 +1495,7 @@ msgstr "ሞቅ ያለ"
 msgid "ID"
 msgstr "መታወቂያ"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "ማንነት"
 
@@ -1554,7 +1536,7 @@ msgstr "ልክ ያልሆነ ቀን"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "የሚፈልጉት ገጽ <0/>የለም ወይም ተወግዷል።"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "የንጥል ዝርዝሮች"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "ትልቅ"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "የመጨረሻ ጥቅም {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "ተጨማሪ ጫን"
 msgid "Loading content…"
 msgstr "ይዘት በመጫን ላይ…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "ንጥል በመጫን ላይ"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "የንጥል ዝርዝሮች በመጫን ላይ"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "በመውጣት ላይ…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "ትንንሽ ፊደላት፣ ቁጥሮች እና ሰረዞች ብቻ"
 
@@ -1648,8 +1630,8 @@ msgstr "ትንንሽ ፊደላት፣ ቁጥሮች እና ሰረዞች ብቻ"
 msgid "Manage categories"
 msgstr "ምድቦችን ያስተዳድሩ"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "ቶከኖችን አስተዳድር"
 
@@ -1739,7 +1721,7 @@ msgstr "ስም"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "ስም < ወይም > ቁምፊዎችን ሊይዝ አይችልም"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "ስም ያስፈልጋል"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "ስም 100 ቁምፊዎች ወይም ከዚያ ያነሰ መሆን አለበት"
 
@@ -1756,7 +1738,7 @@ msgstr "ስም 100 ቁምፊዎች ወይም ከዚያ ያነሰ መሆን አ�
 msgid "Name must be 1000 characters or less"
 msgstr "ስም 1000 ቁምፊዎች ወይም ከዚያ ያነሰ መሆን አለበት"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "ስም:"
 
@@ -1765,8 +1747,8 @@ msgstr "ስም:"
 msgid "Network error"
 msgstr "የአውታረ መረብ ስህተት"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "በፍፁም"
 
@@ -1775,8 +1757,7 @@ msgstr "በፍፁም"
 msgid "New"
 msgstr "አዲስ"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "አዲስ ቅርንጫፍ"
 
@@ -1794,7 +1775,7 @@ msgstr "ቀጣይ ምስል"
 msgid "No {parentClassNames} to add to"
 msgstr "ለመጨመር ምንም {parentClassNames} የለም"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "ምንም ድረሳ የለም"
 
@@ -1806,8 +1787,7 @@ msgstr "ምንም የድረሳ ህጎች አልተዋቀሩም። ይህን ሀ�
 msgid "No activity yet"
 msgstr "እስካሁን ምንም እንቅስቃሴ የለም"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "እስካሁን ቅርንጫፎች የሉም"
 
@@ -1815,8 +1795,7 @@ msgstr "እስካሁን ቅርንጫፎች የሉም"
 msgid "No comments yet"
 msgstr "እስካሁን አስተያየቶች የሉም"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "እስካሁን ኮሚቶች የሉም"
 
@@ -1849,8 +1828,8 @@ msgstr "ምንም ቦታዎች አልተገኙም"
 msgid "No public repositories."
 msgstr "ምንም የሕዝብ ማከማቻዎች የሉም።"
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "ምንም ሪፖዚቶሪዎች አልተገኙም"
 
@@ -1869,8 +1848,7 @@ msgstr "ምንም ውጤቶች አልተገኙም።"
 msgid "No status"
 msgstr "ሁኔታ የለም"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "እስካሁን መለያዎች የሉም"
 
@@ -1878,7 +1856,7 @@ msgstr "እስካሁን መለያዎች የሉም"
 msgid "No time zone found."
 msgstr "ምንም የሰዓት ሰቅ አልተገኘም።"
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "እስካሁን ቶከኖች የሉም።"
 
@@ -1902,10 +1880,10 @@ msgstr "ምንም እይታዎች የሉም"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "ባለቤት"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "ወላጅ"
 
@@ -2040,15 +2018,15 @@ msgstr "ፓስኪዎች በዚህ አሳሽ ውስጥ አይገኙም"
 msgid "Path"
 msgstr "መንገድ"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "መንገድ ያስፈልጋል"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "መንገድ ተዘምኗል"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "መንገድ:"
 
@@ -2060,7 +2038,7 @@ msgstr "ስርዓተ-ጥለት (regex)"
 msgid "People"
 msgstr "ሰዎች"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "ይህን ሪፖዚቶሪ እና ሁሉንም ውሂቡን በቋሚነት ሰርዝ"
 
@@ -2070,7 +2048,7 @@ msgstr "ይህን ሪፖዚቶሪ እና ሁሉንም ውሂቡን በቋሚነ�
 msgid "Please check your internet connection and try again."
 msgstr "እባክዎ የበይነመረብ ግንኙነትዎን አረጋግጠው እንደገና ይሞክሩ።"
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "እባክዎን የቶከን ስም ያስገቡ"
 
@@ -2108,7 +2086,7 @@ msgstr "በሂደት ላይ…"
 msgid "Prompt saved"
 msgstr "ጥያቄ ተቀምጧል"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "ባህሪያት"
 
@@ -2128,11 +2106,11 @@ msgstr "በዚህ ሰርቨር ላይ መለያዎችህን እንደገና አ�
 msgid "Re-register your passkeys on this server"
 msgstr "የይለፍ ቁልፎችዎን በዚህ አገልጋይ ላይ እንደገና ይመዝግቡ"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "አንብብ እና ጻፍ"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "ለማንበብ ብቻ"
 
@@ -2226,7 +2204,7 @@ msgstr "ንጥል አስወግድ"
 msgid "Remove link"
 msgstr "አገናኙን አስወግድ"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "መዳረሻ በማስወገድ ላይ..."
 
@@ -2243,7 +2221,7 @@ msgstr "የአምድ ስም ቀይር"
 msgid "Rename this board column"
 msgstr "የዚህ ቦርድ አምድ ስም ቀይር"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "ማከማቻ እንደገና በመሰየም ላይ..."
 
@@ -2265,10 +2243,10 @@ msgstr "ሪፖዚቶሪዎች"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "ማከማቻ"
 msgid "Repository created"
 msgstr "ሪፖዚቶሪ ተፈጥሯል"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "ሪፖዚቶሪ ተሰርዟል"
 
@@ -2297,7 +2275,7 @@ msgstr "የሪፖዚቶሪ መለያ ያስፈልጋል"
 msgid "Repository link"
 msgstr "የማከማቻ አገናኝ"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "የሪፖዚቶሪ ስም ያስፈልጋል"
 
@@ -2305,7 +2283,7 @@ msgstr "የሪፖዚቶሪ ስም ያስፈልጋል"
 msgid "Repository not found"
 msgstr "ሪፖዚቶሪ አልተገኘም"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "የሪፖዚቶሪ ስም ተቀይሯል"
 
@@ -2372,28 +2350,28 @@ msgstr "ቅዳሜ"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "ያስቀምጡ"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "ይህን ቶከን አሁን ያስቀምጡ። እንደገና ማየት አይችሉም።"
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "ይህን ቶክን በደህንነት ያስቀምጡ። እንደገና ማየት አይችሉም።"
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "ቅንብሮችን በማስቀመጥ ላይ..."
 
@@ -2408,7 +2386,7 @@ msgstr "በማስቀመጥ ላይ..."
 msgid "Search"
 msgstr "ይፈልጉ"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "በስም፣ መታወቂያ፣ ጣት አሻራ ወይም URL ይፈልጉ..."
 
@@ -2432,7 +2410,7 @@ msgstr "መድረሻ ይፈልጉ..."
 msgid "Search for origin..."
 msgstr "መነሻ ይፈልጉ..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "ሪፖዚቶሪዎችን ይፈልጉ..."
 
@@ -2493,7 +2471,7 @@ msgstr "የመለያ አይነት ይምረጡ"
 msgid "Select branch"
 msgstr "ቅርንጫፍ ይምረጡ"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "ነባሪ ቅርንጫፍ ይምረጡ"
 
@@ -2517,8 +2495,7 @@ msgstr "ሰው ይምረጡ..."
 msgid "Select previous card"
 msgstr "ቀዳሚውን ካርድ ምረጥ"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "የመነሻ ቅርንጫፍ ይምረጡ"
 
@@ -2567,7 +2544,7 @@ msgstr "ክፍለ-ጊዜው አብቅቷል። እባክዎ እንደገና ይ�
 msgid "Set origin and destination"
 msgstr "መነሻ እና መድረሻ ያዘጋጁ"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "መዳረሻ በማቀናበር ላይ..."
 
@@ -2578,10 +2555,10 @@ msgstr "መዳረሻ በማቀናበር ላይ..."
 msgid "Settings"
 msgstr "ቅንብሮች"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "ቅንብሮች ተቀምጠዋል"
 
@@ -2632,8 +2609,7 @@ msgstr "ትንሽ"
 msgid "Sort"
 msgstr "ይደርድሩ"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "የምንጭ ቅርንጫፍ"
 
@@ -2649,8 +2625,8 @@ msgstr "ሰፊ"
 msgid "Start the discussion by adding the first comment."
 msgstr "የመጀመሪያውን አስተያየት በማከል ውይይቱን ይጀምሩ።"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "መከታተል አቁም"
 
@@ -2669,19 +2645,19 @@ msgstr "ምላሽ ያቅርቡ"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "ይመዝገቡ"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "ተመዝግቧል"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "ቅርንጫፍ ቀይር"
 msgid "Switch to view 1-9"
 msgstr "ወደ ዕይታ 1-9 ቀይር"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "መላክ አልተቻለም። ፋይሎቹ በጣም ትልቅ ሊሆ�
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "ለመስቀል በጣም ትልቅ ነበር። ፋይሎችን ያስወግዱ ወይም ያሳንሱ እና እንደገና ይሞክሩ።"
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "ሪፖዚቶሪውን ሲመለከቱ የሚታየው ቅርንጫፍ"
 
@@ -2773,6 +2749,11 @@ msgstr "አገልጋዩ ከመረጃ ይልቅ የድር ገጽ መልሷል።"
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ይህ መተግበሪያ የእርስዎን ፓስኪ እንዲጠቀም አልተፈቀደለትም። በቅንብሮች ውስጥ፣ በፈቃዶች ስር ይፍቀዱለት።"
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "ይህ ፋይል ለማሳየት በጣም ትልቅ ነው ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "ይህ ገጽ የሪፖዚቶሪ አውድ ያስፈልገዋል።"
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "ይህ ጨዋታውን እና ውይይቱን በቋሚነት ይሰርዛል። ይህ ወደኋላ ሊመለስ አይችልም።"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "ይህ \"{currentName}\"ን እና ሁሉንም ኮሚቶቹን፣ ቅርንጫፎቹን እና መለያዎቹን በቋሚነት ይሰርዛል። ይህ ድርጊት መመለስ አይቻልም።"
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ይህ ይህን ቶከን ለዘላለም ይሰርዘዋል። የሚጠቀሙት ማንኛውም git ደንበኞች ማረጋገጥ አይችሉም።"
 
@@ -2795,7 +2776,7 @@ msgstr "ይህ ይህን ቶከን ለዘላለም ይሰርዘዋል። የሚ�
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "ይህ \"{name}\"ን ከሪፖዚቶሪ ዝርዝርዎ ያስወግዳል። በኋላ እንደገና መመዝገብ ይችላሉ።"
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "ይህ \"{repoName}\"ን ከሪፖዚቶሪ ዝርዝርዎ ያስወግዳል። በኋላ እንደገና መመዝገብ ይችላሉ።"
 
@@ -2830,15 +2811,15 @@ msgstr "የእይታ አማራጮችን ቀይር"
 msgid "Toggle watched filter"
 msgstr "የተመለከቱ ማጣሪያ ቀይር"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "ቶከን ተፈጥሯል"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "ቶክን ተሰርዟል"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "የቶክን ስም"
 
@@ -2914,7 +2895,7 @@ msgstr "ያልተጠበቀ የAPI ስህተት"
 msgid "United States"
 msgstr "ዩናይትድ ስቴትስ"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "ያልታወቀ"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "ምዝገባ ያቋርጡ"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "ከሪፖዚቶሪ ምዝገባ ያቋርጡ?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "ምዝገባ ተቋርጧል"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "ከሪፖዚቶሪ ምዝገባ ተቋርጧል"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "ምዝገባ በማቋረጥ ላይ..."
@@ -2970,11 +2951,11 @@ msgstr "ተዘምኗል"
 msgid "Updated {field}"
 msgstr "{field} ተዘምኗል"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "መዳረሻ በማዘመን ላይ..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "መንገድ በማዘመን ላይ..."
 
@@ -3028,7 +3009,7 @@ msgstr "የቪዲዮ መመልከቻ፦ {0}"
 msgid "View all notifications"
 msgstr "ሁሉንም ማሳወቂያዎች ይመልከቱ"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "የእቃ ዝርዝሮችን ይመልከቱ እና ያርትዑ"
 
@@ -3040,8 +3021,8 @@ msgstr "የእይታ መቆጣጠሪያዎች"
 msgid "Voice recording is not supported in this browser"
 msgstr "በዚህ አሳሽ ውስጥ የድምፅ ቀረጻ አይደገፍም"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "ተከታተል"
 

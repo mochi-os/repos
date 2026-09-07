@@ -9,6 +9,7 @@ import { Link, useNavigate } from '@tanstack/react-router'
 import { Card, CardContent, Skeleton, getErrorMessage, naturalCompare } from '@mochi/web'
 import { ChevronRight } from 'lucide-react'
 import { useTree, useBranches } from '@/hooks/use-repository'
+import type { TreeEntry } from '@/api/types'
 
 import { FileEntry } from '@/components/file-entry'
 import { RefSelector } from '@/components/ref-selector'
@@ -30,7 +31,6 @@ export function FileTree({
   currentRef: initialRef,
   currentPath: initialPath,
 }: FileTreeProps) {
-  const { t } = useLingui()
   const navigate = useNavigate()
   const [currentRef, setCurrentRef] = useState(initialRef || defaultBranch)
   const [currentPath, setCurrentPath] = useState(initialPath)
@@ -62,16 +62,6 @@ export function FileTree({
   }, [treeData, currentRef, currentPath])
 
   const branches = branchesData?.branches || []
-  const entries = treeData?.entries || []
-
-  const sortedEntries = [...entries].sort((a, b) => {
-    const aIsDir = a.type === 'tree' || a.type === 'dir'
-    const bIsDir = b.type === 'tree' || b.type === 'dir'
-    if (aIsDir && !bIsDir) return -1
-    if (!aIsDir && bIsDir) return 1
-    return naturalCompare(a.name, b.name)
-  })
-
   const pathParts = currentPath ? currentPath.split('/').filter(Boolean) : []
 
   return (
@@ -113,38 +103,72 @@ export function FileTree({
         </div>
       )}
 
-      {/* File listing */}
-      <Card>
-        <CardContent className="p-0">
-          {treeLoading ? (
-            <div className="p-4 space-y-2">
-              {[...Array(5)].map((_, i) => (
-                <Skeleton key={i} className="h-10 w-full" />
-              ))}
-            </div>
-          ) : error ? (
-            <div className="p-4 text-destructive">
-              {getErrorMessage(error, t`Failed to load files`)}
-            </div>
-          ) : sortedEntries.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground">
-              <Trans>Empty directory</Trans>
-            </div>
-          ) : (
-            <div className="divide-y">
-              {sortedEntries.map((entry) => (
-                <FileEntry
-                  key={entry.name}
-                  entry={entry}
-                  fingerprint={fingerprint}
-                  currentRef={currentRef}
-                  basePath={currentPath}
-                />
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      <FileListing
+        fingerprint={fingerprint}
+        currentRef={currentRef}
+        currentPath={currentPath}
+        entries={treeData?.entries || []}
+        isLoading={treeLoading}
+        error={error}
+      />
     </div>
+  )
+}
+
+interface FileListingProps {
+  fingerprint: string
+  currentRef: string
+  currentPath: string
+  entries: TreeEntry[]
+  isLoading: boolean
+  error: Error | null
+}
+
+// The entries of one tree, directories first. Shared by the Files tab and the
+// /tree page so the two cannot drift apart.
+export function FileListing({ fingerprint, currentRef, currentPath, entries, isLoading, error }: FileListingProps) {
+  const { t } = useLingui()
+
+  // The server sends "dir"; "tree" is git's own word for the same thing and
+  // appears in some responses, so both count.
+  const sortedEntries = [...entries].sort((a, b) => {
+    const aIsDir = a.type === 'tree' || a.type === 'dir'
+    const bIsDir = b.type === 'tree' || b.type === 'dir'
+    if (aIsDir !== bIsDir) return aIsDir ? -1 : 1
+    return naturalCompare(a.name, b.name)
+  })
+
+  return (
+    <Card>
+      <CardContent className="p-0">
+        {isLoading ? (
+          <div className="p-4 space-y-2">
+            {[...Array(5)].map((_, i) => (
+              <Skeleton key={i} className="h-10 w-full" />
+            ))}
+          </div>
+        ) : error ? (
+          <div className="p-4 text-destructive">
+            {getErrorMessage(error, t`Failed to load files`)}
+          </div>
+        ) : sortedEntries.length === 0 ? (
+          <div className="p-8 text-center text-muted-foreground">
+            {currentPath ? <Trans>Empty directory</Trans> : <Trans>Empty repository</Trans>}
+          </div>
+        ) : (
+          <div className="divide-y">
+            {sortedEntries.map((entry) => (
+              <FileEntry
+                key={entry.name}
+                entry={entry}
+                fingerprint={fingerprint}
+                currentRef={currentRef}
+                basePath={currentPath}
+              />
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
   )
 }

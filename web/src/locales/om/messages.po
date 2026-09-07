@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {faayilii # jijjiirame} other {faayiloota # jijjiiraman}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {sarara #} other {sararoota #}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} dameewwan"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} commits"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} irratti tagame"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} tagoota"
 
@@ -125,6 +124,10 @@ msgstr "Sa'aatii 24"
 msgid "A recording is already in progress."
 msgstr "Waraabuun duraanuu itti fufaa jira."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "Repository kanaaf mallattoon duraan kennameera, ammas irra deebi'amee agarsiifamuu hin danda'u."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "Sirrii (guyyaa fi sa'aatii)"
@@ -146,15 +149,15 @@ msgstr "Seensi dhorkamee jira"
 msgid "Access level"
 msgstr "Sadarkaa seensaa"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "Sadarkaan seensaa haaromfame"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "Seensi haqame"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "Seensi {subjectName} qabameera"
 
@@ -162,14 +165,14 @@ msgstr "Seensi {subjectName} qabameera"
 msgid "Account type"
 msgstr "Gosa akkaawuntii"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "Sochii"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "Dabali"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "Galmeewwan hundi"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "Eenyu iyyuu galmee dubbisuu hayyami"
 
@@ -258,8 +261,8 @@ msgstr "Eenyu iyyuu galmee dubbisuu hayyami"
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "Namni kamiyyuu {entityLabel} akka barbaadu hayyami"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "Eenyu iyyuu galmee barbaaduu hayyami"
 
@@ -298,7 +301,7 @@ msgstr "Wanti kamiyyuu nyaata kana ajaje fudhachuu ni dhaaba. Booda URL haaraa g
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "\"{0}\" haquu mirkanaa'oo dha?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "\"{title}\" haquu mirkanaa'oo dha? Tarkaanfiin kun deebi'uu hin danda'u."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "Fakkii {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "Duuba"
 
@@ -374,21 +377,21 @@ msgstr "Gara commitsitti deebi'i"
 msgid "Back to home"
 msgstr "Gara mana deebi’uu"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "Bannerii"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "Banneriin haqame"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "Banneriin haaromfame"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "Faayilii Lakkoofsaa ({0})"
 
@@ -419,23 +422,19 @@ msgstr "Fedhii cimsi"
 msgid "Border colour"
 msgstr "Halluu marsaa"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "Damee \"{name}\" uumame"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "Damee \"{name}\" haqame"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "Maqaa damee"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "Maqaan damee barbaachisaa dha"
 
@@ -469,14 +468,12 @@ msgstr "Kaameraan hin argamu"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "Haquu"
 
@@ -484,8 +481,8 @@ msgstr "Haquu"
 msgid "Cancel comment"
 msgstr "Yaada haquu"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "Sirreessa dhiisuu"
 
@@ -542,7 +539,7 @@ msgstr "Cinaa keessaa tapha filadhu ykn haaraa eegali."
 msgid "Choose language"
 msgstr "Afaan filadhu"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "Hunda cilliisi"
 msgid "Clear search"
 msgstr "Barbaadii cilliisi"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "Garagalchi"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "Galmee garagalchi"
 
@@ -644,8 +641,8 @@ msgstr "Gocha yaadaa"
 msgid "Comments"
 msgstr "Yaadawwan"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "Yaadawwan ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "Garagalfame"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "Garagalfamee gara saanduqa garagalchaa"
 
@@ -732,8 +729,8 @@ msgstr "Garagalchi"
 msgid "Copy commit SHA"
 msgstr "SHA commit waraabuu"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "Qabiyyee faayilii waraabuu"
 
@@ -762,8 +759,8 @@ msgstr "Akkaawuntii sana waliin mirkaneessuun hin danda'amne. Maaloo irra deebi'
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "Uumi"
 
@@ -771,7 +768,7 @@ msgstr "Uumi"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} uumi"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "Tokeenii mirkaneessaa haaraa uumi."
 
@@ -779,10 +776,8 @@ msgstr "Tokeenii mirkaneessaa haaraa uumi."
 msgid "Create a new repository"
 msgstr "Galmee haaraa uumi"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "Damee uumi"
 
@@ -796,8 +791,8 @@ msgstr "Wanta haaraa uumi"
 msgid "Create repository"
 msgstr "Galmee uumi"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "Tokeenii uumi"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "Uumame"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "{0} uumame"
 
@@ -816,8 +811,7 @@ msgstr "{0} uumame"
 msgid "Created {field}"
 msgstr "{field} uumameera"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "Damee uumaa jira..."
 
@@ -825,14 +819,13 @@ msgstr "Damee uumaa jira..."
 msgid "Creating repository..."
 msgstr "Kuusaa uumaa jira..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "Tokenii uumaa jira..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "Uumaa jira..."
 
@@ -861,8 +854,7 @@ msgstr "Guyyaa"
 msgid "Decline"
 msgstr "Dhiisi"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "sirnaan dursaa"
 
@@ -874,7 +866,7 @@ msgstr "Idilee"
 msgid "Default AI account"
 msgstr "Akkaawuntii AI idilee"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "Damee idilee"
 
@@ -891,17 +883,15 @@ msgstr "Tartiiba idilee"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "Haqi"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" haquu? Kun deebi'uu hin danda'u."
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\" haquu? Kun deebi'uu hin danda'u."
 msgid "Delete attachment"
 msgstr "Maxxansa haqi"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "Damee haquu"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "Damee haqu?"
 
@@ -937,9 +924,9 @@ msgstr "Dirree haqi"
 msgid "Delete game?"
 msgstr "Taphicha haqi?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "Wanta haqi"
 
@@ -953,20 +940,20 @@ msgstr "Filannoo haqi"
 msgid "Delete option {0}"
 msgstr "Filannoo {0} haqi"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "Galmee haqi"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "Galmee haqu?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "Tokeenii haqi"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "Tokeenii haqu?"
 
@@ -986,22 +973,20 @@ msgstr "Haqameera"
 msgid "Deleted {field}"
 msgstr "{field} haqameera"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "Damee haqaa jira..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "Kuusaa haqaa jira..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "Tokenii haqaa jira..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "Haqaa jira..."
 
@@ -1011,7 +996,7 @@ msgstr "Gad buʼaa"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "Ibsa"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "Boca barbaachisu wajjin wal hin simu"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "Xumurame"
 
@@ -1082,8 +1067,8 @@ msgstr "Buufadhu"
 msgid "Download failed"
 msgstr "Buufachuun hin milkoofne"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "Faayilii buusuu"
 
@@ -1095,7 +1080,7 @@ msgstr "Lameetfamtoota"
 msgid "Dyslexia-friendly"
 msgstr "Dyslexiyaa Walitti Dhufu"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "fkn., Laaptopii hojii"
 
@@ -1120,7 +1105,7 @@ msgstr "Iddoo sirreessi"
 msgid "Edit field settings"
 msgstr "Sirreeffama iddoo sirreessi"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "Maqaa sirreessi"
 
@@ -1134,7 +1119,7 @@ msgstr "Filannoo sirreessi"
 msgid "Edit option {0}"
 msgstr "Filannoo {0} sirreessi"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "Karaa sirreessuu"
 
@@ -1154,15 +1139,15 @@ msgstr "Imeelii"
 msgid "Email code"
 msgstr "Koodii imeelii"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "Galmee duwwaa"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "Kuusaa duwwaa"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "Barreeffama dabballee galchi (markdown deeggarama)..."
 
@@ -1174,11 +1159,11 @@ msgstr "Koodii imeelii kee irraa galchi"
 msgid "Enter your authenticator code"
 msgstr "Koodii mirkaneessaa kee galchi"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "Iddoo:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "Dogoggora"
 
@@ -1210,8 +1195,7 @@ msgstr "Akkaawuntii dabaluu hin dandeenye"
 msgid "Failed to copy"
 msgstr "Garagalchuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "Damee uumuu hin dandeenye"
 
@@ -1225,7 +1209,7 @@ msgstr "Hidhaa uumuu hin dandeenye"
 msgid "Failed to create repository"
 msgstr "Kuusaa uumuu hin dandeenye"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "Mallattoo uumuu hin dandeenye"
 
@@ -1237,8 +1221,7 @@ msgstr "Haquu hin dandeenye"
 msgid "Failed to delete attachment"
 msgstr "Maxxansa haquu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "Damee haquu hin dandeenye"
 
@@ -1250,11 +1233,11 @@ msgstr "Yaada haquu hin dandeenye"
 msgid "Failed to delete link"
 msgstr "Hidhaa haquu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "Kuusaa haquu hin dandeenye"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "Mallattoo haquu hin dandeenye"
 
@@ -1270,7 +1253,7 @@ msgstr "Galmee buufachuu hin dandeenye"
 msgid "Failed to get RSS token"
 msgstr "Mallattoo RSS argachuu hin dandeenye"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "Mallattoo argachuu hin dandeenye"
 
@@ -1278,12 +1261,15 @@ msgstr "Mallattoo argachuu hin dandeenye"
 msgid "Failed to load"
 msgstr "Fe'achuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "Seerota dameedhaa fe'achuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "Banner fe'uu hin dandeenye"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "Damelee fe'achuu hin dandeenye"
 
@@ -1291,17 +1277,15 @@ msgstr "Damelee fe'achuu hin dandeenye"
 msgid "Failed to load commit"
 msgstr "Hojii galmee fe'achuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "Hojiilee galmee fe'achuu hin dandeenye"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "Faayilota fe'achuu hin dandeenye"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "Seenaa fe'achuu hin dandeenye"
 
@@ -1309,8 +1293,8 @@ msgstr "Seenaa fe'achuu hin dandeenye"
 msgid "Failed to load image"
 msgstr "Fakkii fe'uu hin dandeenye"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "Iddoo fe'achuu hin dandeenye"
 
@@ -1318,8 +1302,7 @@ msgstr "Iddoo fe'achuu hin dandeenye"
 msgid "Failed to load prompts"
 msgstr "Boorsaawwan fe'achuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "Mallattoolee fe'achuu hin dandeenye"
 
@@ -1335,11 +1318,11 @@ msgstr "Sochuun hin milkoofne"
 msgid "Failed to post comment"
 msgstr "Yaada maxxansuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "Carraa fudhatamuu haquu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "Kuusaa moggaasuu hin dandeenye"
 
@@ -1359,39 +1342,39 @@ msgstr "Olkaa'uu hin dandeenye"
 msgid "Failed to save prompt"
 msgstr "Boorsa olkaa'uu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "Filannoo olkaa'uu hin dandeenye"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "Kuusaalee barbaaduun hin milkoofne"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "Sadarkaa carraa fudhatamuu kaa'uu hin dandeenye"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Galmaa'uu hin dandeenye"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Galmee dhaabuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "Sadarkaa carraa fudhatamuu toattaachuu hin dandeenye"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "Dabballaa toattaachuu hin dandeenye"
 
@@ -1399,7 +1382,7 @@ msgstr "Dabballaa toattaachuu hin dandeenye"
 msgid "Failed to update comment"
 msgstr "Yaada toattaachuu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "Daandii toattaachuu hin dandeenye"
 
@@ -1411,8 +1394,7 @@ msgstr "Hordoffii haaromsuun hin milkoofne"
 msgid "Failed to upload attachment"
 msgstr "Mallattoo olkaa'uu hin dandeenye"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "Faayilota"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "Kuusaalee argi"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "Maxxansa quba:"
 
@@ -1494,7 +1476,7 @@ msgstr "Akkaataa gareessuu"
 msgid "Group: {0}"
 msgstr "Garee: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "Seenaa"
 
@@ -1513,7 +1495,7 @@ msgstr "Ho'aa"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "Eenyummaa"
 
@@ -1554,7 +1536,7 @@ msgstr "Guyyaa sirrii hin taane"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Fuulli ati barbaadaa jirtu <0/>hin jiru yookaan haqameera fakkaata."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "Bal'ina iddoo"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "Guddaa"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "Yeroo dhumaa kan fayyadame {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "Caalaa fe'i"
 msgid "Loading content…"
 msgstr "Qabiyyee fe’aa jira…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "Iddoo fe'aa jiraa"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "Bal'ina iddoo fe'aa jiraa"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "Ba'aa jiraa…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Qubeeleen xinnaa, lakkoofsi, fi hyphen qofa"
 
@@ -1648,8 +1630,8 @@ msgstr "Qubeeleen xinnaa, lakkoofsi, fi hyphen qofa"
 msgid "Manage categories"
 msgstr "Ramaddilee bulchi"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "Mallattoolee toattaachi"
 
@@ -1739,7 +1721,7 @@ msgstr "Maqaa"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "Maqaan arfiilee < ykn > qabaachuu hin danda'u"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "Maqaan barbaachisaa dha"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "Maqaan arfiilee 100 ykn isaa gadi ta'uu qaba"
 
@@ -1756,7 +1738,7 @@ msgstr "Maqaan arfiilee 100 ykn isaa gadi ta'uu qaba"
 msgid "Name must be 1000 characters or less"
 msgstr "Maqaan arfiilee 1000 ykn isaa gadi ta'uu qaba"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "Maqaa:"
 
@@ -1765,8 +1747,8 @@ msgstr "Maqaa:"
 msgid "Network error"
 msgstr "Dogoggora networkii"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "Gonkumaa"
 
@@ -1775,8 +1757,7 @@ msgstr "Gonkumaa"
 msgid "New"
 msgstr "Haaraa"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "Damee haaraa"
 
@@ -1794,7 +1775,7 @@ msgstr "Suuraa itti aanu"
 msgid "No {parentClassNames} to add to"
 msgstr "{parentClassNames} itti dabaluuf hin jiru"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "Itti seenuun hin jiru"
 
@@ -1806,8 +1787,7 @@ msgstr "Seerri itti seenumsaa hin qindaa'amne. Eenyu qabeenya kana itti seenuu d
 msgid "No activity yet"
 msgstr "Hanga ammaatti sochiin hin jiru"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "Hanga ammaatti dameen hin jiru"
 
@@ -1815,8 +1795,7 @@ msgstr "Hanga ammaatti dameen hin jiru"
 msgid "No comments yet"
 msgstr "Hanga ammaatti yaadni hin jiru"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "Hanga ammaatti commit hin jiru"
 
@@ -1849,8 +1828,8 @@ msgstr "Bakkeewwan hin argamne"
 msgid "No public repositories."
 msgstr "Repositories ifa ta'an hin jiran."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "Repositories hin argamne"
 
@@ -1869,8 +1848,7 @@ msgstr "Bu'aan hin argamne."
 msgid "No status"
 msgstr "Haalli hin jiru"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "Hanga ammaatti taagiin hin jiru"
 
@@ -1878,7 +1856,7 @@ msgstr "Hanga ammaatti taagiin hin jiru"
 msgid "No time zone found."
 msgstr "Aanaan sa'aatii hin argamne."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "Hanga ammaatti tokeeniwwan hin jiran."
 
@@ -1902,10 +1880,10 @@ msgstr "Mul'annoon hin jiru"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "Abbaa qabeenyaa"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "Maatii"
 
@@ -2040,15 +2018,15 @@ msgstr "Passkey-wwan browsara kana keessatti hin argaman"
 msgid "Path"
 msgstr "Daandii"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "Daandiin barbaachisaa dha"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "Daandiin haaromfame"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "Daandii:"
 
@@ -2060,7 +2038,7 @@ msgstr "Bocaa (regex)"
 msgid "People"
 msgstr "Namoota"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "Repositorii kana fi daataa isaa hunda barabaraan haqi"
 
@@ -2070,7 +2048,7 @@ msgstr "Repositorii kana fi daataa isaa hunda barabaraan haqi"
 msgid "Please check your internet connection and try again."
 msgstr "Maaloo walqunnamtii intarneetii kee mirkaneeffadhuutii irra deebi'ii yaali."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "Maaloo maqaa tokeenii galchi"
 
@@ -2108,7 +2086,7 @@ msgstr "Adeemsifamaa jira…"
 msgid "Prompt saved"
 msgstr "Gaaffii olkaa'ame"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "Qabeenyaalee"
 
@@ -2128,11 +2106,11 @@ msgstr "Akkaawuntiiwan kee sarvarri kana irratti irra deebi'ii walitti hidhi"
 msgid "Re-register your passkeys on this server"
 msgstr "Furtuuwwan seensaa kee sajoo kana irratti irra deebi'ii galmeessi"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "Dubbisuu fi barreessuu"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "Dubbisuu qofa"
 
@@ -2226,7 +2204,7 @@ msgstr "Meeshaa haqi"
 msgid "Remove link"
 msgstr "Hidhata haquu"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "Seensa balleessaa jira..."
 
@@ -2243,7 +2221,7 @@ msgstr "Maqaa tarjaa jijjiiri"
 msgid "Rename this board column"
 msgstr "Maqaa tarjaa gabatee kanaa jijjiiri"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "Maqaa kuusaa jijjiiraa jira..."
 
@@ -2265,10 +2243,10 @@ msgstr "Repositories"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "Repository"
 msgid "Repository created"
 msgstr "Repositoryn uumame"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "Repositoryn haqame"
 
@@ -2297,7 +2275,7 @@ msgstr "ID repository barbaachisaa dha"
 msgid "Repository link"
 msgstr "Hidhaa kuusaa"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "Maqaan repository barbaachisaa dha"
 
@@ -2305,7 +2283,7 @@ msgstr "Maqaan repository barbaachisaa dha"
 msgid "Repository not found"
 msgstr "Repositoryn hin argamne"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "Repositoryn maqaan jijjiirame"
 
@@ -2372,28 +2350,28 @@ msgstr "Sanbata"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "Olkaa'i"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Tokeenii kana amma olkaa'i. Lammaffaa ilaaluu hin dandeessu."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Tokeenii kana nageenyaan olkaa'i. Lammaffaa ilaaluu hin dandeessu."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "Qindaa'ina olkaa'aa jira..."
 
@@ -2408,7 +2386,7 @@ msgstr "Olkaa'aa jira..."
 msgid "Search"
 msgstr "Barbaadi"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "Maqaa, ID, fingerprintii, ykn URL barbaadi..."
 
@@ -2432,7 +2410,7 @@ msgstr "Galma barbaadi..."
 msgid "Search for origin..."
 msgstr "Madda barbaadi..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "Repositories barbaadi..."
 
@@ -2493,7 +2471,7 @@ msgstr "Gosa akkaawuntii fili"
 msgid "Select branch"
 msgstr "Damee filadhu"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "Damee duraa filadhu"
 
@@ -2517,8 +2495,7 @@ msgstr "Nama filadhu..."
 msgid "Select previous card"
 msgstr "Kaardii kanaan dura turu filadhu"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "Damee madda filadhu"
 
@@ -2567,7 +2544,7 @@ msgstr "Seeshinichi dhumateera. Maaloo irra deebi'ii seeni."
 msgid "Set origin and destination"
 msgstr "Madda fi galma qindeessi"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "Seensa qindeessaa jira..."
 
@@ -2578,10 +2555,10 @@ msgstr "Seensa qindeessaa jira..."
 msgid "Settings"
 msgstr "Qindaa'inoota"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "Qindaa'inoonni olkaa'amaniiru"
 
@@ -2632,8 +2609,7 @@ msgstr "Xiqqaa"
 msgid "Sort"
 msgstr "Sirreessi"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "Damee madda"
 
@@ -2649,8 +2625,8 @@ msgstr "Bal'aa"
 msgid "Start the discussion by adding the first comment."
 msgstr "Yaada jalqabaa dabaluudhaan marii jalqabi."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "Daawwannaa dhaabsisi"
 
@@ -2669,19 +2645,19 @@ msgstr "Deebii galchaa"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Galaa'i"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Galaa'eera"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "Damee jijjiiri"
 msgid "Switch to view 1-9"
 msgstr "Gara argaa 1-9 jijjiiri"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "Erguun hin danda'amne. Faayilonni baay'ee guddaa ta'uu danda'u, yookiin 
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Ol kaa'uuf baay'ee guddaa ture. Faayilota balleessi yookiin xiqqeessi, ergasii irra deebi'ii yaali."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "Damee yeroo kuusaa ilaalaman agarsiifame"
 
@@ -2773,6 +2749,11 @@ msgstr "Sarviichiin qooda daataa fuula weebii deebise."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Appiin kun passkey kee fayyadamuuf hayyama hin qabu. Qindaa'ina keessatti, Hayyamoota jalatti hayyami."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "Faayiliin kun agarsiisuuf baay'ee guddaadha ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "Fuulli kun ittigaltee kuusaa barbaada."
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "Kun taphicha fi haasawa isaa bara baraan ni haqa. Wanti kun deebi'ee hin dandeenyu."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Kun \"{currentName}\" fi commits, dameewwan, fi tagoota hunda bara baraan haqa. Tarkaanfiin kun deebi'ee hin sirreessamu."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Kun token kana bara baraan haqa. Mootuummaawwan git isa fayyadaman boodaa hin galaa'an."
 
@@ -2795,7 +2776,7 @@ msgstr "Kun token kana bara baraan haqa. Mootuummaawwan git isa fayyadaman booda
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Kun \"{name}\" tarreeffama kuusaa kee irraa haqa. Boodaa irra deebitee galaa'uu dandeessa."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Kun \"{repoName}\" tarreeffama kuusaa kee irraa haqa. Boodaa irra deebitee galaa'uu dandeessa."
 
@@ -2830,15 +2811,15 @@ msgstr "Filannoo argaa jijjiiri"
 msgid "Toggle watched filter"
 msgstr "Wantoota daawwataman jijjiiri"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "Token uumameera"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "Token haqameera"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "Maqaa token"
 
@@ -2914,7 +2895,7 @@ msgstr "Dogoggora API hin eegamne"
 msgid "United States"
 msgstr "Yunaaytid Isteeths"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "Hin beekamu"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "Galaa'uu kaasi"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "Kuusaa irraa galaa'uu kaasita?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "Galaa'uun kaafameera"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "Kuusaa irraa galaa'uun kaafameera"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Galaa'uu kaasaa jira..."
@@ -2970,11 +2951,11 @@ msgstr "Haaromfameera"
 msgid "Updated {field}"
 msgstr "{field} haaromfameera"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "Seensa haaromsaa jira..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "Daandii haaromsaa jira..."
 
@@ -3028,7 +3009,7 @@ msgstr "Ilaaltuu viidiyoo: {0}"
 msgid "View all notifications"
 msgstr "Beeksisa hunda daawwadhu"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "Bal'ina wantichaa daawwadhu fi sirreessi"
 
@@ -3040,8 +3021,8 @@ msgstr "Toofta daawwannaa"
 msgid "Voice recording is not supported in this browser"
 msgstr "Biraawzarii kana keessatti sagalee waraabuun hin deeggaramu"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "Daawwadhu"
 

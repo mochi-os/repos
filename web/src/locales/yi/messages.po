@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# טעקע געענדערט} other {# טעקעס געענדערט}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# ליניע} other {# ליניעס}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} branches"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} commits"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} געטאַגד אויף {1}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} טאַגן"
 
@@ -125,6 +124,10 @@ msgstr "24 שעה"
 msgid "A recording is already in progress."
 msgstr "אַ רעקאָרדירונג גייט שוין אָן."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "אַ טאָקען פֿאַר דעם ריפּאָזיטאָרי איז שוין פֿריִער אַרויסגעגעבן געוואָרן און קען נישט ווידער געוויזן ווערן."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "אַבסאָלוט (דאַטע און צײַט)"
@@ -146,15 +149,15 @@ msgstr "צוטריט אָפּגעזאָגט"
 msgid "Access level"
 msgstr "צוטריט שטאַפּל"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "צוטריט שטאַפּל באַנײַט"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "צוטריט אַראָפּגענומען"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "צוטריט באַשטימט פֿאַר {subjectName}"
 
@@ -162,14 +165,14 @@ msgstr "צוטריט באַשטימט פֿאַר {subjectName}"
 msgid "Account type"
 msgstr "קאָנטע סאָרט"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "אַקטיוויטעט"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "צולייגן"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "אַלע רעפּאָזיטאָריעס"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "דערלויבן עמעצן צו לייענען רעפּאָזיטאָריע"
 
@@ -258,8 +261,8 @@ msgstr "דערלויבן עמעצן צו לייענען רעפּאָזיטאָר
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "דערלויב יעדן צו זוכן {entityLabel}"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "דערלויבן עמעצן צו זוכן פֿאַר רעפּאָזיטאָריע"
 
@@ -298,7 +301,7 @@ msgstr "אַלץ וואָס איז אַבאָנירט אויף דעם פֿיד �
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "זענט איר זיכער איר ווילט אויסמעקן \"{0}\"?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "זענט איר זיכער איר ווילט אויסמעקן \"{title}\"? די אַקציע קען נישט ווערן אומגעקערט."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "אַװאַטאַר פֿאַר {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "צוריק"
 
@@ -374,21 +377,21 @@ msgstr "צוריק צו commits"
 msgid "Back to home"
 msgstr "צוריק צום הויז"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "באַנער"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "באַנער אַראָפּגענומען"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "באַנער באַנײַט"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "Binary פֿײַל ({0})"
 
@@ -419,23 +422,19 @@ msgstr "פֿאַרשטאַרקן אינטערעס"
 msgid "Border colour"
 msgstr "ראַנד פֿאַרב"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "צווײַג \"{name}\" באַשאַפֿן"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "צווײַג \"{name}\" אויסגעמעקט"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "צווײַג נאָמען"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "צווײַג נאָמען איז נייטיק"
 
@@ -469,14 +468,12 @@ msgstr "די קאַמערע איז נישט פֿאַראַן"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "אָפּזאָגן"
 
@@ -484,8 +481,8 @@ msgstr "אָפּזאָגן"
 msgid "Cancel comment"
 msgstr "אָפּזאָגן קאָמענטאַר"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "אַנולירן רעדאַקטור"
 
@@ -542,7 +539,7 @@ msgstr "קלײַבט אַ שפּיל פֿון דער סײַדבאַר אָדער
 msgid "Choose language"
 msgstr "קלײַבט שפּראַך"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "רייניקן אַלץ"
 msgid "Clear search"
 msgstr "רייניקן זוכן"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "Clone רעפּאָזיטאָריע"
 
@@ -644,8 +641,8 @@ msgstr "קאָמענטאַר אַקציעס"
 msgid "Comments"
 msgstr "קאָמענטאַרן"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "קאָמענטאַרן ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "קאָפּירט"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "קאָפּירט צו קליפּברעט"
 
@@ -732,8 +729,8 @@ msgstr "קאָפּירן"
 msgid "Copy commit SHA"
 msgstr "קאָפּי commit SHA"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "קאָפּי טעקע אינהאַלט"
 
@@ -762,8 +759,8 @@ msgstr "מע האָט נישט געקענט באַשטעטיקן מיט יענע
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "באַשאַפֿן"
 
@@ -771,7 +768,7 @@ msgstr "באַשאַפֿן"
 msgid "Create {entityLabel}"
 msgstr "שאַף {entityLabel}"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "באַשאַפֿן אַ נײַעם אויטענטיפֿיקאַציע טאָקן."
 
@@ -779,10 +776,8 @@ msgstr "באַשאַפֿן אַ נײַעם אויטענטיפֿיקאַציע ט
 msgid "Create a new repository"
 msgstr "באַשאַפֿן אַ נײַעם רעפּאָזיטאָריע"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "באַשאַפֿן צווײַג"
 
@@ -796,8 +791,8 @@ msgstr "באַשאַפֿן נײַעם פּונקט"
 msgid "Create repository"
 msgstr "באַשאַפֿן רעפּאָזיטאָריע"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "באַשאַפֿן טאָקן"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "באַשאַפֿן"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "באַשאַפֿן {0}"
 
@@ -816,8 +811,7 @@ msgstr "באַשאַפֿן {0}"
 msgid "Created {field}"
 msgstr "באַשאַפֿן {field}"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "באַשאַפֿן צווײַג..."
 
@@ -825,14 +819,13 @@ msgstr "באַשאַפֿן צווײַג..."
 msgid "Creating repository..."
 msgstr "באַשאַפֿן אוצר..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "באַשאַפֿן טאָקען..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "באַשאַפֿן..."
 
@@ -861,8 +854,7 @@ msgstr "דאַטע"
 msgid "Decline"
 msgstr "אָפּזאָגן"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "פֿאָרויסבאַשטימט"
 
@@ -874,7 +866,7 @@ msgstr "פֿאַרשטאַנדלעך"
 msgid "Default AI account"
 msgstr "פֿאַרשטאַנדלעך AI קאָנטע"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "פֿאַרשטאַנדלעך צווײַג"
 
@@ -891,17 +883,15 @@ msgstr "פֿאַרשטאַנדלעך סאָרט"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "אויסמעקן"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "אויסמעקן \"{branchToDelete}\"? דאָס קען נישט ווערן אומגעקערט."
 
@@ -909,15 +899,12 @@ msgstr "אויסמעקן \"{branchToDelete}\"? דאָס קען נישט ווער
 msgid "Delete attachment"
 msgstr "אויסמעקן בײַלאַגע"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "אויסמעקן בראַנטש"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "אויסמעקן צווײַג?"
 
@@ -937,9 +924,9 @@ msgstr "אויסמעקן פֿעלד"
 msgid "Delete game?"
 msgstr "אויסמעקן דעם שפּיל?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "אויסמעקן פּונקט"
 
@@ -953,20 +940,20 @@ msgstr "אויסמעקן אָפּציע"
 msgid "Delete option {0}"
 msgstr "אויסמעקן אָפּציע {0}"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "אויסמעקן רעפּאָזיטאָריע"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "אויסמעקן רעפּאָזיטאָריע?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "אויסמעקן טאָקן"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "אויסמעקן טאָקן?"
 
@@ -986,22 +973,20 @@ msgstr "אויסגעמעקט"
 msgid "Deleted {field}"
 msgstr "אויסגעמעקט {field}"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "מעקן צווײַג..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "מעקן אוצר..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "מעקן טאָקען..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "אויסמעקן..."
 
@@ -1011,7 +996,7 @@ msgstr "אַראָפּגייענדיק"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "באַשרײַבונג"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "פּאַסט נישט צום פֿאָדערטן מוסטער"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "געטאָן"
 
@@ -1082,8 +1067,8 @@ msgstr "אַראָפּלאָדן"
 msgid "Download failed"
 msgstr "אַראָפּלאָדן דורכגעפֿאַלן"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "אַראָפּלאָדן טעקע"
 
@@ -1095,7 +1080,7 @@ msgstr "טאָפּלען"
 msgid "Dyslexia-friendly"
 msgstr "דיסלעקסיע פֿרײַנדלעך"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "למשל, אַרבעט־לעפּטאַפּ"
 
@@ -1120,7 +1105,7 @@ msgstr "רעדאַקטירן פֿעלד"
 msgid "Edit field settings"
 msgstr "רעדאַקטירן פֿעלד־הגדרות"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "רעדאַקטירן נאָמען"
 
@@ -1134,7 +1119,7 @@ msgstr "רעדאַקטירן אָפּציע"
 msgid "Edit option {0}"
 msgstr "רעדאַקטירן אָפּציע {0}"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "רעדאַקטירן וועג"
 
@@ -1154,15 +1139,15 @@ msgstr "בליצפּאָסט"
 msgid "Email code"
 msgstr "בליצפּאָסט־קאָד"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "ליידיקער פֿאָלדער"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "ליידיקער ריפּאָזיטאָריום"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "גיט אַרײַן באַנער־טעקסט (markdown געשטיצט)..."
 
@@ -1174,11 +1159,11 @@ msgstr "גיט אַרײַן דעם קאָד פֿון אײַער בליצפּאָ
 msgid "Enter your authenticator code"
 msgstr "גיט אַרײַן אײַער אויטענטיפֿיקאַטאָר־קאָד"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "ענטיטעט:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "טעות"
 
@@ -1210,8 +1195,7 @@ msgstr "ניט געלונגען צוצוגעבן קאָנטע"
 msgid "Failed to copy"
 msgstr "ניט געלונגען צו קאָפּירן"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "ניט געלונגען צו שאַפֿן צווײַג"
 
@@ -1225,7 +1209,7 @@ msgstr "ניט געלונגען צו שאַפֿן לינק"
 msgid "Failed to create repository"
 msgstr "ניט געלונגען צו שאַפֿן ריפּאָזיטאָריום"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "ניט געלונגען צו שאַפֿן טאָקען"
 
@@ -1237,8 +1221,7 @@ msgstr "ניט געלונגען צו מעקן"
 msgid "Failed to delete attachment"
 msgstr "ניט געלונגען צו מעקן בײַלאַגע"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "ניט געלונגען צו מעקן צווײַג"
 
@@ -1250,11 +1233,11 @@ msgstr "ניט געלונגען צו מעקן קאָמענטאַר"
 msgid "Failed to delete link"
 msgstr "ניט געלונגען צו מעקן לינק"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "ניט געלונגען צו מעקן ריפּאָזיטאָריום"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "ניט געלונגען צו מעקן טאָקען"
 
@@ -1270,7 +1253,7 @@ msgstr "ניט געלונגען צו אַראָפּלאָדן אַרכיוו"
 msgid "Failed to get RSS token"
 msgstr "ניט געלונגען צו באַקומען RSS־טאָקען"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "ניט געלונגען צו באַקומען טאָקען"
 
@@ -1278,12 +1261,15 @@ msgstr "ניט געלונגען צו באַקומען טאָקען"
 msgid "Failed to load"
 msgstr "ניט געלונגען צו לאָדן"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "ניט געלונגען צו לאָדן צוטריט־כּללים"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "נישט געקאָנט לאָדן דעם באַנער"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "ניט געלונגען צו לאָדן צווײַגן"
 
@@ -1291,17 +1277,15 @@ msgstr "ניט געלונגען צו לאָדן צווײַגן"
 msgid "Failed to load commit"
 msgstr "ניט געלונגען צו לאָדן commit"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "ניט געלונגען צו לאָדן commits"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "ניט געלונגען צו לאָדן פֿײַלן"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "ניט געלונגען צו לאָדן היסטאָריע"
 
@@ -1309,8 +1293,8 @@ msgstr "ניט געלונגען צו לאָדן היסטאָריע"
 msgid "Failed to load image"
 msgstr "נישט געקאָנט לאָדן דאָס בילד"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "ניט געלונגען צו לאָדן פּונקט"
 
@@ -1318,8 +1302,7 @@ msgstr "ניט געלונגען צו לאָדן פּונקט"
 msgid "Failed to load prompts"
 msgstr "ניט געלונגען צו לאָדן פּראָמפּטן"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "ניט געלונגען צו לאָדן טאַגן"
 
@@ -1335,11 +1318,11 @@ msgstr "דורכפֿאַל צו באַוועגן"
 msgid "Failed to post comment"
 msgstr "ניט געלונגען צו פּאָסטן קאָמענטאַר"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "ניט געלונגען צו אַראָפּנעמען צוטריט"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "ניט געלונגען צו איבערנעמען ריפּאָזיטאָריום"
 
@@ -1359,39 +1342,39 @@ msgstr "ניט געלונגען אויפֿצוהיטן"
 msgid "Failed to save prompt"
 msgstr "ניט געלונגען אויפֿצוהיטן פּראָמפּט"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "ניט געלונגען אויפֿצוהיטן הגדרה"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "דורכזוכן רעפּאָזיטאָריעס איז דורכגעפֿאַלן"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "ניט געלונגען צו שטעלן צוטריט־ניוואָ"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "ניט געלונגען צו אַבאָנירן"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "ניט געלונגען צו דעאַבאָנירן"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "ניט געלונגען צו דערהײַנטיקן צוטריט־ניוואָ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "ניט געלונגען צו דערהײַנטיקן באַנער"
 
@@ -1399,7 +1382,7 @@ msgstr "ניט געלונגען צו דערהײַנטיקן באַנער"
 msgid "Failed to update comment"
 msgstr "ניט געלונגען צו דערהײַנטיקן קאָמענטאַר"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "ניט געלונגען צו דערהײַנטיקן וועג"
 
@@ -1411,8 +1394,7 @@ msgstr "דורכפֿאַל צו דערהײַנטיקן אָבסערוואַצי�
 msgid "Failed to upload attachment"
 msgstr "ניט געלונגען אַרויפֿצולאָדן בײַלאַגע"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "פֿײַלן"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "געפֿינען ריפּאָזיטאָריומס"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "פֿינגער־אָפּדרוק:"
 
@@ -1494,7 +1476,7 @@ msgstr "גרופּירן לויט"
 msgid "Group: {0}"
 msgstr "גרופּע: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "היסטאָריע"
 
@@ -1513,7 +1495,7 @@ msgstr "הייס"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "אידענטיטעט"
 
@@ -1554,7 +1536,7 @@ msgstr "ניט גילטיקע דאַטע"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "עס װײַזט אױס אַז די זײַט װאָס איר זוכט <0/>עקזיסטירט נישט אָדער איז אַװעקגענומען געװאָרן."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "פּונקט־דעטאַלן"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "גרויס"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "לעצט באַניצט {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "לאָדן מער"
 msgid "Loading content…"
 msgstr "לאָדט אינהאַלט…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "לאָדט פּונקט"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "לאָדט פּונקט־דעטאַלן"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "אַרויסקומען…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "נאָר קליינע אותיות, נומערן, און בינדשטריכן"
 
@@ -1648,8 +1630,8 @@ msgstr "נאָר קליינע אותיות, נומערן, און בינדשטר�
 msgid "Manage categories"
 msgstr "פֿאַרוואַלטן קאַטעגאָריעס"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "פֿירן טאָקענס"
 
@@ -1739,7 +1721,7 @@ msgstr "נאָמען"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "נאָמען קען ניט אַנטהאַלטן < אָדער > כאַראַקטערן"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "נאָמען איז נייטיק"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "נאָמען מוז זײַן 100 כאַראַקטערן אָדער ווייניקער"
 
@@ -1756,7 +1738,7 @@ msgstr "נאָמען מוז זײַן 100 כאַראַקטערן אָדער וו�
 msgid "Name must be 1000 characters or less"
 msgstr "נאָמען מוז זײַן 1000 כאַראַקטערן אָדער ווייניקער"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "נאָמען:"
 
@@ -1765,8 +1747,8 @@ msgstr "נאָמען:"
 msgid "Network error"
 msgstr "נעץ פֿעלער"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "קיינמאָל"
 
@@ -1775,8 +1757,7 @@ msgstr "קיינמאָל"
 msgid "New"
 msgstr "נײַ"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "נײַער צווײַג"
 
@@ -1794,7 +1775,7 @@ msgstr "ווײַטערדיק בילד"
 msgid "No {parentClassNames} to add to"
 msgstr "קיין {parentClassNames} צוצולייגן"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "קיין צוטריט"
 
@@ -1806,8 +1787,7 @@ msgstr "קיין צוטריט כּללים קאָנפֿיגורירט. צולי�
 msgid "No activity yet"
 msgstr "נאָך קיין אַקטיוויטעט"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "נאָך קיין צווײַגן"
 
@@ -1815,8 +1795,7 @@ msgstr "נאָך קיין צווײַגן"
 msgid "No comments yet"
 msgstr "נאָך קיין באַמערקונגען"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "נאָך קיין קאָמיטס"
 
@@ -1849,8 +1828,8 @@ msgstr "קיין ערטער ניט געפֿונען"
 msgid "No public repositories."
 msgstr "קיין עפֿנטלעכע ריפּאָזיטאָריעס."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "קיין ריפּאָזיטאָריעס ניט געפֿונען"
 
@@ -1869,8 +1848,7 @@ msgstr "קיין רעזולטאַטן ניט געפֿונען."
 msgid "No status"
 msgstr "קיין סטאַטוס"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "נאָך קיין טאַגן"
 
@@ -1878,7 +1856,7 @@ msgstr "נאָך קיין טאַגן"
 msgid "No time zone found."
 msgstr "קיין צײַט זאָנע ניט געפֿונען."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "נאָך קיין טאָקנס."
 
@@ -1902,10 +1880,10 @@ msgstr "קיין קוקן"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "אייגנטימער"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "עלטער"
 
@@ -2040,15 +2018,15 @@ msgstr "פּאַסקייס זענען נישט פֿאַראַן אין דעם ב
 msgid "Path"
 msgstr "וועג"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "וועג איז נייטיק"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "וועג דערפֿרישט"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "וועג:"
 
@@ -2060,7 +2038,7 @@ msgstr "מוסטער (regex)"
 msgid "People"
 msgstr "מענטשן"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "אויסמעקן שטענדיק דעם ריפּאָזיטאָרי און אַלע זײַנע דאַטן"
 
@@ -2070,7 +2048,7 @@ msgstr "אויסמעקן שטענדיק דעם ריפּאָזיטאָרי און
 msgid "Please check your internet connection and try again."
 msgstr "זײַט אַזוי גוט קאָנטראָלירט אײַער אינטערנעץ פֿאַרבינדונג און פּרוּווט נאָך אַ מאָל."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "זײַ אַזוי גוט און אַרײַן אַ טאָקן נאָמען"
 
@@ -2108,7 +2086,7 @@ msgstr "פּראָצעסירונג…"
 msgid "Prompt saved"
 msgstr "פּראָמפּט אויפֿגעהיט"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "אייגנשאַפֿטן"
 
@@ -2128,11 +2106,11 @@ msgstr "פארבינד ווידער דיינע קאנטעס אויף דעם סע
 msgid "Re-register your passkeys on this server"
 msgstr "רעגיסטרירט איבער אייערע צוטריט שליסלען אויף דעם סערווער"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "לייענען און שרײַבן"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "נאָר לייענען"
 
@@ -2226,7 +2204,7 @@ msgstr "אַראָפּנעמען עלעמענט"
 msgid "Remove link"
 msgstr "אַראָפּנעמען לינק"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "אַראָפּנעמען צוטריט..."
 
@@ -2243,7 +2221,7 @@ msgstr "איבערטויפֿן זײַל"
 msgid "Rename this board column"
 msgstr "איבערטויפֿן די ברעט זײַל"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "איבערנעמען נאָמען פֿון אוצר..."
 
@@ -2265,10 +2243,10 @@ msgstr "ריפּאָזיטאָריעס"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "ריפּאָזיטאָרי"
 msgid "Repository created"
 msgstr "ריפּאָזיטאָרי באַשאַפֿן"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "ריפּאָזיטאָרי אויסגעמעקט"
 
@@ -2297,7 +2275,7 @@ msgstr "ריפּאָזיטאָרי ID איז נייטיק"
 msgid "Repository link"
 msgstr "רעפּאָזיטאָריע לינק"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "ריפּאָזיטאָרי נאָמען איז נייטיק"
 
@@ -2305,7 +2283,7 @@ msgstr "ריפּאָזיטאָרי נאָמען איז נייטיק"
 msgid "Repository not found"
 msgstr "ריפּאָזיטאָרי ניט געפֿונען"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "ריפּאָזיטאָרי איבערגעטויפֿט"
 
@@ -2372,28 +2350,28 @@ msgstr "שבת"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "היט אויף"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "היט די טאָקן איצט. איר וועט ניט קענען זי זען ווידער."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "היט די טאָקן זיכער. איר וועט ניט קענען זי זען ווידער."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "שפּייכערן אײַנשטעלונגען..."
 
@@ -2408,7 +2386,7 @@ msgstr "היטן..."
 msgid "Search"
 msgstr "זוך"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "זוך לויט נאָמען, ID, פֿינגערפּרינט, אָדער URL..."
 
@@ -2432,7 +2410,7 @@ msgstr "זוך נאָך דעסטינאַציע..."
 msgid "Search for origin..."
 msgstr "זוך נאָך אָריגין..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "זוך נאָך ריפּאָזיטאָריעס..."
 
@@ -2493,7 +2471,7 @@ msgstr "קלײַב קאָנטע טיפּ"
 msgid "Select branch"
 msgstr "קלײַב צווײַג"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "קלײַב פֿאָרויסבאַשטימטן צווײַג"
 
@@ -2517,8 +2495,7 @@ msgstr "קלײַבט אױס אַ מענטש..."
 msgid "Select previous card"
 msgstr "קלײַב פֿריִערדיקע קאַרטל"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "קלײַב מקור־צווײַג"
 
@@ -2567,7 +2544,7 @@ msgstr "די סעסיע איז אויסגעגאַנגען. ביטע לאָגט �
 msgid "Set origin and destination"
 msgstr "שטעל אָנהייב און ציל"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "באַשטעטיקן צוטריט..."
 
@@ -2578,10 +2555,10 @@ msgstr "באַשטעטיקן צוטריט..."
 msgid "Settings"
 msgstr "אײַנשטעלונגען"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "אײַנשטעלונגען אויפֿגעהיט"
 
@@ -2632,8 +2609,7 @@ msgstr "קליין"
 msgid "Sort"
 msgstr "סאָרטיר"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "מקור־צווײַג"
 
@@ -2649,8 +2625,8 @@ msgstr "ברייט"
 msgid "Start the discussion by adding the first comment."
 msgstr "הייב אָן די דיסקוסיע מיטן צולייגן דעם ערשטן קאָמענטאַר."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "הער אויף נאָכקוקן"
 
@@ -2669,19 +2645,19 @@ msgstr "געב אונטער ענטפֿער"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "אַבאָנירן"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "אַבאָנירט"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "בײַטן צװײַג"
 msgid "Switch to view 1-9"
 msgstr "ביט איבער צו ראַם 1-9"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "עס האָט נישט געקענט געשיקט ווערן. די טעק
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "עס איז געווען צו גרויס אַרויפֿצולאָדן. נעמט אַראָפּ אָדער פֿאַרקלענערט טעקעס און פּרוּווט נאָך אַ מאָל."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "דער צווײַג וואָס ווערט געוויזן בײַם זען די רעפּאָזיטאָריע"
 
@@ -2773,6 +2749,11 @@ msgstr "דער סערװער האָט צוריקגעגעבן אַ וועב-בלא
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "די אַפּ איז נישט דערלויבט צו נוצן דײַן פּאַסקיי. דערלויבט עס אין אײַנשטעלונגען, אונטער דערלויבענישן."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "די דאָזיקע טעקע איז צו גרויס צו ווײַזן ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "דער זײַטל פֿאָדערט אַ רעפּאָזיטאָריע־ק
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "דאָס וועט אויף שטענדיק אויסמעקן דעם שפּיל און זײַן טשאַט. מע קען דעם ניט מבֿטל מאַכן."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "דאָס וועט אויף שטענדיק אויסמעקן „{currentName}\" און אַלע זײַנע commits, branches, און tags. די אַקציע קאָן נישט ווערן צוריקגעקערט."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "דאָס וועט אויף שטענדיק אויסמעקן דעם טאָקען. אַלע git־קליִענטן וואָס ניצן עס וועלן מער נישט קאָנען זיך אויטענטיפֿיצירן."
 
@@ -2795,7 +2776,7 @@ msgstr "דאָס וועט אויף שטענדיק אויסמעקן דעם טאָ
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "דאָס וועט אַראָפּנעמען „{name}\" פֿון אײַער רעפּאָזיטאָריע־ליסטע. איר קאָנט שפּעטער ווידער אַבאָנירן."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "דאָס וועט אַראָפּנעמען „{repoName}\" פֿון אײַער רעפּאָזיטאָריע־ליסטע. איר קאָנט שפּעטער ווידער אַבאָנירן."
 
@@ -2830,15 +2811,15 @@ msgstr "ביט בליק־אָפּציעס"
 msgid "Toggle watched filter"
 msgstr "ביט נאָכקוק־פֿילטער"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "טאָקען באַשאַפֿן"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "טאָקען אויסגעמעקט"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "טאָקען־נאָמען"
 
@@ -2914,7 +2895,7 @@ msgstr "אומדערװאַרטע API־טעות"
 msgid "United States"
 msgstr "פֿאַראייניקטע שטאַטן"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "אומבאַקאַנט"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "אַבאַבאָנירן"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "אַבאַבאָנירן פֿון רעפּאָזיטאָריע?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "אַבאַבאָנירט"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "אַבאַבאָנירט פֿון רעפּאָזיטאָריע"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "אַבאַבאָנירן..."
@@ -2970,11 +2951,11 @@ msgstr "באַנײַט"
 msgid "Updated {field}"
 msgstr "דערהײַנטיקט {field}"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "דערהײַנטיקן צוטריט..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "דערהײַנטיקן וועג..."
 
@@ -3028,7 +3009,7 @@ msgstr "ווידעאָ־ווײַזער: {0}"
 msgid "View all notifications"
 msgstr "זע אַלע נאָטיפֿיקאַציעס"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "זע און רעדאַקטיר אַרטיקל־פּרטים"
 
@@ -3040,8 +3021,8 @@ msgstr "בליק־קאָנטראָלן"
 msgid "Voice recording is not supported in this browser"
 msgstr "קול רעקאָרדירונג ווערט נישט געשטיצט אין דעם בלעטערער"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "נאָכקוק"
 

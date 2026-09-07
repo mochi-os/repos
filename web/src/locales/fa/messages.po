@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# فایل تغییر کرد} other {# فایل تغییر کرد}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# خط} other {# خط}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} شاخه"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} commit"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} در {1} برچسب خورد"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} برچسب"
 
@@ -125,6 +124,10 @@ msgstr "۲۴ ساعت"
 msgid "A recording is already in progress."
 msgstr "ضبط از قبل در حال انجام است."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "توکنی برای این مخزن قبلاً صادر شده و دیگر قابل نمایش نیست."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "مطلق (تاریخ و زمان)"
@@ -146,15 +149,15 @@ msgstr "دسترسی رد شد"
 msgid "Access level"
 msgstr "سطح دسترسی"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "سطح دسترسی به‌روزرسانی شد"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "دسترسی حذف شد"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "دسترسی برای {subjectName} تنظیم شد"
 
@@ -162,14 +165,14 @@ msgstr "دسترسی برای {subjectName} تنظیم شد"
 msgid "Account type"
 msgstr "نوع حساب"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "فعالیت"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "افزودن"
 
@@ -249,8 +252,8 @@ msgstr "هوش مصنوعی"
 msgid "All repositories"
 msgstr "همهٔ مخزن‌ها"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "همه بتوانند مخزن را بخوانند"
 
@@ -258,8 +261,8 @@ msgstr "همه بتوانند مخزن را بخوانند"
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "به همه اجازه بده {entityLabel} را جستجو کنند"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "همه بتوانند مخزن را جست‌وجو کنند"
 
@@ -298,7 +301,7 @@ msgstr "هر چیزی که مشترک این خوراک است دیگر آن ر�
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "آیا از حذف «{0}» مطمئن هستید؟"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "آیا از حذف «{title}» مطمئن هستید؟ این عمل قابل بازگشت نیست."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "آواتار {name}"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "بازگشت"
 
@@ -374,21 +377,21 @@ msgstr "بازگشت به commitها"
 msgid "Back to home"
 msgstr "بازگشت به خانه"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "بنر"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "بنر حذف شد"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "بنر به‌روزرسانی شد"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "فایل دودویی ({0})"
 
@@ -419,23 +422,19 @@ msgstr "تقویت علاقه"
 msgid "Border colour"
 msgstr "رنگ حاشیه"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "شاخه \"{name}\" ایجاد شد"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "شاخه \"{name}\" حذف شد"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "نام شاخه"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "نام شاخه الزامی است"
 
@@ -469,14 +468,12 @@ msgstr "دوربین در دسترس نیست"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "لغو"
 
@@ -484,8 +481,8 @@ msgstr "لغو"
 msgid "Cancel comment"
 msgstr "لغو نظر"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "لغو ویرایش"
 
@@ -542,7 +539,7 @@ msgstr "از نوار کناری یک بازی انتخاب کنید یا باز
 msgid "Choose language"
 msgstr "انتخاب زبان"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "پاک کردن همه"
 msgid "Clear search"
 msgstr "پاک کردن جست‌وجو"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "Clone مخزن"
 
@@ -644,8 +641,8 @@ msgstr "کنش‌های نظر"
 msgid "Comments"
 msgstr "نظرها"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "نظرها ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "کپی شد"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "در کلیپ‌بورد کپی شد"
 
@@ -732,8 +729,8 @@ msgstr "کپی"
 msgid "Copy commit SHA"
 msgstr "کپی SHA کامیت"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "کپی محتوای فایل"
 
@@ -762,8 +759,8 @@ msgstr "تأیید با آن حساب ممکن نشد. لطفاً دوباره �
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "ساختن"
 
@@ -771,7 +768,7 @@ msgstr "ساختن"
 msgid "Create {entityLabel}"
 msgstr "ایجاد {entityLabel}"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "ساخت توکن احراز هویت جدید."
 
@@ -779,10 +776,8 @@ msgstr "ساخت توکن احراز هویت جدید."
 msgid "Create a new repository"
 msgstr "ساخت مخزن جدید"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "ساخت شاخه"
 
@@ -796,8 +791,8 @@ msgstr "ساخت مورد جدید"
 msgid "Create repository"
 msgstr "ساخت مخزن"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "ساخت توکن"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "ساخته شد"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "ساخته‌شده {0}"
 
@@ -816,8 +811,7 @@ msgstr "ساخته‌شده {0}"
 msgid "Created {field}"
 msgstr "{field} ایجاد شد"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "در حال ایجاد شاخه..."
 
@@ -825,14 +819,13 @@ msgstr "در حال ایجاد شاخه..."
 msgid "Creating repository..."
 msgstr "در حال ایجاد مخزن..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "در حال ایجاد توکن..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "در حال ساخت..."
 
@@ -861,8 +854,7 @@ msgstr "تاریخ"
 msgid "Decline"
 msgstr "رد"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "پیش‌فرض"
 
@@ -874,7 +866,7 @@ msgstr "پیش‌فرض"
 msgid "Default AI account"
 msgstr "حساب پیش‌فرض هوش مصنوعی"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "شاخهٔ پیش‌فرض"
 
@@ -891,17 +883,15 @@ msgstr "مرتب‌سازی پیش‌فرض"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "حذف"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "حذف «{branchToDelete}»؟ این عمل قابل بازگشت نیست."
 
@@ -909,15 +899,12 @@ msgstr "حذف «{branchToDelete}»؟ این عمل قابل بازگشت نیس
 msgid "Delete attachment"
 msgstr "حذف پیوست"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "حذف شاخه"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "حذف شاخه؟"
 
@@ -937,9 +924,9 @@ msgstr "حذف فیلد"
 msgid "Delete game?"
 msgstr "بازی حذف شود؟"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "حذف مورد"
 
@@ -953,20 +940,20 @@ msgstr "حذف گزینه"
 msgid "Delete option {0}"
 msgstr "حذف گزینهٔ {0}"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "حذف مخزن"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "حذف مخزن؟"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "حذف توکن"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "حذف توکن؟"
 
@@ -986,22 +973,20 @@ msgstr "حذف شد"
 msgid "Deleted {field}"
 msgstr "{field} حذف شد"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "در حال حذف شاخه..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "در حال حذف مخزن..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "در حال حذف توکن..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "در حال حذف..."
 
@@ -1011,7 +996,7 @@ msgstr "نزولی"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "توضیحات"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "با الگوی موردنیاز مطابقت ندارد"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "انجام شد"
 
@@ -1082,8 +1067,8 @@ msgstr "دانلود"
 msgid "Download failed"
 msgstr "دانلود ناموفق بود"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "دانلود فایل"
 
@@ -1095,7 +1080,7 @@ msgstr "موارد تکراری"
 msgid "Dyslexia-friendly"
 msgstr "مناسب برای دیسلکسی"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "مثلاً لپ‌تاپ کاری"
 
@@ -1120,7 +1105,7 @@ msgstr "ویرایش فیلد"
 msgid "Edit field settings"
 msgstr "ویرایش تنظیمات فیلد"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "ویرایش نام"
 
@@ -1134,7 +1119,7 @@ msgstr "ویرایش گزینه"
 msgid "Edit option {0}"
 msgstr "ویرایش گزینه {0}"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "ویرایش مسیر"
 
@@ -1154,15 +1139,15 @@ msgstr "ایمیل"
 msgid "Email code"
 msgstr "کد ایمیل"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "پوشه خالی"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "مخزن خالی"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "متن بنر را وارد کنید (markdown پشتیبانی می‌شود)..."
 
@@ -1174,11 +1159,11 @@ msgstr "کد دریافتی از ایمیل خود را وارد کنید"
 msgid "Enter your authenticator code"
 msgstr "کد برنامه احرازکننده هویت خود را وارد کنید"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "موجودیت:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "خطا"
 
@@ -1210,8 +1195,7 @@ msgstr "افزودن حساب ناموفق بود"
 msgid "Failed to copy"
 msgstr "کپی ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "ایجاد شاخه ناموفق بود"
 
@@ -1225,7 +1209,7 @@ msgstr "ایجاد لینک ناموفق بود"
 msgid "Failed to create repository"
 msgstr "ایجاد مخزن ناموفق بود"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "ایجاد توکن ناموفق بود"
 
@@ -1237,8 +1221,7 @@ msgstr "حذف ناموفق بود"
 msgid "Failed to delete attachment"
 msgstr "حذف پیوست ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "حذف شاخه ناموفق بود"
 
@@ -1250,11 +1233,11 @@ msgstr "حذف دیدگاه ناموفق بود"
 msgid "Failed to delete link"
 msgstr "حذف لینک ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "حذف مخزن ناموفق بود"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "حذف توکن ناموفق بود"
 
@@ -1270,7 +1253,7 @@ msgstr "دانلود آرشیو ناموفق بود"
 msgid "Failed to get RSS token"
 msgstr "دریافت توکن RSS ناموفق بود"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "دریافت توکن ناموفق بود"
 
@@ -1278,12 +1261,15 @@ msgstr "دریافت توکن ناموفق بود"
 msgid "Failed to load"
 msgstr "بارگذاری ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "بارگذاری قوانین دسترسی ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "بارگذاری بنر ناموفق بود"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "بارگذاری شاخه‌ها ناموفق بود"
 
@@ -1291,17 +1277,15 @@ msgstr "بارگذاری شاخه‌ها ناموفق بود"
 msgid "Failed to load commit"
 msgstr "بارگذاری commit ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "بارگذاری commitها ناموفق بود"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "بارگذاری فایل‌ها ناموفق بود"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "بارگذاری تاریخچه ناموفق بود"
 
@@ -1309,8 +1293,8 @@ msgstr "بارگذاری تاریخچه ناموفق بود"
 msgid "Failed to load image"
 msgstr "بارگذاری تصویر ناموفق بود"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "بارگذاری مورد ناموفق بود"
 
@@ -1318,8 +1302,7 @@ msgstr "بارگذاری مورد ناموفق بود"
 msgid "Failed to load prompts"
 msgstr "بارگذاری promptها ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "بارگذاری برچسب‌ها ناموفق بود"
 
@@ -1335,11 +1318,11 @@ msgstr "انتقال ناموفق بود"
 msgid "Failed to post comment"
 msgstr "ارسال دیدگاه ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "حذف دسترسی ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "تغییر نام مخزن ناموفق بود"
 
@@ -1359,39 +1342,39 @@ msgstr "ذخیره ناموفق بود"
 msgid "Failed to save prompt"
 msgstr "ذخیره prompt ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "ذخیره تنظیمات ناموفق بود"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "جستجوی مخزن‌ها ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "تنظیم سطح دسترسی ناموفق بود"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "اشتراک ناموفق بود"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "لغو اشتراک ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "به‌روزرسانی سطح دسترسی ناموفق بود"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "به‌روزرسانی بنر ناموفق بود"
 
@@ -1399,7 +1382,7 @@ msgstr "به‌روزرسانی بنر ناموفق بود"
 msgid "Failed to update comment"
 msgstr "به‌روزرسانی دیدگاه ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "به‌روزرسانی مسیر ناموفق بود"
 
@@ -1411,8 +1394,7 @@ msgstr "به‌روزرسانی دنبال‌کردن ناموفق بود"
 msgid "Failed to upload attachment"
 msgstr "بارگذاری پیوست ناموفق بود"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "فایل‌ها"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "یافتن مخازن"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "اثر انگشت:"
 
@@ -1494,7 +1476,7 @@ msgstr "گروه‌بندی بر اساس"
 msgid "Group: {0}"
 msgstr "گروه: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "تاریخچه"
 
@@ -1513,7 +1495,7 @@ msgstr "داغ"
 msgid "ID"
 msgstr "شناسه"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "هویت"
 
@@ -1554,7 +1536,7 @@ msgstr "تاریخ نامعتبر"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "به نظر می‌رسد صفحه‌ای که به دنبال آن هستید <0/>وجود ندارد یا حذف شده است."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "جزئیات مورد"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "بزرگ"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "آخرین استفاده {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "بارگذاری بیشتر"
 msgid "Loading content…"
 msgstr "در حال بارگذاری محتوا…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "در حال بارگذاری مورد"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "در حال بارگذاری جزئیات مورد"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "در حال خروج…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "فقط حروف کوچک، اعداد و خط‌تیره"
 
@@ -1648,8 +1630,8 @@ msgstr "فقط حروف کوچک، اعداد و خط‌تیره"
 msgid "Manage categories"
 msgstr "مدیریت دسته‌ها"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "مدیریت توکن‌ها"
 
@@ -1739,7 +1721,7 @@ msgstr "نام"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "نام نمی‌تواند شامل کاراکترهای < یا > باشد"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "نام الزامی است"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "نام باید ۱۰۰ کاراکتر یا کمتر باشد"
 
@@ -1756,7 +1738,7 @@ msgstr "نام باید ۱۰۰ کاراکتر یا کمتر باشد"
 msgid "Name must be 1000 characters or less"
 msgstr "نام باید ۱۰۰۰ کاراکتر یا کمتر باشد"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "نام:"
 
@@ -1765,8 +1747,8 @@ msgstr "نام:"
 msgid "Network error"
 msgstr "خطای شبکه"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "هرگز"
 
@@ -1775,8 +1757,7 @@ msgstr "هرگز"
 msgid "New"
 msgstr "جدید"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "شاخه جدید"
 
@@ -1794,7 +1775,7 @@ msgstr "تصویر بعدی"
 msgid "No {parentClassNames} to add to"
 msgstr "هیچ {parentClassNames} برای افزودن به آن وجود ندارد"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "بدون دسترسی"
 
@@ -1806,8 +1787,7 @@ msgstr "هیچ قاعده دسترسی پیکربندی نشده است. برا�
 msgid "No activity yet"
 msgstr "هنوز فعالیتی وجود ندارد"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "هنوز شاخه‌ای وجود ندارد"
 
@@ -1815,8 +1795,7 @@ msgstr "هنوز شاخه‌ای وجود ندارد"
 msgid "No comments yet"
 msgstr "هنوز نظری وجود ندارد"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "هنوز کامیتی وجود ندارد"
 
@@ -1849,8 +1828,8 @@ msgstr "مکانی یافت نشد"
 msgid "No public repositories."
 msgstr "هیچ مخزن عمومی‌ای وجود ندارد."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "مخزنی یافت نشد"
 
@@ -1869,8 +1848,7 @@ msgstr "نتیجه‌ای یافت نشد."
 msgid "No status"
 msgstr "بدون وضعیت"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "هنوز برچسبی وجود ندارد"
 
@@ -1878,7 +1856,7 @@ msgstr "هنوز برچسبی وجود ندارد"
 msgid "No time zone found."
 msgstr "منطقه زمانی یافت نشد."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "هنوز توکنی وجود ندارد."
 
@@ -1902,10 +1880,10 @@ msgstr "بدون بازدید"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "مالک"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "والد"
 
@@ -2040,15 +2018,15 @@ msgstr "پسکی‌ها در این مرورگر در دسترس نیستند"
 msgid "Path"
 msgstr "مسیر"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "مسیر الزامی است"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "مسیر به‌روزرسانی شد"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "مسیر:"
 
@@ -2060,7 +2038,7 @@ msgstr "الگو (regex)"
 msgid "People"
 msgstr "افراد"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "این مخزن و تمام داده‌های آن را به طور دائم حذف کنید"
 
@@ -2070,7 +2048,7 @@ msgstr "این مخزن و تمام داده‌های آن را به طور دا
 msgid "Please check your internet connection and try again."
 msgstr "لطفاً اتصال اینترنت خود را بررسی کرده و دوباره تلاش کنید."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "لطفاً نام توکن را وارد کنید"
 
@@ -2108,7 +2086,7 @@ msgstr "در حال پردازش…"
 msgid "Prompt saved"
 msgstr "Prompt ذخیره شد"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "ویژگی‌ها"
 
@@ -2128,11 +2106,11 @@ msgstr "حساب‌های خود را در این سرور مجدداً پیون
 msgid "Re-register your passkeys on this server"
 msgstr "کلیدهای عبور خود را دوباره در این سرور ثبت کنید"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "خواندن و نوشتن"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "فقط خواندن"
 
@@ -2226,7 +2204,7 @@ msgstr "حذف آیتم"
 msgid "Remove link"
 msgstr "حذف پیوند"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "در حال حذف دسترسی..."
 
@@ -2243,7 +2221,7 @@ msgstr "تغییر نام ستون"
 msgid "Rename this board column"
 msgstr "تغییر نام این ستون تخته"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "در حال تغییر نام مخزن..."
 
@@ -2265,10 +2243,10 @@ msgstr "مخازن"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "مخزن"
 msgid "Repository created"
 msgstr "مخزن ایجاد شد"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "مخزن حذف شد"
 
@@ -2297,7 +2275,7 @@ msgstr "شناسه مخزن الزامی است"
 msgid "Repository link"
 msgstr "پیوند مخزن"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "نام مخزن الزامی است"
 
@@ -2305,7 +2283,7 @@ msgstr "نام مخزن الزامی است"
 msgid "Repository not found"
 msgstr "مخزن یافت نشد"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "نام مخزن تغییر کرد"
 
@@ -2372,28 +2350,28 @@ msgstr "شنبه"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "ذخیره"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "این توکن را اکنون ذخیره کنید. دیگر نمی‌توانید آن را ببینید."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "این توکن را به صورت ایمن ذخیره کنید. دیگر نمی‌توانید آن را ببینید."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "در حال ذخیره تنظیمات..."
 
@@ -2408,7 +2386,7 @@ msgstr "در حال ذخیره..."
 msgid "Search"
 msgstr "جست‌وجو"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "جست‌وجو بر اساس نام، شناسه، اثرانگشت یا URL..."
 
@@ -2432,7 +2410,7 @@ msgstr "جست‌وجوی مقصد..."
 msgid "Search for origin..."
 msgstr "جست‌وجوی مبدأ..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "جست‌وجوی مخازن..."
 
@@ -2493,7 +2471,7 @@ msgstr "انتخاب نوع حساب"
 msgid "Select branch"
 msgstr "انتخاب شاخه"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "انتخاب شاخه پیش‌فرض"
 
@@ -2517,8 +2495,7 @@ msgstr "شخصی را انتخاب کنید..."
 msgid "Select previous card"
 msgstr "انتخاب کارت قبلی"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "انتخاب شاخه مبدأ"
 
@@ -2567,7 +2544,7 @@ msgstr "نشست منقضی شده است. لطفاً دوباره وارد شو
 msgid "Set origin and destination"
 msgstr "تنظیم مبدأ و مقصد"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "در حال تنظیم دسترسی..."
 
@@ -2578,10 +2555,10 @@ msgstr "در حال تنظیم دسترسی..."
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "تنظیمات ذخیره شد"
 
@@ -2632,8 +2609,7 @@ msgstr "کوچک"
 msgid "Sort"
 msgstr "مرتب‌سازی"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "شاخه مبدأ"
 
@@ -2649,8 +2625,8 @@ msgstr "گسترده"
 msgid "Start the discussion by adding the first comment."
 msgstr "با افزودن اولین نظر، گفت‌وگو را آغاز کنید."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "توقف تماشا"
 
@@ -2669,19 +2645,19 @@ msgstr "ثبت پاسخ"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "اشتراک"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "مشترک شد"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "تغییر شاخه"
 msgid "Switch to view 1-9"
 msgstr "تغییر به نمای ۱ تا ۹"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "ارسال نشد. ممکن است فایل‌ها بیش از حد بز
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "برای بارگذاری بیش از حد بزرگ بود. فایل‌ها را حذف یا کوچک کنید و دوباره تلاش کنید."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "شاخه‌ای که هنگام مشاهده مخزن نمایش داده می‌شود"
 
@@ -2773,6 +2749,11 @@ msgstr "سرور به‌جای داده، یک صفحهٔ وب برگرداند.
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "این برنامه اجازه استفاده از پسکی شما را ندارد. در تنظیمات، بخش مجوزها به آن اجازه دهید."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "این فایل برای نمایش بیش از حد بزرگ است ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "این صفحه به یک بستر مخزن نیاز دارد."
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "این کار بازی و گفتگوی آن را برای همیشه حذف می‌کند. این عمل قابل بازگشت نیست."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "این کار «{currentName}» و تمام commitها، شاخه‌ها و tagهای آن را به‌طور دائمی حذف می‌کند. این عمل قابل بازگشت نیست."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "این کار این توکن را به‌طور دائمی حذف می‌کند. هر git client که از آن استفاده می‌کند دیگر قادر به احراز هویت نخواهد بود."
 
@@ -2795,7 +2776,7 @@ msgstr "این کار این توکن را به‌طور دائمی حذف می�
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "این کار «{name}» را از فهرست مخازن شما حذف می‌کند. بعداً می‌توانید دوباره مشترک شوید."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "این کار «{repoName}» را از فهرست مخازن شما حذف می‌کند. بعداً می‌توانید دوباره مشترک شوید."
 
@@ -2830,15 +2811,15 @@ msgstr "تغییر وضعیت گزینه‌های نما"
 msgid "Toggle watched filter"
 msgstr "تغییر وضعیت فیلتر تماشاشده"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "توکن ایجاد شد"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "توکن حذف شد"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "نام توکن"
 
@@ -2914,7 +2895,7 @@ msgstr "خطای غیرمنتظره API"
 msgid "United States"
 msgstr "ایالات متحده"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "ناشناخته"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "لغو اشتراک"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "لغو اشتراک از مخزن؟"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "لغو اشتراک شد"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "لغو اشتراک از مخزن انجام شد"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "در حال لغو اشتراک..."
@@ -2970,11 +2951,11 @@ msgstr "به‌روزرسانی شد"
 msgid "Updated {field}"
 msgstr "{field} به‌روزرسانی شد"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "در حال به‌روزرسانی دسترسی..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "در حال به‌روزرسانی مسیر..."
 
@@ -3028,7 +3009,7 @@ msgstr "نمایشگر ویدیو: {0}"
 msgid "View all notifications"
 msgstr "نمایش همه اعلان‌ها"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "نمایش و ویرایش جزئیات مورد"
 
@@ -3040,8 +3021,8 @@ msgstr "کنترل‌های نمایش"
 msgid "Voice recording is not supported in this browser"
 msgstr "ضبط صدا در این مرورگر پشتیبانی نمی‌شود"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "تماشا"
 

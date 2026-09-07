@@ -170,6 +170,7 @@ export function CreateRepositoryDialog({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={2}
+              maxLength={2000}
             />
           </div>
 

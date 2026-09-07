@@ -42,10 +42,9 @@ export function InlineRepoSearch({
   };
 
   const probe = async (url: string): Promise<SearchResult[]> => {
-    const probed = await reposRequest.post<
-      { data?: SearchResult } & Partial<SearchResult>
-    >(endpoints.repo.probe, { url }, { baseURL: appBasePath() });
-    const data: Partial<SearchResult> = probed?.data ?? probed ?? {};
+    const data = await reposRequest.post<Partial<SearchResult>>(
+      endpoints.repo.probe, { url }, { baseURL: appBasePath() },
+    );
     return data.id
       ? [
           {

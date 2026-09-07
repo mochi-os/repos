@@ -166,11 +166,13 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
             <FileCode className="h-4 w-4" />
             <span>{fileName}</span>
             <span className="text-muted-foreground">
-              {formatFileSize(data.size)} · {plural(lines.length, { one: '1 line', other: '# lines' })}
+              {data.content != null
+                ? `${formatFileSize(data.size)} · ${plural(lines.length, { one: '1 line', other: '# lines' })}`
+                : formatFileSize(data.size)}
             </span>
           </div>
           <div className="flex items-center gap-1">
-            {!data.binary && (
+            {data.content != null && (
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopy} aria-label={t`Copy file contents`}>
@@ -180,14 +182,16 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
                 <TooltipContent>{t`Copy file contents`}</TooltipContent>
               </Tooltip>
             )}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload} aria-label={t`Download file`}>
-                  <Download className="h-4 w-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>{t`Download file`}</TooltipContent>
-            </Tooltip>
+            {data.content != null && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload} aria-label={t`Download file`}>
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>{t`Download file`}</TooltipContent>
+              </Tooltip>
+            )}
           </div>
         </div>
         <CardContent className="p-0">
@@ -195,6 +199,11 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
             <div className="p-8 text-center text-muted-foreground">
               <File className="h-12 w-12 mx-auto mb-2" />
               <p><Trans>Binary file ({formatFileSize(data.size)})</Trans></p>
+            </div>
+          ) : data.content == null ? (
+            <div className="p-8 text-center text-muted-foreground">
+              <File className="h-12 w-12 mx-auto mb-2" />
+              <p><Trans>This file is too large to display ({formatFileSize(data.size)})</Trans></p>
             </div>
           ) : (
             <div className="overflow-x-auto">

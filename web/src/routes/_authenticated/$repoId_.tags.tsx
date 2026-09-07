@@ -3,24 +3,13 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { Trans, useLingui } from '@lingui/react/macro'
-import {
-  Main,
-  Card,
-  CardContent,
-  Skeleton,
-  usePageTitle,
-  GeneralError,
-  getErrorMessage,
-  useFormat,
-} from '@mochi/web'
-import { Tag } from 'lucide-react'
+import { useLingui } from '@lingui/react/macro'
+import { createFileRoute } from '@tanstack/react-router'
+import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { useTags } from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
-import { DownloadDropdown } from '@/components/download-dropdown'
+import { TagsList } from '@/features/repository/tags-list'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
   loader: async ({ params }) => {
@@ -51,90 +40,8 @@ function TagsPage() {
           isRemote={data.remote}
           server={data.server}
         />
-        <TagsList
-          repoId={data.repoId}
-        />
+        <TagsList repoId={data.id || data.repoId} fingerprint={data.fingerprint || data.repoId} />
       </div>
     </Main>
   )
 }
-
-interface TagsListProps {
-  repoId: string
-}
-
-function TagsList({ repoId }: TagsListProps) {
-  const { t } = useLingui()
-  const { formatTimestamp } = useFormat()
-  const { data, isLoading, error } = useTags(repoId)
-
-  if (isLoading) {
-    return (
-      <div className="space-y-2 p-4">
-        {[...Array(5)].map((_, i) => (
-          <Skeleton key={i} className="h-12 w-full" />
-        ))}
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 text-destructive">
-        {getErrorMessage(error, t`Failed to load tags`)}
-      </div>
-    )
-  }
-
-  const tags = data?.tags || []
-
-  if (tags.length === 0) {
-    return (
-      <div className="p-8 text-center text-muted-foreground">
-        <Tag className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p><Trans>No tags yet</Trans></p>
-      </div>
-    )
-  }
-
-  return (
-    <div className="p-4">
-      <Card>
-        <CardContent className="p-0 divide-y">
-          {tags.map((tag) => (
-            <div
-              key={tag.name}
-              className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
-            >
-              <Link
-                to="/$repoId/tree/$ref/$"
-                params={{ repoId, ref: tag.name, _splat: '' }}
-                className="flex items-center gap-4 flex-1 min-w-0"
-              >
-                <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium">{tag.name}</div>
-                  {tag.message && (
-                    <div className="text-sm text-muted-foreground truncate">
-                      {tag.message}
-                    </div>
-                  )}
-                  {tag.tagger && tag.date && (
-                    <div className="text-sm text-muted-foreground">
-                      <Trans>{tag.tagger} tagged on {formatTimestamp(tag.date)}</Trans>
-                    </div>
-                  )}
-                </div>
-              </Link>
-              <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                {tag.sha.substring(0, 7)}
-              </code>
-              <DownloadDropdown gitRef={tag.name} variant="icon" />
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-    </div>
-  )
-}
-

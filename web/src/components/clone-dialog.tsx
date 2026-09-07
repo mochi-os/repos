@@ -95,6 +95,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   const [copied, setCopied] = useState(false)
   const [newTokenName, setNewTokenName] = useState('')
   const [newToken, setNewToken] = useState<string | null>(null)
+  const [tokenExisting, setTokenExisting] = useState(false)
   const [deleteHash, setDeleteHash] = useState<string | null>(null)
   const queryClient = useQueryClient()
 
@@ -179,6 +180,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
         'token/ensure',
         { name: cloneTarget(repoPath) }
       )
+      setTokenExisting(response.existing === true)
       setCloneCommand(buildCloneUrl(response.token ?? null))
       setView('clone')
     } catch (error) {
@@ -300,7 +302,9 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
               </div>
               {isAuthenticated && (
                 <p className="text-sm text-muted-foreground">
-                  <Trans>Save this token securely. You won't be able to see it again.</Trans>
+                  {tokenExisting
+                    ? <Trans>A token for this repository was issued earlier and cannot be shown again.</Trans>
+                    : <Trans>Save this token securely. You won't be able to see it again.</Trans>}
                 </p>
               )}
               <DialogFooter className="flex-row gap-2 sm:justify-between">

@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# फाइल परिवर्तन भयो} other {# फाइलहरू परिवर्तन भए}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# लाइन} other {# लाइनहरू}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} शाखाहरू"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} कमिटहरू"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} ले {1} मा ट्याग गर्‍यो"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} ट्यागहरू"
 
@@ -125,6 +124,10 @@ msgstr "२४ घण्टा"
 msgid "A recording is already in progress."
 msgstr "एउटा रेकर्डिङ पहिले नै चलिरहेको छ।"
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "यो भण्डारका लागि टोकन पहिले नै जारी गरिएको छ र फेरि देखाउन सकिँदैन।"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "निरपेक्ष (मिति र समय)"
@@ -146,15 +149,15 @@ msgstr "पहुँच अस्वीकृत"
 msgid "Access level"
 msgstr "पहुँच स्तर"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "पहुँच स्तर अद्यावधिक गरियो"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "पहुँच हटाइयो"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} का लागि पहुँच सेट गरियो"
 
@@ -162,14 +165,14 @@ msgstr "{subjectName} का लागि पहुँच सेट गरिय
 msgid "Account type"
 msgstr "खाता प्रकार"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "गतिविधि"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "थप्नुहोस्"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "सबै रिपोजिटरीहरू"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "जोसुकैलाई रिपोजिटरी पढ्न अनुमति दिनुहोस्"
 
@@ -258,8 +261,8 @@ msgstr "जोसुकैलाई रिपोजिटरी पढ्न अ
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "जो कोहीलाई {entityLabel} खोज्न अनुमति दिनुहोस्"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "जोसुकैलाई रिपोजिटरी खोज्न अनुमति दिनुहोस्"
 
@@ -298,7 +301,7 @@ msgstr "यो फिड सदस्यता लिएका सबैले �
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "के तपाईं \"{0}\" मेटाउन निश्चित हुनुहुन्छ?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "के तपाईं \"{title}\" मेटाउन निश्चित हुनुहुन्छ? यो कार्य फिर्ता गर्न सकिँदैन।"
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "{name} को अवतार"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "पछाडि"
 
@@ -374,21 +377,21 @@ msgstr "कमिटहरूमा फर्कनुहोस्"
 msgid "Back to home"
 msgstr "गृहमा फर्कनुहोस्"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "ब्यानर"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "ब्यानर हटाइयो"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "ब्यानर अद्यावधिक भयो"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "बाइनरी फाइल ({0})"
 
@@ -419,23 +422,19 @@ msgstr "रुचि बढाउनुहोस्"
 msgid "Border colour"
 msgstr "किनाराको रङ"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "शाखा \"{name}\" सिर्जना गरियो"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "शाखा \"{name}\" मेटाइयो"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "ब्रान्चको नाम"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "ब्रान्चको नाम आवश्यक छ"
 
@@ -469,14 +468,12 @@ msgstr "क्यामेरा उपलब्ध छैन"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "रद्द गर्नुहोस्"
 
@@ -484,8 +481,8 @@ msgstr "रद्द गर्नुहोस्"
 msgid "Cancel comment"
 msgstr "टिप्पणी रद्द गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "सम्पादन रद्द गर्नुहोस्"
 
@@ -542,7 +539,7 @@ msgstr "साइडबारबाट खेल छनोट गर्नुह
 msgid "Choose language"
 msgstr "भाषा छनोट गर्नुहोस्"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "सबै खाली गर्नुहोस्"
 msgid "Clear search"
 msgstr "खोजी खाली गर्नुहोस्"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "क्लोन"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "भण्डार क्लोन गर्नुहोस्"
 
@@ -644,8 +641,8 @@ msgstr "टिप्पणी कार्यहरू"
 msgid "Comments"
 msgstr "टिप्पणीहरू"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "टिप्पणीहरू ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "कपी गरियो"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "क्लिपबोर्डमा प्रतिलिपि गरियो"
 
@@ -732,8 +729,8 @@ msgstr "प्रतिलिपि"
 msgid "Copy commit SHA"
 msgstr "commit SHA प्रतिलिपि गर्नुहोस्"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "फाइलको सामग्री प्रतिलिपि गर्नुहोस्"
 
@@ -762,8 +759,8 @@ msgstr "त्यो खातासँग प्रमाणित गर्न
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "सिर्जना गर्नुहोस्"
 
@@ -771,7 +768,7 @@ msgstr "सिर्जना गर्नुहोस्"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} सिर्जना गर्नुहोस्"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "नयाँ प्रमाणीकरण टोकन सिर्जना गर्नुहोस्।"
 
@@ -779,10 +776,8 @@ msgstr "नयाँ प्रमाणीकरण टोकन सिर्ज
 msgid "Create a new repository"
 msgstr "नयाँ रिपोजिटरी सिर्जना गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "ब्रान्च सिर्जना गर्नुहोस्"
 
@@ -796,8 +791,8 @@ msgstr "नयाँ वस्तु सिर्जना गर्नुहो
 msgid "Create repository"
 msgstr "रिपोजिटरी सिर्जना गर्नुहोस्"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "टोकन सिर्जना गर्नुहोस्"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "सिर्जना गरियो"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "सिर्जना गरिएको {0}"
 
@@ -816,8 +811,7 @@ msgstr "सिर्जना गरिएको {0}"
 msgid "Created {field}"
 msgstr "{field} सिर्जना गरियो"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "शाखा सिर्जना गर्दै..."
 
@@ -825,14 +819,13 @@ msgstr "शाखा सिर्जना गर्दै..."
 msgid "Creating repository..."
 msgstr "रिपोजिटोरी सिर्जना गर्दै..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "टोकन सिर्जना गर्दै..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "सिर्जना गर्दै..."
 
@@ -861,8 +854,7 @@ msgstr "मिति"
 msgid "Decline"
 msgstr "अस्वीकार गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "पूर्वनिर्धारित"
 
@@ -874,7 +866,7 @@ msgstr "पूर्वनिर्धारित"
 msgid "Default AI account"
 msgstr "पूर्वनिर्धारित AI खाता"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "पूर्वनिर्धारित ब्रान्च"
 
@@ -891,17 +883,15 @@ msgstr "पूर्वनिर्धारित क्रमबद्ध"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "मेटाउनुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" मेटाउने? यो फिर्ता गर्न सकिँदैन।"
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\" मेटाउने? यो फिर्ता �
 msgid "Delete attachment"
 msgstr "एट्याचमेन्ट मेटाउनुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "शाखा मेट्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "ब्रान्च मेटाउने?"
 
@@ -937,9 +924,9 @@ msgstr "फिल्ड मेटाउनुहोस्"
 msgid "Delete game?"
 msgstr "खेल मेटाउने?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "वस्तु मेटाउनुहोस्"
 
@@ -953,20 +940,20 @@ msgstr "विकल्प मेटाउनुहोस्"
 msgid "Delete option {0}"
 msgstr "विकल्प {0} मेटाउनुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "रिपोजिटरी मेटाउनुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "रिपोजिटरी मेटाउने?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "टोकन मेटाउनुहोस्"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "टोकन मेटाउने?"
 
@@ -986,22 +973,20 @@ msgstr "मेटाइयो"
 msgid "Deleted {field}"
 msgstr "{field} मेटाइयो"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "शाखा मेटाउँदै..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "रिपोजिटोरी मेटाउँदै..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "टोकन मेटाउँदै..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "मेटाउँदै..."
 
@@ -1011,7 +996,7 @@ msgstr "घट्दो क्रम"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "विवरण"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "आवश्यक ढाँचासँग मेल खाँदैन"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "सम्पन्न"
 
@@ -1082,8 +1067,8 @@ msgstr "डाउनलोड"
 msgid "Download failed"
 msgstr "डाउनलोड असफल भयो"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "फाइल डाउनलोड गर्नुहोस्"
 
@@ -1095,7 +1080,7 @@ msgstr "नक्कली"
 msgid "Dyslexia-friendly"
 msgstr "डिस्लेक्सिया-मैत्रीपूर्ण"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "उदा. कामको ल्यापटप"
 
@@ -1120,7 +1105,7 @@ msgstr "फिल्ड सम्पादन गर्नुहोस्"
 msgid "Edit field settings"
 msgstr "फिल्ड सेटिङ सम्पादन गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "नाम सम्पादन गर्नुहोस्"
 
@@ -1134,7 +1119,7 @@ msgstr "विकल्प सम्पादन गर्नुहोस्"
 msgid "Edit option {0}"
 msgstr "विकल्प {0} सम्पादन गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "मार्ग सम्पादन गर्नुहोस्"
 
@@ -1154,15 +1139,15 @@ msgstr "इमेल"
 msgid "Email code"
 msgstr "इमेल कोड"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "खाली डाइरेक्टरी"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "खाली रिपोजिटोरी"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "ब्यानर पाठ लेख्नुहोस् (मार्कडाउन समर्थित)..."
 
@@ -1174,11 +1159,11 @@ msgstr "तपाईंको इमेलमा आएको कोड प्�
 msgid "Enter your authenticator code"
 msgstr "आफ्नो प्रमाणक कोड हाल्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "एन्टिटी:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "त्रुटि"
 
@@ -1210,8 +1195,7 @@ msgstr "खाता थप्न असफल"
 msgid "Failed to copy"
 msgstr "प्रतिलिपि गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "शाखा सिर्जना गर्न असफल"
 
@@ -1225,7 +1209,7 @@ msgstr "लिङ्क सिर्जना गर्न असफल"
 msgid "Failed to create repository"
 msgstr "रिपोजिटोरी सिर्जना गर्न असफल"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "टोकन सिर्जना गर्न असफल"
 
@@ -1237,8 +1221,7 @@ msgstr "मेटाउन असफल"
 msgid "Failed to delete attachment"
 msgstr "एट्याचमेन्ट मेटाउन असफल"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "शाखा मेटाउन असफल"
 
@@ -1250,11 +1233,11 @@ msgstr "टिप्पणी मेटाउन असफल"
 msgid "Failed to delete link"
 msgstr "लिङ्क मेटाउन असफल"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "रिपोजिटोरी मेटाउन असफल"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "टोकन मेटाउन असफल"
 
@@ -1270,7 +1253,7 @@ msgstr "अर्काइभ डाउनलोड गर्न असफल"
 msgid "Failed to get RSS token"
 msgstr "RSS टोकन प्राप्त गर्न असफल"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "टोकन प्राप्त गर्न असफल"
 
@@ -1278,12 +1261,15 @@ msgstr "टोकन प्राप्त गर्न असफल"
 msgid "Failed to load"
 msgstr "लोड गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "पहुँच नियमहरू लोड गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "ब्यानर लोड गर्न असफल"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "शाखाहरू लोड गर्न असफल"
 
@@ -1291,17 +1277,15 @@ msgstr "शाखाहरू लोड गर्न असफल"
 msgid "Failed to load commit"
 msgstr "कमिट लोड गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "कमिटहरू लोड गर्न असफल"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "फाइलहरू लोड गर्न असफल"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "इतिहास लोड गर्न असफल"
 
@@ -1309,8 +1293,8 @@ msgstr "इतिहास लोड गर्न असफल"
 msgid "Failed to load image"
 msgstr "छवि लोड गर्न असफल"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "वस्तु लोड गर्न असफल"
 
@@ -1318,8 +1302,7 @@ msgstr "वस्तु लोड गर्न असफल"
 msgid "Failed to load prompts"
 msgstr "प्रम्प्टहरू लोड गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "ट्यागहरू लोड गर्न असफल"
 
@@ -1335,11 +1318,11 @@ msgstr "सार्न असफल"
 msgid "Failed to post comment"
 msgstr "टिप्पणी पोस्ट गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "पहुँच हटाउन असफल"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "रिपोजिटोरीको नाम परिवर्तन गर्न असफल"
 
@@ -1359,39 +1342,39 @@ msgstr "सुरक्षित गर्न असफल"
 msgid "Failed to save prompt"
 msgstr "प्रम्प्ट सुरक्षित गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "सेटिङ सुरक्षित गर्न असफल"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "रिपोजिटरीहरू खोज्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "पहुँच स्तर सेट गर्न असफल"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "सदस्यता लिन असफल"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "सदस्यता हटाउन असफल"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "पहुँच स्तर अद्यावधिक गर्न असफल"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "ब्यानर अद्यावधिक गर्न असफल"
 
@@ -1399,7 +1382,7 @@ msgstr "ब्यानर अद्यावधिक गर्न असफल
 msgid "Failed to update comment"
 msgstr "टिप्पणी अद्यावधिक गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "पाथ अद्यावधिक गर्न असफल"
 
@@ -1411,8 +1394,7 @@ msgstr "निगरानी अद्यावधिक गर्न असफ
 msgid "Failed to upload attachment"
 msgstr "एट्याचमेन्ट अपलोड गर्न असफल"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "फाइलहरू"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "रिपोजिटोरीहरू खोज्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "फिङ्गरप्रिन्ट:"
 
@@ -1494,7 +1476,7 @@ msgstr "अनुसार समूह"
 msgid "Group: {0}"
 msgstr "समूह: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "इतिहास"
 
@@ -1513,7 +1495,7 @@ msgstr "हट"
 msgid "ID"
 msgstr "आईडी"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "पहिचान"
 
@@ -1554,7 +1536,7 @@ msgstr "अमान्य मिति"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "तपाईंले खोज्नुभएको पृष्ठ <0/>अवस्थित छैन वा हटाइएको हुन सक्छ।"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "वस्तुको विवरण"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "ठूलो"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "अन्तिम प्रयोग {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "थप लोड गर्नुहोस्"
 msgid "Loading content…"
 msgstr "सामग्री लोड हुँदैछ…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "वस्तु लोड हुँदै"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "वस्तु विवरण लोड हुँदै"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "लग आउट हुँदै…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "साना अक्षर, अंक, र हाइफन मात्र"
 
@@ -1648,8 +1630,8 @@ msgstr "साना अक्षर, अंक, र हाइफन मात�
 msgid "Manage categories"
 msgstr "श्रेणीहरू व्यवस्थापन गर्नुहोस्"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "टोकनहरू व्यवस्थापन गर्नुहोस्"
 
@@ -1739,7 +1721,7 @@ msgstr "नाम"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "नाममा < वा > वर्णहरू हुन सक्दैनन्"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "नाम आवश्यक छ"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "नाम १०० वर्ण वा सोभन्दा कम हुनुपर्छ"
 
@@ -1756,7 +1738,7 @@ msgstr "नाम १०० वर्ण वा सोभन्दा कम ह
 msgid "Name must be 1000 characters or less"
 msgstr "नाम १००० वर्ण वा सोभन्दा कम हुनुपर्छ"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "नाम:"
 
@@ -1765,8 +1747,8 @@ msgstr "नाम:"
 msgid "Network error"
 msgstr "नेटवर्क त्रुटि"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "कहिल्यै होइन"
 
@@ -1775,8 +1757,7 @@ msgstr "कहिल्यै होइन"
 msgid "New"
 msgstr "नयाँ"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "नयाँ ब्रान्च"
 
@@ -1794,7 +1775,7 @@ msgstr "अर्को तस्बिर"
 msgid "No {parentClassNames} to add to"
 msgstr "थप्न कुनै {parentClassNames} छैन"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "पहुँच छैन"
 
@@ -1806,8 +1787,7 @@ msgstr "कुनै पहुँच नियम कन्फिगर गर�
 msgid "No activity yet"
 msgstr "अहिलेसम्म कुनै गतिविधि छैन"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "अहिलेसम्म कुनै ब्रान्च छैन"
 
@@ -1815,8 +1795,7 @@ msgstr "अहिलेसम्म कुनै ब्रान्च छैन
 msgid "No comments yet"
 msgstr "अहिलेसम्म कुनै टिप्पणी छैन"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "अहिलेसम्म कुनै कमिट छैन"
 
@@ -1849,8 +1828,8 @@ msgstr "कुनै स्थान भेटिएन"
 msgid "No public repositories."
 msgstr "कुनै सार्वजनिक भण्डार छैन।"
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "कुनै रिपोजिटरी भेटिएन"
 
@@ -1869,8 +1848,7 @@ msgstr "कुनै नतिजा भेटिएन।"
 msgid "No status"
 msgstr "स्थिति छैन"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "अहिलेसम्म कुनै ट्याग छैन"
 
@@ -1878,7 +1856,7 @@ msgstr "अहिलेसम्म कुनै ट्याग छैन"
 msgid "No time zone found."
 msgstr "कुनै समय क्षेत्र भेटिएन।"
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "अहिलेसम्म कुनै टोकन छैन।"
 
@@ -1902,10 +1880,10 @@ msgstr "कुनै भ्यु छैन"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "मालिक"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "अभिभावक"
 
@@ -2040,15 +2018,15 @@ msgstr "यो ब्राउजरमा पासकीहरू उपलब
 msgid "Path"
 msgstr "पथ"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "पथ आवश्यक छ"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "पथ अद्यावधिक गरियो"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "पथ:"
 
@@ -2060,7 +2038,7 @@ msgstr "ढाँचा (regex)"
 msgid "People"
 msgstr "पिपल"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "यो रिपोजिटरी र यसका सम्पूर्ण डेटा स्थायी रूपमा मेटाउनुहोस्"
 
@@ -2070,7 +2048,7 @@ msgstr "यो रिपोजिटरी र यसका सम्पूर�
 msgid "Please check your internet connection and try again."
 msgstr "कृपया आफ्नो इन्टरनेट जडान जाँच गरी पुनः प्रयास गर्नुहोस्।"
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "कृपया टोकन नाम प्रविष्ट गर्नुहोस्"
 
@@ -2108,7 +2086,7 @@ msgstr "प्रशोधन गर्दै…"
 msgid "Prompt saved"
 msgstr "प्रोम्प्ट बचत गरियो"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "गुणहरू"
 
@@ -2128,11 +2106,11 @@ msgstr "यस सर्भरमा आफ्ना खाताहरू प�
 msgid "Re-register your passkeys on this server"
 msgstr "यस सर्भरमा तपाईंका पासकीहरू पुन: दर्ता गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "पढ्ने र लेख्ने"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "पढ्ने मात्र"
 
@@ -2226,7 +2204,7 @@ msgstr "आइटम हटाउनुहोस्"
 msgid "Remove link"
 msgstr "लिङ्क हटाउनुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "पहुँच हटाउँदै..."
 
@@ -2243,7 +2221,7 @@ msgstr "स्तम्भको नाम परिवर्तन गर्न
 msgid "Rename this board column"
 msgstr "यो बोर्ड स्तम्भको नाम परिवर्तन गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "रिपोजिटोरीको नाम बदल्दै..."
 
@@ -2265,10 +2243,10 @@ msgstr "रिपोजिटरीहरू"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "भण्डार"
 msgid "Repository created"
 msgstr "रिपोजिटरी सिर्जना गरियो"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "रिपोजिटरी मेटाइयो"
 
@@ -2297,7 +2275,7 @@ msgstr "रिपोजिटरी ID आवश्यक छ"
 msgid "Repository link"
 msgstr "भण्डार लिङ्क"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "रिपोजिटरी नाम आवश्यक छ"
 
@@ -2305,7 +2283,7 @@ msgstr "रिपोजिटरी नाम आवश्यक छ"
 msgid "Repository not found"
 msgstr "रिपोजिटरी भेटिएन"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "रिपोजिटरीको नाम परिवर्तन गरियो"
 
@@ -2372,28 +2350,28 @@ msgstr "शनिबार"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "सुरक्षित गर्नुहोस्"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "यो टोकन अहिले सुरक्षित गर्नुहोस्। तपाईंले यसलाई फेरि देख्न सक्नुहुनेछैन।"
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "यो टोकन सुरक्षितसँग सुरक्षित गर्नुहोस्। तपाईंले यसलाई फेरि देख्न सक्नुहुने छैन।"
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "सेटिङहरू सुरक्षित गर्दै..."
 
@@ -2408,7 +2386,7 @@ msgstr "सुरक्षित गर्दै..."
 msgid "Search"
 msgstr "खोज्नुहोस्"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "नाम, ID, फिङ्गरप्रिन्ट वा URL ले खोज्नुहोस्..."
 
@@ -2432,7 +2410,7 @@ msgstr "गन्तव्य खोज्नुहोस्..."
 msgid "Search for origin..."
 msgstr "उत्पत्ति खोज्नुहोस्..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "रिपोजिटरीहरू खोज्नुहोस्..."
 
@@ -2493,7 +2471,7 @@ msgstr "खाता प्रकार छान्नुहोस्"
 msgid "Select branch"
 msgstr "ब्रान्च छान्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "पूर्वनिर्धारित ब्रान्च छान्नुहोस्"
 
@@ -2517,8 +2495,7 @@ msgstr "व्यक्ति छान्नुहोस्..."
 msgid "Select previous card"
 msgstr "अघिल्लो कार्ड चयन गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "स्रोत ब्रान्च छान्नुहोस्"
 
@@ -2567,7 +2544,7 @@ msgstr "सत्र समाप्त भयो। कृपया फेर�
 msgid "Set origin and destination"
 msgstr "उत्पत्ति र गन्तव्य सेट गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "पहुँच सेट गर्दै..."
 
@@ -2578,10 +2555,10 @@ msgstr "पहुँच सेट गर्दै..."
 msgid "Settings"
 msgstr "सेटिङहरू"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "सेटिङहरू सुरक्षित गरियो"
 
@@ -2632,8 +2609,7 @@ msgstr "सानो"
 msgid "Sort"
 msgstr "क्रमबद्ध गर्नुहोस्"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "स्रोत ब्रान्च"
 
@@ -2649,8 +2625,8 @@ msgstr "विशाल"
 msgid "Start the discussion by adding the first comment."
 msgstr "पहिलो टिप्पणी थपेर छलफल सुरु गर्नुहोस्।"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "हेर्न रोक्नुहोस्"
 
@@ -2669,19 +2645,19 @@ msgstr "जवाफ पेस गर्नुहोस्"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "सदस्यता लिनुहोस्"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "सदस्यता लिइयो"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "शाखा बदल्नुहोस्"
 msgid "Switch to view 1-9"
 msgstr "दृश्य 1-9 मा स्विच गर्नुहोस्"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "पठाउन सकिएन। फाइलहरू धेरै �
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "अपलोड गर्न धेरै ठूलो थियो। फाइलहरू हटाउनुहोस् वा साना बनाउनुहोस् र फेरि प्रयास गर्नुहोस्।"
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "रिपोजिटरी हेर्दा देखिने ब्रान्च"
 
@@ -2773,6 +2749,11 @@ msgstr "सर्भरले डेटाको सट्टा वेब प�
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "यो एपलाई तपाईंको पासकी प्रयोग गर्ने अनुमति छैन। सेटिङहरूमा, अनुमतिहरू अन्तर्गत यसलाई अनुमति दिनुहोस्।"
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "यो फाइल देखाउनका लागि धेरै ठूलो छ ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "यो पृष्ठलाई रिपोजिटरी सन्द
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "यसले खेल र यसको च्याटलाई स्थायी रूपमा मेटाउनेछ। यो कार्य फिर्ता गर्न सकिँदैन।"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "यसले \"{currentName}\" र यसका सबै कमिट, ब्रान्च र ट्यागहरूलाई स्थायी रूपमा मेटाउनेछ। यो कार्य फिर्ता गर्न सकिँदैन।"
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "यसले यो टोकनलाई स्थायी रूपमा मेटाउनेछ। यसलाई प्रयोग गर्ने कुनै पनि git क्लाइन्टहरूले अब प्रमाणीकरण गर्न सक्ने छैनन्।"
 
@@ -2795,7 +2776,7 @@ msgstr "यसले यो टोकनलाई स्थायी रूप�
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "यसले \"{name}\" लाई तपाईंको रिपोजिटरी सूचीबाट हटाउनेछ। तपाईंले पछि फेरि सदस्यता लिन सक्नुहुन्छ।"
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "यसले \"{repoName}\" लाई तपाईंको रिपोजिटरी सूचीबाट हटाउनेछ। तपाईंले पछि फेरि सदस्यता लिन सक्नुहुन्छ।"
 
@@ -2830,15 +2811,15 @@ msgstr "दृश्य विकल्पहरू टगल गर्नुह
 msgid "Toggle watched filter"
 msgstr "हेरिएको फिल्टर टगल गर्नुहोस्"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "टोकन सिर्जना गरियो"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "टोकन मेटाइयो"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "टोकनको नाम"
 
@@ -2914,7 +2895,7 @@ msgstr "अप्रत्याशित API त्रुटि"
 msgid "United States"
 msgstr "संयुक्त राज्य अमेरिका"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "अज्ञात"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "सदस्यता हटाउनुहोस्"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "रिपोजिटरीबाट सदस्यता हटाउने हो?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "सदस्यता हटाइयो"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "रिपोजिटरीबाट सदस्यता हटाइयो"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "सदस्यता हटाउँदै..."
@@ -2970,11 +2951,11 @@ msgstr "अद्यावधिक गरियो"
 msgid "Updated {field}"
 msgstr "{field} अद्यावधिक गरियो"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "पहुँच अद्यावधिक गर्दै..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "बाटो अद्यावधिक गर्दै..."
 
@@ -3028,7 +3009,7 @@ msgstr "भिडियो दर्शक: {0}"
 msgid "View all notifications"
 msgstr "सबै सूचना हेर्नुहोस्"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "वस्तुको विवरण हेर्नुहोस् र सम्पादन गर्नुहोस्"
 
@@ -3040,8 +3021,8 @@ msgstr "दृश्य नियन्त्रणहरू"
 msgid "Voice recording is not supported in this browser"
 msgstr "यो ब्राउजरमा भ्वाइस रेकर्डिङ समर्थित छैन"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "हेर्नुहोस्"
 

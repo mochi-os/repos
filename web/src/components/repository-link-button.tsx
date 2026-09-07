@@ -40,12 +40,12 @@ export function RepositoryLinkButton({ fingerprint, isOwner }: RepositoryLinkBut
     setLinkCopied(false)
     setLinkOpen(true)
     try {
-      const response = await reposRequest.post<{ data?: { link: string }; link?: string }>(
+      const response = await reposRequest.post<{ link: string }>(
         endpoints.repo.share(fingerprint),
         {},
         { baseURL: appBasePath() }
       )
-      setShareLink(response.data?.link ?? response.link ?? '')
+      setShareLink(response.link)
     } catch (error) {
       setLinkOpen(false)
       toast.error(getErrorMessage(error, t`Failed to create link`))

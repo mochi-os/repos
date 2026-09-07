@@ -72,12 +72,11 @@ function FindRepositoriesPage() {
   // so the card shows the real repository rather than a raw entity id.
   const resolveUri = useCallback(async (url: string) => {
     type ProbeEntry = { id: string; name: string; fingerprint?: string; server?: string; peer?: string }
-    const response = await reposRequest.post<{ data?: ProbeEntry } & Partial<ProbeEntry>>(
+    const data = await reposRequest.post<Partial<ProbeEntry>>(
       endpoints.repo.probe,
       { url },
       { baseURL: appBasePath() }
     )
-    const data: Partial<ProbeEntry> = response.data ?? response
     if (!data.id) return null
     return { id: data.id, name: data.name ?? '', fingerprint: data.fingerprint, location: data.server ?? '', peer: data.peer }
   }, [])

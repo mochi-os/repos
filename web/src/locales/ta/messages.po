@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# கோப்பு மாற்றப்பட்டது} other {# கோப்புகள் மாற்றப்பட்டன}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# வரி} other {# வரிகள்}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} கிளைகள்"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} commits"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} அன்று குறிச்சொல்லிட்டார்"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} டேக்குகள்"
 
@@ -125,6 +124,10 @@ msgstr "24 மணிநேரம்"
 msgid "A recording is already in progress."
 msgstr "ஒரு பதிவு ஏற்கனவே நடைபெறுகிறது."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "இந்த களஞ்சியத்திற்கான டோக்கன் ஏற்கனவே வழங்கப்பட்டுள்ளது, அதை மீண்டும் காட்ட முடியாது."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "முழுமையானது (தேதி மற்றும் நேரம்)"
@@ -146,15 +149,15 @@ msgstr "அணுகல் மறுக்கப்பட்டது"
 msgid "Access level"
 msgstr "அணுகல் நிலை"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "அணுகல் நிலை புதுப்பிக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "அணுகல் அகற்றப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "{subjectName}-க்கு அணுகல் அமைக்கப்பட்டது"
 
@@ -162,14 +165,14 @@ msgstr "{subjectName}-க்கு அணுகல் அமைக்கப்�
 msgid "Account type"
 msgstr "கணக்கு வகை"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "செயல்பாடு"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "சேர்"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "அனைத்து களஞ்சியங்கள்"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "களஞ்சியத்தை யாராவது படிக்க அனுமதி"
 
@@ -258,8 +261,8 @@ msgstr "களஞ்சியத்தை யாராவது படிக்�
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "{entityLabel} தேட அனைவரையும் அனுமதி"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "களஞ்சியத்தை யாராவது தேட அனுமதி"
 
@@ -298,7 +301,7 @@ msgstr "இந்த ஊட்டத்திற்கு குழுசேர�
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "\"{0}\"-ஐ நீக்க விரும்புகிறீர்களா?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "\"{title}\"-ஐ நீக்க விரும்புகிறீர்களா? இந்த செயலை மாற்ற முடியாது."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "{name} இன் அவதாரம்"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "பின்"
 
@@ -374,21 +377,21 @@ msgstr "Commits-க்கு திரும்பு"
 msgid "Back to home"
 msgstr "முகப்புக்குத் திரும்பு"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "பேனர்"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "பேனர் அகற்றப்பட்டது"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "பேனர் புதுப்பிக்கப்பட்டது"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "பைனரி கோப்பு ({0})"
 
@@ -419,23 +422,19 @@ msgstr "ஆர்வத்தை அதிகரி"
 msgid "Border colour"
 msgstr "எல்லை நிறம்"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" கிளை உருவாக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" கிளை நீக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "Branch பெயர்"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "Branch பெயர் தேவை"
 
@@ -469,14 +468,12 @@ msgstr "கேமரா கிடைக்கவில்லை"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "ரத்துசெய்"
 
@@ -484,8 +481,8 @@ msgstr "ரத்துசெய்"
 msgid "Cancel comment"
 msgstr "கருத்தை ரத்துசெய்"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "திருத்தத்தை ரத்துசெய்"
 
@@ -542,7 +539,7 @@ msgstr "பக்கப்பட்டியில் இருந்து ஒ�
 msgid "Choose language"
 msgstr "மொழியைத் தேர்ந்தெடுக்கவும்"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "அனைத்தையும் அழி"
 msgid "Clear search"
 msgstr "தேடலை அழி"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "Clone"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "களஞ்சியத்தை குளோன் செய்க"
 
@@ -644,8 +641,8 @@ msgstr "கருத்து செயல்கள்"
 msgid "Comments"
 msgstr "கருத்துகள்"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "கருத்துகள் ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "நகலெடுக்கப்பட்டது"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது"
 
@@ -732,8 +729,8 @@ msgstr "நகலெடு"
 msgid "Copy commit SHA"
 msgstr "commit SHA-ஐ நகலெடு"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "கோப்பு உள்ளடக்கத்தை நகலெடு"
 
@@ -762,8 +759,8 @@ msgstr "அந்தக் கணக்கைச் சரிபார்க்�
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "உருவாக்கு"
 
@@ -771,7 +768,7 @@ msgstr "உருவாக்கு"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} உருவாக்கு"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "புதிய அங்கீகாரத் டோக்கனை உருவாக்கவும்."
 
@@ -779,10 +776,8 @@ msgstr "புதிய அங்கீகாரத் டோக்கனை உ
 msgid "Create a new repository"
 msgstr "புதிய களஞ்சியம் உருவாக்கு"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "Branch உருவாக்கு"
 
@@ -796,8 +791,8 @@ msgstr "புதிய உருப்படி உருவாக்கு"
 msgid "Create repository"
 msgstr "களஞ்சியம் உருவாக்கு"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "டோக்கன் உருவாக்கு"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "உருவாக்கப்பட்டது"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "உருவாக்கப்பட்டது {0}"
 
@@ -816,8 +811,7 @@ msgstr "உருவாக்கப்பட்டது {0}"
 msgid "Created {field}"
 msgstr "{field} உருவாக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "கிளையை உருவாக்குகிறது..."
 
@@ -825,14 +819,13 @@ msgstr "கிளையை உருவாக்குகிறது..."
 msgid "Creating repository..."
 msgstr "களஞ்சியத்தை உருவாக்குகிறது..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "டோக்கனை உருவாக்குகிறது..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "உருவாக்குகிறது..."
 
@@ -861,8 +854,7 @@ msgstr "தேதி"
 msgid "Decline"
 msgstr "மறு"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "இயல்பு"
 
@@ -874,7 +866,7 @@ msgstr "இயல்புநிலை"
 msgid "Default AI account"
 msgstr "இயல்புநிலை AI கணக்கு"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "இயல்புநிலை branch"
 
@@ -891,17 +883,15 @@ msgstr "இயல்புநிலை வரிசை"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "நீக்கு"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\"-ஐ நீக்கவா? இதை மாற்ற முடியாது."
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\"-ஐ நீக்கவா? இதை மாற்�
 msgid "Delete attachment"
 msgstr "இணைப்பை நீக்கு"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "கிளையை அழி"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "Branch-ஐ நீக்கவா?"
 
@@ -937,9 +924,9 @@ msgstr "புலத்தை நீக்கு"
 msgid "Delete game?"
 msgstr "விளையாட்டை நீக்கவா?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "உருப்படியை நீக்கு"
 
@@ -953,20 +940,20 @@ msgstr "விருப்பத்தை நீக்கு"
 msgid "Delete option {0}"
 msgstr "விருப்பம் {0}-ஐ நீக்கு"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "களஞ்சியத்தை நீக்கு"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "களஞ்சியத்தை நீக்கவா?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "டோக்கனை நீக்கு"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "டோக்கனை நீக்கவா?"
 
@@ -986,22 +973,20 @@ msgstr "நீக்கப்பட்டது"
 msgid "Deleted {field}"
 msgstr "{field} நீக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "கிளையை நீக்குகிறது..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "களஞ்சியத்தை நீக்குகிறது..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "டோக்கனை நீக்குகிறது..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "நீக்குகிறது..."
 
@@ -1011,7 +996,7 @@ msgstr "இறங்குவரிசை"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "விளக்கம்"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "தேவையான வடிவத்துடன் பொருந்தவில்லை"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "முடிந்தது"
 
@@ -1082,8 +1067,8 @@ msgstr "பதிவிறக்கு"
 msgid "Download failed"
 msgstr "பதிவிறக்கம் தோல்வியடைந்தது"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "கோப்பைப் பதிவிறக்கு"
 
@@ -1095,7 +1080,7 @@ msgstr "நகலெடுக்கிறது"
 msgid "Dyslexia-friendly"
 msgstr "டிஸ்லெக்சியாவுக்கு உகந்தது"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "எ.கா. பணி லேப்டாப்"
 
@@ -1120,7 +1105,7 @@ msgstr "புலத்தைத் திருத்து"
 msgid "Edit field settings"
 msgstr "புல அமைப்புகளைத் திருத்து"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "பெயரைத் திருத்து"
 
@@ -1134,7 +1119,7 @@ msgstr "விருப்பத்தை திருத்து"
 msgid "Edit option {0}"
 msgstr "விருப்பம் {0} திருத்து"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "பாதையைத் திருத்து"
 
@@ -1154,15 +1139,15 @@ msgstr "மின்னஞ்சல்"
 msgid "Email code"
 msgstr "மின்னஞ்சல் குறியீடு"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "காலியான கோப்பகம்"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "காலியான களஞ்சியம்"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "பேனர் உரையை உள்ளிடவும் (மார்க்டவுன் ஆதரிக்கப்படுகிறது)..."
 
@@ -1174,11 +1159,11 @@ msgstr "உங்கள் மின்னஞ்சலில் உள்ள க
 msgid "Enter your authenticator code"
 msgstr "உங்கள் அங்கீகரிப்பான் குறியீட்டை உள்ளிடவும்"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "எண்ட்டிட்டி:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "பிழை"
 
@@ -1210,8 +1195,7 @@ msgstr "கணக்கைச் சேர்க்க முடியவில�
 msgid "Failed to copy"
 msgstr "நகலெடுக்க முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "பிராஞ்சை உருவாக்க முடியவில்லை"
 
@@ -1225,7 +1209,7 @@ msgstr "இணைப்பை உருவாக்க முடியவில�
 msgid "Failed to create repository"
 msgstr "களஞ்சியத்தை உருவாக்க முடியவில்லை"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "டோக்கனை உருவாக்க முடியவில்லை"
 
@@ -1237,8 +1221,7 @@ msgstr "நீக்க முடியவில்லை"
 msgid "Failed to delete attachment"
 msgstr "இணைப்பை நீக்க முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "பிராஞ்சை நீக்க முடியவில்லை"
 
@@ -1250,11 +1233,11 @@ msgstr "கருத்தை நீக்க முடியவில்லை"
 msgid "Failed to delete link"
 msgstr "இணைப்பை நீக்க முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "களஞ்சியத்தை நீக்க முடியவில்லை"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "டோக்கனை நீக்க முடியவில்லை"
 
@@ -1270,7 +1253,7 @@ msgstr "காப்பகத்தைப் பதிவிறக்க மு�
 msgid "Failed to get RSS token"
 msgstr "RSS டோக்கனைப் பெற முடியவில்லை"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "டோக்கனைப் பெற முடியவில்லை"
 
@@ -1278,12 +1261,15 @@ msgstr "டோக்கனைப் பெற முடியவில்லை"
 msgid "Failed to load"
 msgstr "ஏற்ற முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "அணுகல் விதிகளை ஏற்ற முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "பேனரை ஏற்ற முடியவில்லை"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "பிராஞ்சுகளை ஏற்ற முடியவில்லை"
 
@@ -1291,17 +1277,15 @@ msgstr "பிராஞ்சுகளை ஏற்ற முடியவில�
 msgid "Failed to load commit"
 msgstr "கமிட்டை ஏற்ற முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "கமிட்டுகளை ஏற்ற முடியவில்லை"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "கோப்புகளை ஏற்ற முடியவில்லை"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "வரலாற்றை ஏற்ற முடியவில்லை"
 
@@ -1309,8 +1293,8 @@ msgstr "வரலாற்றை ஏற்ற முடியவில்லை"
 msgid "Failed to load image"
 msgstr "படத்தை ஏற்ற முடியவில்லை"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "உருப்படியை ஏற்ற முடியவில்லை"
 
@@ -1318,8 +1302,7 @@ msgstr "உருப்படியை ஏற்ற முடியவில்�
 msgid "Failed to load prompts"
 msgstr "ப்ராம்ப்ட்களை ஏற்ற முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "டேக்குகளை ஏற்ற முடியவில்லை"
 
@@ -1335,11 +1318,11 @@ msgstr "நகர்த்த முடியவில்லை"
 msgid "Failed to post comment"
 msgstr "கருத்தைப் பதிவிட முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "அணுகலை நீக்க முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "களஞ்சியத்தின் பெயரை மாற்ற முடியவில்லை"
 
@@ -1359,39 +1342,39 @@ msgstr "சேமிக்க முடியவில்லை"
 msgid "Failed to save prompt"
 msgstr "ப்ராம்ப்டை சேமிக்க முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "அமைப்பை சேமிக்க முடியவில்லை"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "களஞ்சியங்களைத் தேடுவது தோல்வியடைந்தது"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "அணுகல் நிலையை அமைக்க முடியவில்லை"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "சந்தா செய்ய முடியவில்லை"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "சந்தாவை ரத்து செய்ய முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "அணுகல் நிலையைப் புதுப்பிக்க முடியவில்லை"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "பேனரைப் புதுப்பிக்க முடியவில்லை"
 
@@ -1399,7 +1382,7 @@ msgstr "பேனரைப் புதுப்பிக்க முடிய�
 msgid "Failed to update comment"
 msgstr "கருத்தைப் புதுப்பிக்க முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "பாதையைப் புதுப்பிக்க முடியவில்லை"
 
@@ -1411,8 +1394,7 @@ msgstr "கண்காணிப்பைப் புதுப்பிக்�
 msgid "Failed to upload attachment"
 msgstr "இணைப்பைப் பதிவேற்ற முடியவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "கோப்புகள்"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "களஞ்சியங்களைக் கண்டுபிடி"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "ஃபிங்கர்பிரிண்ட்:"
 
@@ -1494,7 +1476,7 @@ msgstr "இதன்படி தொகுக்கவும்"
 msgid "Group: {0}"
 msgstr "குழு: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "வரலாறு"
 
@@ -1513,7 +1495,7 @@ msgstr "பிரபலமான"
 msgid "ID"
 msgstr "ஐடி"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "அடையாளம்"
 
@@ -1554,7 +1536,7 @@ msgstr "தவறான தேதி"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "நீங்கள் தேடும் பக்கம் <0/>இல்லை அல்லது அகற்றப்பட்டிருக்கலாம்."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "உருப்படி விவரங்கள்"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "பெரியது"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "கடைசி பயன்பாடு {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "மேலும் ஏற்று"
 msgid "Loading content…"
 msgstr "உள்ளடக்கம் ஏற்றப்படுகிறது…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "உருப்படியை ஏற்றுகிறது"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "உருப்படி விவரங்களை ஏற்றுகிறது"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "வெளியேறுகிறது…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "சிற்றெழுத்துக்கள், எண்கள் மற்றும் ஹைஃபன்கள் மட்டும்"
 
@@ -1648,8 +1630,8 @@ msgstr "சிற்றெழுத்துக்கள், எண்கள் 
 msgid "Manage categories"
 msgstr "வகைகளை நிர்வகி"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "டோக்கன்களை நிர்வகிக்கவும்"
 
@@ -1739,7 +1721,7 @@ msgstr "பெயர்"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "பெயரில் < அல்லது > எழுத்துக்கள் இருக்கக்கூடாது"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "பெயர் தேவை"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "பெயர் 100 எழுத்துக்கள் அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்"
 
@@ -1756,7 +1738,7 @@ msgstr "பெயர் 100 எழுத்துக்கள் அல்லத
 msgid "Name must be 1000 characters or less"
 msgstr "பெயர் 1000 எழுத்துக்கள் அல்லது அதற்கும் குறைவாக இருக்க வேண்டும்"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "பெயர்:"
 
@@ -1765,8 +1747,8 @@ msgstr "பெயர்:"
 msgid "Network error"
 msgstr "பிணையப் பிழை"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "ஒருபோதும் இல்லை"
 
@@ -1775,8 +1757,7 @@ msgstr "ஒருபோதும் இல்லை"
 msgid "New"
 msgstr "புதியது"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "புதிய branch"
 
@@ -1794,7 +1775,7 @@ msgstr "அடுத்த படம்"
 msgid "No {parentClassNames} to add to"
 msgstr "சேர்க்க {parentClassNames} இல்லை"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "அணுகல் இல்லை"
 
@@ -1806,8 +1787,7 @@ msgstr "அணுகல் விதிகள் எதுவும் கட்
 msgid "No activity yet"
 msgstr "செயல்பாடு இன்னும் இல்லை"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "Branchகள் இன்னும் இல்லை"
 
@@ -1815,8 +1795,7 @@ msgstr "Branchகள் இன்னும் இல்லை"
 msgid "No comments yet"
 msgstr "கருத்துகள் இன்னும் இல்லை"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "Commitகள் இன்னும் இல்லை"
 
@@ -1849,8 +1828,8 @@ msgstr "இடங்கள் எதுவும் கிடைக்கவி�
 msgid "No public repositories."
 msgstr "பொது களஞ்சியங்கள் எதுவுமில்லை."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "Repositoryக்கள் எதுவும் கிடைக்கவில்லை"
 
@@ -1869,8 +1848,7 @@ msgstr "முடிவுகள் எதுவும் கிடைக்க�
 msgid "No status"
 msgstr "நிலை இல்லை"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "டேக்குகள் இன்னும் இல்லை"
 
@@ -1878,7 +1856,7 @@ msgstr "டேக்குகள் இன்னும் இல்லை"
 msgid "No time zone found."
 msgstr "நேர மண்டலம் எதுவும் கிடைக்கவில்லை."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "டோக்கன்கள் இன்னும் இல்லை."
 
@@ -1902,10 +1880,10 @@ msgstr "காட்சிகள் இல்லை"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "உரிமையாளர்"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "பெற்றோர்"
 
@@ -2040,15 +2018,15 @@ msgstr "இந்த உலாவியில் passkeyக்கள் கி�
 msgid "Path"
 msgstr "Path"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "Path தேவை"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "Path புதுப்பிக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "Path:"
 
@@ -2060,7 +2038,7 @@ msgstr "வடிவம் (regex)"
 msgid "People"
 msgstr "மக்கள்"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "இந்த repository மற்றும் அதன் அனைத்து தரவுகளையும் நிரந்தரமாக நீக்கவும்"
 
@@ -2070,7 +2048,7 @@ msgstr "இந்த repository மற்றும் அதன் அனைத�
 msgid "Please check your internet connection and try again."
 msgstr "உங்கள் இணைய இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "டோக்கன் பெயரை உள்ளிடவும்"
 
@@ -2108,7 +2086,7 @@ msgstr "செயலாக்கப்படுகிறது…"
 msgid "Prompt saved"
 msgstr "Prompt சேமிக்கப்பட்டது"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "பண்புகள்"
 
@@ -2128,11 +2106,11 @@ msgstr "இந்த சேவையகத்தில் உங்கள் க
 msgid "Re-register your passkeys on this server"
 msgstr "இந்த சேவையகத்தில் உங்கள் கடவுச்சாவிகளை மீண்டும் பதிவு செய்யவும்"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "படிக்க மற்றும் எழுத"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "படிக்க மட்டும்"
 
@@ -2226,7 +2204,7 @@ msgstr "உருப்படியை அகற்று"
 msgid "Remove link"
 msgstr "இணைப்பை அகற்று"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "அணுகலை அகற்றுகிறது..."
 
@@ -2243,7 +2221,7 @@ msgstr "நெடுவரிசையின் பெயரை மாற்ற�
 msgid "Rename this board column"
 msgstr "இந்த போர்டு நெடுவரிசையின் பெயரை மாற்று"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "களஞ்சியத்தை மறுபெயரிடுகிறது..."
 
@@ -2265,10 +2243,10 @@ msgstr "Repositoryக்கள்"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "களஞ்சியம்"
 msgid "Repository created"
 msgstr "Repository உருவாக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "Repository நீக்கப்பட்டது"
 
@@ -2297,7 +2275,7 @@ msgstr "Repository ID தேவை"
 msgid "Repository link"
 msgstr "களஞ்சிய இணைப்பு"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "Repository பெயர் தேவை"
 
@@ -2305,7 +2283,7 @@ msgstr "Repository பெயர் தேவை"
 msgid "Repository not found"
 msgstr "Repository கிடைக்கவில்லை"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "Repository பெயர் மாற்றப்பட்டது"
 
@@ -2372,28 +2350,28 @@ msgstr "சனிக்கிழமை"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "சேமி"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "இந்த டோக்கனை இப்போதே சேமிக்கவும். நீங்கள் இதை மீண்டும் பார்க்க முடியாது."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "இந்த டோக்கனை பாதுகாப்பாக சேமியுங்கள். அதை மீண்டும் பார்க்க முடியாது."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "அமைப்புகளைச் சேமிக்கிறது..."
 
@@ -2408,7 +2386,7 @@ msgstr "சேமிக்கிறது..."
 msgid "Search"
 msgstr "தேடு"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "பெயர், ID, ஃபிங்கர்பிரிண்ட் அல்லது URL மூலம் தேடு..."
 
@@ -2432,7 +2410,7 @@ msgstr "சேருமிடத்தைத் தேடு..."
 msgid "Search for origin..."
 msgstr "துவக்கத்தைத் தேடு..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "ரெபாசிட்டரிகளைத் தேடு..."
 
@@ -2493,7 +2471,7 @@ msgstr "கணக்கு வகையை தேர்ந்தெடு"
 msgid "Select branch"
 msgstr "Branch-ஐ தேர்ந்தெடு"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "இயல்பு branch-ஐ தேர்ந்தெடு"
 
@@ -2517,8 +2495,7 @@ msgstr "நபரைத் தேர்ந்தெடுக்கவும்..
 msgid "Select previous card"
 msgstr "முந்தைய அட்டையை தேர்ந்தெடு"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "மூல branch-ஐ தேர்ந்தெடு"
 
@@ -2567,7 +2544,7 @@ msgstr "அமர்வு காலாவதியானது. மீண்ட
 msgid "Set origin and destination"
 msgstr "துவக்கம் மற்றும் சேருமிடத்தை அமை"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "அணுகலை அமைக்கிறது..."
 
@@ -2578,10 +2555,10 @@ msgstr "அணுகலை அமைக்கிறது..."
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "அமைப்புகள் சேமிக்கப்பட்டன"
 
@@ -2632,8 +2609,7 @@ msgstr "சிறியது"
 msgid "Sort"
 msgstr "வரிசைப்படுத்து"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "மூல branch"
 
@@ -2649,8 +2625,8 @@ msgstr "விரிவான"
 msgid "Start the discussion by adding the first comment."
 msgstr "முதல் கருத்தை சேர்த்து விவாதத்தை தொடங்குங்கள்."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "பார்ப்பதை நிறுத்து"
 
@@ -2669,19 +2645,19 @@ msgstr "பதிலை சமர்ப்பி"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "சந்தாதாராக"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "சந்தாதாரர் ஆனார்"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "கிளையை மாற்று"
 msgid "Switch to view 1-9"
 msgstr "காட்சி 1-9 க்கு மாறு"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "அனுப்ப முடியவில்லை. கோப்பு
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "பதிவேற்ற முடியாத அளவு பெரியது. கோப்புகளை நீக்கவும் அல்லது சிறிதாக்கி மீண்டும் முயற்சிக்கவும்."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "ரெபாசிட்டரியை பார்க்கும்போது காட்டப்படும் branch"
 
@@ -2773,6 +2749,11 @@ msgstr "சேவையகம் தரவுக்குப் பதிலா�
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "இந்த ஆப்ஸுக்கு உங்கள் passkey-ஐப் பயன்படுத்த அனுமதி இல்லை. அமைப்புகளில், அனுமதிகள் பிரிவில் அதை அனுமதிக்கவும்."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "இந்தக் கோப்பு காட்ட முடியாத அளவுக்கு பெரியது ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "இந்த பக்கத்திற்கு ரெபாசிட�
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "இது விளையாட்டையும் அதன் அரட்டையையும் நிரந்தரமாக நீக்கும். இந்தச் செயலை மாற்ற முடியாது."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "இது \"{currentName}\" மற்றும் அதன் அனைத்து commits, branches மற்றும் tags-ஐ நிரந்தரமாக நீக்கும். இந்த செயலை திரும்ப மாற்ற முடியாது."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "இது இந்த டோக்கனை நிரந்தரமாக நீக்கும். இதைப் பயன்படுத்தும் எந்த git கிளையன்ட்களும் இனி அங்கீகரிக்க முடியாது."
 
@@ -2795,7 +2776,7 @@ msgstr "இது இந்த டோக்கனை நிரந்தரமா
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "இது உங்கள் ரெபாசிட்டரி பட்டியலிலிருந்து \"{name}\"-ஐ நீக்கும். நீங்கள் பின்னர் மீண்டும் சந்தாதாராகலாம்."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "இது உங்கள் ரெபாசிட்டரி பட்டியலிலிருந்து \"{repoName}\"-ஐ நீக்கும். நீங்கள் பின்னர் மீண்டும் சந்தாதாராகலாம்."
 
@@ -2830,15 +2811,15 @@ msgstr "காட்சி விருப்பங்களை மாற்ற�
 msgid "Toggle watched filter"
 msgstr "கவனிக்கப்பட்ட வடிகட்டியை மாற்று"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "டோக்கன் உருவாக்கப்பட்டது"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "டோக்கன் நீக்கப்பட்டது"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "டோக்கன் பெயர்"
 
@@ -2914,7 +2895,7 @@ msgstr "எதிர்பாராத API பிழை"
 msgid "United States"
 msgstr "ஐக்கிய அமெரிக்கா"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "தெரியாதது"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "சந்தா நீக்கு"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "ரெபாசிட்டரியிலிருந்து சந்தா நீக்க வேண்டுமா?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "சந்தா நீக்கப்பட்டது"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "ரெபாசிட்டரியிலிருந்து சந்தா நீக்கப்பட்டது"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "சந்தா நீக்குகிறது..."
@@ -2970,11 +2951,11 @@ msgstr "புதுப்பிக்கப்பட்டது"
 msgid "Updated {field}"
 msgstr "{field} புதுப்பிக்கப்பட்டது"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "அணுகலைப் புதுப்பிக்கிறது..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "பாதையைப் புதுப்பிக்கிறது..."
 
@@ -3028,7 +3009,7 @@ msgstr "வீடியோ காட்சி: {0}"
 msgid "View all notifications"
 msgstr "அனைத்து அறிவிப்புகளையும் காட்டு"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "உருப்படி விவரங்களை பார்த்து திருத்து"
 
@@ -3040,8 +3021,8 @@ msgstr "காட்சி கட்டுப்பாடுகள்"
 msgid "Voice recording is not supported in this browser"
 msgstr "இந்த உலாவியில் குரல் பதிவு ஆதரிக்கப்படவில்லை"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "பார்"
 

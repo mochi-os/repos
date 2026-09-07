@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, other {# 件のファイルを変更}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, other {# 行}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} ブランチ"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} コミット"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} が {1} にタグ付け"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} タグ"
 
@@ -125,6 +124,10 @@ msgstr "24時間"
 msgid "A recording is already in progress."
 msgstr "すでに録音が進行中です。"
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "このリポジトリのトークンは以前に発行済みで、再表示できません。"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "絶対 (日付と時刻)"
@@ -146,15 +149,15 @@ msgstr "アクセスが拒否されました"
 msgid "Access level"
 msgstr "アクセスレベル"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "アクセスレベルを更新しました"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "アクセスを削除しました"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} のアクセスを設定しました"
 
@@ -162,14 +165,14 @@ msgstr "{subjectName} のアクセスを設定しました"
 msgid "Account type"
 msgstr "アカウントタイプ"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "アクティビティ"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "追加"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "すべてのリポジトリ"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "誰でもリポジトリを読めるようにする"
 
@@ -258,8 +261,8 @@ msgstr "誰でもリポジトリを読めるようにする"
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "誰でも{entityLabel}を検索できるようにする"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "誰でもリポジトリを検索できるようにする"
 
@@ -298,7 +301,7 @@ msgstr "このフィードを購読しているものはすべて受信しなく
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "「{0}」を削除しますか？"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "「{title}」を削除しますか？この操作は取り消せません。"
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "{name} のアバター"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "戻る"
 
@@ -374,21 +377,21 @@ msgstr "コミットに戻る"
 msgid "Back to home"
 msgstr "ホームに戻る"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "バナー"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "バナーを削除しました"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "バナーを更新しました"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "バイナリファイル ({0})"
 
@@ -419,23 +422,19 @@ msgstr "関心を高める"
 msgid "Border colour"
 msgstr "枠線の色"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "ブランチ \"{name}\" を作成しました"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "ブランチ \"{name}\" を削除しました"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "ブランチ名"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "ブランチ名が必要です"
 
@@ -469,14 +468,12 @@ msgstr "カメラを利用できません"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -484,8 +481,8 @@ msgstr "キャンセル"
 msgid "Cancel comment"
 msgstr "コメントをキャンセル"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "編集をキャンセル"
 
@@ -542,7 +539,7 @@ msgstr "サイドバーからゲームを選ぶか、新しいゲームを始め
 msgid "Choose language"
 msgstr "言語を選択"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "すべてクリア"
 msgid "Clear search"
 msgstr "検索をクリア"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "クローン"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "リポジトリをクローン"
 
@@ -644,8 +641,8 @@ msgstr "コメントの操作"
 msgid "Comments"
 msgstr "コメント"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "コメント ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "コピーしました"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "クリップボードにコピーしました"
 
@@ -732,8 +729,8 @@ msgstr "コピー"
 msgid "Copy commit SHA"
 msgstr "コミットSHAをコピー"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "ファイル内容をコピー"
 
@@ -762,8 +759,8 @@ msgstr "そのアカウントで確認できませんでした。もう一度お
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "作成"
 
@@ -771,7 +768,7 @@ msgstr "作成"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel}を作成"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "新しい認証トークンを作成します。"
 
@@ -779,10 +776,8 @@ msgstr "新しい認証トークンを作成します。"
 msgid "Create a new repository"
 msgstr "新しいリポジトリを作成"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "ブランチを作成"
 
@@ -796,8 +791,8 @@ msgstr "新しい項目を作成"
 msgid "Create repository"
 msgstr "リポジトリを作成"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "トークンを作成"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "作成日"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "作成 {0}"
 
@@ -816,8 +811,7 @@ msgstr "作成 {0}"
 msgid "Created {field}"
 msgstr "{field}を作成しました"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "ブランチを作成しています..."
 
@@ -825,14 +819,13 @@ msgstr "ブランチを作成しています..."
 msgid "Creating repository..."
 msgstr "リポジトリを作成しています..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "トークンを作成しています..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "作成中..."
 
@@ -861,8 +854,7 @@ msgstr "日付"
 msgid "Decline"
 msgstr "拒否"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "デフォルト"
 
@@ -874,7 +866,7 @@ msgstr "デフォルト"
 msgid "Default AI account"
 msgstr "デフォルト AI アカウント"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "デフォルトブランチ"
 
@@ -891,17 +883,15 @@ msgstr "デフォルトの並び順"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "削除"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "「{branchToDelete}」を削除しますか？この操作は元に戻せません。"
 
@@ -909,15 +899,12 @@ msgstr "「{branchToDelete}」を削除しますか？この操作は元に戻�
 msgid "Delete attachment"
 msgstr "添付を削除"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "ブランチを削除"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "ブランチを削除しますか?"
 
@@ -937,9 +924,9 @@ msgstr "フィールドを削除"
 msgid "Delete game?"
 msgstr "ゲームを削除しますか?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "項目を削除"
 
@@ -953,20 +940,20 @@ msgstr "オプションを削除"
 msgid "Delete option {0}"
 msgstr "オプション「{0}」を削除"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "リポジトリを削除"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "リポジトリを削除しますか?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "トークンを削除"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "トークンを削除しますか?"
 
@@ -986,22 +973,20 @@ msgstr "削除しました"
 msgid "Deleted {field}"
 msgstr "{field}を削除しました"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "ブランチを削除しています..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "リポジトリを削除しています..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "トークンを削除しています..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "削除中..."
 
@@ -1011,7 +996,7 @@ msgstr "降順"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "説明"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "必要なパターンと一致しません"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "完了"
 
@@ -1082,8 +1067,8 @@ msgstr "ダウンロード"
 msgid "Download failed"
 msgstr "ダウンロードに失敗しました"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "ファイルをダウンロード"
 
@@ -1095,7 +1080,7 @@ msgstr "重複"
 msgid "Dyslexia-friendly"
 msgstr "ディスレクシア対応"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "例: 業務用ノートPC"
 
@@ -1120,7 +1105,7 @@ msgstr "フィールドを編集"
 msgid "Edit field settings"
 msgstr "フィールド設定を編集"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "名前を編集"
 
@@ -1134,7 +1119,7 @@ msgstr "オプションを編集"
 msgid "Edit option {0}"
 msgstr "オプション「{0}」を編集"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "パスを編集"
 
@@ -1154,15 +1139,15 @@ msgstr "メールアドレス"
 msgid "Email code"
 msgstr "メールコード"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "空のディレクトリ"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "空のリポジトリ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "バナーテキストを入力（Markdown対応）…"
 
@@ -1174,11 +1159,11 @@ msgstr "メールに記載されたコードを入力してください"
 msgid "Enter your authenticator code"
 msgstr "認証アプリのコードを入力"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "エンティティ："
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "エラー"
 
@@ -1210,8 +1195,7 @@ msgstr "アカウントの追加に失敗しました"
 msgid "Failed to copy"
 msgstr "コピーに失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "ブランチの作成に失敗しました"
 
@@ -1225,7 +1209,7 @@ msgstr "リンクの作成に失敗しました"
 msgid "Failed to create repository"
 msgstr "リポジトリの作成に失敗しました"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "トークンの作成に失敗しました"
 
@@ -1237,8 +1221,7 @@ msgstr "削除に失敗しました"
 msgid "Failed to delete attachment"
 msgstr "添付ファイルの削除に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "ブランチの削除に失敗しました"
 
@@ -1250,11 +1233,11 @@ msgstr "コメントの削除に失敗しました"
 msgid "Failed to delete link"
 msgstr "リンクの削除に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "リポジトリの削除に失敗しました"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "トークンの削除に失敗しました"
 
@@ -1270,7 +1253,7 @@ msgstr "アーカイブのダウンロードに失敗しました"
 msgid "Failed to get RSS token"
 msgstr "RSS トークンの取得に失敗しました"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "トークンの取得に失敗しました"
 
@@ -1278,12 +1261,15 @@ msgstr "トークンの取得に失敗しました"
 msgid "Failed to load"
 msgstr "読み込みに失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "アクセスルールの読み込みに失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "バナーを読み込めませんでした"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "ブランチの読み込みに失敗しました"
 
@@ -1291,17 +1277,15 @@ msgstr "ブランチの読み込みに失敗しました"
 msgid "Failed to load commit"
 msgstr "コミットの読み込みに失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "コミットの読み込みに失敗しました"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "ファイルの読み込みに失敗しました"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "履歴の読み込みに失敗しました"
 
@@ -1309,8 +1293,8 @@ msgstr "履歴の読み込みに失敗しました"
 msgid "Failed to load image"
 msgstr "画像を読み込めませんでした"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "項目の読み込みに失敗しました"
 
@@ -1318,8 +1302,7 @@ msgstr "項目の読み込みに失敗しました"
 msgid "Failed to load prompts"
 msgstr "プロンプトの読み込みに失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "タグの読み込みに失敗しました"
 
@@ -1335,11 +1318,11 @@ msgstr "移動に失敗しました"
 msgid "Failed to post comment"
 msgstr "コメントの投稿に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "アクセスの削除に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "リポジトリの名前変更に失敗しました"
 
@@ -1359,39 +1342,39 @@ msgstr "保存に失敗しました"
 msgid "Failed to save prompt"
 msgstr "プロンプトの保存に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "設定の保存に失敗しました"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "リポジトリの検索に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "アクセスレベルの設定に失敗しました"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "購読に失敗しました"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "購読解除に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "アクセスレベルの更新に失敗しました"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "バナーの更新に失敗しました"
 
@@ -1399,7 +1382,7 @@ msgstr "バナーの更新に失敗しました"
 msgid "Failed to update comment"
 msgstr "コメントの更新に失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "パスの更新に失敗しました"
 
@@ -1411,8 +1394,7 @@ msgstr "追跡の更新に失敗しました"
 msgid "Failed to upload attachment"
 msgstr "添付ファイルのアップロードに失敗しました"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "ファイル"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "リポジトリを検索"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "フィンガープリント："
 
@@ -1494,7 +1476,7 @@ msgstr "グループ化"
 msgid "Group: {0}"
 msgstr "グループ: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "履歴"
 
@@ -1513,7 +1495,7 @@ msgstr "人気"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "アイデンティティ"
 
@@ -1554,7 +1536,7 @@ msgstr "無効な日付"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "お探しのページは <0/>存在しないか、削除された可能性があります。"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "項目の詳細"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "大"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "最終使用 {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "もっと読み込む"
 msgid "Loading content…"
 msgstr "コンテンツを読み込んでいます…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "項目を読み込み中"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "項目の詳細を読み込み中"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "ログアウトしています…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "小文字、数字、ハイフンのみ"
 
@@ -1648,8 +1630,8 @@ msgstr "小文字、数字、ハイフンのみ"
 msgid "Manage categories"
 msgstr "カテゴリを管理"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "トークンを管理"
 
@@ -1739,7 +1721,7 @@ msgstr "名前"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "名前に < または > 文字を含めることはできません"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "名前が必要です"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "名前は100文字以下にしてください"
 
@@ -1756,7 +1738,7 @@ msgstr "名前は100文字以下にしてください"
 msgid "Name must be 1000 characters or less"
 msgstr "名前は1000文字以下にしてください"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "名前："
 
@@ -1765,8 +1747,8 @@ msgstr "名前："
 msgid "Network error"
 msgstr "ネットワークエラー"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "なし"
 
@@ -1775,8 +1757,7 @@ msgstr "なし"
 msgid "New"
 msgstr "新規"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "新しいブランチ"
 
@@ -1794,7 +1775,7 @@ msgstr "次の画像"
 msgid "No {parentClassNames} to add to"
 msgstr "追加先となる {parentClassNames} がありません"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "アクセスなし"
 
@@ -1806,8 +1787,7 @@ msgstr "アクセスルールが設定されていません。このリソース
 msgid "No activity yet"
 msgstr "まだアクティビティがありません"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "まだブランチがありません"
 
@@ -1815,8 +1795,7 @@ msgstr "まだブランチがありません"
 msgid "No comments yet"
 msgstr "まだコメントがありません"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "まだコミットがありません"
 
@@ -1849,8 +1828,8 @@ msgstr "場所が見つかりません"
 msgid "No public repositories."
 msgstr "公開リポジトリはありません。"
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "リポジトリが見つかりません"
 
@@ -1869,8 +1848,7 @@ msgstr "結果が見つかりません。"
 msgid "No status"
 msgstr "ステータスなし"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "まだタグがありません"
 
@@ -1878,7 +1856,7 @@ msgstr "まだタグがありません"
 msgid "No time zone found."
 msgstr "タイムゾーンが見つかりません。"
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "まだトークンがありません。"
 
@@ -1902,10 +1880,10 @@ msgstr "ビューがありません"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "オーナー"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "親"
 
@@ -2040,15 +2018,15 @@ msgstr "このブラウザではパスキーを利用できません"
 msgid "Path"
 msgstr "パス"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "パスが必要です"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "パスを更新しました"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "パス："
 
@@ -2060,7 +2038,7 @@ msgstr "パターン (正規表現)"
 msgid "People"
 msgstr "ピープル"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "このリポジトリとすべてのデータを完全に削除します"
 
@@ -2070,7 +2048,7 @@ msgstr "このリポジトリとすべてのデータを完全に削除します
 msgid "Please check your internet connection and try again."
 msgstr "インターネット接続を確認して、もう一度お試しください。"
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "トークン名を入力してください"
 
@@ -2108,7 +2086,7 @@ msgstr "処理中…"
 msgid "Prompt saved"
 msgstr "プロンプトを保存しました"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "プロパティ"
 
@@ -2128,11 +2106,11 @@ msgstr "このサーバーでアカウントを再リンクする"
 msgid "Re-register your passkeys on this server"
 msgstr "このサーバーでパスキーを再登録してください"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "読み書き"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "読み取り専用"
 
@@ -2226,7 +2204,7 @@ msgstr "項目を削除"
 msgid "Remove link"
 msgstr "リンクを削除"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "アクセスを削除しています..."
 
@@ -2243,7 +2221,7 @@ msgstr "列の名前を変更"
 msgid "Rename this board column"
 msgstr "このボード列の名前を変更"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "リポジトリの名前を変更しています..."
 
@@ -2265,10 +2243,10 @@ msgstr "リポジトリ"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "リポジトリ"
 msgid "Repository created"
 msgstr "リポジトリを作成しました"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "リポジトリを削除しました"
 
@@ -2297,7 +2275,7 @@ msgstr "リポジトリIDが必要です"
 msgid "Repository link"
 msgstr "リポジトリのリンク"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "リポジトリ名が必要です"
 
@@ -2305,7 +2283,7 @@ msgstr "リポジトリ名が必要です"
 msgid "Repository not found"
 msgstr "リポジトリが見つかりません"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "リポジトリの名前を変更しました"
 
@@ -2372,28 +2350,28 @@ msgstr "土曜日"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "保存"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "このトークンを今すぐ保存してください。再表示できません。"
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "このトークンを安全な場所に保管してください。再度表示することはできません。"
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "設定を保存しています..."
 
@@ -2408,7 +2386,7 @@ msgstr "保存中..."
 msgid "Search"
 msgstr "検索"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "名前、ID、フィンガープリント、または URL で検索..."
 
@@ -2432,7 +2410,7 @@ msgstr "目的地を検索…"
 msgid "Search for origin..."
 msgstr "出発地を検索…"
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "リポジトリを検索…"
 
@@ -2493,7 +2471,7 @@ msgstr "アカウントの種類を選択"
 msgid "Select branch"
 msgstr "ブランチを選択"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "デフォルトブランチを選択"
 
@@ -2517,8 +2495,7 @@ msgstr "人を選択..."
 msgid "Select previous card"
 msgstr "前のカードを選択"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "ソースブランチを選択"
 
@@ -2567,7 +2544,7 @@ msgstr "セッションの有効期限が切れました。もう一度ログイ
 msgid "Set origin and destination"
 msgstr "出発地と目的地を設定"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "アクセスを設定しています..."
 
@@ -2578,10 +2555,10 @@ msgstr "アクセスを設定しています..."
 msgid "Settings"
 msgstr "設定"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "設定を保存しました"
 
@@ -2632,8 +2609,7 @@ msgstr "小"
 msgid "Sort"
 msgstr "並べ替え"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "ソースブランチ"
 
@@ -2649,8 +2625,8 @@ msgstr "ゆったり"
 msgid "Start the discussion by adding the first comment."
 msgstr "最初のコメントを追加してディスカッションを始めましょう。"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "ウォッチを停止"
 
@@ -2669,19 +2645,19 @@ msgstr "返信を送信"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "購読する"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "購読中"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "ブランチを切り替え"
 msgid "Switch to view 1-9"
 msgstr "ビュー 1〜9 に切り替え"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "送信できませんでした。ファイルが大きすぎるか、接
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "サイズが大きすぎてアップロードできませんでした。ファイルを削除するか縮小して、もう一度お試しください。"
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "リポジトリを表示するときに表示されるブランチ"
 
@@ -2773,6 +2749,11 @@ msgstr "サーバーがデータではなくウェブページを返しました
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "このアプリはパスキーの使用を許可されていません。設定の「権限」で許可してください。"
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "このファイルは大きすぎて表示できません ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "このページにはリポジトリのコンテキストが必要です
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "この操作でゲームとそのチャットが完全に削除されます。この操作は元に戻せません。"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "「{currentName}」とそのすべてのコミット、ブランチ、タグが完全に削除されます。この操作は元に戻せません。"
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "このトークンを完全に削除します。使用中の git クライアントは認証できなくなります。"
 
@@ -2795,7 +2776,7 @@ msgstr "このトークンを完全に削除します。使用中の git クラ�
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "「{name}」がリポジトリリストから削除されます。後で再度購読できます。"
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "「{repoName}」がリポジトリリストから削除されます。後で再度購読できます。"
 
@@ -2830,15 +2811,15 @@ msgstr "ビューオプションを切り替え"
 msgid "Toggle watched filter"
 msgstr "ウォッチ中フィルターを切り替え"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "トークンを作成しました"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "トークンを削除しました"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "トークン名"
 
@@ -2914,7 +2895,7 @@ msgstr "予期しない API エラー"
 msgid "United States"
 msgstr "アメリカ合衆国"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "不明"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "購読解除"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "リポジトリの購読を解除しますか?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "購読を解除しました"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "リポジトリの購読を解除しました"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "購読解除中..."
@@ -2970,11 +2951,11 @@ msgstr "更新日"
 msgid "Updated {field}"
 msgstr "{field}を更新しました"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "アクセスを更新しています..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "パスを更新しています..."
 
@@ -3028,7 +3009,7 @@ msgstr "動画ビューアー: {0}"
 msgid "View all notifications"
 msgstr "すべての通知を表示"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "項目の詳細を表示・編集"
 
@@ -3040,8 +3021,8 @@ msgstr "ビューコントロール"
 msgid "Voice recording is not supported in this browser"
 msgstr "このブラウザでは音声録音がサポートされていません"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "ウォッチ"
 

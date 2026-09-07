@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ఫైల్ మార్చబడింది} other {# ఫైల్‌లు మార్చబడ్డాయి}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# పంక్తి} other {# పంక్తులు}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} శాఖలు"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} కమిట్‌లు"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} న ట్యాగ్ చేశారు"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} ట్యాగ్‌లు"
 
@@ -125,6 +124,10 @@ msgstr "24 గంటలు"
 msgid "A recording is already in progress."
 msgstr "రికార్డింగ్ ఇప్పటికే జరుగుతోంది."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "ఈ రిపోజిటరీ కోసం టోకెన్ ఇప్పటికే జారీ చేయబడింది మరియు దాన్ని మళ్లీ చూపించలేము."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "సంపూర్ణ (తేదీ మరియు సమయం)"
@@ -146,15 +149,15 @@ msgstr "యాక్సెస్ నిరాకరించబడింది"
 msgid "Access level"
 msgstr "యాక్సెస్ స్థాయి"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "యాక్సెస్ స్థాయి నవీకరించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "యాక్సెస్ తీసివేయబడింది"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} కోసం యాక్సెస్ సెట్ చేయబడింది"
 
@@ -162,14 +165,14 @@ msgstr "{subjectName} కోసం యాక్సెస్ సెట్ చే�
 msgid "Account type"
 msgstr "ఖాతా రకం"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "కార్యకలాపం"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "జోడించండి"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "అన్ని రిపోజిటరీలు"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "రిపోజిటరీని ఎవరైనా చదవడానికి అనుమతించండి"
 
@@ -258,8 +261,8 @@ msgstr "రిపోజిటరీని ఎవరైనా చదవడాన�
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "{entityLabel} కోసం వెతకడానికి ఎవరినైనా అనుమతించు"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "రిపోజిటరీ కోసం ఎవరైనా శోధించడానికి అనుమతించండి"
 
@@ -298,7 +301,7 @@ msgstr "ఈ ఫీడ్‌కు సభ్యత్వం పొందిన �
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "మీరు \"{0}\"ని తొలగించాలనుకుంటున్నారా?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "మీరు \"{title}\"ని తొలగించాలనుకుంటున్నారా? ఈ చర్యను రద్దు చేయలేరు."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "{name} కోసం అవతార్"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "వెనుకకు"
 
@@ -374,21 +377,21 @@ msgstr "కమిట్‌లకు తిరిగి"
 msgid "Back to home"
 msgstr "హోమ్‌కు తిరిగి వెళ్ళండి"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "బ్యానర్"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "బ్యానర్ తీసివేయబడింది"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "బ్యానర్ నవీకరించబడింది"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "బైనరీ ఫైల్ ({0})"
 
@@ -419,23 +422,19 @@ msgstr "ఆసక్తిని పెంచండి"
 msgid "Border colour"
 msgstr "అంచు రంగు"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "బ్రాంచ్ \"{name}\" సృష్టించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "బ్రాంచ్ \"{name}\" తొలగించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "శాఖ పేరు"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "శాఖ పేరు అవసరం"
 
@@ -469,14 +468,12 @@ msgstr "కెమెరా అందుబాటులో లేదు"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "రద్దు చేయండి"
 
@@ -484,8 +481,8 @@ msgstr "రద్దు చేయండి"
 msgid "Cancel comment"
 msgstr "వ్యాఖ్యను రద్దు చేయండి"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "సవరణను రద్దు చేయండి"
 
@@ -542,7 +539,7 @@ msgstr "సైడ్‌బార్ నుండి ఆటను ఎంచుక
 msgid "Choose language"
 msgstr "భాషను ఎంచుకోండి"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "అన్నీ క్లియర్ చేయండి"
 msgid "Clear search"
 msgstr "శోధనను క్లియర్ చేయండి"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "క్లోన్"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "రిపోజిటరీని క్లోన్ చేయండి"
 
@@ -644,8 +641,8 @@ msgstr "వ్యాఖ్య చర్యలు"
 msgid "Comments"
 msgstr "వ్యాఖ్యలు"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "వ్యాఖ్యలు ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "కాపీ అయింది"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది"
 
@@ -732,8 +729,8 @@ msgstr "కాపీ చేయండి"
 msgid "Copy commit SHA"
 msgstr "commit SHA కాపీ చేయండి"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "ఫైల్ కంటెంట్‌ను కాపీ చేయండి"
 
@@ -762,8 +759,8 @@ msgstr "ఆ ఖాతాతో ధృవీకరించడం సాధ్య
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "సృష్టించండి"
 
@@ -771,7 +768,7 @@ msgstr "సృష్టించండి"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} సృష్టించు"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "కొత్త ధృవీకరణ టోకెన్‌ని సృష్టించండి."
 
@@ -779,10 +776,8 @@ msgstr "కొత్త ధృవీకరణ టోకెన్‌ని సృ
 msgid "Create a new repository"
 msgstr "కొత్త రిపోజిటరీని సృష్టించండి"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "శాఖను సృష్టించండి"
 
@@ -796,8 +791,8 @@ msgstr "కొత్త ఐటెమ్‌ను సృష్టించండ�
 msgid "Create repository"
 msgstr "రిపోజిటరీని సృష్టించండి"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "టోకెన్‌ను సృష్టించండి"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "సృష్టించబడింది"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "సృష్టించబడింది {0}"
 
@@ -816,8 +811,7 @@ msgstr "సృష్టించబడింది {0}"
 msgid "Created {field}"
 msgstr "{field} సృష్టించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "బ్రాంచ్ సృష్టిస్తోంది..."
 
@@ -825,14 +819,13 @@ msgstr "బ్రాంచ్ సృష్టిస్తోంది..."
 msgid "Creating repository..."
 msgstr "రిపోజిటరీ సృష్టిస్తోంది..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "టోకెన్ సృష్టిస్తోంది..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "సృష్టిస్తోంది..."
 
@@ -861,8 +854,7 @@ msgstr "తేదీ"
 msgid "Decline"
 msgstr "తిరస్కరించండి"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "డిఫాల్ట్"
 
@@ -874,7 +866,7 @@ msgstr "డిఫాల్ట్"
 msgid "Default AI account"
 msgstr "డిఫాల్ట్ AI ఖాతా"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "డిఫాల్ట్ శాఖ"
 
@@ -891,17 +883,15 @@ msgstr "డిఫాల్ట్ క్రమబద్ధీకరణ"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "తొలగించండి"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\"ని తొలగించాలా? దీన్ని రద్దు చేయలేరు."
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\"ని తొలగించాలా? దీన్�
 msgid "Delete attachment"
 msgstr "అటాచ్‌మెంట్‌ను తొలగించండి"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "శాఖను తొలగించండి"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "శాఖను తొలగించాలా?"
 
@@ -937,9 +924,9 @@ msgstr "ఫీల్డ్‌ను తొలగించండి"
 msgid "Delete game?"
 msgstr "గేమ్‌ను తొలగించాలా?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "ఐటెమ్‌ను తొలగించండి"
 
@@ -953,20 +940,20 @@ msgstr "ఎంపికను తొలగించండి"
 msgid "Delete option {0}"
 msgstr "ఎంపిక {0}ని తొలగించండి"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "రిపోజిటరీని తొలగించండి"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "రిపోజిటరీని తొలగించాలా?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "టోకెన్‌ను తొలగించండి"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "టోకెన్‌ను తొలగించాలా?"
 
@@ -986,22 +973,20 @@ msgstr "తొలగించబడింది"
 msgid "Deleted {field}"
 msgstr "{field} తొలగించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "బ్రాంచ్ తొలగిస్తోంది..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "రిపోజిటరీ తొలగిస్తోంది..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "టోకెన్ తొలగిస్తోంది..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "తొలగిస్తోంది..."
 
@@ -1011,7 +996,7 @@ msgstr "అవరోహణ"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "వివరణ"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "అవసరమైన నమూనాతో సరిపోలడం లేదు"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "పూర్తయింది"
 
@@ -1082,8 +1067,8 @@ msgstr "డౌన్‌లోడ్"
 msgid "Download failed"
 msgstr "డౌన్‌లోడ్ విఫలమైంది"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "ఫైల్‌ను డౌన్‌లోడ్ చేయండి"
 
@@ -1095,7 +1080,7 @@ msgstr "నకలు చేస్తుంది"
 msgid "Dyslexia-friendly"
 msgstr "డిస్లెక్సియా-అనుకూలం"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "ఉదా. పని ల్యాప్‌టాప్"
 
@@ -1120,7 +1105,7 @@ msgstr "ఫీల్డ్‌ను సవరించండి"
 msgid "Edit field settings"
 msgstr "ఫీల్డ్ సెట్టింగ్‌లను సవరించండి"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "పేరును సవరించండి"
 
@@ -1134,7 +1119,7 @@ msgstr "ఎంపికను సవరించు"
 msgid "Edit option {0}"
 msgstr "{0} ఎంపికను సవరించండి"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "మార్గాన్ని సవరించండి"
 
@@ -1154,15 +1139,15 @@ msgstr "ఇమెయిల్"
 msgid "Email code"
 msgstr "ఇమెయిల్ కోడ్"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "ఖాళీ డైరెక్టరీ"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "ఖాళీ రిపోజిటరీ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "బ్యానర్ టెక్స్ట్ నమోదు చేయండి (మార్క్‌డౌన్ మద్దతు ఉంది)..."
 
@@ -1174,11 +1159,11 @@ msgstr "మీ ఇమెయిల్‌లోని కోడ్‌ను నమ
 msgid "Enter your authenticator code"
 msgstr "మీ ప్రమాణీకరణ కోడ్‌ను నమోదు చేయండి"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "ఎంటిటీ:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "లోపం"
 
@@ -1210,8 +1195,7 @@ msgstr "ఖాతాను జోడించడంలో విఫలమైం�
 msgid "Failed to copy"
 msgstr "కాపీ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "బ్రాంచ్‌ను సృష్టించడంలో విఫలమైంది"
 
@@ -1225,7 +1209,7 @@ msgstr "లింక్‌ను సృష్టించడంలో విఫ�
 msgid "Failed to create repository"
 msgstr "రిపోజిటరీని సృష్టించడంలో విఫలమైంది"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "టోకెన్‌ను సృష్టించడంలో విఫలమైంది"
 
@@ -1237,8 +1221,7 @@ msgstr "తొలగించడంలో విఫలమైంది"
 msgid "Failed to delete attachment"
 msgstr "జోడింపును తొలగించడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "బ్రాంచ్‌ను తొలగించడంలో విఫలమైంది"
 
@@ -1250,11 +1233,11 @@ msgstr "వ్యాఖ్యను తొలగించడంలో విఫ�
 msgid "Failed to delete link"
 msgstr "లింక్‌ను తొలగించడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "రిపోజిటరీని తొలగించడంలో విఫలమైంది"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "టోకెన్‌ను తొలగించడంలో విఫలమైంది"
 
@@ -1270,7 +1253,7 @@ msgstr "ఆర్కైవ్‌ను డౌన్‌లోడ్ చేయడ�
 msgid "Failed to get RSS token"
 msgstr "RSS టోకెన్‌ను పొందడంలో విఫలమైంది"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "టోకెన్‌ను పొందడంలో విఫలమైంది"
 
@@ -1278,12 +1261,15 @@ msgstr "టోకెన్‌ను పొందడంలో విఫలమై�
 msgid "Failed to load"
 msgstr "లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "యాక్సెస్ నియమాలను లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "బ్యానర్‌ను లోడ్ చేయడంలో విఫలమైంది"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "బ్రాంచ్‌లను లోడ్ చేయడంలో విఫలమైంది"
 
@@ -1291,17 +1277,15 @@ msgstr "బ్రాంచ్‌లను లోడ్ చేయడంలో వ
 msgid "Failed to load commit"
 msgstr "కమిట్‌ను లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "కమిట్‌లను లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "ఫైళ్లను లోడ్ చేయడంలో విఫలమైంది"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "చరిత్రను లోడ్ చేయడంలో విఫలమైంది"
 
@@ -1309,8 +1293,8 @@ msgstr "చరిత్రను లోడ్ చేయడంలో విఫల
 msgid "Failed to load image"
 msgstr "చిత్రాన్ని లోడ్ చేయడంలో విఫలమైంది"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "అంశాన్ని లోడ్ చేయడంలో విఫలమైంది"
 
@@ -1318,8 +1302,7 @@ msgstr "అంశాన్ని లోడ్ చేయడంలో విఫల
 msgid "Failed to load prompts"
 msgstr "ప్రాంప్ట్‌లను లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "ట్యాగ్‌లను లోడ్ చేయడంలో విఫలమైంది"
 
@@ -1335,11 +1318,11 @@ msgstr "తరలించడంలో విఫలమైంది"
 msgid "Failed to post comment"
 msgstr "వ్యాఖ్యను పోస్ట్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "యాక్సెస్‌ను తీసివేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "రిపోజిటరీ పేరు మార్చడంలో విఫలమైంది"
 
@@ -1359,39 +1342,39 @@ msgstr "సేవ్ చేయడంలో విఫలమైంది"
 msgid "Failed to save prompt"
 msgstr "ప్రాంప్ట్‌ను సేవ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "సెట్టింగ్‌ను సేవ్ చేయడంలో విఫలమైంది"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "రిపోజిటరీల శోధన విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "యాక్సెస్ స్థాయిని సెట్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "చందా చేరడంలో విఫలమైంది"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "చందా రద్దు చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "యాక్సెస్ స్థాయిని నవీకరించడంలో విఫలమైంది"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "బ్యానర్‌ను నవీకరించడంలో విఫలమైంది"
 
@@ -1399,7 +1382,7 @@ msgstr "బ్యానర్‌ను నవీకరించడంలో వ�
 msgid "Failed to update comment"
 msgstr "వ్యాఖ్యను నవీకరించడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "పాత్‌ను నవీకరించడంలో విఫలమైంది"
 
@@ -1411,8 +1394,7 @@ msgstr "పర్యవేక్షణ నవీకరించడంలో వ�
 msgid "Failed to upload attachment"
 msgstr "జోడింపును అప్‌లోడ్ చేయడంలో విఫలమైంది"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "ఫైళ్లు"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "రిపోజిటరీలను కనుగొనండి"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "ఫింగర్‌ప్రింట్:"
 
@@ -1494,7 +1476,7 @@ msgstr "దీని ద్వారా సమూహపరచు"
 msgid "Group: {0}"
 msgstr "సమూహం: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "చరిత్ర"
 
@@ -1513,7 +1495,7 @@ msgstr "హాట్"
 msgid "ID"
 msgstr "ఐడీ"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "గుర్తింపు"
 
@@ -1554,7 +1536,7 @@ msgstr "చెల్లని తేదీ"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "మీరు వెతుకుతున్న పేజీ <0/>లేదు లేదా తీసివేయబడి ఉండవచ్చు."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "అంశం వివరాలు"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "పెద్దది"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "చివరి వాడకం {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "మరింత లోడ్ చేయండి"
 msgid "Loading content…"
 msgstr "కంటెంట్ లోడ్ అవుతోంది…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "అంశాన్ని లోడ్ చేస్తోంది"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "అంశం వివరాలను లోడ్ చేస్తోంది"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "లాగ్ అవుట్ చేస్తోంది…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "చిన్న అక్షరాలు, సంఖ్యలు మరియు హైఫన్‌లు మాత్రమే"
 
@@ -1648,8 +1630,8 @@ msgstr "చిన్న అక్షరాలు, సంఖ్యలు మర�
 msgid "Manage categories"
 msgstr "వర్గాలను నిర్వహించండి"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "టోకెన్‌లను నిర్వహించండి"
 
@@ -1739,7 +1721,7 @@ msgstr "పేరు"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "పేరులో < లేదా > క్యారెక్టర్‌లు ఉండకూడదు"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "పేరు అవసరం"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "పేరు 100 క్యారెక్టర్‌లు లేదా అంతకంటే తక్కువ ఉండాలి"
 
@@ -1756,7 +1738,7 @@ msgstr "పేరు 100 క్యారెక్టర్‌లు లేదా
 msgid "Name must be 1000 characters or less"
 msgstr "పేరు 1000 క్యారెక్టర్‌లు లేదా అంతకంటే తక్కువ ఉండాలి"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "పేరు:"
 
@@ -1765,8 +1747,8 @@ msgstr "పేరు:"
 msgid "Network error"
 msgstr "నెట్‌వర్క్ లోపం"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "ఎప్పుడూ లేదు"
 
@@ -1775,8 +1757,7 @@ msgstr "ఎప్పుడూ లేదు"
 msgid "New"
 msgstr "కొత్తది"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "కొత్త బ్రాంచ్"
 
@@ -1794,7 +1775,7 @@ msgstr "తదుపరి చిత్రం"
 msgid "No {parentClassNames} to add to"
 msgstr "జోడించడానికి {parentClassNames} లేదు"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "యాక్సెస్ లేదు"
 
@@ -1806,8 +1787,7 @@ msgstr "యాక్సెస్ నియమాలు ఏవీ కాన్ఫ
 msgid "No activity yet"
 msgstr "ఇంకా యాక్టివిటీ లేదు"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "ఇంకా బ్రాంచ్‌లు లేవు"
 
@@ -1815,8 +1795,7 @@ msgstr "ఇంకా బ్రాంచ్‌లు లేవు"
 msgid "No comments yet"
 msgstr "ఇంకా కామెంట్‌లు లేవు"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "ఇంకా కమిట్‌లు లేవు"
 
@@ -1849,8 +1828,8 @@ msgstr "ప్రాంతాలు ఏవీ కనుగొనబడలేద�
 msgid "No public repositories."
 msgstr "పబ్లిక్ రిపోజిటరీలు లేవు."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "రిపాజిటరీలు ఏవీ కనుగొనబడలేదు"
 
@@ -1869,8 +1848,7 @@ msgstr "ఫలితాలు ఏవీ కనుగొనబడలేదు."
 msgid "No status"
 msgstr "స్థితి లేదు"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "ఇంకా ట్యాగ్‌లు లేవు"
 
@@ -1878,7 +1856,7 @@ msgstr "ఇంకా ట్యాగ్‌లు లేవు"
 msgid "No time zone found."
 msgstr "టైం జోన్ కనుగొనబడలేదు."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "ఇంకా టోకెన్‌లు లేవు."
 
@@ -1902,10 +1880,10 @@ msgstr "వ్యూస్ లేవు"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "ఓనర్"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "పేరెంట్"
 
@@ -2040,15 +2018,15 @@ msgstr "ఈ బ్రౌజర్‌లో పాస్‌కీలు అంద
 msgid "Path"
 msgstr "పాత్"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "పాత్ అవసరం"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "పాత్ అప్‌డేట్ చేయబడింది"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "పాత్:"
 
@@ -2060,7 +2038,7 @@ msgstr "నమూనా (regex)"
 msgid "People"
 msgstr "పీపుల్"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "ఈ రిపాజిటరీ మరియు దాని మొత్తం డేటాను శాశ్వతంగా డిలీట్ చేయండి"
 
@@ -2070,7 +2048,7 @@ msgstr "ఈ రిపాజిటరీ మరియు దాని మొత�
 msgid "Please check your internet connection and try again."
 msgstr "దయచేసి మీ ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "టోకెన్ పేరును ఎంటర్ చేయండి"
 
@@ -2108,7 +2086,7 @@ msgstr "ప్రాసెస్ అవుతోంది…"
 msgid "Prompt saved"
 msgstr "ప్రాంప్ట్ సేవ్ చేయబడింది"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "లక్షణాలు"
 
@@ -2128,11 +2106,11 @@ msgstr "ఈ సర్వర్‌లో మీ ఖాతాలను మళ్�
 msgid "Re-register your passkeys on this server"
 msgstr "ఈ సర్వర్‌లో మీ పాస్‌కీలను మళ్లీ నమోదు చేయండి"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "చదవడం మరియు రాయడం"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "చదవడానికి మాత్రమే"
 
@@ -2226,7 +2204,7 @@ msgstr "ఐటెంను తొలగించండి"
 msgid "Remove link"
 msgstr "లింక్‌ను తీసివేయి"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "యాక్సెస్‌ను తీసివేస్తోంది..."
 
@@ -2243,7 +2221,7 @@ msgstr "కాలమ్ పేరును మార్చండి"
 msgid "Rename this board column"
 msgstr "ఈ బోర్డ్ కాలమ్ పేరును మార్చండి"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "రిపోజిటరీ పేరు మారుస్తోంది..."
 
@@ -2265,10 +2243,10 @@ msgstr "రిపాజిటరీలు"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "రిపోజిటరీ"
 msgid "Repository created"
 msgstr "రిపాజిటరీ సృష్టించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "రిపాజిటరీ డిలీట్ చేయబడింది"
 
@@ -2297,7 +2275,7 @@ msgstr "రిపాజిటరీ ID అవసరం"
 msgid "Repository link"
 msgstr "రిపోజిటరీ లింక్"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "రిపాజిటరీ పేరు అవసరం"
 
@@ -2305,7 +2283,7 @@ msgstr "రిపాజిటరీ పేరు అవసరం"
 msgid "Repository not found"
 msgstr "రిపాజిటరీ కనుగొనబడలేదు"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "రిపాజిటరీ పేరు మార్చబడింది"
 
@@ -2372,28 +2350,28 @@ msgstr "శనివారం"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "సేవ్ చేయండి"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "ఈ టోకెన్‌ని ఇప్పుడే సేవ్ చేయండి. మీరు దీన్ని మళ్లీ చూడలేరు."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "ఈ టోకెన్‌ను సురక్షితంగా సేవ్ చేయండి. మీరు దానిని మళ్ళీ చూడలేరు."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "సెట్టింగ్‌లను సేవ్ చేస్తోంది..."
 
@@ -2408,7 +2386,7 @@ msgstr "సేవ్ చేస్తోంది..."
 msgid "Search"
 msgstr "శోధన"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "పేరు, ID, ఫింగర్‌ప్రింట్ లేదా URL ద్వారా శోధించండి..."
 
@@ -2432,7 +2410,7 @@ msgstr "గమ్యస్థానాన్ని శోధించండి..
 msgid "Search for origin..."
 msgstr "మూలాన్ని శోధించండి..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "రిపాజిటరీలను శోధించండి..."
 
@@ -2493,7 +2471,7 @@ msgstr "ఖాతా రకాన్ని ఎంచుకోండి"
 msgid "Select branch"
 msgstr "బ్రాంచ్‌ను ఎంచుకోండి"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "డిఫాల్ట్ బ్రాంచ్‌ను ఎంచుకోండి"
 
@@ -2517,8 +2495,7 @@ msgstr "వ్యక్తిని ఎంచుకోండి..."
 msgid "Select previous card"
 msgstr "మునుపటి కార్డును ఎంచుకోండి"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "సోర్స్ బ్రాంచ్‌ను ఎంచుకోండి"
 
@@ -2567,7 +2544,7 @@ msgstr "సెషన్ గడువు ముగిసింది. దయచ�
 msgid "Set origin and destination"
 msgstr "మూలం మరియు గమ్యస్థానాన్ని సెట్ చేయండి"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "యాక్సెస్‌ను సెట్ చేస్తోంది..."
 
@@ -2578,10 +2555,10 @@ msgstr "యాక్సెస్‌ను సెట్ చేస్తోంద�
 msgid "Settings"
 msgstr "సెట్టింగ్‌లు"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "సెట్టింగ్‌లు సేవ్ చేయబడ్డాయి"
 
@@ -2632,8 +2609,7 @@ msgstr "చిన్నది"
 msgid "Sort"
 msgstr "సార్ట్ చేయండి"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "సోర్స్ బ్రాంచ్"
 
@@ -2649,8 +2625,8 @@ msgstr "విశాలమైన"
 msgid "Start the discussion by adding the first comment."
 msgstr "మొదటి వ్యాఖ్యను జోడించడం ద్వారా చర్చను ప్రారంభించండి."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "చూడటం ఆపండి"
 
@@ -2669,19 +2645,19 @@ msgstr "ప్రత్యుత్తరాన్ని సమర్పిం�
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "చందా చేరండి"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "చందా చేరారు"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "శాఖను మార్చు"
 msgid "Switch to view 1-9"
 msgstr "వీక్షణ 1-9 కి మారండి"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "పంపడం సాధ్యం కాలేదు. ఫైళ్ల�
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "అప్‌లోడ్ చేయడానికి చాలా పెద్దది. ఫైళ్లను తీసివేయండి లేదా చిన్నవి చేసి మళ్లీ ప్రయత్నించండి."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "రిపాజిటరీని వీక్షించేటప్పుడు చూపే బ్రాంచ్"
 
@@ -2773,6 +2749,11 @@ msgstr "సర్వర్ డేటాకు బదులుగా వెబ్
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ఈ యాప్‌కు మీ పాస్‌కీని ఉపయోగించే అనుమతి లేదు. సెట్టింగ్‌లలో, అనుమతుల కింద దానికి అనుమతించండి."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "ఈ ఫైల్ చూపించడానికి చాలా పెద్దది ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "ఈ పేజీకి రిపాజిటరీ కాంటెక్
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "ఇది గేమ్‌ను మరియు దాని చాట్‌ను శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను తిరిగి మార్చలేరు."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "ఇది \"{currentName}\" మరియు దాని అన్ని కమిట్‌లు, బ్రాంచ్‌లు మరియు ట్యాగ్‌లను శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "ఇది ఈ టోకెన్‌ని శాశ్వతంగా తొలగిస్తుంది. దీన్ని ఉపయోగించే ఏదైనా git క్లయింట్‌లు ఇకపై ధృవీకరించలేరు."
 
@@ -2795,7 +2776,7 @@ msgstr "ఇది ఈ టోకెన్‌ని శాశ్వతంగా �
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "ఇది \"{name}\"ను మీ రిపాజిటరీ జాబితా నుండి తీసివేస్తుంది. మీరు తర్వాత మళ్ళీ చందా చేరవచ్చు."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "ఇది \"{repoName}\"ను మీ రిపాజిటరీ జాబితా నుండి తీసివేస్తుంది. మీరు తర్వాత మళ్ళీ చందా చేరవచ్చు."
 
@@ -2830,15 +2811,15 @@ msgstr "వీక్షణ ఎంపికలను టోగుల్ చేయ
 msgid "Toggle watched filter"
 msgstr "వాచ్ చేసిన ఫిల్టర్‌ను టోగుల్ చేయండి"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "టోకెన్ సృష్టించబడింది"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "టోకెన్ తొలగించబడింది"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "టోకెన్ పేరు"
 
@@ -2914,7 +2895,7 @@ msgstr "ఊహించని API లోపం"
 msgid "United States"
 msgstr "యునైటెడ్ స్టేట్స్"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "తెలియదు"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "చందా మానివేయండి"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "రిపాజిటరీ నుండి చందా మానివేయాలా?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "చందా మానివేయబడింది"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "రిపాజిటరీ నుండి చందా మానివేయబడింది"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "చందా మానివేస్తోంది..."
@@ -2970,11 +2951,11 @@ msgstr "నవీకరించబడింది"
 msgid "Updated {field}"
 msgstr "{field} నవీకరించబడింది"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "యాక్సెస్‌ను నవీకరిస్తోంది..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "పాత్‌ను నవీకరిస్తోంది..."
 
@@ -3028,7 +3009,7 @@ msgstr "వీడియో వీక్షకం: {0}"
 msgid "View all notifications"
 msgstr "అన్ని నోటిఫికేషన్‌లను వీక్షించండి"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "ఐటెమ్ వివరాలను వీక్షించండి మరియు ఎడిట్ చేయండి"
 
@@ -3040,8 +3021,8 @@ msgstr "కంట్రోల్‌లను వీక్షించండి"
 msgid "Voice recording is not supported in this browser"
 msgstr "ఈ బ్రౌజర్‌లో వాయిస్ రికార్డింగ్‌కు మద్దతు లేదు"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "చూడండి"
 

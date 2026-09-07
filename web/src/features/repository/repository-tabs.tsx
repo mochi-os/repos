@@ -5,28 +5,19 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import { Trans, useLingui } from '@lingui/react/macro'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { useNavigate } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
-  Card,
-  CardContent,
   CardDescription,
-  Badge,
   Button,
   Label,
   Textarea,
-  Skeleton,
   Select,
   Switch,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
   Input,
   AlertDialog,
   AlertDialogAction,
@@ -39,10 +30,6 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  toast,
   toastAction,
   getErrorMessage,
   AccessDialog,
@@ -50,31 +37,27 @@ import {
   DataChip,
   type AccessLevel,
   type AccessRule,
-  useFormat, naturalCompare,} from '@mochi/web'
+} from '@mochi/web'
 import {
   Check,
-  ChevronRight,
-  GitBranch,
-  GitCommit,
   Loader2,
   Pencil,
   Plus,
-  Tag,
   Trash2,
-  User,
   UserMinus,
   X,
 } from 'lucide-react'
-import { useTree, useBranches, useTags, useCommits, useCreateBranch, useDeleteBranch, useUnsubscribe, repoKeys } from '@/hooks/use-repository'
+import { useTree, useBranches, useUnsubscribe, repoKeys } from '@/hooks/use-repository'
 import { reposRequest, appBasePath, repoBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 
-import { FileEntry } from '@/components/file-entry'
-import { DownloadDropdown } from '@/components/download-dropdown'
 import { RefSelector } from '@/components/ref-selector'
-import { getCommitTitle } from '@/lib/format'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
+import { FileListing } from './file-browser'
+import { CommitsList } from './commits-list'
+import { BranchesList } from './branches-list'
+import { TagsList } from './tags-list'
 
 // Re-export CloneDialog from shared component
 export { CloneDialog } from '@/components/clone-dialog'
@@ -147,23 +130,18 @@ export function RepositoryTabs({
       {/* Tab content */}
       <div className="pt-2">
         {activeTab === 'files' && (
-          <FilesTab
-            repoId={repoId}
-            fingerprint={fingerprint}
-            name={name}
-            currentRef={currentRef}
-          />
+          <FilesTab repoId={repoId} fingerprint={fingerprint} currentRef={currentRef} />
         )}
-        {activeTab === 'commits' && <CommitsTab repoId={repoId} fingerprint={fingerprint} currentRef={currentRef} />}
+        {activeTab === 'commits' && <CommitsList repoId={repoId} fingerprint={fingerprint} currentRef={currentRef} />}
         {activeTab === 'branches' && (
-          <BranchesTab
+          <BranchesList
             repoId={repoId}
             fingerprint={fingerprint}
             defaultBranch={defaultBranch}
-            isOwner={isOwner}
+            canManage={isOwner}
           />
         )}
-        {activeTab === 'tags' && <TagsTab repoId={repoId} fingerprint={fingerprint} />}
+        {activeTab === 'tags' && <TagsList repoId={repoId} fingerprint={fingerprint} />}
         {activeTab === 'settings' && isOwner && (
           <GeneralSettingsTab
             repoId={repoId}
@@ -247,480 +225,17 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
 // Files Tab
 // ============================================================================
 
-interface FilesTabProps {
-  repoId: string
-  fingerprint: string
-  name: string
-  currentRef: string
-  initialPath?: string
-}
-
-function FilesTab({
-  repoId,
-  fingerprint,
-  name,
-  currentRef,
-  initialPath = '',
-}: FilesTabProps) {
-  const { t } = useLingui()
-  const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, initialPath)
-
-  const entries = treeData?.entries || []
-
-  // Sort entries: directories first, then files
-  const sortedEntries = [...entries].sort((a, b) => {
-    // The server sends "dir"; "tree" is git's own word for the same thing and
-    // appears in some responses, so both count. Checking only "tree" meant this
-    // branch never fired and directories sorted in among the files.
-    const aIsDir = a.type === 'tree' || a.type === 'dir'
-    const bIsDir = b.type === 'tree' || b.type === 'dir'
-    if (aIsDir !== bIsDir) return aIsDir ? -1 : 1
-    return naturalCompare(a.name, b.name)
-  })
-
-  const pathParts = initialPath ? initialPath.split('/').filter(Boolean) : []
-
+function FilesTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
+  const { data, isLoading, error } = useTree(repoId, currentRef, '')
   return (
-    <div className="space-y-4">
-      {/* Breadcrumb */}
-      {pathParts.length > 0 && (
-        <div className="flex items-center gap-1 text-sm">
-          <Link to="/$repoId" params={{ repoId: fingerprint }} className="text-primary hover:underline">
-            {name}
-          </Link>
-          {pathParts.map((part, index) => {
-            const pathTo = pathParts.slice(0, index + 1).join('/')
-            return (
-              <span key={pathTo} className="flex items-center gap-1">
-                <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
-                {index === pathParts.length - 1 ? (
-                  <span>{part}</span>
-                ) : (
-                  <Link
-                    to="/$repoId/tree/$ref/$"
-                    params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
-                    className="text-primary hover:underline"
-                  >
-                    {part}
-                  </Link>
-                )}
-              </span>
-            )
-          })}
-        </div>
-      )}
-
-      {/* File listing */}
-      <Card>
-        <CardContent className="p-0">
-          {treeLoading ? (
-            <div className="p-4 space-y-2">
-              {[...Array(5)].map((_, i) => (
-                <Skeleton key={i} className="h-10 w-full" />
-              ))}
-            </div>
-          ) : error ? (
-            <div className="p-4 text-destructive">
-              {getErrorMessage(error, t`Failed to load files`)}
-            </div>
-          ) : sortedEntries.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground">
-              <Trans>Empty repository</Trans>
-            </div>
-          ) : (
-            <div className="divide-y">
-              {sortedEntries.map((entry) => (
-                <FileEntry
-                  key={entry.name}
-                  entry={entry}
-                  fingerprint={fingerprint}
-                  currentRef={currentRef}
-                  basePath={initialPath}
-                />
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </div>
-  )
-}
-
-// ============================================================================
-// Commits Tab
-// ============================================================================
-
-function CommitsTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
-  const { t } = useLingui()
-  const { formatTimestamp } = useFormat()
-  const { data, isLoading, error } = useCommits(repoId, currentRef)
-
-  return (
-    <div className="space-y-4">
-      {isLoading ? (
-        <div className="space-y-2">
-          {[...Array(10)].map((_, i) => (
-            <Skeleton key={i} className="h-16 w-full" />
-          ))}
-        </div>
-      ) : error ? (
-        <div className="p-4 text-destructive">
-          {getErrorMessage(error, t`Failed to load commits`)}
-        </div>
-      ) : (data?.commits || []).length === 0 ? (
-        <div className="p-8 text-center text-muted-foreground">
-          <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-          <p><Trans>No commits yet</Trans></p>
-        </div>
-      ) : (
-        <Card>
-          <CardContent className="p-0 divide-y">
-            {(data?.commits || []).map((commit) => (
-              <div
-                key={commit.sha}
-                className="flex items-start gap-4 p-4 hover:bg-hover transition-colors"
-              >
-                <Link
-                  to="/$repoId/commit/$sha"
-                  params={{ repoId: fingerprint, sha: commit.sha }}
-                  className="flex items-start gap-4 flex-1 min-w-0"
-                >
-                  <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                      <User className="h-3 w-3" />
-                      <span>{commit.author}</span>
-                      <span>·</span>
-                      <span>{formatTimestamp(commit.date)}</span>
-                    </div>
-                  </div>
-                  <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                    {commit.sha.substring(0, 7)}
-                  </code>
-                </Link>
-                <DownloadDropdown gitRef={commit.sha} variant="icon" />
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      )}
-    </div>
-  )
-}
-
-// ============================================================================
-// Branches Tab
-// ============================================================================
-
-interface BranchesTabProps {
-  repoId: string
-  fingerprint: string
-  defaultBranch: string
-  isOwner?: boolean
-}
-
-function BranchesTab({ repoId, fingerprint, defaultBranch, isOwner }: BranchesTabProps) {
-  const { t } = useLingui()
-  const [showCreateDialog, setShowCreateDialog] = useState(false)
-  const [showDeleteDialog, setShowDeleteDialog] = useState(false)
-  const [branchToDelete, setBranchToDelete] = useState('')
-  const [newBranchName, setNewBranchName] = useState('')
-  const [sourceBranch, setSourceBranch] = useState('')
-
-  const { data, isLoading, error } = useBranches(repoId)
-  const createBranch = useCreateBranch(repoId)
-  const deleteBranch = useDeleteBranch(repoId)
-
-  const branches = data?.branches || []
-  const actualDefault = data?.default || defaultBranch
-
-  const handleCreate = async () => {
-    if (!newBranchName.trim()) {
-      toast.error(t`Branch name is required`)
-      return
-    }
-    const name = newBranchName.trim()
-    try {
-      await toastAction(
-        createBranch.mutateAsync({ name, source: sourceBranch || actualDefault }),
-        {
-          loading: t`Creating branch...`,
-          success: t`Branch "${name}" created`,
-          error: (e) => getErrorMessage(e, t`Failed to create branch`),
-        }
-      )
-      setShowCreateDialog(false)
-      setNewBranchName('')
-      setSourceBranch('')
-    } catch {
-      // toast already shown
-    }
-  }
-
-  const handleDeleteClick = (name: string) => {
-    setBranchToDelete(name)
-    setShowDeleteDialog(true)
-  }
-
-  const handleDelete = async () => {
-    const name = branchToDelete
-    try {
-      await toastAction(deleteBranch.mutateAsync(name), {
-        loading: t`Deleting branch...`,
-        success: t`Branch "${name}" deleted`,
-        error: (e) => getErrorMessage(e, t`Failed to delete branch`),
-      })
-      setShowDeleteDialog(false)
-      setBranchToDelete('')
-    } catch {
-      // toast already shown
-    }
-  }
-
-  if (isLoading) {
-    return (
-      <div className="space-y-2">
-        {[...Array(5)].map((_, i) => (
-          <Skeleton key={i} className="h-12 w-full" />
-        ))}
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 text-destructive">
-        {getErrorMessage(error, t`Failed to load branches`)}
-      </div>
-    )
-  }
-
-  return (
-    <>
-      {isOwner && (
-        <div className="flex justify-end mb-2">
-          <Button size="sm" onClick={() => setShowCreateDialog(true)}>
-            <Plus className="h-4 w-4" />
-            <Trans>Create branch</Trans>
-          </Button>
-        </div>
-      )}
-
-      {branches.length === 0 ? (
-        <div className="p-8 text-center text-muted-foreground">
-          <GitBranch className="h-12 w-12 mx-auto mb-4 opacity-50" />
-          <p><Trans>No branches yet</Trans></p>
-        </div>
-      ) : (
-        <Card>
-          <CardContent className="p-0 divide-y">
-            {branches.map((branch) => (
-              <div
-                key={branch.name}
-                className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
-              >
-                <Link
-                  to="/$repoId/tree/$ref/$"
-                  params={{ repoId: fingerprint, ref: branch.name, _splat: '' }}
-                  className="flex items-center gap-4 flex-1 min-w-0"
-                >
-                  <GitBranch className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium">{branch.name}</span>
-                      {branch.name === actualDefault && (
-                        <Badge variant="secondary"><Trans>default</Trans></Badge>
-                      )}
-                    </div>
-                  </div>
-                  <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                    {branch.sha.substring(0, 7)}
-                  </code>
-                </Link>
-                <DownloadDropdown gitRef={branch.name} variant="icon" />
-                {isOwner && branch.name !== actualDefault && (
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleDeleteClick(branch.name)
-                        }}
-                        aria-label={t`Delete branch`}
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>{t`Delete branch`}</TooltipContent>
-                  </Tooltip>
-                )}
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Create branch dialog */}
-      <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle><Trans>New branch</Trans></DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4 py-4">
-            <div className="space-y-2">
-              <Label htmlFor="branch-name"><Trans>Branch name</Trans></Label>
-              <Input
-                id="branch-name"
-                value={newBranchName}
-                onChange={(e) => setNewBranchName(e.target.value)}
-                placeholder={t`feature/my-feature`}
-                autoFocus
-              />
-            </div>
-            <div className="space-y-2">
-              <Label><Trans>Source branch</Trans></Label>
-              <Select value={sourceBranch || actualDefault} onValueChange={setSourceBranch}>
-                <SelectTrigger>
-                  <SelectValue placeholder={t`Select source branch`} />
-                </SelectTrigger>
-                <SelectContent>
-                  {branches.map((b) => (
-                    <SelectItem key={b.name} value={b.name}>
-                      {b.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setShowCreateDialog(false)}>
-              <Trans>Cancel</Trans>
-            </Button>
-            <Button onClick={handleCreate} disabled={!newBranchName.trim() || createBranch.isPending}>
-              {createBranch.isPending ? <Trans>Creating...</Trans> : <><Plus className="h-4 w-4 me-2" /><Trans>Create branch</Trans></>}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* Delete confirmation dialog */}
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle><Trans>Delete branch?</Trans></AlertDialogTitle>
-            <AlertDialogDescription>
-              <Trans>Delete "{branchToDelete}"? This cannot be undone.</Trans>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete} disabled={deleteBranch.isPending}>
-              {deleteBranch.isPending ? <Trans>Deleting...</Trans> : <Trans>Delete</Trans>}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </>
-  )
-}
-
-// ============================================================================
-// Tags Tab
-// ============================================================================
-
-function TagsTab({ repoId, fingerprint }: { repoId: string; fingerprint: string }) {
-  const { t } = useLingui()
-  const { formatTimestamp } = useFormat()
-  const { data, isLoading, error } = useTags(repoId)
-
-  if (isLoading) {
-    return (
-      <div className="space-y-2">
-        {[...Array(5)].map((_, i) => (
-          <Skeleton key={i} className="h-12 w-full" />
-        ))}
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 text-destructive">
-        {getErrorMessage(error, t`Failed to load tags`)}
-      </div>
-    )
-  }
-
-  const isVersion = (name: string) => name.split('.').every(p => /^\d+$/.test(p))
-  const tags = [...(data?.tags || [])].sort((a, b) => {
-    const aVer = isVersion(a.name)
-    const bVer = isVersion(b.name)
-    // Version tags before non-version tags
-    if (aVer !== bVer) return aVer ? -1 : 1
-    // Both version tags: compare by version descending
-    if (aVer) {
-      const pa = a.name.split('.').map(Number)
-      const pb = b.name.split('.').map(Number)
-      for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-        const diff = (pb[i] ?? 0) - (pa[i] ?? 0)
-        if (diff !== 0) return diff
-      }
-      return 0
-    }
-    // Both non-version: sort by date descending, then name descending
-    if (a.date && b.date && a.date !== b.date) return b.date - a.date
-    return naturalCompare(b.name, a.name)
-  })
-
-  if (tags.length === 0) {
-    return (
-      <div className="p-8 text-center text-muted-foreground">
-        <Tag className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p><Trans>No tags yet</Trans></p>
-      </div>
-    )
-  }
-
-  return (
-    <Card>
-      <CardContent className="p-0 divide-y">
-        {tags.map((tag) => (
-          <div
-            key={tag.name}
-            className="flex items-center gap-4 p-4 hover:bg-hover transition-colors"
-          >
-            <Link
-              to="/$repoId/tree/$ref/$"
-              params={{ repoId: fingerprint, ref: tag.name, _splat: '' }}
-              className="flex items-center gap-4 flex-1 min-w-0"
-            >
-              <Tag className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <div className="font-medium">{tag.name}</div>
-                {tag.message && tag.message !== tag.name && (
-                  <div className="text-sm text-muted-foreground truncate">
-                    {tag.message}
-                  </div>
-                )}
-                {tag.tagger && tag.date && (
-                  <div className="text-sm text-muted-foreground">
-                    <Trans>{tag.tagger} tagged on {formatTimestamp(tag.date)}</Trans>
-                  </div>
-                )}
-              </div>
-              <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
-                {tag.sha.substring(0, 7)}
-              </code>
-            </Link>
-            <DownloadDropdown gitRef={tag.name} variant="icon" />
-          </div>
-        ))}
-      </CardContent>
-    </Card>
+    <FileListing
+      fingerprint={fingerprint}
+      currentRef={currentRef}
+      currentPath=""
+      entries={data?.entries || []}
+      isLoading={isLoading}
+      error={error}
+    />
   )
 }
 
@@ -1120,6 +635,7 @@ function GeneralSettingsTab({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
+          maxLength={2000}
         />
         <Button
           size="sm"

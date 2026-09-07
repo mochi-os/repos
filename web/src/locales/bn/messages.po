@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ফাইল পরিবর্তিত} other {# ফাইল পরিবর্তিত}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# লাইন} other {# লাইন}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} শাখা"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} কমিট"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{0} {1} এ ট্যাগ করেছেন"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} ট্যাগ"
 
@@ -125,6 +124,10 @@ msgstr "২৪ ঘণ্টা"
 msgid "A recording is already in progress."
 msgstr "একটি রেকর্ডিং ইতিমধ্যে চলছে।"
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "এই ভাণ্ডারের জন্য একটি টোকেন আগে দেওয়া হয়েছিল এবং তা আর দেখানো যাবে না।"
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "নিরঙ্কুশ (তারিখ এবং সময়)"
@@ -146,15 +149,15 @@ msgstr "অ্যাক্সেস অস্বীকৃত"
 msgid "Access level"
 msgstr "অ্যাক্সেস লেভেল"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "অ্যাক্সেস লেভেল আপডেট হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "অ্যাক্সেস সরানো হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "{subjectName}-এর জন্য অ্যাক্সেস সেট করা হয়েছে"
 
@@ -162,14 +165,14 @@ msgstr "{subjectName}-এর জন্য অ্যাক্সেস সেট 
 msgid "Account type"
 msgstr "অ্যাকাউন্টের ধরন"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "কার্যকলাপ"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "যোগ করুন"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "সব রিপোজিটরি"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "যেকেউ রিপোজিটরি পড়তে অনুমতি দিন"
 
@@ -258,8 +261,8 @@ msgstr "যেকেউ রিপোজিটরি পড়তে অনুম
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "যে কাউকে {entityLabel} খোঁজার অনুমতি দিন"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "যেকেউ রিপোজিটরি খুঁজতে অনুমতি দিন"
 
@@ -298,7 +301,7 @@ msgstr "এই ফিডে সাবস্ক্রাইব করা সব�
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "আপনি কি নিশ্চিত \"{0}\" মুছতে চান?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "আপনি কি নিশ্চিত \"{title}\" মুছতে চান? এই অ্যাকশন পূর্বাবস্থায় ফেরানো যাবে না।"
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "{name}-এর অবতার"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "ফিরে যান"
 
@@ -374,21 +377,21 @@ msgstr "কমিটে ফিরে যান"
 msgid "Back to home"
 msgstr "হোমে ফিরে যান"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "ব্যানার"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "ব্যানার সরানো হয়েছে"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "ব্যানার আপডেট হয়েছে"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "বাইনারি ফাইল ({0})"
 
@@ -419,23 +422,19 @@ msgstr "আগ্রহ বৃদ্ধি করুন"
 msgid "Border colour"
 msgstr "বর্ডারের রঙ"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "শাখা \"{name}\" তৈরি হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "শাখা \"{name}\" মুছে ফেলা হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "ব্রাঞ্চের নাম"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "ব্রাঞ্চের নাম প্রয়োজন"
 
@@ -469,14 +468,12 @@ msgstr "ক্যামেরা অনুপলব্ধ"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
@@ -484,8 +481,8 @@ msgstr "বাতিল করুন"
 msgid "Cancel comment"
 msgstr "মন্তব্য বাতিল করুন"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "সম্পাদনা বাতিল করুন"
 
@@ -542,7 +539,7 @@ msgstr "সাইডবার থেকে একটি গেম বেছে �
 msgid "Choose language"
 msgstr "ভাষা বেছে নিন"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "সব পরিষ্কার করুন"
 msgid "Clear search"
 msgstr "অনুসন্ধান পরিষ্কার করুন"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "ক্লোন করুন"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "ভাণ্ডার ক্লোন করুন"
 
@@ -644,8 +641,8 @@ msgstr "মন্তব্যের ক্রিয়া"
 msgid "Comments"
 msgstr "মন্তব্য"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "মন্তব্য ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "কপি করা হয়েছে"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "ক্লিপবোর্ডে কপি করা হয়েছে"
 
@@ -732,8 +729,8 @@ msgstr "কপি করুন"
 msgid "Copy commit SHA"
 msgstr "commit SHA অনুলিপি করুন"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "ফাইলের বিষয়বস্তু অনুলিপি করুন"
 
@@ -762,8 +759,8 @@ msgstr "ওই অ্যাকাউন্ট দিয়ে যাচাই �
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "তৈরি করুন"
 
@@ -771,7 +768,7 @@ msgstr "তৈরি করুন"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} তৈরি করুন"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "একটি নতুন প্রমাণীকরণ টোকেন তৈরি করুন।"
 
@@ -779,10 +776,8 @@ msgstr "একটি নতুন প্রমাণীকরণ টোকেন
 msgid "Create a new repository"
 msgstr "একটি নতুন রিপোজিটরি তৈরি করুন"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "ব্রাঞ্চ তৈরি করুন"
 
@@ -796,8 +791,8 @@ msgstr "নতুন আইটেম তৈরি করুন"
 msgid "Create repository"
 msgstr "রিপোজিটরি তৈরি করুন"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "টোকেন তৈরি করুন"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "তৈরি হয়েছে"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "তৈরি {0}"
 
@@ -816,8 +811,7 @@ msgstr "তৈরি {0}"
 msgid "Created {field}"
 msgstr "{field} তৈরি করা হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "শাখা তৈরি করা হচ্ছে..."
 
@@ -825,14 +819,13 @@ msgstr "শাখা তৈরি করা হচ্ছে..."
 msgid "Creating repository..."
 msgstr "রিপোজিটরি তৈরি করা হচ্ছে..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "টোকেন তৈরি করা হচ্ছে..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "তৈরি করা হচ্ছে..."
 
@@ -861,8 +854,7 @@ msgstr "তারিখ"
 msgid "Decline"
 msgstr "প্রত্যাখ্যান করুন"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "ডিফল্ট"
 
@@ -874,7 +866,7 @@ msgstr "ডিফল্ট"
 msgid "Default AI account"
 msgstr "ডিফল্ট AI অ্যাকাউন্ট"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "ডিফল্ট ব্রাঞ্চ"
 
@@ -891,17 +883,15 @@ msgstr "ডিফল্ট সাজানো"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "মুছুন"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" মুছবেন? এটি পূর্বাবস্থায় ফেরানো যাবে না।"
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\" মুছবেন? এটি পূর্বাব
 msgid "Delete attachment"
 msgstr "অ্যাটাচমেন্ট মুছুন"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "শাখা মুছুন"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "ব্রাঞ্চ মুছবেন?"
 
@@ -937,9 +924,9 @@ msgstr "ফিল্ড মুছুন"
 msgid "Delete game?"
 msgstr "গেম মুছবেন?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "আইটেম মুছুন"
 
@@ -953,20 +940,20 @@ msgstr "অপশন মুছুন"
 msgid "Delete option {0}"
 msgstr "অপশন {0} মুছুন"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "রিপোজিটরি মুছুন"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "রিপোজিটরি মুছবেন?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "টোকেন মুছুন"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "টোকেন মুছবেন?"
 
@@ -986,22 +973,20 @@ msgstr "মুছে ফেলা হয়েছে"
 msgid "Deleted {field}"
 msgstr "{field} মুছে ফেলা হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "শাখা মুছে ফেলা হচ্ছে..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "রিপোজিটরি মুছে ফেলা হচ্ছে..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "টোকেন মুছে ফেলা হচ্ছে..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "মুছে ফেলা হচ্ছে..."
 
@@ -1011,7 +996,7 @@ msgstr "অধঃক্রম"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "বিবরণ"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "প্রয়োজনীয় প্যাটার্নের সঙ্গে মেলে না"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "সম্পন্ন"
 
@@ -1082,8 +1067,8 @@ msgstr "ডাউনলোড"
 msgid "Download failed"
 msgstr "ডাউনলোড ব্যর্থ হয়েছে"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "ফাইল ডাউনলোড করুন"
 
@@ -1095,7 +1080,7 @@ msgstr "নকল"
 msgid "Dyslexia-friendly"
 msgstr "ডিসলেক্সিয়া-বান্ধব"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "যেমন: কাজের ল্যাপটপ"
 
@@ -1120,7 +1105,7 @@ msgstr "ফিল্ড সম্পাদনা করুন"
 msgid "Edit field settings"
 msgstr "ফিল্ড সেটিংস সম্পাদনা করুন"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "নাম সম্পাদনা করুন"
 
@@ -1134,7 +1119,7 @@ msgstr "বিকল্প সম্পাদনা"
 msgid "Edit option {0}"
 msgstr "অপশন {0} সম্পাদনা করুন"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "পথ সম্পাদনা করুন"
 
@@ -1154,15 +1139,15 @@ msgstr "ইমেইল"
 msgid "Email code"
 msgstr "ইমেইল কোড"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "খালি ডিরেক্টরি"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "খালি রিপোজিটরি"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "ব্যানার টেক্সট লিখুন (মার্কডাউন সমর্থিত)..."
 
@@ -1174,11 +1159,11 @@ msgstr "আপনার ইমেল থেকে পাওয়া কোড�
 msgid "Enter your authenticator code"
 msgstr "আপনার প্রমাণীকরণকারী কোড লিখুন"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "ইউনিট:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "ত্রুটি"
 
@@ -1210,8 +1195,7 @@ msgstr "অ্যাকাউন্ট যোগ করতে ব্যর্থ
 msgid "Failed to copy"
 msgstr "কপি করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "ব্রাঞ্চ তৈরি করতে ব্যর্থ"
 
@@ -1225,7 +1209,7 @@ msgstr "লিঙ্ক তৈরি করতে ব্যর্থ"
 msgid "Failed to create repository"
 msgstr "রিপোজিটরি তৈরি করতে ব্যর্থ"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "টোকেন তৈরি করতে ব্যর্থ"
 
@@ -1237,8 +1221,7 @@ msgstr "মুছতে ব্যর্থ"
 msgid "Failed to delete attachment"
 msgstr "সংযুক্তি মুছতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "ব্রাঞ্চ মুছতে ব্যর্থ"
 
@@ -1250,11 +1233,11 @@ msgstr "মন্তব্য মুছতে ব্যর্থ"
 msgid "Failed to delete link"
 msgstr "লিঙ্ক মুছতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "রিপোজিটরি মুছতে ব্যর্থ"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "টোকেন মুছতে ব্যর্থ"
 
@@ -1270,7 +1253,7 @@ msgstr "আর্কাইভ ডাউনলোড করতে ব্যর্
 msgid "Failed to get RSS token"
 msgstr "RSS টোকেন পেতে ব্যর্থ"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "টোকেন পেতে ব্যর্থ"
 
@@ -1278,12 +1261,15 @@ msgstr "টোকেন পেতে ব্যর্থ"
 msgid "Failed to load"
 msgstr "লোড করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "অ্যাক্সেস নিয়ম লোড করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "ব্যানার লোড করা যায়নি"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "ব্রাঞ্চসমূহ লোড করতে ব্যর্থ"
 
@@ -1291,17 +1277,15 @@ msgstr "ব্রাঞ্চসমূহ লোড করতে ব্যর্
 msgid "Failed to load commit"
 msgstr "কমিট লোড করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "কমিটসমূহ লোড করতে ব্যর্থ"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "ফাইলসমূহ লোড করতে ব্যর্থ"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "ইতিহাস লোড করতে ব্যর্থ"
 
@@ -1309,8 +1293,8 @@ msgstr "ইতিহাস লোড করতে ব্যর্থ"
 msgid "Failed to load image"
 msgstr "ছবি লোড করা যায়নি"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "আইটেম লোড করতে ব্যর্থ"
 
@@ -1318,8 +1302,7 @@ msgstr "আইটেম লোড করতে ব্যর্থ"
 msgid "Failed to load prompts"
 msgstr "প্রম্পট লোড করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "ট্যাগসমূহ লোড করতে ব্যর্থ"
 
@@ -1335,11 +1318,11 @@ msgstr "সরানো ব্যর্থ"
 msgid "Failed to post comment"
 msgstr "মন্তব্য পোস্ট করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "অ্যাক্সেস সরাতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "রিপোজিটরির নাম পরিবর্তন করতে ব্যর্থ"
 
@@ -1359,39 +1342,39 @@ msgstr "সংরক্ষণ করতে ব্যর্থ"
 msgid "Failed to save prompt"
 msgstr "প্রম্পট সংরক্ষণ করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "সেটিং সংরক্ষণ করতে ব্যর্থ"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "রিপোজিটরি অনুসন্ধান ব্যর্থ হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "অ্যাক্সেস স্তর সেট করতে ব্যর্থ"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "সাবস্ক্রাইব করতে ব্যর্থ"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "আনসাবস্ক্রাইব করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "অ্যাক্সেস স্তর আপডেট করতে ব্যর্থ"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "ব্যানার আপডেট করতে ব্যর্থ"
 
@@ -1399,7 +1382,7 @@ msgstr "ব্যানার আপডেট করতে ব্যর্থ"
 msgid "Failed to update comment"
 msgstr "মন্তব্য আপডেট করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "পাথ আপডেট করতে ব্যর্থ"
 
@@ -1411,8 +1394,7 @@ msgstr "পর্যবেক্ষণ আপডেট ব্যর্থ"
 msgid "Failed to upload attachment"
 msgstr "সংযুক্তি আপলোড করতে ব্যর্থ"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "ফাইলসমূহ"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "রিপোজিটরি খুঁজুন"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "ফিঙ্গারপ্রিন্ট:"
 
@@ -1494,7 +1476,7 @@ msgstr "গ্রুপ অনুসারে"
 msgid "Group: {0}"
 msgstr "গোষ্ঠী: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "ইতিহাস"
 
@@ -1513,7 +1495,7 @@ msgstr "জনপ্রিয়"
 msgid "ID"
 msgstr "আইডি"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "পরিচয়"
 
@@ -1554,7 +1536,7 @@ msgstr "অবৈধ তারিখ"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "আপনি যে পৃষ্ঠাটি খুঁজছেন <0/>সেটি নেই বা সরিয়ে ফেলা হয়েছে।"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "আইটেমের বিবরণ"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "বড়"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "সর্বশেষ ব্যবহার {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "আরও লোড করুন"
 msgid "Loading content…"
 msgstr "কন্টেন্ট লোড হচ্ছে…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "আইটেম লোড হচ্ছে"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "আইটেমের বিবরণ লোড হচ্ছে"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "লগ আউট হচ্ছে…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "শুধু ছোট হাতের অক্ষর, সংখ্যা এবং হাইফেন"
 
@@ -1648,8 +1630,8 @@ msgstr "শুধু ছোট হাতের অক্ষর, সংখ্য�
 msgid "Manage categories"
 msgstr "ক্যাটেগরি পরিচালনা করুন"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "টোকেন পরিচালনা করুন"
 
@@ -1739,7 +1721,7 @@ msgstr "নাম"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "নামে < বা > অক্ষর থাকতে পারবে না"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "নাম প্রয়োজন"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "নাম অবশ্যই ১০০ অক্ষর বা তার কম হতে হবে"
 
@@ -1756,7 +1738,7 @@ msgstr "নাম অবশ্যই ১০০ অক্ষর বা তার 
 msgid "Name must be 1000 characters or less"
 msgstr "নাম অবশ্যই ১০০০ অক্ষর বা তার কম হতে হবে"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "নাম:"
 
@@ -1765,8 +1747,8 @@ msgstr "নাম:"
 msgid "Network error"
 msgstr "নেটওয়ার্ক ত্রুটি"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "কখনই না"
 
@@ -1775,8 +1757,7 @@ msgstr "কখনই না"
 msgid "New"
 msgstr "নতুন"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "নতুন ব্রাঞ্চ"
 
@@ -1794,7 +1775,7 @@ msgstr "পরবর্তী ছবি"
 msgid "No {parentClassNames} to add to"
 msgstr "যোগ করার জন্য কোনো {parentClassNames} নেই"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "অ্যাক্সেস নেই"
 
@@ -1806,8 +1787,7 @@ msgstr "কোনো অ্যাক্সেস নিয়ম কনফিগ
 msgid "No activity yet"
 msgstr "এখনও কোনো কার্যকলাপ নেই"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "এখনও কোনো ব্রাঞ্চ নেই"
 
@@ -1815,8 +1795,7 @@ msgstr "এখনও কোনো ব্রাঞ্চ নেই"
 msgid "No comments yet"
 msgstr "এখনও কোনো মন্তব্য নেই"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "এখনও কোনো কমিট নেই"
 
@@ -1849,8 +1828,8 @@ msgstr "কোনো স্থান পাওয়া যায়নি"
 msgid "No public repositories."
 msgstr "কোন পাবলিক ভাণ্ডার নেই।"
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "কোনো রিপোজিটরি পাওয়া যায়নি"
 
@@ -1869,8 +1848,7 @@ msgstr "কোনো ফলাফল পাওয়া যায়নি।"
 msgid "No status"
 msgstr "কোনো স্ট্যাটাস নেই"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "এখনও কোনো ট্যাগ নেই"
 
@@ -1878,7 +1856,7 @@ msgstr "এখনও কোনো ট্যাগ নেই"
 msgid "No time zone found."
 msgstr "কোনো টাইম জোন পাওয়া যায়নি।"
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "এখনও কোনো টোকেন নেই।"
 
@@ -1902,10 +1880,10 @@ msgstr "কোনো ভিউ নেই"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "মালিক"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "প্যারেন্ট"
 
@@ -2040,15 +2018,15 @@ msgstr "এই ব্রাউজারে পাসকি উপলব্ধ �
 msgid "Path"
 msgstr "পাথ"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "পাথ প্রয়োজন"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "পাথ আপডেট করা হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "পাথ:"
 
@@ -2060,7 +2038,7 @@ msgstr "প্যাটার্ন (রেজেক্স)"
 msgid "People"
 msgstr "ব্যক্তিরা"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "এই রিপোজিটরি ও এর সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলুন"
 
@@ -2070,7 +2048,7 @@ msgstr "এই রিপোজিটরি ও এর সমস্ত ডেট�
 msgid "Please check your internet connection and try again."
 msgstr "অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।"
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "অনুগ্রহ করে একটি টোকেনের নাম লিখুন"
 
@@ -2108,7 +2086,7 @@ msgstr "প্রক্রিয়াকরণ চলছে…"
 msgid "Prompt saved"
 msgstr "প্রম্পট সংরক্ষণ করা হয়েছে"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "বৈশিষ্ট্য"
 
@@ -2128,11 +2106,11 @@ msgstr "এই সার্ভারে আপনার অ্যাকাউন
 msgid "Re-register your passkeys on this server"
 msgstr "এই সার্ভারে আপনার পাসকি পুনরায় নিবন্ধন করুন"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "পড়া ও লেখা"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "শুধু পড়া"
 
@@ -2226,7 +2204,7 @@ msgstr "আইটেম সরান"
 msgid "Remove link"
 msgstr "লিঙ্ক সরান"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "অ্যাক্সেস সরানো হচ্ছে..."
 
@@ -2243,7 +2221,7 @@ msgstr "কলাম পুনঃনামকরণ করুন"
 msgid "Rename this board column"
 msgstr "এই বোর্ড কলাম পুনঃনামকরণ করুন"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "রিপোজিটরির নাম পরিবর্তন করা হচ্ছে..."
 
@@ -2265,10 +2243,10 @@ msgstr "রিপোজিটরি"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "ভাণ্ডার"
 msgid "Repository created"
 msgstr "রিপোজিটরি তৈরি করা হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "রিপোজিটরি মুছে ফেলা হয়েছে"
 
@@ -2297,7 +2275,7 @@ msgstr "রিপোজিটরি আইডি প্রয়োজন"
 msgid "Repository link"
 msgstr "রিপোজিটরি লিঙ্ক"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "রিপোজিটরির নাম প্রয়োজন"
 
@@ -2305,7 +2283,7 @@ msgstr "রিপোজিটরির নাম প্রয়োজন"
 msgid "Repository not found"
 msgstr "রিপোজিটরি পাওয়া যায়নি"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "রিপোজিটরির নাম পরিবর্তন করা হয়েছে"
 
@@ -2372,28 +2350,28 @@ msgstr "শনিবার"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "এই টোকেনটি এখন সংরক্ষণ করুন। আপনি এটি আবার দেখতে পাবেন না।"
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "এই টোকেনটি নিরাপদে সংরক্ষণ করুন। আপনি এটি আর দেখতে পারবেন না।"
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "সেটিংস সংরক্ষণ করা হচ্ছে..."
 
@@ -2408,7 +2386,7 @@ msgstr "সংরক্ষণ করা হচ্ছে..."
 msgid "Search"
 msgstr "অনুসন্ধান"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "নাম, ID, ফিঙ্গারপ্রিন্ট, বা URL দিয়ে অনুসন্ধান করুন..."
 
@@ -2432,7 +2410,7 @@ msgstr "গন্তব্য অনুসন্ধান করুন..."
 msgid "Search for origin..."
 msgstr "উৎস অনুসন্ধান করুন..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "রিপোজিটরি অনুসন্ধান করুন..."
 
@@ -2493,7 +2471,7 @@ msgstr "অ্যাকাউন্টের ধরন নির্বাচন 
 msgid "Select branch"
 msgstr "ব্রাঞ্চ নির্বাচন করুন"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "ডিফল্ট ব্রাঞ্চ নির্বাচন করুন"
 
@@ -2517,8 +2495,7 @@ msgstr "ব্যক্তি নির্বাচন করুন..."
 msgid "Select previous card"
 msgstr "পূর্ববর্তী কার্ড নির্বাচন করুন"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "সোর্স ব্রাঞ্চ নির্বাচন করুন"
 
@@ -2567,7 +2544,7 @@ msgstr "সেশনের মেয়াদ শেষ হয়ে গেছ�
 msgid "Set origin and destination"
 msgstr "উৎস ও গন্তব্য সেট করুন"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "অ্যাক্সেস সেট করা হচ্ছে..."
 
@@ -2578,10 +2555,10 @@ msgstr "অ্যাক্সেস সেট করা হচ্ছে..."
 msgid "Settings"
 msgstr "সেটিংস"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "সেটিংস সংরক্ষিত হয়েছে"
 
@@ -2632,8 +2609,7 @@ msgstr "ছোট"
 msgid "Sort"
 msgstr "সাজান"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "সোর্স ব্রাঞ্চ"
 
@@ -2649,8 +2625,8 @@ msgstr "প্রশস্ত"
 msgid "Start the discussion by adding the first comment."
 msgstr "প্রথম মন্তব্য যোগ করে আলোচনা শুরু করুন।"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "দেখা বন্ধ করুন"
 
@@ -2669,19 +2645,19 @@ msgstr "জবাব জমা দিন"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "সাবস্ক্রাইব করুন"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "সাবস্ক্রাইব করা হয়েছে"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "শাখা পরিবর্তন করুন"
 msgid "Switch to view 1-9"
 msgstr "ভিউ 1-9 এ স্যুইচ করুন"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "পাঠানো যায়নি। ফাইলগুলি খু
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "আপলোডের জন্য খুব বড় ছিল। ফাইল সরান বা ছোট করুন এবং আবার চেষ্টা করুন।"
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "রিপোজিটরি দেখার সময় যে ব্রাঞ্চ দেখানো হয়"
 
@@ -2773,6 +2749,11 @@ msgstr "সার্ভার ডেটার পরিবর্তে একট
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "এই অ্যাপটিকে আপনার পাসকি ব্যবহারের অনুমতি নেই। সেটিংসে, অনুমতির অধীনে এটির অনুমতি দিন।"
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "এই ফাইলটি দেখানোর জন্য খুব বড় ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "এই পৃষ্ঠার জন্য একটি রিপোজ�
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "এটি গেম এবং এর চ্যাট স্থায়ীভাবে মুছে ফেলবে। এটি ফিরিয়ে আনা যাবে না।"
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "এটি \"{currentName}\" এবং এর সমস্ত commit, branch এবং tag স্থায়ীভাবে মুছে ফেলবে। এই অ্যাকশন পূর্বাবস্থায় ফিরিয়ে আনা যাবে না।"
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "এটি স্থায়ীভাবে এই টোকেন মুছে ফেলবে। এটি ব্যবহার করা যেকোনো git ক্লায়েন্ট আর প্রমাণীকরণ করতে পারবে না।"
 
@@ -2795,7 +2776,7 @@ msgstr "এটি স্থায়ীভাবে এই টোকেন ম�
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "এটি আপনার রিপোজিটরি তালিকা থেকে \"{name}\" সরিয়ে ফেলবে। আপনি পরে আবার সাবস্ক্রাইব করতে পারেন।"
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "এটি আপনার রিপোজিটরি তালিকা থেকে \"{repoName}\" সরিয়ে ফেলবে। আপনি পরে আবার সাবস্ক্রাইব করতে পারেন।"
 
@@ -2830,15 +2811,15 @@ msgstr "ভিউ বিকল্প টগল করুন"
 msgid "Toggle watched filter"
 msgstr "watched ফিল্টার টগল করুন"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "টোকেন তৈরি করা হয়েছে"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "টোকেন মুছে ফেলা হয়েছে"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "টোকেন নাম"
 
@@ -2914,7 +2895,7 @@ msgstr "অপ্রত্যাশিত API ত্রুটি"
 msgid "United States"
 msgstr "যুক্তরাষ্ট্র"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "অজানা"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "আনসাবস্ক্রাইব করুন"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "রিপোজিটরি থেকে আনসাবস্ক্রাইব করবেন?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "আনসাবস্ক্রাইব করা হয়েছে"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "রিপোজিটরি থেকে আনসাবস্ক্রাইব করা হয়েছে"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "আনসাবস্ক্রাইব করা হচ্ছে..."
@@ -2970,11 +2951,11 @@ msgstr "আপডেট হয়েছে"
 msgid "Updated {field}"
 msgstr "{field} হালনাগাদ করা হয়েছে"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "অ্যাক্সেস আপডেট করা হচ্ছে..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "পাথ আপডেট করা হচ্ছে..."
 
@@ -3028,7 +3009,7 @@ msgstr "ভিডিও দর্শক: {0}"
 msgid "View all notifications"
 msgstr "সব নোটিফিকেশন দেখুন"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "আইটেমের বিস্তারিত দেখুন এবং সম্পাদনা করুন"
 
@@ -3040,8 +3021,8 @@ msgstr "কন্ট্রোল দেখুন"
 msgid "Voice recording is not supported in this browser"
 msgstr "এই ব্রাউজারে ভয়েস রেকর্ডিং সমর্থিত নয়"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "দেখুন"
 

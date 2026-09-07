@@ -46,29 +46,28 @@ msgid "{0, plural, one {1 file changed} other {# files changed}}"
 msgstr "{0, plural, one {# faýl üýtgedildi} other {# faýl üýtgedildi}}"
 
 #. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx:169
+#: src/features/repository/blob-viewer.tsx:170
 msgid "{0, plural, one {1 line} other {# lines}}"
 msgstr "{0, plural, one {# setir} other {# setir}}"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.branches.tsx:77
+#: src/routes/_authenticated/$repoId_.branches.tsx:27
 msgid "{0} branches"
 msgstr "{0} şahalar"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.commits.tsx:42
+#: src/routes/_authenticated/$repoId_.commits.tsx:35
 msgid "{0} commits"
 msgstr "{0} commit-ler"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
-#: src/features/repository/repository-tabs.tsx:711
-#: src/routes/_authenticated/$repoId_.tags.tsx:124
+#: src/features/repository/tags-list.tsx:97
 msgid "{0} tagged on {1}"
 msgstr "{1} -de {0} bellenildi"
 
 #. placeholder {0}: data.name
-#: src/routes/_authenticated/$repoId_.tags.tsx:38
+#: src/routes/_authenticated/$repoId_.tags.tsx:27
 msgid "{0} tags"
 msgstr "{0} bellikleri"
 
@@ -125,6 +124,10 @@ msgstr "24 sagat"
 msgid "A recording is already in progress."
 msgstr "Ýazgy eýýäm dowam edýär."
 
+#: src/components/clone-dialog.tsx:306
+msgid "A token for this repository was issued earlier and cannot be shown again."
+msgstr "Bu repozitoriýa üçin token öň berlipdi we ony gaýtadan görkezip bolmaýar."
+
 #: ../../../lib/web/src/lib/preference-utils.ts:46
 msgid "Absolute (date and time)"
 msgstr "Mutlak (sene we wagt)"
@@ -146,15 +149,15 @@ msgstr "Giriş ret edildi"
 msgid "Access level"
 msgstr "Giriş derejesi"
 
-#: src/features/repository/repository-tabs.tsx:1321
+#: src/features/repository/repository-tabs.tsx:837
 msgid "Access level updated"
 msgstr "Giriş derejesi täzelendi"
 
-#: src/features/repository/repository-tabs.tsx:1301
+#: src/features/repository/repository-tabs.tsx:817
 msgid "Access removed"
 msgstr "Giriş aýryldy"
 
-#: src/features/repository/repository-tabs.tsx:1281
+#: src/features/repository/repository-tabs.tsx:797
 msgid "Access set for {subjectName}"
 msgstr "{subjectName} üçin giriş bellendi"
 
@@ -162,14 +165,14 @@ msgstr "{subjectName} üçin giriş bellendi"
 msgid "Account type"
 msgstr "Hasap görnüşi"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:415
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:423
 msgid "Activity"
 msgstr "Hereketlilik"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx:758
 #: ../../../lib/web/src/features/access/access-dialog.tsx:332
 #: ../../../lib/web/src/features/accounts/account-add.tsx:209
-#: src/features/repository/repository-tabs.tsx:1336
+#: src/features/repository/repository-tabs.tsx:852
 msgid "Add"
 msgstr "Goşmak"
 
@@ -249,8 +252,8 @@ msgstr "AI"
 msgid "All repositories"
 msgstr "Ähli ammarlar"
 
-#: src/features/repository/create-repository-dialog.tsx:182
-#: src/features/repository/repository-tabs.tsx:1175
+#: src/features/repository/create-repository-dialog.tsx:183
+#: src/features/repository/repository-tabs.tsx:691
 msgid "Allow anyone to read repository"
 msgstr "Islendik adamyň ammary okamagyna rugsat bermek"
 
@@ -258,8 +261,8 @@ msgstr "Islendik adamyň ammary okamagyna rugsat bermek"
 msgid "Allow anyone to search for {entityLabel}"
 msgstr "Islendik adama {entityLabel} gözlemäge rugsat ber"
 
-#: src/features/repository/create-repository-dialog.tsx:177
-#: src/features/repository/repository-tabs.tsx:1163
+#: src/features/repository/create-repository-dialog.tsx:178
+#: src/features/repository/repository-tabs.tsx:679
 msgid "Allow anyone to search for repository"
 msgstr "Islendik adamyň ammar gözlemegine rugsat bermek"
 
@@ -298,7 +301,7 @@ msgstr "Bu akyma ýazylan ähli zat ony almagy bes eder. Soňra täze URL göç�
 msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "\"{0}\" pozmak isleýändigiňize ynamlymy?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:671
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:679
 msgid "Are you sure you want to delete \"{title}\"? This action cannot be undone."
 msgstr "\"{title}\" pozmak isleýändigiňize ynamlymy? Bu hereket yzyna gaýtarylyp bilinmez."
 
@@ -360,8 +363,8 @@ msgid "Avatar for {name}"
 msgstr "{name} üçin awatar"
 
 #: ../../../lib/web/src/components/place-picker.tsx:142
-#: src/components/clone-dialog.tsx:362
-#: src/components/clone-dialog.tsx:421
+#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:425
 msgid "Back"
 msgstr "Yza"
 
@@ -374,21 +377,21 @@ msgstr "Kommitlere yza"
 msgid "Back to home"
 msgstr "Baş sahypa dolan"
 
-#: ../../../lib/web/src/components/banner-section.tsx:80
+#: ../../../lib/web/src/components/banner-section.tsx:91
 #: ../../../lib/web/src/components/entity-banner.tsx:17
 msgid "Banner"
 msgstr "Banner"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner removed"
 msgstr "Banner aýryldy"
 
-#: ../../../lib/web/src/components/banner-section.tsx:69
+#: ../../../lib/web/src/components/banner-section.tsx:73
 msgid "Banner updated"
 msgstr "Banner täzelendi"
 
 #. placeholder {0}: formatFileSize(data.size)
-#: src/features/repository/blob-viewer.tsx:197
+#: src/features/repository/blob-viewer.tsx:201
 msgid "Binary file ({0})"
 msgstr "Ikilik faýl ({0})"
 
@@ -419,23 +422,19 @@ msgstr "Gyzyklanmany ýokarlandyrmak"
 msgid "Border colour"
 msgstr "Çäk reňki"
 
-#: src/features/repository/repository-tabs.tsx:449
-#: src/routes/_authenticated/$repoId_.branches.tsx:90
+#: src/features/repository/branches-list.tsx:82
 msgid "Branch \"{name}\" created"
 msgstr "\"{name}\" şahasy döredildi"
 
-#: src/features/repository/repository-tabs.tsx:471
-#: src/routes/_authenticated/$repoId_.branches.tsx:112
+#: src/features/repository/branches-list.tsx:104
 msgid "Branch \"{name}\" deleted"
 msgstr "\"{name}\" şahasy pozuldy"
 
-#: src/features/repository/repository-tabs.tsx:574
-#: src/routes/_authenticated/$repoId_.branches.tsx:160
+#: src/features/repository/branches-list.tsx:207
 msgid "Branch name"
 msgstr "Şaha ady"
 
-#: src/features/repository/repository-tabs.tsx:440
-#: src/routes/_authenticated/$repoId_.branches.tsx:81
+#: src/features/repository/branches-list.tsx:73
 msgid "Branch name is required"
 msgstr "Şaha ady hökmany"
 
@@ -469,14 +468,12 @@ msgstr "Kamera elýeterli däl"
 #: ../../../lib/web/src/features/access/access-list.tsx:268
 #: ../../../lib/web/src/features/accounts/account-add.tsx:201
 #: ../../../lib/web/src/features/accounts/account-verify.tsx:91
-#: src/components/clone-dialog.tsx:449
+#: src/components/clone-dialog.tsx:453
+#: src/features/repository/branches-list.tsx:234
+#: src/features/repository/branches-list.tsx:253
 #: src/features/repository/repository-header.tsx:133
-#: src/features/repository/repository-tabs.tsx:235
-#: src/features/repository/repository-tabs.tsx:601
-#: src/features/repository/repository-tabs.tsx:620
-#: src/features/repository/repository-tabs.tsx:1211
-#: src/routes/_authenticated/$repoId_.branches.tsx:187
-#: src/routes/_authenticated/$repoId_.branches.tsx:206
+#: src/features/repository/repository-tabs.tsx:213
+#: src/features/repository/repository-tabs.tsx:727
 msgid "Cancel"
 msgstr "Ýatyrmak"
 
@@ -484,8 +481,8 @@ msgstr "Ýatyrmak"
 msgid "Cancel comment"
 msgstr "Teswiri ýatyrmak"
 
-#: src/features/repository/repository-tabs.tsx:1026
-#: src/features/repository/repository-tabs.tsx:1086
+#: src/features/repository/repository-tabs.tsx:541
+#: src/features/repository/repository-tabs.tsx:601
 msgid "Cancel edit"
 msgstr "Üýtgetmegi ýatyr"
 
@@ -542,7 +539,7 @@ msgstr "Gapdal panelden oýun saýlaň ýa-da täzesini başlaň."
 msgid "Choose language"
 msgstr "Dil saýlaň"
 
-#: ../../../lib/web/src/components/banner-section.tsx:111
+#: ../../../lib/web/src/components/banner-section.tsx:123
 #: ../../../lib/web/src/components/colour-picker.tsx:274
 #: ../../../lib/web/src/components/colour-picker.tsx:355
 #: ../../../lib/web/src/components/travelling-picker.tsx:145
@@ -560,11 +557,11 @@ msgstr "Hemmesini arassalamak"
 msgid "Clear search"
 msgstr "Gözlegi arassalamak"
 
-#: src/components/clone-dialog.tsx:272
+#: src/components/clone-dialog.tsx:274
 msgid "Clone"
 msgstr "Klonlamak"
 
-#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:252
 msgid "Clone repository"
 msgstr "Ammary klonlamak"
 
@@ -644,8 +641,8 @@ msgstr "Teswir hereketleri"
 msgid "Comments"
 msgstr "Teswirler"
 
-#. placeholder {0}: data.comment_count || 0
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:411
+#. placeholder {0}: data.comments.count || 0
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:419
 msgid "Comments ({0})"
 msgstr "Teswirler ({0})"
 
@@ -718,8 +715,8 @@ msgid "Copied"
 msgstr "Göçürildi"
 
 #: ../../../lib/web/src/components/ui/copy-button.tsx:25
-#: src/components/clone-dialog.tsx:195
-#: src/components/clone-dialog.tsx:205
+#: src/components/clone-dialog.tsx:197
+#: src/components/clone-dialog.tsx:207
 msgid "Copied to clipboard"
 msgstr "Aralyk buferine nusgalandy"
 
@@ -732,8 +729,8 @@ msgstr "Nusgalamak"
 msgid "Copy commit SHA"
 msgstr "commit SHA-ny göçür"
 
-#: src/features/repository/blob-viewer.tsx:176
-#: src/features/repository/blob-viewer.tsx:180
+#: src/features/repository/blob-viewer.tsx:178
+#: src/features/repository/blob-viewer.tsx:182
 msgid "Copy file contents"
 msgstr "Faýlyň mazmunyny göçür"
 
@@ -762,8 +759,8 @@ msgstr "Şol hasap bilen barlap bolmady. Täzeden synanyşyň."
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:507
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/entity/entity-tree-view.tsx:672
-#: src/components/clone-dialog.tsx:429
-#: src/features/repository/create-repository-dialog.tsx:189
+#: src/components/clone-dialog.tsx:433
+#: src/features/repository/create-repository-dialog.tsx:190
 msgid "Create"
 msgstr "Döretmek"
 
@@ -771,7 +768,7 @@ msgstr "Döretmek"
 msgid "Create {entityLabel}"
 msgstr "{entityLabel} döret"
 
-#: src/components/clone-dialog.tsx:261
+#: src/components/clone-dialog.tsx:263
 msgid "Create a new authentication token."
 msgstr "Täze autentifikasiýa tokenini döretmek."
 
@@ -779,10 +776,8 @@ msgstr "Täze autentifikasiýa tokenini döretmek."
 msgid "Create a new repository"
 msgstr "Täze ammar döretmek"
 
-#: src/features/repository/repository-tabs.tsx:505
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:140
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:138
+#: src/features/repository/branches-list.tsx:237
 msgid "Create branch"
 msgstr "Şaha döretmek"
 
@@ -796,8 +791,8 @@ msgstr "Täze element döretmek"
 msgid "Create repository"
 msgstr "Ammar döretmek"
 
-#: src/components/clone-dialog.tsx:248
-#: src/components/clone-dialog.tsx:366
+#: src/components/clone-dialog.tsx:250
+#: src/components/clone-dialog.tsx:370
 msgid "Create token"
 msgstr "Token döretmek"
 
@@ -808,7 +803,7 @@ msgid "Created"
 msgstr "Döredildi"
 
 #. placeholder {0}: formatTimestamp(token.created, t`Never`)
-#: src/components/clone-dialog.tsx:342
+#: src/components/clone-dialog.tsx:346
 msgid "Created {0}"
 msgstr "Döredildi {0}"
 
@@ -816,8 +811,7 @@ msgstr "Döredildi {0}"
 msgid "Created {field}"
 msgstr "{field} döredildi"
 
-#: src/features/repository/repository-tabs.tsx:448
-#: src/routes/_authenticated/$repoId_.branches.tsx:89
+#: src/features/repository/branches-list.tsx:81
 msgid "Creating branch..."
 msgstr "Şaha döredilýär..."
 
@@ -825,14 +819,13 @@ msgstr "Şaha döredilýär..."
 msgid "Creating repository..."
 msgstr "Ammar döredilýär..."
 
-#: src/components/clone-dialog.tsx:218
+#: src/components/clone-dialog.tsx:220
 msgid "Creating token..."
 msgstr "Token döredilýär..."
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:676
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:260
-#: src/features/repository/repository-tabs.tsx:604
-#: src/routes/_authenticated/$repoId_.branches.tsx:190
+#: src/features/repository/branches-list.tsx:237
 msgid "Creating..."
 msgstr "Döredilýär..."
 
@@ -861,8 +854,7 @@ msgstr "Sene"
 msgid "Decline"
 msgstr "Ret etmek"
 
-#: src/features/repository/repository-tabs.tsx:533
-#: src/routes/_authenticated/$repoId_.branches.tsx:276
+#: src/features/repository/branches-list.tsx:166
 msgid "default"
 msgstr "esasy"
 
@@ -874,7 +866,7 @@ msgstr "Adaty"
 msgid "Default AI account"
 msgstr "Adaty AI hasap"
 
-#: src/features/repository/repository-tabs.tsx:1137
+#: src/features/repository/repository-tabs.tsx:653
 msgid "Default branch"
 msgstr "Adaty şaha"
 
@@ -891,17 +883,15 @@ msgstr "Adaty tertipleşdirme"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:208
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:255
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx:317
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:672
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:680
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:78
-#: src/components/clone-dialog.tsx:451
-#: src/features/repository/repository-tabs.tsx:622
-#: src/features/repository/repository-tabs.tsx:1212
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/components/clone-dialog.tsx:455
+#: src/features/repository/branches-list.tsx:255
+#: src/features/repository/repository-tabs.tsx:728
 msgid "Delete"
 msgstr "Pozmak"
 
-#: src/features/repository/repository-tabs.tsx:616
-#: src/routes/_authenticated/$repoId_.branches.tsx:202
+#: src/features/repository/branches-list.tsx:249
 msgid "Delete \"{branchToDelete}\"? This cannot be undone."
 msgstr "\"{branchToDelete}\" pozmaly? Bu yzyna gaýtarylyp bilinmez."
 
@@ -909,15 +899,12 @@ msgstr "\"{branchToDelete}\" pozmaly? Bu yzyna gaýtarylyp bilinmez."
 msgid "Delete attachment"
 msgstr "Goşundy pozmak"
 
-#: src/features/repository/repository-tabs.tsx:552
-#: src/features/repository/repository-tabs.tsx:557
-#: src/routes/_authenticated/$repoId_.branches.tsx:296
-#: src/routes/_authenticated/$repoId_.branches.tsx:301
+#: src/features/repository/branches-list.tsx:185
+#: src/features/repository/branches-list.tsx:190
 msgid "Delete branch"
 msgstr "Şahany poz"
 
-#: src/features/repository/repository-tabs.tsx:614
-#: src/routes/_authenticated/$repoId_.branches.tsx:200
+#: src/features/repository/branches-list.tsx:247
 msgid "Delete branch?"
 msgstr "Şaha pozmaly?"
 
@@ -937,9 +924,9 @@ msgstr "Meýdany pozmak"
 msgid "Delete game?"
 msgstr "Oýun pozulsynmy?"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:486
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:491
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:670
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:494
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:499
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:678
 msgid "Delete item"
 msgstr "Element pozmak"
 
@@ -953,20 +940,20 @@ msgstr "Wariant pozmak"
 msgid "Delete option {0}"
 msgstr "{0} wariant pozmak"
 
-#: src/features/repository/repository-tabs.tsx:1187
-#: src/features/repository/repository-tabs.tsx:1198
+#: src/features/repository/repository-tabs.tsx:703
+#: src/features/repository/repository-tabs.tsx:714
 msgid "Delete repository"
 msgstr "Ammary pozmak"
 
-#: src/features/repository/repository-tabs.tsx:1205
+#: src/features/repository/repository-tabs.tsx:721
 msgid "Delete repository?"
 msgstr "Ammary pozmaly?"
 
-#: src/components/clone-dialog.tsx:351
+#: src/components/clone-dialog.tsx:355
 msgid "Delete token"
 msgstr "Tokeni pozmak"
 
-#: src/components/clone-dialog.tsx:442
+#: src/components/clone-dialog.tsx:446
 msgid "Delete token?"
 msgstr "Tokeni pozmaly?"
 
@@ -986,22 +973,20 @@ msgstr "Pozuldy"
 msgid "Deleted {field}"
 msgstr "{field} pozuldy"
 
-#: src/features/repository/repository-tabs.tsx:470
-#: src/routes/_authenticated/$repoId_.branches.tsx:111
+#: src/features/repository/branches-list.tsx:103
 msgid "Deleting branch..."
 msgstr "Şaha pozulýar..."
 
-#: src/features/repository/repository-tabs.tsx:974
+#: src/features/repository/repository-tabs.tsx:489
 msgid "Deleting repository..."
 msgstr "Ammar pozulýar..."
 
-#: src/components/clone-dialog.tsx:231
+#: src/components/clone-dialog.tsx:233
 msgid "Deleting token..."
 msgstr "Token pozulýar..."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx:75
-#: src/features/repository/repository-tabs.tsx:622
-#: src/routes/_authenticated/$repoId_.branches.tsx:208
+#: src/features/repository/branches-list.tsx:255
 msgid "Deleting..."
 msgstr "Pozulýar..."
 
@@ -1011,7 +996,7 @@ msgstr "Kemelýän tertipde"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:85
 #: src/features/repository/create-repository-dialog.tsx:167
-#: src/features/repository/repository-tabs.tsx:1117
+#: src/features/repository/repository-tabs.tsx:632
 msgid "Description"
 msgstr "Düşündiriş"
 
@@ -1061,10 +1046,10 @@ msgid "Does not match the required pattern"
 msgstr "Talap edilýän nusga gabat gelmeýär"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:309
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:495
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:503
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:523
-#: src/components/clone-dialog.tsx:315
-#: src/components/clone-dialog.tsx:400
+#: src/components/clone-dialog.tsx:319
+#: src/components/clone-dialog.tsx:404
 msgid "Done"
 msgstr "Taýýar"
 
@@ -1082,8 +1067,8 @@ msgstr "Ýükläp al"
 msgid "Download failed"
 msgstr "Ýükläp almak başartmady"
 
-#: src/features/repository/blob-viewer.tsx:185
-#: src/features/repository/blob-viewer.tsx:189
+#: src/features/repository/blob-viewer.tsx:188
+#: src/features/repository/blob-viewer.tsx:192
 msgid "Download file"
 msgstr "Faýly ýükle"
 
@@ -1095,7 +1080,7 @@ msgstr "Gaýtalanmalar"
 msgid "Dyslexia-friendly"
 msgstr "Disleksiýa uýgunlaşan"
 
-#: src/components/clone-dialog.tsx:410
+#: src/components/clone-dialog.tsx:414
 msgid "e.g., Work laptop"
 msgstr "mysal: Iş laptopy"
 
@@ -1120,7 +1105,7 @@ msgstr "Meýdany düzet"
 msgid "Edit field settings"
 msgstr "Meýdan sazlamalaryny düzet"
 
-#: src/features/repository/repository-tabs.tsx:1043
+#: src/features/repository/repository-tabs.tsx:558
 msgid "Edit name"
 msgstr "Ady düzet"
 
@@ -1134,7 +1119,7 @@ msgstr "Saýlawy düzet"
 msgid "Edit option {0}"
 msgstr "{0} saýlawyny düzet"
 
-#: src/features/repository/repository-tabs.tsx:1103
+#: src/features/repository/repository-tabs.tsx:618
 msgid "Edit path"
 msgstr "Ýoly üýtget"
 
@@ -1154,15 +1139,15 @@ msgstr "E-poçta"
 msgid "Email code"
 msgstr "E-poçta kody"
 
-#: src/features/repository/file-browser.tsx:131
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty directory"
 msgstr "Boş katalog"
 
-#: src/features/repository/repository-tabs.tsx:328
+#: src/features/repository/file-browser.tsx:156
 msgid "Empty repository"
 msgstr "Boş ammar"
 
-#: ../../../lib/web/src/components/banner-section.tsx:88
+#: ../../../lib/web/src/components/banner-section.tsx:99
 msgid "Enter banner text (markdown supported)..."
 msgstr "Baner tekstini giriziň (markdown goldanýar)..."
 
@@ -1174,11 +1159,11 @@ msgstr "E-poçtaňyzdaky kody giriziň"
 msgid "Enter your authenticator code"
 msgstr "Autentifikator koduňyzy giriziň"
 
-#: src/features/repository/repository-tabs.tsx:1109
+#: src/features/repository/repository-tabs.tsx:624
 msgid "Entity:"
 msgstr "Essas:"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:381
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:389
 msgid "Error"
 msgstr "Ýalňyşlyk"
 
@@ -1210,8 +1195,7 @@ msgstr "Hasap goşulmady"
 msgid "Failed to copy"
 msgstr "Göçürilmedi"
 
-#: src/features/repository/repository-tabs.tsx:450
-#: src/routes/_authenticated/$repoId_.branches.tsx:91
+#: src/features/repository/branches-list.tsx:83
 msgid "Failed to create branch"
 msgstr "Şaha döredilmedi"
 
@@ -1225,7 +1209,7 @@ msgstr "Baglanyşyk döredilmedi"
 msgid "Failed to create repository"
 msgstr "Ammar döredilmedi"
 
-#: src/components/clone-dialog.tsx:220
+#: src/components/clone-dialog.tsx:222
 msgid "Failed to create token"
 msgstr "Token döredilmedi"
 
@@ -1237,8 +1221,7 @@ msgstr "Pozulmady"
 msgid "Failed to delete attachment"
 msgstr "Goşundy pozulmady"
 
-#: src/features/repository/repository-tabs.tsx:472
-#: src/routes/_authenticated/$repoId_.branches.tsx:113
+#: src/features/repository/branches-list.tsx:105
 msgid "Failed to delete branch"
 msgstr "Şaha pozulmady"
 
@@ -1250,11 +1233,11 @@ msgstr "Teswir pozulmady"
 msgid "Failed to delete link"
 msgstr "Baglanyşyk pozulmady"
 
-#: src/features/repository/repository-tabs.tsx:976
+#: src/features/repository/repository-tabs.tsx:491
 msgid "Failed to delete repository"
 msgstr "Ammar pozulmady"
 
-#: src/components/clone-dialog.tsx:233
+#: src/components/clone-dialog.tsx:235
 msgid "Failed to delete token"
 msgstr "Token pozulmady"
 
@@ -1270,7 +1253,7 @@ msgstr "Arhiw ýüklenip alynmady"
 msgid "Failed to get RSS token"
 msgstr "RSS tokeni alynmady"
 
-#: src/components/clone-dialog.tsx:185
+#: src/components/clone-dialog.tsx:187
 msgid "Failed to get token"
 msgstr "Token alynmady"
 
@@ -1278,12 +1261,15 @@ msgstr "Token alynmady"
 msgid "Failed to load"
 msgstr "Ýüklenmedi"
 
-#: src/features/repository/repository-tabs.tsx:1258
+#: src/features/repository/repository-tabs.tsx:774
 msgid "Failed to load access rules"
 msgstr "Rugsat düzgünleri ýüklenmedi"
 
-#: src/features/repository/repository-tabs.tsx:494
-#: src/routes/_authenticated/$repoId_.branches.tsx:241
+#: ../../../lib/web/src/components/banner-section.tsx:85
+msgid "Failed to load banner"
+msgstr "Baner ýüklenip bilinmedi"
+
+#: src/features/repository/branches-list.tsx:127
 msgid "Failed to load branches"
 msgstr "Şahalar ýüklenmedi"
 
@@ -1291,17 +1277,15 @@ msgstr "Şahalar ýüklenmedi"
 msgid "Failed to load commit"
 msgstr "Commit ýüklenmedi"
 
-#: src/features/repository/repository-tabs.tsx:368
-#: src/routes/_authenticated/$repoId_.commits.tsx:92
+#: src/features/repository/commits-list.tsx:41
 msgid "Failed to load commits"
 msgstr "Commitler ýüklenmedi"
 
-#: src/features/repository/file-browser.tsx:127
-#: src/features/repository/repository-tabs.tsx:324
+#: src/features/repository/file-browser.tsx:152
 msgid "Failed to load files"
 msgstr "Faýllar ýüklenmedi"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:68
+#: ../../../lib/web/src/components/audit-timeline.tsx:70
 msgid "Failed to load history"
 msgstr "Taryh ýüklenmedi"
 
@@ -1309,8 +1293,8 @@ msgstr "Taryh ýüklenmedi"
 msgid "Failed to load image"
 msgstr "Surat ýüklenip bilinmedi"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:382
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:385
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:390
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:393
 msgid "Failed to load item"
 msgstr "Element ýüklenmedi"
 
@@ -1318,8 +1302,7 @@ msgstr "Element ýüklenmedi"
 msgid "Failed to load prompts"
 msgstr "Görkezmeler ýüklenmedi"
 
-#: src/features/repository/repository-tabs.tsx:653
-#: src/routes/_authenticated/$repoId_.tags.tsx:84
+#: src/features/repository/tags-list.tsx:40
 msgid "Failed to load tags"
 msgstr "Bellikler ýüklenmedi"
 
@@ -1335,11 +1318,11 @@ msgstr "Göçürmek başartmady"
 msgid "Failed to post comment"
 msgstr "Teswir ýerleşdirilmedi"
 
-#: src/features/repository/repository-tabs.tsx:1302
+#: src/features/repository/repository-tabs.tsx:818
 msgid "Failed to remove access"
 msgstr "Rugsat aýrylmady"
 
-#: src/features/repository/repository-tabs.tsx:853
+#: src/features/repository/repository-tabs.tsx:368
 msgid "Failed to rename repository"
 msgstr "Ammaryň ady üýtgedilmedi"
 
@@ -1359,39 +1342,39 @@ msgstr "Saklanyp galynmady"
 msgid "Failed to save prompt"
 msgstr "Görkezme saklanyp galynmady"
 
-#: src/features/repository/repository-tabs.tsx:923
-#: src/features/repository/repository-tabs.tsx:939
-#: src/features/repository/repository-tabs.tsx:952
-#: src/features/repository/repository-tabs.tsx:964
+#: src/features/repository/repository-tabs.tsx:438
+#: src/features/repository/repository-tabs.tsx:454
+#: src/features/repository/repository-tabs.tsx:467
+#: src/features/repository/repository-tabs.tsx:479
 msgid "Failed to save setting"
 msgstr "Sazlama saklanyp galynmady"
 
 #: src/features/repository/inline-repo-search.tsx:40
-#: src/features/repository/inline-repo-search.tsx:89
+#: src/features/repository/inline-repo-search.tsx:88
 msgid "Failed to search repositories"
 msgstr "Ammarlary gözlemek başartmady"
 
-#: src/features/repository/repository-tabs.tsx:1282
+#: src/features/repository/repository-tabs.tsx:798
 msgid "Failed to set access level"
 msgstr "Rugsat derejesi düzülmedi"
 
-#: src/features/repository/inline-repo-search.tsx:72
+#: src/features/repository/inline-repo-search.tsx:71
 #: src/routes/_authenticated/find.tsx:61
 #: src/routes/_authenticated/index.tsx:205
 msgid "Failed to subscribe"
 msgstr "Abuna bolunmady"
 
 #: src/features/repository/repository-header.tsx:78
-#: src/features/repository/repository-tabs.tsx:204
+#: src/features/repository/repository-tabs.tsx:182
 #: src/routes/_authenticated/index.tsx:377
 msgid "Failed to unsubscribe"
 msgstr "Abunalyk ýatyrylmady"
 
-#: src/features/repository/repository-tabs.tsx:1322
+#: src/features/repository/repository-tabs.tsx:838
 msgid "Failed to update access level"
 msgstr "Rugsat derejesi täzelenmedi"
 
-#: ../../../lib/web/src/components/banner-section.tsx:71
+#: ../../../lib/web/src/components/banner-section.tsx:75
 msgid "Failed to update banner"
 msgstr "Baner täzelenmedi"
 
@@ -1399,7 +1382,7 @@ msgstr "Baner täzelenmedi"
 msgid "Failed to update comment"
 msgstr "Teswir täzelenmedi"
 
-#: src/features/repository/repository-tabs.tsx:903
+#: src/features/repository/repository-tabs.tsx:418
 msgid "Failed to update path"
 msgstr "Ýol täzelenmedi"
 
@@ -1411,8 +1394,7 @@ msgstr "Yzarlamany täzelemek başartmady"
 msgid "Failed to upload attachment"
 msgstr "Goşundy ýüklenmedi"
 
-#: src/features/repository/repository-tabs.tsx:579
-#: src/routes/_authenticated/$repoId_.branches.tsx:165
+#: src/features/repository/branches-list.tsx:212
 msgid "feature/my-feature"
 msgstr "feature/meniň-funksiýam"
 
@@ -1431,11 +1413,11 @@ msgid "Files"
 msgstr "Faýllar"
 
 #: src/components/layout/repositories-layout.tsx:67
-#: src/routes/_authenticated/find.tsx:94
+#: src/routes/_authenticated/find.tsx:93
 msgid "Find repositories"
 msgstr "Ammarlary tap"
 
-#: src/features/repository/repository-tabs.tsx:1111
+#: src/features/repository/repository-tabs.tsx:626
 msgid "Fingerprint:"
 msgstr "Barmak yzy:"
 
@@ -1494,7 +1476,7 @@ msgstr "Boýunça topla"
 msgid "Group: {0}"
 msgstr "Topar: {0}"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:61
+#: ../../../lib/web/src/components/audit-timeline.tsx:63
 msgid "History"
 msgstr "Taryh"
 
@@ -1513,7 +1495,7 @@ msgstr "Gyzgyn"
 msgid "ID"
 msgstr "ID"
 
-#: src/features/repository/repository-tabs.tsx:987
+#: src/features/repository/repository-tabs.tsx:502
 msgid "Identity"
 msgstr "Şahsyýet"
 
@@ -1554,7 +1536,7 @@ msgstr "Nädogry sene"
 msgid "It seems like the page you're looking for <0/>does not exist or might have been removed."
 msgstr "Görnüşinden, gözleýän sahypaňyz <0/>ýok ýa-da aýrylan."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:441
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:449
 msgid "Item details"
 msgstr "Element jikme-jiklikleri"
 
@@ -1572,7 +1554,7 @@ msgid "Large"
 msgstr "Uly"
 
 #. placeholder {0}: formatTimestamp(token.used, t`Never`)
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:347
 msgid "Last used {0}"
 msgstr "Soňky ulanylan {0}"
 
@@ -1609,11 +1591,11 @@ msgstr "Has köp ýükle"
 msgid "Loading content…"
 msgstr "Mazmun ýüklenýär…"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:365
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:373
 msgid "Loading item"
 msgstr "Element ýüklenýär"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:366
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:374
 msgid "Loading item details"
 msgstr "Element jikme-jiklikleri ýüklenýär"
 
@@ -1640,7 +1622,7 @@ msgid "Logging out…"
 msgstr "Çykylýar…"
 
 #: src/features/repository/create-repository-dialog.tsx:93
-#: src/features/repository/repository-tabs.tsx:885
+#: src/features/repository/repository-tabs.tsx:400
 msgid "Lowercase letters, numbers, and hyphens only"
 msgstr "Diňe kiçi harplar, sanlar we defisler"
 
@@ -1648,8 +1630,8 @@ msgstr "Diňe kiçi harplar, sanlar we defisler"
 msgid "Manage categories"
 msgstr "Kategoriýalary dolandyr"
 
-#: src/components/clone-dialog.tsx:246
-#: src/components/clone-dialog.tsx:310
+#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:314
 msgid "Manage tokens"
 msgstr "Tokenleri dolandyr"
 
@@ -1739,7 +1721,7 @@ msgstr "At"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx:104
 #: src/features/repository/create-repository-dialog.tsx:86
-#: src/features/repository/repository-tabs.tsx:815
+#: src/features/repository/repository-tabs.tsx:330
 msgid "Name cannot contain < or > characters"
 msgstr "At < ýa-da > nyşanlaryny saklap bilmez"
 
@@ -1748,7 +1730,7 @@ msgid "Name is required"
 msgstr "At hökmandyr"
 
 #: src/features/repository/create-repository-dialog.tsx:88
-#: src/features/repository/repository-tabs.tsx:814
+#: src/features/repository/repository-tabs.tsx:329
 msgid "Name must be 100 characters or less"
 msgstr "At 100 nyşandan az bolmaly"
 
@@ -1756,7 +1738,7 @@ msgstr "At 100 nyşandan az bolmaly"
 msgid "Name must be 1000 characters or less"
 msgstr "At 1000 nyşandan az bolmaly"
 
-#: src/features/repository/repository-tabs.tsx:989
+#: src/features/repository/repository-tabs.tsx:504
 msgid "Name:"
 msgstr "At:"
 
@@ -1765,8 +1747,8 @@ msgstr "At:"
 msgid "Network error"
 msgstr "Tor ýalňyşlygy"
 
-#: src/components/clone-dialog.tsx:342
-#: src/components/clone-dialog.tsx:343
+#: src/components/clone-dialog.tsx:346
+#: src/components/clone-dialog.tsx:347
 msgid "Never"
 msgstr "Hiç haçan"
 
@@ -1775,8 +1757,7 @@ msgstr "Hiç haçan"
 msgid "New"
 msgstr "Täze"
 
-#: src/features/repository/repository-tabs.tsx:570
-#: src/routes/_authenticated/$repoId_.branches.tsx:156
+#: src/features/repository/branches-list.tsx:203
 msgid "New branch"
 msgstr "Täze şahasy"
 
@@ -1794,7 +1775,7 @@ msgstr "Indiki surat"
 msgid "No {parentClassNames} to add to"
 msgstr "Goşmak üçin {parentClassNames} ýok"
 
-#: src/features/repository/repository-tabs.tsx:736
+#: src/features/repository/repository-tabs.tsx:251
 msgid "No access"
 msgstr "Girip bolmaýar"
 
@@ -1806,8 +1787,7 @@ msgstr "Giriş düzgünleri ýok. Bu çeşmä kim girip biljekdigini dolandyrmak
 msgid "No activity yet"
 msgstr "Heniz işjeňlik ýok"
 
-#: src/features/repository/repository-tabs.tsx:513
-#: src/routes/_authenticated/$repoId_.branches.tsx:252
+#: src/features/repository/branches-list.tsx:146
 msgid "No branches yet"
 msgstr "Heniz şahalar ýok"
 
@@ -1815,8 +1795,7 @@ msgstr "Heniz şahalar ýok"
 msgid "No comments yet"
 msgstr "Heniz teswirler ýok"
 
-#: src/features/repository/repository-tabs.tsx:373
-#: src/routes/_authenticated/$repoId_.commits.tsx:97
+#: src/features/repository/commits-list.tsx:50
 msgid "No commits yet"
 msgstr "Heniz commitler ýok"
 
@@ -1849,8 +1828,8 @@ msgstr "Ýerler tapylmady"
 msgid "No public repositories."
 msgstr "Köpçülige açyk repozitoriýalar ýok."
 
-#: src/features/repository/inline-repo-search.tsx:88
-#: src/routes/_authenticated/find.tsx:96
+#: src/features/repository/inline-repo-search.tsx:87
+#: src/routes/_authenticated/find.tsx:95
 msgid "No repositories found"
 msgstr "Repozitoriýalar tapylmady"
 
@@ -1869,8 +1848,7 @@ msgstr "Netijeler tapylmady."
 msgid "No status"
 msgstr "Ýagdaý ýok"
 
-#: src/features/repository/repository-tabs.tsx:683
-#: src/routes/_authenticated/$repoId_.tags.tsx:95
+#: src/features/repository/tags-list.tsx:69
 msgid "No tags yet"
 msgstr "Heniz tagler ýok"
 
@@ -1878,7 +1856,7 @@ msgstr "Heniz tagler ýok"
 msgid "No time zone found."
 msgstr "Wagt zolagy tapylmady."
 
-#: src/components/clone-dialog.tsx:330
+#: src/components/clone-dialog.tsx:334
 msgid "No tokens yet."
 msgstr "Heniz tokenler ýok."
 
@@ -1902,10 +1880,10 @@ msgstr "Görnüşler ýok"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:554
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:557
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:561
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:557
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:570
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:571
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:575
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:565
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:578
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:579
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:583
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:362
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:385
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx:388
@@ -2006,8 +1984,8 @@ msgid "Owner"
 msgstr "Eýesi"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx:546
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:553
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:569
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:561
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:577
 msgid "Parent"
 msgstr "Ene-ata"
 
@@ -2040,15 +2018,15 @@ msgstr "Passkeys bu brauzerde elýeterli däl"
 msgid "Path"
 msgstr "Ýol"
 
-#: src/features/repository/repository-tabs.tsx:881
+#: src/features/repository/repository-tabs.tsx:396
 msgid "Path is required"
 msgstr "Ýol hökmandyr"
 
-#: src/features/repository/repository-tabs.tsx:902
+#: src/features/repository/repository-tabs.tsx:417
 msgid "Path updated"
 msgstr "Ýol täzelendi"
 
-#: src/features/repository/repository-tabs.tsx:1049
+#: src/features/repository/repository-tabs.tsx:564
 msgid "Path:"
 msgstr "Ýol:"
 
@@ -2060,7 +2038,7 @@ msgstr "Nusga (regex)"
 msgid "People"
 msgstr "Adamlar"
 
-#: src/features/repository/repository-tabs.tsx:1189
+#: src/features/repository/repository-tabs.tsx:705
 msgid "Permanently delete this repository and all its data"
 msgstr "Bu repozitoriýany we onuň ähli maglumatlaryny hemişelik poz"
 
@@ -2070,7 +2048,7 @@ msgstr "Bu repozitoriýany we onuň ähli maglumatlaryny hemişelik poz"
 msgid "Please check your internet connection and try again."
 msgstr "Internet birikmäňizi barlaň we täzeden synanyşyň."
 
-#: src/components/clone-dialog.tsx:213
+#: src/components/clone-dialog.tsx:215
 msgid "Please enter a token name"
 msgstr "Token adyny giriziň"
 
@@ -2108,7 +2086,7 @@ msgstr "Işlenýär…"
 msgid "Prompt saved"
 msgstr "Soraw saklandy"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:408
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:416
 msgid "Properties"
 msgstr "Häsiýetler"
 
@@ -2128,11 +2106,11 @@ msgstr "Bu serwerde hasaplaryňyzy täzeden baglanyşdyryň"
 msgid "Re-register your passkeys on this server"
 msgstr "Bu serwerde giriş açarlaryňyzy gaýtadan hasaba alyň"
 
-#: src/features/repository/repository-tabs.tsx:734
+#: src/features/repository/repository-tabs.tsx:249
 msgid "Read and write"
 msgstr "Oka we ýaz"
 
-#: src/features/repository/repository-tabs.tsx:735
+#: src/features/repository/repository-tabs.tsx:250
 msgid "Read only"
 msgstr "Diňe oka"
 
@@ -2226,7 +2204,7 @@ msgstr "Elementi aýyr"
 msgid "Remove link"
 msgstr "Baglanyşygy aýyr"
 
-#: src/features/repository/repository-tabs.tsx:1300
+#: src/features/repository/repository-tabs.tsx:816
 msgid "Removing access..."
 msgstr "Elýeterlilik aýrylýar..."
 
@@ -2243,7 +2221,7 @@ msgstr "Sütünüň adyny üýtget"
 msgid "Rename this board column"
 msgstr "Bu tagta sütüniniň adyny üýtget"
 
-#: src/features/repository/repository-tabs.tsx:851
+#: src/features/repository/repository-tabs.tsx:366
 msgid "Renaming repository..."
 msgstr "Ammaryň ady üýtgedilýär..."
 
@@ -2265,10 +2243,10 @@ msgstr "Repozitoriýalar"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:41
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx:54
-#: src/routes/_authenticated/$repoId_.branches.tsx:128
+#: src/routes/_authenticated/$repoId_.branches.tsx:35
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx:40
-#: src/routes/_authenticated/$repoId_.commits.tsx:50
-#: src/routes/_authenticated/$repoId_.tags.tsx:46
+#: src/routes/_authenticated/$repoId_.commits.tsx:43
+#: src/routes/_authenticated/$repoId_.tags.tsx:35
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:42
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx:54
 #: src/routes/_authenticated/$repoId.tsx:56
@@ -2284,7 +2262,7 @@ msgstr "Repozitoriýa"
 msgid "Repository created"
 msgstr "Repozitoriýa döredildi"
 
-#: src/features/repository/repository-tabs.tsx:975
+#: src/features/repository/repository-tabs.tsx:490
 msgid "Repository deleted"
 msgstr "Repozitoriýa pozuldy"
 
@@ -2297,7 +2275,7 @@ msgstr "Repozitoriýa ID hökmandyr"
 msgid "Repository link"
 msgstr "Ammar salgysy"
 
-#: src/features/repository/repository-tabs.tsx:813
+#: src/features/repository/repository-tabs.tsx:328
 msgid "Repository name is required"
 msgstr "Repozitoriýanyň ady hökmandyr"
 
@@ -2305,7 +2283,7 @@ msgstr "Repozitoriýanyň ady hökmandyr"
 msgid "Repository not found"
 msgstr "Repozitoriýa tapylmady"
 
-#: src/features/repository/repository-tabs.tsx:852
+#: src/features/repository/repository-tabs.tsx:367
 msgid "Repository renamed"
 msgstr "Repozitoriýanyň ady üýtgedildi"
 
@@ -2372,28 +2350,28 @@ msgstr "Şenbe"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx:156
 #: ../../../lib/web/src/components/attachment-composer.tsx:430
-#: ../../../lib/web/src/components/banner-section.tsx:99
+#: ../../../lib/web/src/components/banner-section.tsx:111
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx:231
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx:172
 #: ../../../lib/web/src/components/ui/editable-field-row.tsx:126
 #: ../../../lib/web/src/components/ui/secret-field.tsx:79
-#: src/features/repository/repository-tabs.tsx:1130
+#: src/features/repository/repository-tabs.tsx:646
 msgid "Save"
 msgstr "Saklaýyş"
 
-#: src/components/clone-dialog.tsx:260
+#: src/components/clone-dialog.tsx:262
 msgid "Save this token now. You won't be able to see it again."
 msgstr "Bu tokeni hazir saklaýyş. Ony gaýtadan görüp bilmersiňiz."
 
-#: src/components/clone-dialog.tsx:303
-#: src/components/clone-dialog.tsx:390
+#: src/components/clone-dialog.tsx:307
+#: src/components/clone-dialog.tsx:394
 msgid "Save this token securely. You won't be able to see it again."
 msgstr "Bu tokeni howpsuz saklaýyş. Ony gaýtadan görüp bilmersiňiz."
 
-#: src/features/repository/repository-tabs.tsx:921
-#: src/features/repository/repository-tabs.tsx:937
-#: src/features/repository/repository-tabs.tsx:950
-#: src/features/repository/repository-tabs.tsx:962
+#: src/features/repository/repository-tabs.tsx:436
+#: src/features/repository/repository-tabs.tsx:452
+#: src/features/repository/repository-tabs.tsx:465
+#: src/features/repository/repository-tabs.tsx:477
 msgid "Saving settings..."
 msgstr "Sazlamalar saklanýar..."
 
@@ -2408,7 +2386,7 @@ msgstr "Saklanýar..."
 msgid "Search"
 msgstr "Gözle"
 
-#: src/routes/_authenticated/find.tsx:95
+#: src/routes/_authenticated/find.tsx:94
 msgid "Search by name, ID, fingerprint, or URL..."
 msgstr "At, ID, fingerprint ýa-da URL boýunça gözle..."
 
@@ -2432,7 +2410,7 @@ msgstr "Mejburyýet ýerini gözle..."
 msgid "Search for origin..."
 msgstr "Gelen ýeri gözle..."
 
-#: src/features/repository/inline-repo-search.tsx:87
+#: src/features/repository/inline-repo-search.tsx:86
 msgid "Search for repositories..."
 msgstr "Repozitoriýalary gözle..."
 
@@ -2493,7 +2471,7 @@ msgstr "Hasap görnüşini saýla"
 msgid "Select branch"
 msgstr "Şahany saýla"
 
-#: src/features/repository/repository-tabs.tsx:1147
+#: src/features/repository/repository-tabs.tsx:663
 msgid "Select default branch"
 msgstr "Deňeşdirme şahasyny saýla"
 
@@ -2517,8 +2495,7 @@ msgstr "Adam saýlaň..."
 msgid "Select previous card"
 msgstr "Öňki kartoçkany saýla"
 
-#: src/features/repository/repository-tabs.tsx:587
-#: src/routes/_authenticated/$repoId_.branches.tsx:173
+#: src/features/repository/branches-list.tsx:220
 msgid "Select source branch"
 msgstr "Çeşme şahasyny saýla"
 
@@ -2567,7 +2544,7 @@ msgstr "Sessiýanyň möhleti gutardy. Täzeden giriň."
 msgid "Set origin and destination"
 msgstr "Başlangyç we baryljak ýeri belle"
 
-#: src/features/repository/repository-tabs.tsx:1280
+#: src/features/repository/repository-tabs.tsx:796
 msgid "Setting access..."
 msgstr "Elýeterlilik bellenilýär..."
 
@@ -2578,10 +2555,10 @@ msgstr "Elýeterlilik bellenilýär..."
 msgid "Settings"
 msgstr "Sazlamalar"
 
-#: src/features/repository/repository-tabs.tsx:922
-#: src/features/repository/repository-tabs.tsx:938
-#: src/features/repository/repository-tabs.tsx:951
-#: src/features/repository/repository-tabs.tsx:963
+#: src/features/repository/repository-tabs.tsx:437
+#: src/features/repository/repository-tabs.tsx:453
+#: src/features/repository/repository-tabs.tsx:466
+#: src/features/repository/repository-tabs.tsx:478
 msgid "Settings saved"
 msgstr "Sazlamalar saklandy"
 
@@ -2632,8 +2609,7 @@ msgstr "Kiçi"
 msgid "Sort"
 msgstr "Tertiple"
 
-#: src/features/repository/repository-tabs.tsx:584
-#: src/routes/_authenticated/$repoId_.branches.tsx:170
+#: src/features/repository/branches-list.tsx:217
 msgid "Source branch"
 msgstr "Çeşme şahasy"
 
@@ -2649,8 +2625,8 @@ msgstr "Giňiş"
 msgid "Start the discussion by adding the first comment."
 msgstr "Birinji teswiri goşup, ara alyp maslahatlaşmagy başla."
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Stop watching"
 msgstr "Synlamagy bes et"
 
@@ -2669,19 +2645,19 @@ msgstr "Jogap tabşyr"
 #: ../../../lib/web/src/components/inline-entity-search.tsx:67
 #: ../../../lib/web/src/components/recommended-entities.tsx:59
 #: ../../../lib/web/src/components/search-entity-page.tsx:74
-#: src/features/repository/inline-repo-search.tsx:90
+#: src/features/repository/inline-repo-search.tsx:89
 #: src/routes/_authenticated/index.tsx:294
 msgid "Subscribe"
 msgstr "Abuna ýaz"
 
-#: src/features/repository/inline-repo-search.tsx:71
+#: src/features/repository/inline-repo-search.tsx:70
 #: src/features/repository/repository-header.tsx:103
 #: src/routes/_authenticated/find.tsx:60
 #: src/routes/_authenticated/index.tsx:204
 msgid "Subscribed"
 msgstr "Abuna ýazyldy"
 
-#: src/features/repository/inline-repo-search.tsx:70
+#: src/features/repository/inline-repo-search.tsx:69
 #: src/routes/_authenticated/find.tsx:59
 #: src/routes/_authenticated/index.tsx:203
 msgid "Subscribing..."
@@ -2699,7 +2675,7 @@ msgstr "Şahany çalyş"
 msgid "Switch to view 1-9"
 msgstr "1-9 görnüşine geç"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:107
+#: ../../../lib/web/src/components/audit-timeline.tsx:109
 #: ../../../lib/web/src/lib/preference-utils.ts:16
 #: ../../../lib/web/src/lib/preference-utils.ts:132
 msgid "System"
@@ -2741,7 +2717,7 @@ msgstr "Iberip bolmady. Faýllar gaty uly bolup biler ýa-da baglanyşygyňyz ke
 msgid "That was too large to upload. Remove or shrink files and try again."
 msgstr "Ýüklemek üçin gaty uludy. Faýllary aýryň ýa-da kiçeldiň-de, gaýtadan synanyşyň."
 
-#: src/features/repository/repository-tabs.tsx:1138
+#: src/features/repository/repository-tabs.tsx:654
 msgid "The branch shown when viewing the repository"
 msgstr "Ammary görüşinde görkezilýän şaha"
 
@@ -2773,6 +2749,11 @@ msgstr "Serwer maglumatyň ýerine web sahypasyny gaýtardy."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Bu programma siziň passkey-iňizi ulanmaga rugsat berilmedi. Sazlamalarda, Rugsatlar bölüminde rugsat beriň."
 
+#. placeholder {0}: formatFileSize(data.size)
+#: src/features/repository/blob-viewer.tsx:206
+msgid "This file is too large to display ({0})"
+msgstr "Bu faýl görkezmek üçin gaty uly ({0})"
+
 #: src/routes/_authenticated/blob/$ref/$.tsx:39
 #: src/routes/_authenticated/commit/$sha.tsx:44
 #: src/routes/_authenticated/tree/$ref/$.tsx:38
@@ -2783,11 +2764,11 @@ msgstr "Bu sahypa ammar konteksti talap edýär."
 msgid "This permanently deletes the game and its chat. This cannot be undone."
 msgstr "Bu oýny we onuň söhbetdeşligini hemişelik pozar. Bu hereketi yzyna gaýtaryp bolmaz."
 
-#: src/features/repository/repository-tabs.tsx:1207
+#: src/features/repository/repository-tabs.tsx:723
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
 msgstr "Bu \"{currentName}\" we ähli commit-lerini, şahalaryny we belliklerini hemişelik pozar. Bu hereketi yza gaýtaryp bolmaz."
 
-#: src/components/clone-dialog.tsx:444
+#: src/components/clone-dialog.tsx:448
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Bu tokeni hemişelik pozar. Ony ulanýan islendik git müşderileri autentifikasiýa edip bilmez."
 
@@ -2795,7 +2776,7 @@ msgstr "Bu tokeni hemişelik pozar. Ony ulanýan islendik git müşderileri aute
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
 msgstr "Bu \"{name}\" ammar sanawyňdan aýrar. Soň gaýtadan abuna ýazylyp bilersiň."
 
-#: src/features/repository/repository-tabs.tsx:231
+#: src/features/repository/repository-tabs.tsx:209
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Bu \"{repoName}\" ammar sanawyňdan aýrar. Soň gaýtadan abuna ýazylyp bilersiň."
 
@@ -2830,15 +2811,15 @@ msgstr "Görnüş saýlawlaryny geçir"
 msgid "Toggle watched filter"
 msgstr "Görülen filtri geçir"
 
-#: src/components/clone-dialog.tsx:248
+#: src/components/clone-dialog.tsx:250
 msgid "Token created"
 msgstr "Token döredildi"
 
-#: src/components/clone-dialog.tsx:232
+#: src/components/clone-dialog.tsx:234
 msgid "Token deleted"
 msgstr "Token pozuldy"
 
-#: src/components/clone-dialog.tsx:407
+#: src/components/clone-dialog.tsx:411
 msgid "Token name"
 msgstr "Token ady"
 
@@ -2914,7 +2895,7 @@ msgstr "Garaşylmadyk API ýalňyşlygy"
 msgid "United States"
 msgstr "Birleşen Ştatlar"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx:103
+#: ../../../lib/web/src/components/audit-timeline.tsx:105
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx:167
 #: ../../../lib/web/src/components/tree-row.tsx:219
 #: ../../../lib/web/src/components/tree-row.tsx:373
@@ -2926,8 +2907,8 @@ msgstr "Näbelli"
 #: ../../../lib/web/src/components/options-menu.tsx:211
 #: src/features/repository/repository-header.tsx:122
 #: src/features/repository/repository-header.tsx:134
-#: src/features/repository/repository-tabs.tsx:224
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:202
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:346
 #: src/routes/_authenticated/index.tsx:366
 #: src/routes/_authenticated/index.tsx:368
@@ -2935,7 +2916,7 @@ msgid "Unsubscribe"
 msgstr "Abunadan çyk"
 
 #: src/features/repository/repository-header.tsx:127
-#: src/features/repository/repository-tabs.tsx:229
+#: src/features/repository/repository-tabs.tsx:207
 msgid "Unsubscribe from repository?"
 msgstr "Ammardan abuna ýazylyşygy ýatyrylsynmy?"
 
@@ -2944,13 +2925,13 @@ msgid "Unsubscribed"
 msgstr "Abuna ýazylyşygy ýatyryldy"
 
 #: src/features/repository/repository-header.tsx:77
-#: src/features/repository/repository-tabs.tsx:203
+#: src/features/repository/repository-tabs.tsx:181
 msgid "Unsubscribed from repository"
 msgstr "Ammardan abuna ýazylyşygy ýatyryldy"
 
 #: src/features/repository/repository-header.tsx:76
-#: src/features/repository/repository-tabs.tsx:202
-#: src/features/repository/repository-tabs.tsx:237
+#: src/features/repository/repository-tabs.tsx:180
+#: src/features/repository/repository-tabs.tsx:215
 #: src/routes/_authenticated/index.tsx:375
 msgid "Unsubscribing..."
 msgstr "Abuna ýazylyşygy ýatyrylýar..."
@@ -2970,11 +2951,11 @@ msgstr "Täzelendi"
 msgid "Updated {field}"
 msgstr "{field} täzelendi"
 
-#: src/features/repository/repository-tabs.tsx:1320
+#: src/features/repository/repository-tabs.tsx:836
 msgid "Updating access..."
 msgstr "Elýeterlilik täzelenýär..."
 
-#: src/features/repository/repository-tabs.tsx:901
+#: src/features/repository/repository-tabs.tsx:416
 msgid "Updating path..."
 msgstr "Ýol täzelenýär..."
 
@@ -3028,7 +3009,7 @@ msgstr "Wideo görkeziji: {0}"
 msgid "View all notifications"
 msgstr "Ähli bildirişleri görkez"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:442
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:450
 msgid "View and edit item details"
 msgstr "Element jikme-jikliklerini görkez we redaktirle"
 
@@ -3040,8 +3021,8 @@ msgstr "Görnüş dolandyryşlary"
 msgid "Voice recording is not supported in this browser"
 msgstr "Ses ýazgysy bu brauzerde goldanylmaýar"
 
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:471
-#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:476
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:479
+#: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx:484
 msgid "Watch"
 msgstr "Synla"
 
