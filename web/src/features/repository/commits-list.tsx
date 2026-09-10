@@ -3,9 +3,10 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
+import { useCallback, useMemo } from 'react'
 import { Trans, useLingui } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
-import { Card, CardContent, EntityAvatar, Skeleton, getErrorMessage, useFormat } from '@mochi/web'
+import { Card, CardContent, EntityAvatar, LoadMoreTrigger, Skeleton, getErrorMessage, useFormat } from '@mochi/web'
 import { GitCommit } from 'lucide-react'
 import { useCommits } from '@/hooks/use-repository'
 import { DownloadDropdown } from '@/components/download-dropdown'
@@ -22,8 +23,30 @@ interface CommitsListProps {
 export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProps) {
   const { t } = useLingui()
   const { formatTimestamp } = useFormat()
-  const { data, isLoading, error } = useCommits(repoId, currentRef)
-  const commits = data?.commits || []
+  const {
+    data,
+    isLoading,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetchNextPageError,
+  } = useCommits(repoId, currentRef)
+  // Offset paging: a push between two page loads shifts history down, so the
+  // next page can repeat commits already shown. Keep the first of each sha.
+  const commits = useMemo(() => {
+    const seen = new Set<string>()
+    return (data?.pages ?? [])
+      .flatMap((page) => page.commits ?? [])
+      .filter((commit) => {
+        if (seen.has(commit.sha)) return false
+        seen.add(commit.sha)
+        return true
+      })
+  }, [data])
+  const loadMore = useCallback(() => {
+    void fetchNextPage()
+  }, [fetchNextPage])
 
   if (isLoading) {
     return (
@@ -35,7 +58,7 @@ export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProp
     )
   }
 
-  if (error) {
+  if (error && !data) {
     return (
       <div className="p-4 text-destructive">
         {getErrorMessage(error, t`Failed to load commits`)}
@@ -53,6 +76,7 @@ export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProp
   }
 
   return (
+    <>
     <Card>
       <CardContent className="p-0 divide-y">
         {commits.map((commit) => (
@@ -88,5 +112,18 @@ export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProp
         ))}
       </CardContent>
     </Card>
+    {isFetchNextPageError && (
+      <div className="p-4 text-destructive">
+        {getErrorMessage(error, t`Failed to load commits`)}
+      </div>
+    )}
+    {/* Stops after a failed page: the observer re-arms whenever loading ends,
+        so leaving it live would retry the failing request in a loop. */}
+    <LoadMoreTrigger
+      onLoadMore={loadMore}
+      hasMore={!!hasNextPage && !isFetchNextPageError}
+      isLoading={isFetchingNextPage}
+    />
+    </>
   )
 }

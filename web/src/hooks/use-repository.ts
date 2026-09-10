@@ -3,7 +3,7 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useQuery, useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { reposRequest, appBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
 import { naturalCompare } from '@mochi/web'
@@ -68,10 +68,23 @@ export function useTags(repoId: string) {
   })
 }
 
+// The backend's default page size. A page shorter than this is the last one.
+const COMMITS_PAGE_SIZE = 50
+
 export function useCommits(repoId: string, ref?: string) {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: repoKeys.commits(repoId, ref),
-    queryFn: () => reposRequest.get<CommitsResponse>(endpoints.repo.commits(ref)),
+    queryFn: ({ pageParam }) =>
+      reposRequest.get<CommitsResponse>(endpoints.repo.commits(ref), {
+        params: { limit: COMMITS_PAGE_SIZE, offset: pageParam },
+      }),
+    initialPageParam: 0,
+    // The offset counts what was asked for, not what the list kept after
+    // dropping repeats, so it always lands on the server's next page.
+    getNextPageParam: (lastPage, allPages) =>
+      (lastPage.commits?.length ?? 0) < COMMITS_PAGE_SIZE
+        ? undefined
+        : allPages.length * COMMITS_PAGE_SIZE,
     enabled: !!repoId,
   })
 }
