@@ -103,6 +103,7 @@ function RepositoriesLayoutInner() {
     location.pathname,
     isLoggedIn,
     domainRouted,
+    t,
   ])
 
   return (

@@ -862,7 +862,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     } finally {
       setIsLoading(false)
     }
-  }, [repoId])
+  }, [repoId, t])
 
   useEffect(() => {
     void loadRules()

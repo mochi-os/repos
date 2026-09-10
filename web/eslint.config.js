@@ -87,6 +87,16 @@ export default defineConfig(
     },
   },
   {
+    files: [
+      'src/routes/**/*.{ts,tsx}',
+      'src/context/**/*.{ts,tsx}',
+      'src/test/**/*.{ts,tsx}',
+    ],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     // Tests are excluded, as in lib/web: their strings are fixtures and
     // it() descriptions, never rendered.
