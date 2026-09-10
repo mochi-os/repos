@@ -2,15 +2,21 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useCallback, useEffect, useMemo } from 'react'
-import { useLingui } from '@lingui/react/macro'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate } from '@tanstack/react-router'
-import { AuthenticatedLayout, useAuthStore, type SidebarData, type NavItem, naturalCompare, isDomainEntityRouting } from '@mochi/web'
+import { useLingui } from '@lingui/react/macro'
+import {
+  AuthenticatedLayout,
+  useAuthStore,
+  type SidebarData,
+  type NavItem,
+  naturalCompare,
+  isDomainEntityRouting,
+} from '@mochi/web'
 import { FolderGit2, Plus, Search } from 'lucide-react'
-import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { SidebarProvider, useSidebarContext } from '@/context/sidebar-context'
+import { useRepoInfo, repoKeys } from '@/hooks/use-repository'
 import { CreateRepositoryDialog } from '@/features/repository/create-repository-dialog'
 
 function RepositoriesLayoutInner() {
@@ -22,18 +28,18 @@ function RepositoriesLayoutInner() {
   const isLoggedIn = useAuthStore((s) => s.isAuthenticated)
   const domainRouted = useMemo(() => isDomainEntityRouting(), [])
 
-  const {
-    createDialogOpen,
-    openCreateDialog,
-    closeCreateDialog,
-  } = useSidebarContext()
+  const { createDialogOpen, openCreateDialog, closeCreateDialog } =
+    useSidebarContext()
 
   useEffect(() => {
     void refetch()
   }, [refetch])
 
   // Get repositories from data
-  const repositories = useMemo(() => data?.repositories ?? [], [data?.repositories])
+  const repositories = useMemo(
+    () => data?.repositories ?? [],
+    [data?.repositories]
+  )
 
   // Handle "All repositories" click - navigate and refresh the list
   const handleAllReposClick = useCallback(() => {
@@ -63,10 +69,16 @@ function RepositoriesLayoutInner() {
     }
 
     // Bottom items (logged-in only)
-    const bottomItems: NavItem[] = isLoggedIn ? [
-      { title: t`Find repositories`, icon: Search, url: '/find' },
-      { title: t`Create repository`, icon: Plus, onClick: openCreateDialog },
-    ] : []
+    const bottomItems: NavItem[] = isLoggedIn
+      ? [
+          { title: t`Find repositories`, icon: Search, url: '/find' },
+          {
+            title: t`Create repository`,
+            icon: Plus,
+            onClick: openCreateDialog,
+          },
+        ]
+      : []
 
     const groups: SidebarData['navGroups'] = [
       {
@@ -84,7 +96,14 @@ function RepositoriesLayoutInner() {
     }
 
     return { navGroups: groups }
-  }, [repositories, handleAllReposClick, openCreateDialog, location.pathname, isLoggedIn, domainRouted])
+  }, [
+    repositories,
+    handleAllReposClick,
+    openCreateDialog,
+    location.pathname,
+    isLoggedIn,
+    domainRouted,
+  ])
 
   return (
     <>

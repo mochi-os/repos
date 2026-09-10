@@ -2,15 +2,19 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useState, useEffect } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
 import { Link, useNavigate } from '@tanstack/react-router'
-import { Card, CardContent, Skeleton, getErrorMessage, naturalCompare } from '@mochi/web'
+import { Trans, useLingui } from '@lingui/react/macro'
+import {
+  Card,
+  CardContent,
+  Skeleton,
+  getErrorMessage,
+  naturalCompare,
+} from '@mochi/web'
 import { ChevronRight } from 'lucide-react'
-import { useTree, useBranches } from '@/hooks/use-repository'
 import type { TreeEntry } from '@/api/types'
-
+import { useTree, useBranches } from '@/hooks/use-repository'
 import { FileEntry } from '@/components/file-entry'
 import { RefSelector } from '@/components/ref-selector'
 
@@ -47,17 +51,27 @@ export function FileTree({
   }
 
   // Sync from props when URL changes (useState only uses initial value on mount)
-  useEffect(() => { setCurrentRef(initialRef || defaultBranch) }, [initialRef, defaultBranch])
-  useEffect(() => { setCurrentPath(initialPath) }, [initialPath])
+  useEffect(() => {
+    setCurrentRef(initialRef || defaultBranch)
+  }, [initialRef, defaultBranch])
+  useEffect(() => {
+    setCurrentPath(initialPath)
+  }, [initialPath])
 
   const { data: branchesData } = useBranches(repoId)
-  const { data: treeData, isLoading: treeLoading, error } = useTree(repoId, currentRef, currentPath)
+  const {
+    data: treeData,
+    isLoading: treeLoading,
+    error,
+  } = useTree(repoId, currentRef, currentPath)
 
   // Sync ref and path from API response (handles branch names with slashes)
   useEffect(() => {
     if (treeData) {
-      if (treeData.ref && treeData.ref !== currentRef) setCurrentRef(treeData.ref)
-      if (treeData.path !== undefined && treeData.path !== currentPath) setCurrentPath(treeData.path)
+      if (treeData.ref && treeData.ref !== currentRef)
+        setCurrentRef(treeData.ref)
+      if (treeData.path !== undefined && treeData.path !== currentPath)
+        setCurrentPath(treeData.path)
     }
   }, [treeData, currentRef, currentPath])
 
@@ -65,34 +79,42 @@ export function FileTree({
   const pathParts = currentPath ? currentPath.split('/').filter(Boolean) : []
 
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       {/* Branch selector */}
       {branches.length > 0 && (
-        <RefSelector branches={branches} value={currentRef} onValueChange={handleBranchChange} />
+        <RefSelector
+          branches={branches}
+          value={currentRef}
+          onValueChange={handleBranchChange}
+        />
       )}
 
       {/* Breadcrumb */}
       {pathParts.length > 0 && (
-        <div className="flex items-center gap-1 text-sm">
+        <div className='flex items-center gap-1 text-sm'>
           <Link
-            to="/$repoId/tree/$ref/$"
+            to='/$repoId/tree/$ref/$'
             params={{ repoId: fingerprint, ref: currentRef, _splat: '' }}
-            className="text-primary hover:underline"
+            className='text-primary hover:underline'
           >
             {name}
           </Link>
           {pathParts.map((part, index) => {
             const pathTo = pathParts.slice(0, index + 1).join('/')
             return (
-              <span key={pathTo} className="flex items-center gap-1">
-                <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
+              <span key={pathTo} className='flex items-center gap-1'>
+                <ChevronRight className='text-muted-foreground h-4 w-4 rtl:rotate-180' />
                 {index === pathParts.length - 1 ? (
                   <span>{part}</span>
                 ) : (
                   <Link
-                    to="/$repoId/tree/$ref/$"
-                    params={{ repoId: fingerprint, ref: currentRef, _splat: pathTo }}
-                    className="text-primary hover:underline"
+                    to='/$repoId/tree/$ref/$'
+                    params={{
+                      repoId: fingerprint,
+                      ref: currentRef,
+                      _splat: pathTo,
+                    }}
+                    className='text-primary hover:underline'
                   >
                     {part}
                   </Link>
@@ -126,7 +148,14 @@ interface FileListingProps {
 
 // The entries of one tree, directories first. Shared by the Files tab and the
 // /tree page so the two cannot drift apart.
-export function FileListing({ fingerprint, currentRef, currentPath, entries, isLoading, error }: FileListingProps) {
+export function FileListing({
+  fingerprint,
+  currentRef,
+  currentPath,
+  entries,
+  isLoading,
+  error,
+}: FileListingProps) {
   const { t } = useLingui()
 
   // The server sends "dir"; "tree" is git's own word for the same thing and
@@ -140,23 +169,27 @@ export function FileListing({ fingerprint, currentRef, currentPath, entries, isL
 
   return (
     <Card>
-      <CardContent className="p-0">
+      <CardContent className='p-0'>
         {isLoading ? (
-          <div className="p-4 space-y-2">
+          <div className='space-y-2 p-4'>
             {[...Array(5)].map((_, i) => (
-              <Skeleton key={i} className="h-10 w-full" />
+              <Skeleton key={i} className='h-10 w-full' />
             ))}
           </div>
         ) : error ? (
-          <div className="p-4 text-destructive">
+          <div className='text-destructive p-4'>
             {getErrorMessage(error, t`Failed to load files`)}
           </div>
         ) : sortedEntries.length === 0 ? (
-          <div className="p-8 text-center text-muted-foreground">
-            {currentPath ? <Trans>Empty directory</Trans> : <Trans>Empty repository</Trans>}
+          <div className='text-muted-foreground p-8 text-center'>
+            {currentPath ? (
+              <Trans>Empty directory</Trans>
+            ) : (
+              <Trans>Empty repository</Trans>
+            )}
           </div>
         ) : (
-          <div className="divide-y">
+          <div className='divide-y'>
             {sortedEntries.map((entry) => (
               <FileEntry
                 key={entry.name}

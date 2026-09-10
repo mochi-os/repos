@@ -2,16 +2,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
-import {
-  Header,
-  Main,
-  Button,
-  usePageTitle,
-  GeneralError,
-} from '@mochi/web'
+import { Header, Main, Button, usePageTitle, GeneralError } from '@mochi/web'
 import { FolderGit2, ArrowLeft } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
@@ -37,10 +30,12 @@ function CommitPage() {
     return (
       <>
         <Header>
-          <h1 className="text-lg font-semibold"><Trans>Repository not found</Trans></h1>
+          <h1 className='text-lg font-semibold'>
+            <Trans>Repository not found</Trans>
+          </h1>
         </Header>
         <Main>
-          <div className="p-4 text-muted-foreground">
+          <div className='text-muted-foreground p-4'>
             <Trans>This page requires a repository context.</Trans>
           </div>
         </Main>
@@ -50,25 +45,34 @@ function CommitPage() {
 
   return (
     <>
-      <Header className="border-b-0">
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
-          <h1 className="text-lg font-semibold">{data.name}</h1>
-          <span className="text-muted-foreground">/</span>
-          <span><Trans>Commit</Trans></span>
+      <Header className='border-b-0'>
+        <div className='flex items-center gap-2'>
+          <FolderGit2 className='h-5 w-5' />
+          <h1 className='text-lg font-semibold'>{data.name}</h1>
+          <span className='text-muted-foreground'>/</span>
+          <span>
+            <Trans>Commit</Trans>
+          </span>
         </div>
       </Header>
-      <Main spacingY="xs">
-        <div className="space-y-4 p-4">
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/$repoId/commits" params={{ repoId: data.fingerprint || data.id }}>
-                <ArrowLeft className="h-4 w-4 me-1 rtl:rotate-180" />
+      <Main spacingY='xs'>
+        <div className='space-y-4 p-4'>
+          <div className='flex items-center gap-2'>
+            <Button variant='outline' size='sm' asChild>
+              <Link
+                to='/$repoId/commits'
+                params={{ repoId: data.fingerprint || data.id }}
+              >
+                <ArrowLeft className='me-1 h-4 w-4 rtl:rotate-180' />
                 <Trans>Back to commits</Trans>
               </Link>
             </Button>
           </div>
-          <CommitDetails repoId={data.id} fingerprint={data.fingerprint || data.id} sha={sha} />
+          <CommitDetails
+            repoId={data.id}
+            fingerprint={data.fingerprint || data.id}
+            sha={sha}
+          />
         </div>
       </Main>
     </>

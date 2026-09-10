@@ -13,7 +13,7 @@ export interface Repository {
   description: string
   default_branch: string
   size: number
-  owner: number  // 1 = locally owned, 0 = subscribed remote
+  owner: number // 1 = locally owned, 0 = subscribed remote
   server: string // Remote server URL (empty for local repos)
   created: string
   updated: string
@@ -59,7 +59,6 @@ export interface SearchResult {
 export interface SearchResponse {
   results: SearchResult[]
 }
-
 
 export interface SubscribeResponse {
   fingerprint: string
@@ -140,8 +139,6 @@ export interface BlobResponse {
   binary: boolean
   content?: string
 }
-
-
 
 export interface CreateRepoRequest {
   name: string

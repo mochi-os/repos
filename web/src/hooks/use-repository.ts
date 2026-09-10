@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { reposRequest, appBasePath } from '@/api/request'
-import endpoints from '@/api/endpoints'
 import { naturalCompare } from '@mochi/web'
+import endpoints from '@/api/endpoints'
+import { reposRequest, appBasePath } from '@/api/request'
 import type {
   InfoResponse,
   BranchesResponse,
@@ -27,10 +26,14 @@ export const repoKeys = {
   info: () => [...repoKeys.all, 'info'] as const,
   branches: (id: string) => [...repoKeys.all, id, 'branches'] as const,
   tags: (id: string) => [...repoKeys.all, id, 'tags'] as const,
-  commits: (id: string, ref?: string) => [...repoKeys.all, id, 'commits', ref] as const,
-  commit: (id: string, sha: string) => [...repoKeys.all, id, 'commit', sha] as const,
-  tree: (id: string, ref: string, path?: string) => [...repoKeys.all, id, 'tree', ref, path] as const,
-  blob: (id: string, ref: string, path: string) => [...repoKeys.all, id, 'blob', ref, path] as const,
+  commits: (id: string, ref?: string) =>
+    [...repoKeys.all, id, 'commits', ref] as const,
+  commit: (id: string, sha: string) =>
+    [...repoKeys.all, id, 'commit', sha] as const,
+  tree: (id: string, ref: string, path?: string) =>
+    [...repoKeys.all, id, 'tree', ref, path] as const,
+  blob: (id: string, ref: string, path: string) =>
+    [...repoKeys.all, id, 'blob', ref, path] as const,
 }
 
 // Hooks
@@ -40,7 +43,10 @@ export const repoKeys = {
 export function useRepoInfo() {
   return useQuery({
     queryKey: repoKeys.info(),
-    queryFn: () => reposRequest.get<InfoResponse>(endpoints.repo.info, { baseURL: appBasePath() }),
+    queryFn: () =>
+      reposRequest.get<InfoResponse>(endpoints.repo.info, {
+        baseURL: appBasePath(),
+      }),
   })
 }
 
@@ -51,7 +57,9 @@ export function useBranches(repoId: string) {
     enabled: !!repoId,
     select: (response) => ({
       ...response,
-      branches: [...response.branches].sort((a, b) => naturalCompare(a.name, b.name)),
+      branches: [...response.branches].sort((a, b) =>
+        naturalCompare(a.name, b.name)
+      ),
     }),
   })
 }
@@ -71,7 +79,8 @@ export function useTags(repoId: string) {
 export function useCommits(repoId: string, ref?: string) {
   return useQuery({
     queryKey: repoKeys.commits(repoId, ref),
-    queryFn: () => reposRequest.get<CommitsResponse>(endpoints.repo.commits(ref)),
+    queryFn: () =>
+      reposRequest.get<CommitsResponse>(endpoints.repo.commits(ref)),
     enabled: !!repoId,
   })
 }
@@ -87,7 +96,8 @@ export function useCommit(repoId: string, sha: string) {
 export function useTree(repoId: string, ref: string, path?: string) {
   return useQuery({
     queryKey: repoKeys.tree(repoId, ref, path),
-    queryFn: () => reposRequest.get<TreeResponse>(endpoints.repo.tree(ref, path)),
+    queryFn: () =>
+      reposRequest.get<TreeResponse>(endpoints.repo.tree(ref, path)),
     enabled: !!repoId && !!ref,
     retry: false,
   })
@@ -96,7 +106,8 @@ export function useTree(repoId: string, ref: string, path?: string) {
 export function useBlob(repoId: string, ref: string, path: string) {
   return useQuery({
     queryKey: repoKeys.blob(repoId, ref, path),
-    queryFn: () => reposRequest.get<BlobResponse>(endpoints.repo.blob(ref, path)),
+    queryFn: () =>
+      reposRequest.get<BlobResponse>(endpoints.repo.blob(ref, path)),
     enabled: !!repoId && !!ref && !!path,
     retry: false,
   })
@@ -107,7 +118,9 @@ export function useCreateRepo() {
 
   return useMutation({
     mutationFn: (data: CreateRepoRequest) =>
-      reposRequest.post<CreateRepoResponse>(endpoints.repo.create, data, { baseURL: appBasePath() }),
+      reposRequest.post<CreateRepoResponse>(endpoints.repo.create, data, {
+        baseURL: appBasePath(),
+      }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
@@ -120,7 +133,8 @@ export function useCreateBranch(repoId: string) {
   return useMutation({
     mutationFn: (data: { name: string; source: string }) =>
       reposRequest.post<{ success: boolean; name: string }>(
-        endpoints.repo.branchCreate, data
+        endpoints.repo.branchCreate,
+        data
       ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.branches(repoId) })
@@ -133,9 +147,9 @@ export function useDeleteBranch(repoId: string) {
 
   return useMutation({
     mutationFn: (name: string) =>
-      reposRequest.post<{ success: boolean }>(
-        endpoints.repo.branchDelete, { name }
-      ),
+      reposRequest.post<{ success: boolean }>(endpoints.repo.branchDelete, {
+        name,
+      }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.branches(repoId) })
     },
@@ -147,8 +161,14 @@ export function useSubscribe() {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (data: { repository: string; server?: string; peer?: string }) =>
-      reposRequest.post<SubscribeResponse>(endpoints.repo.subscribe, data, { baseURL: appBasePath() }),
+    mutationFn: (data: {
+      repository: string
+      server?: string
+      peer?: string
+    }) =>
+      reposRequest.post<SubscribeResponse>(endpoints.repo.subscribe, data, {
+        baseURL: appBasePath(),
+      }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
@@ -161,10 +181,13 @@ export function useUnsubscribe() {
 
   return useMutation({
     mutationFn: (repository: string) =>
-      reposRequest.post<UnsubscribeResponse>(endpoints.repo.unsubscribe, { repository }, { baseURL: appBasePath() }),
+      reposRequest.post<UnsubscribeResponse>(
+        endpoints.repo.unsubscribe,
+        { repository },
+        { baseURL: appBasePath() }
+      ),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: repoKeys.info() })
     },
   })
 }
-

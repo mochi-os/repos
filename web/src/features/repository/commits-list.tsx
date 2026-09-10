@@ -2,14 +2,20 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
-import { Trans, useLingui } from '@lingui/react/macro'
 import { Link } from '@tanstack/react-router'
-import { Card, CardContent, EntityAvatar, Skeleton, getErrorMessage, useFormat } from '@mochi/web'
+import { Trans, useLingui } from '@lingui/react/macro'
+import {
+  Card,
+  CardContent,
+  EntityAvatar,
+  Skeleton,
+  getErrorMessage,
+  useFormat,
+} from '@mochi/web'
 import { GitCommit } from 'lucide-react'
+import { getCommitTitle } from '@/lib/format'
 import { useCommits } from '@/hooks/use-repository'
 import { DownloadDropdown } from '@/components/download-dropdown'
-import { getCommitTitle } from '@/lib/format'
 
 interface CommitsListProps {
   repoId: string
@@ -19,7 +25,11 @@ interface CommitsListProps {
 
 // The history of one ref. Shared by the Commits tab and the /commits page so
 // the two cannot drift apart.
-export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProps) {
+export function CommitsList({
+  repoId,
+  fingerprint,
+  currentRef,
+}: CommitsListProps) {
   const { t } = useLingui()
   const { formatTimestamp } = useFormat()
   const { data, isLoading, error } = useCommits(repoId, currentRef)
@@ -27,9 +37,9 @@ export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProp
 
   if (isLoading) {
     return (
-      <div className="space-y-2">
+      <div className='space-y-2'>
         {[...Array(10)].map((_, i) => (
-          <Skeleton key={i} className="h-16 w-full" />
+          <Skeleton key={i} className='h-16 w-full' />
         ))}
       </div>
     )
@@ -37,7 +47,7 @@ export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProp
 
   if (error) {
     return (
-      <div className="p-4 text-destructive">
+      <div className='text-destructive p-4'>
         {getErrorMessage(error, t`Failed to load commits`)}
       </div>
     )
@@ -45,45 +55,49 @@ export function CommitsList({ repoId, fingerprint, currentRef }: CommitsListProp
 
   if (commits.length === 0) {
     return (
-      <div className="p-8 text-center text-muted-foreground">
-        <GitCommit className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p><Trans>No commits yet</Trans></p>
+      <div className='text-muted-foreground p-8 text-center'>
+        <GitCommit className='mx-auto mb-4 h-12 w-12 opacity-50' />
+        <p>
+          <Trans>No commits yet</Trans>
+        </p>
       </div>
     )
   }
 
   return (
     <Card>
-      <CardContent className="p-0 divide-y">
+      <CardContent className='divide-y p-0'>
         {commits.map((commit) => (
           <div
             key={commit.sha}
-            className="flex items-start gap-4 p-4 hover:bg-hover transition-colors"
+            className='hover:bg-hover flex items-start gap-4 p-4 transition-colors'
           >
             <Link
-              to="/$repoId/commit/$sha"
+              to='/$repoId/commit/$sha'
               params={{ repoId: fingerprint, sha: commit.sha }}
-              className="flex items-start gap-4 flex-1 min-w-0"
+              className='flex min-w-0 flex-1 items-start gap-4'
             >
-              <GitCommit className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <div className="font-medium truncate">{getCommitTitle(commit.message)}</div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+              <GitCommit className='text-muted-foreground mt-0.5 h-5 w-5 flex-shrink-0' />
+              <div className='min-w-0 flex-1'>
+                <div className='truncate font-medium'>
+                  {getCommitTitle(commit.message)}
+                </div>
+                <div className='text-muted-foreground mt-1 flex items-center gap-2 text-sm'>
                   <EntityAvatar
                     seed={commit.author_email || commit.author}
                     name={commit.author}
-                    size="xs"
+                    size='xs'
                   />
                   <span>{commit.author}</span>
                   <span>·</span>
                   <span>{formatTimestamp(commit.date)}</span>
                 </div>
               </div>
-              <code className="text-sm text-muted-foreground font-mono flex-shrink-0">
+              <code className='text-muted-foreground flex-shrink-0 font-mono text-sm'>
                 {commit.sha.substring(0, 7)}
               </code>
             </Link>
-            <DownloadDropdown gitRef={commit.sha} variant="icon" />
+            <DownloadDropdown gitRef={commit.sha} variant='icon' />
           </div>
         ))}
       </CardContent>

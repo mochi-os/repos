@@ -2,10 +2,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useState } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
 import { Link, useNavigate } from '@tanstack/react-router'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   cn,
   Button,
@@ -21,18 +20,13 @@ import {
   getErrorMessage,
   toastAction,
 } from '@mochi/web'
-import {
-  FolderGit2,
-  Globe,
-  UserMinus,
-} from 'lucide-react'
+import { FolderGit2, Globe, UserMinus } from 'lucide-react'
+import { serverHost } from '@/lib/validation'
 import { useUnsubscribe } from '@/hooks/use-repository'
 import { CloneDialog } from '@/components/clone-dialog'
 import { DownloadDropdown } from '@/components/download-dropdown'
 import { RepositoryLinkButton } from '@/components/repository-link-button'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
-import { serverHost } from '@/lib/validation'
-
 
 interface RepositoryHeaderProps {
   fingerprint: string
@@ -68,7 +62,7 @@ export function RepositoryHeader({
   const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
 
   const tabs = useRepositoryTabs()
-  const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
+  const visibleTabs = tabs.filter((tab) => !tab.ownerOnly || isOwner)
 
   const handleUnsubscribe = async () => {
     try {
@@ -85,53 +79,65 @@ export function RepositoryHeader({
   }
 
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       {/* Header with name, description, and action buttons */}
-      <div className="flex flex-wrap items-center gap-2">
-        <div className="flex items-center gap-2">
-          <FolderGit2 className="h-5 w-5" />
+      <div className='flex flex-wrap items-center gap-2'>
+        <div className='flex items-center gap-2'>
+          <FolderGit2 className='h-5 w-5' />
           <Link
-            to="/$repoId"
+            to='/$repoId'
             params={{ repoId: fingerprint }}
-            className="text-xl font-semibold hover:underline"
+            className='text-xl font-semibold hover:underline'
           >
             {name}
           </Link>
           {isRemote && (
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Globe className="h-3 w-3" />
+            <span className='text-muted-foreground flex items-center gap-1 text-xs'>
+              <Globe className='h-3 w-3' />
               <Trans>Subscribed</Trans>
             </span>
           )}
         </div>
-        <div className="flex-1" />
+        <div className='flex-1' />
         <CloneDialog repoPath={path} fingerprint={fingerprint} />
-        {showDownload && (
-          <DownloadDropdown gitRef={currentRef || 'HEAD'} />
-        )}
+        {showDownload && <DownloadDropdown gitRef={currentRef || 'HEAD'} />}
         <RepositoryLinkButton fingerprint={fingerprint} isOwner={isOwner} />
         {isRemote && (
           <>
             <Button
-              variant="outline"
-              size="sm"
+              variant='outline'
+              size='sm'
               onClick={() => setShowUnsubscribeDialog(true)}
               disabled={unsubscribe.isPending}
             >
-              <UserMinus className="h-4 w-4" />
-              <span className="hidden sm:inline"><Trans>Unsubscribe</Trans></span>
+              <UserMinus className='h-4 w-4' />
+              <span className='hidden sm:inline'>
+                <Trans>Unsubscribe</Trans>
+              </span>
             </Button>
-            <AlertDialog open={showUnsubscribeDialog} onOpenChange={setShowUnsubscribeDialog}>
+            <AlertDialog
+              open={showUnsubscribeDialog}
+              onOpenChange={setShowUnsubscribeDialog}
+            >
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle><Trans>Unsubscribe from repository?</Trans></AlertDialogTitle>
+                  <AlertDialogTitle>
+                    <Trans>Unsubscribe from repository?</Trans>
+                  </AlertDialogTitle>
                   <AlertDialogDescription>
-                    <Trans>This will remove "{name}" from your repository list. You can subscribe again later.</Trans>
+                    <Trans>
+                      This will remove "{name}" from your repository list. You
+                      can subscribe again later.
+                    </Trans>
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
-                  <AlertDialogAction onClick={handleUnsubscribe}><Trans>Unsubscribe</Trans></AlertDialogAction>
+                  <AlertDialogCancel>
+                    <Trans>Cancel</Trans>
+                  </AlertDialogCancel>
+                  <AlertDialogAction onClick={handleUnsubscribe}>
+                    <Trans>Unsubscribe</Trans>
+                  </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
@@ -140,17 +146,17 @@ export function RepositoryHeader({
       </div>
 
       {description && (
-        <CardDescription className="text-base">{description}</CardDescription>
+        <CardDescription className='text-base'>{description}</CardDescription>
       )}
 
       {isRemote && host && (
-        <p className="text-sm text-muted-foreground">
+        <p className='text-muted-foreground text-sm'>
           <Trans>From: {serverHost(server)}</Trans>
         </p>
       )}
 
       {/* Tab bar */}
-      <div className="flex gap-1 border-b">
+      <div className='flex gap-1 border-b'>
         {visibleTabs.map((tab) => (
           <Link
             key={tab.id}
@@ -159,18 +165,17 @@ export function RepositoryHeader({
             search={tab.search ?? {}}
             className={cn(
               'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
-              'border-b-2 -mb-px',
+              '-mb-px border-b-2',
               activeTab === tab.id
                 ? 'border-primary text-foreground'
-                : 'border-transparent text-muted-foreground hover:text-foreground'
+                : 'text-muted-foreground hover:text-foreground border-transparent'
             )}
           >
             {tab.icon}
-            <span className="hidden sm:inline">{tab.label}</span>
+            <span className='hidden sm:inline'>{tab.label}</span>
           </Link>
         ))}
       </div>
     </div>
   )
 }
-

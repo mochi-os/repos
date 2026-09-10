@@ -2,17 +2,16 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useCallback, useMemo } from 'react'
-import { useLingui } from '@lingui/react/macro'
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { FolderGit2 } from 'lucide-react'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { useLingui } from '@lingui/react/macro'
 import { FindEntityPage, toastAction, getErrorMessage } from '@mochi/web'
-import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
-import { reposRequest, appBasePath } from '@/api/request'
+import { FolderGit2 } from 'lucide-react'
 import endpoints from '@/api/endpoints'
+import { reposRequest, appBasePath } from '@/api/request'
 import type { RecommendationsResponse } from '@/api/types'
+import { useRepoInfo, useSubscribe, repoKeys } from '@/hooks/use-repository'
 
 export const Route = createFileRoute('/_authenticated/find')({
   component: FindRepositoriesPage,
@@ -32,53 +31,78 @@ function FindRepositoriesPage() {
     isError: isRecommendationsError,
   } = useQuery({
     queryKey: ['repositories', 'recommendations'],
-    queryFn: () => reposRequest.get<RecommendationsResponse>(endpoints.repo.recommendations, { baseURL: appBasePath() }),
+    queryFn: () =>
+      reposRequest.get<RecommendationsResponse>(
+        endpoints.repo.recommendations,
+        { baseURL: appBasePath() }
+      ),
     retry: false,
     refetchOnWindowFocus: false,
   })
   const recommendations = recommendationsData?.repositories ?? []
 
-  const repositories = useMemo(() => data?.repositories ?? [], [data?.repositories])
+  const repositories = useMemo(
+    () => data?.repositories ?? [],
+    [data?.repositories]
+  )
 
   const subscribedRepoIds = useMemo(
-    () => new Set(
-      repositories.flatMap((r) => [r.id, r.fingerprint].filter((x): x is string => !!x))
-    ),
+    () =>
+      new Set(
+        repositories.flatMap((r) =>
+          [r.id, r.fingerprint].filter((x): x is string => !!x)
+        )
+      ),
     [repositories]
   )
 
-  const handleSubscribe = useCallback(async (repoId: string, entity: { location?: string; peer?: string }) => {
-    try {
-      await toastAction(
-        subscribe.mutateAsync({
-          repository: repoId,
-          server: entity.location,
-          peer: entity.peer,
-        }),
-        {
-          loading: t`Subscribing...`,
-          success: t`Subscribed`,
-          error: (e) => getErrorMessage(e, t`Failed to subscribe`),
-        }
-      )
-      await queryClient.invalidateQueries({ queryKey: repoKeys.info() })
-      void navigate({ to: '/$repoId', params: { repoId } })
-    } catch {
-      // toast already shown
-    }
-  }, [subscribe, queryClient, navigate, t])
+  const handleSubscribe = useCallback(
+    async (repoId: string, entity: { location?: string; peer?: string }) => {
+      try {
+        await toastAction(
+          subscribe.mutateAsync({
+            repository: repoId,
+            server: entity.location,
+            peer: entity.peer,
+          }),
+          {
+            loading: t`Subscribing...`,
+            success: t`Subscribed`,
+            error: (e) => getErrorMessage(e, t`Failed to subscribe`),
+          }
+        )
+        await queryClient.invalidateQueries({ queryKey: repoKeys.info() })
+        void navigate({ to: '/$repoId', params: { repoId } })
+      } catch {
+        // toast already shown
+      }
+    },
+    [subscribe, queryClient, navigate, t]
+  )
 
   // Resolve a pasted mochi:// share link to the repository's name via probe,
   // so the card shows the real repository rather than a raw entity id.
   const resolveUri = useCallback(async (url: string) => {
-    type ProbeEntry = { id: string; name: string; fingerprint?: string; server?: string; peer?: string }
+    type ProbeEntry = {
+      id: string
+      name: string
+      fingerprint?: string
+      server?: string
+      peer?: string
+    }
     const data = await reposRequest.post<Partial<ProbeEntry>>(
       endpoints.repo.probe,
       { url },
       { baseURL: appBasePath() }
     )
     if (!data.id) return null
-    return { id: data.id, name: data.name ?? '', fingerprint: data.fingerprint, location: data.server ?? '', peer: data.peer }
+    return {
+      id: data.id,
+      name: data.name ?? '',
+      fingerprint: data.fingerprint,
+      location: data.server ?? '',
+      peer: data.peer,
+    }
   }, [])
 
   return (
@@ -86,10 +110,10 @@ function FindRepositoriesPage() {
       resolveUri={resolveUri}
       onSubscribe={handleSubscribe}
       subscribedIds={subscribedRepoIds}
-      entityClass="repository"
+      entityClass='repository'
       searchEndpoint={`${appBasePath()}-/search`}
       icon={FolderGit2}
-      iconClassName="bg-primary/10 text-primary"
+      iconClassName='bg-primary/10 text-primary'
       title={t`Find repositories`}
       placeholder={t`Search by name, ID, fingerprint, or URL...`}
       emptyMessage={t`No repositories found`}

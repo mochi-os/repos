@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useState } from 'react'
 import { Trans, useLingui } from '@lingui/react/macro'
 import {
@@ -46,11 +45,9 @@ export function DownloadDropdown({
     if (busy) return
     setBusy(format)
     try {
-      await reposRequest.download(
-        `archive/${format}`,
-        `archive.${format}`,
-        { params: { ref: gitRef } }
-      )
+      await reposRequest.download(`archive/${format}`, `archive.${format}`, {
+        params: { ref: gitRef },
+      })
     } catch (error) {
       toast.error(getErrorMessage(error, t`Failed to download archive`))
     } finally {
@@ -61,24 +58,24 @@ export function DownloadDropdown({
   const trigger =
     variant === 'icon' ? (
       <Button
-        variant="ghost"
-        size="icon"
+        variant='ghost'
+        size='icon'
         disabled={disabled || !!busy}
         onClick={(e) => e.stopPropagation()}
         aria-label={t`Download`}
       >
         {busy ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <Loader2 className='h-4 w-4 animate-spin' />
         ) : (
-          <Download className="h-4 w-4" />
+          <Download className='h-4 w-4' />
         )}
       </Button>
     ) : (
-      <Button variant="outline" size="sm" disabled={disabled || !!busy}>
+      <Button variant='outline' size='sm' disabled={disabled || !!busy}>
         {busy ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <Loader2 className='h-4 w-4 animate-spin' />
         ) : (
-          <Download className="h-4 w-4" />
+          <Download className='h-4 w-4' />
         )}
         <Trans>Download</Trans>
       </Button>
@@ -96,14 +93,14 @@ export function DownloadDropdown({
       ) : (
         <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
       )}
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align='end'>
         {FORMATS.map((f) => (
           <DropdownMenuItem
             key={f.format}
             onSelect={() => void handleDownload(f.format)}
             disabled={!!busy}
           >
-            <FileArchive className="h-4 w-4 me-2 text-muted-foreground" />
+            <FileArchive className='text-muted-foreground me-2 h-4 w-4' />
             {f.label}
           </DropdownMenuItem>
         ))}

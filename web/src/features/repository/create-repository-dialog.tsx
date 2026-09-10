@@ -2,10 +2,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useState, useRef } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
 import { useNavigate } from '@tanstack/react-router'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Button,
   Dialog,
@@ -21,6 +20,7 @@ import {
   getErrorMessage,
 } from '@mochi/web'
 import { FolderGit2, Loader2, Plus } from 'lucide-react'
+import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 import { useCreateRepo } from '@/hooks/use-repository'
 
 type CreateRepositoryDialogProps = {
@@ -28,8 +28,6 @@ type CreateRepositoryDialogProps = {
   onOpenChange?: (open: boolean) => void
   hideTrigger?: boolean
 }
-
-import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 
 // Derive a URL-safe slug from a name
 function nameToPath(name: string): string {
@@ -93,7 +91,12 @@ export function CreateRepositoryDialog({
       ? t`Lowercase letters, numbers, and hyphens only`
       : null
 
-  const canSubmit = name.trim() && path.trim() && !nameError && !pathError && !createRepo.isPending
+  const canSubmit =
+    name.trim() &&
+    path.trim() &&
+    !nameError &&
+    !pathError &&
+    !createRepo.isPending
 
   const handleSubmit = async () => {
     if (!canSubmit) return
@@ -115,7 +118,10 @@ export function CreateRepositoryDialog({
       resetForm()
       handleOpenChange(false)
       if (response?.fingerprint) {
-        void navigate({ to: '/$repoId', params: { repoId: response.fingerprint } })
+        void navigate({
+          to: '/$repoId',
+          params: { repoId: response.fingerprint },
+        })
       } else {
         void navigate({ to: '/' })
       }
@@ -128,45 +134,59 @@ export function CreateRepositoryDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       {!hideTrigger && (
         <Button onClick={() => handleOpenChange(true)}>
-          <Plus className="h-4 w-4" />
+          <Plus className='h-4 w-4' />
           <Trans>Create repository</Trans>
         </Button>
       )}
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <FolderGit2 className="h-5 w-5" />
+          <DialogTitle className='flex items-center gap-2'>
+            <FolderGit2 className='h-5 w-5' />
             <Trans>Create repository</Trans>
           </DialogTitle>
         </DialogHeader>
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="repo-name"><Trans>Name</Trans></Label>
+        <div className='space-y-4'>
+          <div className='space-y-2'>
+            <Label htmlFor='repo-name'>
+              <Trans>Name</Trans>
+            </Label>
             <Input
-              id="repo-name"
+              id='repo-name'
               value={name}
               onChange={(e) => handleNameChange(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleSubmit()
+              }}
               autoFocus
             />
-            {nameError && <p className="text-sm text-destructive">{nameError}</p>}
+            {nameError && (
+              <p className='text-destructive text-sm'>{nameError}</p>
+            )}
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="repo-path"><Trans>Path</Trans></Label>
+          <div className='space-y-2'>
+            <Label htmlFor='repo-path'>
+              <Trans>Path</Trans>
+            </Label>
             <Input
-              id="repo-path"
+              id='repo-path'
               value={path}
               onChange={(e) => handlePathChange(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleSubmit()
+              }}
             />
-            {pathError && <p className="text-sm text-destructive">{pathError}</p>}
+            {pathError && (
+              <p className='text-destructive text-sm'>{pathError}</p>
+            )}
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="repo-description"><Trans>Description</Trans></Label>
+          <div className='space-y-2'>
+            <Label htmlFor='repo-description'>
+              <Trans>Description</Trans>
+            </Label>
             <Textarea
-              id="repo-description"
+              id='repo-description'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={2}
@@ -174,19 +194,35 @@ export function CreateRepositoryDialog({
             />
           </div>
 
-          <div className="flex items-center justify-between">
-            <Label htmlFor="repo-privacy"><Trans>Allow anyone to search for repository</Trans></Label>
-            <Switch id="repo-privacy" checked={privacy} onCheckedChange={setPrivacy} />
+          <div className='flex items-center justify-between'>
+            <Label htmlFor='repo-privacy'>
+              <Trans>Allow anyone to search for repository</Trans>
+            </Label>
+            <Switch
+              id='repo-privacy'
+              checked={privacy}
+              onCheckedChange={setPrivacy}
+            />
           </div>
 
-          <div className="flex items-center justify-between">
-            <Label htmlFor="repo-allow-read"><Trans>Allow anyone to read repository</Trans></Label>
-            <Switch id="repo-allow-read" checked={allowRead} onCheckedChange={setAllowRead} />
+          <div className='flex items-center justify-between'>
+            <Label htmlFor='repo-allow-read'>
+              <Trans>Allow anyone to read repository</Trans>
+            </Label>
+            <Switch
+              id='repo-allow-read'
+              checked={allowRead}
+              onCheckedChange={setAllowRead}
+            />
           </div>
         </div>
         <DialogFooter>
           <Button onClick={handleSubmit} disabled={!canSubmit}>
-            {createRepo.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="size-4" />}
+            {createRepo.isPending ? (
+              <Loader2 className='h-4 w-4 animate-spin' />
+            ) : (
+              <Plus className='size-4' />
+            )}
             <Trans>Create</Trans>
           </Button>
         </DialogFooter>

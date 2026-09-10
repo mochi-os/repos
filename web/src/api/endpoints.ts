@@ -6,7 +6,11 @@
 // Encode a ref or path for a URL segment while keeping its slashes. The tree
 // and blob routes take a splat, so "/" separates segments and has to survive,
 // but a "#", "?" or "%" in a branch or file name truncates the request.
-const encodeRef = (value: string) => value.split('/').map((part) => encodeURIComponent(part)).join('/')
+const encodeRef = (value: string) =>
+  value
+    .split('/')
+    .map((part) => encodeURIComponent(part))
+    .join('/')
 
 const endpoints = {
   // Repository operations
@@ -34,10 +38,14 @@ const endpoints = {
     branchCreate: 'branches/create',
     branchDelete: 'branches/delete',
     tags: 'tags',
-    commits: (ref?: string) => ref ? `commits/${encodeRef(ref)}` : 'commits',
+    commits: (ref?: string) => (ref ? `commits/${encodeRef(ref)}` : 'commits'),
     commit: (sha: string) => `commit/${encodeURIComponent(sha)}`,
-    tree: (ref: string, path?: string) => path ? `tree/${encodeRef(ref)}/${encodeRef(path)}` : `tree/${encodeRef(ref)}`,
-    blob: (ref: string, path: string) => `blob/${encodeRef(ref)}/${encodeRef(path)}`,
+    tree: (ref: string, path?: string) =>
+      path
+        ? `tree/${encodeRef(ref)}/${encodeRef(path)}`
+        : `tree/${encodeRef(ref)}`,
+    blob: (ref: string, path: string) =>
+      `blob/${encodeRef(ref)}/${encodeRef(path)}`,
   },
   // User/group search
   users: {
@@ -47,6 +55,5 @@ const endpoints = {
     list: '-/groups',
   },
 } as const
-
 
 export default endpoints

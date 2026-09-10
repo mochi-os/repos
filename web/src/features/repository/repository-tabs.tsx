@@ -2,11 +2,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useState, useCallback, useEffect } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
-import { useNavigate } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useNavigate } from '@tanstack/react-router'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   CardDescription,
   Button,
@@ -47,16 +46,20 @@ import {
   UserMinus,
   X,
 } from 'lucide-react'
-import { useTree, useBranches, useUnsubscribe, repoKeys } from '@/hooks/use-repository'
-import { reposRequest, appBasePath, repoBasePath } from '@/api/request'
 import endpoints from '@/api/endpoints'
-
-import { RefSelector } from '@/components/ref-selector'
+import { reposRequest, appBasePath, repoBasePath } from '@/api/request'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
-import { useRepositoryTabs, type RepositoryTabId } from './tabs'
-import { FileListing } from './file-browser'
-import { CommitsList } from './commits-list'
+import {
+  useTree,
+  useBranches,
+  useUnsubscribe,
+  repoKeys,
+} from '@/hooks/use-repository'
+import { RefSelector } from '@/components/ref-selector'
 import { BranchesList } from './branches-list'
+import { CommitsList } from './commits-list'
+import { FileListing } from './file-browser'
+import { useRepositoryTabs, type RepositoryTabId } from './tabs'
 import { TagsList } from './tags-list'
 
 // Re-export CloneDialog from shared component
@@ -98,25 +101,25 @@ export function RepositoryTabs({
 
   // Filter tabs based on ownership
   const tabs = useRepositoryTabs()
-  const visibleTabs = tabs.filter(tab => !tab.ownerOnly || isOwner)
+  const visibleTabs = tabs.filter((tab) => !tab.ownerOnly || isOwner)
 
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       {description && (
-        <CardDescription className="text-base">{description}</CardDescription>
+        <CardDescription className='text-base'>{description}</CardDescription>
       )}
 
       {/* Tab bar */}
       <Tabs
-        variant="underline"
+        variant='underline'
         value={activeTab}
         onValueChange={(value) => onTabChange(value as typeof activeTab)}
       >
         <TabsList>
           {visibleTabs.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.id} className="gap-2">
+            <TabsTrigger key={tab.id} value={tab.id} className='gap-2'>
               {tab.icon}
-              <span className="hidden sm:inline">{tab.label}</span>
+              <span className='hidden sm:inline'>{tab.label}</span>
             </TabsTrigger>
           ))}
         </TabsList>
@@ -124,15 +127,29 @@ export function RepositoryTabs({
 
       {/* Branch selector - shared across files/commits tabs */}
       {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
-        <RefSelector branches={branches} value={currentRef} onValueChange={setCurrentRef} />
+        <RefSelector
+          branches={branches}
+          value={currentRef}
+          onValueChange={setCurrentRef}
+        />
       )}
 
       {/* Tab content */}
-      <div className="pt-2">
+      <div className='pt-2'>
         {activeTab === 'files' && (
-          <FilesTab repoId={repoId} fingerprint={fingerprint} currentRef={currentRef} />
+          <FilesTab
+            repoId={repoId}
+            fingerprint={fingerprint}
+            currentRef={currentRef}
+          />
         )}
-        {activeTab === 'commits' && <CommitsList repoId={repoId} fingerprint={fingerprint} currentRef={currentRef} />}
+        {activeTab === 'commits' && (
+          <CommitsList
+            repoId={repoId}
+            fingerprint={fingerprint}
+            currentRef={currentRef}
+          />
+        )}
         {activeTab === 'branches' && (
           <BranchesList
             repoId={repoId}
@@ -141,7 +158,9 @@ export function RepositoryTabs({
             canManage={isOwner}
           />
         )}
-        {activeTab === 'tags' && <TagsList repoId={repoId} fingerprint={fingerprint} />}
+        {activeTab === 'tags' && (
+          <TagsList repoId={repoId} fingerprint={fingerprint} />
+        )}
         {activeTab === 'settings' && isOwner && (
           <GeneralSettingsTab
             repoId={repoId}
@@ -166,7 +185,13 @@ export function RepositoryTabs({
 // Unsubscribe Button
 // ============================================================================
 
-export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoName: string }) {
+export function UnsubscribeButton({
+  repoId,
+  repoName,
+}: {
+  repoId: string
+  repoName: string
+}) {
   const { t } = useLingui()
   const navigate = useNavigate()
   const unsubscribe = useUnsubscribe()
@@ -193,26 +218,40 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
   return (
     <>
       <Button
-        variant="outline"
-        size="sm"
+        variant='outline'
+        size='sm'
         onClick={() => setShowDialog(true)}
         disabled={isUnsubscribing}
       >
-        <UserMinus className="h-4 w-4 me-1" />
+        <UserMinus className='me-1 h-4 w-4' />
         <Trans>Unsubscribe</Trans>
       </Button>
       <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle><Trans>Unsubscribe from repository?</Trans></AlertDialogTitle>
+            <AlertDialogTitle>
+              <Trans>Unsubscribe from repository?</Trans>
+            </AlertDialogTitle>
             <AlertDialogDescription>
-              <Trans>This will remove "{repoName}" from your repository list. You can subscribe again later.</Trans>
+              <Trans>
+                This will remove "{repoName}" from your repository list. You can
+                subscribe again later.
+              </Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
-            <AlertDialogAction onClick={handleUnsubscribe} disabled={isUnsubscribing}>
-              {isUnsubscribing ? <Trans>Unsubscribing...</Trans> : <Trans>Unsubscribe</Trans>}
+            <AlertDialogCancel>
+              <Trans>Cancel</Trans>
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleUnsubscribe}
+              disabled={isUnsubscribing}
+            >
+              {isUnsubscribing ? (
+                <Trans>Unsubscribing...</Trans>
+              ) : (
+                <Trans>Unsubscribe</Trans>
+              )}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -225,13 +264,21 @@ export function UnsubscribeButton({ repoId, repoName }: { repoId: string; repoNa
 // Files Tab
 // ============================================================================
 
-function FilesTab({ repoId, fingerprint, currentRef }: { repoId: string; fingerprint: string; currentRef: string }) {
+function FilesTab({
+  repoId,
+  fingerprint,
+  currentRef,
+}: {
+  repoId: string
+  fingerprint: string
+  currentRef: string
+}) {
   const { data, isLoading, error } = useTree(repoId, currentRef, '')
   return (
     <FileListing
       fingerprint={fingerprint}
       currentRef={currentRef}
-      currentPath=""
+      currentPath=''
       entries={data?.entries || []}
       isLoading={isLoading}
       error={error}
@@ -263,7 +310,6 @@ interface GeneralSettingsTabProps {
   privacy?: string
 }
 
-
 function GeneralSettingsTab({
   repoId,
   fingerprint,
@@ -280,7 +326,9 @@ function GeneralSettingsTab({
   const [currentName, setCurrentName] = useState(initialName || '')
   const [currentPath, setCurrentPath] = useState(initialPath || '')
   const [description, setDescription] = useState(initialDescription || '')
-  const [selectedBranch, setSelectedBranch] = useState(initialDefaultBranch || 'main')
+  const [selectedBranch, setSelectedBranch] = useState(
+    initialDefaultBranch || 'main'
+  )
   const [allowRead, setAllowRead] = useState(initialAllowRead !== false)
   const [privacy, setPrivacy] = useState(initialPrivacy !== 'private')
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
@@ -327,7 +375,8 @@ function GeneralSettingsTab({
   const validateName = (n: string): string | null => {
     if (!n.trim()) return t`Repository name is required`
     if (n.length > 100) return t`Name must be 100 characters or less`
-    if (DISALLOWED_NAME_CHARS.test(n)) return t`Name cannot contain < or > characters`
+    if (DISALLOWED_NAME_CHARS.test(n))
+      return t`Name cannot contain < or > characters`
     return null
   }
 
@@ -448,11 +497,14 @@ function GeneralSettingsTab({
   const handleAllowReadChange = async (value: boolean) => {
     setAllowRead(value)
     try {
-      await toastAction(updateSetting.mutateAsync({ allow_read: value ? 'true' : 'false' }), {
-        loading: t`Saving settings...`,
-        success: t`Settings saved`,
-        error: (e) => getErrorMessage(e, t`Failed to save setting`),
-      })
+      await toastAction(
+        updateSetting.mutateAsync({ allow_read: value ? 'true' : 'false' }),
+        {
+          loading: t`Saving settings...`,
+          success: t`Settings saved`,
+          error: (e) => getErrorMessage(e, t`Failed to save setting`),
+        }
+      )
     } catch {
       setAllowRead(!value)
     }
@@ -461,11 +513,14 @@ function GeneralSettingsTab({
   const handlePrivacyChange = async (value: boolean) => {
     setPrivacy(value)
     try {
-      await toastAction(updateSetting.mutateAsync({ privacy: value ? 'public' : 'private' }), {
-        loading: t`Saving settings...`,
-        success: t`Settings saved`,
-        error: (e) => getErrorMessage(e, t`Failed to save setting`),
-      })
+      await toastAction(
+        updateSetting.mutateAsync({ privacy: value ? 'public' : 'private' }),
+        {
+          loading: t`Saving settings...`,
+          success: t`Settings saved`,
+          error: (e) => getErrorMessage(e, t`Failed to save setting`),
+        }
+      )
     } catch {
       setPrivacy(!value)
     }
@@ -497,14 +552,18 @@ function GeneralSettingsTab({
   }
 
   return (
-    <div className="max-w-2xl divide-y">
-      <div className="pb-4">
-        <h3 className="text-lg font-semibold mb-4"><Trans>Identity</Trans></h3>
-        <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 items-center">
-          <span className="text-muted-foreground"><Trans>Name:</Trans></span>
+    <div className='max-w-2xl divide-y'>
+      <div className='pb-4'>
+        <h3 className='mb-4 text-lg font-semibold'>
+          <Trans>Identity</Trans>
+        </h3>
+        <div className='grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-2'>
+          <span className='text-muted-foreground'>
+            <Trans>Name:</Trans>
+          </span>
           {isEditingName ? (
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-2">
+            <div className='flex flex-col gap-1'>
+              <div className='flex items-center gap-2'>
                 <Input
                   value={editName}
                   onChange={(e) => {
@@ -515,56 +574,58 @@ function GeneralSettingsTab({
                     if (e.key === 'Enter') void handleSaveEditName()
                     if (e.key === 'Escape') handleCancelEditName()
                   }}
-                  className="h-8"
+                  className='h-8'
                   disabled={isRenaming}
                   autoFocus
                 />
                 <Button
-                  size="sm"
-                  variant="ghost"
+                  size='sm'
+                  variant='ghost'
                   onClick={() => void handleSaveEditName()}
                   disabled={isRenaming}
-                  className="h-8 w-8 p-0"
+                  className='h-8 w-8 p-0'
                 >
                   {isRenaming ? (
-                    <Loader2 className="size-4 animate-spin" />
+                    <Loader2 className='size-4 animate-spin' />
                   ) : (
-                    <Check className="size-4" />
+                    <Check className='size-4' />
                   )}
                 </Button>
                 <Button
-                  size="sm"
-                  variant="ghost"
+                  size='sm'
+                  variant='ghost'
                   onClick={handleCancelEditName}
                   disabled={isRenaming}
-                  className="h-8 w-8 p-0"
+                  className='h-8 w-8 p-0'
                   aria-label={t`Cancel edit`}
                 >
-                  <X className="size-4" />
+                  <X className='size-4' />
                 </Button>
               </div>
               {nameError && (
-                <span className="text-sm text-destructive">{nameError}</span>
+                <span className='text-destructive text-sm'>{nameError}</span>
               )}
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className='flex items-center gap-2'>
               <span>{currentName}</span>
               <Button
-                size="sm"
-                variant="ghost"
+                size='sm'
+                variant='ghost'
                 onClick={handleStartEditName}
-                className="h-6 w-6 p-0"
+                className='h-6 w-6 p-0'
                 aria-label={t`Edit name`}
               >
-                <Pencil className="size-3" />
+                <Pencil className='size-3' />
               </Button>
             </div>
           )}
-          <span className="text-muted-foreground"><Trans>Path:</Trans></span>
+          <span className='text-muted-foreground'>
+            <Trans>Path:</Trans>
+          </span>
           {isEditingPath ? (
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-2">
+            <div className='flex flex-col gap-1'>
+              <div className='flex items-center gap-2'>
                 <Input
                   value={editPath}
                   onChange={(e) => {
@@ -575,85 +636,98 @@ function GeneralSettingsTab({
                     if (e.key === 'Enter') void handleSaveEditPath()
                     if (e.key === 'Escape') handleCancelEditPath()
                   }}
-                  className="h-8"
+                  className='h-8'
                   disabled={isSavingPath}
                   autoFocus
                 />
                 <Button
-                  size="sm"
-                  variant="ghost"
+                  size='sm'
+                  variant='ghost'
                   onClick={() => void handleSaveEditPath()}
                   disabled={isSavingPath}
-                  className="h-8 w-8 p-0"
+                  className='h-8 w-8 p-0'
                 >
                   {isSavingPath ? (
-                    <Loader2 className="size-4 animate-spin" />
+                    <Loader2 className='size-4 animate-spin' />
                   ) : (
-                    <Check className="size-4" />
+                    <Check className='size-4' />
                   )}
                 </Button>
                 <Button
-                  size="sm"
-                  variant="ghost"
+                  size='sm'
+                  variant='ghost'
                   onClick={handleCancelEditPath}
                   disabled={isSavingPath}
-                  className="h-8 w-8 p-0"
+                  className='h-8 w-8 p-0'
                   aria-label={t`Cancel edit`}
                 >
-                  <X className="size-4" />
+                  <X className='size-4' />
                 </Button>
               </div>
               {pathError && (
-                <span className="text-sm text-destructive">{pathError}</span>
+                <span className='text-destructive text-sm'>{pathError}</span>
               )}
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className='flex items-center gap-2'>
               <span>{currentPath}</span>
               <Button
-                size="sm"
-                variant="ghost"
+                size='sm'
+                variant='ghost'
                 onClick={handleStartEditPath}
-                className="h-6 w-6 p-0"
+                className='h-6 w-6 p-0'
                 aria-label={t`Edit path`}
               >
-                <Pencil className="size-3" />
+                <Pencil className='size-3' />
               </Button>
             </div>
           )}
-          <span className="text-muted-foreground"><Trans>Entity:</Trans></span>
-          <DataChip value={repoId} truncate="none" />
-          <span className="text-muted-foreground"><Trans>Fingerprint:</Trans></span>
-          <DataChip value={fingerprint} truncate="middle" />
+          <span className='text-muted-foreground'>
+            <Trans>Entity:</Trans>
+          </span>
+          <DataChip value={repoId} truncate='none' />
+          <span className='text-muted-foreground'>
+            <Trans>Fingerprint:</Trans>
+          </span>
+          <DataChip value={fingerprint} truncate='middle' />
         </div>
       </div>
 
-      <div className="space-y-2 py-4">
-        <Label className="text-base"><Trans>Description</Trans></Label>
+      <div className='space-y-2 py-4'>
+        <Label className='text-base'>
+          <Trans>Description</Trans>
+        </Label>
         <Textarea
-          id="description"
+          id='description'
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
           maxLength={2000}
         />
         <Button
-          size="sm"
+          size='sm'
           onClick={() => void handleSaveDescription()}
-          disabled={updateSetting.isPending || description === (initialDescription || '')}
+          disabled={
+            updateSetting.isPending ||
+            description === (initialDescription || '')
+          }
         >
-          <Check className="h-4 w-4" />
+          <Check className='h-4 w-4' />
           <Trans>Save</Trans>
         </Button>
       </div>
 
       {branches.length > 0 && (
-        <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="space-y-0.5">
-            <Label className="text-base"><Trans>Default branch</Trans></Label>
-            <p className="text-sm text-muted-foreground"><Trans>The branch shown when viewing the repository</Trans></p>
+        <div className='flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between'>
+          <div className='space-y-0.5'>
+            <Label className='text-base'>
+              <Trans>Default branch</Trans>
+            </Label>
+            <p className='text-muted-foreground text-sm'>
+              <Trans>The branch shown when viewing the repository</Trans>
+            </p>
           </div>
-          <div className="w-full sm:w-48">
+          <div className='w-full sm:w-48'>
             <Select
               value={selectedBranch}
               onValueChange={handleBranchChange}
@@ -674,43 +748,45 @@ function GeneralSettingsTab({
         </div>
       )}
 
-      <div className="flex items-center justify-between py-4">
-        <Label htmlFor="settings-privacy" className="text-base">
+      <div className='flex items-center justify-between py-4'>
+        <Label htmlFor='settings-privacy' className='text-base'>
           <Trans>Allow anyone to search for repository</Trans>
         </Label>
         <Switch
-          id="settings-privacy"
+          id='settings-privacy'
           checked={privacy}
           onCheckedChange={(value) => void handlePrivacyChange(value)}
           disabled={updateSetting.isPending}
         />
       </div>
 
-      <div className="flex items-center justify-between py-4">
-        <Label htmlFor="settings-allow-read" className="text-base">
+      <div className='flex items-center justify-between py-4'>
+        <Label htmlFor='settings-allow-read' className='text-base'>
           <Trans>Allow anyone to read repository</Trans>
         </Label>
         <Switch
-          id="settings-allow-read"
+          id='settings-allow-read'
           checked={allowRead}
           onCheckedChange={(value) => void handleAllowReadChange(value)}
           disabled={updateSetting.isPending}
         />
       </div>
 
-      <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-0.5">
-          <Label className="text-base"><Trans>Delete repository</Trans></Label>
-          <p className="text-sm text-muted-foreground">
+      <div className='flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between'>
+        <div className='space-y-0.5'>
+          <Label className='text-base'>
+            <Trans>Delete repository</Trans>
+          </Label>
+          <p className='text-muted-foreground text-sm'>
             <Trans>Permanently delete this repository and all its data</Trans>
           </p>
         </div>
         <Button
-          variant="outline"
+          variant='outline'
           onClick={() => setShowDeleteDialog(true)}
           disabled={deleteRepo.isPending}
         >
-          <Trash2 className="h-4 w-4" />
+          <Trash2 className='h-4 w-4' />
           <Trans>Delete repository</Trans>
         </Button>
       </div>
@@ -718,14 +794,23 @@ function GeneralSettingsTab({
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle><Trans>Delete repository?</Trans></AlertDialogTitle>
+            <AlertDialogTitle>
+              <Trans>Delete repository?</Trans>
+            </AlertDialogTitle>
             <AlertDialogDescription>
-              <Trans>This will permanently delete "{currentName}" and all its commits, branches, and tags. This action cannot be undone.</Trans>
+              <Trans>
+                This will permanently delete "{currentName}" and all its
+                commits, branches, and tags. This action cannot be undone.
+              </Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}><Trans>Delete</Trans></AlertDialogAction>
+            <AlertDialogCancel>
+              <Trans>Cancel</Trans>
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>
+              <Trans>Delete</Trans>
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
@@ -745,20 +830,22 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
   // User search - use class-level endpoint
   const { data: userSearchData, isLoading: userSearchLoading } = useQuery({
     queryKey: ['users', 'search', userSearchQuery],
-    queryFn: () => reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
-      `${endpoints.users.search}?q=${encodeURIComponent(userSearchQuery)}`,
-      { baseURL: appBasePath() }
-    ),
+    queryFn: () =>
+      reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
+        `${endpoints.users.search}?q=${encodeURIComponent(userSearchQuery)}`,
+        { baseURL: appBasePath() }
+      ),
     enabled: userSearchQuery.length >= 1,
   })
 
   // Groups - use class-level endpoint
   const { data: groupsData } = useQuery({
     queryKey: ['groups', 'list'],
-    queryFn: () => reposRequest.get<{ groups: Array<{ id: string; name: string }> }>(
-      endpoints.groups.list,
-      { baseURL: appBasePath() }
-    ),
+    queryFn: () =>
+      reposRequest.get<{ groups: Array<{ id: string; name: string }> }>(
+        endpoints.groups.list,
+        { baseURL: appBasePath() }
+      ),
   })
 
   const loadRules = useCallback(async () => {
@@ -781,7 +868,11 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     void loadRules()
   }, [loadRules])
 
-  const handleAdd = async (subject: string, subjectName: string, operation: string) => {
+  const handleAdd = async (
+    subject: string,
+    subjectName: string,
+    operation: string
+  ) => {
     // try/catch to match handleRevoke: toastAction surfaces the message but
     // still rejects, and AccessDialog does not catch, so the bare await left an
     // unhandled rejection on every failed grant.
@@ -845,10 +936,10 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-end">
+    <div className='space-y-4'>
+      <div className='flex justify-end'>
         <Button onClick={() => setDialogOpen(true)}>
-          <Plus className="h-4 w-4" />
+          <Plus className='h-4 w-4' />
           <Trans>Add</Trans>
         </Button>
       </div>
@@ -858,7 +949,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         onOpenChange={setDialogOpen}
         onAdd={handleAdd}
         levels={REPO_ACCESS_LEVELS}
-        defaultLevel="read"
+        defaultLevel='read'
         userSearchResults={userSearchData?.results ?? []}
         userSearchLoading={userSearchLoading}
         onUserSearch={setUserSearchQuery}
@@ -876,4 +967,3 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     </div>
   )
 }
-

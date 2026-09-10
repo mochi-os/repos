@@ -2,10 +2,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
 import { useState } from 'react'
-import { Trans, useLingui } from '@lingui/react/macro'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Button,
   Dialog,
@@ -31,7 +30,9 @@ import {
   useFormat,
   useAuthStore,
   getRouterBasepath,
-  isDomainEntityRouting, shellClipboardWrite,} from '@mochi/web'
+  isDomainEntityRouting,
+  shellClipboardWrite,
+} from '@mochi/web'
 import {
   Code,
   Loader2,
@@ -133,10 +134,9 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
 
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
-      return await reposRequest.post<TokenCreateResponse>(
-        'token/create',
-        { name }
-      )
+      return await reposRequest.post<TokenCreateResponse>('token/create', {
+        name,
+      })
     },
     onSuccess: (data) => {
       setNewToken(data.token)
@@ -269,11 +269,11 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
   return (
     <>
       <Dialog open={open} onOpenChange={handleOpen}>
-        <Button variant="outline" size="sm" onClick={() => handleOpen(true)}>
-          <Code className="h-4 w-4" />
+        <Button variant='outline' size='sm' onClick={() => handleOpen(true)}>
+          <Code className='h-4 w-4' />
           <Trans>Clone</Trans>
         </Button>
-        <DialogContent className="sm:max-w-4xl">
+        <DialogContent className='sm:max-w-4xl'>
           <DialogHeader>
             <DialogTitle>{getTitle()}</DialogTitle>
             {getDescription() && (
@@ -282,40 +282,56 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           </DialogHeader>
 
           {view === 'loading' && (
-            <div className="flex items-center justify-center py-8">
-              <Loader2 className="h-6 w-6 animate-spin" />
+            <div className='flex items-center justify-center py-8'>
+              <Loader2 className='h-6 w-6 animate-spin' />
             </div>
           )}
 
           {view === 'clone' && cloneCommand && (
-            <div className="space-y-4">
-              <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
-                <code className="flex-1 select-all overflow-x-auto whitespace-nowrap">{cloneCommand}</code>
+            <div className='space-y-4'>
+              <div className='bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm'>
+                <code className='flex-1 overflow-x-auto whitespace-nowrap select-all'>
+                  {cloneCommand}
+                </code>
                 <Button
-                  variant="ghost"
-                  size="sm"
+                  variant='ghost'
+                  size='sm'
                   onClick={handleCopy}
-                  className="shrink-0"
+                  className='shrink-0'
                 >
-                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  {copied ? (
+                    <Check className='h-4 w-4' />
+                  ) : (
+                    <Copy className='h-4 w-4' />
+                  )}
                 </Button>
               </div>
               {isAuthenticated && (
-                <p className="text-sm text-muted-foreground">
-                  {tokenExisting
-                    ? <Trans>A token for this repository was issued earlier and cannot be shown again.</Trans>
-                    : <Trans>Save this token securely. You won't be able to see it again.</Trans>}
+                <p className='text-muted-foreground text-sm'>
+                  {tokenExisting ? (
+                    <Trans>
+                      A token for this repository was issued earlier and cannot
+                      be shown again.
+                    </Trans>
+                  ) : (
+                    <Trans>
+                      Save this token securely. You won't be able to see it
+                      again.
+                    </Trans>
+                  )}
                 </p>
               )}
-              <DialogFooter className="flex-row gap-2 sm:justify-between">
+              <DialogFooter className='flex-row gap-2 sm:justify-between'>
                 {isAuthenticated ? (
-                  <Button variant="outline" onClick={() => setView('manage')}>
-                    <Key className="h-4 w-4" />
+                  <Button variant='outline' onClick={() => setView('manage')}>
+                    <Key className='h-4 w-4' />
                     <Trans>Manage tokens</Trans>
                   </Button>
-                ) : <span />}
+                ) : (
+                  <span />
+                )}
                 <Button variant='outline' onClick={() => setOpen(false)}>
-                  <Check className="h-4 w-4" />
+                  <Check className='h-4 w-4' />
                   <Trans>Done</Trans>
                 </Button>
               </DialogFooter>
@@ -323,50 +339,63 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           )}
 
           {view === 'manage' && (
-            <div className="space-y-4">
+            <div className='space-y-4'>
               {tokensLoading ? (
-                <div className="space-y-2">
-                  <Skeleton className="h-12 w-full" />
-                  <Skeleton className="h-12 w-full" />
+                <div className='space-y-2'>
+                  <Skeleton className='h-12 w-full' />
+                  <Skeleton className='h-12 w-full' />
                 </div>
               ) : tokens.length === 0 ? (
-                <p className="text-sm text-muted-foreground py-4 text-center">
+                <p className='text-muted-foreground py-4 text-center text-sm'>
                   <Trans>No tokens yet.</Trans>
                 </p>
               ) : (
-                <div className="space-y-2 max-h-64 overflow-y-auto">
+                <div className='max-h-64 space-y-2 overflow-y-auto'>
                   {tokens.map((token) => (
                     <div
                       key={token.hash}
-                      className="flex items-center justify-between p-3 rounded-md border"
+                      className='flex items-center justify-between rounded-md border p-3'
                     >
-                      <div className="min-w-0 flex-1">
-                        <p className="font-medium truncate">{token.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          <Trans>Created {formatTimestamp(token.created, t`Never`)}</Trans>
-                          {token.used ? <> · <Trans>Last used {formatTimestamp(token.used, t`Never`)}</Trans></> : ''}
+                      <div className='min-w-0 flex-1'>
+                        <p className='truncate font-medium'>{token.name}</p>
+                        <p className='text-muted-foreground text-xs'>
+                          <Trans>
+                            Created {formatTimestamp(token.created, t`Never`)}
+                          </Trans>
+                          {token.used ? (
+                            <>
+                              {' '}
+                              ·{' '}
+                              <Trans>
+                                Last used{' '}
+                                {formatTimestamp(token.used, t`Never`)}
+                              </Trans>
+                            </>
+                          ) : (
+                            ''
+                          )}
                         </p>
                       </div>
                       <Button
-                        variant="ghost"
-                        size="sm"
+                        variant='ghost'
+                        size='sm'
                         onClick={() => setDeleteHash(token.hash)}
                         disabled={deleteMutation.isPending}
                         aria-label={t`Delete token`}
                       >
-                        <Trash2 className="h-4 w-4" />
+                        <Trash2 className='h-4 w-4' />
                       </Button>
                     </div>
                   ))}
                 </div>
               )}
-              <DialogFooter className="flex-row gap-2 sm:justify-between">
-                <Button variant="ghost" onClick={() => setView('clone')}>
-                  <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
+              <DialogFooter className='flex-row gap-2 sm:justify-between'>
+                <Button variant='ghost' onClick={() => setView('clone')}>
+                  <ArrowLeft className='h-4 w-4 rtl:rotate-180' />
                   <Trans>Back</Trans>
                 </Button>
                 <Button onClick={() => setView('create')}>
-                  <Plus className="h-4 w-4" />
+                  <Plus className='h-4 w-4' />
                   <Trans>Create token</Trans>
                 </Button>
               </DialogFooter>
@@ -374,24 +403,31 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
           )}
 
           {view === 'create' && (
-            <div className="space-y-4">
+            <div className='space-y-4'>
               {newToken ? (
                 <>
-                  <div className="bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm">
-                    <code className="flex-1 select-all overflow-x-auto whitespace-nowrap">
+                  <div className='bg-muted flex items-center gap-2 rounded-md p-3 font-mono text-sm'>
+                    <code className='flex-1 overflow-x-auto whitespace-nowrap select-all'>
                       {buildCloneUrl(newToken)}
                     </code>
                     <Button
-                      variant="ghost"
-                      size="sm"
+                      variant='ghost'
+                      size='sm'
                       onClick={handleCopyNewToken}
-                      className="shrink-0"
+                      className='shrink-0'
                     >
-                      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                      {copied ? (
+                        <Check className='h-4 w-4' />
+                      ) : (
+                        <Copy className='h-4 w-4' />
+                      )}
                     </Button>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    <Trans>Save this token securely. You won't be able to see it again.</Trans>
+                  <p className='text-muted-foreground text-sm'>
+                    <Trans>
+                      Save this token securely. You won't be able to see it
+                      again.
+                    </Trans>
                   </p>
                   <DialogFooter>
                     <Button
@@ -400,17 +436,19 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                         setView('manage')
                       }}
                     >
-                      <Check className="size-4" />
+                      <Check className='size-4' />
                       <Trans>Done</Trans>
                     </Button>
                   </DialogFooter>
                 </>
               ) : (
                 <>
-                  <div className="space-y-2">
-                    <Label htmlFor="token-name"><Trans>Token name</Trans></Label>
+                  <div className='space-y-2'>
+                    <Label htmlFor='token-name'>
+                      <Trans>Token name</Trans>
+                    </Label>
                     <Input
-                      id="token-name"
+                      id='token-name'
                       placeholder={t`e.g., Work laptop`}
                       value={newTokenName}
                       onChange={(e) => setNewTokenName(e.target.value)}
@@ -419,16 +457,19 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       }}
                     />
                   </div>
-                  <DialogFooter className="flex-row gap-2 sm:justify-between">
-                    <Button variant="ghost" onClick={() => setView('manage')}>
-                      <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
+                  <DialogFooter className='flex-row gap-2 sm:justify-between'>
+                    <Button variant='ghost' onClick={() => setView('manage')}>
+                      <ArrowLeft className='h-4 w-4 rtl:rotate-180' />
                       <Trans>Back</Trans>
                     </Button>
-                    <Button onClick={() => void handleCreate()} disabled={createMutation.isPending}>
+                    <Button
+                      onClick={() => void handleCreate()}
+                      disabled={createMutation.isPending}
+                    >
                       {createMutation.isPending ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <Loader2 className='h-4 w-4 animate-spin' />
                       ) : (
-                        <Plus className="size-4" />
+                        <Plus className='size-4' />
                       )}
                       <Trans>Create</Trans>
                     </Button>
@@ -443,14 +484,20 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       <AlertDialog open={!!deleteHash} onOpenChange={() => setDeleteHash(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle><Trans>Delete token?</Trans></AlertDialogTitle>
+            <AlertDialogTitle>
+              <Trans>Delete token?</Trans>
+            </AlertDialogTitle>
             <AlertDialogDescription>
-              <Trans>This will permanently delete this token. Any git clients using it will
-              no longer be able to authenticate.</Trans>
+              <Trans>
+                This will permanently delete this token. Any git clients using
+                it will no longer be able to authenticate.
+              </Trans>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel><Trans>Cancel</Trans></AlertDialogCancel>
+            <AlertDialogCancel>
+              <Trans>Cancel</Trans>
+            </AlertDialogCancel>
             <AlertDialogAction onClick={() => void handleDelete()}>
               <Trans>Delete</Trans>
             </AlertDialogAction>

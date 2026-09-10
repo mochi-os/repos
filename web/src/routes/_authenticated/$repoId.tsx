@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
-import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
+import { createFileRoute } from '@tanstack/react-router'
 import { t } from '@lingui/core/macro'
 import {
   Header,
@@ -16,13 +15,25 @@ import {
 import { FolderGit2 } from 'lucide-react'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { RepositoryTabs, CloneDialog, UnsubscribeButton, type RepositoryTabId } from '@/features/repository/repository-tabs'
-import { DownloadDropdown } from '@/components/download-dropdown'
-import { RepositoryLinkButton } from '@/components/repository-link-button'
 import { setLastRepo } from '@/hooks/use-repos-storage'
 import { useRepositoryWebsocket } from '@/hooks/use-repository-websocket'
+import { DownloadDropdown } from '@/components/download-dropdown'
+import { RepositoryLinkButton } from '@/components/repository-link-button'
+import {
+  RepositoryTabs,
+  CloneDialog,
+  UnsubscribeButton,
+  type RepositoryTabId,
+} from '@/features/repository/repository-tabs'
 
-const validTabs: RepositoryTabId[] = ['files', 'commits', 'branches', 'tags', 'settings', 'access']
+const validTabs: RepositoryTabId[] = [
+  'files',
+  'commits',
+  'branches',
+  'tags',
+  'settings',
+  'access',
+]
 
 type RepoSearch = {
   tab?: RepositoryTabId
@@ -30,14 +41,18 @@ type RepoSearch = {
 
 export const Route = createFileRoute('/_authenticated/$repoId')({
   validateSearch: (search: Record<string, unknown>): RepoSearch => ({
-    tab: validTabs.includes(search.tab as RepositoryTabId) ? (search.tab as RepositoryTabId) : undefined,
+    tab: validTabs.includes(search.tab as RepositoryTabId)
+      ? (search.tab as RepositoryTabId)
+      : undefined,
   }),
   loader: async ({ params }) => {
     const repoId = params.repoId
     if (!repoId) {
       throw new Error(t`Repository ID is required`)
     }
-    const info = await reposRequest.get<InfoResponse>('info', { baseURL: repoBasePath(repoId) })
+    const info = await reposRequest.get<InfoResponse>('info', {
+      baseURL: repoBasePath(repoId),
+    })
     return { ...info, repoId }
   },
   component: RepositoryPage,
@@ -73,23 +88,29 @@ function RepositoryPage() {
 
   return (
     <>
-      <Header className="border-b-0">
-        <div className="flex w-full items-center justify-between">
-          <div className="flex items-center gap-2">
-            <FolderGit2 className="h-5 w-5" />
-            <h1 className="text-lg font-semibold">{name}</h1>
+      <Header className='border-b-0'>
+        <div className='flex w-full items-center justify-between'>
+          <div className='flex items-center gap-2'>
+            <FolderGit2 className='h-5 w-5' />
+            <h1 className='text-lg font-semibold'>{name}</h1>
           </div>
-          <div className="flex items-center gap-2">
+          <div className='flex items-center gap-2'>
             <CloneDialog repoPath={data.path || ''} fingerprint={fingerprint} />
             <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
-            <RepositoryLinkButton fingerprint={fingerprint} isOwner={data.isAdmin} />
+            <RepositoryLinkButton
+              fingerprint={fingerprint}
+              isOwner={data.isAdmin}
+            />
             {data.remote && (
-              <UnsubscribeButton repoId={data.id || data.repoId} repoName={name} />
+              <UnsubscribeButton
+                repoId={data.id || data.repoId}
+                repoName={name}
+              />
             )}
           </div>
         </div>
       </Header>
-      <Main spacingY="xs">
+      <Main spacingY='xs'>
         <RepositoryTabs
           key={data.repoId}
           repoId={data.id || data.repoId}

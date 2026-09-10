@@ -2,8 +2,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
+import { t, plural } from '@lingui/core/macro'
+import { Trans } from '@lingui/react/macro'
 import {
   Card,
   CardContent,
@@ -14,7 +16,9 @@ import {
   TooltipContent,
   useFormat,
   toast,
-  shellSaveBlob, shellClipboardWrite,} from '@mochi/web'
+  shellSaveBlob,
+  shellClipboardWrite,
+} from '@mochi/web'
 import {
   File,
   ChevronRight,
@@ -23,11 +27,8 @@ import {
   Download,
   FileCode,
 } from 'lucide-react'
-import { useState, useEffect } from 'react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
 import { RefSelector } from '@/components/ref-selector'
-import { t, plural } from '@lingui/core/macro'
-import { Trans } from '@lingui/react/macro'
 
 interface BlobViewerProps {
   repoId: string
@@ -37,7 +38,13 @@ interface BlobViewerProps {
   name: string
 }
 
-export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobViewerProps) {
+export function BlobViewer({
+  repoId,
+  fingerprint,
+  gitRef,
+  path,
+  name,
+}: BlobViewerProps) {
   const { data, isLoading, error } = useBlob(repoId, gitRef, path)
   const { data: branchesData } = useBranches(repoId)
   const [copied, setCopied] = useState(false)
@@ -92,12 +99,12 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
 
   if (isLoading) {
     return (
-      <div className="space-y-4">
-        <Skeleton className="h-10 w-48" />
-        <Skeleton className="h-8 w-64" />
+      <div className='space-y-4'>
+        <Skeleton className='h-10 w-48' />
+        <Skeleton className='h-8 w-64' />
         <Card>
-          <CardContent className="p-4">
-            <Skeleton className="h-64 w-full" />
+          <CardContent className='p-4'>
+            <Skeleton className='h-64 w-full' />
           </CardContent>
         </Card>
       </div>
@@ -107,12 +114,12 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   if (error || !data) {
     // Will auto-redirect via useEffect, show loading state
     return (
-      <div className="space-y-4">
-        <Skeleton className="h-10 w-48" />
-        <Skeleton className="h-8 w-64" />
+      <div className='space-y-4'>
+        <Skeleton className='h-10 w-48' />
+        <Skeleton className='h-8 w-64' />
         <Card>
-          <CardContent className="p-4">
-            <Skeleton className="h-64 w-full" />
+          <CardContent className='p-4'>
+            <Skeleton className='h-64 w-full' />
           </CardContent>
         </Card>
       </div>
@@ -122,18 +129,22 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
   const lines = data.content?.split('\n') || []
 
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       {/* Branch selector */}
       {branches.length > 0 && (
-        <RefSelector branches={branches} value={gitRef} onValueChange={handleBranchChange} />
+        <RefSelector
+          branches={branches}
+          value={gitRef}
+          onValueChange={handleBranchChange}
+        />
       )}
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-1 text-sm flex-wrap">
+      <div className='flex flex-wrap items-center gap-1 text-sm'>
         <Link
-          to="/$repoId/tree/$ref/$"
+          to='/$repoId/tree/$ref/$'
           params={{ repoId: fingerprint, ref: gitRef, _splat: '' }}
-          className="text-primary hover:underline"
+          className='text-primary hover:underline'
         >
           {name}
         </Link>
@@ -141,15 +152,15 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
           const pathTo = pathParts.slice(0, index + 1).join('/')
           const isLast = index === pathParts.length - 1
           return (
-            <span key={pathTo} className="flex items-center gap-1">
-              <ChevronRight className="h-4 w-4 text-muted-foreground rtl:rotate-180" />
+            <span key={pathTo} className='flex items-center gap-1'>
+              <ChevronRight className='text-muted-foreground h-4 w-4 rtl:rotate-180' />
               {isLast ? (
-                <span className="font-medium text-foreground">{part}</span>
+                <span className='text-foreground font-medium'>{part}</span>
               ) : (
                 <Link
-                  to="/$repoId/tree/$ref/$"
+                  to='/$repoId/tree/$ref/$'
                   params={{ repoId: fingerprint, ref: gitRef, _splat: pathTo }}
-                  className="text-primary hover:underline"
+                  className='text-primary hover:underline'
                 >
                   {part}
                 </Link>
@@ -161,22 +172,32 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
 
       {/* File content */}
       <Card>
-        <div className="flex items-center justify-between px-4 py-2 border-b bg-surface-2">
-          <div className="flex items-center gap-2 text-sm">
-            <FileCode className="h-4 w-4" />
+        <div className='bg-surface-2 flex items-center justify-between border-b px-4 py-2'>
+          <div className='flex items-center gap-2 text-sm'>
+            <FileCode className='h-4 w-4' />
             <span>{fileName}</span>
-            <span className="text-muted-foreground">
+            <span className='text-muted-foreground'>
               {data.content != null
                 ? `${formatFileSize(data.size)} · ${plural(lines.length, { one: '1 line', other: '# lines' })}`
                 : formatFileSize(data.size)}
             </span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className='flex items-center gap-1'>
             {data.content != null && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleCopy} aria-label={t`Copy file contents`}>
-                    {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                  <Button
+                    variant='ghost'
+                    size='icon'
+                    className='h-8 w-8'
+                    onClick={handleCopy}
+                    aria-label={t`Copy file contents`}
+                  >
+                    {copied ? (
+                      <Check className='h-4 w-4' />
+                    ) : (
+                      <Copy className='h-4 w-4' />
+                    )}
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>{t`Copy file contents`}</TooltipContent>
@@ -185,8 +206,14 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
             {data.content != null && (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleDownload} aria-label={t`Download file`}>
-                    <Download className="h-4 w-4" />
+                  <Button
+                    variant='ghost'
+                    size='icon'
+                    className='h-8 w-8'
+                    onClick={handleDownload}
+                    aria-label={t`Download file`}
+                  >
+                    <Download className='h-4 w-4' />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>{t`Download file`}</TooltipContent>
@@ -194,29 +221,38 @@ export function BlobViewer({ repoId, fingerprint, gitRef, path, name }: BlobView
             )}
           </div>
         </div>
-        <CardContent className="p-0">
+        <CardContent className='p-0'>
           {data.binary ? (
-            <div className="p-8 text-center text-muted-foreground">
-              <File className="h-12 w-12 mx-auto mb-2" />
-              <p><Trans>Binary file ({formatFileSize(data.size)})</Trans></p>
+            <div className='text-muted-foreground p-8 text-center'>
+              <File className='mx-auto mb-2 h-12 w-12' />
+              <p>
+                <Trans>Binary file ({formatFileSize(data.size)})</Trans>
+              </p>
             </div>
           ) : data.content == null ? (
-            <div className="p-8 text-center text-muted-foreground">
-              <File className="h-12 w-12 mx-auto mb-2" />
-              <p><Trans>This file is too large to display ({formatFileSize(data.size)})</Trans></p>
+            <div className='text-muted-foreground p-8 text-center'>
+              <File className='mx-auto mb-2 h-12 w-12' />
+              <p>
+                <Trans>
+                  This file is too large to display ({formatFileSize(data.size)}
+                  )
+                </Trans>
+              </p>
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <pre className="text-sm">
+            <div className='overflow-x-auto'>
+              <pre className='text-sm'>
                 <code>
-                  <table className="w-full border-collapse">
+                  <table className='w-full border-collapse'>
                     <tbody>
                       {lines.map((line, index) => (
-                        <tr key={index} className="hover:bg-hover">
-                          <td className="px-4 py-0 text-end text-muted-foreground select-none border-e w-12 align-top">
+                        <tr key={index} className='hover:bg-hover'>
+                          <td className='text-muted-foreground w-12 border-e px-4 py-0 text-end align-top select-none'>
                             {index + 1}
                           </td>
-                          <td className="px-4 py-0 whitespace-pre">{line || ' '}</td>
+                          <td className='px-4 py-0 whitespace-pre'>
+                            {line || ' '}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
