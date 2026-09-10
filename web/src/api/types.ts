@@ -70,14 +70,14 @@ export interface UnsubscribeResponse {
   success: boolean
 }
 
-export interface Branch {
+interface Branch {
   name: string
   sha: string
   ahead?: number
   behind?: number
 }
 
-export interface Tag {
+interface Tag {
   name: string
   sha: string
   message?: string
@@ -94,7 +94,7 @@ export interface TagsResponse {
   tags: Tag[]
 }
 
-export interface Commit {
+interface Commit {
   sha: string
   message: string
   author: string

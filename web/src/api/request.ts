@@ -26,7 +26,7 @@ export function repoBasePath(repoId: string): string {
 
 // Where a request goes when the caller names no base: the routed repository's
 // action prefix when the page is inside one, else the app root.
-export function computeApiBasepath(pathname: string = window.location.pathname): string {
+function computeApiBasepath(pathname: string = window.location.pathname): string {
   const directMatch = pathname.match(/^\/([^/]+)/)
   if (directMatch && isEntityIdentifier(directMatch[1])) {
     return `/${directMatch[1]}/-/`
@@ -60,7 +60,7 @@ function withBase<T extends { baseURL?: string }>(config?: T): T {
 
 // Unwrap the data envelope ({"data": {...}}), and raise an application error
 // the server put in a 200 body.
-export function unwrapData<T>(responseData: unknown): T {
+function unwrapData<T>(responseData: unknown): T {
   if (responseData && typeof responseData === 'object') {
     if ('error' in responseData) {
       const errorData = responseData as { error: string; status?: number }
@@ -111,5 +111,3 @@ export const reposRequest = {
     }
   },
 }
-
-export default reposRequest
