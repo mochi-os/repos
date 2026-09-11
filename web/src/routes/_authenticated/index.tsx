@@ -21,9 +21,6 @@ import {
   Header,
   Main,
   PageHeader,
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
   usePageTitle,
   useAuthStore,
   GeneralError,
@@ -389,21 +386,16 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
                   </div>
                   {isLoggedIn && repo.owner === 0 && (
                     <DropdownMenu>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <DropdownMenuTrigger asChild>
-                            <button
-                              type='button'
-                              aria-label={t`More actions`}
-                              className='hover:bg-hover shrink-0 rounded-md p-1 transition-colors'
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <MoreHorizontal className='text-muted-foreground size-4' />
-                            </button>
-                          </DropdownMenuTrigger>
-                        </TooltipTrigger>
-                        <TooltipContent>{t`More actions`}</TooltipContent>
-                      </Tooltip>
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          type='button'
+                          aria-label={t`More actions`}
+                          className='hover:bg-hover shrink-0 rounded-md p-1 transition-colors'
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <MoreHorizontal className='text-muted-foreground size-4' />
+                        </button>
+                      </DropdownMenuTrigger>
                       <DropdownMenuContent align='end'>
                         <DropdownMenuItem
                           onClick={(e) => {
