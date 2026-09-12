@@ -1412,10 +1412,22 @@ def service_list(s, params=None):
     return mochi.db.rows("select id, name, description, default_branch from repositories where owner = 1")
 
 def service_branches(s, params=None):
-    """List branches for a repository"""
+    """List branches for a repository, flagging the default one"""
     p = params or s
     repo_id = p.get("repo", "")
-    return mochi.git.branches(repo_id)
+    branches = mochi.git.branches(repo_id)
+    if not branches:
+        return branches
+    # A caller has no other way to learn the default: the stored column, which
+    # is all the list service publishes, is set at creation and can name a
+    # branch that never existed, so only the resolved value is worth handing
+    # out. Flagged per row rather than returned beside the list, which would be
+    # a shape change every caller has to follow at once.
+    repo = mochi.db.row("select id, default_branch, server from repositories where id=?", repo_id)
+    default = repo_branch_default(repo) if repo else ""
+    for b in branches:
+        b["default"] = b["name"] == default
+    return branches
 
 def service_file(s, params=None):
     """Get file contents at a ref"""
