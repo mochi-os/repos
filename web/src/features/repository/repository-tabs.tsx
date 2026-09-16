@@ -221,9 +221,9 @@ export function UnsubscribeButton({
         variant='outline'
         size='sm'
         onClick={() => setShowDialog(true)}
-        disabled={isUnsubscribing}
+        loading={isUnsubscribing}
+        icon={<UserMinus className='me-1 h-4 w-4' />}
       >
-        <UserMinus className='me-1 h-4 w-4' />
         <Trans>Unsubscribe</Trans>
       </Button>
       <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
@@ -245,13 +245,9 @@ export function UnsubscribeButton({
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleUnsubscribe}
-              disabled={isUnsubscribing}
+              loading={isUnsubscribing}
             >
-              {isUnsubscribing ? (
-                <Trans>Unsubscribing...</Trans>
-              ) : (
-                <Trans>Unsubscribe</Trans>
-              )}
+              <Trans>Unsubscribe</Trans>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

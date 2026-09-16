@@ -109,8 +109,8 @@ export function RepositoryHeader({
               size='sm'
               onClick={() => setShowUnsubscribeDialog(true)}
               loading={unsubscribe.isPending}
+              icon={<UserMinus className='h-4 w-4' />}
             >
-              <UserMinus className='h-4 w-4' />
               <span className='hidden sm:inline'>
                 <Trans>Unsubscribe</Trans>
               </span>
