@@ -16,7 +16,7 @@ import {
   getErrorMessage,
   toast,
 } from '@mochi/web'
-import { Download, Loader2, FileArchive } from 'lucide-react'
+import { Download, FileArchive } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 
 type Format = 'zip' | 'tar.gz' | 'tar.bz2'
@@ -60,23 +60,20 @@ export function DownloadDropdown({
       <Button
         variant='ghost'
         size='icon'
-        disabled={disabled || !!busy}
+        disabled={disabled}
+        loading={!!busy}
+        icon={<Download className='h-4 w-4' />}
         onClick={(e) => e.stopPropagation()}
         aria-label={t`Download`}
-      >
-        {busy ? (
-          <Loader2 className='h-4 w-4 animate-spin' />
-        ) : (
-          <Download className='h-4 w-4' />
-        )}
-      </Button>
+      />
     ) : (
-      <Button variant='outline' size='sm' disabled={disabled || !!busy}>
-        {busy ? (
-          <Loader2 className='h-4 w-4 animate-spin' />
-        ) : (
-          <Download className='h-4 w-4' />
-        )}
+      <Button
+        variant='outline'
+        size='sm'
+        disabled={disabled}
+        loading={!!busy}
+        icon={<Download className='h-4 w-4' />}
+      >
         <Trans>Download</Trans>
       </Button>
     )
