@@ -91,11 +91,15 @@ export function CreateRepositoryDialog({
       ? t`Lowercase letters, numbers, and hyphens only`
       : null
 
+  // The pending term guards the Enter handlers on both inputs, not only the
+  // button: `loading` disables the button, but pressing Enter twice calls
+  // handleSubmit directly and would create the repository twice.
   const canSubmit =
     name.trim() &&
     path.trim() &&
     !nameError &&
-    !pathError
+    !pathError &&
+    !createRepo.isPending
 
   const handleSubmit = async () => {
     if (!canSubmit) return

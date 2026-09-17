@@ -380,7 +380,11 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                         variant='ghost'
                         size='sm'
                         onClick={() => setDeleteHash(token.hash)}
-                        loading={deleteMutation.isPending}
+                        disabled={deleteMutation.isPending}
+                        loading={
+                          deleteMutation.isPending &&
+                          deleteMutation.variables === token.hash
+                        }
                         icon={<Trash2 className='h-4 w-4' />}
                         aria-label={t`Delete token`}
                       />
