@@ -108,9 +108,9 @@ export function RepositoryHeader({
               variant='outline'
               size='sm'
               onClick={() => setShowUnsubscribeDialog(true)}
-              disabled={unsubscribe.isPending}
+              loading={unsubscribe.isPending}
+              icon={<UserMinus className='h-4 w-4' />}
             >
-              <UserMinus className='h-4 w-4' />
               <span className='hidden sm:inline'>
                 <Trans>Unsubscribe</Trans>
               </span>
@@ -135,7 +135,10 @@ export function RepositoryHeader({
                   <AlertDialogCancel>
                     <Trans>Cancel</Trans>
                   </AlertDialogCancel>
-                  <AlertDialogAction onClick={handleUnsubscribe}>
+                  <AlertDialogAction
+                    onClick={handleUnsubscribe}
+                    loading={unsubscribe.isPending}
+                  >
                     <Trans>Unsubscribe</Trans>
                   </AlertDialogAction>
                 </AlertDialogFooter>

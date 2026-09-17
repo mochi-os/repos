@@ -381,10 +381,13 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                         size='sm'
                         onClick={() => setDeleteHash(token.hash)}
                         disabled={deleteMutation.isPending}
+                        loading={
+                          deleteMutation.isPending &&
+                          deleteMutation.variables === token.hash
+                        }
+                        icon={<Trash2 className='h-4 w-4' />}
                         aria-label={t`Delete token`}
-                      >
-                        <Trash2 className='h-4 w-4' />
-                      </Button>
+                      />
                     </div>
                   ))}
                 </div>
@@ -464,13 +467,9 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                     </Button>
                     <Button
                       onClick={() => void handleCreate()}
-                      disabled={createMutation.isPending}
+                      loading={createMutation.isPending}
+                      icon={<Plus className='size-4' />}
                     >
-                      {createMutation.isPending ? (
-                        <Loader2 className='h-4 w-4 animate-spin' />
-                      ) : (
-                        <Plus className='size-4' />
-                      )}
                       <Trans>Create</Trans>
                     </Button>
                   </DialogFooter>
@@ -498,7 +497,10 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
             <AlertDialogCancel>
               <Trans>Cancel</Trans>
             </AlertDialogCancel>
-            <AlertDialogAction onClick={() => void handleDelete()}>
+            <AlertDialogAction
+              onClick={() => void handleDelete()}
+              loading={deleteMutation.isPending}
+            >
               <Trans>Delete</Trans>
             </AlertDialogAction>
           </AlertDialogFooter>

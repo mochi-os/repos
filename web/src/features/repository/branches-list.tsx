@@ -262,16 +262,11 @@ export function BranchesList({
             </Button>
             <Button
               onClick={handleCreate}
-              disabled={!newBranchName.trim() || createBranch.isPending}
+              disabled={!newBranchName.trim()}
+              loading={createBranch.isPending}
+              icon={<Plus className='me-2 h-4 w-4' />}
             >
-              {createBranch.isPending ? (
-                <Trans>Creating...</Trans>
-              ) : (
-                <>
-                  <Plus className='me-2 h-4 w-4' />
-                  <Trans>Create branch</Trans>
-                </>
-              )}
+              <Trans>Create branch</Trans>
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -294,13 +289,9 @@ export function BranchesList({
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDelete}
-              disabled={deleteBranch.isPending}
+              loading={deleteBranch.isPending}
             >
-              {deleteBranch.isPending ? (
-                <Trans>Deleting...</Trans>
-              ) : (
-                <Trans>Delete</Trans>
-              )}
+              <Trans>Delete</Trans>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

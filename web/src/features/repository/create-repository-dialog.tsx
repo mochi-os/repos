@@ -19,7 +19,7 @@ import {
   toastAction,
   getErrorMessage,
 } from '@mochi/web'
-import { FolderGit2, Loader2, Plus } from 'lucide-react'
+import { FolderGit2, Plus } from 'lucide-react'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
 import { useCreateRepo } from '@/hooks/use-repository'
 
@@ -91,6 +91,9 @@ export function CreateRepositoryDialog({
       ? t`Lowercase letters, numbers, and hyphens only`
       : null
 
+  // The pending term guards the Enter handlers on both inputs, not only the
+  // button: `loading` disables the button, but pressing Enter twice calls
+  // handleSubmit directly and would create the repository twice.
   const canSubmit =
     name.trim() &&
     path.trim() &&
@@ -217,12 +220,12 @@ export function CreateRepositoryDialog({
           </div>
         </div>
         <DialogFooter>
-          <Button onClick={handleSubmit} disabled={!canSubmit}>
-            {createRepo.isPending ? (
-              <Loader2 className='h-4 w-4 animate-spin' />
-            ) : (
-              <Plus className='size-4' />
-            )}
+          <Button
+            onClick={handleSubmit}
+            disabled={!canSubmit}
+            loading={createRepo.isPending}
+            icon={<Plus className='size-4' />}
+          >
             <Trans>Create</Trans>
           </Button>
         </DialogFooter>
