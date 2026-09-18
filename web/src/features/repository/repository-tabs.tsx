@@ -959,6 +959,7 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
         onRevoke={handleRevoke}
         isLoading={isLoading}
         error={error}
+        bordered
       />
     </div>
   )
