@@ -3,7 +3,7 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { useNavigate } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Card,
@@ -12,10 +12,10 @@ import {
   getErrorMessage,
   naturalCompare,
 } from '@mochi/web'
-import { ChevronRight } from 'lucide-react'
 import type { TreeEntry } from '@/api/types'
 import { useTree, useBranches } from '@/hooks/use-repository'
 import { FileEntry } from '@/components/file-entry'
+import { PathBreadcrumb } from '@/components/path-breadcrumb'
 import { RefSelector } from '@/components/ref-selector'
 
 interface FileTreeProps {
@@ -89,40 +89,13 @@ export function FileTree({
         />
       )}
 
-      {/* Breadcrumb */}
       {pathParts.length > 0 && (
-        <div className='flex items-center gap-1 text-sm'>
-          <Link
-            to='/$repoId/tree/$ref/$'
-            params={{ repoId: fingerprint, ref: currentRef, _splat: '' }}
-            className='text-primary hover:underline'
-          >
-            {name}
-          </Link>
-          {pathParts.map((part, index) => {
-            const pathTo = pathParts.slice(0, index + 1).join('/')
-            return (
-              <span key={pathTo} className='flex items-center gap-1'>
-                <ChevronRight className='text-muted-foreground h-4 w-4 rtl:rotate-180' />
-                {index === pathParts.length - 1 ? (
-                  <span>{part}</span>
-                ) : (
-                  <Link
-                    to='/$repoId/tree/$ref/$'
-                    params={{
-                      repoId: fingerprint,
-                      ref: currentRef,
-                      _splat: pathTo,
-                    }}
-                    className='text-primary hover:underline'
-                  >
-                    {part}
-                  </Link>
-                )}
-              </span>
-            )
-          })}
-        </div>
+        <PathBreadcrumb
+          fingerprint={fingerprint}
+          gitRef={currentRef}
+          name={name}
+          pathParts={pathParts}
+        />
       )}
 
       <FileListing
