@@ -18,14 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
   Input,
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+  ConfirmDialog,
   Tabs,
   TabsList,
   TabsTrigger,
@@ -226,32 +219,16 @@ export function UnsubscribeButton({
       >
         <Trans>Unsubscribe</Trans>
       </Button>
-      <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              <Trans>Unsubscribe from repository?</Trans>
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              <Trans>
-                This will remove "{repoName}" from your repository list. You can
-                subscribe again later.
-              </Trans>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>
-              <Trans>Cancel</Trans>
-            </AlertDialogCancel>
-            <AlertDialogAction
-              onClick={handleUnsubscribe}
-              loading={isUnsubscribing}
-            >
-              <Trans>Unsubscribe</Trans>
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmDialog
+        open={showDialog}
+        onOpenChange={setShowDialog}
+        title={t`Unsubscribe from repository?`}
+        desc={t`This will remove "${repoName}" from your repository list. You can subscribe again later.`}
+        confirmText={t`Unsubscribe`}
+        destructive
+        isLoading={isUnsubscribing}
+        handleConfirm={handleUnsubscribe}
+      />
     </>
   )
 }
@@ -787,29 +764,16 @@ function GeneralSettingsTab({
         </Button>
       </div>
 
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              <Trans>Delete repository?</Trans>
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              <Trans>
-                This will permanently delete "{currentName}" and all its
-                commits, branches, and tags. This action cannot be undone.
-              </Trans>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>
-              <Trans>Cancel</Trans>
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>
-              <Trans>Delete</Trans>
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmDialog
+        open={showDeleteDialog}
+        onOpenChange={setShowDeleteDialog}
+        title={t`Delete repository?`}
+        desc={t`This will permanently delete "${currentName}" and all its commits, branches, and tags. This action cannot be undone.`}
+        confirmText={t`Delete`}
+        destructive
+        isLoading={deleteRepo.isPending}
+        handleConfirm={handleDelete}
+      />
     </div>
   )
 }

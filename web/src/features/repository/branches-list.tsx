@@ -11,11 +11,12 @@ import {
   Badge,
   Button,
   Skeleton,
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+  ResponsiveDialogHeader,
+  ResponsiveDialogTitle,
+  ResponsiveDialogFooter,
+  ConfirmDialog,
   Input,
   Label,
   Select,
@@ -23,14 +24,6 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
@@ -212,13 +205,16 @@ export function BranchesList({
       )}
 
       {/* Create branch dialog */}
-      <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>
+      <ResponsiveDialog
+        open={showCreateDialog}
+        onOpenChange={setShowCreateDialog}
+      >
+        <ResponsiveDialogContent>
+          <ResponsiveDialogHeader>
+            <ResponsiveDialogTitle>
               <Trans>New branch</Trans>
-            </DialogTitle>
-          </DialogHeader>
+            </ResponsiveDialogTitle>
+          </ResponsiveDialogHeader>
           <div className='space-y-4 py-4'>
             <div className='space-y-2'>
               <Label htmlFor='branch-name'>
@@ -253,7 +249,7 @@ export function BranchesList({
               </Select>
             </div>
           </div>
-          <DialogFooter>
+          <ResponsiveDialogFooter>
             <Button
               variant='outline'
               onClick={() => setShowCreateDialog(false)}
@@ -268,34 +264,21 @@ export function BranchesList({
             >
               <Trans>Create branch</Trans>
             </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          </ResponsiveDialogFooter>
+        </ResponsiveDialogContent>
+      </ResponsiveDialog>
 
       {/* Delete confirmation dialog */}
-      <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              <Trans>Delete branch?</Trans>
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              <Trans>Delete "{branchToDelete}"? This cannot be undone.</Trans>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>
-              <Trans>Cancel</Trans>
-            </AlertDialogCancel>
-            <AlertDialogAction
-              onClick={handleDelete}
-              loading={deleteBranch.isPending}
-            >
-              <Trans>Delete</Trans>
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmDialog
+        open={showDeleteDialog}
+        onOpenChange={setShowDeleteDialog}
+        title={t`Delete branch?`}
+        desc={t`Delete "${branchToDelete}"? This cannot be undone.`}
+        confirmText={t`Delete`}
+        destructive
+        isLoading={deleteBranch.isPending}
+        handleConfirm={handleDelete}
+      />
     </>
   )
 }

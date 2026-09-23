@@ -7,26 +7,19 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Button,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+  ResponsiveDialogDescription,
+  ResponsiveDialogFooter,
+  ResponsiveDialogHeader,
+  ResponsiveDialogTitle,
   Input,
   Label,
   getErrorMessage,
   toast,
   toastAction,
   Skeleton,
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+  ConfirmDialog,
   useFormat,
   useAuthStore,
   getRouterBasepath,
@@ -268,18 +261,20 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
 
   return (
     <>
-      <Dialog open={open} onOpenChange={handleOpen}>
+      <ResponsiveDialog open={open} onOpenChange={handleOpen}>
         <Button variant='outline' size='sm' onClick={() => handleOpen(true)}>
           <Code className='h-4 w-4' />
           <Trans>Clone</Trans>
         </Button>
-        <DialogContent className='sm:max-w-4xl'>
-          <DialogHeader>
-            <DialogTitle>{getTitle()}</DialogTitle>
+        <ResponsiveDialogContent className='sm:max-w-4xl'>
+          <ResponsiveDialogHeader>
+            <ResponsiveDialogTitle>{getTitle()}</ResponsiveDialogTitle>
             {getDescription() && (
-              <DialogDescription>{getDescription()}</DialogDescription>
+              <ResponsiveDialogDescription>
+                {getDescription()}
+              </ResponsiveDialogDescription>
             )}
-          </DialogHeader>
+          </ResponsiveDialogHeader>
 
           {view === 'loading' && (
             <div className='flex items-center justify-center py-8'>
@@ -321,7 +316,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                   )}
                 </p>
               )}
-              <DialogFooter className='flex-row gap-2 sm:justify-between'>
+              <ResponsiveDialogFooter className='flex-row gap-2 sm:justify-between'>
                 {isAuthenticated ? (
                   <Button variant='outline' onClick={() => setView('manage')}>
                     <Key className='h-4 w-4' />
@@ -334,7 +329,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                   <Check className='h-4 w-4' />
                   <Trans>Done</Trans>
                 </Button>
-              </DialogFooter>
+              </ResponsiveDialogFooter>
             </div>
           )}
 
@@ -392,7 +387,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                   ))}
                 </div>
               )}
-              <DialogFooter className='flex-row gap-2 sm:justify-between'>
+              <ResponsiveDialogFooter className='flex-row gap-2 sm:justify-between'>
                 <Button variant='ghost' onClick={() => setView('clone')}>
                   <ArrowLeft className='h-4 w-4 rtl:rotate-180' />
                   <Trans>Back</Trans>
@@ -401,7 +396,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                   <Plus className='h-4 w-4' />
                   <Trans>Create token</Trans>
                 </Button>
-              </DialogFooter>
+              </ResponsiveDialogFooter>
             </div>
           )}
 
@@ -432,7 +427,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       again.
                     </Trans>
                   </p>
-                  <DialogFooter>
+                  <ResponsiveDialogFooter>
                     <Button
                       onClick={() => {
                         setNewToken(null)
@@ -442,7 +437,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       <Check className='size-4' />
                       <Trans>Done</Trans>
                     </Button>
-                  </DialogFooter>
+                  </ResponsiveDialogFooter>
                 </>
               ) : (
                 <>
@@ -460,7 +455,7 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                       }}
                     />
                   </div>
-                  <DialogFooter className='flex-row gap-2 sm:justify-between'>
+                  <ResponsiveDialogFooter className='flex-row gap-2 sm:justify-between'>
                     <Button variant='ghost' onClick={() => setView('manage')}>
                       <ArrowLeft className='h-4 w-4 rtl:rotate-180' />
                       <Trans>Back</Trans>
@@ -472,40 +467,24 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
                     >
                       <Trans>Create</Trans>
                     </Button>
-                  </DialogFooter>
+                  </ResponsiveDialogFooter>
                 </>
               )}
             </div>
           )}
-        </DialogContent>
-      </Dialog>
+        </ResponsiveDialogContent>
+      </ResponsiveDialog>
 
-      <AlertDialog open={!!deleteHash} onOpenChange={() => setDeleteHash(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              <Trans>Delete token?</Trans>
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              <Trans>
-                This will permanently delete this token. Any git clients using
-                it will no longer be able to authenticate.
-              </Trans>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>
-              <Trans>Cancel</Trans>
-            </AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => void handleDelete()}
-              loading={deleteMutation.isPending}
-            >
-              <Trans>Delete</Trans>
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmDialog
+        open={!!deleteHash}
+        onOpenChange={() => setDeleteHash(null)}
+        title={t`Delete token?`}
+        desc={t`This will permanently delete this token. Any git clients using it will no longer be able to authenticate.`}
+        confirmText={t`Delete`}
+        destructive
+        isLoading={deleteMutation.isPending}
+        handleConfirm={() => void handleDelete()}
+      />
     </>
   )
 }

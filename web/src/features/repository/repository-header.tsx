@@ -9,14 +9,7 @@ import {
   cn,
   Button,
   CardDescription,
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+  ConfirmDialog,
   getErrorMessage,
   toastAction,
 } from '@mochi/web'
@@ -115,35 +108,16 @@ export function RepositoryHeader({
                 <Trans>Unsubscribe</Trans>
               </span>
             </Button>
-            <AlertDialog
+            <ConfirmDialog
               open={showUnsubscribeDialog}
               onOpenChange={setShowUnsubscribeDialog}
-            >
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>
-                    <Trans>Unsubscribe from repository?</Trans>
-                  </AlertDialogTitle>
-                  <AlertDialogDescription>
-                    <Trans>
-                      This will remove "{name}" from your repository list. You
-                      can subscribe again later.
-                    </Trans>
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>
-                    <Trans>Cancel</Trans>
-                  </AlertDialogCancel>
-                  <AlertDialogAction
-                    onClick={handleUnsubscribe}
-                    loading={unsubscribe.isPending}
-                  >
-                    <Trans>Unsubscribe</Trans>
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
+              title={t`Unsubscribe from repository?`}
+              desc={t`This will remove "${name}" from your repository list. You can subscribe again later.`}
+              confirmText={t`Unsubscribe`}
+              destructive
+              isLoading={unsubscribe.isPending}
+              handleConfirm={handleUnsubscribe}
+            />
           </>
         )}
       </div>

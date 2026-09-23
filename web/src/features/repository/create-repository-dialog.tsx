@@ -7,11 +7,11 @@ import { useNavigate } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Button,
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+  ResponsiveDialogFooter,
+  ResponsiveDialogHeader,
+  ResponsiveDialogTitle,
   Input,
   Label,
   Switch,
@@ -134,20 +134,20 @@ export function CreateRepositoryDialog({
   }
 
   return (
-    <Dialog open={open} onOpenChange={handleOpenChange}>
+    <ResponsiveDialog open={open} onOpenChange={handleOpenChange}>
       {!hideTrigger && (
         <Button onClick={() => handleOpenChange(true)}>
           <Plus className='h-4 w-4' />
           <Trans>Create repository</Trans>
         </Button>
       )}
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle className='flex items-center gap-2'>
+      <ResponsiveDialogContent>
+        <ResponsiveDialogHeader>
+          <ResponsiveDialogTitle className='flex items-center gap-2'>
             <FolderGit2 className='h-5 w-5' />
             <Trans>Create repository</Trans>
-          </DialogTitle>
-        </DialogHeader>
+          </ResponsiveDialogTitle>
+        </ResponsiveDialogHeader>
         <div className='space-y-4'>
           <div className='space-y-2'>
             <Label htmlFor='repo-name'>
@@ -219,7 +219,7 @@ export function CreateRepositoryDialog({
             />
           </div>
         </div>
-        <DialogFooter>
+        <ResponsiveDialogFooter>
           <Button
             onClick={handleSubmit}
             disabled={!canSubmit}
@@ -228,8 +228,8 @@ export function CreateRepositoryDialog({
           >
             <Trans>Create</Trans>
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </ResponsiveDialogFooter>
+      </ResponsiveDialogContent>
+    </ResponsiveDialog>
   )
 }
