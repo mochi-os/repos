@@ -225,7 +225,6 @@ export function UnsubscribeButton({
         title={t`Unsubscribe from repository?`}
         desc={t`This will remove "${repoName}" from your repository list. You can subscribe again later.`}
         confirmText={t`Unsubscribe`}
-        destructive
         isLoading={isUnsubscribing}
         handleConfirm={handleUnsubscribe}
       />
@@ -770,7 +769,6 @@ function GeneralSettingsTab({
         title={t`Delete repository?`}
         desc={t`This will permanently delete "${currentName}" and all its commits, branches, and tags. This action cannot be undone.`}
         confirmText={t`Delete`}
-        destructive
         isLoading={deleteRepo.isPending}
         handleConfirm={handleDelete}
       />

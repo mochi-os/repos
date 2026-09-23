@@ -481,7 +481,6 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
         title={t`Delete token?`}
         desc={t`This will permanently delete this token. Any git clients using it will no longer be able to authenticate.`}
         confirmText={t`Delete`}
-        destructive
         isLoading={deleteMutation.isPending}
         handleConfirm={() => void handleDelete()}
       />
