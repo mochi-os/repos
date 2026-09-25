@@ -3,7 +3,7 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { useNavigate } from '@tanstack/react-router'
 import { t, plural } from '@lingui/core/macro'
 import { Trans } from '@lingui/react/macro'
 import {
@@ -19,15 +19,9 @@ import {
   shellSaveBlob,
   shellClipboardWrite,
 } from '@mochi/web'
-import {
-  File,
-  ChevronRight,
-  Copy,
-  Check,
-  Download,
-  FileCode,
-} from 'lucide-react'
+import { File, Copy, Check, Download, FileCode } from 'lucide-react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
+import { PathBreadcrumb } from '@/components/path-breadcrumb'
 import { RefSelector } from '@/components/ref-selector'
 
 interface BlobViewerProps {
@@ -139,36 +133,12 @@ export function BlobViewer({
         />
       )}
 
-      {/* Breadcrumb */}
-      <div className='flex flex-wrap items-center gap-1 text-sm'>
-        <Link
-          to='/$repoId/tree/$ref/$'
-          params={{ repoId: fingerprint, ref: gitRef, _splat: '' }}
-          className='text-primary hover:underline'
-        >
-          {name}
-        </Link>
-        {pathParts.map((part, index) => {
-          const pathTo = pathParts.slice(0, index + 1).join('/')
-          const isLast = index === pathParts.length - 1
-          return (
-            <span key={pathTo} className='flex items-center gap-1'>
-              <ChevronRight className='text-muted-foreground h-4 w-4 rtl:rotate-180' />
-              {isLast ? (
-                <span className='text-foreground font-medium'>{part}</span>
-              ) : (
-                <Link
-                  to='/$repoId/tree/$ref/$'
-                  params={{ repoId: fingerprint, ref: gitRef, _splat: pathTo }}
-                  className='text-primary hover:underline'
-                >
-                  {part}
-                </Link>
-              )}
-            </span>
-          )
-        })}
-      </div>
+      <PathBreadcrumb
+        fingerprint={fingerprint}
+        gitRef={gitRef}
+        name={name}
+        pathParts={pathParts}
+      />
 
       {/* File content */}
       <Card>
