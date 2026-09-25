@@ -96,9 +96,23 @@ msgstr "{count, plural, one {#മി} other {#മി}}"
 msgid "{count, plural, one {#w} other {#w}}"
 msgstr "{count, plural, one {#ആ} other {#ആ}}"
 
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "{day}, {from} to {to}"
+msgstr "{day}, {from} മുതൽ {to} വരെ"
+
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 msgid "{entityLabel} name"
 msgstr "{entityLabel} പേര്"
+
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "{from} to {to}"
+msgstr "{from} മുതൽ {to} വരെ"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{hidden, plural, one {+# more} other {+# more}}"
+msgstr "{hidden, plural, one {+# കൂടി} other {+# കൂടി}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -253,6 +267,11 @@ msgstr "കാഴ്ച ചേർക്കുക"
 msgid "AI"
 msgstr "AI"
 
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "All day"
+msgstr "ദിവസം മുഴുവൻ"
+
 #: src/components/layout/repositories-layout.tsx
 msgid "All repositories"
 msgstr "എല്ലാ റിപ്പോസിറ്ററികളും"
@@ -337,6 +356,10 @@ msgstr "ഈ റിപ്പോസിറ്ററിയിൽ നിന്ന് 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ആരോഹണ ക്രമം"
+
+#: ../../../lib/web/src/components/timezone-select.tsx
+msgid "At sea"
+msgstr "കടലിൽ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Attach comment files"
@@ -456,6 +479,10 @@ msgstr "Branches"
 msgid "Browser notifications"
 msgstr "ബ്രൗസർ അറിയിപ്പുകൾ"
 
+#: ../../../lib/web/src/features/accounts/types.ts
+msgid "Calendar server"
+msgstr "കലണ്ടർ സെർവർ"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Camera permission denied"
 msgstr "ക്യാമറ അനുമതി നിരസിച്ചു"
@@ -528,6 +555,11 @@ msgstr "മാറ്റി"
 msgid "Changed {field}"
 msgstr "{field} മാറ്റി"
 
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Changed occurrence"
+msgstr "മാറ്റിയ ആവർത്തനം"
+
 #: src/features/repository/commit-details.tsx
 msgid "Changes"
 msgstr "മാറ്റങ്ങൾ"
@@ -539,6 +571,10 @@ msgstr "ചെക്ക്ബോക്സ്"
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checklist"
 msgstr "ചെക്ക്‌ലിസ്റ്റ്"
+
+#: ../../../lib/web/src/components/ui/date-picker.tsx
+msgid "Choose a date"
+msgstr "ഒരു തീയതി തിരഞ്ഞെടുക്കുക"
 
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
 msgid "Choose a game from the sidebar or start a new one."
@@ -570,7 +606,7 @@ msgstr "തിരയൽ മായ്ക്കുക"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone"
-msgstr "Clone"
+msgstr "ക്ലോൺ"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone repository"
@@ -614,6 +650,7 @@ msgid "Collapse sidebar"
 msgstr "സൈഡ്ബാർ ചുരുക്കുക"
 
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
+#: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 msgid "Colour"
 msgstr "നിറം"
 
@@ -649,7 +686,7 @@ msgstr "കമന്റുകൾ ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "കമ്മിറ്റ്"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
@@ -664,7 +701,7 @@ msgstr "Commit കണ്ടെത്തിയില്ല"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
-msgstr "Commits"
+msgstr "കമ്മിറ്റുകൾ"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Compact"
@@ -711,6 +748,10 @@ msgstr "തുടരുക"
 msgid "Continue with {label}"
 msgstr "{label} ഉപയോഗിച്ച് തുടരുക"
 
+#: ../../../lib/web/src/features/accounts/account-add.tsx
+msgid "Continue with {providerLabel}"
+msgstr "{providerLabel} ഉപയോഗിച്ച് തുടരുക"
+
 #: ../../../lib/web/src/lib/toast-utils.ts
 msgid "Copied"
 msgstr "പകർത്തി"
@@ -721,6 +762,10 @@ msgstr "പകർത്തി"
 msgid "Copied to clipboard"
 msgstr "ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി"
 
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/ui/copy-button.tsx
 msgid "Copy"
 msgstr "പകർത്തുക"
@@ -1135,6 +1180,10 @@ msgstr "ശൂന്യമായ ഡയറക്ടറി"
 #: src/features/repository/file-browser.tsx
 msgid "Empty repository"
 msgstr "ശൂന്യമായ റിപ്പോസിറ്ററി"
+
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Ends before it starts"
+msgstr "തുടങ്ങുന്നതിനു മുമ്പ് അവസാനിക്കുന്നു"
 
 #: ../../../lib/web/src/components/banner-section.tsx
 msgid "Enter banner text (markdown supported)..."
@@ -1680,6 +1729,10 @@ msgstr "മോഡറേഷൻ"
 msgid "Monday"
 msgstr "തിങ്കളാഴ്ച"
 
+#: ../../../lib/web/src/components/calendar/date-header.tsx
+msgid "Month"
+msgstr "മാസം"
+
 #: src/routes/_authenticated/index.tsx
 msgid "More actions"
 msgstr "കൂടുതൽ പ്രവർത്തനങ്ങൾ"
@@ -1695,6 +1748,13 @@ msgstr "നീക്കി"
 #: ../../../lib/web/src/components/entity/entity-activity-list.tsx
 msgid "Moved {field}"
 msgstr "{field} നീക്കി"
+
+#. placeholder {0}: dayName(current.day)
+#. placeholder {0}: dayName(dragging.day)
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Moving to {0}"
+msgstr "{0} എന്നതിലേക്ക് നീക്കുന്നു"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
@@ -1756,6 +1816,14 @@ msgstr "പുതിയ ഗെയിം"
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
 msgid "Next image"
 msgstr "അടുത്ത ചിത്രം"
+
+#: ../../../lib/web/src/components/calendar/date-header.tsx
+msgid "Next month"
+msgstr "അടുത്ത മാസം"
+
+#: ../../../lib/web/src/components/calendar/date-header.tsx
+msgid "Next year"
+msgstr "അടുത്ത വർഷം"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 msgid "No {parentClassNames} to add to"
@@ -1971,7 +2039,7 @@ msgstr "ഉടമ"
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Parent"
-msgstr "parent"
+msgstr "പാരന്റ്"
 
 #: src/features/repository/commit-details.tsx
 msgid "Parent:"
@@ -2058,10 +2126,18 @@ msgstr "പോസ്റ്റുകളും അഭിപ്രായങ്ങ�
 msgid "Previous image"
 msgstr "മുമ്പത്തെ ഫോട്ടോ"
 
+#: ../../../lib/web/src/components/calendar/date-header.tsx
+msgid "Previous month"
+msgstr "മുൻ മാസം"
+
+#: ../../../lib/web/src/components/calendar/date-header.tsx
+msgid "Previous year"
+msgstr "മുൻ വർഷം"
+
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
 msgid "Privacy"
-msgstr "സ്വകാര്യതാ നയം"
+msgstr "സ്വകാര്യത"
 
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "Processing…"
@@ -2093,15 +2169,15 @@ msgstr "ഈ സെർവറിൽ നിങ്ങളുടെ പാസ്‌ക
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
-msgstr "വായിക്കുക മാത്രം"
+msgstr "വായനയും എഴുത്തും"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read only"
-msgstr "Mochi പരീക്ഷിക്കാൻ തയ്യാറാണോ?"
+msgstr "വായന മാത്രം"
 
 #: ../../../lib/web/src/components/search-entity-page.tsx
 msgid "Recommended"
-msgstr "ശുപാർശ ചെയ്യുന്ന CRM-കൾ"
+msgstr "ശുപാർശ ചെയ്തത്"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Recommended repositories"
@@ -2179,7 +2255,7 @@ msgstr "\"{0}\" എന്നതിനുള്ള ആക്‌സസ് നി�
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Remove access?"
-msgstr "അക്കൗണ്ട് നീക്കം ചെയ്യണോ?"
+msgstr "ആക്സസ് നീക്കം ചെയ്യണോ?"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
@@ -2188,7 +2264,7 @@ msgstr "item നീക്കം ചെയ്യുക"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx
 msgid "Remove item"
-msgstr "ലിസ്റ്റിങ് നീക്കം ചെയ്യുക"
+msgstr "ഇനം നീക്കം ചെയ്യുക"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx
@@ -2202,11 +2278,11 @@ msgstr "ആക്സസ് നീക്കം ചെയ്യുന്നു..."
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 msgid "Rename"
-msgstr "കോളം പുനർനാമകരണം ചെയ്യുക"
+msgstr "പുനർനാമകരണം ചെയ്യുക"
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 msgid "Rename column"
-msgstr "പേജ് പുനർനാമകരണം ചെയ്യുക"
+msgstr "കോളം പുനർനാമകരണം ചെയ്യുക"
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 msgid "Rename this board column"
@@ -2216,10 +2292,15 @@ msgstr "design മാറ്റിസ്ഥാപിക്കണോ?"
 msgid "Renaming repository..."
 msgstr "റിപ്പോസിറ്ററി പുനർനാമകരണം ചെയ്യുന്നു..."
 
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Repeats"
+msgstr "ആവർത്തിക്കുന്നു"
+
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
 msgid "Reply"
-msgstr "റിപ്പോർട്ട് ചെയ്യുക"
+msgstr "മറുപടി"
 
 #. placeholder {0}: comment.name || comment.author
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
@@ -2230,7 +2311,7 @@ msgstr "{0} എന്നയാൾക്ക് മറുപടി..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "റിപ്പോസിറ്ററി ID ആവശ്യമാണ്"
+msgstr "റിപ്പോസിറ്ററികൾ"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2280,7 +2361,7 @@ msgstr "റീഫണ്ട് അഭ്യർത്ഥിക്കുക"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Required"
-msgstr "Reserve പൂർത്തിയായില്ല"
+msgstr "ആവശ്യമാണ്"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Resend email"
@@ -2288,11 +2369,11 @@ msgstr "ഇമെയിൽ വീണ്ടും അയയ്ക്കുക"
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx
 msgid "Resign"
-msgstr "ഗെയിം പിന്മാറണോ?"
+msgstr "പിന്മാറുക"
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx
 msgid "Resign game?"
-msgstr "പിന്മാറുന്നു..."
+msgstr "ഗെയിമിൽ നിന്ന് പിന്മാറണോ?"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 msgid "Retry"
@@ -2325,7 +2406,7 @@ msgstr "RSS ആക്‌സസ് പിൻവലിച്ചു"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "RSS feed"
-msgstr "റാങ്ക്"
+msgstr "RSS ഫീഡ്"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "RSS URL copied to clipboard"
@@ -3025,6 +3106,10 @@ msgstr "ഞങ്ങൾ <0>{0}</0> എന്നതിലേക്ക് ഒര�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "ബുധനാഴ്ച"
+
+#: ../../../lib/web/src/components/calendar/date-header.tsx
+msgid "Year"
+msgstr "വർഷം"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "You do not have access to this section."
