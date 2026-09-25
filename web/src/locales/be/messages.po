@@ -62,7 +62,7 @@ msgstr "{0, plural, one {# радок} few {# радкі} many {# радкоў} 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
 msgid "{0} branches"
-msgstr "{0} branches"
+msgstr "Галін: {0}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
@@ -305,7 +305,7 @@ msgstr "Адбылася нечаканая памылка"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Android push"
-msgstr "Push для Android"
+msgstr "Пуш-апавяшчэнні для Android"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 #: ../../../lib/web/src/features/access/types.ts
@@ -1077,7 +1077,7 @@ msgstr "Адключана"
 #: ../../../lib/web/src/components/restore-banner.tsx
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Dismiss"
-msgstr "Адхіліць"
+msgstr "Закрыць"
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx
 msgid "Displays the mobile sidebar."
@@ -1321,11 +1321,11 @@ msgstr "Не ўдалося загрузіць галіны"
 
 #: src/features/repository/commit-details.tsx
 msgid "Failed to load commit"
-msgstr "Не ўдалося загрузіць commit"
+msgstr "Не ўдалося загрузіць коміт"
 
 #: src/features/repository/commits-list.tsx
 msgid "Failed to load commits"
-msgstr "Не ўдалося загрузіць commits"
+msgstr "Не ўдалося загрузіць коміты"
 
 #: src/features/repository/file-browser.tsx
 msgid "Failed to load files"
@@ -1807,9 +1807,13 @@ msgid "Never"
 msgstr "Ніколі"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Новы"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Новае"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1980,11 +1984,15 @@ msgstr "Нічога не знойдзена"
 msgid "Notifications: {0}"
 msgstr "Апавяшчэнні: {0}"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
-#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Number"
 msgstr "Лік"
+
+#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
+#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
+msgctxt "item number"
+msgid "Number"
+msgstr "Нумар"
 
 #: ../../../lib/web/src/components/filter-bar.tsx
 msgid "On"
@@ -2072,7 +2080,7 @@ msgstr "Ключы доступу"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeys недаступныя ў гэтым браўзеры"
+msgstr "Ключы доступу недаступныя ў гэтым браўзеры"
 
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Path"
@@ -2160,7 +2168,7 @@ msgstr "Уласцівасці"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Push notification"
-msgstr "Push-апавяшчэнне"
+msgstr "Пуш-апавяшчэнне"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Raised"
@@ -2317,7 +2325,7 @@ msgstr "Адказаць {0}..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "Рэпазітарыі"
+msgstr "Рэпазіторыі"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2515,7 +2523,7 @@ msgstr "Пошук..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "Абраць"
+msgstr "Выбар"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2539,11 +2547,11 @@ msgstr "Абярыце тып акаўнта"
 
 #: src/components/ref-selector.tsx
 msgid "Select branch"
-msgstr "Выбраць branch"
+msgstr "Выбраць галіну"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Select default branch"
-msgstr "Выбраць branch па змаўчанні"
+msgstr "Выбраць галіну па змаўчанні"
 
 #: ../../../lib/web/src/features/access/access-dialog.tsx
 msgid "Select group"
@@ -2567,7 +2575,7 @@ msgstr "Выбраць папярэднюю картку"
 
 #: src/features/repository/branches-list.tsx
 msgid "Select source branch"
-msgstr "Выбраць зыходны branch"
+msgstr "Выбраць зыходную галіну"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx
@@ -2681,7 +2689,7 @@ msgstr "Сартаваць"
 
 #: src/features/repository/branches-list.tsx
 msgid "Source branch"
-msgstr "Зыходны branch"
+msgstr "Зыходная галіна"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Sources"
@@ -2702,7 +2710,7 @@ msgstr "Спыніць сачэнне"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Тэма"
+msgstr "Карыстальнік або група"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2753,13 @@ msgstr "Пераключыць галінку"
 msgid "Switch to view 1-9"
 msgstr "Пераключыцца на выгляд 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Сістэма"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Сістэма"
 
@@ -2761,7 +2773,11 @@ msgstr "Тэг павінен быць не больш за 50 сімвалаў"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
+msgid "Tags"
+msgstr "Тэгі"
+
 #: src/features/repository/tabs.tsx
+msgctxt "git tags"
 msgid "Tags"
 msgstr "Тэгі"
 
@@ -2789,7 +2805,7 @@ msgstr "Занадта вялікі памер для запампоўкі. Вы
 
 #: src/features/repository/repository-tabs.tsx
 msgid "The branch shown when viewing the repository"
-msgstr "Branch, які паказваецца пры праглядзе рэпазіторыя"
+msgstr "Галіна, якая паказваецца пры праглядзе рэпазіторыя"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The camera is already in use"
@@ -2805,7 +2821,7 @@ msgstr "Запыт мікрафона застаўся без адказу"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Запыт passkey застаўся без адказу"
+msgstr "Запыт ключа доступу застаўся без адказу"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2817,7 +2833,7 @@ msgstr "Сервер вярнуў вэб-старонку замест даны�
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Гэтай праграме не дазволена выкарыстоўваць ваш passkey. Дазвольце гэта ў Наладах, у раздзеле Дазволы."
+msgstr "Гэтай праграме не дазволена выкарыстоўваць ваш ключ доступу. Дазвольце гэта ў Наладах, у раздзеле Дазволы."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -2836,7 +2852,7 @@ msgstr "Гэта незваротна выдаліць гульню і яе ча
 
 #: src/features/repository/repository-tabs.tsx
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
-msgstr "Гэта незваротна выдаліць «{currentName}» і ўсе яго коміты, branches і тэгі. Гэта дзеянне нельга адмяніць."
+msgstr "Гэта незваротна выдаліць «{currentName}» і ўсе яго коміты, галіны і тэгі. Гэта дзеянне нельга адмяніць."
 
 #: src/components/clone-dialog.tsx
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
@@ -2899,7 +2915,7 @@ msgstr "Занадта шмат запытаў"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Верх"
+msgstr "Лепшае"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"

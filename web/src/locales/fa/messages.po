@@ -67,7 +67,7 @@ msgstr "{0} شاخه"
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
 msgid "{0} commits"
-msgstr "{0} commit"
+msgstr "{0} کامیت"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
@@ -444,7 +444,7 @@ msgstr "بلوک‌ها"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Board"
-msgstr "تخته"
+msgstr "تابلو"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
@@ -605,11 +605,11 @@ msgstr "پاک کردن جست‌وجو"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone"
-msgstr "Clone"
+msgstr "کلون"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone repository"
-msgstr "Clone مخزن"
+msgstr "کلون کردن مخزن"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
@@ -693,18 +693,18 @@ msgstr "نظرها ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "کامیت"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "کامیت {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "Commit پیدا نشد"
+msgstr "کامیت پیدا نشد"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
@@ -1321,7 +1321,7 @@ msgstr "بارگذاری شاخه‌ها ناموفق بود"
 
 #: src/features/repository/commit-details.tsx
 msgid "Failed to load commit"
-msgstr "بارگذاری commit ناموفق بود"
+msgstr "بارگذاری کامیت ناموفق بود"
 
 #: src/features/repository/commits-list.tsx
 msgid "Failed to load commits"
@@ -1374,7 +1374,7 @@ msgstr "تغییر نام مخزن ناموفق بود"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to reset prompt"
-msgstr "بازنشانی prompt ناموفق بود"
+msgstr "بازنشانی پرامپت ناموفق بود"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Failed to revoke RSS access"
@@ -1386,7 +1386,7 @@ msgstr "ذخیره ناموفق بود"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to save prompt"
-msgstr "ذخیره prompt ناموفق بود"
+msgstr "ذخیره پرامپت ناموفق بود"
 
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
@@ -1807,9 +1807,13 @@ msgid "Never"
 msgstr "هرگز"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "جدید"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "جدیدترین"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1980,9 +1984,13 @@ msgstr "چیزی یافت نشد"
 msgid "Notifications: {0}"
 msgstr "اعلان‌ها: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "شماره"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "شماره"
 
@@ -2152,7 +2160,7 @@ msgstr "در حال پردازش…"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Prompt saved"
-msgstr "Prompt ذخیره شد"
+msgstr "پرامپت ذخیره شد"
 
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Properties"
@@ -2702,7 +2710,7 @@ msgstr "توقف تماشا"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "موضوع"
+msgstr "کاربر یا گروه"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2753,13 @@ msgstr "تغییر شاخه"
 msgid "Switch to view 1-9"
 msgstr "تغییر به نمای ۱ تا ۹"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "سیستم"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "سیستم"
 
@@ -2761,7 +2773,11 @@ msgstr "برچسب باید ۵۰ نویسه یا کمتر باشد"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
+msgid "Tags"
+msgstr "برچسب‌ها"
+
 #: src/features/repository/tabs.tsx
+msgctxt "git tags"
 msgid "Tags"
 msgstr "برچسب‌ها"
 
@@ -2899,7 +2915,7 @@ msgstr "درخواست‌های بیش از حد"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "بالا"
+msgstr "برترین"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"

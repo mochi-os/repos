@@ -67,7 +67,7 @@ msgstr "{0} கிளைகள்"
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
 msgid "{0} commits"
-msgstr "{0} commits"
+msgstr "{0} கமிட்கள்"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
@@ -398,7 +398,7 @@ msgstr "பின்"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Back to commits"
-msgstr "Commits-க்கு திரும்பு"
+msgstr "கமிட்களுக்குத் திரும்பு"
 
 #: ../../../lib/web/src/features/errors/access-denied-error.tsx
 #: ../../../lib/web/src/features/errors/not-found-error.tsx
@@ -465,15 +465,15 @@ msgstr "\"{name}\" கிளை நீக்கப்பட்டது"
 
 #: src/features/repository/branches-list.tsx
 msgid "Branch name"
-msgstr "Branch பெயர்"
+msgstr "கிளை பெயர்"
 
 #: src/features/repository/branches-list.tsx
 msgid "Branch name is required"
-msgstr "Branch பெயர் தேவை"
+msgstr "கிளை பெயர் தேவை"
 
 #: src/features/repository/tabs.tsx
 msgid "Branches"
-msgstr "Branches"
+msgstr "கிளைகள்"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Browser notifications"
@@ -605,7 +605,7 @@ msgstr "தேடலை அழி"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone"
-msgstr "Clone"
+msgstr "குளோன்"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone repository"
@@ -693,22 +693,22 @@ msgstr "கருத்துகள் ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "கமிட்"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "கமிட் {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "Commit கிடைக்கவில்லை"
+msgstr "கமிட் கிடைக்கவில்லை"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
-msgstr "Commits"
+msgstr "கமிட்கள்"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Compact"
@@ -780,7 +780,7 @@ msgstr "நகலெடு"
 #: src/features/repository/commit-details.tsx
 #: src/features/repository/commit-details.tsx
 msgid "Copy commit SHA"
-msgstr "commit SHA-ஐ நகலெடு"
+msgstr "கமிட் SHA-ஐ நகலெடு"
 
 #: src/features/repository/blob-viewer.tsx
 #: src/features/repository/blob-viewer.tsx
@@ -832,7 +832,7 @@ msgstr "புதிய களஞ்சியம் உருவாக்கு"
 #: src/features/repository/branches-list.tsx
 #: src/features/repository/branches-list.tsx
 msgid "Create branch"
-msgstr "Branch உருவாக்கு"
+msgstr "கிளை உருவாக்கு"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Create new item"
@@ -915,7 +915,7 @@ msgstr "இயல்புநிலை AI கணக்கு"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Default branch"
-msgstr "இயல்புநிலை branch"
+msgstr "இயல்புநிலை கிளை"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Default sort"
@@ -953,7 +953,7 @@ msgstr "கிளையை அழி"
 
 #: src/features/repository/branches-list.tsx
 msgid "Delete branch?"
-msgstr "Branch-ஐ நீக்கவா?"
+msgstr "கிளையை நீக்கவா?"
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 msgid "Delete column"
@@ -1807,13 +1807,17 @@ msgid "Never"
 msgstr "ஒருபோதும் இல்லை"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "புதியது"
 
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "சமீபத்தியவை"
+
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
-msgstr "புதிய branch"
+msgstr "புதிய கிளை"
 
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
@@ -1980,9 +1984,13 @@ msgstr "எதுவும் கிடைக்கவில்லை"
 msgid "Notifications: {0}"
 msgstr "அறிவிப்புகள்: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "எண்"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "எண்"
 
@@ -2064,7 +2072,7 @@ msgstr "கடவுக்குறி"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "கடவுவிசை சரிபார்ப்பு தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்."
+msgstr "கடவுக்குறி சரிபார்ப்பு தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
@@ -2076,19 +2084,19 @@ msgstr "இந்த உலாவியில் passkeyக்கள் கி�
 
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Path"
-msgstr "Path"
+msgstr "பாதை"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path is required"
-msgstr "Path தேவை"
+msgstr "பாதை தேவை"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path updated"
-msgstr "Path புதுப்பிக்கப்பட்டது"
+msgstr "பாதை புதுப்பிக்கப்பட்டது"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path:"
-msgstr "Path:"
+msgstr "பாதை:"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Pattern (regex)"
@@ -2100,7 +2108,7 @@ msgstr "மக்கள்"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
-msgstr "இந்த repository மற்றும் அதன் அனைத்து தரவுகளையும் நிரந்தரமாக நீக்கவும்"
+msgstr "இந்த களஞ்சியம் மற்றும் அதன் அனைத்து தரவுகளையும் நிரந்தரமாக நீக்கவும்"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2152,7 +2160,7 @@ msgstr "செயலாக்கப்படுகிறது…"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Prompt saved"
-msgstr "Prompt சேமிக்கப்பட்டது"
+msgstr "தூண்டுதல் சேமிக்கப்பட்டது"
 
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Properties"
@@ -2172,7 +2180,7 @@ msgstr "இந்த சேவையகத்தில் உங்கள் க
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "இந்த சேவையகத்தில் உங்கள் கடவுச்சாவிகளை மீண்டும் பதிவு செய்யவும்"
+msgstr "இந்த சேவையகத்தில் உங்கள் கடவுக்குறிகளை மீண்டும் பதிவு செய்யவும்"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2242,7 +2250,7 @@ msgstr "அகற்று"
 #: ../../../lib/web/src/components/filter-bar.tsx
 #: ../../../lib/web/src/components/filter-bar.tsx
 msgid "Remove {0} filter"
-msgstr "{0} filter-ஐ அகற்று"
+msgstr "{0} வடிகட்டியை அகற்று"
 
 #: ../../../lib/web/src/components/member-list.tsx
 #: ../../../lib/web/src/components/member-list.tsx
@@ -2317,7 +2325,7 @@ msgstr "{0} க்கு பதிலளி..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "Repositoryக்கள்"
+msgstr "ரெபாசிட்டரிகள்"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2338,16 +2346,16 @@ msgstr "களஞ்சியம்"
 
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Repository created"
-msgstr "Repository உருவாக்கப்பட்டது"
+msgstr "களஞ்சியம் உருவாக்கப்பட்டது"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository deleted"
-msgstr "Repository நீக்கப்பட்டது"
+msgstr "களஞ்சியம் நீக்கப்பட்டது"
 
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 msgid "Repository ID is required"
-msgstr "Repository ID தேவை"
+msgstr "களஞ்சிய ID தேவை"
 
 #: src/components/repository-link-button.tsx
 msgid "Repository link"
@@ -2355,15 +2363,15 @@ msgstr "களஞ்சிய இணைப்பு"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository name is required"
-msgstr "Repository பெயர் தேவை"
+msgstr "களஞ்சியப் பெயர் தேவை"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Repository not found"
-msgstr "Repository கிடைக்கவில்லை"
+msgstr "களஞ்சியம் கிடைக்கவில்லை"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository renamed"
-msgstr "Repository பெயர் மாற்றப்பட்டது"
+msgstr "களஞ்சியப் பெயர் மாற்றப்பட்டது"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Required"
@@ -2416,7 +2424,7 @@ msgstr "RSS ஃபீட்"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "RSS URL copied to clipboard"
-msgstr "RSS URL clipboard-க்கு நகலெடுக்கப்பட்டது"
+msgstr "RSS URL கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Saturday"
@@ -2515,7 +2523,7 @@ msgstr "தேடுகிறது..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "தேர்ந்தெடு"
+msgstr "தேர்வு"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2539,11 +2547,11 @@ msgstr "கணக்கு வகையை தேர்ந்தெடு"
 
 #: src/components/ref-selector.tsx
 msgid "Select branch"
-msgstr "Branch-ஐ தேர்ந்தெடு"
+msgstr "கிளையைத் தேர்ந்தெடு"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Select default branch"
-msgstr "இயல்பு branch-ஐ தேர்ந்தெடு"
+msgstr "இயல்பு கிளையைத் தேர்ந்தெடு"
 
 #: ../../../lib/web/src/features/access/access-dialog.tsx
 msgid "Select group"
@@ -2567,7 +2575,7 @@ msgstr "முந்தைய அட்டையை தேர்ந்தெட�
 
 #: src/features/repository/branches-list.tsx
 msgid "Select source branch"
-msgstr "மூல branch-ஐ தேர்ந்தெடு"
+msgstr "மூலக் கிளையைத் தேர்ந்தெடு"
 
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx
 #: ../../../lib/web/src/components/entity/entity-field-editor.tsx
@@ -2681,7 +2689,7 @@ msgstr "வரிசைப்படுத்து"
 
 #: src/features/repository/branches-list.tsx
 msgid "Source branch"
-msgstr "மூல branch"
+msgstr "மூலக் கிளை"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Sources"
@@ -2702,7 +2710,7 @@ msgstr "பார்ப்பதை நிறுத்து"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "பொருள்"
+msgstr "பயனர் அல்லது குழு"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2753,13 @@ msgstr "கிளையை மாற்று"
 msgid "Switch to view 1-9"
 msgstr "காட்சி 1-9 க்கு மாறு"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "சிஸ்டம்"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "சிஸ்டம்"
 
@@ -2761,7 +2773,11 @@ msgstr "குறிச்சொல் 50 எழுத்துகள் அல�
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
+msgid "Tags"
+msgstr "டேக்குகள்"
+
 #: src/features/repository/tabs.tsx
+msgctxt "git tags"
 msgid "Tags"
 msgstr "டேக்குகள்"
 
@@ -2789,7 +2805,7 @@ msgstr "பதிவேற்ற முடியாத அளவு பெரி
 
 #: src/features/repository/repository-tabs.tsx
 msgid "The branch shown when viewing the repository"
-msgstr "ரெபாசிட்டரியை பார்க்கும்போது காட்டப்படும் branch"
+msgstr "ரெபாசிட்டரியை பார்க்கும்போது காட்டப்படும் கிளை"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The camera is already in use"
@@ -2805,7 +2821,7 @@ msgstr "மைக்ரோஃபோன் கோரிக்கைக்கு �
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Passkey கோரிக்கைக்கு பதில் இல்லை"
+msgstr "கடவுக்குறி கோரிக்கைக்கு பதில் இல்லை"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2817,7 +2833,7 @@ msgstr "சேவையகம் தரவுக்குப் பதிலா�
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "இந்த ஆப்ஸுக்கு உங்கள் passkey-ஐப் பயன்படுத்த அனுமதி இல்லை. அமைப்புகளில், அனுமதிகள் பிரிவில் அதை அனுமதிக்கவும்."
+msgstr "இந்த ஆப்ஸுக்கு உங்கள் கடவுக்குறியைப் பயன்படுத்த அனுமதி இல்லை. அமைப்புகளில், அனுமதிகள் பிரிவில் அதை அனுமதிக்கவும்."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -2836,7 +2852,7 @@ msgstr "இது விளையாட்டையும் அதன் அர
 
 #: src/features/repository/repository-tabs.tsx
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
-msgstr "இது \"{currentName}\" மற்றும் அதன் அனைத்து commits, branches மற்றும் tags-ஐ நிரந்தரமாக நீக்கும். இந்த செயலை திரும்ப மாற்ற முடியாது."
+msgstr "இது \"{currentName}\" மற்றும் அதன் அனைத்து கமிட்கள், கிளைகள் மற்றும் டேக்குகளை நிரந்தரமாக நீக்கும். இந்த செயலை திரும்ப மாற்ற முடியாது."
 
 #: src/components/clone-dialog.tsx
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
@@ -2899,7 +2915,7 @@ msgstr "மிக அதிகமான கோரிக்கைகள்"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "மேல்"
+msgstr "சிறந்தவை"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
@@ -3039,7 +3055,7 @@ msgstr "பதிவேற்ற முன்னேற்றம்"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "உங்கள் கடவுவிசையைப் பயன்படுத்தவும்"
+msgstr "உங்கள் கடவுக்குறியைப் பயன்படுத்தவும்"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

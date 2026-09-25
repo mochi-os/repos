@@ -67,7 +67,7 @@ msgstr "{0} څانګې"
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
 msgid "{0} commits"
-msgstr "{0} commitونه"
+msgstr "{0} کمیټونه"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
@@ -376,7 +376,7 @@ msgstr "تصدیق شوي کارنان"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Authenticator code"
-msgstr "د Authenticator کوډ"
+msgstr "د تصدیق کوونکي کوډ"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Available keyboard shortcuts"
@@ -398,7 +398,7 @@ msgstr "شاته"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Back to commits"
-msgstr "بیرته Commits ته"
+msgstr "بیرته کمیټونو ته"
 
 #: ../../../lib/web/src/features/errors/access-denied-error.tsx
 #: ../../../lib/web/src/features/errors/not-found-error.tsx
@@ -421,7 +421,7 @@ msgstr "بانر نوی شو"
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "Binary file ({0})"
-msgstr "Binary فایل ({0})"
+msgstr "باینري فایل ({0})"
 
 #: ../../../lib/web/src/components/member-list.tsx
 #: ../../../lib/web/src/components/member-list.tsx
@@ -693,22 +693,22 @@ msgstr "تبصرې ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "کمیټ"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "کمیټ {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "Commit ونه موندل شو"
+msgstr "کمیټ ونه موندل شو"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
-msgstr "Commits"
+msgstr "کمیټونه"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Compact"
@@ -780,7 +780,7 @@ msgstr "کاپي کړئ"
 #: src/features/repository/commit-details.tsx
 #: src/features/repository/commit-details.tsx
 msgid "Copy commit SHA"
-msgstr "د commit SHA کاپي کړئ"
+msgstr "د کمیټ SHA کاپي کړئ"
 
 #: src/features/repository/blob-viewer.tsx
 #: src/features/repository/blob-viewer.tsx
@@ -1077,7 +1077,7 @@ msgstr "پرېکړل شوی"
 #: ../../../lib/web/src/components/restore-banner.tsx
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Dismiss"
-msgstr "وردکړه"
+msgstr "وتړئ"
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx
 msgid "Displays the mobile sidebar."
@@ -1374,7 +1374,7 @@ msgstr "د ریپوزیټوري نوم بدلولو پاتې راغلل"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to reset prompt"
-msgstr "د prompt د بیا تنظیم پاتې راغلل"
+msgstr "د پرامپټ د بیا تنظیم پاتې راغلل"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Failed to revoke RSS access"
@@ -1386,7 +1386,7 @@ msgstr "د خوندي کولو پاتې راغلل"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to save prompt"
-msgstr "د prompt د خوندي کولو پاتې راغلل"
+msgstr "د پرامپټ د خوندي کولو پاتې راغلل"
 
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
@@ -1465,7 +1465,7 @@ msgstr "ریپوزیټوریانه ومومئ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Fingerprint:"
-msgstr "Fingerprint:"
+msgstr "د ګوتو نښه:"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Finish moving your account"
@@ -1552,7 +1552,7 @@ msgstr "د انځور کتونکی: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Imperial"
-msgstr "Imperial"
+msgstr "امپریال"
 
 #: ../../../lib/web/src/features/access/types.ts
 msgid "Including anonymous users"
@@ -1807,9 +1807,13 @@ msgid "Never"
 msgstr "هیڅکله"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "نوی"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "تر ټولو نوي"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1980,9 +1984,13 @@ msgstr "هیڅ نه موندل شو"
 msgid "Notifications: {0}"
 msgstr "خبرتیاوې: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "شمیره"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "شمیره"
 
@@ -2064,15 +2072,15 @@ msgstr "پاسکي"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "د پاس کیلۍ تایید ناکام شو. مهرباني وکړئ بیا هڅه وکړئ."
+msgstr "د پاسکي تایید ناکام شو. مهرباني وکړئ بیا هڅه وکړئ."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "د لاسرسي کيلۍ"
+msgstr "پاسکي ګانې"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeys په دې براوزر کې شتون نلري"
+msgstr "پاسکي په دې براوزر کې شتون نلري"
 
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Path"
@@ -2172,7 +2180,7 @@ msgstr "پر دې سرور خپل حسابونه بیا وصل کړئ"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "خپل د لاسرسي کيلۍ پدې سرور کې بیا ثبت کړئ"
+msgstr "خپل پاسکي ګانې پدې سرور کې بیا ثبت کړئ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2317,7 +2325,7 @@ msgstr "{0} ته ځواب ووایاست..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "ذخیرې"
+msgstr "زیرمتونونه"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2515,7 +2523,7 @@ msgstr "د لټون په حال کې..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "وټاکئ"
+msgstr "ټاکنه"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2702,7 +2710,7 @@ msgstr "کتل بند کړئ"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "موضوع"
+msgstr "کاروونکی یا ګروپ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2753,13 @@ msgstr "څانګه بدله کړئ"
 msgid "Switch to view 1-9"
 msgstr "د 1-9 لیدلو ته بدل کړئ"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "سیسټم"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "سیسټم"
 
@@ -2761,7 +2773,11 @@ msgstr "ټګ باید ۵۰ توري یا لږ وي"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
+msgid "Tags"
+msgstr "ټاګونه"
+
 #: src/features/repository/tabs.tsx
+msgctxt "git tags"
 msgid "Tags"
 msgstr "ټاګونه"
 
@@ -2805,7 +2821,7 @@ msgstr "د مایکروفون غوښتنې ته ځواب ورنکړل شو"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "د passkey غوښتنې ته ځواب ورنکړل شو"
+msgstr "د پاسکي غوښتنې ته ځواب ورنکړل شو"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2817,7 +2833,7 @@ msgstr "سرور د معلوماتو پر ځای یوه ویب پاڼه راست
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "دې اپ ته اجازه نشته چې ستاسو passkey وکاروي. په تنظیماتو کې، د اجازو لاندې یې اجازه ورکړئ."
+msgstr "دې اپ ته اجازه نشته چې ستاسو پاسکي وکاروي. په تنظیماتو کې، د اجازو لاندې یې اجازه ورکړئ."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -2836,7 +2852,7 @@ msgstr "دا به لوبه او د هغې چیټ د تل لپاره ړنګ کړ�
 
 #: src/features/repository/repository-tabs.tsx
 msgid "This will permanently delete \"{currentName}\" and all its commits, branches, and tags. This action cannot be undone."
-msgstr "دا به \"{currentName}\" او ټول یې commitونه، څانګې، او ټاګونه دایمي ډول حذف کړي. دا کړنه نشي بېرته راګرځیدلی."
+msgstr "دا به \"{currentName}\" او ټول یې کمیټونه، څانګې، او ټاګونه دایمي ډول حذف کړي. دا کړنه نشي بېرته راګرځیدلی."
 
 #: src/components/clone-dialog.tsx
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
@@ -2899,7 +2915,7 @@ msgstr "ډېرې زیاتې غوښتنې"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "بره"
+msgstr "غوره"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
@@ -3039,7 +3055,7 @@ msgstr "د پورته کولو پرمختګ"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "خپله پاس کیلۍ وکاروئ"
+msgstr "خپل پاسکي وکاروئ"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx
@@ -3066,7 +3082,7 @@ msgstr "د ایمیل پته تصدیق کړئ"
 
 #: ../../../lib/web/src/components/attachment-gallery.tsx
 msgid "Video thumbnail"
-msgstr "د ویډیو thumbnail"
+msgstr "د ویډیو کوچنی انځور"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx

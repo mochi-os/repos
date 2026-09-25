@@ -67,7 +67,7 @@ msgstr "{0} ענפים"
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
 msgid "{0} commits"
-msgstr "{0} commits"
+msgstr "{0} קומיטים"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
@@ -398,7 +398,7 @@ msgstr "חזור"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Back to commits"
-msgstr "חזור ל-commits"
+msgstr "חזור לקומיטים"
 
 #: ../../../lib/web/src/features/errors/access-denied-error.tsx
 #: ../../../lib/web/src/features/errors/not-found-error.tsx
@@ -444,7 +444,7 @@ msgstr "חוסם"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Board"
-msgstr "Board"
+msgstr "לוח"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
@@ -693,22 +693,22 @@ msgstr "תגובות ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "קומיט"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "קומיט {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "ה-Commit לא נמצא"
+msgstr "הקומיט לא נמצא"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
-msgstr "Commits"
+msgstr "קומיטים"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Compact"
@@ -1321,7 +1321,7 @@ msgstr "טעינת הענפים נכשלה"
 
 #: src/features/repository/commit-details.tsx
 msgid "Failed to load commit"
-msgstr "טעינת ה-commit נכשלה"
+msgstr "טעינת הקומיט נכשלה"
 
 #: src/features/repository/commits-list.tsx
 msgid "Failed to load commits"
@@ -1346,7 +1346,7 @@ msgstr "טעינת הפריט נכשלה"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to load prompts"
-msgstr "טעינת ה-prompts נכשלה"
+msgstr "טעינת הפרומפטים נכשלה"
 
 #: src/features/repository/tags-list.tsx
 msgid "Failed to load tags"
@@ -1374,7 +1374,7 @@ msgstr "שינוי שם המאגר נכשל"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to reset prompt"
-msgstr "איפוס ה-prompt נכשל"
+msgstr "איפוס הפרומפט נכשל"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Failed to revoke RSS access"
@@ -1386,7 +1386,7 @@ msgstr "השמירה נכשלה"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to save prompt"
-msgstr "שמירת ה-prompt נכשלה"
+msgstr "שמירת הפרומפט נכשלה"
 
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
@@ -1807,9 +1807,13 @@ msgid "Never"
 msgstr "אף פעם"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "חדש"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "חדשים"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1859,7 +1863,7 @@ msgstr "עדיין אין תגובות"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
-msgstr "עדיין אין commits"
+msgstr "עדיין אין קומיטים"
 
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
 msgid "No games yet"
@@ -1980,9 +1984,13 @@ msgstr "לא נמצא דבר"
 msgid "Notifications: {0}"
 msgstr "התראות: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "מספר"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "מספר"
 
@@ -2515,7 +2523,7 @@ msgstr "מחפש..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "בחר"
+msgstr "רשימה נפתחת"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2702,7 +2710,7 @@ msgstr "הפסק לעקוב"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "נושא"
+msgstr "משתמש או קבוצה"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2753,13 @@ msgstr "החלף ענף"
 msgid "Switch to view 1-9"
 msgstr "עבור לתצוגה 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "מערכת"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "מערכת"
 
@@ -2761,7 +2773,11 @@ msgstr "התג חייב להיות עד 50 תווים"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
+msgid "Tags"
+msgstr "תגיות"
+
 #: src/features/repository/tabs.tsx
+msgctxt "git tags"
 msgid "Tags"
 msgstr "תגיות"
 
@@ -2899,7 +2915,7 @@ msgstr "יותר מדי בקשות"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "ראש"
+msgstr "מובילים"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
