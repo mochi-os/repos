@@ -47,7 +47,7 @@ export function useRepositoryTabs(): Tab[] {
     },
     {
       id: 'tags',
-      label: t`Tags`,
+      label: t({ message: 'Tags', context: 'git tags' }),
       icon: <Tag className='h-4 w-4' />,
       to: '/$repoId/tags',
     },

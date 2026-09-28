@@ -26,6 +26,11 @@ msgstr "(uređeno)"
 msgid "(expand)"
 msgstr "(proširi)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Bez naslova)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(vi)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "Naziv {entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "{from} do {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, one {+# više} few {+# više} other {+# više}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -309,7 +311,7 @@ msgstr "Došlo je do neočekivane greške"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Android push"
-msgstr "Android push"
+msgstr "Android push obavijesti"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 #: ../../../lib/web/src/features/access/types.ts
@@ -537,6 +539,11 @@ msgstr "Otkaži odgovor"
 msgid "Cancelled"
 msgstr "Otkazano"
 
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Cancelled"
+msgstr "Otkazano"
+
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
 msgid "Caption"
@@ -570,7 +577,7 @@ msgstr "Izmjene"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
-msgstr "Checkbox"
+msgstr "Potvrdni okvir"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checklist"
@@ -1768,30 +1775,30 @@ msgstr "Premještanje na {0}"
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Name"
-msgstr "Ime"
+msgstr "Naziv"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 #: src/features/repository/create-repository-dialog.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Name cannot contain < or > characters"
-msgstr "Ime ne smije sadržavati znakove < ili >"
+msgstr "Naziv ne smije sadržavati znakove < ili >"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 msgid "Name is required"
-msgstr "Ime je obavezno"
+msgstr "Naziv je obavezan"
 
 #: src/features/repository/create-repository-dialog.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Name must be 100 characters or less"
-msgstr "Ime mora imati 100 ili manje znakova"
+msgstr "Naziv mora imati 100 ili manje znakova"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 msgid "Name must be 1000 characters or less"
-msgstr "Ime mora imati 1000 ili manje znakova"
+msgstr "Naziv mora imati 1000 ili manje znakova"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Name:"
-msgstr "Ime:"
+msgstr "Naziv:"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 #: ../../../lib/web/src/lib/api-response-interceptors.ts
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "Nikad"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Novo"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Najnovije"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,9 +1988,13 @@ msgstr "Ništa nije pronađeno"
 msgid "Notifications: {0}"
 msgstr "Obavijesti: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "Broj"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "Broj"
 
@@ -2108,7 +2123,7 @@ msgstr "Provjerite svoju internetsku vezu i pokušajte ponovo."
 
 #: src/components/clone-dialog.tsx
 msgid "Please enter a token name"
-msgstr "Molimo unesite ime tokena"
+msgstr "Molimo unesite naziv tokena"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "Please try again."
@@ -2228,6 +2243,11 @@ msgstr "Relevantnost {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Relevantnost {relevance}, interes {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Podsjetnik"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2355,7 +2375,7 @@ msgstr "Veza repozitorija"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository name is required"
-msgstr "Ime repozitorija je obavezno"
+msgstr "Naziv repozitorija je obavezan"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Repository not found"
@@ -2458,7 +2478,7 @@ msgstr "Pretraži"
 
 #: src/routes/_authenticated/find.tsx
 msgid "Search by name, ID, fingerprint, or URL..."
-msgstr "Pretraži po imenu, ID-u, otisku ili URL-u..."
+msgstr "Pretraži po nazivu, ID-u, otisku ili URL-u..."
 
 #: ../../../lib/web/src/components/ui/command.tsx
 msgid "Search for a command to run..."
@@ -2515,7 +2535,7 @@ msgstr "Pretraživanje..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "Odaberi"
+msgstr "Odabir"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2702,7 +2722,7 @@ msgstr "Prestani pratiti"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Predmet"
+msgstr "Korisnik ili grupa"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "Promijeni granu"
 msgid "Switch to view 1-9"
 msgstr "Prebaci na pregled 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Sistem"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Sistem"
 
@@ -2761,9 +2785,18 @@ msgstr "Oznaka mora imati najviše 50 znakova"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Tagovi"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Tagovi"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Nepotvrđeno"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2899,7 +2932,7 @@ msgstr "Previše zahtjeva"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Vrh"
+msgstr "Najbolje"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"

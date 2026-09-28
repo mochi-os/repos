@@ -26,6 +26,11 @@ msgstr "(επεξεργάστηκε)"
 msgid "(expand)"
 msgstr "(ανάπτυξη)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Χωρίς τίτλο)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(εσείς)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "Όνομα {entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "{from} έως {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, one {+# ακόμη} other {+# ακόμη}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -153,7 +155,7 @@ msgstr "Μια εγγραφή βρίσκεται ήδη σε εξέλιξη."
 
 #: src/components/clone-dialog.tsx
 msgid "A token for this repository was issued earlier and cannot be shown again."
-msgstr "Ένα token για αυτό το αποθετήριο εκδόθηκε νωρίτερα και δεν μπορεί να εμφανιστεί ξανά."
+msgstr "Ένα διακριτικό για αυτό το αποθετήριο εκδόθηκε νωρίτερα και δεν μπορεί να εμφανιστεί ξανά."
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Absolute (date and time)"
@@ -309,7 +311,7 @@ msgstr "Παρουσιάστηκε απροσδόκητο σφάλμα"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Android push"
-msgstr "Push Android"
+msgstr "Ειδοποιήσεις push Android"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 #: ../../../lib/web/src/features/access/types.ts
@@ -416,11 +418,11 @@ msgstr "Μπάνερ"
 
 #: ../../../lib/web/src/components/banner-section.tsx
 msgid "Banner removed"
-msgstr "Το banner αφαιρέθηκε"
+msgstr "Το μπάνερ αφαιρέθηκε"
 
 #: ../../../lib/web/src/components/banner-section.tsx
 msgid "Banner updated"
-msgstr "Το banner ενημερώθηκε"
+msgstr "Το μπάνερ ενημερώθηκε"
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -534,6 +536,11 @@ msgstr "Ακύρωση απάντησης"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "Ακυρώθηκε"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "Ακυρώθηκε"
 
@@ -1724,7 +1731,7 @@ msgstr "Ελάχιστο μήκος"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Mochi web"
-msgstr "Mochi web"
+msgstr "Mochi στον ιστό"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Moderation"
@@ -1804,13 +1811,17 @@ msgid "Never"
 msgstr "Ποτέ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Νέο"
 
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Νεότερα"
+
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
-msgstr "Νέο branch"
+msgstr "Νέος κλάδος"
 
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
@@ -1848,7 +1859,7 @@ msgstr "Δεν υπάρχει ακόμη δραστηριότητα"
 
 #: src/features/repository/branches-list.tsx
 msgid "No branches yet"
-msgstr "Δεν υπάρχουν ακόμη branches"
+msgstr "Δεν υπάρχουν ακόμη κλάδοι"
 
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
@@ -1977,9 +1988,13 @@ msgstr "Δεν βρέθηκε τίποτα"
 msgid "Notifications: {0}"
 msgstr "Ειδοποιήσεις: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "Αριθμός"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "Αριθμός"
 
@@ -2069,7 +2084,7 @@ msgstr "Κλειδιά πρόσβασης"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Τα passkeys δεν είναι διαθέσιμα σε αυτό το πρόγραμμα περιήγησης"
+msgstr "Τα κλειδιά πρόσβασης δεν είναι διαθέσιμα σε αυτό το πρόγραμμα περιήγησης"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2108,7 +2123,7 @@ msgstr "Ελέγξτε τη σύνδεσή σας στο διαδίκτυο κα
 
 #: src/components/clone-dialog.tsx
 msgid "Please enter a token name"
-msgstr "Εισαγάγετε ένα όνομα token"
+msgstr "Εισαγάγετε ένα όνομα διακριτικού"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "Please try again."
@@ -2150,7 +2165,7 @@ msgstr "Γίνεται επεξεργασία…"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Prompt saved"
-msgstr "Το prompt αποθηκεύτηκε"
+msgstr "Η προτροπή αποθηκεύτηκε"
 
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Properties"
@@ -2228,6 +2243,11 @@ msgstr "Συνάφεια {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Συνάφεια {relevance}, ενδιαφέρον {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Υπενθύμιση"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2702,7 +2722,7 @@ msgstr "Διακοπή παρακολούθησης"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Θέμα"
+msgstr "Χρήστης ή ομάδα"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "Αλλαγή κλάδου"
 msgid "Switch to view 1-9"
 msgstr "Εναλλαγή σε προβολή 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Σύστημα"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Σύστημα"
 
@@ -2761,9 +2785,18 @@ msgstr "Η ετικέτα πρέπει να έχει έως 50 χαρακτήρ�
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Ετικέτες"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Ετικέτες"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Με επιφύλαξη"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2805,7 +2838,7 @@ msgstr "Το αίτημα μικροφώνου δεν απαντήθηκε"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Το αίτημα passkey δεν απαντήθηκε"
+msgstr "Το αίτημα κλειδιού πρόσβασης δεν απαντήθηκε"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2817,7 +2850,7 @@ msgstr "Ο διακομιστής επέστρεψε ιστοσελίδα αντ
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Αυτή η εφαρμογή δεν επιτρέπεται να χρησιμοποιήσει το passkey σας. Επιτρέψτε το στις Ρυθμίσεις, στην ενότητα Δικαιώματα."
+msgstr "Αυτή η εφαρμογή δεν επιτρέπεται να χρησιμοποιήσει το κλειδί πρόσβασής σας. Επιτρέψτε το στις Ρυθμίσεις, στην ενότητα Δικαιώματα."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -2840,7 +2873,7 @@ msgstr "Αυτό θα διαγράψει οριστικά το «{currentName}»
 
 #: src/components/clone-dialog.tsx
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
-msgstr "Αυτό θα διαγράψει οριστικά το διακριτικό. Οι git clients που το χρησιμοποιούν δεν θα μπορούν πλέον να ταυτοποιούνται."
+msgstr "Αυτό θα διαγράψει οριστικά το διακριτικό. Οι πελάτες git που το χρησιμοποιούν δεν θα μπορούν πλέον να ταυτοποιούνται."
 
 #: src/features/repository/repository-header.tsx
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
@@ -2899,7 +2932,7 @@ msgstr "Πάρα πολλά αιτήματα"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Κορυφή"
+msgstr "Κορυφαία"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"

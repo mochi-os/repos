@@ -26,6 +26,11 @@ msgstr "(өңделді)"
 msgid "(expand)"
 msgstr "(жаю)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Атауы жоқ)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(сіз)"
@@ -71,7 +76,7 @@ msgstr "{0} тармақ"
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
 msgid "{0} commits"
-msgstr "{0} commit"
+msgstr "{0} коммит"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "{entityLabel} атауы"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "{from} – {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, one {+# тағы} other {+# тағы}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -380,7 +382,7 @@ msgstr "Аутентификацияланған пайдаланушылар"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Authenticator code"
-msgstr "Authenticator коды"
+msgstr "Аутентификатор коды"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Available keyboard shortcuts"
@@ -444,7 +446,7 @@ msgstr "Сенімсіз сілтемеге өту бөгелді"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx
 msgid "Blocks"
-msgstr "Bloks"
+msgstr "Бөгейді"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Board"
@@ -525,7 +527,7 @@ msgstr "Пікірден бас тарту"
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Cancel edit"
-msgstr "Өңдеуді бас тарту"
+msgstr "Өңдеуден бас тарту"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Cancel reply"
@@ -534,6 +536,11 @@ msgstr "Жауаптан бас тарту"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "Болдырылмады"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "Болдырылмады"
 
@@ -691,18 +698,18 @@ msgstr "Пікірлер ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "Коммит"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "Коммит {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "Commit табылмады"
+msgstr "Коммит табылмады"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
@@ -778,7 +785,7 @@ msgstr "Көшіру"
 #: src/features/repository/commit-details.tsx
 #: src/features/repository/commit-details.tsx
 msgid "Copy commit SHA"
-msgstr "commit SHA-ні көшіру"
+msgstr "Коммит SHA-ні көшіру"
 
 #: src/features/repository/blob-viewer.tsx
 #: src/features/repository/blob-viewer.tsx
@@ -1200,7 +1207,7 @@ msgstr "Электрондық поштаңыздағы кодты енгізі�
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Enter your authenticator code"
-msgstr "Authenticator кодын енгізіңіз"
+msgstr "Аутентификатор кодын енгізіңіз"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Entity:"
@@ -1462,7 +1469,7 @@ msgstr "Репозиторийлерді табу"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Fingerprint:"
-msgstr "Саусақ ізі:"
+msgstr "Қысқа идентификатор:"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Finish moving your account"
@@ -1768,7 +1775,7 @@ msgstr "{0} күніне жылжытылуда"
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Name"
-msgstr "Аты"
+msgstr "Атау"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -1778,7 +1785,7 @@ msgstr "Атта < немесе > таңбалары болмауы керек"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 msgid "Name is required"
-msgstr "Аты міндетті"
+msgstr "Атау міндетті"
 
 #: src/features/repository/create-repository-dialog.tsx
 #: src/features/repository/repository-tabs.tsx
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "Ешқашан"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Жаңа"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Ең жаңа"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,11 +1988,15 @@ msgstr "Ештеңе табылмады"
 msgid "Notifications: {0}"
 msgstr "Хабарландырулар: {0}"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
-#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Number"
 msgstr "Сан"
+
+#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
+#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
+msgctxt "item number"
+msgid "Number"
+msgstr "Нөмір"
 
 #: ../../../lib/web/src/components/filter-bar.tsx
 msgid "On"
@@ -2061,7 +2076,7 @@ msgstr "Кіру кілті"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Passkey тексеруі сәтсіз аяқталды. Қайталап көріңіз."
+msgstr "Кіру кілтін тексеру сәтсіз аяқталды. Қайталап көріңіз."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
@@ -2228,6 +2243,11 @@ msgstr "Өзектілік {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Өзектілік {relevance}, қызығушылық {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Еске салғыш"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2458,7 +2478,7 @@ msgstr "Іздеу"
 
 #: src/routes/_authenticated/find.tsx
 msgid "Search by name, ID, fingerprint, or URL..."
-msgstr "Аты, ID, fingerprint немесе URL бойынша іздеу..."
+msgstr "Аты, ID, қысқа идентификатор немесе URL бойынша іздеу..."
 
 #: ../../../lib/web/src/components/ui/command.tsx
 msgid "Search for a command to run..."
@@ -2702,7 +2722,7 @@ msgstr "Қарауды тоқтату"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Тақырып"
+msgstr "Пайдаланушы немесе топ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "Тармақты ауыстыру"
 msgid "Switch to view 1-9"
 msgstr "1-9 көрінісіне ауысу"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Жүйе"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Жүйе"
 
@@ -2761,9 +2785,18 @@ msgstr "Тег ең көбі 50 таңба болуы керек"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Тегтер"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Тегтер"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Алдын ала"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2789,7 +2822,7 @@ msgstr "Жүктеу үшін тым үлкен болды. Файлдарды �
 
 #: src/features/repository/repository-tabs.tsx
 msgid "The branch shown when viewing the repository"
-msgstr "Repository қарап шыққанда көрсетілетін тармақ"
+msgstr "Репозиторийді қарап шыққанда көрсетілетін тармақ"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The camera is already in use"
@@ -2805,7 +2838,7 @@ msgstr "Микрофон сұрауына жауап берілмеді"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Passkey сұрауына жауап берілмеді"
+msgstr "Кіру кілті сұрауына жауап берілмеді"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2817,7 +2850,7 @@ msgstr "Сервер деректердің орнына веб-бетті қа�
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Бұл қолданбаға сіздің passkey-іңізді пайдалануға рұқсат жоқ. Параметрлердегі Рұқсаттар бөлімінде рұқсат беріңіз."
+msgstr "Бұл қолданбаға сіздің кіру кілтіңізді пайдалануға рұқсат жоқ. Параметрлердегі Рұқсаттар бөлімінде рұқсат беріңіз."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -2828,7 +2861,7 @@ msgstr "Бұл файл көрсету үшін тым үлкен ({0})"
 #: src/routes/_authenticated/commit/$sha.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
-msgstr "Бұл бетке repository мәнмәтіні қажет."
+msgstr "Бұл бетке репозиторий мәнмәтіні қажет."
 
 #: ../../../lib/web/src/components/game/game-end-dialogs.tsx
 msgid "This permanently deletes the game and its chat. This cannot be undone."
@@ -2844,11 +2877,11 @@ msgstr "Бұл токенді біржола жояды. Оны пайдалан
 
 #: src/features/repository/repository-header.tsx
 msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
-msgstr "Бұл \"{name}\"-ді repository тізіміңізден жояды. Кейінірек қайта жазылуға болады."
+msgstr "Бұл \"{name}\"-ді репозиторий тізіміңізден жояды. Кейінірек қайта жазылуға болады."
 
 #: src/features/repository/repository-tabs.tsx
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
-msgstr "Бұл \"{repoName}\"-ді repository тізіміңізден жояды. Кейінірек қайта жазылуға болады."
+msgstr "Бұл \"{repoName}\"-ді репозиторий тізіміңізден жояды. Кейінірек қайта жазылуға болады."
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Thursday"
@@ -2899,7 +2932,7 @@ msgstr "Сұраулар тым көп"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Жоғары"
+msgstr "Үздіктер"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
@@ -2988,7 +3021,7 @@ msgstr "Жазылудан бас тарту"
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "Repository-дан жазылудан бас тарту керек пе?"
+msgstr "Репозиторийден жазылудан бас тарту керек пе?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"
@@ -2997,7 +3030,7 @@ msgstr "Жазылудан бас тартылды"
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribed from repository"
-msgstr "Repository-дан жазылудан бас тартылды"
+msgstr "Репозиторийден жазылудан бас тартылды"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
@@ -3039,7 +3072,7 @@ msgstr "Жүктеп салу барысы"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Passkey пайдаланыңыз"
+msgstr "Кіру кілтін пайдаланыңыз"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

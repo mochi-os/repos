@@ -26,6 +26,11 @@ msgstr "(kuhleliwe)"
 msgid "(expand)"
 msgstr "(yandlala)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Akukho sihloko)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(wena)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "Igama le-{entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "ukusuka ku-{from} ukuya ku-{to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, one {+# ngaphezulu} other {+# ngaphezulu}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -525,7 +527,7 @@ msgstr "Rhoxisa isiphawuli"
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Cancel edit"
-msgstr "Rhoxisa uhlelo"
+msgstr "Rhoxisa ukuhlela"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Cancel reply"
@@ -534,6 +536,11 @@ msgstr "Rhoxisa impendulo"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "Kurhoxisiwe"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "Kurhoxisiwe"
 
@@ -691,14 +698,14 @@ msgstr "Izimvo ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "I-commit"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "I-commit {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
@@ -881,7 +888,7 @@ msgstr "Indawo yangoku"
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 msgid "Custom"
-msgstr "Ngokwesiqhelo"
+msgstr "Yezifiso"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Dark"
@@ -1728,7 +1735,7 @@ msgstr "Iwebhu ye-Mochi"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Moderation"
-msgstr "Ulawulo"
+msgstr "Ulungelelwaniso"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Monday"
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "Soze"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Entsha"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Ezintsha"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,11 +1988,15 @@ msgstr "Akukho nto ifumanekileyo"
 msgid "Notifications: {0}"
 msgstr "Izaziso: {0}"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
-#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Number"
 msgstr "Inani"
+
+#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
+#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
+msgctxt "item number"
+msgid "Number"
+msgstr "Inombolo"
 
 #: ../../../lib/web/src/components/filter-bar.tsx
 msgid "On"
@@ -2228,6 +2243,11 @@ msgstr "Ukufaneleka {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Ukufaneleka {relevance}, umdla {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Isikhumbuzo"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2515,7 +2535,7 @@ msgstr "Iyakhangela..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "Khetha"
+msgstr "Ukhetho"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2702,7 +2722,7 @@ msgstr "Yeka ukubukela"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Isihloko"
+msgstr "Umsebenzisi okanye iqela"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "Tshintsha isebe"
 msgid "Switch to view 1-9"
 msgstr "Tshintshela kwijongo 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Inkqubo"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Inkqubo"
 
@@ -2761,9 +2785,18 @@ msgstr "Ithegi kufuneka ibe ngamagama angama-50 okanye ngaphantsi"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Iiletile"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Iithegi"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Okwexeshana"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2899,7 +2932,7 @@ msgstr "Izicelo ezininzi kakhulu"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Phezulu"
+msgstr "Ezigqwesileyo"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
@@ -2963,7 +2996,7 @@ msgstr "Impazamo ye-API engalindelekanga"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "United States"
-msgstr "United States"
+msgstr "IiZwe eziManyeneyo zaseMelika"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx

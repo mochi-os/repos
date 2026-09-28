@@ -26,6 +26,11 @@ msgstr "(แก้ไขแล้ว)"
 msgid "(expand)"
 msgstr "(ขยาย)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(ไม่มีชื่อ)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(คุณ)"
@@ -66,12 +71,12 @@ msgstr "{0, plural, other {# บรรทัด}}"
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
 msgid "{0} branches"
-msgstr "{0} branches"
+msgstr "{0} สาขา"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.commits.tsx
 msgid "{0} commits"
-msgstr "{0} commits"
+msgstr "{0} คอมมิต"
 
 #. placeholder {0}: tag.tagger
 #. placeholder {1}: formatTimestamp(tag.date)
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "ชื่อ {entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "{from} ถึง {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, other {+# รายการ}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -283,7 +285,7 @@ msgstr "Repository ทั้งหมด"
 #: src/features/repository/create-repository-dialog.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Allow anyone to read repository"
-msgstr "อนุญาตให้ใครก็ได้อ่าน repository"
+msgstr "อนุญาตให้ใครก็ได้อ่านที่เก็บ"
 
 #: ../../../lib/web/src/components/ui/create-entity-dialog.tsx
 msgid "Allow anyone to search for {entityLabel}"
@@ -292,7 +294,7 @@ msgstr "อนุญาตให้ทุกคนค้นหา{entityLabel}"
 #: src/features/repository/create-repository-dialog.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Allow anyone to search for repository"
-msgstr "อนุญาตให้ใครก็ได้ค้นหา repository"
+msgstr "อนุญาตให้ใครก็ได้ค้นหาที่เก็บ"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Allow sort by"
@@ -355,7 +357,7 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 
 #: src/routes/_authenticated/index.tsx
 msgid "Are you sure you want to unsubscribe from this repository?"
-msgstr "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการสมัครสมาชิก repository นี้?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการสมัครสมาชิกที่เก็บนี้?"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
@@ -380,7 +382,7 @@ msgstr "ผู้ใช้ที่ยืนยันตัวตนแล้ว
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Authenticator code"
-msgstr "รหัส Authenticator"
+msgstr "รหัสยืนยันตัวตน"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Available keyboard shortcuts"
@@ -469,15 +471,15 @@ msgstr "ลบสาขา \"{name}\" แล้ว"
 
 #: src/features/repository/branches-list.tsx
 msgid "Branch name"
-msgstr "ชื่อ branch"
+msgstr "ชื่อสาขา"
 
 #: src/features/repository/branches-list.tsx
 msgid "Branch name is required"
-msgstr "ต้องระบุชื่อ branch"
+msgstr "ต้องระบุชื่อสาขา"
 
 #: src/features/repository/tabs.tsx
 msgid "Branches"
-msgstr "Branch"
+msgstr "สาขา"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Browser notifications"
@@ -534,6 +536,11 @@ msgstr "ยกเลิกการตอบกลับ"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "ยกเลิกแล้ว"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "ยกเลิกแล้ว"
 
@@ -610,7 +617,7 @@ msgstr "ล้างการค้นหา"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone"
-msgstr "Clone"
+msgstr "โคลน"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone repository"
@@ -691,22 +698,22 @@ msgstr "ความคิดเห็น ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "คอมมิต"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "คอมมิต {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "ไม่พบ commit"
+msgstr "ไม่พบคอมมิต"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
-msgstr "Commit"
+msgstr "คอมมิต"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Compact"
@@ -825,12 +832,12 @@ msgstr "สร้างโทเค็นการตรวจสอบสิท
 
 #: src/routes/_authenticated/index.tsx
 msgid "Create a new repository"
-msgstr "สร้าง repository ใหม่"
+msgstr "สร้างที่เก็บใหม่"
 
 #: src/features/repository/branches-list.tsx
 #: src/features/repository/branches-list.tsx
 msgid "Create branch"
-msgstr "สร้าง branch"
+msgstr "สร้างสาขา"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Create new item"
@@ -840,7 +847,7 @@ msgstr "สร้างรายการใหม่"
 #: src/features/repository/create-repository-dialog.tsx
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Create repository"
-msgstr "สร้าง repository"
+msgstr "สร้างที่เก็บ"
 
 #: src/components/clone-dialog.tsx
 #: src/components/clone-dialog.tsx
@@ -913,7 +920,7 @@ msgstr "บัญชี AI เริ่มต้น"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Default branch"
-msgstr "Branch เริ่มต้น"
+msgstr "สาขาเริ่มต้น"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Default sort"
@@ -951,7 +958,7 @@ msgstr "ลบสาขา"
 
 #: src/features/repository/branches-list.tsx
 msgid "Delete branch?"
-msgstr "ลบ branch หรือไม่?"
+msgstr "ลบสาขาหรือไม่?"
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 msgid "Delete column"
@@ -988,11 +995,11 @@ msgstr "ลบตัวเลือก{0}"
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Delete repository"
-msgstr "ลบ repository"
+msgstr "ลบที่เก็บ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Delete repository?"
-msgstr "ลบ repository หรือไม่?"
+msgstr "ลบที่เก็บหรือไม่?"
 
 #: src/components/clone-dialog.tsx
 msgid "Delete token"
@@ -1184,7 +1191,7 @@ msgstr "ไดเรกทอรีว่างเปล่า"
 
 #: src/features/repository/file-browser.tsx
 msgid "Empty repository"
-msgstr "Repository ว่างเปล่า"
+msgstr "ที่เก็บว่างเปล่า"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
 msgid "Ends before it starts"
@@ -1204,7 +1211,7 @@ msgstr "ป้อนรหัสจากแอปยืนยันตัวต
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Entity:"
-msgstr "Entity:"
+msgstr "เอนทิตี:"
 
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Error"
@@ -1240,7 +1247,7 @@ msgstr "ไม่สามารถคัดลอกได้"
 
 #: src/features/repository/branches-list.tsx
 msgid "Failed to create branch"
-msgstr "ไม่สามารถสร้าง branch ได้"
+msgstr "ไม่สามารถสร้างสาขาได้"
 
 #: ../../../lib/web/src/components/entity/entity-object-links.tsx
 #: ../../../lib/web/src/components/options-menu.tsx
@@ -1250,11 +1257,11 @@ msgstr "ไม่สามารถสร้างลิงก์ได้"
 
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Failed to create repository"
-msgstr "ไม่สามารถสร้าง repository ได้"
+msgstr "ไม่สามารถสร้างที่เก็บได้"
 
 #: src/components/clone-dialog.tsx
 msgid "Failed to create token"
-msgstr "ไม่สามารถสร้าง token ได้"
+msgstr "ไม่สามารถสร้างโทเคนได้"
 
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Failed to delete"
@@ -1266,7 +1273,7 @@ msgstr "ไม่สามารถลบไฟล์แนบได้"
 
 #: src/features/repository/branches-list.tsx
 msgid "Failed to delete branch"
-msgstr "ไม่สามารถลบ branch ได้"
+msgstr "ไม่สามารถลบสาขาได้"
 
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "Failed to delete comment"
@@ -1278,11 +1285,11 @@ msgstr "ไม่สามารถลบลิงก์ได้"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Failed to delete repository"
-msgstr "ไม่สามารถลบ repository ได้"
+msgstr "ไม่สามารถลบที่เก็บได้"
 
 #: src/components/clone-dialog.tsx
 msgid "Failed to delete token"
-msgstr "ไม่สามารถลบ token ได้"
+msgstr "ไม่สามารถลบโทเคนได้"
 
 #: src/features/repository/blob-viewer.tsx
 msgid "Failed to download"
@@ -1294,11 +1301,11 @@ msgstr "ไม่สามารถดาวน์โหลดไฟล์เก
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Failed to get RSS token"
-msgstr "ไม่สามารถรับ RSS token ได้"
+msgstr "ไม่สามารถรับโทเคน RSS ได้"
 
 #: src/components/clone-dialog.tsx
 msgid "Failed to get token"
-msgstr "ไม่สามารถรับ token ได้"
+msgstr "ไม่สามารถรับโทเคนได้"
 
 #: ../../../lib/web/src/hooks/use-load-more.ts
 msgid "Failed to load"
@@ -1314,15 +1321,15 @@ msgstr "โหลดแบนเนอร์ไม่สำเร็จ"
 
 #: src/features/repository/branches-list.tsx
 msgid "Failed to load branches"
-msgstr "ไม่สามารถโหลด branches ได้"
+msgstr "ไม่สามารถโหลดสาขาได้"
 
 #: src/features/repository/commit-details.tsx
 msgid "Failed to load commit"
-msgstr "ไม่สามารถโหลด commit ได้"
+msgstr "ไม่สามารถโหลดคอมมิตได้"
 
 #: src/features/repository/commits-list.tsx
 msgid "Failed to load commits"
-msgstr "ไม่สามารถโหลด commits ได้"
+msgstr "ไม่สามารถโหลดคอมมิตได้"
 
 #: src/features/repository/file-browser.tsx
 msgid "Failed to load files"
@@ -1367,11 +1374,11 @@ msgstr "ไม่สามารถเอาการเข้าถึงออ
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Failed to rename repository"
-msgstr "ไม่สามารถเปลี่ยนชื่อ repository ได้"
+msgstr "ไม่สามารถเปลี่ยนชื่อที่เก็บได้"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to reset prompt"
-msgstr "ไม่สามารถรีเซ็ต prompt ได้"
+msgstr "ไม่สามารถรีเซ็ตพรอมต์ได้"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Failed to revoke RSS access"
@@ -1383,7 +1390,7 @@ msgstr "ไม่สามารถบันทึกได้"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Failed to save prompt"
-msgstr "ไม่สามารถบันทึก prompt ได้"
+msgstr "ไม่สามารถบันทึกพรอมต์ได้"
 
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
@@ -1458,11 +1465,11 @@ msgstr "ไฟล์"
 #: src/components/layout/repositories-layout.tsx
 #: src/routes/_authenticated/find.tsx
 msgid "Find repositories"
-msgstr "ค้นหา repositories"
+msgstr "ค้นหาที่เก็บ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Fingerprint:"
-msgstr "Fingerprint:"
+msgstr "ลายนิ้วมือ:"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Finish moving your account"
@@ -1470,7 +1477,7 @@ msgstr "เสร็จสิ้นการย้ายบัญชี"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Flags"
-msgstr "Flags"
+msgstr "แฟล็ก"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Flat"
@@ -1540,7 +1547,7 @@ msgstr "รหัส"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
-msgstr "Identity"
+msgstr "ตัวตน"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1549,7 +1556,7 @@ msgstr "โปรแกรมดูรูปภาพ: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Imperial"
-msgstr "Imperial"
+msgstr "อิมพีเรียล"
 
 #: ../../../lib/web/src/features/access/types.ts
 msgid "Including anonymous users"
@@ -1804,13 +1811,17 @@ msgid "Never"
 msgstr "ไม่เลย"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "ใหม่"
 
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "ใหม่ล่าสุด"
+
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
-msgstr "branch ใหม่"
+msgstr "สาขาใหม่"
 
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
 #: ../../../lib/web/src/components/game/game-empty-state.tsx
@@ -1977,11 +1988,15 @@ msgstr "ไม่พบสิ่งใด"
 msgid "Notifications: {0}"
 msgstr "การแจ้งเตือน: {0}"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
-#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Number"
 msgstr "ตัวเลข"
+
+#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
+#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
+msgctxt "item number"
+msgid "Number"
+msgstr "หมายเลข"
 
 #: ../../../lib/web/src/components/filter-bar.tsx
 msgid "On"
@@ -2069,24 +2084,24 @@ msgstr "พาสคีย์"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeys ไม่พร้อมใช้งานในเบราว์เซอร์นี้"
+msgstr "พาสคีย์ไม่พร้อมใช้งานในเบราว์เซอร์นี้"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Path"
-msgstr "Path"
+msgstr "เส้นทาง"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path is required"
-msgstr "ต้องระบุ path"
+msgstr "ต้องระบุเส้นทาง"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path updated"
-msgstr "อัปเดต path แล้ว"
+msgstr "อัปเดตเส้นทางแล้ว"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path:"
-msgstr "Path:"
+msgstr "เส้นทาง:"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Pattern (regex)"
@@ -2098,7 +2113,7 @@ msgstr "ผู้คน"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
-msgstr "ลบ repository นี้และข้อมูลทั้งหมดอย่างถาวร"
+msgstr "ลบที่เก็บนี้และข้อมูลทั้งหมดอย่างถาวร"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2150,7 +2165,7 @@ msgstr "กำลังประมวลผล…"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Prompt saved"
-msgstr "บันทึก prompt แล้ว"
+msgstr "บันทึกพรอมต์แล้ว"
 
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 msgid "Properties"
@@ -2228,6 +2243,11 @@ msgstr "ความเกี่ยวข้อง {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "ความเกี่ยวข้อง {relevance}, ความสนใจ {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "การแจ้งเตือน"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2317,7 +2337,7 @@ msgstr "ตอบกลับ {0}..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "Repositories"
+msgstr "ที่เก็บข้อมูล"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2338,11 +2358,11 @@ msgstr "ที่เก็บ"
 
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Repository created"
-msgstr "สร้าง repository แล้ว"
+msgstr "สร้างที่เก็บแล้ว"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository deleted"
-msgstr "ลบ repository แล้ว"
+msgstr "ลบที่เก็บแล้ว"
 
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
@@ -2355,15 +2375,15 @@ msgstr "ลิงก์ที่เก็บ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository name is required"
-msgstr "ต้องระบุชื่อ repository"
+msgstr "ต้องระบุชื่อที่เก็บ"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Repository not found"
-msgstr "ไม่พบ repository"
+msgstr "ไม่พบที่เก็บ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Repository renamed"
-msgstr "เปลี่ยนชื่อ repository แล้ว"
+msgstr "เปลี่ยนชื่อที่เก็บแล้ว"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Required"
@@ -2515,7 +2535,7 @@ msgstr "กำลังค้นหา..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "เลือก"
+msgstr "ตัวเลือก"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2702,7 +2722,7 @@ msgstr "หยุดติดตาม"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "หัวเรื่อง"
+msgstr "ผู้ใช้หรือกลุ่ม"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "สลับสาขา"
 msgid "Switch to view 1-9"
 msgstr "เปลี่ยนเป็นมุมมอง 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "ระบบ"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "ระบบ"
 
@@ -2761,9 +2785,18 @@ msgstr "แท็กต้องมีไม่เกิน 50 อักขร�
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "แท็ก"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "แท็ก"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "ยังไม่แน่นอน"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2805,7 +2838,7 @@ msgstr "คำขอไมโครโฟนไม่ได้รับการ
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "คำขอ passkey ไม่ได้รับการตอบกลับ"
+msgstr "คำขอพาสคีย์ไม่ได้รับการตอบกลับ"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2817,7 +2850,7 @@ msgstr "เซิร์ฟเวอร์ส่งคืนหน้าเว็
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "แอปนี้ไม่ได้รับอนุญาตให้ใช้ passkey ของคุณ อนุญาตได้ในการตั้งค่า ภายใต้สิทธิ์"
+msgstr "แอปนี้ไม่ได้รับอนุญาตให้ใช้พาสคีย์ของคุณ อนุญาตได้ในการตั้งค่า ภายใต้สิทธิ์"
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -2899,7 +2932,7 @@ msgstr "คำขอมากเกินไป"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "บนสุด"
+msgstr "คะแนนสูงสุด"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"

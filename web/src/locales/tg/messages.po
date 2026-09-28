@@ -26,6 +26,11 @@ msgstr "(таҳриршуда)"
 msgid "(expand)"
 msgstr "(васеъ кардан)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Бе сарлавҳа)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(шумо)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "Номи {entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "аз {from} то {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, one {+# бештар} other {+# бештар}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -309,7 +311,7 @@ msgstr "Хатогии ғайричашмдошт рух дод"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Android push"
-msgstr "Push барои Android"
+msgstr "Огоҳиҳои пуш барои Android"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 #: ../../../lib/web/src/features/access/types.ts
@@ -380,7 +382,7 @@ msgstr "Корбарони тасдиқшуда"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Authenticator code"
-msgstr "Коди Authenticator"
+msgstr "Коди аутентификатор"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Available keyboard shortcuts"
@@ -425,7 +427,7 @@ msgstr "Баннер навсозӣ шуд"
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "Binary file ({0})"
-msgstr "Файли binary ({0})"
+msgstr "Файли дуӣ ({0})"
 
 #: ../../../lib/web/src/components/member-list.tsx
 #: ../../../lib/web/src/components/member-list.tsx
@@ -537,6 +539,11 @@ msgstr "Бекор кардани ҷавоб"
 msgid "Cancelled"
 msgstr "Бекор карда шуд"
 
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Cancelled"
+msgstr "Бекор карда шуд"
+
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
 msgid "Caption"
@@ -610,11 +617,11 @@ msgstr "Тоза кардани ҷустуҷӯ"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone"
-msgstr "Clone"
+msgstr "Клон кардан"
 
 #: src/components/clone-dialog.tsx
 msgid "Clone repository"
-msgstr "Clone-и захирагоҳ"
+msgstr "Клон кардани захирагоҳ"
 
 #: ../../../lib/web/src/components/ui/dialog.tsx
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -691,18 +698,18 @@ msgstr "Шарҳҳо ({0})"
 
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit"
-msgstr "Commit"
+msgstr "Коммит"
 
 #. placeholder {0}: sha.substring(0, 7)
 #. placeholder {1}: data.name
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
 msgid "Commit {0} - {1}"
-msgstr "Commit {0} - {1}"
+msgstr "Коммит {0} - {1}"
 
 #: src/features/repository/commit-details.tsx
 msgid "Commit not found"
-msgstr "Commit ёфт нашуд"
+msgstr "Коммит ёфт нашуд"
 
 #: src/features/repository/tabs.tsx
 msgid "Commits"
@@ -778,7 +785,7 @@ msgstr "Нусхабардорӣ"
 #: src/features/repository/commit-details.tsx
 #: src/features/repository/commit-details.tsx
 msgid "Copy commit SHA"
-msgstr "commit SHA-ро нусха кардан"
+msgstr "SHA-и коммитро нусха кардан"
 
 #: src/features/repository/blob-viewer.tsx
 #: src/features/repository/blob-viewer.tsx
@@ -1075,7 +1082,7 @@ msgstr "Ҷудо шуда"
 #: ../../../lib/web/src/components/restore-banner.tsx
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Dismiss"
-msgstr "Рад кардан"
+msgstr "Пӯшидан"
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx
 msgid "Displays the mobile sidebar."
@@ -1318,7 +1325,7 @@ msgstr "Боркунии шохчаҳо ба анҷом нарасид"
 
 #: src/features/repository/commit-details.tsx
 msgid "Failed to load commit"
-msgstr "Боркунии commit ба анҷом нарасид"
+msgstr "Боркунии коммит ба анҷом нарасид"
 
 #: src/features/repository/commits-list.tsx
 msgid "Failed to load commits"
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "Ҳеҷ гоҳ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Нав"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Навтарин"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,9 +1988,13 @@ msgstr "Чизе ёфт нашуд"
 msgid "Notifications: {0}"
 msgstr "Огоҳиномаҳо: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "Рақам"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "Рақам"
 
@@ -2094,7 +2109,7 @@ msgstr "Намуна (regex)"
 
 #: ../../../lib/web/src/components/person-picker.tsx
 msgid "People"
-msgstr "Шахсон"
+msgstr "Одамон"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
@@ -2158,7 +2173,7 @@ msgstr "Хусусиятҳо"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Push notification"
-msgstr "Огоҳиномаи push"
+msgstr "Огоҳиномаи пуш"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Raised"
@@ -2228,6 +2243,11 @@ msgstr "Мувофиқат {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Мувофиқат {relevance}, таваҷҷуҳ {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Ёдоварӣ"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2317,7 +2337,7 @@ msgstr "Ҷавоб ба {0}..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "Рамзгузориҳо"
+msgstr "Анборҳо"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2702,7 +2722,7 @@ msgstr "Назоратро қатъ кардан"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Мавзӯъ"
+msgstr "Корбар ё гурӯҳ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "Шохаро иваз кунед"
 msgid "Switch to view 1-9"
 msgstr "Гузариш ба назари 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Система"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Система"
 
@@ -2761,9 +2785,18 @@ msgstr "Барчасп бояд то 50 аломат бошад"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Барчаспҳо"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Барчаспҳо"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Пешакӣ"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2899,7 +2932,7 @@ msgstr "Дархостҳои аз ҳад зиёд"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Боло"
+msgstr "Беҳтарин"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"

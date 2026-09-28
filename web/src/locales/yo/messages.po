@@ -26,6 +26,11 @@ msgstr "(a tunṣe)"
 msgid "(expand)"
 msgstr "(fẹ̀ jáde)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Kò sí àkọlé)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(ìwọ)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "Orúkọ {entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "láti {from} sí {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, other {+# mìíràn}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -309,7 +311,7 @@ msgstr "Àṣìṣe àìròtẹ́lẹ̀ kan wáyé"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Android push"
-msgstr "Android push"
+msgstr "Ìfitónilétí push Android"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 #: ../../../lib/web/src/features/access/types.ts
@@ -412,7 +414,7 @@ msgstr "Pada si ile"
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/entity-banner.tsx
 msgid "Banner"
-msgstr "Banner"
+msgstr "Àsíá"
 
 #: ../../../lib/web/src/components/banner-section.tsx
 msgid "Banner removed"
@@ -525,7 +527,7 @@ msgstr "Fagilé àlàyé"
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Cancel edit"
-msgstr "Fagilee atunṣe"
+msgstr "Fagilé àtúnṣe"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Cancel reply"
@@ -534,6 +536,11 @@ msgstr "Fagilé ìdáhùn"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "Tí a fagilé"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "Tí a fagilé"
 
@@ -881,7 +888,7 @@ msgstr "Ipò lọ́wọ́lọ́wọ́"
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 msgid "Custom"
-msgstr "Àṣà"
+msgstr "Àdáni"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Dark"
@@ -901,23 +908,23 @@ msgstr "Kọ̀"
 
 #: src/features/repository/branches-list.tsx
 msgid "default"
-msgstr "ìpilẹ̀ṣẹ̀"
+msgstr "àìyípadà"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Default"
-msgstr "Àìpé"
+msgstr "Àìyípadà"
 
 #: ../../../lib/web/src/features/accounts/account-add.tsx
 msgid "Default AI account"
-msgstr "Àkáǹtì AI àìpé"
+msgstr "Àkáǹtì AI àìyípadà"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Default branch"
-msgstr "Branch àìpé"
+msgstr "Branch àìyípadà"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Default sort"
-msgstr "Ìtò àìpé"
+msgstr "Ìtò àìyípadà"
 
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
 #: ../../../lib/web/src/components/entity/entity-board-column.tsx
@@ -1104,7 +1111,7 @@ msgstr "Gbà sílẹ̀"
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
 msgid "Download failed"
-msgstr "Ìgbasílẹ̀ kùnà"
+msgstr "Ìgbàsílẹ̀ kùnà"
 
 #: src/features/repository/blob-viewer.tsx
 #: src/features/repository/blob-viewer.tsx
@@ -1215,7 +1222,7 @@ msgstr "Àṣìṣe"
 #: ../../../lib/web/src/components/tree-row.tsx
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Expand"
-msgstr "Ṣílẹ̀kùn"
+msgstr "Gbòòrò"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
@@ -1549,7 +1556,7 @@ msgstr "Ẹ̀rọ ìwo àwòrán: {0}"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Imperial"
-msgstr "Imperial"
+msgstr "Òṣùwọ̀n Gẹ̀ẹ́sì"
 
 #: ../../../lib/web/src/features/access/types.ts
 msgid "Including anonymous users"
@@ -1744,7 +1751,7 @@ msgstr "Awọn iṣẹ síwájú síi"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "More options"
-msgstr "Awọn aṣayan diẹ sii"
+msgstr "Àwọn àṣàyàn síwájú sí i"
 
 #: ../../../lib/web/src/components/entity/entity-activity-list.tsx
 msgid "Moved"
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "Láéláé"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Tuntun"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Tuntun jùlọ"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,9 +1988,13 @@ msgstr "A kò rí ohunkóhun"
 msgid "Notifications: {0}"
 msgstr "Àwọn ìfitónilétí: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "Nọ́mbà"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "Nọ́mbà"
 
@@ -2229,6 +2244,11 @@ msgstr "Ìbáramu {relevance}"
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Ìbáramu {relevance}, ìfẹ́ {weight}"
 
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Ìránnilétí"
+
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
@@ -2317,7 +2337,7 @@ msgstr "Dáhùn {0}..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "Àwọn repo"
+msgstr "Àwọn repository"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2383,7 +2403,7 @@ msgstr "Fi eré sílẹ̀?"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 msgid "Retry"
-msgstr "Gbìyànjú lẹ́ẹ̀kan si"
+msgstr "Gbìyànjú lẹ́ẹ̀kan sí i"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
@@ -2515,7 +2535,7 @@ msgstr "Ń wá..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "Yan"
+msgstr "Àṣàyàn"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2543,7 +2563,7 @@ msgstr "Yan branch"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Select default branch"
-msgstr "Yan branch ìpilẹ̀"
+msgstr "Yan branch àìyípadà"
 
 #: ../../../lib/web/src/features/access/access-dialog.tsx
 msgid "Select group"
@@ -2681,7 +2701,7 @@ msgstr "Ṣètò"
 
 #: src/features/repository/branches-list.tsx
 msgid "Source branch"
-msgstr "Source branch"
+msgstr "Ẹ̀ka orísun"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Sources"
@@ -2702,7 +2722,7 @@ msgstr "Dáwọ́ ìríran dúró"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Àkòrí"
+msgstr "Olùmúlò tàbí ẹgbẹ́"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,11 +2765,15 @@ msgstr "Yí ẹ̀ka padà"
 msgid "Switch to view 1-9"
 msgstr "Yí padà sí ìwòye 1-9"
 
-#: ../../../lib/web/src/components/audit-timeline.tsx
 #: ../../../lib/web/src/lib/preference-utils.ts
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "System"
-msgstr "System"
+msgstr "Sístẹ́mù"
+
+#: ../../../lib/web/src/components/audit-timeline.tsx
+msgctxt "actor"
+msgid "System"
+msgstr "Sístẹ́mù"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Tag already exists"
@@ -2761,9 +2785,18 @@ msgstr "Àmì gbọ́dọ̀ jẹ́ àwọn lẹ́tà 50 tàbí kéré sí"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Àwọn tag"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Àwọn tag"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Fún ìgbà díẹ̀"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2899,7 +2932,7 @@ msgstr "Àwọn ìbéèrè ti pọ̀ jù"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Òkè"
+msgstr "Tó dára jùlọ"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
@@ -2963,7 +2996,7 @@ msgstr "Àṣìṣe API tí a kò retí"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "United States"
-msgstr "United States"
+msgstr "Orílẹ̀-èdè Amẹ́ríkà"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -3045,7 +3078,7 @@ msgstr "Lo passkey rẹ"
 #: ../../../lib/web/src/features/access/access-dialog.tsx
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "User"
-msgstr "User"
+msgstr "Olùmúlò"
 
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 msgid "Variables: {variables}"

@@ -26,6 +26,11 @@ msgstr "(diédit)"
 msgid "(expand)"
 msgstr "(buka)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(Tanpa judul)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(anjeun)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "Ngaran {entityLabel}"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "{from} nepi ka {to}"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, other {+# deui}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -359,7 +361,7 @@ msgstr "Anjeun yakin hayang eureun langganan ti répositori ieu?"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
-msgstr "Naek"
+msgstr "Naék"
 
 #: ../../../lib/web/src/components/timezone-select.tsx
 msgid "At sea"
@@ -477,7 +479,7 @@ msgstr "Ngaran branch diperlukeun"
 
 #: src/features/repository/tabs.tsx
 msgid "Branches"
-msgstr "Branches"
+msgstr "Cabang"
 
 #: ../../../lib/web/src/features/accounts/types.ts
 msgid "Browser notifications"
@@ -534,6 +536,11 @@ msgstr "Batalkeun balesan"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "Dibatalkeun"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "Dibatalkeun"
 
@@ -881,7 +888,7 @@ msgstr "Lokasi ayeuna"
 #: ../../../lib/web/src/components/ai-prompts-editor.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 msgid "Custom"
-msgstr "Adat"
+msgstr "Kustom"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Dark"
@@ -1075,7 +1082,7 @@ msgstr "Pegat"
 #: ../../../lib/web/src/components/restore-banner.tsx
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Dismiss"
-msgstr "Pasini"
+msgstr "Tutup"
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx
 msgid "Displays the mobile sidebar."
@@ -1444,7 +1451,7 @@ msgstr "feature/my-feature"
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 msgid "file"
-msgstr "file"
+msgstr "berkas"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1462,7 +1469,7 @@ msgstr "Téangan répositori"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Fingerprint:"
-msgstr "Fingerprint:"
+msgstr "Sidik ramo:"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Finish moving your account"
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "Tara"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "Anyar"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "Panganyarna"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,11 +1988,15 @@ msgstr "Teu manggih nanaon"
 msgid "Notifications: {0}"
 msgstr "Wawaran: {0}"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
-#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Number"
 msgstr "Wilangan"
+
+#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
+#: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
+msgctxt "item number"
+msgid "Number"
+msgstr "Nomer"
 
 #: ../../../lib/web/src/components/filter-bar.tsx
 msgid "On"
@@ -2074,7 +2089,7 @@ msgstr "Passkey teu sayaga dina browser ieu"
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
 msgid "Path"
-msgstr "Path"
+msgstr "Jalur"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path is required"
@@ -2086,7 +2101,7 @@ msgstr "Path diropéa"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Path:"
-msgstr "Path:"
+msgstr "Jalur:"
 
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
 msgid "Pattern (regex)"
@@ -2228,6 +2243,11 @@ msgstr "Relevansi {relevance}"
 #: ../../../lib/web/src/components/post-tags.tsx
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "Relevansi {relevance}, minat {weight}"
+
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "Panginget"
 
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
@@ -2515,7 +2535,7 @@ msgstr "Maluruh..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "Pilih"
+msgstr "Pilihan"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2650,7 +2670,7 @@ msgstr "Némbongkeun {totalShown} ti {total}"
 
 #: ../../../lib/web/src/components/ui/sidebar.tsx
 msgid "Sidebar"
-msgstr "Sidebar"
+msgstr "Bar sisi"
 
 #: ../../../lib/web/src/features/errors/access-denied-error.tsx
 msgid "Sign in with an account that has access <0/> to this resource."
@@ -2702,7 +2722,7 @@ msgstr "Eureun nempo"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "Subjek"
+msgstr "Pamaké atawa grup"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "Ganti cabang"
 msgid "Switch to view 1-9"
 msgstr "Pindah ka tampilan 1-9"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "Sistem"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "Sistem"
 
@@ -2761,9 +2785,18 @@ msgstr "Tag kudu 50 karakter atawa kurang"
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "Tag"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "Tag"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "Samentawis"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -2899,7 +2932,7 @@ msgstr "Seueur teuing pamundut"
 
 #: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "Top"
-msgstr "Luhur"
+msgstr "Pangalusna"
 
 #: ../../../lib/web/src/components/travelling-picker.tsx
 msgid "Travelling"
@@ -3014,7 +3047,7 @@ msgstr "Tanpa judul"
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Updated"
-msgstr "Diapdet"
+msgstr "Diropéa"
 
 #: ../../../lib/web/src/components/entity/entity-activity-list.tsx
 msgid "Updated {field}"

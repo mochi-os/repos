@@ -26,6 +26,11 @@ msgstr "(ಸಂಪಾದಿಸಲಾಗಿದೆ)"
 msgid "(expand)"
 msgstr "(ವಿಸ್ತರಿಸಿ)"
 
+#: ../../../lib/web/src/components/calendar/event-title.tsx
+#: ../../../lib/web/src/components/calendar/tooltip.ts
+msgid "(No title)"
+msgstr "(ಶೀರ್ಷಿಕೆ ಇಲ್ಲ)"
+
 #: ../../../lib/web/src/components/member-list.tsx
 msgid "(you)"
 msgstr "(ನೀವು)"
@@ -110,13 +115,10 @@ msgid "{entityLabel} name"
 msgstr "{entityLabel} ಹೆಸರು"
 
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "{from} to {to}"
 msgstr "{from} ರಿಂದ {to} ವರೆಗೆ"
-
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "{hidden, plural, one {+# more} other {+# more}}"
-msgstr "{hidden, plural, one {+# ಇನ್ನಷ್ಟು} other {+# ಇನ್ನಷ್ಟು}}"
 
 #: ../../../lib/web/src/components/game/game-draw-offer-banner.tsx
 msgid "{opponentName} offered a draw"
@@ -380,7 +382,7 @@ msgstr "ದೃಢೀಕೃತ ಬಳಕೆದಾರರು"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Authenticator code"
-msgstr "Authenticator ಕೋಡ್"
+msgstr "ಅಥೆಂಟಿಕೇಟರ್ ಕೋಡ್"
 
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Available keyboard shortcuts"
@@ -534,6 +536,11 @@ msgstr "ಪ್ರತ್ಯುತ್ತರ ರದ್ದುಮಾಡಿ"
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
 #: ../../../lib/web/src/lib/shell-errors.ts
+msgid "Cancelled"
+msgstr "ರದ್ದಾಗಿದೆ"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
 msgid "Cancelled"
 msgstr "ರದ್ದಾಗಿದೆ"
 
@@ -778,7 +785,7 @@ msgstr "ನಕಲಿಸಿ"
 #: src/features/repository/commit-details.tsx
 #: src/features/repository/commit-details.tsx
 msgid "Copy commit SHA"
-msgstr "commit SHA ನಕಲಿಸಿ"
+msgstr "ಕಮಿಟ್ SHA ನಕಲಿಸಿ"
 
 #: src/features/repository/blob-viewer.tsx
 #: src/features/repository/blob-viewer.tsx
@@ -1099,7 +1106,7 @@ msgstr "ಮುಗಿಯಿತು"
 #: src/components/download-dropdown.tsx
 #: src/components/download-dropdown.tsx
 msgid "Download"
-msgstr "ಡೌನ್‌ಲೋಡ್"
+msgstr "ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
 
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1200,7 +1207,7 @@ msgstr "ನಿಮ್ಮ ಇಮೇಲ್‌ನಿಂದ ಕೋಡ್ ನಮೂದ
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Enter your authenticator code"
-msgstr "ನಿಮ್ಮ authenticator ಕೋಡ್ ನಮೂದಿಸಿ"
+msgstr "ನಿಮ್ಮ ಅಥೆಂಟಿಕೇಟರ್ ಕೋಡ್ ನಮೂದಿಸಿ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Entity:"
@@ -1804,9 +1811,13 @@ msgid "Never"
 msgstr "ಎಂದಿಗೂ ಇಲ್ಲ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
-#: ../../../lib/web/src/components/ui/sort-selector.tsx
 msgid "New"
 msgstr "ಹೊಸ"
+
+#: ../../../lib/web/src/components/ui/sort-selector.tsx
+msgctxt "sort order"
+msgid "New"
+msgstr "ಇತ್ತೀಚಿನ"
 
 #: src/features/repository/branches-list.tsx
 msgid "New branch"
@@ -1977,9 +1988,13 @@ msgstr "ಏನೂ ಸಿಗಲಿಲ್ಲ"
 msgid "Notifications: {0}"
 msgstr "ಅಧಿಸೂಚನೆಗಳು: {0}"
 
+#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgid "Number"
+msgstr "ಸಂಖ್ಯೆ"
+
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
-#: ../../../lib/web/src/hooks/use-field-type-labels.ts
+msgctxt "item number"
 msgid "Number"
 msgstr "ಸಂಖ್ಯೆ"
 
@@ -2229,6 +2244,11 @@ msgstr "ಪ್ರಸ್ತುತತೆ {relevance}"
 msgid "Relevance {relevance}, interest {weight}"
 msgstr "ಪ್ರಸ್ತುತತೆ {relevance}, ಆಸಕ್ತಿ {weight}"
 
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+#: ../../../lib/web/src/components/calendar/time-grid.tsx
+msgid "Reminder"
+msgstr "ಜ್ಞಾಪನೆ"
+
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/attachment-composer.tsx
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
@@ -2317,7 +2337,7 @@ msgstr "{0} ಗೆ ಪ್ರತ್ಯುತ್ತರ..."
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Repositories"
-msgstr "ರೆಪೊಸಿಟರಿಗಳು"
+msgstr "ರೆಪಾಸಿಟರಿಗಳು"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
@@ -2515,7 +2535,7 @@ msgstr "ಹುಡುಕಲಾಗುತ್ತಿದೆ..."
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Select"
-msgstr "ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ಆಯ್ಕೆ"
 
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Select a field"
@@ -2702,7 +2722,7 @@ msgstr "ವೀಕ್ಷಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿ"
 
 #: ../../../lib/web/src/features/access/access-list.tsx
 msgid "Subject"
-msgstr "ವಿಷಯ"
+msgstr "ಬಳಕೆದಾರ ಅಥವಾ ಗುಂಪು"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Submit comment"
@@ -2745,9 +2765,13 @@ msgstr "ಶಾಖೆ ಬದಲಾಯಿಸಿ"
 msgid "Switch to view 1-9"
 msgstr "ವೀಕ್ಷಣೆ 1-9 ಗೆ ಬದಲಾಯಿಸಿ"
 
+#: ../../../lib/web/src/lib/preference-utils.ts
+#: ../../../lib/web/src/lib/preference-utils.ts
+msgid "System"
+msgstr "ಸಿಸ್ಟಮ್"
+
 #: ../../../lib/web/src/components/audit-timeline.tsx
-#: ../../../lib/web/src/lib/preference-utils.ts
-#: ../../../lib/web/src/lib/preference-utils.ts
+msgctxt "actor"
 msgid "System"
 msgstr "ಸಿಸ್ಟಮ್"
 
@@ -2761,9 +2785,18 @@ msgstr "ಟ್ಯಾಗ್ 50 ಅಕ್ಷರಗಳು ಅಥವಾ ಕಡಿಮ
 
 #: ../../../lib/web/src/components/post-tags.tsx
 #: ../../../lib/web/src/components/post-tags.tsx
-#: src/features/repository/tabs.tsx
 msgid "Tags"
 msgstr "ಟ್ಯಾಗ್‌ಗಳು"
+
+#: src/features/repository/tabs.tsx
+msgctxt "git tags"
+msgid "Tags"
+msgstr "ಟ್ಯಾಗ್‌ಗಳು"
+
+#: ../../../lib/web/src/components/calendar/status.ts
+msgctxt "event status"
+msgid "Tentative"
+msgstr "ತಾತ್ಕಾಲಿಕ"
 
 #: ../../../lib/web/src/components/server-documents-footer.tsx
 #: ../../../lib/web/src/features/document/document-page.tsx
@@ -3053,7 +3086,7 @@ msgstr "ವೇರಿಯೇಬಲ್‌ಗಳು: {variables}"
 
 #: ../../../lib/web/src/features/accounts/account-verify.tsx
 msgid "Verification code"
-msgstr "ಪರಿಶೀಲನೆ ಕೋಡ್"
+msgstr "ಪರಿಶೀಲನಾ ಕೋಡ್"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/features/accounts/account-verify.tsx
