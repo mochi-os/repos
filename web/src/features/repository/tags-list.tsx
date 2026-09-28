@@ -7,6 +7,7 @@ import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Card,
   CardContent,
+  EmptyState,
   Skeleton,
   getErrorMessage,
   useFormat,
@@ -70,14 +71,7 @@ export function TagsList({ repoId, fingerprint }: TagsListProps) {
   })
 
   if (tags.length === 0) {
-    return (
-      <div className='text-muted-foreground p-8 text-center'>
-        <Tag className='mx-auto mb-4 h-12 w-12 opacity-50' />
-        <p>
-          <Trans>No tags yet</Trans>
-        </p>
-      </div>
-    )
+    return <EmptyState icon={Tag} title={t`No tags yet`} />
   }
 
   return (

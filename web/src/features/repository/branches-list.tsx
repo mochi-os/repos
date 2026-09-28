@@ -10,6 +10,7 @@ import {
   CardContent,
   Badge,
   Button,
+  EmptyState,
   Skeleton,
   ResponsiveDialog,
   ResponsiveDialogContent,
@@ -145,12 +146,7 @@ export function BranchesList({
       )}
 
       {branches.length === 0 ? (
-        <div className='text-muted-foreground p-8 text-center'>
-          <GitBranch className='mx-auto mb-4 h-12 w-12 opacity-50' />
-          <p>
-            <Trans>No branches yet</Trans>
-          </p>
-        </div>
+        <EmptyState icon={GitBranch} title={t`No branches yet`} />
       ) : (
         <Card>
           <CardContent className='divide-y p-0'>
