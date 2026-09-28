@@ -271,6 +271,7 @@ export function BranchesList({
         title={t`Delete branch?`}
         desc={t`Delete "${branchToDelete}"? This cannot be undone.`}
         confirmText={t`Delete`}
+        destructive
         isLoading={deleteBranch.isPending}
         handleConfirm={handleDelete}
       />
