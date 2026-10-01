@@ -3,10 +3,11 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { Link } from '@tanstack/react-router'
-import { Trans, useLingui } from '@lingui/react/macro'
+import { useLingui } from '@lingui/react/macro'
 import {
   Card,
   CardContent,
+  EmptyState,
   EntityAvatar,
   Skeleton,
   getErrorMessage,
@@ -54,14 +55,7 @@ export function CommitsList({
   }
 
   if (commits.length === 0) {
-    return (
-      <div className='text-muted-foreground p-8 text-center'>
-        <GitCommit className='mx-auto mb-4 h-12 w-12 opacity-50' />
-        <p>
-          <Trans>No commits yet</Trans>
-        </p>
-      </div>
-    )
+    return <EmptyState icon={GitCommit} title={t`No commits yet`} />
   }
 
   return (

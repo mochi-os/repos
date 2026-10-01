@@ -5,11 +5,11 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from '@tanstack/react-router'
 import { t, plural } from '@lingui/core/macro'
-import { Trans } from '@lingui/react/macro'
 import {
   Card,
   CardContent,
   Button,
+  EmptyState,
   Skeleton,
   Tooltip,
   TooltipTrigger,
@@ -193,22 +193,15 @@ export function BlobViewer({
         </div>
         <CardContent className='p-0'>
           {data.binary ? (
-            <div className='text-muted-foreground p-8 text-center'>
-              <File className='mx-auto mb-2 h-12 w-12' />
-              <p>
-                <Trans>Binary file ({formatFileSize(data.size)})</Trans>
-              </p>
-            </div>
+            <EmptyState
+              icon={File}
+              title={t`Binary file (${formatFileSize(data.size)})`}
+            />
           ) : data.content == null ? (
-            <div className='text-muted-foreground p-8 text-center'>
-              <File className='mx-auto mb-2 h-12 w-12' />
-              <p>
-                <Trans>
-                  This file is too large to display ({formatFileSize(data.size)}
-                  )
-                </Trans>
-              </p>
-            </div>
+            <EmptyState
+              icon={File}
+              title={t`This file is too large to display (${formatFileSize(data.size)})`}
+            />
           ) : (
             <div className='overflow-x-auto'>
               <pre className='text-sm'>

@@ -4,14 +4,16 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { useState, useEffect } from 'react'
 import { useNavigate } from '@tanstack/react-router'
-import { Trans, useLingui } from '@lingui/react/macro'
+import { useLingui } from '@lingui/react/macro'
 import {
   Card,
   CardContent,
+  EmptyState,
   Skeleton,
   getErrorMessage,
   naturalCompare,
 } from '@mochi/web'
+import { Folder } from 'lucide-react'
 import type { TreeEntry } from '@/api/types'
 import { useTree, useBranches } from '@/hooks/use-repository'
 import { FileEntry } from '@/components/file-entry'
@@ -154,13 +156,10 @@ export function FileListing({
             {getErrorMessage(error, t`Failed to load files`)}
           </div>
         ) : sortedEntries.length === 0 ? (
-          <div className='text-muted-foreground p-8 text-center'>
-            {currentPath ? (
-              <Trans>Empty directory</Trans>
-            ) : (
-              <Trans>Empty repository</Trans>
-            )}
-          </div>
+          <EmptyState
+            icon={Folder}
+            title={currentPath ? t`Empty directory` : t`Empty repository`}
+          />
         ) : (
           <div className='divide-y'>
             {sortedEntries.map((entry) => (
