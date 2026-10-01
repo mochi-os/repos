@@ -29,7 +29,13 @@ import {
   naturalCompare,
   isDomainEntityRouting,
 } from '@mochi/web'
-import { Plus, FolderGit2, Loader2, MoreHorizontal } from 'lucide-react'
+import {
+  Plus,
+  FolderGit2,
+  Loader2,
+  MoreHorizontal,
+  UserMinus,
+} from 'lucide-react'
 import endpoints from '@/api/endpoints'
 import { reposRequest, appBasePath } from '@/api/request'
 import type {
@@ -428,6 +434,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         title={t`Unsubscribe`}
         desc={t`Are you sure you want to unsubscribe from this repository?`}
         confirmText={t`Unsubscribe`}
+        icon={<UserMinus className='size-4' />}
         destructive
         isLoading={unsubscribe.isPending}
         handleConfirm={async () => {

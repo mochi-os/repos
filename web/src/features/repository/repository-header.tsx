@@ -114,6 +114,7 @@ export function RepositoryHeader({
               title={t`Unsubscribe from repository?`}
               desc={t`This will remove "${name}" from your repository list. You can subscribe again later.`}
               confirmText={t`Unsubscribe`}
+              icon={<UserMinus className='size-4' />}
               isLoading={unsubscribe.isPending}
               handleConfirm={handleUnsubscribe}
             />
