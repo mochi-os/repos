@@ -39,6 +39,16 @@ msgstr "(jūs)"
 msgid "[not set]"
 msgstr "[nenustatyta]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {pakeistas # failas} few {pakeisti # failai} many {pakeista # failo} other {pakeista # failų}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# eilutė} few {# eilutės} many {# eilutės} other {# eilučių}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# rezultatas} few {# rezultatai} many {# rezultatų} ot
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# pasirinktas} few {# pasirinkti} many {# pasirinktų} other {# pasirinktų}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {dar +#} few {dar +#} many {dar +#} other {dar +#}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# įdėtas} few {+# įdėti} many {+# įdėto} other {+# įdėtų}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {pakeistas # failas} few {pakeisti # failai} many {pakeista # failo} other {pakeista # failų}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# eilutė} few {# eilutės} many {# eilutės} other {# eilučių}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# atsakymas} few {+# daugiau atsakymų} 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Atidaryti meniu (# neperskaitytas pranešimas)} few {Atidaryti meniu (# neperskaityti pranešimai)} many {Atidaryti meniu (# neperskaityto pranešimo)} other {Atidaryti meniu (# neperskaitytų pranešimų)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2091,7 +2091,7 @@ msgstr "Slaptarakčiai"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Slaptaraktai šioje naršyklėje nepasiekiami"
+msgstr "Slaptarakčiai šioje naršyklėje nepasiekiami"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Iš naujo susiekite paskyras šiame serveryje"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Iš naujo užregistruokite prieigos raktus šiame serveryje"
+msgstr "Iš naujo užregistruokite slaptarakčius šiame serveryje"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2414,15 +2414,15 @@ msgstr "Bandyti dar kartą"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
-msgstr "Atšaukti"
+msgstr "Panaikinti"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
-msgstr "Atšaukti prieigą"
+msgstr "Panaikinti prieigą"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "Atšaukti RSS prieigą?"
+msgstr "Panaikinti RSS prieigą?"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -3023,12 +3023,12 @@ msgstr "Nežinoma"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "Atšaukti prenumeratą"
+msgstr "Atsisakyti prenumeratos"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "Atšaukti saugyklos prenumeratą?"
+msgstr "Atsisakyti saugyklos prenumeratos?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"

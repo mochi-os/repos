@@ -39,6 +39,16 @@ msgstr "(wewe)"
 msgid "[not set]"
 msgstr "[haijawekwa]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {faili # limebadilishwa} other {faili # zimebadilishwa}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {mstari #} other {mistari #}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {Matokeo #} other {Matokeo #}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# imechaguliwa} other {# zimechaguliwa}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# zaidi} other {+# zaidi}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# iliyopachikwa} other {+# zilizopachikwa}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {faili # limebadilishwa} other {faili # zimebadilishwa}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {mstari #} other {mistari #}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {Jibu #} other {+# majibu zaidi}}"
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Fungua menyu (arifa # ambayo haijasomwa)} other {Fungua menyu (arifa # ambazo hazijasomwa)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,15 +2083,15 @@ msgstr "Pasiki"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Uthibitishaji wa ufunguo umeshindwa. Tafadhali jaribu tena."
+msgstr "Uthibitishaji wa pasiki umeshindwa. Tafadhali jaribu tena."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Passkey"
+msgstr "Pasiki"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkey hazipatikani kwenye kivinjari hiki"
+msgstr "Pasiki hazipatikani kwenye kivinjari hiki"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Unganisha tena akaunti zako kwenye seva hii"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Sajili upya funguo zako za ufikiaji kwenye seva hii"
+msgstr "Sajili upya pasiki zako kwenye seva hii"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2845,7 +2845,7 @@ msgstr "Ombi la maikrofoni halikujibiwa"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Ombi la passkey halikujibiwa"
+msgstr "Ombi la pasiki halikujibiwa"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Seva ilirudisha ukurasa wa wavuti badala ya data."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Programu hii hairuhusiwi kutumia passkey yako. Iruhusu katika Mipangilio, chini ya Ruhusa."
+msgstr "Programu hii hairuhusiwi kutumia pasiki yako. Iruhusu katika Mipangilio, chini ya Ruhusa."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3079,7 +3079,7 @@ msgstr "Maendeleo ya upakiaji"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Tumia ufunguo wako"
+msgstr "Tumia pasiki yako"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

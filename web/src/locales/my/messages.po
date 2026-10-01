@@ -39,6 +39,16 @@ msgstr "(သင်)"
 msgid "[not set]"
 msgstr "[မသတ်မှတ်ရသေး]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, other {ဖိုင် # ခု ပြောင်းလဲသည်}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, other {# လိုင်း}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, other {ရလဒ် #}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, other {# ရွေးထား}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, other {+# ခု ထပ်ရှိ}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, other {+# ခု အတွင်း}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, other {ဖိုင် # ခု ပြောင်းလဲသည်}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, other {# လိုင်း}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, other {+ ပြန်ဖြေချက် # 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, other {မီနူးဖွင့်ရန် (မဖတ်ရသေးသော အကြောင်းကြားချက် # ခု)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,15 +2083,15 @@ msgstr "ဝင်ရောက်ခွင့်သော့"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "ပတ်စ်ကီးအတည်ပြုခြင်း မအောင်မြင်ပါ။ ကျေးဇူးပြု၍ ထပ်စမ်းကြည့်ပါ။"
+msgstr "ဝင်ရောက်ခွင့်သော့ အတည်ပြုခြင်း မအောင်မြင်ပါ။ ကျေးဇူးပြု၍ ထပ်စမ်းကြည့်ပါ။"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Passkey များ"
+msgstr "ဝင်ရောက်ခွင့်သော့များ"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "ဤဘရောက်ဆာတွင် passkey များ မရရှိနိုင်ပါ"
+msgstr "ဤဘရောက်ဆာတွင် ဝင်ရောက်ခွင့်သော့များ မရရှိနိုင်ပါ"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "ဤဆာဗာပေါ်တွင် သင်၏အကောင့�
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "ဤဆာဗာတွင် သင်၏ passkey များကို ပြန်လည်မှတ်ပုံတင်ပါ"
+msgstr "ဤဆာဗာတွင် သင်၏ ဝင်ရောက်ခွင့်သော့များကို ပြန်လည်မှတ်ပုံတင်ပါ"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -3079,7 +3079,7 @@ msgstr "အပ်လုဒ်တိုးတက်မှု"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "သင့်ပတ်စ်ကီးကို သုံးပါ"
+msgstr "သင့်ဝင်ရောက်ခွင့်သော့ကို သုံးပါ"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

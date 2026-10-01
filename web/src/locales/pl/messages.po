@@ -39,6 +39,16 @@ msgstr "(ty)"
 msgid "[not set]"
 msgstr "[nie ustawiono]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {zmieniono # plik} few {zmieniono # pliki} many {zmieniono # plików} other {zmieniono # pliku}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# wiersz} few {# wiersze} many {# wierszy} other {# wiersza}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# wynik} few {# wyników} many {# wyników} other {# wy
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# wybrany} few {# wybranych} many {# wybranych} other {# wybranych}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# więcej} few {+# więcej} many {+# więcej} other {+# więcej}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# zagnieżdżony} few {+# zagnieżdżone} many {+# zagnieżdżonych} other {+# zagnieżdżonych}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {zmieniono # plik} few {zmieniono # pliki} many {zmieniono # plików} other {zmieniono # pliku}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# wiersz} few {# wiersze} many {# wierszy} other {# wiersza}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# odpowiedź} few {+# kolejnych odpowied
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Otwórz menu (# nieprzeczytane powiadomienie)} few {Otwórz menu (# nieprzeczytane powiadomienia)} many {Otwórz menu (# nieprzeczytanych powiadomień)} other {Otwórz menu (# nieprzeczytanego powiadomienia)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -362,7 +362,7 @@ msgstr "Czy na pewno chcesz się poddać? {opponentName} wygra partię."
 
 #: src/routes/_authenticated/index.tsx
 msgid "Are you sure you want to unsubscribe from this repository?"
-msgstr "Czy na pewno chcesz anulować subskrypcję tego repozytorium?"
+msgstr "Czy na pewno chcesz zrezygnować z subskrypcji tego repozytorium?"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
@@ -3023,12 +3023,12 @@ msgstr "Nieznany"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "Anuluj subskrypcję"
+msgstr "Zrezygnuj z subskrypcji"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "Anulować subskrypcję repozytorium?"
+msgstr "Zrezygnować z subskrypcji repozytorium?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"

@@ -39,6 +39,16 @@ msgstr "(jy)"
 msgid "[not set]"
 msgstr "[nie gestel nie]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# lêer verander} other {# lêers verander}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# reël} other {# reëls}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# resultaat} other {# resultate}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# gekies} other {# gekies}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# meer} other {+# meer}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# geneste} other {+# geneste}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# lêer verander} other {# lêers verander}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# reël} other {# reëls}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# antwoord} other {+# meer antwoorde}}"
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Open kieslys (# ongeleeste kennisgewing)} other {Open kieslys (# ongeleeste kennisgewings)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,15 +2083,15 @@ msgstr "Toegangsleutel"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Wagsleutel-verifikasie het misluk. Probeer asseblief weer."
+msgstr "Toegangsleutelverifikasie het misluk. Probeer asseblief weer."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Wagwoordsleutels"
+msgstr "Toegangsleutels"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeys is nie in hierdie blaaier beskikbaar nie"
+msgstr "Toegangsleutels is nie in hierdie blaaier beskikbaar nie"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Koppel jou rekeninge op hierdie bediener weer"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Herregistreer jou wagwoordsleutels op hierdie bediener"
+msgstr "Herregistreer jou toegangsleutels op hierdie bediener"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2845,7 +2845,7 @@ msgstr "Die mikrofoonversoek is nie beantwoord nie"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Die passkey-versoek is nie beantwoord nie"
+msgstr "Die toegangsleutelversoek is nie beantwoord nie"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Die bediener het 'n webblad in plaas van data teruggestuur."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Hierdie toepassing mag nie jou passkey gebruik nie. Laat dit toe in Instellings, onder Toestemmings."
+msgstr "Hierdie toepassing mag nie jou toegangsleutel gebruik nie. Laat dit toe in Instellings, onder Toestemmings."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3079,7 +3079,7 @@ msgstr "Oplaaivordering"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Gebruik jou wagsleutel"
+msgstr "Gebruik jou toegangsleutel"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

@@ -39,6 +39,16 @@ msgstr "(juma)"
 msgid "[not set]"
 msgstr "[jan uskuta]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# archivo mayjt'ata} other {# archivonaka mayjt'ata}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# jach'a qillqa} other {# jach'a qillqanaka}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# alja} other {# aljas}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# tila qhipart'i} other {# tila qhipart'i}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# juk'ampi} other {+# juk'ampi}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# manqhankiri} other {+# manqhankiri}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# archivo mayjt'ata} other {# archivonaka mayjt'ata}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# jach'a qillqa} other {# jach'a qillqanaka}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -135,16 +140,11 @@ msgstr "{totalCount, plural, one {# yänaka} other {# yänaka}}"
 
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
 msgid "{totalDescendants, plural, one {# reply} other {+# more replies}}"
-msgstr "{totalDescendants, plural, one {1 kutsuwi} other {# mayamp kutsuwinaka}}"
+msgstr "{totalDescendants, plural, one {# kutsuwi} other {# mayamp kutsuwinaka}}"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Menu jist'araña (# jan ullt'ata yatiyawi)} other {Menu jist'araña (# jan ullt'ata yatiyawinaka)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,15 +2083,15 @@ msgstr "Mantañ llawi"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Passkey yatiyañax jan walikiti. Mira wasitat yant'asma."
+msgstr "Mantañ llawi uñakipañax janiw walikiti. Wasitat yant'asma."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Passkeyanaka"
+msgstr "Mantañ llawinaka"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeyanakax janiw aka navegadorana utjkiti"
+msgstr "Mantañ llawinakax janiw aka navegadoran utjkiti"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Aka servdorankiw cuentasnaka nayraqatapachani uñakipaña"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Aka servidoran passkeysniykita wasitata qillqantañani"
+msgstr "Mantañ llawinakama aka servidoran wasitat qillqantma"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2845,7 +2845,7 @@ msgstr "Micrófono mayiwix janiw jaysatäkiti"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Passkey mayiwix janiw jaysatäkiti"
+msgstr "Mantañ llawi mayiwix janiw jaysatäkiti"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Servidoraxa mä web laphi kutt'ayäna, janiw yatiyawinakaki."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Aka aplicacionax janiw passkeymamp apnaqañ yatiykiti. Ajustes ukan, Permisos ukan iyawsam."
+msgstr "Aka aplicacionax janiw mantañ llawima apnaqañatak iyawsatäkiti. Ajustes ukan, Permisos ukan iyawsam."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3023,12 +3023,12 @@ msgstr "Jan uñt'ata"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "Suscripción jaytaña"
+msgstr "Suscripción apaqaña"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "Suscripción jaytata"
+msgstr "¿Repositoriot suscripción apaqañati?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"
@@ -3079,7 +3079,7 @@ msgstr "Apkatäwi sarantawi"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Passkey ukma apnaqama"
+msgstr "Mantañ llawima apnaqam"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

@@ -39,6 +39,16 @@ msgstr "(राउर)"
 msgid "[not set]"
 msgstr "[सेट नइखे]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# फाइल बदलल} other {# फाइल बदलल}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# लाइन} other {# लाइन}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# परिणाम} other {# परिणाम}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# चुनल} other {# चुनल}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# अउरी} other {+# अउरी}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# नेस्टेड} other {+# नेस्टेड}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# फाइल बदलल} other {# फाइल बदलल}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# लाइन} other {# लाइन}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# जवाब} other {+# अउरी �
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {मेनू खोलीं (# बिना पढ़ल सूचना)} other {मेनू खोलीं (# बिना पढ़ल सूचना)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2091,7 +2091,7 @@ msgstr "पासकी सब"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "ई ब्राउज़र में passkey उपलब्ध नइखे"
+msgstr "ई ब्राउज़र में पासकी उपलब्ध नइखे"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2418,11 +2418,11 @@ msgstr "वापस लीं"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
-msgstr "पहुँच रद्द करीं"
+msgstr "पहुँच वापस लीं"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "RSS पहुँच रद्द करीं?"
+msgstr "RSS पहुँच वापस लीं?"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -3023,12 +3023,12 @@ msgstr "अनजान"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "सदस्यता रद्द करीं"
+msgstr "सदस्यता खतम करीं"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "रिपॉजिटरी से सदस्यता रद्द करीं?"
+msgstr "रिपॉजिटरी से सदस्यता खतम करीं?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"

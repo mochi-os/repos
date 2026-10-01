@@ -39,6 +39,16 @@ msgstr "(nde)"
 msgid "[not set]"
 msgstr "[noñemoĩva]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# marandurenda oñemoambue} other {# marandurenda oñemoambue}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# tairenda} other {# tairenda}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# ojejuhu} other {# ojejuhu}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# poravopyre} other {# poravopyre}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# ambue} other {+# ambue}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# ipypegua} other {+# ipypegua}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# marandurenda oñemoambue} other {# marandurenda oñemoambue}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# tairenda} other {# tairenda}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# ñembohovái} other {+# ñembohovái a
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Embojuruja menu (# momarandu ojeleeʼỹva)} other {Embojuruja menu (# momarandu ojeleeʼỹva)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,7 +2083,7 @@ msgstr "Jeike rape"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Passkey ñemyatã ndoikói. Eñehaʼã jey."
+msgstr "Jeike rape ñemoañete ndoikói. Eñehaʼã jey."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
@@ -2091,7 +2091,7 @@ msgstr "Jeike rape kuéra"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeys ndaipóri ko navegador-pe"
+msgstr "Jeike rape kuéra ndaipóri ko navegador-pe"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Embojoja jey nde mba'ete ko servidor-pe"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Emoinge jey nde passkeys ko servidor-pe"
+msgstr "Emboheraguapy jey nde jeike rape kuéra ko servidor-pe"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2845,7 +2845,7 @@ msgstr "Micrófono jerure ndojehechái mbohovái"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Passkey jerure ndojehechái mbohovái"
+msgstr "Jeike rape jerure ndojembohovái"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Servidor ombohovái peteĩ web rogue, datos rangue."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Ko aplicación ndaikatúi oiporu nde passkey. Emoneĩ Ajustes-pe, Permisos guýpe."
+msgstr "Ko aplicación ndaikatúi oiporu nde jeike rape. Emoneĩ Ajustes-pe, Permisos guýpe."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3079,7 +3079,7 @@ msgstr "Jehupi jeku'e"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Eipuru nde passkey"
+msgstr "Eipuru nde jeike rape"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

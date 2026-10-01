@@ -148,7 +148,7 @@ export function BlobViewer({
             <span>{fileName}</span>
             <span className='text-muted-foreground'>
               {data.content != null
-                ? `${formatFileSize(data.size)} · ${plural(lines.length, { one: '1 line', other: '# lines' })}`
+                ? `${formatFileSize(data.size)} · ${plural(lines.length, { one: '# line', other: '# lines' })}`
                 : formatFileSize(data.size)}
             </span>
           </div>

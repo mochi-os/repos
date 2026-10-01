@@ -39,6 +39,16 @@ msgstr "(ທ່ານ)"
 msgid "[not set]"
 msgstr "[ບໍ່ໄດ້ຕັ້ງຄ່າ]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, other {# ໄຟລ໌ ຖືກປ່ຽນແປງ}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, other {# ແຖວ}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, other {# ຜົນ}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, other {# ເລືອກແລ້ວ}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, other {+# ເພີ່ມເຕີມ}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, other {+# ຊັ້ນຍ່ອຍ}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, other {# ໄຟລ໌ ຖືກປ່ຽນແປງ}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, other {# ແຖວ}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, other {+# ຕອບກັບເພີ່ມ�
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, other {ເປີດເມນູ (ການແຈ້ງເຕືອນທີ່ຍັງບໍ່ໄດ້ອ່ານ # ລາຍການ)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -362,7 +362,7 @@ msgstr "ທ່ານແນ່ໃຈບໍວ່າຕ້ອງການຍອມ
 
 #: src/routes/_authenticated/index.tsx
 msgid "Are you sure you want to unsubscribe from this repository?"
-msgstr "ທ່ານແນ່ໃຈບໍວ່າຕ້ອງການຍົກເລີກການສະໝັກສະມາຊິກຈາກບ່ອນເກັບຂໍ້ມູນນີ້?"
+msgstr "ທ່ານແນ່ໃຈບໍວ່າຕ້ອງການເຊົາຕິດຕາມບ່ອນເກັບຂໍ້ມູນນີ້?"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
@@ -1071,11 +1071,11 @@ msgstr "ໄດເລກທໍຣີ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Discard"
-msgstr "ຍົກເລີກ"
+msgstr "ຖິ້ມ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Discard draft?"
-msgstr "ຍົກເລີກສະບັບຮ່າງບໍ?"
+msgstr "ຖິ້ມສະບັບຮ່າງບໍ?"
 
 #: ../../../lib/web/src/lib/chat-ui.ts
 #: ../../../lib/web/src/lib/chat-ui.ts
@@ -2857,7 +2857,7 @@ msgstr "ເຊີບເວີສົ່ງຄືນໜ້າເວັບແທນ
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "ແອັບນີ້ບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ໃຊ້ ກະແຈຜ່ານຂອງທ່ານ. ອະນຸຍາດໃນການຕັ້ງຄ່າ, ພາຍໃຕ້ການອະນຸຍາດ."
+msgstr "ແອັບນີ້ບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ໃຊ້ກະແຈຜ່ານຂອງທ່ານ. ອະນຸຍາດໃນການຕັ້ງຄ່າ, ພາຍໃຕ້ການອະນຸຍາດ."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3023,12 +3023,12 @@ msgstr "ບໍ່ຮູ້ຈັກ"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "ຍົກເລີກການສະໝັກສະມາຊິກ"
+msgstr "ເຊົາຕິດຕາມ"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "ຍົກເລີກການສະໝັກສະມາຊິກຈາກບ່ອນເກັບ?"
+msgstr "ເຊົາຕິດຕາມບ່ອນເກັບບໍ?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"

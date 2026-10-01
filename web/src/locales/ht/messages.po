@@ -39,6 +39,16 @@ msgstr "(ou)"
 msgid "[not set]"
 msgstr "[pa mete]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# fichye chanje} other {# fichye chanje}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# liy} other {# liy}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, other {# rezilta}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, other {# chwazi}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# ankò} other {+# ankò}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# anndan} other {+# anndan}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# fichye chanje} other {# fichye chanje}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# liy} other {# liy}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, other {+# plis repons}}"
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, other {Louvri meni (# notifikasyon ki poko li)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,15 +2083,15 @@ msgstr "Kle aksè"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Verifikasyon passkey la echwe. Tanpri eseye ankò."
+msgstr "Verifikasyon kle aksè a echwe. Tanpri eseye ankò."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Paskey"
+msgstr "Kle aksè yo"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeys pa disponib nan navigatè sa a"
+msgstr "Kle aksè pa disponib nan navigatè sa a"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Konekte kont ou yo ankò sou sèvè sa a"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Re-enskri paskey ou yo sou sèvè sa a"
+msgstr "Re-anrejistre kle aksè ou yo sou sèvè sa a"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2414,7 +2414,7 @@ msgstr "Eseye ankò"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
-msgstr "Anile"
+msgstr "Retire"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
@@ -2422,7 +2422,7 @@ msgstr "Revoke aksè"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "Revoke aksè RSS la?"
+msgstr "Retire aksè RSS la?"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2845,7 +2845,7 @@ msgstr "Demann mikwofòn nan pa jwenn repons"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Demann passkey la pa jwenn repons"
+msgstr "Demann kle aksè a pa jwenn repons"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Sèvè a voye yon paj wèb olye pou done."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Aplikasyon sa a pa gen dwa itilize passkey ou. Bay li pèmisyon nan Paramèt, anba Pèmisyon."
+msgstr "Aplikasyon sa a pa gen dwa itilize kle aksè ou. Bay li pèmisyon nan Paramèt, anba Pèmisyon."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3079,7 +3079,7 @@ msgstr "Pwogrè chajman an"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Sèvi ak passkey ou"
+msgstr "Sèvi ak kle aksè ou"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

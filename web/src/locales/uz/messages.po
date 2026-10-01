@@ -39,6 +39,16 @@ msgstr "(siz)"
 msgid "[not set]"
 msgstr "[oʻrnatilmagan]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# fayl o'zgardi} other {# fayl o'zgardi}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# qator} other {# qator}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# natija} other {# natijalar}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# tanlangan} other {# tanlangan}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {yana +#} other {yana +#}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# ichki} other {+# ichki}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# fayl o'zgardi} other {# fayl o'zgardi}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# qator} other {# qator}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# javob} other {+# koʻproq javoblar}}"
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Menyuni ochish (# o'qilmagan bildirishnoma)} other {Menyuni ochish (# o'qilmagan bildirishnoma)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -1071,11 +1071,11 @@ msgstr "Katalog"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Discard"
-msgstr "Bekor qilish"
+msgstr "Tashlab yuborish"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 msgid "Discard draft?"
-msgstr "Qoralama bekor qilinsinmi?"
+msgstr "Qoralama tashlab yuborilsinmi?"
 
 #: ../../../lib/web/src/lib/chat-ui.ts
 #: ../../../lib/web/src/lib/chat-ui.ts
@@ -2083,15 +2083,15 @@ msgstr "Kirish kaliti"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Kirish kaliti tasdig'i muvaffaqiyatsiz tugadi. Iltimos, qaytadan urinib ko'ring."
+msgstr "Kirish kaliti tasdigʻi muvaffaqiyatsiz tugadi. Iltimos, qaytadan urinib koʻring."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Passkey’lar"
+msgstr "Kirish kalitlari"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkey’lar bu brauzerda mavjud emas"
+msgstr "Kirish kalitlari bu brauzerda mavjud emas"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Bu serverdagi hisoblaringizni qayta ulang"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Ushbu serverda kirish kalitlaringizni qayta ro'yxatdan o'tkazing"
+msgstr "Ushbu serverda kirish kalitlaringizni qayta roʻyxatdan oʻtkazing"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2414,15 +2414,15 @@ msgstr "Qayta urinish"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
-msgstr "Bekor qilish"
+msgstr "Qaytarib olish"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
-msgstr "Kirishni bekor qilish"
+msgstr "Kirish huquqini qaytarib olish"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "RSS kirishi bekor qilinsinmi?"
+msgstr "RSS kirishi qaytarib olinsinmi?"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2845,7 +2845,7 @@ msgstr "Mikrofon so‘roviga javob berilmadi"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Passkey so‘roviga javob berilmadi"
+msgstr "Kirish kaliti soʻroviga javob berilmadi"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Server ma'lumot o'rniga veb-sahifani qaytardi."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Bu ilovaga passkey’ingizdan foydalanishga ruxsat berilmagan. Sozlamalardagi Ruxsatlar bo‘limida ruxsat bering."
+msgstr "Bu ilovaga kirish kalitingizdan foydalanishga ruxsat berilmagan. Sozlamalardagi Ruxsatlar boʻlimida ruxsat bering."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx

@@ -39,6 +39,16 @@ msgstr "(thusa)"
 msgid "[not set]"
 msgstr "[gun shuidheachadh]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {dh'atharraich # fhaidhle} two {dh'atharraich # fhaidhle} few {dh'atharraich # faidhlichean} other {dh'atharraich # faidhle}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# loidhne} two {# loidhne} few {# loidhnichean} other {# loidhne}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# toradh} two {# thoradh} few {# toraidhean} other {# t
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# air a thaghadh} two {# air an taghadh} few {# air an taghadh} other {# air an taghadh}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# a bharrachd} two {+# a bharrachd} few {+# a bharrachd} other {+# a bharrachd}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# neadaichte} two {+# neadaichte} few {+# neadaichte} other {+# neadaichte}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {dh'atharraich # fhaidhle} two {dh'atharraich # fhaidhle} few {dh'atharraich # faidhlichean} other {dh'atharraich # faidhle}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# loidhne} two {# loidhne} few {# loidhnichean} other {# loidhne}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# fhreagairt} two {+# barrachd freagairt
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Fosgail an clàr-taice (# bhrath gun leughadh)} two {Fosgail an clàr-taice (# bhrath gun leughadh)} few {Fosgail an clàr-taice (# brathan gun leughadh)} other {Fosgail an clàr-taice (# brath gun leughadh)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2083,7 +2083,7 @@ msgstr "Pasgair"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "Dh'fhàillig dearbhadh na h-iuchrach-inntrigidh. Feuch ris a-rithist."
+msgstr "Dh'fhàillig dearbhadh a' phasgair. Feuch ris a-rithist."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
@@ -2192,7 +2192,7 @@ msgstr "Ath-cheangail do chunntasan air an fhrithealaiche seo"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Ath-chlàraich na h-iuchraichean inntrigidh agad air an fhrithealaiche seo"
+msgstr "Ath-chlàraich na pasgairean agad air an fhrithealaiche seo"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -3079,7 +3079,7 @@ msgstr "Adhartas an luchdaidh suas"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "Cleachd an iuchair-inntrigidh agad"
+msgstr "Cleachd am pasgair agad"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

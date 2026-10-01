@@ -39,6 +39,16 @@ msgstr "(tu)"
 msgid "[not set]"
 msgstr "[não definido]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# ficheiro alterado} other {# ficheiros alterados}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# linha} other {# linhas}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# resultado} other {# resultados}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# selecionado} other {# selecionados}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# mais} other {+# mais}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# aninhado} other {+# aninhados}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# ficheiro alterado} other {# ficheiros alterados}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# linha} other {# linhas}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# resposta} other {+# mais respostas}}"
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Abrir menu (# notificação não lida)} other {Abrir menu (# notificações não lidas)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -362,7 +362,7 @@ msgstr "Tem a certeza de que quer desistir? {opponentName} vai ganhar a partida.
 
 #: src/routes/_authenticated/index.tsx
 msgid "Are you sure you want to unsubscribe from this repository?"
-msgstr "Tem a certeza de que pretende cancelar a subscrição deste repositório?"
+msgstr "Tem a certeza de que pretende anular a subscrição deste repositório?"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
@@ -2091,7 +2091,7 @@ msgstr "Chaves de acesso"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "As passkeys não estão disponíveis neste navegador"
+msgstr "As chaves de acesso não estão disponíveis neste navegador"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2845,7 +2845,7 @@ msgstr "O pedido de microfone não obteve resposta"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "O pedido de passkey não obteve resposta"
+msgstr "O pedido da chave de acesso não obteve resposta"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "O servidor devolveu uma página web em vez de dados."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Esta aplicação não está autorizada a usar a sua passkey. Autorize-a em Definições, em Permissões."
+msgstr "Esta aplicação não está autorizada a usar a sua chave de acesso. Autorize-a em Definições, em Permissões."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
@@ -3023,12 +3023,12 @@ msgstr "Desconhecido"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "Cancelar subscrição"
+msgstr "Anular subscrição"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "Cancelar subscrição do repositório?"
+msgstr "Anular a subscrição do repositório?"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"

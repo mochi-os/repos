@@ -39,6 +39,16 @@ msgstr "(ඔබ)"
 msgid "[not set]"
 msgstr "[සකසා නැත]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {ගොනු # වෙනස් විය} other {ගොනු # වෙනස් විය}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {පේළි #} other {පේළි #}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# ප්‍රතිඵලය} other {# ප්‍රත
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# තෝරාගත්} other {# තෝරාගත්}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# තවත්} other {+# තවත්}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# කැදැලි} other {+# කැදැලි}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {ගොනු # වෙනස් විය} other {ගොනු # වෙනස් විය}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {පේළි #} other {පේළි #}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# පිළිතුර} other {+# ත�
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {මෙනුව විවෘත කරන්න (කියවා නැති දැනුම්දීම් #)} other {මෙනුව විවෘත කරන්න (කියවා නැති දැනුම්දීම් #)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2078,7 +2078,7 @@ msgstr "මව්පියන්:"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Passkey"
-msgstr "ප්‍රවේශ යතුර"
+msgstr "මුරයතුර"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
@@ -2414,15 +2414,15 @@ msgstr "නැවත උත්සාහ කරන්න"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
-msgstr "අවලංගු කරන්න"
+msgstr "අහෝසි කරන්න"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
-msgstr "ප්‍රවේශය අවලංගු කරන්න"
+msgstr "ප්‍රවේශය අහෝසි කරන්න"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "RSS ප්‍රවේශය අවලංගු කරන්නද?"
+msgstr "RSS ප්‍රවේශය අහෝසි කරන්නද?"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx

@@ -39,6 +39,16 @@ msgstr "(شما)"
 msgid "[not set]"
 msgstr "[تنظیم نشده]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# فایل تغییر کرد} other {# فایل تغییر کرد}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# خط} other {# خط}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# نتیجه} other {# نتیجه}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# انتخاب‌شده} other {# انتخاب‌شده}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# مورد دیگر} other {+# مورد دیگر}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# تودرتو} other {+# تودرتو}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# فایل تغییر کرد} other {# فایل تغییر کرد}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# خط} other {# خط}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# پاسخ} other {+# پاسخ دیگر}
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {باز کردن منو (# اعلان خوانده‌نشده)} other {باز کردن منو (# اعلان خوانده‌نشده)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -362,7 +362,7 @@ msgstr "آیا از تسلیم شدن مطمئن هستید؟ {opponentName} ب�
 
 #: src/routes/_authenticated/index.tsx
 msgid "Are you sure you want to unsubscribe from this repository?"
-msgstr "آیا از لغو اشتراک این مخزن مطمئن هستید؟"
+msgstr "آیا از قطع اشتراک این مخزن مطمئن هستید؟"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
@@ -2083,7 +2083,7 @@ msgstr "پسکی"
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkey verification failed. Please try again."
-msgstr "تأیید با کلید عبور ناموفق بود. لطفاً دوباره تلاش کنید."
+msgstr "تأیید با پسکی ناموفق بود. لطفاً دوباره تلاش کنید."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
@@ -2192,7 +2192,7 @@ msgstr "حساب‌های خود را در این سرور مجدداً پیون
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "کلیدهای عبور خود را دوباره در این سرور ثبت کنید"
+msgstr "پسکی‌های خود را دوباره در این سرور ثبت کنید"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2414,15 +2414,15 @@ msgstr "تلاش دوباره"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
-msgstr "لغو"
+msgstr "ابطال"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
-msgstr "لغو دسترسی"
+msgstr "ابطال دسترسی"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "دسترسی RSS لغو شود؟"
+msgstr "دسترسی RSS ابطال شود؟"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -3023,12 +3023,12 @@ msgstr "ناشناخته"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "لغو اشتراک"
+msgstr "قطع اشتراک"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "لغو اشتراک از مخزن؟"
+msgstr "قطع اشتراک از مخزن؟"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"
@@ -3079,7 +3079,7 @@ msgstr "پیشرفت بارگذاری"
 
 #: ../../../lib/web/src/components/step-up-dialog.tsx
 msgid "Use your passkey"
-msgstr "از کلید عبور خود استفاده کنید"
+msgstr "از پسکی خود استفاده کنید"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 #: ../../../lib/web/src/features/access/access-dialog.tsx

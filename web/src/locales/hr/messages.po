@@ -39,6 +39,16 @@ msgstr "(vi)"
 msgid "[not set]"
 msgstr "[nije postavljeno]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, one {# datoteka promijenjena} few {# datoteke promijenjene} other {# datoteka promijenjeno}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, one {# redak} few {# retka} other {# redaka}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# rezultat} few {# rezultata} other {# rezultata}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# odabran} few {# odabrana} other {# odabranih}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# više} few {+# više} other {+# više}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# ugniježđen} few {+# ugniježđena} other {+# ugniježđenih}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, one {# datoteka promijenjena} few {# datoteke promijenjene} other {# datoteka promijenjeno}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, one {# redak} few {# retka} other {# redaka}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# odgovor} few {+# još odgovora} other 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Otvori izbornik (# nepročitana obavijest)} few {Otvori izbornik (# nepročitane obavijesti)} other {Otvori izbornik (# nepročitanih obavijesti)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2087,11 +2087,11 @@ msgstr "Provjera pristupnog ključa nije uspjela. Pokušajte ponovno."
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Passkeyevi"
+msgstr "Pristupni ključevi"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeyevi nisu dostupni u ovom pregledniku"
+msgstr "Pristupni ključevi nisu dostupni u ovom pregledniku"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2845,7 +2845,7 @@ msgstr "Na zahtjev za mikrofon nije odgovoreno"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Na zahtjev za passkey nije odgovoreno"
+msgstr "Na zahtjev za pristupni ključ nije odgovoreno"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Poslužitelj je vratio web stranicu umjesto podataka."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Ova aplikacija ne smije koristiti vaš passkey. Dopustite joj to u Postavkama, pod Dozvole."
+msgstr "Ova aplikacija ne smije koristiti vaš pristupni ključ. Dopustite joj to u Postavkama, pod Dozvole."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx

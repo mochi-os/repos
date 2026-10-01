@@ -39,6 +39,16 @@ msgstr "(أنت)"
 msgid "[not set]"
 msgstr "[غير محدد]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, zero {# ملف تم تغييره} one {تم تغيير ملف واحد} two {تم تغيير ملفين} few {تم تغيير # ملفات} many {تم تغيير # ملفًا} other {تم تغيير # ملف}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, zero {# سطر} one {سطر واحد} two {سطران} few {# أسطر} many {# سطرًا} other {# سطر}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, zero {# نتائج} one {نتيجة واحدة} two {# نت�
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, zero {# محدد} one {# محدد} two {# محدد} few {# محدد} many {# محدد} other {# محدد}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, zero {+# أخرى} one {+# أخرى} two {+# أخرى} few {+# أخرى} many {+# أخرى} other {+# أخرى}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, zero {+# متداخل} one {+# متداخل} two {+# متداخلان} few {+# متداخلة} many {+# متداخلًا} other {+# متداخل}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, zero {# ملف تم تغييره} one {تم تغيير ملف واحد} two {تم تغيير ملفين} few {تم تغيير # ملفات} many {تم تغيير # ملفًا} other {تم تغيير # ملف}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, zero {# سطر} one {سطر واحد} two {سطران} few {# أسطر} many {# سطرًا} other {# سطر}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, zero {+# ردود إضافية} one {رد و�
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, zero {فتح القائمة (لا إشعارات غير مقروءة)} one {فتح القائمة (إشعار واحد غير مقروء)} two {فتح القائمة (إشعاران غير مقروءين)} few {فتح القائمة (# إشعارات غير مقروءة)} many {فتح القائمة (# إشعارًا غير مقروء)} other {فتح القائمة (# إشعار غير مقروء)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -362,7 +362,7 @@ msgstr "هل أنت متأكد أنك تريد الاستسلام؟ سيفوز {
 
 #: src/routes/_authenticated/index.tsx
 msgid "Are you sure you want to unsubscribe from this repository?"
-msgstr "هل أنت متأكد من إلغاء الاشتراك من هذا المستودع؟"
+msgstr "هل أنت متأكد من إنهاء الاشتراك في هذا المستودع؟"
 
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
@@ -2414,15 +2414,15 @@ msgstr "إعادة المحاولة"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke"
-msgstr "إلغاء"
+msgstr "إبطال"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke access"
-msgstr "إلغاء الوصول"
+msgstr "إبطال الوصول"
 
 #: ../../../lib/web/src/components/options-menu.tsx
 msgid "Revoke RSS access?"
-msgstr "إلغاء وصول RSS؟"
+msgstr "إبطال وصول RSS؟"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -3023,12 +3023,12 @@ msgstr "غير معروف"
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribe"
-msgstr "إلغاء الاشتراك"
+msgstr "إنهاء الاشتراك"
 
 #: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
-msgstr "إلغاء الاشتراك من المستودع؟"
+msgstr "إنهاء الاشتراك في المستودع؟"
 
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribed"

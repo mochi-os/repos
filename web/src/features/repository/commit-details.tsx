@@ -163,7 +163,7 @@ export function CommitDetails({
             <div className='mt-4 flex items-center gap-4 text-sm'>
               <span>
                 {plural(commit.stats.files, {
-                  one: '1 file changed',
+                  one: '# file changed',
                   other: '# files changed',
                 })}
               </span>

@@ -39,6 +39,16 @@ msgstr "(qam)"
 msgid "[not set]"
 msgstr "[mana churasqa]"
 
+#. placeholder {0}: commit.stats.files
+#: src/features/repository/commit-details.tsx
+msgid "{0, plural, one {# file changed} other {# files changed}}"
+msgstr "{0, plural, other {# willañiqi tikrasqa}}"
+
+#. placeholder {0}: lines.length
+#: src/features/repository/blob-viewer.tsx
+msgid "{0, plural, one {# line} other {# lines}}"
+msgstr "{0, plural, other {# siqi}}"
+
 #. placeholder {0}: visible.length
 #: ../../../lib/web/src/components/inline-entity-search.tsx
 msgid "{0, plural, one {# result} other {# results}}"
@@ -53,20 +63,15 @@ msgstr "{0, plural, one {# resultado} other {# resultadokuna}}"
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# akllasqa} other {# akllasqa}}"
 
+#. placeholder {0}: overflow.get(day) ?? 0
+#: ../../../lib/web/src/components/calendar/month-grid.tsx
+msgid "{0, plural, one {+# more} other {+# more}}"
+msgstr "{0, plural, one {+# aswan} other {+# aswan}}"
+
 #. placeholder {0}: countDeepChildren(object.id)
 #: ../../../lib/web/src/components/entity/entity-board-card.tsx
 msgid "{0, plural, one {+# nested} other {+# nested}}"
 msgstr "{0, plural, one {+# ukhupi} other {+# ukhupi}}"
-
-#. placeholder {0}: commit.stats.files
-#: src/features/repository/commit-details.tsx
-msgid "{0, plural, one {1 file changed} other {# files changed}}"
-msgstr "{0, plural, other {# willañiqi tikrasqa}}"
-
-#. placeholder {0}: lines.length
-#: src/features/repository/blob-viewer.tsx
-msgid "{0, plural, one {1 line} other {# lines}}"
-msgstr "{0, plural, other {# siqi}}"
 
 #. placeholder {0}: data.name
 #: src/routes/_authenticated/$repoId_.branches.tsx
@@ -140,11 +145,6 @@ msgstr "{totalDescendants, plural, one {# kutichiy} other {+# aswan kutichiykuna
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
 msgstr "{unreadCount, plural, one {Menuta kichay (# mana ñawinchasqa willakuy)} other {Menuta kichay (# mana ñawinchasqa willakuykuna)}}"
-
-#. placeholder {0}: overflow.get(day)
-#: ../../../lib/web/src/components/calendar/month-grid.tsx
-msgid "+{0} more"
-msgstr ""
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "12 hours"
@@ -2087,11 +2087,11 @@ msgstr "Yaykuna llaveq takyachiynin mana atikurqanchu. Ama hina kaspa watiqmanta
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Passkeys"
-msgstr "Passkeykuna"
+msgstr "Yaykuna llavekuna"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Passkeys are not available in this browser"
-msgstr "Passkeykunaqa manam kay navegadorpi kanchu"
+msgstr "Yaykuna llavekunaqa manam kay navegadorpi kanchu"
 
 #: src/components/path-breadcrumb.tsx
 #: src/features/repository/create-repository-dialog.tsx
@@ -2192,7 +2192,7 @@ msgstr "Kay serverpi cuenta-ykikunata watiqmanta huñuy"
 
 #: ../../../lib/web/src/components/restore-banner.tsx
 msgid "Re-register your passkeys on this server"
-msgstr "Kay servidorpi passkeyniykita musukmanta qillqachiy"
+msgstr "Kay servidorpi yaykuna llaveykikunata musukmanta qillqachiy"
 
 #: src/features/repository/repository-tabs.tsx
 msgid "Read and write"
@@ -2845,7 +2845,7 @@ msgstr "Micrófono mañakuyqa manam kutichisqachu karqan"
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "The passkey request was not answered"
-msgstr "Passkey mañakuyqa manam kutichisqachu karqan"
+msgstr "Yaykuna llave mañakuyqa manam kutichisqachu karqan"
 
 #: ../../../lib/web/src/features/errors/general-error.tsx
 msgid "The requested content could not be found."
@@ -2857,7 +2857,7 @@ msgstr "Servidorqa mana willakuykunatachu kutichirqan, huk web p'anqatam."
 
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
-msgstr "Kay aplicacionqa manam passkeykita llamk'achiyta atinchu. Ajustes ukhupi, Permisos ukhupi saqiy."
+msgstr "Kay aplicacionqa manam yaykuna llaveykita llamk'achiyta atinchu. Ajustes ukhupi, Permisos ukhupi saqiy."
 
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
