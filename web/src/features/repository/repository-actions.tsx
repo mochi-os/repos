@@ -2,10 +2,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
+import { useState } from 'react'
+import { useNavigate } from '@tanstack/react-router'
+import { Trans, useLingui } from '@lingui/react/macro'
+import { Button, ConfirmDialog, getErrorMessage, toastAction } from '@mochi/web'
+import { UserMinus } from 'lucide-react'
+import { useUnsubscribe } from '@/hooks/use-repository'
 import { CloneDialog } from '@/components/clone-dialog'
 import { DownloadDropdown } from '@/components/download-dropdown'
 import { RepositoryLinkButton } from '@/components/repository-link-button'
-import { UnsubscribeButton } from './repository-tabs'
 
 interface RepositoryActionsProps {
   fingerprint: string
@@ -41,5 +46,66 @@ export function RepositoryActions({
         />
       )}
     </div>
+  )
+}
+
+// Lives here rather than with the tab contents: the commit, branch and tag
+// routes show these buttons too, and importing it from the tabs module made
+// them load the file browser and settings code they never render.
+function UnsubscribeButton({
+  repoId,
+  repoName,
+}: {
+  repoId: string
+  repoName: string
+}) {
+  const { t } = useLingui()
+  const navigate = useNavigate()
+  const unsubscribe = useUnsubscribe()
+  const [showDialog, setShowDialog] = useState(false)
+  const [isUnsubscribing, setIsUnsubscribing] = useState(false)
+
+  const handleUnsubscribe = async () => {
+    setIsUnsubscribing(true)
+    try {
+      await toastAction(unsubscribe.mutateAsync(repoId), {
+        loading: t`Unsubscribing...`,
+        success: t`Unsubscribed from repository`,
+        error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
+      })
+      void navigate({ to: '/' })
+    } catch {
+      // toast already shown
+    } finally {
+      setIsUnsubscribing(false)
+      setShowDialog(false)
+    }
+  }
+
+  return (
+    <>
+      <Button
+        variant='outline'
+        size='sm'
+        onClick={() => setShowDialog(true)}
+        loading={isUnsubscribing}
+        icon={<UserMinus className='h-4 w-4' />}
+      >
+        <span className='sr-only sm:not-sr-only'>
+          <Trans>Unsubscribe</Trans>
+        </span>
+      </Button>
+      <ConfirmDialog
+        open={showDialog}
+        onOpenChange={setShowDialog}
+        title={t`Unsubscribe from repository?`}
+        desc={t`This will remove "${repoName}" from your repository list. You can subscribe again later.`}
+        confirmText={t`Unsubscribe`}
+        icon={<UserMinus className='size-4' />}
+        destructive
+        isLoading={isUnsubscribing}
+        handleConfirm={handleUnsubscribe}
+      />
+    </>
   )
 }
