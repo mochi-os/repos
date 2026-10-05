@@ -283,7 +283,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         icon={<FolderGit2 className='size-4 md:size-5' />}
       />
       <Main>
-        <div className='container mx-auto p-6'>
+        <div className='container mx-auto p-0 sm:p-6'>
           {!hasRepos ? (
             <div className='flex flex-col items-center justify-center p-8 text-center'>
               <FolderGit2 className='text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50' />
