@@ -30,14 +30,7 @@ import {
   type AccessLevel,
   type AccessRule,
 } from '@mochi/web'
-import {
-  Check,
-  Loader2,
-  Pencil,
-  Plus,
-  Trash2,
-  X,
-} from 'lucide-react'
+import { Check, Loader2, Pencil, Plus, Trash2, X } from 'lucide-react'
 import endpoints from '@/api/endpoints'
 import { reposRequest, appBasePath, repoBasePath } from '@/api/request'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
