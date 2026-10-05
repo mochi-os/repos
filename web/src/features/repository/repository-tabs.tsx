@@ -55,8 +55,6 @@ import { FileListing } from './file-browser'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
 import { TagsList } from './tags-list'
 
-// Re-export CloneDialog from shared component
-export { CloneDialog } from '@/components/clone-dialog'
 export type { RepositoryTabId }
 
 interface RepositoryTabsProps {
@@ -215,9 +213,11 @@ export function UnsubscribeButton({
         size='sm'
         onClick={() => setShowDialog(true)}
         loading={isUnsubscribing}
-        icon={<UserMinus className='me-1 h-4 w-4' />}
+        icon={<UserMinus className='h-4 w-4' />}
       >
-        <Trans>Unsubscribe</Trans>
+        <span className='sr-only sm:not-sr-only'>
+          <Trans>Unsubscribe</Trans>
+        </span>
       </Button>
       <ConfirmDialog
         open={showDialog}

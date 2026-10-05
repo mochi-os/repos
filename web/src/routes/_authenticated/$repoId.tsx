@@ -17,12 +17,9 @@ import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { setLastRepo } from '@/hooks/use-repos-storage'
 import { useRepositoryWebsocket } from '@/hooks/use-repository-websocket'
-import { DownloadDropdown } from '@/components/download-dropdown'
-import { RepositoryLinkButton } from '@/components/repository-link-button'
+import { RepositoryActions } from '@/features/repository/repository-actions'
 import {
   RepositoryTabs,
-  CloneDialog,
-  UnsubscribeButton,
   type RepositoryTabId,
 } from '@/features/repository/repository-tabs'
 
@@ -89,25 +86,20 @@ function RepositoryPage() {
   return (
     <>
       <Header className='border-b-0'>
-        <div className='flex w-full items-center justify-between'>
-          <div className='flex items-center gap-2'>
-            <FolderGit2 className='h-5 w-5' />
-            <h1 className='text-lg font-semibold'>{name}</h1>
+        <div className='flex w-full items-center justify-between gap-2'>
+          <div className='flex min-w-0 items-center gap-2'>
+            <FolderGit2 className='h-5 w-5 shrink-0' />
+            <h1 className='truncate text-lg font-semibold'>{name}</h1>
           </div>
-          <div className='flex items-center gap-2'>
-            <CloneDialog repoPath={data.path || ''} fingerprint={fingerprint} />
-            <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
-            <RepositoryLinkButton
-              fingerprint={fingerprint}
-              isOwner={data.isAdmin}
-            />
-            {data.remote && (
-              <UnsubscribeButton
-                repoId={data.id || data.repoId}
-                repoName={name}
-              />
-            )}
-          </div>
+          <RepositoryActions
+            fingerprint={fingerprint}
+            path={data.path || ''}
+            downloadRef={data.default_branch || 'HEAD'}
+            isOwner={data.isAdmin}
+            subscription={
+              data.remote ? { repoId: data.id || data.repoId, name } : undefined
+            }
+          />
         </div>
       </Header>
       <Main spacingY='xs'>

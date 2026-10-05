@@ -2,23 +2,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-import { useState } from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { Trans, useLingui } from '@lingui/react/macro'
-import {
-  cn,
-  Button,
-  CardDescription,
-  ConfirmDialog,
-  getErrorMessage,
-  toastAction,
-} from '@mochi/web'
-import { FolderGit2, Globe, UserMinus } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { Trans } from '@lingui/react/macro'
+import { cn, CardDescription } from '@mochi/web'
+import { FolderGit2, Globe } from 'lucide-react'
 import { serverHost } from '@/lib/validation'
-import { useUnsubscribe } from '@/hooks/use-repository'
-import { CloneDialog } from '@/components/clone-dialog'
-import { DownloadDropdown } from '@/components/download-dropdown'
-import { RepositoryLinkButton } from '@/components/repository-link-button'
+import { RepositoryActions } from './repository-actions'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
 
 interface RepositoryHeaderProps {
@@ -48,79 +37,40 @@ export function RepositoryHeader({
   currentRef,
   showDownload = true,
 }: RepositoryHeaderProps) {
-  const { t } = useLingui()
   const host = serverHost(server)
-  const navigate = useNavigate()
-  const unsubscribe = useUnsubscribe()
-  const [showUnsubscribeDialog, setShowUnsubscribeDialog] = useState(false)
 
   const tabs = useRepositoryTabs()
   const visibleTabs = tabs.filter((tab) => !tab.ownerOnly || isOwner)
 
-  const handleUnsubscribe = async () => {
-    try {
-      await toastAction(unsubscribe.mutateAsync(repoId), {
-        loading: t`Unsubscribing...`,
-        success: t`Unsubscribed from repository`,
-        error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
-      })
-      setShowUnsubscribeDialog(false)
-      void navigate({ to: '/' })
-    } catch {
-      // toast already shown
-    }
-  }
-
   return (
     <div className='space-y-4'>
       {/* Header with name, description, and action buttons */}
-      <div className='flex flex-wrap items-center gap-2'>
-        <div className='flex items-center gap-2'>
-          <FolderGit2 className='h-5 w-5' />
+      <div className='flex items-center justify-between gap-2'>
+        <div className='flex min-w-0 items-center gap-2'>
+          <FolderGit2 className='h-5 w-5 shrink-0' />
           <Link
             to='/$repoId'
             params={{ repoId: fingerprint }}
-            className='text-xl font-semibold hover:underline'
+            className='truncate text-xl font-semibold hover:underline'
           >
             {name}
           </Link>
           {isRemote && (
-            <span className='text-muted-foreground flex items-center gap-1 text-xs'>
+            <span className='text-muted-foreground flex shrink-0 items-center gap-1 text-xs'>
               <Globe className='h-3 w-3' />
-              <Trans>Subscribed</Trans>
+              <span className='sr-only sm:not-sr-only'>
+                <Trans>Subscribed</Trans>
+              </span>
             </span>
           )}
         </div>
-        <div className='flex-1' />
-        <CloneDialog repoPath={path} fingerprint={fingerprint} />
-        {showDownload && <DownloadDropdown gitRef={currentRef || 'HEAD'} />}
-        <RepositoryLinkButton fingerprint={fingerprint} isOwner={isOwner} />
-        {isRemote && (
-          <>
-            <Button
-              variant='outline'
-              size='sm'
-              onClick={() => setShowUnsubscribeDialog(true)}
-              loading={unsubscribe.isPending}
-              icon={<UserMinus className='h-4 w-4' />}
-            >
-              <span className='hidden sm:inline'>
-                <Trans>Unsubscribe</Trans>
-              </span>
-            </Button>
-            <ConfirmDialog
-              open={showUnsubscribeDialog}
-              onOpenChange={setShowUnsubscribeDialog}
-              title={t`Unsubscribe from repository?`}
-              desc={t`This will remove "${name}" from your repository list. You can subscribe again later.`}
-              confirmText={t`Unsubscribe`}
-              icon={<UserMinus className='size-4' />}
-              destructive
-              isLoading={unsubscribe.isPending}
-              handleConfirm={handleUnsubscribe}
-            />
-          </>
-        )}
+        <RepositoryActions
+          fingerprint={fingerprint}
+          path={path}
+          downloadRef={showDownload ? currentRef || 'HEAD' : undefined}
+          isOwner={isOwner}
+          subscription={isRemote ? { repoId, name } : undefined}
+        />
       </div>
 
       {description && (

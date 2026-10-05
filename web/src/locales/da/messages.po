@@ -1424,7 +1424,6 @@ msgstr "Kunne ikke indstille adgangsniveau"
 msgid "Failed to subscribe"
 msgstr "Kunne ikke abonnere"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Failed to unsubscribe"
@@ -1771,8 +1770,8 @@ msgstr "Flyttet"
 msgid "Moved {field}"
 msgstr "{field} flyttet"
 
-#. placeholder {0}: dayName(current.day)
 #. placeholder {0}: dayName(dragging.day)
+#. placeholder {0}: dayName(opening(current, format.zonedDay))
 #: ../../../lib/web/src/components/calendar/month-grid.tsx
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
 msgid "Moving to {0}"
@@ -2879,10 +2878,6 @@ msgstr "Dette vil permanent slette \"{currentName}\" og alle dens commits, grene
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "Dette vil permanent slette tokenet. Eventuelle git-klienter, der bruger det, vil ikke længere kunne godkendes."
 
-#: src/features/repository/repository-header.tsx
-msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
-msgstr "Dette vil fjerne \"{name}\" fra din repositorieliste. Du kan abonnere igen senere."
-
 #: src/features/repository/repository-tabs.tsx
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "Dette vil fjerne \"{repoName}\" fra din repositorieliste. Du kan abonnere igen senere."
@@ -2913,7 +2908,6 @@ msgstr "Skift sidepanel"
 msgid "Toggle view options"
 msgstr "Skift visningsindstillinger"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 msgid "Toggle watched filter"
 msgstr "Skift overvåget filter"
@@ -3012,8 +3006,6 @@ msgid "Unknown"
 msgstr "Ukendt"
 
 #: ../../../lib/web/src/components/options-menu.tsx
-#: src/features/repository/repository-header.tsx
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/routes/_authenticated/index.tsx
@@ -3022,7 +3014,6 @@ msgstr "Ukendt"
 msgid "Unsubscribe"
 msgstr "Afmeld"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
 msgstr "Afmeld repositorie?"
@@ -3031,12 +3022,10 @@ msgstr "Afmeld repositorie?"
 msgid "Unsubscribed"
 msgstr "Afmeldt"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribed from repository"
 msgstr "Afmeldt fra repositorie"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribing..."

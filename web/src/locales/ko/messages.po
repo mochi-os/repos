@@ -1424,7 +1424,6 @@ msgstr "접근 레벨 설정에 실패했어요"
 msgid "Failed to subscribe"
 msgstr "구독에 실패했어요"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Failed to unsubscribe"
@@ -1771,8 +1770,8 @@ msgstr "이동됨"
 msgid "Moved {field}"
 msgstr "{field} 이동됨"
 
-#. placeholder {0}: dayName(current.day)
 #. placeholder {0}: dayName(dragging.day)
+#. placeholder {0}: dayName(opening(current, format.zonedDay))
 #: ../../../lib/web/src/components/calendar/month-grid.tsx
 #: ../../../lib/web/src/components/calendar/time-grid.tsx
 msgid "Moving to {0}"
@@ -2879,10 +2878,6 @@ msgstr "\"{currentName}\"과(와) 모든 커밋, 브랜치, 태그가 영구적�
 msgid "This will permanently delete this token. Any git clients using it will no longer be able to authenticate."
 msgstr "이 토큰을 영구적으로 삭제합니다. 이를 사용하는 git 클라이언트는 더 이상 인증할 수 없습니다."
 
-#: src/features/repository/repository-header.tsx
-msgid "This will remove \"{name}\" from your repository list. You can subscribe again later."
-msgstr "\"{name}\"이(가) 저장소 목록에서 제거돼요. 나중에 다시 구독할 수 있어요."
-
 #: src/features/repository/repository-tabs.tsx
 msgid "This will remove \"{repoName}\" from your repository list. You can subscribe again later."
 msgstr "\"{repoName}\"이(가) 저장소 목록에서 제거돼요. 나중에 다시 구독할 수 있어요."
@@ -2913,7 +2908,6 @@ msgstr "사이드바 토글"
 msgid "Toggle view options"
 msgstr "보기 옵션 전환"
 
-#: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 #: ../../../lib/web/src/components/entity/entity-view-options-bar.tsx
 msgid "Toggle watched filter"
 msgstr "관찰 필터 전환"
@@ -3012,8 +3006,6 @@ msgid "Unknown"
 msgstr "알 수 없음"
 
 #: ../../../lib/web/src/components/options-menu.tsx
-#: src/features/repository/repository-header.tsx
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/routes/_authenticated/index.tsx
@@ -3022,7 +3014,6 @@ msgstr "알 수 없음"
 msgid "Unsubscribe"
 msgstr "구독 해지"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribe from repository?"
 msgstr "저장소 구독을 해지할까요?"
@@ -3031,12 +3022,10 @@ msgstr "저장소 구독을 해지할까요?"
 msgid "Unsubscribed"
 msgstr "구독이 해지되었어요"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 msgid "Unsubscribed from repository"
 msgstr "저장소 구독을 해지했어요"
 
-#: src/features/repository/repository-header.tsx
 #: src/features/repository/repository-tabs.tsx
 #: src/routes/_authenticated/index.tsx
 msgid "Unsubscribing..."
