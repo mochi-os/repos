@@ -36,18 +36,12 @@ import {
   Pencil,
   Plus,
   Trash2,
-  UserMinus,
   X,
 } from 'lucide-react'
 import endpoints from '@/api/endpoints'
 import { reposRequest, appBasePath, repoBasePath } from '@/api/request'
 import { DISALLOWED_NAME_CHARS, isValidPath } from '@/lib/validation'
-import {
-  useTree,
-  useBranches,
-  useUnsubscribe,
-  repoKeys,
-} from '@/hooks/use-repository'
+import { useTree, useBranches, repoKeys } from '@/hooks/use-repository'
 import { RefSelector } from '@/components/ref-selector'
 import { BranchesList } from './branches-list'
 import { CommitsList } from './commits-list'
@@ -55,8 +49,6 @@ import { FileListing } from './file-browser'
 import { useRepositoryTabs, type RepositoryTabId } from './tabs'
 import { TagsList } from './tags-list'
 
-// Re-export CloneDialog from shared component
-export { CloneDialog } from '@/components/clone-dialog'
 export type { RepositoryTabId }
 
 interface RepositoryTabsProps {
@@ -171,66 +163,6 @@ export function RepositoryTabs({
         )}
       </div>
     </div>
-  )
-}
-
-// ============================================================================
-// Unsubscribe Button
-// ============================================================================
-
-export function UnsubscribeButton({
-  repoId,
-  repoName,
-}: {
-  repoId: string
-  repoName: string
-}) {
-  const { t } = useLingui()
-  const navigate = useNavigate()
-  const unsubscribe = useUnsubscribe()
-  const [showDialog, setShowDialog] = useState(false)
-  const [isUnsubscribing, setIsUnsubscribing] = useState(false)
-
-  const handleUnsubscribe = async () => {
-    setIsUnsubscribing(true)
-    try {
-      await toastAction(unsubscribe.mutateAsync(repoId), {
-        loading: t`Unsubscribing...`,
-        success: t`Unsubscribed from repository`,
-        error: (e) => getErrorMessage(e, t`Failed to unsubscribe`),
-      })
-      void navigate({ to: '/' })
-    } catch {
-      // toast already shown
-    } finally {
-      setIsUnsubscribing(false)
-      setShowDialog(false)
-    }
-  }
-
-  return (
-    <>
-      <Button
-        variant='outline'
-        size='sm'
-        onClick={() => setShowDialog(true)}
-        loading={isUnsubscribing}
-        icon={<UserMinus className='me-1 h-4 w-4' />}
-      >
-        <Trans>Unsubscribe</Trans>
-      </Button>
-      <ConfirmDialog
-        open={showDialog}
-        onOpenChange={setShowDialog}
-        title={t`Unsubscribe from repository?`}
-        desc={t`This will remove "${repoName}" from your repository list. You can subscribe again later.`}
-        confirmText={t`Unsubscribe`}
-        icon={<UserMinus className='size-4' />}
-        destructive
-        isLoading={isUnsubscribing}
-        handleConfirm={handleUnsubscribe}
-      />
-    </>
   )
 }
 

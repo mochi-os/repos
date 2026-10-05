@@ -67,7 +67,7 @@ export function RepositoryLinkButton({
     <>
       <Button variant='outline' size='sm' onClick={() => void openLinkDialog()}>
         <LinkIcon className='h-4 w-4' />
-        <span className='hidden sm:inline'>
+        <span className='sr-only sm:not-sr-only'>
           <Trans>Link</Trans>
         </span>
       </Button>

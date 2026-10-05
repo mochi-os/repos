@@ -264,7 +264,9 @@ export function CloneDialog({ repoPath, fingerprint }: CloneDialogProps) {
       <ResponsiveDialog open={open} onOpenChange={handleOpen}>
         <Button variant='outline' size='sm' onClick={() => handleOpen(true)}>
           <Code className='h-4 w-4' />
-          <Trans>Clone</Trans>
+          <span className='sr-only sm:not-sr-only'>
+            <Trans>Clone</Trans>
+          </span>
         </Button>
         <ResponsiveDialogContent className='sm:max-w-4xl'>
           <ResponsiveDialogHeader>

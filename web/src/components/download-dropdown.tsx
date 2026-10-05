@@ -74,7 +74,9 @@ export function DownloadDropdown({
         loading={!!busy}
         icon={<Download className='h-4 w-4' />}
       >
-        <Trans>Download</Trans>
+        <span className='sr-only sm:not-sr-only'>
+          <Trans>Download</Trans>
+        </span>
       </Button>
     )
 

@@ -52,12 +52,10 @@ import {
   setLastRepo,
 } from '@/hooks/use-repos-storage'
 import { useSubscribe, useUnsubscribe } from '@/hooks/use-repository'
-import { DownloadDropdown } from '@/components/download-dropdown'
 import { InlineRepoSearch } from '@/features/repository/inline-repo-search'
+import { RepositoryActions } from '@/features/repository/repository-actions'
 import {
   RepositoryTabs,
-  CloneDialog,
-  UnsubscribeButton,
   type RepositoryTabId,
 } from '@/features/repository/repository-tabs'
 
@@ -150,20 +148,21 @@ function RepositoryHomePage({ data }: { data: InfoResponse }) {
   return (
     <>
       <Header className='border-b-0'>
-        <div className='flex w-full items-center justify-between'>
-          <div className='flex items-center gap-2'>
-            <FolderGit2 className='h-5 w-5' />
-            <h1 className='text-lg font-semibold'>{name}</h1>
+        <div className='flex w-full items-center justify-between gap-2'>
+          <div className='flex min-w-0 items-center gap-2'>
+            <FolderGit2 className='h-5 w-5 shrink-0' />
+            <h1 className='truncate text-lg font-semibold'>{name}</h1>
           </div>
-          <div className='flex items-center gap-2'>
-            <CloneDialog repoPath={data.path || ''} fingerprint={fingerprint} />
-            {(tab ?? 'files') === 'files' && (
-              <DownloadDropdown gitRef={data.default_branch || 'HEAD'} />
-            )}
-            {data.remote && (
-              <UnsubscribeButton repoId={data.id!} repoName={name} />
-            )}
-          </div>
+          <RepositoryActions
+            fingerprint={fingerprint}
+            path={data.path || ''}
+            downloadRef={
+              (tab ?? 'files') === 'files'
+                ? data.default_branch || 'HEAD'
+                : undefined
+            }
+            subscription={data.remote ? { repoId: data.id!, name } : undefined}
+          />
         </div>
       </Header>
       <Main spacingY='xs'>
@@ -283,7 +282,7 @@ function RepositoryListPage({ repositories }: RepositoryListPageProps) {
         icon={<FolderGit2 className='size-4 md:size-5' />}
       />
       <Main>
-        <div className='container mx-auto p-6'>
+        <div className='container mx-auto p-0 sm:p-6'>
           {!hasRepos ? (
             <div className='flex flex-col items-center justify-center p-8 text-center'>
               <FolderGit2 className='text-muted-foreground mx-auto mb-3 h-10 w-10 opacity-50' />
