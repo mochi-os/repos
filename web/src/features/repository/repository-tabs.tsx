@@ -39,7 +39,7 @@ import { RefSelector } from '@/components/ref-selector'
 import { BranchesList } from './branches-list'
 import { CommitsList } from './commits-list'
 import { FileListing } from './file-browser'
-import { useRepositoryTabs, type RepositoryTabId } from './tabs'
+import { stickyBarClass, useRepositoryTabs, type RepositoryTabId } from './tabs'
 import { TagsList } from './tags-list'
 
 export type { RepositoryTabId }
@@ -87,30 +87,32 @@ export function RepositoryTabs({
         <CardDescription className='text-base'>{description}</CardDescription>
       )}
 
-      {/* Tab bar */}
-      <Tabs
-        variant='underline'
-        value={activeTab}
-        onValueChange={(value) => onTabChange(value as typeof activeTab)}
-      >
-        <TabsList>
-          {visibleTabs.map((tab) => (
-            <TabsTrigger key={tab.id} value={tab.id} className='gap-2'>
-              {tab.icon}
-              <span className='hidden sm:inline'>{tab.label}</span>
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
+      {/* Tab bar and branch selector, pinned while the list scrolls */}
+      <div className={stickyBarClass}>
+        <Tabs
+          variant='underline'
+          value={activeTab}
+          onValueChange={(value) => onTabChange(value as typeof activeTab)}
+        >
+          <TabsList>
+            {visibleTabs.map((tab) => (
+              <TabsTrigger key={tab.id} value={tab.id} className='gap-2'>
+                {tab.icon}
+                <span className='hidden sm:inline'>{tab.label}</span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
 
-      {/* Branch selector - shared across files/commits tabs */}
-      {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
-        <RefSelector
-          branches={branches}
-          value={currentRef}
-          onValueChange={setCurrentRef}
-        />
-      )}
+        {/* Branch selector - shared across files/commits tabs */}
+        {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
+          <RefSelector
+            branches={branches}
+            value={currentRef}
+            onValueChange={setCurrentRef}
+          />
+        )}
+      </div>
 
       {/* Tab content */}
       <div className='pt-2'>

@@ -49,14 +49,15 @@ function CommitsPage() {
           isRemote={data.remote}
           server={data.server}
           showDownload={false}
-        />
-        {branches.length > 0 && (
-          <RefSelector
-            branches={branches}
-            value={currentRef}
-            onValueChange={setCurrentRef}
-          />
-        )}
+        >
+          {branches.length > 0 && (
+            <RefSelector
+              branches={branches}
+              value={currentRef}
+              onValueChange={setCurrentRef}
+            />
+          )}
+        </RepositoryHeader>
         <CommitsList
           repoId={repoId}
           fingerprint={fingerprint}
