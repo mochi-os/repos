@@ -83,6 +83,9 @@ export function useTags(repoId: string) {
 
 // The server's default page. A shorter page is the last one.
 const COMMITS_PAGE_SIZE = 50
+// The server reads any offset past this as 0 and sends the first page again,
+// so asking beyond it would load the same commits for ever.
+const COMMITS_OFFSET_MAXIMUM = 100000
 
 export function useCommits(repoId: string, ref?: string) {
   return useInfiniteQuery({
@@ -97,10 +100,13 @@ export function useCommits(repoId: string, ref?: string) {
     initialPageParam: 0,
     // The offset counts what was asked for, not what the list kept after
     // dropping repeats, so it always lands on the server's next page.
-    getNextPageParam: (lastPage, allPages) =>
-      lastPage.length < COMMITS_PAGE_SIZE
+    getNextPageParam: (lastPage, allPages) => {
+      const next = allPages.length * COMMITS_PAGE_SIZE
+      return lastPage.length < COMMITS_PAGE_SIZE ||
+        next > COMMITS_OFFSET_MAXIMUM
         ? undefined
-        : allPages.length * COMMITS_PAGE_SIZE,
+        : next
+    },
     enabled: !!repoId,
   })
 }
