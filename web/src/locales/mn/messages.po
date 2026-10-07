@@ -26,6 +26,11 @@ msgstr "(засварласан)"
 msgid "(expand)"
 msgstr "(дэлгэх)"
 
+#. placeholder {0}: file.oldPath
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "(from {0})"
+msgstr "({0}-с)"
+
 #: ../../../lib/web/src/components/calendar/event-title.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "(No title)"
@@ -43,6 +48,8 @@ msgid "[not set]"
 msgstr "[тогтоогоогүй]"
 
 #. placeholder {0}: commit.stats.files
+#. placeholder {0}: files.length
+#: ../../../lib/web/src/components/diff-viewer.tsx
 #: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# файл өөрчлөгдсөн} other {# файл өөрчлөгдсөн}}"
@@ -139,6 +146,10 @@ msgstr "{totalCount, plural, one {# зүйл} other {# зүйл}}"
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
 msgid "{totalDescendants, plural, one {# reply} other {+# more replies}}"
 msgstr "{totalDescendants, plural, one {# хариу} other {+# илүү хариу}}"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "{truncated, plural, one {# more file not shown} other {# more files not shown}}"
+msgstr "{truncated, plural, one {Дахин # файл харуулаагүй} other {Дахин # файл харуулаагүй}}"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
@@ -431,6 +442,10 @@ msgstr "Баннер шинэчлэгдсэн"
 #: src/features/repository/blob-viewer.tsx
 msgid "Binary file ({0})"
 msgstr "Хоёртын файл ({0})"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Binary file not shown"
+msgstr "Хоёртын файлыг харуулахгүй"
 
 #: ../../../lib/web/src/components/member-list.tsx
 #: ../../../lib/web/src/components/member-list.tsx
@@ -1865,6 +1880,10 @@ msgstr "Үйл ажиллагаа алга"
 msgid "No branches yet"
 msgstr "Салбар алга"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "No changes to display"
+msgstr "Харуулах өөрчлөлт алга"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Сэтгэгдэл алга"
@@ -1967,6 +1986,15 @@ msgstr "Алга"
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Normal"
 msgstr "Энгийн"
+
+#. placeholder {0}: formatFileSize(file.limit)
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Not compared: larger than {0}"
+msgstr "Харьцуулаагүй: {0}-аас том"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Not compared: over the size limit"
+msgstr "Харьцуулаагүй: хэмжээний хязгаараас хэтэрсэн"
 
 #: ../../../lib/web/src/components/attachment-image.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2709,6 +2737,10 @@ msgstr "Эх сурвалжууд"
 msgid "Spacious"
 msgstr "Уужим"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Split"
+msgstr "Хуваах"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "Start the discussion by adding the first comment."
 msgstr "Эхний сэтгэгдэл нэмж хэлэлцүүлэг эхлүүл."
@@ -2986,6 +3018,10 @@ msgstr "Боломжгүй"
 #: ../../../lib/web/src/lib/request.ts
 msgid "Unexpected API error"
 msgstr "Гэнэтийн API алдаа"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Unified"
+msgstr "Нэгдсэн"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "United States"

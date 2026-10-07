@@ -26,6 +26,11 @@ msgstr "(таҳриршуда)"
 msgid "(expand)"
 msgstr "(васеъ кардан)"
 
+#. placeholder {0}: file.oldPath
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "(from {0})"
+msgstr "(аз {0})"
+
 #: ../../../lib/web/src/components/calendar/event-title.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "(No title)"
@@ -43,6 +48,8 @@ msgid "[not set]"
 msgstr "[таъин нашудааст]"
 
 #. placeholder {0}: commit.stats.files
+#. placeholder {0}: files.length
+#: ../../../lib/web/src/components/diff-viewer.tsx
 #: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# файл тағйир ёфт} other {# файл тағйир ёфт}}"
@@ -139,6 +146,10 @@ msgstr "{totalCount, plural, one {# ҷузъ} other {# ҷузъ}}"
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
 msgid "{totalDescendants, plural, one {# reply} other {+# more replies}}"
 msgstr "{totalDescendants, plural, one {# ҷавоб} other {+# ҷавоби бештар}}"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "{truncated, plural, one {# more file not shown} other {# more files not shown}}"
+msgstr "{truncated, plural, one {Боз # файл нишон дода нашуд} other {Боз # файл нишон дода нашуд}}"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
@@ -431,6 +442,10 @@ msgstr "Баннер навсозӣ шуд"
 #: src/features/repository/blob-viewer.tsx
 msgid "Binary file ({0})"
 msgstr "Файли дуӣ ({0})"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Binary file not shown"
+msgstr "Файли дуӣ нишон дода намешавад"
 
 #: ../../../lib/web/src/components/member-list.tsx
 #: ../../../lib/web/src/components/member-list.tsx
@@ -1865,6 +1880,10 @@ msgstr "То ҳол ягон фаъолият нест"
 msgid "No branches yet"
 msgstr "То ҳол ягон шоха нест"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "No changes to display"
+msgstr "Ҳеҷ тағйирот барои намоиш нест"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "То ҳол ягон шарҳ нест"
@@ -1967,6 +1986,15 @@ msgstr "Ҳеҷ кадом"
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Normal"
 msgstr "Муқаррарӣ"
+
+#. placeholder {0}: formatFileSize(file.limit)
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Not compared: larger than {0}"
+msgstr "Муқоиса нашуд: калонтар аз {0}"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Not compared: over the size limit"
+msgstr "Муқоиса нашуд: аз ҳадди андоза зиёд"
 
 #: ../../../lib/web/src/components/attachment-image.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2709,6 +2737,10 @@ msgstr "Манбаъҳо"
 msgid "Spacious"
 msgstr "Васеъ"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Split"
+msgstr "Тақсим"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "Start the discussion by adding the first comment."
 msgstr "Сӯҳбатро бо илова кардани шарҳи аввал оғоз кунед."
@@ -2986,6 +3018,10 @@ msgstr "Дастрас нест"
 #: ../../../lib/web/src/lib/request.ts
 msgid "Unexpected API error"
 msgstr "Хатои ғайричашмдошти API"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Unified"
+msgstr "Муттаҳид"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "United States"

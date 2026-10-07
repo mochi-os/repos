@@ -26,6 +26,11 @@ msgstr "(đã chỉnh sửa)"
 msgid "(expand)"
 msgstr "(mở rộng)"
 
+#. placeholder {0}: file.oldPath
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "(from {0})"
+msgstr "(từ {0})"
+
 #: ../../../lib/web/src/components/calendar/event-title.tsx
 #: ../../../lib/web/src/components/calendar/tooltip.ts
 msgid "(No title)"
@@ -43,6 +48,8 @@ msgid "[not set]"
 msgstr "[chưa đặt]"
 
 #. placeholder {0}: commit.stats.files
+#. placeholder {0}: files.length
+#: ../../../lib/web/src/components/diff-viewer.tsx
 #: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {# tệp đã thay đổi}}"
@@ -139,6 +146,10 @@ msgstr "{totalCount, plural, one {# mục} other {# mục}}"
 #: ../../../lib/web/src/components/entity/entity-comment-thread.tsx
 msgid "{totalDescendants, plural, one {# reply} other {+# more replies}}"
 msgstr "{totalDescendants, plural, one {# phản hồi} other {+# phản hồi nữa}}"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "{truncated, plural, one {# more file not shown} other {# more files not shown}}"
+msgstr "{truncated, plural, one {Còn # tệp nữa không hiển thị} other {Còn # tệp nữa không hiển thị}}"
 
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
 msgid "{unreadCount, plural, one {Open menu (# unread notification)} other {Open menu (# unread notifications)}}"
@@ -431,6 +442,10 @@ msgstr "Đã cập nhật banner"
 #: src/features/repository/blob-viewer.tsx
 msgid "Binary file ({0})"
 msgstr "Tệp nhị phân ({0})"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Binary file not shown"
+msgstr "Không hiển thị tệp nhị phân"
 
 #: ../../../lib/web/src/components/member-list.tsx
 #: ../../../lib/web/src/components/member-list.tsx
@@ -1865,6 +1880,10 @@ msgstr "Chưa có hoạt động"
 msgid "No branches yet"
 msgstr "Chưa có nhánh"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "No changes to display"
+msgstr "Không có thay đổi để hiển thị"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Chưa có bình luận"
@@ -1967,6 +1986,15 @@ msgstr "Không có"
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Normal"
 msgstr "Thường"
+
+#. placeholder {0}: formatFileSize(file.limit)
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Not compared: larger than {0}"
+msgstr "Không so sánh: lớn hơn {0}"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Not compared: over the size limit"
+msgstr "Không so sánh: vượt quá giới hạn kích thước"
 
 #: ../../../lib/web/src/components/attachment-image.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2709,6 +2737,10 @@ msgstr "Nguồn"
 msgid "Spacious"
 msgstr "Rộng rãi"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Split"
+msgstr "Chia"
+
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "Start the discussion by adding the first comment."
 msgstr "Bắt đầu thảo luận bằng cách thêm bình luận đầu tiên."
@@ -2986,6 +3018,10 @@ msgstr "Không khả dụng"
 #: ../../../lib/web/src/lib/request.ts
 msgid "Unexpected API error"
 msgstr "Lỗi API không mong muốn"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Unified"
+msgstr "Hợp nhất"
 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "United States"
