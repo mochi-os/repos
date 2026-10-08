@@ -25,12 +25,9 @@ export interface Tab {
 }
 
 // The tab strip and the branch picker stay in view while a long list scrolls
-// under them. The element must be a direct child of the page's tall column:
-// sticky only holds for as long as its parent is on screen. mb-0 with pb-4
-// swaps the column's gap for padding, so the background covers the rows
-// passing underneath.
-export const stickyBarClass =
-  'bg-background sticky top-[var(--sticky-top,0px)] z-20 -mt-2 mb-0 space-y-4 pt-2 pb-4'
+// under them, in the shared StickyBar. mb-0 with pb-4 swaps the column's gap
+// for padding, so the background covers the rows passing underneath.
+export const stickyBarClass = '-mt-2 mb-0 space-y-4 pt-2 pb-4'
 
 export function useRepositoryTabs(): Tab[] {
   const { t } = useLingui()

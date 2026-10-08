@@ -19,6 +19,7 @@ import {
   SelectValue,
   Input,
   ConfirmDialog,
+  StickyBar,
   Tabs,
   TabsList,
   TabsTrigger,
@@ -88,7 +89,7 @@ export function RepositoryTabs({
       )}
 
       {/* Tab bar and branch selector, pinned while the list scrolls */}
-      <div className={stickyBarClass}>
+      <StickyBar className={stickyBarClass}>
         <Tabs
           variant='underline'
           value={activeTab}
@@ -112,7 +113,7 @@ export function RepositoryTabs({
             onValueChange={setCurrentRef}
           />
         )}
-      </div>
+      </StickyBar>
 
       {/* Tab content */}
       <div className='pt-2'>

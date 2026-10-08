@@ -4,7 +4,7 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { Link } from '@tanstack/react-router'
 import { Trans } from '@lingui/react/macro'
-import { cn, CardDescription } from '@mochi/web'
+import { cn, CardDescription, StickyBar } from '@mochi/web'
 import { FolderGit2, Globe } from 'lucide-react'
 import { serverHost } from '@/lib/validation'
 import { RepositoryActions } from './repository-actions'
@@ -89,7 +89,7 @@ export function RepositoryHeader({
       </div>
 
       {/* Tab bar */}
-      <div className={stickyBarClass}>
+      <StickyBar className={stickyBarClass}>
         <div className='flex gap-1 border-b'>
           {visibleTabs.map((tab) => (
             <Link
@@ -111,7 +111,7 @@ export function RepositoryHeader({
           ))}
         </div>
         {children}
-      </div>
+      </StickyBar>
     </>
   )
 }
