@@ -97,7 +97,12 @@ export function RepositoryTabs({
         >
           <TabsList>
             {visibleTabs.map((tab) => (
-              <TabsTrigger key={tab.id} value={tab.id} className='gap-2'>
+              <TabsTrigger
+                key={tab.id}
+                value={tab.id}
+                className='gap-2'
+                aria-label={tab.label}
+              >
                 {tab.icon}
                 <span className='hidden sm:inline'>{tab.label}</span>
               </TabsTrigger>

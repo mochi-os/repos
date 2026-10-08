@@ -90,16 +90,17 @@ export function RepositoryHeader({
 
       {/* Tab bar */}
       <StickyBar className={stickyBarClass}>
-        <div className='flex gap-1 border-b'>
+        <div className='no-scrollbar flex gap-1 overflow-x-auto shadow-[inset_0_-1px_0_var(--border)]'>
           {visibleTabs.map((tab) => (
             <Link
               key={tab.id}
               to={tab.to}
               params={{ repoId: fingerprint }}
               search={tab.search ?? {}}
+              aria-label={tab.label}
               className={cn(
-                'flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
-                '-mb-px border-b-2',
+                'flex shrink-0 items-center gap-2 px-4 py-2 text-sm font-medium transition-colors',
+                'border-b-2',
                 activeTab === tab.id
                   ? 'border-primary text-foreground'
                   : 'text-muted-foreground hover:text-foreground border-transparent'

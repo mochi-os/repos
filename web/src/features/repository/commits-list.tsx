@@ -10,9 +10,9 @@ import {
   CardContent,
   EmptyState,
   EntityAvatar,
+  GeneralError,
   LoadMoreTrigger,
   Skeleton,
-  getErrorMessage,
   useFormat,
 } from '@mochi/web'
 import { GitCommit } from 'lucide-react'
@@ -39,6 +39,7 @@ export function CommitsList({
     data,
     isLoading,
     error,
+    refetch,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
@@ -71,9 +72,12 @@ export function CommitsList({
 
   if (error && !data) {
     return (
-      <div className='text-destructive p-4'>
-        {getErrorMessage(error, t`Failed to load commits`)}
-      </div>
+      <GeneralError
+        error={error}
+        minimal
+        mode='inline'
+        reset={() => void refetch()}
+      />
     )
   }
 
@@ -120,6 +124,9 @@ export function CommitsList({
           ))}
         </CardContent>
       </Card>
+      {isFetchNextPageError && error && (
+        <GeneralError error={error} minimal mode='inline' reset={loadMore} />
+      )}
       {/* Stops after a failed page: the observer re-arms whenever loading
         ends, so leaving it live would retry the failing request in a loop. */}
       <LoadMoreTrigger
