@@ -28,6 +28,7 @@ import {
   getErrorMessage,
   naturalCompare,
   isDomainEntityRouting,
+  shellNavigateTop,
 } from '@mochi/web'
 import {
   Plus,
@@ -37,7 +38,7 @@ import {
   UserMinus,
 } from 'lucide-react'
 import endpoints from '@/api/endpoints'
-import { reposRequest, appBasePath } from '@/api/request'
+import { reposRequest, appBasePath, anonymousRefusal } from '@/api/request'
 import type {
   InfoResponse,
   Repository,
@@ -82,9 +83,21 @@ export const Route = createFileRoute('/_authenticated/')({
       : undefined,
   }),
   loader: async () => {
-    const info = await reposRequest.get<InfoResponse>(endpoints.repo.info, {
-      baseURL: appBasePath(),
-    })
+    let info: InfoResponse
+    try {
+      info = await reposRequest.get<InfoResponse>(endpoints.repo.info, {
+        baseURL: appBasePath(),
+      })
+    } catch (error) {
+      // A visitor with no account on the app's own path: send them where core
+      // sends anonymous visitors of every other app, rather than rendering a
+      // refusal they cannot act on.
+      if (anonymousRefusal(error)) {
+        shellNavigateTop('/')
+        return { entity: false, repositories: [] }
+      }
+      throw error
+    }
 
     // Only redirect on first load, not on subsequent navigations
     if (hasCheckedRedirect) {

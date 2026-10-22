@@ -7,6 +7,7 @@ import {
   createAppClient,
   getAppPath,
   isDomainEntityRouting,
+  requestHelpers,
   shellSaveBlob,
 } from '@mochi/web'
 
@@ -21,6 +22,16 @@ function isEntityIdentifier(s: string): boolean {
 
 export function appBasePath(): string {
   return `${getAppPath()}/`
+}
+
+// anonymousRefusal reports whether a failed class-level request is the server
+// turning away a visitor with no account on the app's own path: nobody's
+// repositories can be listed for them, so they belong on the sign-in landing
+// page, where core sends anonymous visitors of every other app. On a
+// domain-routed host the route owner's repositories answer anonymously, so a
+// 401 there is an error to show.
+export function anonymousRefusal(error: unknown): boolean {
+  return requestHelpers.isAuthError(error) && !isDomainEntityRouting()
 }
 
 export function repoBasePath(repoId: string): string {
