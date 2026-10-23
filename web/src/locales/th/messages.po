@@ -47,10 +47,13 @@ msgstr "(คุณ)"
 msgid "[not set]"
 msgstr "[ไม่ได้ตั้ง]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {# คอมมิต}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {เปลี่ยนแปลง # ไฟล์}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} เสนอเสมอ"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} จาก {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {บริบท # บรรทัด}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการเลิกติดตามที่เก็บนี้?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "ตามสถานะปัจจุบัน"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "จากน้อยไปมาก"
@@ -503,6 +514,7 @@ msgstr "ชื่อสาขา"
 msgid "Branch name is required"
 msgstr "ต้องระบุชื่อสาขา"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "สาขา"
@@ -595,9 +607,19 @@ msgstr "เปลี่ยน {field}"
 msgid "Changed occurrence"
 msgstr "ครั้งที่ถูกเปลี่ยนแปลง"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "การเปลี่ยนแปลง"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "การเปลี่ยนแปลงจาก {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "การเปลี่ยนแปลงใน {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "เลือกเวลา"
 msgid "Choose language"
 msgstr "เลือกภาษา"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "เลือกสิ่งที่จะเปรียบเทียบ"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "เลือกภาษา"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "ล้าง"
 
@@ -684,6 +711,10 @@ msgstr "ปิดการค้นหา"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "ยุบ"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "ยุบทั้งหมด"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "คอมมิต"
 msgid "Compact"
 msgstr "กะทัดรัด"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "เปรียบเทียบ"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "เปรียบเทียบ - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "เปรียบเทียบจาก"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "เปรียบเทียบถึง"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "เปรียบเทียบกับ {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "วิธีเปรียบเทียบ"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "ตั้งค่าตัวเลือก"
@@ -775,6 +837,10 @@ msgstr "ไม่พบเนื้อหา"
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "ไม่มีการแก้ไขเนื้อหา"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "บริบท"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "ทุกนาที"
 msgid "Expand"
 msgstr "ขยาย"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "ขยายทั้งหมด"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "ขยายแถบด้านข้าง"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ไฟล์"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "ตัวเลือกไฟล์"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "กลุ่ม: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "ประวัติ"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "ประวัติของ {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "รหัส"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "ตัวตน"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "ละเว้นช่องว่าง"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "ลิงก์"
 msgid "List"
 msgstr "รายการ"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "โหลดความแตกต่าง"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "โหลดเพิ่ม"
 
@@ -1906,6 +2000,10 @@ msgstr "ยังไม่มีกิจกรรม"
 msgid "No branches yet"
 msgstr "ยังไม่มี branch"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "ไม่มีการเปลี่ยนแปลงนอกจากช่องว่าง"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "ไม่มีการเปลี่ยนแปลงให้แสดง"
@@ -1913,6 +2011,10 @@ msgstr "ไม่มีการเปลี่ยนแปลงให้แส
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "ยังไม่มีความคิดเห็น"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "ไม่มีคอมมิตใดที่เปลี่ยนแปลงไฟล์นี้"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "เจ้าของ"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "แม่"
 
@@ -2166,6 +2269,11 @@ msgstr "ผู้คน"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "ลบที่เก็บนี้และข้อมูลทั้งหมดอย่างถาวร"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "เลือก {0} เพื่อเปรียบเทียบ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "ที่เก็บข้อมูล"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "บันทึกการตั้งค่าแล้ว"
 msgid "Share"
 msgstr "แชร์"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "แสดงไฟล์ทั้งหมด"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "แสดงคลาส"
@@ -2718,9 +2834,17 @@ msgstr "แสดงคลาส"
 msgid "Show fields"
 msgstr "แสดงฟิลด์"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "แสดงบรรทัดเพิ่มเติม"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "แสดงความช่วยเหลือนี้"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "แสดงทั้งไฟล์"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "ออกจากระบบ"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "กำลังออกจากระบบ..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "นับจากจุดที่แยกกัน"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "กำลังติดตาม..."
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "สลับ"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "สลับสาขา"
@@ -2850,6 +2982,7 @@ msgstr "แท็กต้องมีไม่เกิน 50 อักขร�
 msgid "Tags"
 msgstr "แท็ก"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "เซิร์ฟเวอร์ส่งคืนหน้าเว็
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "แอปนี้ไม่ได้รับอนุญาตให้ใช้พาสคีย์ของคุณ อนุญาตได้ในการตั้งค่า ภายใต้สิทธิ์"
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ไม่สามารถเปรียบเทียบไฟล์นี้ด้วยตัวเลือกเหล่านี้ได้"
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ไฟล์นี้ใหญ่เกินกว่าจะแสด
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "หน้านี้ต้องการบริบทของรีโพสิทอรี"
@@ -3175,6 +3314,11 @@ msgstr "ดูและแก้ไขรายละเอียดรายก
 msgid "View controls"
 msgstr "ตัวควบคุมมุมมอง"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ดูไฟล์"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "เบราว์เซอร์นี้ไม่รองรับการบันทึกเสียง"
@@ -3201,6 +3345,10 @@ msgstr "เราส่งรหัสยืนยันไปที่ <0>{0}</
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "วันพุธ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "ทั้งไฟล์"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

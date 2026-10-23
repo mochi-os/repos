@@ -47,10 +47,13 @@ msgstr "(మీరు)"
 msgid "[not set]"
 msgstr "[సెట్ చేయలేదు]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# కమిట్} other {# కమిట్‌లు}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ఫైల్ మార్చబడింది} other {# ఫైల్‌లు మార్చబడ్డాయి}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} డ్రా అందించారు"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel}లో {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# సందర్భ పంక్తి} other {# సందర్భ పంక్తులు}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "మీరు నిజంగా రాజీనామా చేయాల
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "మీరు ఈ రిపోజిటరీ నుండి చందా రద్దు చేయాలనుకుంటున్నారా?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "ప్రస్తుతం ఉన్నట్లుగా"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ఆరోహణ"
@@ -503,6 +514,7 @@ msgstr "శాఖ పేరు"
 msgid "Branch name is required"
 msgstr "శాఖ పేరు అవసరం"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "శాఖలు"
@@ -595,9 +607,19 @@ msgstr "{field} మార్చబడింది"
 msgid "Changed occurrence"
 msgstr "మార్చిన పునరావృత్తి"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "మార్పులు"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} నుండి మార్పులు"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0}లో మార్పులు"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "సమయాన్ని ఎంచుకోండి"
 msgid "Choose language"
 msgstr "భాషను ఎంచుకోండి"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "ఏమి పోల్చాలో ఎంచుకోండి"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "భాషను ఎంచుకోండి"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "క్లియర్ చేయండి"
 
@@ -684,6 +711,10 @@ msgstr "శోధనను మూసివేయండి"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "కుదించు"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "అన్నీ కుదించు"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "కమిట్‌లు"
 msgid "Compact"
 msgstr "కాంపాక్ట్"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "పోల్చండి"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "పోలిక - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "పోలిక ప్రారంభం"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "పోలిక ముగింపు"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0}తో పోల్చండి"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "పోలిక విధానం"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "ఎంపిక సెట్టింగ్‌లను కాన్ఫిగర్ చేయండి"
@@ -775,6 +837,10 @@ msgstr "కంటెంట్ కనుగొనబడలేదు."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "కంటెంట్ సవరించబడలేదు"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "సందర్భం"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "ప్రతి నిమిషం"
 msgid "Expand"
 msgstr "విస్తరించు"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "అన్నీ విస్తరించు"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "సైడ్‌బార్‌ను విస్తరించండి"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ఫైల్"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "ఫైల్ ఆప్షన్‌లు"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "సమూహం: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "చరిత్ర"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} చరిత్ర - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ఐడీ"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "గుర్తింపు"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "ఖాళీలను విస్మరించండి"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "లింక్‌లు"
 msgid "List"
 msgstr "జాబితా"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "తేడాలను లోడ్ చేయండి"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "మరింత లోడ్ చేయండి"
 
@@ -1906,6 +2000,10 @@ msgstr "ఇంకా యాక్టివిటీ లేదు"
 msgid "No branches yet"
 msgstr "ఇంకా బ్రాంచ్‌లు లేవు"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "ఖాళీలు తప్ప మరే మార్పులు లేవు"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "ప్రదర్శించడానికి మార్పులు లేవు"
@@ -1913,6 +2011,10 @@ msgstr "ప్రదర్శించడానికి మార్పుల�
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "ఇంకా కామెంట్‌లు లేవు"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "ఏ కమిట్ కూడా ఈ ఫైల్‌ను మార్చలేదు"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "ఓనర్"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "పేరెంట్"
 
@@ -2166,6 +2269,11 @@ msgstr "వ్యక్తులు"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "ఈ రిపాజిటరీ మరియు దాని మొత్తం డేటాను శాశ్వతంగా డిలీట్ చేయండి"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "పోల్చడానికి {0}ని ఎంచుకోండి"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "రిపోజిటరీలు"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "సెట్టింగ్‌లు సేవ్ చేయబడ్డ�
 msgid "Share"
 msgstr "పంచుకోండి"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "అన్ని ఫైళ్లను చూపించండి"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "క్లాస్‌లను చూపించు"
@@ -2718,9 +2834,17 @@ msgstr "క్లాస్‌లను చూపించు"
 msgid "Show fields"
 msgstr "ఫీల్డ్‌లను చూపించు"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "మరిన్ని పంక్తులు చూపించండి"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "ఈ సహాయాన్ని చూపించు"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "పూర్తి ఫైల్‌ను చూపించండి"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "సైన్ అవుట్"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "సైన్ అవుట్ అవుతోంది..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "విడిపోయినప్పటి నుండి"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "చందా చేరుతోంది..."
 msgid "Sunday"
 msgstr "ఆదివారం"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "స్థానాలు మార్చండి"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "శాఖను మార్చు"
@@ -2850,6 +2982,7 @@ msgstr "ట్యాగ్ 50 అక్షరాలు లేదా తక్క
 msgid "Tags"
 msgstr "ట్యాగ్‌లు"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "సర్వర్ డేటాకు బదులుగా వెబ్
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ఈ యాప్‌కు మీ పాస్‌కీని ఉపయోగించే అనుమతి లేదు. సెట్టింగ్‌లలో, అనుమతుల కింద దానికి అనుమతించండి."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ఈ ఆప్షన్‌లతో ఈ ఫైల్‌ను పోల్చడం సాధ్యం కాదు."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ఈ ఫైల్ చూపించడానికి చాలా ప�
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "ఈ పేజీకి రిపాజిటరీ కాంటెక్స్ట్ అవసరం."
@@ -3175,6 +3314,11 @@ msgstr "ఐటెమ్ వివరాలను వీక్షించండ�
 msgid "View controls"
 msgstr "కంట్రోల్‌లను వీక్షించండి"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ఫైల్‌ను చూడండి"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "ఈ బ్రౌజర్‌లో వాయిస్ రికార్డింగ్‌కు మద్దతు లేదు"
@@ -3201,6 +3345,10 @@ msgstr "మేము <0>{0}</0> కు ధృవీకరణ కోడ్‌న�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "బుధవారం"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "పూర్తి ఫైళ్లు"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

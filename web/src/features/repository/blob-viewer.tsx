@@ -3,7 +3,7 @@
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { useState, useEffect } from 'react'
-import { useNavigate } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { t, plural } from '@lingui/core/macro'
 import {
   Card,
@@ -19,7 +19,7 @@ import {
   shellSaveBlob,
   shellClipboardWrite,
 } from '@mochi/web'
-import { File, Copy, Check, Download, FileCode } from 'lucide-react'
+import { File, Copy, Check, Download, FileCode, History } from 'lucide-react'
 import { useBlob, useBranches } from '@/hooks/use-repository'
 import { PathBreadcrumb } from '@/components/path-breadcrumb'
 import { RefSelector } from '@/components/ref-selector'
@@ -153,6 +153,25 @@ export function BlobViewer({
             </span>
           </div>
           <div className='flex items-center gap-1'>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant='ghost'
+                  size='icon'
+                  className='h-8 w-8'
+                  asChild
+                  aria-label={t`History`}
+                >
+                  <Link
+                    to='/$repoId/history/$ref/$'
+                    params={{ repoId: fingerprint, ref: gitRef, _splat: path }}
+                  >
+                    <History className='h-4 w-4' />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>{t`History`}</TooltipContent>
+            </Tooltip>
             {data.content != null && (
               <Tooltip>
                 <TooltipTrigger asChild>

@@ -1,0 +1,57 @@
+// Copyright © 2026 Mochisoft OÜ
+// SPDX-License-Identifier: AGPL-3.0-only
+// This file is part of Mochi, licensed under the GNU AGPL v3 with the
+// Mochi Application Interface Exception - see license.txt and license-exception.md.
+import { createFileRoute } from '@tanstack/react-router'
+import { useLingui } from '@lingui/react/macro'
+import { Main, usePageTitle, GeneralError } from '@mochi/web'
+import { reposRequest, repoBasePath } from '@/api/request'
+import type { InfoResponse } from '@/api/types'
+import { FileHistory } from '@/features/repository/file-history'
+import { RepositoryHeader } from '@/features/repository/repository-header'
+
+export const Route = createFileRoute('/_authenticated/$repoId_/history/$ref/$')(
+  {
+    loader: async ({ params }) => {
+      const info = await reposRequest.get<InfoResponse>('info', {
+        baseURL: repoBasePath(params.repoId),
+      })
+      return { ...info, repoId: params.repoId }
+    },
+    component: HistoryPage,
+    errorComponent: ({ error }) => <GeneralError error={error} />,
+  }
+)
+
+function HistoryPage() {
+  const { t } = useLingui()
+  const data = Route.useLoaderData()
+  const { ref, _splat: path } = Route.useParams()
+
+  const fileName = path?.split('/').pop() || t`file`
+  usePageTitle(t`History of ${fileName} - ${data.name}`)
+
+  return (
+    <Main>
+      <div className='space-y-4 p-4'>
+        <RepositoryHeader
+          fingerprint={data.fingerprint || data.repoId}
+          repoId={data.id || data.repoId}
+          name={data.name || t`Repository`}
+          path={data.path || ''}
+          description={data.description}
+          activeTab='files'
+          isOwner={data.isAdmin}
+          isRemote={data.remote}
+          server={data.server}
+        />
+        <FileHistory
+          repoId={data.id || data.repoId}
+          fingerprint={data.repoId}
+          gitRef={ref}
+          path={path || ''}
+        />
+      </div>
+    </Main>
+  )
+}

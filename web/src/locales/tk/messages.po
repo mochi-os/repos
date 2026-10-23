@@ -47,10 +47,13 @@ msgstr "(siz)"
 msgid "[not set]"
 msgstr "[bellenilmedik]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# kommit} other {# kommit}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# faýl üýtgedildi} other {# faýl üýtgedildi}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} deňme-deň teklip etdi"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel}-den {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# kontekst setiri} other {# kontekst setiri}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Boýun egmek isleýärsiňizmi? {opponentName} oýny utar."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Bu ammardan abunalykdan çykmak isleýärsiňizmi?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Häzirki ýagdaýynda"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Artýan tertipde"
@@ -503,6 +514,7 @@ msgstr "Şaha ady"
 msgid "Branch name is required"
 msgstr "Şaha ady hökmany"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Şahalar"
@@ -595,9 +607,19 @@ msgstr "{field} üýtgedildi"
 msgid "Changed occurrence"
 msgstr "Üýtgedilen gaýtalanma"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Üýtgeşmeler"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} üýtgeşmeler"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} içindäki üýtgeşmeler"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Wagty saýlaň"
 msgid "Choose language"
 msgstr "Dil saýlaň"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Näme deňeşdirjekdigiňizi saýlaň"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Dil saýlaň"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Arassalamak"
 
@@ -684,6 +711,10 @@ msgstr "Gözlegi ýapmak"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Ýygnamak"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Hemmesini ýygna"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Kommitler"
 msgid "Compact"
 msgstr "Gysga"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Deňeşdir"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Deňeşdirme - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Deňeşdirmäniň başy"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Deňeşdirmäniň soňy"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} bilen deňeşdir"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Deňeşdirme usuly"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Wariant sazlamalaryny düzediň"
@@ -775,6 +837,10 @@ msgstr "Mazmun tapylmady."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Mazmun üýtgemedi"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Kontekst"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Her minut"
 msgid "Expand"
 msgstr "Giňeltmek"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Hemmesini giňelt"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Gapdal paneli giňelt"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/meniň-funksiýam"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "faýl"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Faýl wariantlary"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Topar: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Taryh"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} taryhy - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Şahsyýet"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Boşluklary hasaba alma"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Baglanyşyklar"
 msgid "List"
 msgstr "Sanaw"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Tapawutlary ýükle"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Has köp ýükle"
 
@@ -1906,6 +2000,10 @@ msgstr "Heniz işjeňlik ýok"
 msgid "No branches yet"
 msgstr "Heniz şahalar ýok"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Boşluklardan başga üýtgeşme ýok"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Görkezmek üçin üýtgeşiklikler ýok"
@@ -1913,6 +2011,10 @@ msgstr "Görkezmek üçin üýtgeşiklikler ýok"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Heniz teswirler ýok"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Hiç bir kommit bu faýly üýtgetmedi"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Eýesi"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Ene-ata"
 
@@ -2166,6 +2269,11 @@ msgstr "Adamlar"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Bu repozitoriýany we onuň ähli maglumatlaryny hemişelik poz"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Deňeşdirmek üçin {0} saýla"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Ammarlar"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Sazlamalar saklandy"
 msgid "Share"
 msgstr "Paýlaşmak"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Ähli faýllary görkez"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Synplary görkez"
@@ -2718,9 +2834,17 @@ msgstr "Synplary görkez"
 msgid "Show fields"
 msgstr "Meýdanlary görkez"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Köpräk setir görkez"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Bu kömegi görkez"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Doly faýly görkez"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Çykyş et"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Çykylýar..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Aýrylan pursatyndan bäri"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Abuna ýazylýar..."
 msgid "Sunday"
 msgstr "Ýekşenbe"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Ýerini çalyş"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Şahany çalyş"
@@ -2850,6 +2982,7 @@ msgstr "Bellik iň köp 50 harp bolmaly"
 msgid "Tags"
 msgstr "Bellikler"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Serwer maglumatyň ýerine web sahypasyny gaýtardy."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Bu programma siziň geçiş açaryňyzy ulanmaga rugsat berilmedi. Sazlamalarda, Rugsatlar bölüminde rugsat beriň."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Bu faýly bu wariantlar bilen deňeşdirip bolmaýar."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Bu faýl görkezmek üçin gaty uly ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Bu sahypa ammar konteksti talap edýär."
@@ -3175,6 +3314,11 @@ msgstr "Element jikme-jikliklerini görkez we redaktirle"
 msgid "View controls"
 msgstr "Görnüş dolandyryşlary"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Faýla seret"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Ses ýazgysy bu brauzerde goldanylmaýar"
@@ -3201,6 +3345,10 @@ msgstr "Biz <0>{0}</0> salgysyna tassyklaýyş kody iberdik. E-poçta salgyňyzy
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Çarşenbe"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Doly faýllar"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

@@ -7,7 +7,9 @@ import {
   cn,
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@mochi/web'
@@ -15,8 +17,13 @@ import { GitBranch } from 'lucide-react'
 
 interface RefSelectorProps {
   branches: { name: string }[]
+  // Offered too where a tag is as good a choice as a branch, as when comparing.
+  tags?: { name: string }[]
   value: string
   onValueChange: (value: string) => void
+  // What the picker chooses, for a screen reader, where it is not the branch
+  // being browsed.
+  label?: string
   className?: string
 }
 
@@ -26,20 +33,31 @@ interface RefSelectorProps {
 // track the theme's control sizing.
 export function RefSelector({
   branches,
+  tags,
   value,
   onValueChange,
+  label,
   className,
 }: RefSelectorProps) {
   const { t } = useLingui()
-  // Surface the current ref even when it isn't a branch (e.g. a tag or commit sha),
-  // so the trigger never renders empty.
-  const hasCurrent = !value || branches.some((b) => b.name === value)
+  // Surface the current ref even when it isn't a listed branch or tag (e.g. a
+  // commit sha), so the trigger never renders empty.
+  const hasCurrent =
+    !value ||
+    branches.some((b) => b.name === value) ||
+    !!tags?.some((tag) => tag.name === value)
+  const shown = /^[0-9a-f]{40}$/i.test(value) ? value.substring(0, 7) : value
+  // A tag named like a branch would give the list two entries with one value;
+  // the name already picks the branch.
+  const listed = (tags ?? []).filter(
+    (tag) => !branches.some((branch) => branch.name === tag.name)
+  )
 
   return (
     <Select value={value} onValueChange={onValueChange}>
       <SelectTrigger
         className={cn('w-48', className)}
-        aria-label={t`Switch branch`}
+        aria-label={label ?? t`Switch branch`}
       >
         <GitBranch className='me-2 h-4 w-4' />
         <SelectValue
@@ -50,14 +68,37 @@ export function RefSelector({
       <SelectContent>
         {!hasCurrent && (
           <SelectItem value={value} disabled>
-            {value}
+            <span className='font-mono'>{shown}</span>
           </SelectItem>
         )}
-        {branches.map((branch) => (
-          <SelectItem key={branch.name} value={branch.name}>
-            {branch.name}
-          </SelectItem>
-        ))}
+        {listed.length > 0 ? (
+          <>
+            <SelectGroup>
+              <SelectLabel>{t`Branches`}</SelectLabel>
+              {branches.map((branch) => (
+                <SelectItem key={branch.name} value={branch.name}>
+                  {branch.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+            <SelectGroup>
+              <SelectLabel>
+                {t({ message: 'Tags', context: 'git tags' })}
+              </SelectLabel>
+              {listed.map((tag) => (
+                <SelectItem key={`tag:${tag.name}`} value={tag.name}>
+                  {tag.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </>
+        ) : (
+          branches.map((branch) => (
+            <SelectItem key={branch.name} value={branch.name}>
+              {branch.name}
+            </SelectItem>
+          ))
+        )}
       </SelectContent>
     </Select>
   )

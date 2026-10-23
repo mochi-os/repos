@@ -4,13 +4,23 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
-import { Header, Main, Button, usePageTitle, GeneralError } from '@mochi/web'
+import {
+  Header,
+  Main,
+  Button,
+  StickyBar,
+  usePageTitle,
+  GeneralError,
+} from '@mochi/web'
 import { FolderGit2, ArrowLeft } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import { commitSearch } from '@/lib/diff-options'
+import { useCommitChanges } from '@/features/repository/commit-changes'
 import { CommitDetails } from '@/features/repository/commit-details'
 
 export const Route = createFileRoute('/_authenticated/commit/$sha')({
+  validateSearch: commitSearch,
   loader: async () => {
     const info = await reposRequest.get<InfoResponse>('info')
     return info
@@ -23,6 +33,19 @@ function CommitPage() {
   const { t } = useLingui()
   const data = Route.useLoaderData()
   const { sha } = Route.useParams()
+  const search = Route.useSearch()
+  const navigate = Route.useNavigate()
+  const changes = useCommitChanges({
+    repoId: data.id ?? '',
+    fingerprint: data.fingerprint || data.id || '',
+    sha,
+    search,
+    onSearch: (next) =>
+      void navigate({
+        search: (previous) => ({ ...previous, ...next }),
+        replace: true,
+      }),
+  })
 
   usePageTitle(t`Commit ${sha.substring(0, 7)} - ${data.name}`)
 
@@ -73,6 +96,10 @@ function CommitPage() {
             fingerprint={data.fingerprint || data.id}
             sha={sha}
           />
+          {changes.bar && (
+            <StickyBar className='-mt-2 py-2'>{changes.bar}</StickyBar>
+          )}
+          {changes.body}
         </div>
       </Main>
     </>

@@ -47,10 +47,13 @@ msgstr "(þú)"
 msgid "[not set]"
 msgstr "[ekki stillt]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# innsending} other {# innsendingar}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# skrá breyttist} other {# skrám breytt}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} bauð jafntefli"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} af {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# samhengislína} other {# samhengislínur}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Ertu viss um að þú viljir gefast upp? {opponentName} mun vinna leikin
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ertu viss um að þú viljir afskrá þig úr þessari geymslu?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Eins og staðan er"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Hækkandi"
@@ -503,6 +514,7 @@ msgstr "Greinarheiti"
 msgid "Branch name is required"
 msgstr "Greinarheiti er áskilið"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Greinar"
@@ -595,9 +607,19 @@ msgstr "Breytti {field}"
 msgid "Changed occurrence"
 msgstr "Breytt tilvik"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Breytingar"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Breytingar frá {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Breytingar í {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Veldu tíma"
 msgid "Choose language"
 msgstr "Veldu tungumál"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Veldu hvað á að bera saman"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Veldu tungumál"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Hreinsa"
 
@@ -684,6 +711,10 @@ msgstr "Loka leit"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Fella saman"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Fella allt saman"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Innsendingar"
 msgid "Compact"
 msgstr "Þétt"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Bera saman"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Samanburður - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Bera saman frá"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Bera saman við"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Bera saman við {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Samanburður"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Stilla valkosti"
@@ -775,6 +837,10 @@ msgstr "Efnið fannst ekki."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Efni ekki breytt"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Samhengi"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Hver mínúta"
 msgid "Expand"
 msgstr "Fletta út"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Fletta öllu út"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Útvíkka hliðarstiku"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "skrá"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Skráarvalkostir"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Hópur: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Saga"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Saga {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "Auðkenni"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Auðkenni"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Hunsa bilstafi"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Tenglar"
 msgid "List"
 msgstr "Listi"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Hlaða mismun"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Hlaða meiru"
 
@@ -1906,6 +2000,10 @@ msgstr "Engin virkni ennþá"
 msgid "No branches yet"
 msgstr "Engar greinar ennþá"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Engar breytingar aðrar en á bilstöfum"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Engar breytingar til að birta"
@@ -1913,6 +2011,10 @@ msgstr "Engar breytingar til að birta"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Engar athugasemdir ennþá"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Engar innsendingar breyttu þessari skrá"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Eigandi"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Foreldri"
 
@@ -2166,6 +2269,11 @@ msgstr "Fólk"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Eyða þessari geymslu og öllum gögnum hennar varanlega"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Velja {0} til samanburðar"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Geymslur"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Stillingar vistaðar"
 msgid "Share"
 msgstr "Deila"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Sýna allar skrár"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Sýna flokka"
@@ -2718,9 +2834,17 @@ msgstr "Sýna flokka"
 msgid "Show fields"
 msgstr "Sýna reiti"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Sýna fleiri línur"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Sýna þessa hjálp"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Sýna alla skrána"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Skrá út"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Skrái út..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Frá því leiðir skildu"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Skrái áskrift..."
 msgid "Sunday"
 msgstr "Sunnudagur"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Víxla"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Skipta um grein"
@@ -2850,6 +2982,7 @@ msgstr "Merkið má mest vera 50 stafir"
 msgid "Tags"
 msgstr "Merki"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Þjónninn skilaði vefsíðu í stað gagna."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Þetta forrit má ekki nota aðgangslykilinn þinn. Leyfðu það í Stillingum, undir Heimildir."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Ekki er hægt að bera þessa skrá saman með þessum valkostum."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Þessi skrá er of stór til að sýna ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Þessi síða krefst samhengis geymslu."
@@ -3175,6 +3314,11 @@ msgstr "Skoða og breyta upplýsingum hlutarins"
 msgid "View controls"
 msgstr "Skoða stjórntæki"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Skoða skrá"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Talupptaka er ekki studd í þessum vafra"
@@ -3201,6 +3345,10 @@ msgstr "Við sendum staðfestingarkóða á <0>{0}</0>. Sláðu inn kóðann hé
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Miðvikudagur"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Heilar skrár"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

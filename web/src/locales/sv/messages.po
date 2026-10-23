@@ -47,10 +47,13 @@ msgstr "(du)"
 msgid "[not set]"
 msgstr "[ej angivet]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# incheckning} other {# incheckningar}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# fil ändrad} other {# filer ändrade}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} erbjöd remi"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} av {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# rad kontext} other {# rader kontext}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Är du säker på att du vill ge upp? {opponentName} kommer att vinna pa
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Är du säker på att du vill avprenumerera från detta repo?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Som de är nu"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Stigande"
@@ -503,6 +514,7 @@ msgstr "Grennamn"
 msgid "Branch name is required"
 msgstr "Grennamn krävs"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Grenar"
@@ -595,9 +607,19 @@ msgstr "Ändrade {field}"
 msgid "Changed occurrence"
 msgstr "Ändrad förekomst"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Ändringar"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Ändringar från {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Ändringar i {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Välj en tid"
 msgid "Choose language"
 msgstr "Välj språk"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Välj vad som ska jämföras"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Välj språk"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Rensa"
 
@@ -684,6 +711,10 @@ msgstr "Stäng sökning"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Fäll ihop"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Fäll ihop alla"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Incheckningar"
 msgid "Compact"
 msgstr "Kompakt"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Jämför"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Jämförelse - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Jämför från"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Jämför till"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Jämför med {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Jämförelseläge"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Konfigurera alternativinställningar"
@@ -775,6 +837,10 @@ msgstr "Innehållet hittades inte."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Innehåll inte ändrat"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Kontext"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Varje minut"
 msgid "Expand"
 msgstr "Expandera"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Expandera alla"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Expandera sidofält"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "fil"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Filalternativ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grupp: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Historik"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Historik för {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identitet"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ignorera blanksteg"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Länkar"
 msgid "List"
 msgstr "Lista"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Läs in diff"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Läs in fler"
 
@@ -1906,6 +2000,10 @@ msgstr "Ingen aktivitet ännu"
 msgid "No branches yet"
 msgstr "Inga grenar ännu"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Inga ändringar förutom blanksteg"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Inga ändringar att visa"
@@ -1913,6 +2011,10 @@ msgstr "Inga ändringar att visa"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Inga kommentarer ännu"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Inga incheckningar har ändrat den här filen"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Ägare"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Överordnad"
 
@@ -2166,6 +2269,11 @@ msgstr "Personer"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Ta permanent bort detta repository och all dess data"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Välj {0} för jämförelse"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Arkiv"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Inställningar sparade"
 msgid "Share"
 msgstr "Dela"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Visa alla filer"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Visa klasser"
@@ -2718,9 +2834,17 @@ msgstr "Visa klasser"
 msgid "Show fields"
 msgstr "Visa fält"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Visa fler rader"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Visa denna hjälp"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Visa hela filen"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Logga ut"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Loggar ut..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Sedan de skildes åt"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Prenumererar..."
 msgid "Sunday"
 msgstr "Söndag"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Byt plats"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Byt gren"
@@ -2850,6 +2982,7 @@ msgstr "Taggen får vara högst 50 tecken"
 msgid "Tags"
 msgstr "Taggar"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Servern returnerade en webbsida i stället för data."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Den här appen får inte använda din nyckel. Tillåt det i Inställningar under Behörigheter."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Den här filen kan inte jämföras med de här alternativen."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Den här filen är för stor för att visas ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Den här sidan kräver ett arkivsammanhang."
@@ -3175,6 +3314,11 @@ msgstr "Visa och redigera artikeldetaljer"
 msgid "View controls"
 msgstr "Visningskontroller"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Visa fil"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Röstinspelning stöds inte i den här webbläsaren"
@@ -3201,6 +3345,10 @@ msgstr "Vi skickade en verifieringskod till <0>{0}</0>. Ange koden nedan för at
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Onsdag"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Hela filer"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

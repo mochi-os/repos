@@ -47,10 +47,13 @@ msgstr "(እርስዎ)"
 msgid "[not set]"
 msgstr "[አልተዘጋጀም]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# ኮሚት} other {# ኮሚቶች}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ፋይል ተቀይሯል} other {# ፋይሎች ተቀይረዋል}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} አቻ አቅርቧል"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} ከ {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# የአውድ መስመር} other {# የአውድ መስመሮች}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "በእርግጥ መልቀቅ ይፈልጋሉ? {opponentName} ጨዋታ�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ከዚህ ማከማቻ መውጣት እንደምትፈልግ እርግጠኛ ነህ?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "አሁን ባሉበት ሁኔታ"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ከታች ወደ ላይ"
@@ -503,6 +514,7 @@ msgstr "የቅርንጫፍ ስም"
 msgid "Branch name is required"
 msgstr "የቅርንጫፍ ስም ያስፈልጋል"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "ቅርንጫፎች"
@@ -595,9 +607,19 @@ msgstr "{field} ተቀይሯል"
 msgid "Changed occurrence"
 msgstr "የተቀየረ ድግግሞሽ"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "ለውጦች"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "ከ{0} → {1} ለውጦች"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "በ{0} ውስጥ ያሉ ለውጦች"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "ሰዓት ይምረጡ"
 msgid "Choose language"
 msgstr "ቋንቋ ምረጥ"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "የሚነጻጸረውን ይምረጡ"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "ቋንቋ ምረጥ"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "አጽዳ"
 
@@ -684,6 +711,10 @@ msgstr "ፍለጋን ዝጋ"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "ሰብስብ"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "ሁሉንም ሰብስብ"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "ኮሚቶች"
 msgid "Compact"
 msgstr "የታመቀ"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "አወዳድር"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "ንጽጽር - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "የንጽጽር መነሻ"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "የሚነጻጸረው"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "ከ{0} ጋር አወዳድር"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "ንጽጽር"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "የአማራጭ ቅንብሮችን አዋቅር"
@@ -775,6 +837,10 @@ msgstr "ይዘቱ አልተገኘም።"
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "ይዘት አልተስተካከለም"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "አውድ"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "በየደቂቃው"
 msgid "Expand"
 msgstr "ዘርጋ"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "ሁሉንም ዘርጋ"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "ጎንደርን ዘርጋ"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ፋይል"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "የፋይል አማራጮች"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "ቡድን፦ {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "ታሪክ"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "የ{fileName} ታሪክ - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "መታወቂያ"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "ማንነት"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "ባዶ ቦታን ችላ በል"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "አገናኞች"
 msgid "List"
 msgstr "ዝርዝር"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "ለውጦችን ጫን"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "ተጨማሪ ጫን"
 
@@ -1906,6 +2000,10 @@ msgstr "እስካሁን ምንም እንቅስቃሴ የለም"
 msgid "No branches yet"
 msgstr "እስካሁን ቅርንጫፎች የሉም"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "ከባዶ ቦታ ውጭ ምንም ለውጥ የለም"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "ለማሳየት ምንም ለውጦች የሉም"
@@ -1913,6 +2011,10 @@ msgstr "ለማሳየት ምንም ለውጦች የሉም"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "እስካሁን አስተያየቶች የሉም"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "ይህን ፋይል የቀየረ ኮሚት የለም"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "ባለቤት"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "ወላጅ"
 
@@ -2166,6 +2269,11 @@ msgstr "ሰዎች"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "ይህን ሪፖዚቶሪ እና ሁሉንም ውሂቡን በቋሚነት ሰርዝ"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "{0} ለማወዳደር ምረጥ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "ማከማቻዎች"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "ቅንብሮች ተቀምጠዋል"
 msgid "Share"
 msgstr "አጋራ"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "ሁሉንም ፋይሎች አሳይ"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "ክፍሎችን አሳይ"
@@ -2718,9 +2834,17 @@ msgstr "ክፍሎችን አሳይ"
 msgid "Show fields"
 msgstr "መስኮችን አሳይ"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "ተጨማሪ መስመሮችን አሳይ"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "ይህን እርዳታ አሳይ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "ሙሉ ፋይሉን አሳይ"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "ውጣ"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "በመውጣት ላይ..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "ከተለያዩበት ጊዜ ጀምሮ"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "በመመዝገብ ላይ..."
 msgid "Sunday"
 msgstr "እሁድ"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "አቀያይር"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "ቅርንጫፍ ቀይር"
@@ -2850,6 +2982,7 @@ msgstr "መለያው 50 ቁምፊዎች ወይም ያነሰ መሆን አለበ�
 msgid "Tags"
 msgstr "መለያዎች"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "አገልጋዩ ከመረጃ ይልቅ የድር ገጽ መልሷል።"
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ይህ መተግበሪያ የእርስዎን ፓስኪ እንዲጠቀም አልተፈቀደለትም። በቅንብሮች ውስጥ፣ በፈቃዶች ስር ይፍቀዱለት።"
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ይህ ፋይል በእነዚህ አማራጮች ሊነጻጸር አይችልም።"
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ይህ ፋይል ለማሳየት በጣም ትልቅ ነው ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "ይህ ገጽ የሪፖዚቶሪ አውድ ያስፈልገዋል።"
@@ -3175,6 +3314,11 @@ msgstr "የእቃ ዝርዝሮችን ይመልከቱ እና ያርትዑ"
 msgid "View controls"
 msgstr "የእይታ መቆጣጠሪያዎች"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ፋይሉን ተመልከት"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "በዚህ አሳሽ ውስጥ የድምፅ ቀረጻ አይደገፍም"
@@ -3201,6 +3345,10 @@ msgstr "የማረጋገጫ ኮድ ወደ <0>{0}</0> ልከናል። የኢሜይ
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "ረቡዕ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "ሙሉ ፋይሎች"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

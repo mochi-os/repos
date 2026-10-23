@@ -47,10 +47,13 @@ msgstr "(你)"
 msgid "[not set]"
 msgstr "[未设置]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {# 个提交}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {# 个文件已更改}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} 提议和棋"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {# 行上下文}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "确定要认输吗?{opponentName} 将赢得比赛。"
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "确定要退订此代码仓库吗?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "按当前状态"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "升序"
@@ -503,6 +514,7 @@ msgstr "分支名称"
 msgid "Branch name is required"
 msgstr "分支名称为必填项"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "分支"
@@ -595,9 +607,19 @@ msgstr "已更改{field}"
 msgid "Changed occurrence"
 msgstr "已修改的重复项"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "更改"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "从 {0} → {1} 的更改"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} 中的更改"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "选择时间"
 msgid "Choose language"
 msgstr "选择语言"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "选择要比较的内容"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "选择语言"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "清除"
 
@@ -684,6 +711,10 @@ msgstr "关闭搜索"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "收起"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "全部收起"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "提交"
 msgid "Compact"
 msgstr "紧凑"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "比较"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "比较 - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "比较起点"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "比较终点"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "与 {0} 比较"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "比较方式"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "配置选项设置"
@@ -775,6 +837,10 @@ msgstr "未找到内容。"
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "内容未修改"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "上下文"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "每分钟"
 msgid "Expand"
 msgstr "展开"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "全部展开"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "展开侧边栏"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "文件"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "文件选项"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "群组：{0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "历史"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} 的历史 - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "身份"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "忽略空白"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "链接"
 msgid "List"
 msgstr "列表"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "加载差异"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "加载更多"
 
@@ -1906,6 +2000,10 @@ msgstr "暂无活动"
 msgid "No branches yet"
 msgstr "暂无分支"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "除空白外无更改"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "无更改可显示"
@@ -1913,6 +2011,10 @@ msgstr "无更改可显示"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "暂无评论"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "没有提交更改过此文件"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "所有者"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "父级"
 
@@ -2166,6 +2269,11 @@ msgstr "人员"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "永久删除此仓库及其所有数据"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "选择 {0} 进行比较"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "仓库"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "设置已保存"
 msgid "Share"
 msgstr "分享"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "显示所有文件"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "显示分类"
@@ -2718,9 +2834,17 @@ msgstr "显示分类"
 msgid "Show fields"
 msgstr "显示字段"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "显示更多行"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "显示此帮助"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "显示整个文件"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "退出登录"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "正在退出..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "自分叉以来"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "正在订阅..."
 msgid "Sunday"
 msgstr "星期日"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "交换"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "切换分支"
@@ -2850,6 +2982,7 @@ msgstr "标签不得超过 50 个字符"
 msgid "Tags"
 msgstr "标签"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "服务器返回了网页而不是数据。"
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "此应用无权使用您的通行密钥。请在“设置”的“权限”中允许。"
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "无法使用这些选项比较此文件。"
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "此文件过大，无法显示 ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "此页面需要仓库上下文。"
@@ -3175,6 +3314,11 @@ msgstr "查看并编辑条目详情"
 msgid "View controls"
 msgstr "视图控制"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "查看文件"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "此浏览器不支持语音录制"
@@ -3201,6 +3345,10 @@ msgstr "我们已将验证码发送至 <0>{0}</0>。请在下方输入验证码�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "星期三"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "完整文件"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

@@ -47,10 +47,13 @@ msgstr "(nde)"
 msgid "[not set]"
 msgstr "[noñemoĩva]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commits}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# archivo oñemoambue} other {# archivo oñemoambue}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} oikuave'ẽ peteĩcha"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# tysýi contexto} other {# tysýi contexto}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Añetehápe reñeme'ẽse? {opponentName} ipu'akáta ñembosaráipe."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Añetehápe esẽse ko ñongatuha-gui?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Ko'ág̃a oĩháicha"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Ojupíva"
@@ -503,6 +514,7 @@ msgstr "Rakã réra"
 msgid "Branch name is required"
 msgstr "Rakã réra tekotevẽ"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Rakãkuéra"
@@ -595,9 +607,19 @@ msgstr "{field} oñemoambue"
 msgid "Changed occurrence"
 msgstr "Evento oñemoambuéva"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Ñemoambue"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Ñemoambue {0} → {1} guive"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Ñemoambue {0}-pe"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Eiporavo peteĩ aravo"
 msgid "Choose language"
 msgstr "Eiporavo ñe'ẽ"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Eiporavo mba'épa rembojojase"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Eiporavo ñe'ẽ"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Embopotĩ"
 
@@ -684,6 +711,10 @@ msgstr "Mboty jeheka"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Momichĩ"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Momichĩmba"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "Mbyky"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Embojoja"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Ñembojoja - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Mba'e guive embojoja"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Mba'éndie embojoja"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Embojoja {0} ndive"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Ñembojoja"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Emoĩporã jeporavorã ñemboheko"
@@ -775,6 +837,10 @@ msgstr "Ndojejuhúi contenido."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Contenido noñemoambuéi"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Contexto"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Ñavõ aravo'i"
 msgid "Expand"
 msgstr "Mbotuicha"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Mbotuichamba"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Embotuicha yke panel"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/che-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "archivo"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Archivo jeporavorã"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Atypy: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Tembiasakue"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} tembiasakue - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identidad"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ehejarei espacio nandi"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Juajuhakuéra"
 msgid "List"
 msgstr "Tysýi"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Emyanyhẽ ñemoambue"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Emyanyhẽ hetave"
 
@@ -1906,6 +2000,10 @@ msgstr "Ndaipóri tembiapo gueteri"
 msgid "No branches yet"
 msgstr "Ndaipóri rakã gueteri"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Ndaipóri ñemoambue espacio nandi ndaha'éiramo"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Ndaipóri ñemoambue ojechauka haguã"
@@ -1913,6 +2011,10 @@ msgstr "Ndaipóri ñemoambue ojechauka haguã"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Ndaipóri comentario gueteri"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Ni peteĩ commit nomoambuéi ko archivo"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Jára"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Sy/ru"
 
@@ -2166,6 +2269,11 @@ msgstr "Tapichakuéra"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Embogue tapiaite ko ñongatuha ha opaite imba'e"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Eiporavo {0} rembojoja hag̃ua"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Ñongatuhakuéra"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Ñemboheko oñeñongatúma"
 msgid "Share"
 msgstr "Emboja'o"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Ehechauka opaite archivo"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Ehechauka clase"
@@ -2718,9 +2834,17 @@ msgstr "Ehechauka clase"
 msgid "Show fields"
 msgstr "Ehechauka campokuéra"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Ehechauka hetave tysýi"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Ehechauka ko pytyvõ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Ehechauka archivo henyhẽva"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Esẽ"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Osẽhína..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Oñemboja'o guive"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Oñesuscribihína..."
 msgid "Sunday"
 msgstr "Arapokõi"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Emoambue hendaguére"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Emoambue rakã"
@@ -2850,6 +2982,7 @@ msgstr "Teramoĩ oguerekova'erã 50 tai térã sa'ive"
 msgid "Tags"
 msgstr "Teramoĩnguéra"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Mohendaha ombohovái peteĩ web kuatiarogue, datos rangue."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Ko app ndaikatúi oiporu nde jeike rape. Emoneĩ Ñembohekópe, Ñemoneĩnguéra guýpe."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Ko archivo ndaikatúi oñembojoja ko'ã jeporavorã ndive."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Ko archivo tuichaiterei ojehechauka hag̃ua ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Ko kuatiarogue oikotevẽ ñongatuha contexto."
@@ -3175,6 +3314,11 @@ msgstr "Ehecha ha embosako'i mba'e detalle"
 msgid "View controls"
 msgstr "Ehecha control"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Ehecha archivo"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Ko kundahára ndoipytyvõi ñe'ẽ grabación"
@@ -3201,6 +3345,10 @@ msgstr "Romondo peteĩ verificación código <0>{0}</0>-pe. Emoinge código ko'�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Araapy"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Archivo henyhẽva"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

@@ -47,10 +47,13 @@ msgstr "(ඔබ)"
 msgid "[not set]"
 msgstr "[සකසා නැත]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {කමිට් #} other {කමිට් #}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {ගොනු # වෙනස් විය} other {ගොනු # වෙනස් විය}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} ජය පරාජය ඉදිරිපත් කළා
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel}න් {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {සන්දර්භ පේළි #} other {සන්දර්භ පේළි #}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "ඔබට ඉල්ලා අස්වීමට අවශ්‍ය බ�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ඔබට මෙම ගබඩාවෙන් දායකත්වය ඉවත් කිරීමට අවශ්‍ය බව විශ්වාසද?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "දැනට පවතින පරිදි"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ආරෝහණ"
@@ -503,6 +514,7 @@ msgstr "ශාඛා නාමය"
 msgid "Branch name is required"
 msgstr "ශාඛා නාමය අවශ්‍යය"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "ශාඛා"
@@ -595,9 +607,19 @@ msgstr "{field} වෙනස් කරන ලදී"
 msgid "Changed occurrence"
 msgstr "වෙනස් කළ පුනරාවර්තනය"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "වෙනස්කම්"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} වෙනස්කම්"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} හි වෙනස්කම්"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "වේලාවක් තෝරන්න"
 msgid "Choose language"
 msgstr "භාෂාව තෝරන්න"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "සංසන්දනය කළ යුතු දේ තෝරන්න"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "භාෂාව තෝරන්න"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "හිස් කරන්න"
 
@@ -684,6 +711,10 @@ msgstr "සෙවුම වසන්න"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "හකුළන්න"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "සියල්ල හකුළන්න"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "සංයුක්ත"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "සංසන්දනය කරන්න"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "සංසන්දනය - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "සංසන්දනයේ ආරම්භය"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "සංසන්දනයේ අවසානය"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} සමඟ සංසන්දනය කරන්න"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "සංසන්දන ක්‍රමය"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "විකල්ප සැකසීම් වින්‍යාස කරන්න"
@@ -775,6 +837,10 @@ msgstr "අන්තර්ගතය හමු නොවීය."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "අන්තර්ගතය වෙනස් කර නැත"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "සන්දර්භය"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "සෑම මිනිත්තුවක්ම"
 msgid "Expand"
 msgstr "විහිදන්න"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "සියල්ල විහිදන්න"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "පැති තීරුව ප්‍රසාරණය කරන්න"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ගොනුව"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "ගොනු විකල්ප"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "කණ්ඩායම: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "ඉතිහාසය"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} හි ඉතිහාසය - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "හැඳුනුම"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "අනන්‍යතාවය"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "හිස්තැන් නොසලකා හරින්න"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "සබැඳි"
 msgid "List"
 msgstr "ලැයිස්තුව"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "වෙනස්කම් පූරණය කරන්න"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "තවත් පූරණය කරන්න"
 
@@ -1906,6 +2000,10 @@ msgstr "තවම ක්‍රියාකාරකම් නැත"
 msgid "No branches yet"
 msgstr "තවම ශාඛා නැත"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "හිස්තැන් හැර වෙනත් වෙනස්කම් නැත"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "පෙන්වීමට වෙනස්කම් නැත"
@@ -1913,6 +2011,10 @@ msgstr "පෙන්වීමට වෙනස්කම් නැත"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "තවම අදහස් නැත"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "කිසිදු කමිට් එකක් මෙම ගොනුව වෙනස් කළේ නැත"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "හිමිකරු"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "මව්"
 
@@ -2166,6 +2269,11 @@ msgstr "පුද්ගලයන්"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "මෙම ගබඩාව සහ එහි සියලු දත්ත ස්ථිරව මකන්න"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "සංසන්දනය සඳහා {0} තෝරන්න"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "ගබඩා"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "සැකසුම් සුරකින ලදී"
 msgid "Share"
 msgstr "බෙදාගන්න"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "සියලු ගොනු පෙන්වන්න"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "පන්ති පෙන්වන්න"
@@ -2718,9 +2834,17 @@ msgstr "පන්ති පෙන්වන්න"
 msgid "Show fields"
 msgstr "ක්ෂේත්‍ර පෙන්වන්න"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "තවත් පේළි පෙන්වන්න"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "මෙම උදව් පෙන්වන්න"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "සම්පූර්ණ ගොනුව පෙන්වන්න"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "පිටවන්න"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "පිට වෙමින්..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "වෙන් වූ තැන සිට"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "දායක වෙමින්..."
 msgid "Sunday"
 msgstr "ඉරිදා"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "මාරු කරන්න"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "ශාඛාව මාරු කරන්න"
@@ -2850,6 +2982,7 @@ msgstr "ටැගය අක්ෂර 50ක් හෝ ඊට අඩු විය 
 msgid "Tags"
 msgstr "ටැග"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "සේවාදායකය දත්ත වෙනුවට වෙබ්
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "මෙම යෙදුමට ඔබගේ මුරයතුර භාවිතා කිරීමට අවසර නැත. සැකසුම් තුළ, අවසර යටතේ එයට ඉඩ දෙන්න."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "මෙම විකල්ප සමඟ මෙම ගොනුව සංසන්දනය කළ නොහැක."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "මෙම ගොනුව පෙන්වීමට නොහැකි �
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "මෙම පිටුවට ගබඩා සන්දර්භයක් අවශ්‍යයි."
@@ -3175,6 +3314,11 @@ msgstr "අයිතමයේ විස්තර බලන්න සහ සං�
 msgid "View controls"
 msgstr "පාලන බලන්න"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ගොනුව බලන්න"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "මෙම බ්‍රව්සරයේ හඬ පටිගත කිරීමට සහාය නැත"
@@ -3201,6 +3345,10 @@ msgstr "අපි <0>{0}</0> වෙත සත්‍යාපන කේතයක�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "බදාදා"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "සම්පූර්ණ ගොනු"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

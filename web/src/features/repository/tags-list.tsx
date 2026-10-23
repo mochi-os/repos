@@ -5,15 +5,19 @@
 import { Link } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
 import {
+  Button,
   Card,
   CardContent,
   EmptyState,
   Skeleton,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
   getErrorMessage,
   useFormat,
   naturalCompare,
 } from '@mochi/web'
-import { Tag } from 'lucide-react'
+import { GitCompare, Tag } from 'lucide-react'
 import { useTags } from '@/hooks/use-repository'
 import { DownloadDropdown } from '@/components/download-dropdown'
 
@@ -77,7 +81,7 @@ export function TagsList({ repoId, fingerprint }: TagsListProps) {
   return (
     <Card>
       <CardContent className='divide-y p-0'>
-        {tags.map((tag) => (
+        {tags.map((tag, index) => (
           <div
             key={tag.name}
             className='hover:bg-hover flex items-center gap-4 p-4 transition-colors'
@@ -107,6 +111,32 @@ export function TagsList({ repoId, fingerprint }: TagsListProps) {
                 {tag.sha.substring(0, 7)}
               </code>
             </Link>
+            {/* Against the tag before it: what this release changed. */}
+            {index + 1 < tags.length && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant='ghost'
+                    size='icon'
+                    asChild
+                    aria-label={t`Compare with ${tags[index + 1].name}`}
+                  >
+                    <Link
+                      to='/$repoId/compare/$'
+                      params={{
+                        repoId: fingerprint,
+                        _splat: `${tags[index + 1].name}...${tag.name}`,
+                      }}
+                    >
+                      <GitCompare className='h-4 w-4' />
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  {t`Compare with ${tags[index + 1].name}`}
+                </TooltipContent>
+              </Tooltip>
+            )}
             <DownloadDropdown gitRef={tag.name} variant='icon' />
           </div>
         ))}

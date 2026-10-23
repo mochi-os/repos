@@ -47,10 +47,13 @@ msgstr "(jūs)"
 msgid "[not set]"
 msgstr "[nenustatyta]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit'as} few {# commit'ai} many {# commit'o} other {# commit'ų}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {pakeistas # failas} few {pakeisti # failai} many {pakeista # failo} other {pakeista # failų}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} pasiūlė lygiąsias"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} iš {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# konteksto eilutė} few {# konteksto eilutės} many {# konteksto eilutės} other {# konteksto eilučių}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Ar tikrai norite pasiduoti? {opponentName} laimės žaidimą."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ar tikrai norite atsisakyti šios saugyklos prenumeratos?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Kaip yra dabar"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Didėjančiai"
@@ -503,6 +514,7 @@ msgstr "Šakos pavadinimas"
 msgid "Branch name is required"
 msgstr "Šakos pavadinimas yra privalomas"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Šakos"
@@ -595,9 +607,19 @@ msgstr "{field} pakeista"
 msgid "Changed occurrence"
 msgstr "Pakeistas pasikartojimas"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Pakeitimai"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Pakeitimai nuo {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} pakeitimai"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Pasirinkite laiką"
 msgid "Choose language"
 msgstr "Pasirinkite kalbą"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Pasirinkite, ką palyginti"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Pasirinkite kalbą"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Išvalyti"
 
@@ -684,6 +711,10 @@ msgstr "Uždaryti paiešką"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Sutraukti"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Sutraukti visus"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit'ai"
 msgid "Compact"
 msgstr "Kompaktiškas"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Palyginti"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Palyginimas - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Palyginti nuo"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Palyginti su"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Palyginti su {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Palyginimas"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Konfigūruoti parinkties nustatymus"
@@ -775,6 +837,10 @@ msgstr "Turinys nerastas."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Turinys nepakeistas"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Kontekstas"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Kiekviena minutė"
 msgid "Expand"
 msgstr "Išskleisti"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Išskleisti visus"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Išskleisti šoninę juostą"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "failas"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Failo parinktys"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grupė: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Istorija"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} istorija - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Tapatybė"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ignoruoti tarpus"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Nuorodos"
 msgid "List"
 msgstr "Sąrašas"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Įkelti skirtumus"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Įkelti daugiau"
 
@@ -1906,6 +2000,10 @@ msgstr "Dar nėra veiklos"
 msgid "No branches yet"
 msgstr "Dar nėra šakų"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Jokių pakeitimų, išskyrus tarpus"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Nėra pakeitimų rodyti"
@@ -1913,6 +2011,10 @@ msgstr "Nėra pakeitimų rodyti"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Dar nėra komentarų"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Joks commit'as nepakeitė šio failo"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Savininkas"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Tėvas"
 
@@ -2166,6 +2269,11 @@ msgstr "Žmonės"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Visam laikui ištrinti šią repozitoriją ir visus jos duomenis"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Pasirinkti {0} palyginimui"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Saugyklos"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Nustatymai išsaugoti"
 msgid "Share"
 msgstr "Bendrinti"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Rodyti visus failus"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Rodyti klases"
@@ -2718,9 +2834,17 @@ msgstr "Rodyti klases"
 msgid "Show fields"
 msgstr "Rodyti laukus"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Rodyti daugiau eilučių"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Rodyti šią pagalbą"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Rodyti visą failą"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Atsijungti"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Atsijungiama..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Nuo išsišakojimo"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Prenumeruojama..."
 msgid "Sunday"
 msgstr "Sekmadienis"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Sukeisti"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Perjungti šaką"
@@ -2850,6 +2982,7 @@ msgstr "Žymė turi būti ne ilgesnė kaip 50 simbolių"
 msgid "Tags"
 msgstr "Žymos"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Serveris grąžino tinklalapį vietoj duomenų."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Šiai programai neleidžiama naudoti jūsų slaptarakčio. Leiskite tai Nustatymuose, skiltyje Leidimai."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Šio failo negalima palyginti su šiomis parinktimis."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Šis failas per didelis, kad būtų parodytas ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Šis puslapis reikalauja saugyklos konteksto."
@@ -3175,6 +3314,11 @@ msgstr "Peržiūrėti ir redaguoti elemento detales"
 msgid "View controls"
 msgstr "Rodinio valdikliai"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Peržiūrėti failą"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Balso įrašymas šioje naršyklėje nepalaikomas"
@@ -3201,6 +3345,10 @@ msgstr "Išsiuntėme patvirtinimo kodą adresu <0>{0}</0>. Įveskite kodą žemi
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Trečiadienis"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Ištisi failai"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

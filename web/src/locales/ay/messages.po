@@ -47,10 +47,13 @@ msgstr "(juma)"
 msgid "[not set]"
 msgstr "[jan uskuta]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commitanaka}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# archivo mayjt'ata} other {# archivonaka mayjt'ata}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} kikipa anatañ amuyt'awayi"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# contexto siqi} other {# contexto siqinaka}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Chiqpach jaytaña munta? {opponentName} ukaw anata atipani."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Chiqpach aka repositoriot mistuña munta?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Jichha kunjamäpki ukhama"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Jisk'at jach'aru"
@@ -503,6 +514,7 @@ msgstr "Rama suti"
 msgid "Branch name is required"
 msgstr "Rama suti wakisiwa"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Ramanaka"
@@ -595,9 +607,19 @@ msgstr "{field} mayjt'ayata"
 msgid "Changed occurrence"
 msgstr "Mayjt'ayat luräwi"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Mayjt'awinaka"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} mayjt'awinaka"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} ukan mayjt'awinaka"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Mä ura ajlliña"
 msgid "Choose language"
 msgstr "Aru ajllxaña"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Kuna uñakipt'añsa ajlliña"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Aru ajllxaña"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Q'umachaña"
 
@@ -684,6 +711,10 @@ msgstr "Thaqhawi jist'antaña"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Jisk'achaña"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Taqi jisk'achaña"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "Compacto"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Uñakipt'aña"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Uñakipt'awi - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Kawkhat uñakipt'aña"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Kunamp uñakipt'aña"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} ukamp uñakipt'aña"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Uñakipt'awi"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Opción wakichawinak askichaña"
@@ -775,6 +837,10 @@ msgstr "Janiw contenido jikxataskiti."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Contenido jan mayjt'ata"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Contexto"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Sapa minutu"
 msgid "Expand"
 msgstr "Jach'achaña"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Taqi jach'achaña"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Thiya panel jach'achaña"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "archivo"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Archivo opcionanaka"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Tama: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Sarawi"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} sarawi - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identidad"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ch'usa chiqanak jan yäqaña"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Enlacenaka"
 msgid "List"
 msgstr "Lista"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Mayjt'awinak apaqaña"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Juk'amp apaqaña"
 
@@ -1906,6 +2000,10 @@ msgstr "Janira lurawi"
 msgid "No branches yet"
 msgstr "Janira ramanaka"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Ch'usa chiqanakat sipansa janiw mayjt'awinakax utjkiti"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Jan mayjt'awinak uñacht'añataki"
@@ -1913,6 +2011,10 @@ msgstr "Jan mayjt'awinak uñacht'añataki"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Janira comentarionaka"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Janiw kuna commitas aka archivo mayjt'aykiti"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Dueño"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Awki"
 
@@ -2166,6 +2269,11 @@ msgstr "Jaqinaka"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Aka repositorio ukat taqi datonakap wiñayatak chhaqtayaña"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "{0} uñakipt'añatak ajlliña"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Repositorionaka"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Wakichäwinak imata"
 msgid "Share"
 msgstr "Compartiña"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Taqi archivonak uñacht'ayaña"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Clasenak uñstayaña"
@@ -2718,9 +2834,17 @@ msgstr "Clasenak uñstayaña"
 msgid "Show fields"
 msgstr "Camponaka uñstayaña"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Juk'amp siqinak uñacht'ayaña"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Aka yanapa uñstayaña"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Taqpach archivo uñacht'ayaña"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Mistuña"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Mistuyasa..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "T'aqasipxatpacha"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Suscribiskiwa..."
 msgid "Sunday"
 msgstr "Domingo"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Turkaña"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Rama turkaña"
@@ -2850,6 +2982,7 @@ msgstr "Chimpux 50 qillqanaka jan ukax juk'ampi jisk'äñapawa"
 msgid "Tags"
 msgstr "Chimpunaka"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Servidoraxa mä web laphi kutt'ayäna, janiw yatiyawinakaki."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Aka aplicacionax janiw mantañ llawima apnaqañatak iyawsatäkiti. Wakichäwinakan, Permisonaka manqhan iyawsam."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Aka archivox janiw aka opcionanakamp uñakipt'atäkaspati."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Aka archivox uñachayañatakix sinti jach'awa ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Aka laphix repositorio contexto munaski."
@@ -3175,6 +3314,11 @@ msgstr "Item detallenak uñjaña ukat askichaña"
 msgid "View controls"
 msgstr "Vista controlanaka"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Archivo uñjaña"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Aka navegadoran janiw aru grabañax utjkiti"
@@ -3201,6 +3345,10 @@ msgstr "<0>{0}</0> ukar mä chiqanchañ código apayapxsma. Email direccionam ch
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Miércoles"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Taqpach archivonaka"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

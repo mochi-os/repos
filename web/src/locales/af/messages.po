@@ -47,10 +47,13 @@ msgstr "(jy)"
 msgid "[not set]"
 msgstr "[nie gestel nie]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commits}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# lêer verander} other {# lêers verander}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} het gelykop aangebied"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} van {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# reël konteks} other {# reëls konteks}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Is jy seker jy wil oorgee? {opponentName} sal die spel wen."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Is jy seker jy wil van hierdie bewaarplek uitskryf?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Soos hulle nou is"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Oplopend"
@@ -503,6 +514,7 @@ msgstr "Taknaam"
 msgid "Branch name is required"
 msgstr "Taknaam word vereis"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Takke"
@@ -595,9 +607,19 @@ msgstr "{field} verander"
 msgid "Changed occurrence"
 msgstr "Veranderde herhaling"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Veranderinge"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Veranderinge van {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Veranderinge in {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Kies 'n tyd"
 msgid "Choose language"
 msgstr "Kies taal"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Kies wat om te vergelyk"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Kies taal"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Maak skoon"
 
@@ -684,6 +711,10 @@ msgstr "Sluit soektog"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Vou in"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Vou alles in"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "Kompak"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Vergelyk"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Vergelyking - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Vergelyk van"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Vergelyk met"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Vergelyk met {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Vergelyking"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Konfigureer opsie-instellings"
@@ -775,6 +837,10 @@ msgstr "Inhoud nie gevind nie."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Inhoud nie gewysig nie"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Konteks"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Elke minuut"
 msgid "Expand"
 msgstr "Vou uit"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Vou alles uit"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Brei sybalk uit"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "lêer"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Lêeropsies"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Groep: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Geskiedenis"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Geskiedenis van {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identiteit"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ignoreer witspasie"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Skakels"
 msgid "List"
 msgstr "Lys"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Laai veranderinge"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Laai meer"
 
@@ -1906,6 +2000,10 @@ msgstr "Nog geen aktiwiteit nie"
 msgid "No branches yet"
 msgstr "Nog geen takke nie"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Geen veranderinge behalwe witspasie nie"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Geen veranderinge om te vertoon nie"
@@ -1913,6 +2011,10 @@ msgstr "Geen veranderinge om te vertoon nie"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Nog geen kommentaar nie"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Geen commits het hierdie lêer verander nie"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Eienaar"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Ouer"
 
@@ -2166,6 +2269,11 @@ msgstr "Mense"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Verwyder hierdie repository en al sy data permanent"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Kies {0} om te vergelyk"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Bewaarplekke"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Instellings gestoor"
 msgid "Share"
 msgstr "Deel"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Wys alle lêers"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Wys klasse"
@@ -2718,9 +2834,17 @@ msgstr "Wys klasse"
 msgid "Show fields"
 msgstr "Wys velde"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Wys meer reëls"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Wys hierdie hulp"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Wys die hele lêer"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Meld af"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Besig om af te meld..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Sedert hulle uiteengeloop het"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Besig om in te teken..."
 msgid "Sunday"
 msgstr "Sondag"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Ruil om"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Wissel tak"
@@ -2850,6 +2982,7 @@ msgstr "Etiket moet 50 karakters of minder wees"
 msgid "Tags"
 msgstr "Etikette"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Die bediener het 'n webblad in plaas van data teruggestuur."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Hierdie toepassing mag nie jou toegangsleutel gebruik nie. Laat dit toe in Instellings, onder Toestemmings."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Hierdie lêer kan nie met hierdie opsies vergelyk word nie."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Hierdie lêer is te groot om te vertoon ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Hierdie bladsy vereis 'n bewaarplek-konteks."
@@ -3175,6 +3314,11 @@ msgstr "Bekyk en wysig item-besonderhede"
 msgid "View controls"
 msgstr "Bekyk-kontroles"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Bekyk lêer"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Stemopname word nie in hierdie blaaier ondersteun nie"
@@ -3201,6 +3345,10 @@ msgstr "Ons het 'n verifikasiekode na <0>{0}</0> gestuur. Voer die kode hieronde
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Woensdag"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Hele lêers"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

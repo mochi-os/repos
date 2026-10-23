@@ -47,10 +47,13 @@ msgstr "(tu)"
 msgid "[not set]"
 msgstr "[não definido]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} many {# de commits} other {# commits}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ficheiro alterado} other {# ficheiros alterados}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} ofereceu empate"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} de {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# linha de contexto} many {# de linhas de contexto} other {# linhas de contexto}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Tem a certeza de que quer desistir? {opponentName} vai ganhar a partida.
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Tem a certeza de que pretende anular a subscrição deste repositório?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Tal como estão"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Ascendente"
@@ -503,6 +514,7 @@ msgstr "Nome do ramo"
 msgid "Branch name is required"
 msgstr "O nome do ramo é obrigatório"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Ramos"
@@ -595,9 +607,19 @@ msgstr "Alterado {field}"
 msgid "Changed occurrence"
 msgstr "Ocorrência alterada"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Alterações"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Alterações de {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Alterações em {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Escolher uma hora"
 msgid "Choose language"
 msgstr "Escolher idioma"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Escolha o que comparar"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Escolher idioma"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Limpar"
 
@@ -684,6 +711,10 @@ msgstr "Fechar pesquisa"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Recolher"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Recolher tudo"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "Compacto"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Comparar"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Comparação - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Origem da comparação"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Destino da comparação"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Comparar com {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Modo de comparação"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Configurar definições da opção"
@@ -775,6 +837,10 @@ msgstr "Conteúdo não encontrado."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Conteúdo não modificado"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Contexto"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Cada minuto"
 msgid "Expand"
 msgstr "Expandir"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Expandir tudo"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Expandir barra lateral"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ficheiro"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Opções do ficheiro"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grupo: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Histórico"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Histórico de {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identidade"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ignorar espaços em branco"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Ligações"
 msgid "List"
 msgstr "Lista"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Carregar diferenças"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Carregar mais"
 
@@ -1906,6 +2000,10 @@ msgstr "Ainda não há atividade"
 msgid "No branches yet"
 msgstr "Ainda não há ramos"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Sem alterações além de espaços em branco"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Sem alterações para apresentar"
@@ -1913,6 +2011,10 @@ msgstr "Sem alterações para apresentar"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Ainda não há comentários"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Nenhum commit alterou este ficheiro"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Proprietário"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Pai"
 
@@ -2166,6 +2269,11 @@ msgstr "Pessoas"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Eliminar permanentemente este repositório e todos os seus dados"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Selecionar {0} para comparar"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Repositórios"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Definições guardadas"
 msgid "Share"
 msgstr "Partilhar"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Mostrar todos os ficheiros"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Mostrar classes"
@@ -2718,9 +2834,17 @@ msgstr "Mostrar classes"
 msgid "Show fields"
 msgstr "Mostrar campos"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Mostrar mais linhas"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Mostrar esta ajuda"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Mostrar ficheiro completo"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Terminar sessão"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "A terminar sessão..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Desde que divergiram"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "A subscrever..."
 msgid "Sunday"
 msgstr "Domingo"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Trocar"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Mudar de ramo"
@@ -2850,6 +2982,7 @@ msgstr "A etiqueta deve ter 50 caracteres ou menos"
 msgid "Tags"
 msgstr "Etiquetas"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "O servidor devolveu uma página web em vez de dados."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Esta aplicação não está autorizada a usar a sua chave de acesso. Autorize-a em Definições, em Permissões."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Não é possível comparar este ficheiro com estas opções."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Este ficheiro é demasiado grande para ser apresentado ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Esta página requer um contexto de repositório."
@@ -3175,6 +3314,11 @@ msgstr "Ver e editar detalhes do item"
 msgid "View controls"
 msgstr "Ver controlos"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Ver ficheiro"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "A gravação de voz não é suportada neste navegador"
@@ -3201,6 +3345,10 @@ msgstr "Enviámos um código de verificação para <0>{0}</0>. Introduza o códi
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Quarta-feira"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Ficheiros completos"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

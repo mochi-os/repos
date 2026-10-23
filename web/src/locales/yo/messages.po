@@ -47,10 +47,13 @@ msgstr "(ìwọ)"
 msgid "[not set]"
 msgstr "[kò sí]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {commit #}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {fáìlì # yípadà}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} fún ní ìdábọ̀"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} nínú {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {ìlà # ti àyíká ọ̀rọ̀}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Ǹjẹ́ ó dájú pé o fẹ́ jọ̀wọ́? {opponentName} yóò ṣ�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ṣé o dájú pé o fẹ́ yọ orúkọ rẹ kúrò nínú repository yìí?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Bí wọ́n ṣe wà báyìí"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Gòkè"
@@ -503,6 +514,7 @@ msgstr "Orúkọ branch"
 msgid "Branch name is required"
 msgstr "Orúkọ branch ni a nílò"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Àwọn branch"
@@ -595,9 +607,19 @@ msgstr "A yí {field} padà"
 msgid "Changed occurrence"
 msgstr "Ìgbà tí a yípadà"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Àwọn ìyípadà"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Àwọn àyípadà láti {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Àwọn àyípadà nínú {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Yan àkókò kan"
 msgid "Choose language"
 msgstr "Yan èdè"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Yan ohun tí o fẹ́ fi wéra"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Yan èdè"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Pa rẹ́"
 
@@ -684,6 +711,10 @@ msgstr "Ti àwárí"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Ká jọ"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Ká gbogbo rẹ̀ jọ"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Àwọn commit"
 msgid "Compact"
 msgstr "Kékeré"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Fi wéra"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Àfiwé - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Fi wéra láti"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Fi wéra sí"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Fi wé {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Ọ̀nà àfiwé"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Ṣètò ètò àṣàyàn"
@@ -775,6 +837,10 @@ msgstr "Kò rí àkóónú."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "A kò ṣe àtúnyẹ̀wò àkóónú"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Àyíká ọ̀rọ̀"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Ìṣẹ́jú kọ̀ọ̀kan"
 msgid "Expand"
 msgstr "Gbòòrò"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Gbòòrò gbogbo rẹ̀"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Fẹ̀ ọ̀pá ẹ̀gbẹ́"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "faili"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Àwọn àṣàyàn fáìlì"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Ẹgbẹ́: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Ìtàn"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Ìtàn {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Ìdánimọ̀"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Fojú fo àyè òfìfo"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Àwọn ìjápọ̀"
 msgid "List"
 msgstr "Àkójọ"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Ṣí ìyàtọ̀"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Ṣí síwájú"
 
@@ -1906,6 +2000,10 @@ msgstr "Kò sí iṣẹ́ síbẹ̀"
 msgid "No branches yet"
 msgstr "Kò sí branch síbẹ̀"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Kò sí àyípadà mìíràn ju àyè òfìfo lọ"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Kò sí àyípadà láti fihàn"
@@ -1913,6 +2011,10 @@ msgstr "Kò sí àyípadà láti fihàn"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Kò sí àlàyé síbẹ̀"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Kò sí commit tí ó yí fáìlì yìí padà"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Onílé"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Òbí"
 
@@ -2166,6 +2269,11 @@ msgstr "Àwọn ènìyàn"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Pa repo yìí àti gbogbo data rẹ̀ rẹ́ pátápátá"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Yan {0} láti fi wéra"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Àwọn repository"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Àwọn ìṣètò ti fi pamọ́"
 msgid "Share"
 msgstr "Pín"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Fi gbogbo àwọn fáìlì hàn"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Fi àwọn classes hàn"
@@ -2718,9 +2834,17 @@ msgstr "Fi àwọn classes hàn"
 msgid "Show fields"
 msgstr "Fi àwọn aaye hàn"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Fi ìlà púpọ̀ sí i hàn"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Fi ìrànlọ́wọ́ yìí hàn"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Fi fáìlì náà hàn lódindi"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Jáde"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Ń jáde..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Láti ìgbà tí wọ́n ti pínyà"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Ń forúkọsílẹ̀..."
 msgid "Sunday"
 msgstr "Ọjọ́ Àìkú"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Pààrọ̀ ipò"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Yí ẹ̀ka padà"
@@ -2850,6 +2982,7 @@ msgstr "Àmì gbọ́dọ̀ jẹ́ àwọn lẹ́tà 50 tàbí kéré sí"
 msgid "Tags"
 msgstr "Àwọn tag"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Olupin naa da oju-ìwé wẹ́ẹ̀bù padà dípò data."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Ìṣàmúlò yìí kò ní àṣẹ láti lo kọ́kọ́rọ́-ìwọlé rẹ. Fàyè gbà á ní Ètò, lábẹ́ Àwọn Àṣẹ."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "A kò lè fi fáìlì yìí wéra pẹ̀lú àwọn àṣàyàn wọ̀nyí."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Fáìlì yìí tóbi jù láti fi hàn ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Ojú-ìwé yìí nílò repository context."
@@ -3175,6 +3314,11 @@ msgstr "Wo kí o sì ṣàtúnṣe àlàyé nǹkan"
 msgid "View controls"
 msgstr "Àwọn ìṣàkóso ìwòye"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Wo fáìlì"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Aṣàwákiri yìí kò ṣe àtìlẹ́yìn fún gbigbasilẹ ohùn"
@@ -3201,6 +3345,10 @@ msgstr "A rán kóòdù ìjẹ́rìísí sí <0>{0}</0>. Tẹ kóòdù náà sí
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Ọjọ́rú"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Fáìlì lódindi"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

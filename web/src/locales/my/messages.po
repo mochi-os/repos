@@ -47,10 +47,13 @@ msgstr "(သင်)"
 msgid "[not set]"
 msgstr "[မသတ်မှတ်ရသေး]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {ကွန်မစ် # ခု}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {ဖိုင် # ခု ပြောင်းလဲသည်}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} က သရေ ပေးခဲ့သည်"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel} အနက် {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {ဆက်စပ်လိုင်း # ကြောင်း}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "လက်လျှော့မှာသေချာပါသလား? {
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ဤသိုလှောင်ရာမှ subscription ဖြုတ်မှာသေချာပါသလား?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "လက်ရှိအတိုင်း"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ငယ်စဉ်ကြီးလိုက်"
@@ -503,6 +514,7 @@ msgstr "ဘရန်ချ် အမည်"
 msgid "Branch name is required"
 msgstr "ဘရန်ချ် အမည် လိုအပ်သည်"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "branch များ"
@@ -595,9 +607,19 @@ msgstr "{field} ကို ပြောင်းလဲခဲ့သည်"
 msgid "Changed occurrence"
 msgstr "ပြောင်းလဲထားသော အကြိမ်"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "ပြောင်းလဲမှုများ"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} မှ ပြောင်းလဲမှုများ"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} ရှိ ပြောင်းလဲမှုများ"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "အချိန် ရွေးပါ"
 msgid "Choose language"
 msgstr "ဘာသာစကား ရွေးချယ်ပါ"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "နှိုင်းယှဉ်မည့်အရာကို ရွေးပါ"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "ဘာသာစကား ရွေးချယ်ပါ"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "ရှင်းမည်"
 
@@ -684,6 +711,10 @@ msgstr "ရှာဖွေမှု ပိတ်မည်"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "ခေါက်သိမ်းရန်"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "အားလုံး ခေါက်သိမ်းရန်"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit များ"
 msgid "Compact"
 msgstr "ကျစ်လျစ်"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "နှိုင်းယှဉ်ပါ"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "နှိုင်းယှဉ်မှု - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "နှိုင်းယှဉ်ရန် အခြေခံ"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "နှိုင်းယှဉ်ရန် ပစ်မှတ်"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} နှင့် နှိုင်းယှဉ်ပါ"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "နှိုင်းယှဉ်မှု"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "ရွေးချယ်စရာ ဆက်တင်များ ပြင်ဆင်ပါ"
@@ -775,6 +837,10 @@ msgstr "အကြောင်းအရာ မတွေ့ပါ။"
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "အကြောင်းအရာ မပြောင်းပါ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "ဆက်စပ်အကြောင်းအရာ"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "မိနစ်တိုင်း"
 msgid "Expand"
 msgstr "ချဲ့ရန်"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "အားလုံး ချဲ့ရန်"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "ဘေးဘားကို ချဲ့ပါ"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ဖိုင်"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "ဖိုင် ရွေးချယ်စရာများ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "အုပ်စု- {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "မှတ်တမ်း"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} ၏ မှတ်တမ်း - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "ကိုယ်ပိုင်"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "နေရာလွတ်များကို လျစ်လျူရှုရန်"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "လင့်များ"
 msgid "List"
 msgstr "စာရင်း"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "ကွာခြားချက်များ တင်ရန်"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "ထပ်တင်"
 
@@ -1906,6 +2000,10 @@ msgstr "လှုပ်ရှားမှုများ မရှိသေး�
 msgid "No branches yet"
 msgstr "branch များ မရှိသေးပါ"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "နေရာလွတ်မှလွဲ၍ ပြောင်းလဲမှု မရှိပါ"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "ပြသရန် ပြောင်းလဲမှုများ မရှိပါ"
@@ -1913,6 +2011,10 @@ msgstr "ပြသရန် ပြောင်းလဲမှုများ မ�
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "comment များ မရှိသေးပါ"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "ဤဖိုင်ကို ပြောင်းလဲထားသော ကွန်မစ် မရှိပါ"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "ပိုင်ရှင်"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "မိဘ"
 
@@ -2166,6 +2269,11 @@ msgstr "လူများ"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "ဤ သိုလှောင်ရာ နှင့် ၎င်း၏ ဒေတာအားလုံးကို အပြီးတိုင်ဖျက်ပါ"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "နှိုင်းယှဉ်ရန် {0} ကို ရွေးပါ"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "သိုလှောင်ရာများ"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "ဆက်တင်များ သိမ်းပြီး"
 msgid "Share"
 msgstr "မျှဝေရန်"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "ဖိုင်အားလုံး ပြရန်"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Class များ ပြမည်"
@@ -2718,9 +2834,17 @@ msgstr "Class များ ပြမည်"
 msgid "Show fields"
 msgstr "ကွက်လပ်များ ပြမည်"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "နောက်ထပ်လိုင်းများ ပြရန်"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "ဤ အကူအညီကို ပြမည်"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "ဖိုင်တစ်ခုလုံး ပြရန်"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "ထွက်ရန်"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "ထွက်နေသည်..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "ခွဲထွက်ချိန်မှစ၍"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Subscribe လုပ်နေသည်..."
 msgid "Sunday"
 msgstr "တနင်္ဂနွေ"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "နေရာချင်းလဲရန်"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "ဘရန်ချ်ပြောင်းပါ"
@@ -2850,6 +2982,7 @@ msgstr "တဂ်သည် စာလုံး ၅၀ သို့မဟုတ်
 msgid "Tags"
 msgstr "တက်ဂ်များ"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "ဆာဗာသည် ဒေတာအစား ဝဘ်စာမျက�
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ဤအက်ပ်သည် သင့် ဝင်ရောက်ခွင့်သော့ ကို အသုံးပြုခွင့်မရှိပါ။ ဆက်တင်များရှိ ခွင့်ပြုချက်များအောက်တွင် ခွင့်ပြုပါ။"
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ဤရွေးချယ်စရာများဖြင့် ဤဖိုင်ကို နှိုင်းယှဉ်၍ မရပါ။"
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ဤဖိုင်သည် ပြသရန် အလွန်ကြီ�
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "ဤစာမျက်နှာသည် သိုလှောင်ရာ ဆက်စပ်အခြေအနေ လိုအပ်သည်။"
@@ -3175,6 +3314,11 @@ msgstr "ပစ္စည်း အသေးစိတ်များကို က�
 msgid "View controls"
 msgstr "ထိန်းချုပ်မှုများ ကြည့်ရှုမည်"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ဖိုင်ကို ကြည့်ရန်"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "ဤဘရောက်ဇာတွင် အသံဖမ်းယူခြင်းကို မထောက်ပံ့ပါ"
@@ -3201,6 +3345,10 @@ msgstr "<0>{0}</0> သို့ အတည်ပြုကုဒ် ပို့�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "ဗုဒ္ဓဟူး"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "ဖိုင်အပြည့်အစုံ"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

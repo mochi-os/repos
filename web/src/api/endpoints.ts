@@ -46,6 +46,11 @@ const endpoints = {
         : `tree/${encodeRef(ref)}`,
     blob: (ref: string, path: string) =>
       `blob/${encodeRef(ref)}/${encodeRef(path)}`,
+    diff: 'diff',
+    history: (ref: string, path: string) =>
+      `history/${encodeRef(ref)}/${encodeRef(path)}`,
+    preference: 'diff/preference',
+    preferenceSet: 'diff/preference/set',
   },
   // User/group search
   users: {

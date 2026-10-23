@@ -39,6 +39,7 @@ import { useTree, useBranches, repoKeys } from '@/hooks/use-repository'
 import { RefSelector } from '@/components/ref-selector'
 import { BranchesList } from './branches-list'
 import { CommitsList } from './commits-list'
+import { CompareButton } from './compare-button'
 import { FileListing } from './file-browser'
 import { stickyBarClass, useRepositoryTabs, type RepositoryTabId } from './tabs'
 import { TagsList } from './tags-list'
@@ -112,11 +113,20 @@ export function RepositoryTabs({
 
         {/* Branch selector - shared across files/commits tabs */}
         {tabsWithBranchSelector.has(activeTab) && branches.length > 0 && (
-          <RefSelector
-            branches={branches}
-            value={currentRef}
-            onValueChange={setCurrentRef}
-          />
+          <div className='flex flex-wrap items-center gap-2'>
+            <RefSelector
+              branches={branches}
+              value={currentRef}
+              onValueChange={setCurrentRef}
+            />
+            {activeTab === 'commits' && (
+              <CompareButton
+                fingerprint={fingerprint}
+                base={defaultBranch}
+                head={currentRef}
+              />
+            )}
+          </div>
         )}
       </StickyBar>
 

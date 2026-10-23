@@ -47,10 +47,13 @@ msgstr "(сиз)"
 msgid "[not set]"
 msgstr "[орнотулган эмес]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# коммит} other {# коммит}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# файл өзгөрдү} other {# файл өзгөрдү}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} теңме-тең сунуш кылды"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel} ичинен {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# контекст сабы} other {# контекст сабы}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Багынууну каалайсызбы? Оюнду {opponentName} у�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Бул репозиторийден жазылбоону каалайсызбы?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Азыркы абалында"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Өсүү тартибинде"
@@ -503,6 +514,7 @@ msgstr "Бутактын аты"
 msgid "Branch name is required"
 msgstr "Бутактын аты талап кылынат"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Бутактар"
@@ -595,9 +607,19 @@ msgstr "{field} өзгөртүлдү"
 msgid "Changed occurrence"
 msgstr "Өзгөртүлгөн кайталануу"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Өзгөрүүлөр"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} өзгөртүүлөрү"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} ичиндеги өзгөртүүлөр"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Убакытты тандаңыз"
 msgid "Choose language"
 msgstr "Тилди тандоо"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Эмнени салыштырууну тандаңыз"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Тилди тандоо"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Тазалоо"
 
@@ -684,6 +711,10 @@ msgstr "Издөөнү жабуу"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Жыйыштыруу"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Баарын жыйыштыруу"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commitтер"
 msgid "Compact"
 msgstr "Компакттык"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Салыштыруу"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Салыштыруу - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Салыштыруунун негизи"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Салыштырылуучу"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} теги менен салыштыруу"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Салыштыруу"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Тандоо жөндөөлөрүн тууралоо"
@@ -775,6 +837,10 @@ msgstr "Мазмун табылган жок."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Мазмун өзгөргөн жок"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Контекст"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Ар бир мүнөт"
 msgid "Expand"
 msgstr "Жайып көрсөтүү"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Баарын жайып көрсөтүү"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Каптал тилкесин жайылтуу"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "файл"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Файл параметрлери"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Топ: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Тарых"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} тарыхы - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Идентификация"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Боштуктарды этибарга албоо"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Шилтемелер"
 msgid "List"
 msgstr "Тизме"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Айырмаларды жүктөө"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Дагы жүктөө"
 
@@ -1906,6 +2000,10 @@ msgstr "Активдүүлүк азырынча жок"
 msgid "No branches yet"
 msgstr "Бутактар азырынча жок"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Боштуктардан башка өзгөртүүлөр жок"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Көрсөтүлө турган өзгөрүүлөр жок"
@@ -1913,6 +2011,10 @@ msgstr "Көрсөтүлө турган өзгөрүүлөр жок"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Комментарийлер азырынча жок"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Бул файлды бир да коммит өзгөрткөн жок"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Ээси"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Ата-эне"
 
@@ -2166,6 +2269,11 @@ msgstr "Адамдар"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Бул репозиторийди жана анын бардык маалыматын биротоло өчүрүү"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Салыштыруу үчүн {0} тандоо"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Репозиторийлер"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Жөндөөлөр сакталды"
 msgid "Share"
 msgstr "Бөлүшүү"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Бардык файлдарды көрсөтүү"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Класстарды көрсөтүү"
@@ -2718,9 +2834,17 @@ msgstr "Класстарды көрсөтүү"
 msgid "Show fields"
 msgstr "Талааларды көрсөтүү"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Көбүрөөк сап көрсөтүү"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Бул жардамды көрсөтүү"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Бүт файлды көрсөтүү"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Чыгуу"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Чыгуу жүрүп жатат..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Ажыраган учурдан бери"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Жазылууда..."
 msgid "Sunday"
 msgstr "Жекшемби"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Ордун алмаштыруу"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Бутакты которуу"
@@ -2850,6 +2982,7 @@ msgstr "Тег эң көбү 50 белги болушу керек"
 msgid "Tags"
 msgstr "Тегдер"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Сервер маалыматтын ордуна веб-баракты �
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Бул колдонмого сиздин кирүү ачкычыңызды колдонууга уруксат жок. Жөндөөлөрдөгү Уруксаттар бөлүмүнөн уруксат бериңиз."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Бул файлды ушул параметрлер менен салыштыруу мүмкүн эмес."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Бул файл көрсөтүү үчүн өтө чоң ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Бул бет репозиторий контекстин талап кылат."
@@ -3175,6 +3314,11 @@ msgstr "Объекттин чоо-жайын көрүү жана түзөтүү"
 msgid "View controls"
 msgstr "Көрүү башкаруусу"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Файлды көрүү"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Үн жазуу бул браузерде колдоого алынбайт"
@@ -3201,6 +3345,10 @@ msgstr "Биз <0>{0}</0> дарегине ырастоо кодун жөнөт�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Шаршемби"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Толук файлдар"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

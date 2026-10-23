@@ -2,13 +2,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
+import { useState } from 'react'
 import {
   useInfiniteQuery,
   useQuery,
+  useQueries,
   useMutation,
   useQueryClient,
 } from '@tanstack/react-query'
-import { naturalCompare } from '@mochi/web'
+import { naturalCompare, type DiffViewStyle } from '@mochi/web'
 import endpoints from '@/api/endpoints'
 import { reposRequest, appBasePath } from '@/api/request'
 import type {
@@ -19,6 +21,9 @@ import type {
   CommitResponse,
   TreeResponse,
   BlobResponse,
+  DiffMode,
+  DiffResponse,
+  HistoryResponse,
   CreateRepoRequest,
   CreateRepoResponse,
   SubscribeResponse,
@@ -39,7 +44,27 @@ export const repoKeys = {
     [...repoKeys.all, id, 'tree', ref, path] as const,
   blob: (id: string, ref: string, path: string) =>
     [...repoKeys.all, id, 'blob', ref, path] as const,
+  diff: (id: string, request: DiffRequest) =>
+    [...repoKeys.all, id, 'diff', request] as const,
+  history: (id: string, ref: string, path: string, limit: number) =>
+    [...repoKeys.all, id, 'history', ref, path, limit] as const,
+  preference: () => [...repoKeys.all, 'diff', 'preference'] as const,
 }
+
+export interface DiffRequest {
+  // Empty for a first commit, which is compared with nothing.
+  base: string
+  head: string
+  mode: DiffMode
+  // Limits the comparison to one file or folder.
+  path?: string
+  // Also list the commits head adds, as the compare page does.
+  commits?: boolean
+}
+
+// A full commit hash names one unchanging commit, so a comparison of two of
+// them never goes stale.
+const isCommit = (ref: string) => /^[0-9a-f]{40}$/i.test(ref)
 
 // Hooks
 
@@ -137,6 +162,119 @@ export function useBlob(repoId: string, ref: string, path: string) {
     enabled: !!repoId && !!ref && !!path,
     retry: false,
   })
+}
+
+export function useDiff(repoId: string, request: DiffRequest) {
+  return useQuery({
+    queryKey: repoKeys.diff(repoId, request),
+    queryFn: () =>
+      reposRequest.get<DiffResponse>(endpoints.repo.diff, {
+        params: {
+          base: request.base,
+          head: request.head,
+          mode: request.mode,
+          path: request.path || undefined,
+          commits: request.commits ? 'true' : undefined,
+        },
+      }),
+    enabled: !!repoId && !!request.head,
+    staleTime:
+      isCommit(request.head) && (!request.base || isCommit(request.base))
+        ? Infinity
+        : 0,
+    retry: false,
+  })
+}
+
+export function useHistory(
+  repoId: string,
+  ref: string,
+  path: string,
+  limit: number
+) {
+  return useQuery({
+    queryKey: repoKeys.history(repoId, ref, path, limit),
+    queryFn: () =>
+      reposRequest.get<HistoryResponse>(endpoints.repo.history(ref, path), {
+        params: { limit },
+      }),
+    enabled: !!repoId && !!ref && !!path,
+    placeholderData: (previous) => previous,
+    retry: false,
+  })
+}
+
+// The one or two column choice for diffs. It is the person's preference,
+// shared with projects and wikis, so it follows them between apps and devices.
+// A visitor who is not signed in has nowhere to keep it, and the choice lasts
+// as long as the page.
+export function useDiffStyle(): [
+  DiffViewStyle,
+  (style: DiffViewStyle) => void,
+] {
+  const queryClient = useQueryClient()
+  const [local, setLocal] = useState<DiffViewStyle>()
+  const { data } = useQuery({
+    queryKey: repoKeys.preference(),
+    queryFn: () =>
+      reposRequest.get<{ style: DiffViewStyle }>(endpoints.repo.preference),
+    staleTime: Infinity,
+    retry: false,
+  })
+  const save = useMutation({
+    mutationFn: (style: DiffViewStyle) =>
+      reposRequest.post<{ style: DiffViewStyle }>(
+        endpoints.repo.preferenceSet,
+        { style }
+      ),
+    onSuccess: (answer) =>
+      queryClient.setQueryData(repoKeys.preference(), answer),
+  })
+  const style = local ?? data?.style ?? 'unified'
+  return [
+    style,
+    (next) => {
+      setLocal(next)
+      save.mutate(next)
+    },
+  ]
+}
+
+// Both sides of one changed file, for comparing it again in the browser with
+// other options. A side that does not exist (the file was added, deleted, or
+// the comparison starts from nothing) reads as empty text. content is null
+// when either side is binary or too large for the server to send.
+export function useFileSides(
+  repoId: string,
+  before: { ref: string; path: string } | undefined,
+  after: { ref: string; path: string } | undefined,
+  enabled: boolean
+) {
+  const sides = [before, after]
+  const results = useQueries({
+    queries: sides.map((side) => ({
+      queryKey: repoKeys.blob(repoId, side?.ref ?? '', side?.path ?? ''),
+      queryFn: () =>
+        reposRequest.get<BlobResponse>(
+          endpoints.repo.blob(side!.ref, side!.path)
+        ),
+      enabled: enabled && !!side,
+      staleTime: Infinity,
+      retry: false,
+    })),
+  })
+  const content = (index: number): string | null | undefined => {
+    if (!sides[index]) return ''
+    const data = results[index].data
+    if (!data) return undefined
+    return data.binary ? null : (data.content ?? null)
+  }
+  return {
+    before: content(0),
+    after: content(1),
+    isLoading: results.some((result) => result.isLoading),
+    error: results.find((result) => result.error)?.error,
+  }
 }
 
 export function useCreateRepo() {

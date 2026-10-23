@@ -47,10 +47,13 @@ msgstr "(դուք)"
 msgid "[not set]"
 msgstr "[չի սահմանվել]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# կոմիտ} other {# կոմիտ}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ֆայլ փոխվեց} other {# ֆայլ փոխվեց}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName}-ը առաջարկեց ոչ-ոքի"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel}՝ {totalLabel}-ից"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {համատեքստի # տող} other {համատեքստի # տող}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Վստա՞հ եք, որ ուզում եք հանձնվել։ {opponentNa
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Վստա՞հ եք, որ ուզում եք հրաժարվել այս պահոցի բաժանորդագրությունից։"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Ինչպես կան հիմա"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Աճման կարգով"
@@ -503,6 +514,7 @@ msgstr "Ճյուղի անուն"
 msgid "Branch name is required"
 msgstr "Ճյուղի անունը պարտադիր է"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Ճյուղեր"
@@ -595,9 +607,19 @@ msgstr "Փոփոխվել է {field}"
 msgid "Changed occurrence"
 msgstr "Փոփոխված կրկնություն"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Փոփոխություններ"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Փոփոխություններ {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Փոփոխություններ {0}-ում"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Ընտրեք ժամը"
 msgid "Choose language"
 msgstr "Ընտրել լեզուն"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Ընտրեք, թե ինչ համեմատել"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Ընտրել լեզուն"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Մաքրել"
 
@@ -684,6 +711,10 @@ msgstr "Փակել որոնումը"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Ծալել"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Ծալել բոլորը"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Կոմիտներ"
 msgid "Compact"
 msgstr "Կոմպակտ"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Համեմատել"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Համեմատություն - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Որտեղից համեմատել"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Ինչի հետ համեմատել"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Համեմատել {0}-ի հետ"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Համեմատություն"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Կարգավորել տարբերակի կարգավորումները"
@@ -775,6 +837,10 @@ msgstr "Բովանդակությունը չի գտնվել։"
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Բովանդակությունը փոփոխված չէ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Համատեքստ"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Յուրաքանչյուր րոպե"
 msgid "Expand"
 msgstr "Ծավալել"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Ծավալել բոլորը"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Ընդարձակել կողագոտին"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ֆայլ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Ֆայլի ընտրանքներ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Խումբ՝ {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Պատմություն"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName}-ի պատմությունը - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Ինքնություն"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Անտեսել բացատները"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Հղումներ"
 msgid "List"
 msgstr "Ցանկ"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Բեռնել տարբերությունները"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Բեռնել ավելին"
 
@@ -1906,6 +2000,10 @@ msgstr "Դեռ ակտիվություն չկա"
 msgid "No branches yet"
 msgstr "Դեռ ճյուղեր չկան"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Բացատներից բացի այլ փոփոխություններ չկան"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Ցուցադրելու փոփոխություններ չկան"
@@ -1913,6 +2011,10 @@ msgstr "Ցուցադրելու փոփոխություններ չկան"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Դեռ մեկնաբանություններ չկան"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Ոչ մի կոմիտ չի փոխել այս ֆայլը"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Սեփականատեր"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Ծնող"
 
@@ -2166,6 +2269,11 @@ msgstr "Մարդիկ"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Ընդմիշտ ջնջել այս պահոցը և բոլոր նրա տվյալները"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Ընտրել {0}-ը համեմատելու համար"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Պահոցներ"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Կարգավորումները պահպանվեցին"
 msgid "Share"
 msgstr "Կիսվել"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Ցույց տալ բոլոր ֆայլերը"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Ցույց տալ դասերը"
@@ -2718,9 +2834,17 @@ msgstr "Ցույց տալ դասերը"
 msgid "Show fields"
 msgstr "Ցույց տալ դաշտերը"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Ցույց տալ ավելի շատ տողեր"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Ցույց տալ այս օգնությունը"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Ցույց տալ ամբողջ ֆայլը"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Դուրս գալ"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Դուրս է գալիս..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Բաժանվելու պահից"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Բաժանորդագրվում է..."
 msgid "Sunday"
 msgstr "Կիրակի"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Փոխատեղել"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Փոխել ճյուղը"
@@ -2850,6 +2982,7 @@ msgstr "Պիտակը պետք է լինի առավելագույնը 50 նիշ"
 msgid "Tags"
 msgstr "Թեգեր"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Սերվերը տվյալների փոխարեն վերադարձրեց 
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Այս հավելվածին թույլատրված չէ օգտագործել ձեր անցաբանալին։ Թույլատրեք այն Կարգավորումներում՝ Թույլտվություններ բաժնում։"
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Այս ֆայլը հնարավոր չէ համեմատել այս ընտրանքներով։"
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Այս ֆայլը չափազանց մեծ է ցուցադրելու հա
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Այս էջը պահանջում է պահոցի համատեքստ:"
@@ -3175,6 +3314,11 @@ msgstr "Դիտել և խմբագրել տարրի մանրամասները"
 msgid "View controls"
 msgstr "Դիտել կառավարակետերը"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Դիտել ֆայլը"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Ձայնագրումն այս դիտարկիչում չի աջակցվում"
@@ -3201,6 +3345,10 @@ msgstr "Մենք հաստատման կոդ ուղարկեցինք <0>{0}</0> հ�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Չորեքշաբթի"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Ամբողջական ֆայլեր"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

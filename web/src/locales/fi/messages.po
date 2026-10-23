@@ -47,10 +47,13 @@ msgstr "(sinä)"
 msgid "[not set]"
 msgstr "[ei asetettu]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commitia}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# tiedosto muuttui} other {# tiedostoa muuttui}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} tarjosi tasapeliä"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# kontekstirivi} other {# kontekstiriviä}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Haluatko varmasti luovuttaa? {opponentName} voittaa pelin."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Haluatko varmasti peruuttaa tämän tietovaraston tilauksen?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Nykyisellään"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Nouseva"
@@ -503,6 +514,7 @@ msgstr "Haaran nimi"
 msgid "Branch name is required"
 msgstr "Haaran nimi on pakollinen"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Haarat"
@@ -595,9 +607,19 @@ msgstr "{field} muutettu"
 msgid "Changed occurrence"
 msgstr "Muutettu toistokerta"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Muutokset"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Muutokset {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Muutokset commitissa {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Valitse kellonaika"
 msgid "Choose language"
 msgstr "Valitse kieli"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Valitse vertailtavat"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Valitse kieli"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Tyhjennä"
 
@@ -684,6 +711,10 @@ msgstr "Sulje haku"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Tiivistä"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Tiivistä kaikki"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commitit"
 msgid "Compact"
 msgstr "Tiivis"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Vertaa"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Vertailu - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Vertailun lähtökohta"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Vertailun kohde"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Vertaa tunnisteeseen {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Vertailu"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Määritä vaihtoehdon asetukset"
@@ -775,6 +837,10 @@ msgstr "Sisältöä ei löytynyt."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Sisältöä ei muokattu"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Konteksti"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Joka minuutti"
 msgid "Expand"
 msgstr "Laajenna"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Laajenna kaikki"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Laajenna sivupalkki"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "tiedosto"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Tiedoston vaihtoehdot"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Ryhmä: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Historia"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Tiedoston {fileName} historia - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "Tunnus"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identiteetti"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ohita tyhjätila"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Linkit"
 msgid "List"
 msgstr "Luettelo"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Lataa muutokset"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Lataa lisää"
 
@@ -1906,6 +2000,10 @@ msgstr "Ei vielä toimintaa"
 msgid "No branches yet"
 msgstr "Ei vielä haaroja"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Ei muutoksia tyhjätilan lisäksi"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Ei näytettäviä muutoksia"
@@ -1913,6 +2011,10 @@ msgstr "Ei näytettäviä muutoksia"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Ei vielä kommentteja"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Mikään commit ei ole muuttanut tätä tiedostoa"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Omistaja"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Yläkohde"
 
@@ -2166,6 +2269,11 @@ msgstr "Henkilöt"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Poista tämä repositorio ja kaikki sen tiedot pysyvästi"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Valitse {0} vertailuun"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Tietovarastot"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Asetukset tallennettu"
 msgid "Share"
 msgstr "Jaa"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Näytä kaikki tiedostot"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Näytä luokat"
@@ -2718,9 +2834,17 @@ msgstr "Näytä luokat"
 msgid "Show fields"
 msgstr "Näytä kentät"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Näytä lisää rivejä"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Näytä tämä ohje"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Näytä koko tiedosto"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Kirjaudu ulos"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Kirjaudutaan ulos..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Erkanemisesta lähtien"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Tilataan..."
 msgid "Sunday"
 msgstr "Sunnuntai"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Vaihda päittäin"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Vaihda haaraa"
@@ -2850,6 +2982,7 @@ msgstr "Tunniste saa olla enintään 50 merkkiä"
 msgid "Tags"
 msgstr "Tunnisteet"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Palvelin palautti verkkosivun tietojen sijaan."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Tämä sovellus ei saa käyttää avainkoodiasi. Salli se Asetuksissa kohdassa Käyttöoikeudet."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Tätä tiedostoa ei voi verrata näillä vaihtoehdoilla."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Tämä tiedosto on liian suuri näytettäväksi ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Tämä sivu vaatii arkistokontekstin."
@@ -3175,6 +3314,11 @@ msgstr "Näytä ja muokkaa kohteen tietoja"
 msgid "View controls"
 msgstr "Näkymän hallinta"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Näytä tiedosto"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Äänitallennusta ei tueta tässä selaimessa"
@@ -3201,6 +3345,10 @@ msgstr "Lähetimme vahvistuskoodin osoitteeseen <0>{0}</0>. Syötä koodi alle v
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Keskiviikko"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Kokonaiset tiedostot"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

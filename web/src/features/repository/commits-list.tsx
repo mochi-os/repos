@@ -17,8 +17,10 @@ import {
 } from '@mochi/web'
 import { GitCommit } from 'lucide-react'
 import { getCommitTitle } from '@/lib/format'
+import { usePicked } from '@/hooks/use-picked'
 import { useCommits } from '@/hooks/use-repository'
 import { DownloadDropdown } from '@/components/download-dropdown'
+import { PickBox, PickedBar } from './commit-picker'
 
 interface CommitsListProps {
   repoId: string
@@ -59,6 +61,7 @@ export function CommitsList({
   const loadMore = useCallback(() => {
     void fetchNextPage()
   }, [fetchNextPage])
+  const { picked, toggle, clear } = usePicked()
 
   if (isLoading) {
     return (
@@ -87,13 +90,24 @@ export function CommitsList({
 
   return (
     <>
+      <PickedBar
+        picked={picked}
+        commits={commits}
+        fingerprint={fingerprint}
+        onClear={clear}
+      />
       <Card>
         <CardContent className='divide-y p-0'>
           {commits.map((commit) => (
             <div
               key={commit.sha}
-              className='hover:bg-hover flex items-start gap-4 p-4 transition-colors'
+              className='hover:bg-hover flex items-start gap-3 p-4 transition-colors'
             >
+              <PickBox
+                sha={commit.sha}
+                picked={picked.includes(commit.sha)}
+                onToggle={toggle}
+              />
               <Link
                 to='/$repoId/commit/$sha'
                 params={{ repoId: fingerprint, sha: commit.sha }}
@@ -106,7 +120,7 @@ export function CommitsList({
                   </div>
                   <div className='text-muted-foreground mt-1 flex items-center gap-2 text-sm'>
                     <EntityAvatar
-                      seed={commit.author_email || commit.author}
+                      seed={commit.email || commit.author}
                       name={commit.author}
                       size='xs'
                     />

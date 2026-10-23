@@ -47,10 +47,13 @@ msgstr "(tu)"
 msgid "[not set]"
 msgstr "[neyî sazkirin]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commit}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# pel hate guhertin} other {# pel hatin guhertin}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} pêşniyara wekheviyê kir"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} ji {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# rêzika kontekstê} other {# rêzikên kontekstê}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Tu bawer î ku dixwazî teslîm bibî? {opponentName} dê di lîstikê d
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Tu bawer î ku dixwazî abonetiya vê repositoryê betal bikî?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Wekî niha ne"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Hilkişandî"
@@ -503,6 +514,7 @@ msgstr "Navê şaxê"
 msgid "Branch name is required"
 msgstr "Navê şaxê pêwîst e"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Şax"
@@ -595,9 +607,19 @@ msgstr "{field} hate guhertin"
 msgid "Changed occurrence"
 msgstr "Cara guhertî"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Guhertin"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Guhertin ji {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Guhertinên di {0} de"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Demekê hilbijêre"
 msgid "Choose language"
 msgstr "Ziman hilbijêre"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Hilbijêre ka çi bê berawirdkirin"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Ziman hilbijêre"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Paqij bike"
 
@@ -684,6 +711,10 @@ msgstr "Lêgerînê bigire"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Berhev bike"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Hemûyan berhev bike"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit"
 msgid "Compact"
 msgstr "Kompakt"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Berawird bike"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Berawirdkirin - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Berawird bike ji"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Berawird bike bi"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Bi {0} re berawird bike"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Berawirdkirin"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Mîhengên vebijêrkê biguherîne"
@@ -775,6 +837,10 @@ msgstr "Naverok nehat dîtin."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Naverok nehat guhertin"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Kontekst"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Her deqîqe"
 msgid "Expand"
 msgstr "Fireh bike"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Hemûyan fireh bike"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Bargeyê fireh bike"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/taybetmendiya-min"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "pel"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Vebijarkên pelê"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Kom: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Dîrok"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Dîroka {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "Nasname"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Nasname"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Valahiyan paşguh bike"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Girêdan"
 msgid "List"
 msgstr "Lîste"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Cudahiyan bar bike"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Bêtir bar bike"
 
@@ -1906,6 +2000,10 @@ msgstr "Hêj tu çalakî tune"
 msgid "No branches yet"
 msgstr "Hêj tu şax tune"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Ji bilî valahiyan tu guhertin tune"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Tu guhertin ji bo nîşandanê tune"
@@ -1913,6 +2011,10 @@ msgstr "Tu guhertin ji bo nîşandanê tune"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Hêj tu şîrove tune"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Tu commit ev pel neguhertiye"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Xwedî"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Dêûbav"
 
@@ -2166,6 +2269,11 @@ msgstr "Mirov"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Vê repoyê û tevahiya daneyên wê her û her jêbibe"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "{0} ji bo berawirdkirinê hilbijêre"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Embar"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Mîheng tomar bûn"
 msgid "Share"
 msgstr "Parve bike"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Hemû pelan nîşan bide"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Çînan nîşan bide"
@@ -2718,9 +2834,17 @@ msgstr "Çînan nîşan bide"
 msgid "Show fields"
 msgstr "Qadan nîşan bide"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Rêzikên zêdetir nîşan bide"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Vê alîkariyê nîşan bide"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Tevahiya pelê nîşan bide"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Derkeve"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Derketin tê kirin..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Ji dema ku ji hev veqetiyan"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Abone tê bûn..."
 msgid "Sunday"
 msgstr "Yekşem"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Cih biguherîne"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Çiqil biguherîne"
@@ -2850,6 +2982,7 @@ msgstr "Etîket divê 50 tîp an kêmtir be"
 msgid "Tags"
 msgstr "Tag"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Rajekar li şûna daneyan rûpeleke webê vegerand."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Ev sepan destûr nîne ku passkey-a te bi kar bîne. Di Mîhengan de, di bin Destûran de destûrê bide."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Ev pel bi van vebijarkan nayê berawirdkirin."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Ev pel ji bo nîşandanê pir mezin e ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Ev rûpel pêwîstiya kontekstê embarê heye."
@@ -3175,6 +3314,11 @@ msgstr "Hûragahên tiştî bibîne û sererast bike"
 msgid "View controls"
 msgstr "Kontrolên dîtinê"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Pelê bibîne"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Tomarkirina dengî di vê gerokê de nayê destekkirin"
@@ -3201,6 +3345,10 @@ msgstr "Me kodek pejirandinê şand bo <0>{0}</0>. Ji bo pejirandina navnîşana
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Çarşem"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Pelên tevahî"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

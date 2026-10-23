@@ -7,10 +7,13 @@ import { useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import { commitSearch } from '@/lib/diff-options'
+import { useCommitChanges } from '@/features/repository/commit-changes'
 import { CommitDetails } from '@/features/repository/commit-details'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commit/$sha')({
+  validateSearch: commitSearch,
   loader: async ({ params }) => {
     const info = await reposRequest.get<InfoResponse>('info', {
       baseURL: repoBasePath(params.repoId),
@@ -25,6 +28,19 @@ function CommitPage() {
   const { t } = useLingui()
   const data = Route.useLoaderData()
   const { sha } = Route.useParams()
+  const search = Route.useSearch()
+  const navigate = Route.useNavigate()
+  const changes = useCommitChanges({
+    repoId: data.id || data.repoId,
+    fingerprint: data.repoId,
+    sha,
+    search,
+    onSearch: (next) =>
+      void navigate({
+        search: (previous) => ({ ...previous, ...next }),
+        replace: true,
+      }),
+  })
 
   usePageTitle(t`Commit ${sha.substring(0, 7)} - ${data.name}`)
 
@@ -42,12 +58,15 @@ function CommitPage() {
           isRemote={data.remote}
           server={data.server}
           currentRef={sha}
-        />
+        >
+          {changes.bar}
+        </RepositoryHeader>
         <CommitDetails
           repoId={data.id || data.repoId}
           fingerprint={data.repoId}
           sha={sha}
         />
+        {changes.body}
       </div>
     </Main>
   )

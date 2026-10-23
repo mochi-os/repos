@@ -47,10 +47,13 @@ msgstr "(ви)"
 msgid "[not set]"
 msgstr "[није постављено]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# комит} few {# комита} other {# комита}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# датотека промењена} few {# датотеке промењене} other {# датотека промењено}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} је понудио нерешено"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} од {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# линија контекста} few {# линије контекста} other {# линија контекста}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Да ли сте сигурни да желите да предате? {
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Да ли сте сигурни да желите да се одјавите са овог репозиторијума?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "У тренутном стању"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Растуће"
@@ -503,6 +514,7 @@ msgstr "Назив гране"
 msgid "Branch name is required"
 msgstr "Назив гране је обавезан"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Гране"
@@ -595,9 +607,19 @@ msgstr "Промењено {field}"
 msgid "Changed occurrence"
 msgstr "Измењено понављање"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Измене"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Измене из {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Измене у {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Изаберите време"
 msgid "Choose language"
 msgstr "Изаберите језик"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Изаберите шта да упоредите"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Изаберите језик"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Очисти"
 
@@ -684,6 +711,10 @@ msgstr "Затвори претрагу"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Скупи"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Скупи све"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit-ови"
 msgid "Compact"
 msgstr "Компактно"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Упореди"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Поређење - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Упореди од"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Упореди до"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Упореди са {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Начин поређења"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Конфигуриши подешавања опције"
@@ -775,6 +837,10 @@ msgstr "Садржај није пронађен."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Садржај није измењен"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Контекст"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Сваки минут"
 msgid "Expand"
 msgstr "Прошири"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Прошири све"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Прошири бочну траку"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "фајл"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Опције датотеке"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Група: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Историја"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Историја датотеке {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Идентитет"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Занемари размаке"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Везе"
 msgid "List"
 msgstr "Листа"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Учитај разлике"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Учитај још"
 
@@ -1906,6 +2000,10 @@ msgstr "Још нема активности"
 msgid "No branches yet"
 msgstr "Још нема грана"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Нема измена осим размака"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Нема промена за приказ"
@@ -1913,6 +2011,10 @@ msgstr "Нема промена за приказ"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Још нема коментара"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Ниједан комит није изменио ову датотеку"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Власник"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Родитељ"
 
@@ -2166,6 +2269,11 @@ msgstr "Људи"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Трајно обриши овај репозиторијум и све његове податке"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Изабери {0} за поређење"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Репозиторијуми"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Поставке сачуване"
 msgid "Share"
 msgstr "Подели"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Прикажи све датотеке"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Прикажи класе"
@@ -2718,9 +2834,17 @@ msgstr "Прикажи класе"
 msgid "Show fields"
 msgstr "Прикажи поља"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Прикажи још линија"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Прикажи ову помоћ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Прикажи целу датотеку"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Одјави се"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Одјављивање..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Од тачке раздвајања"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Претплаћивање..."
 msgid "Sunday"
 msgstr "Недеља"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Замени"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Промени грану"
@@ -2850,6 +2982,7 @@ msgstr "Ознака сме имати највише 50 знакова"
 msgid "Tags"
 msgstr "Ознаке"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Сервер је вратио веб страницу уместо по
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Овој апликацији није дозвољено да користи ваш приступни кључ. Дозволите јој то у Подешавањима, под Дозволе."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Ова датотека не може да се упореди са овим опцијама."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Ова датотека је превелика за приказ ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Ова страница захтева контекст репозиторијума."
@@ -3175,6 +3314,11 @@ msgstr "Прикажи и уреди детаље ставке"
 msgid "View controls"
 msgstr "Контроле приказа"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Прикажи датотеку"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Снимање гласа није подржано у овом прегледачу"
@@ -3201,6 +3345,10 @@ msgstr "Послали смо кôд за потврду на <0>{0}</0>. Уне
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Среда"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Целе датотеке"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

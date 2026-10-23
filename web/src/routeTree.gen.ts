@@ -18,10 +18,14 @@ import { Route as AuthenticatedRepoIdBranchesRouteImport } from './routes/_authe
 import { Route as AuthenticatedRepoIdCommitsRouteImport } from './routes/_authenticated/$repoId_.commits'
 import { Route as AuthenticatedRepoIdTagsRouteImport } from './routes/_authenticated/$repoId_.tags'
 import { Route as AuthenticatedCommitShaRouteImport } from './routes/_authenticated/commit/$sha'
+import { Route as AuthenticatedCompareSplatRouteImport } from './routes/_authenticated/compare/$'
 import { Route as AuthenticatedRepoIdCommitShaRouteImport } from './routes/_authenticated/$repoId_.commit.$sha'
+import { Route as AuthenticatedRepoIdCompareSplatRouteImport } from './routes/_authenticated/$repoId_.compare.$'
 import { Route as AuthenticatedBlobRefSplatRouteImport } from './routes/_authenticated/blob/$ref/$'
+import { Route as AuthenticatedHistoryRefSplatRouteImport } from './routes/_authenticated/history/$ref/$'
 import { Route as AuthenticatedTreeRefSplatRouteImport } from './routes/_authenticated/tree/$ref/$'
 import { Route as AuthenticatedRepoIdBlobRefSplatRouteImport } from './routes/_authenticated/$repoId_.blob.$ref.$'
+import { Route as AuthenticatedRepoIdHistoryRefSplatRouteImport } from './routes/_authenticated/$repoId_.history.$ref.$'
 import { Route as AuthenticatedRepoIdTreeRefSplatRouteImport } from './routes/_authenticated/$repoId_.tree.$ref.$'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
@@ -70,16 +74,34 @@ const AuthenticatedCommitShaRoute = AuthenticatedCommitShaRouteImport.update({
   path: '/commit/$sha',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedCompareSplatRoute =
+  AuthenticatedCompareSplatRouteImport.update({
+    id: '/compare/$',
+    path: '/compare/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedRepoIdCommitShaRoute =
   AuthenticatedRepoIdCommitShaRouteImport.update({
     id: '/$repoId_/commit/$sha',
     path: '/$repoId/commit/$sha',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedRepoIdCompareSplatRoute =
+  AuthenticatedRepoIdCompareSplatRouteImport.update({
+    id: '/$repoId_/compare/$',
+    path: '/$repoId/compare/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedBlobRefSplatRoute =
   AuthenticatedBlobRefSplatRouteImport.update({
     id: '/blob/$ref/$',
     path: '/blob/$ref/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedHistoryRefSplatRoute =
+  AuthenticatedHistoryRefSplatRouteImport.update({
+    id: '/history/$ref/$',
+    path: '/history/$ref/$',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedTreeRefSplatRoute =
@@ -92,6 +114,12 @@ const AuthenticatedRepoIdBlobRefSplatRoute =
   AuthenticatedRepoIdBlobRefSplatRouteImport.update({
     id: '/$repoId_/blob/$ref/$',
     path: '/$repoId/blob/$ref/$',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRepoIdHistoryRefSplatRoute =
+  AuthenticatedRepoIdHistoryRefSplatRouteImport.update({
+    id: '/$repoId_/history/$ref/$',
+    path: '/$repoId/history/$ref/$',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedRepoIdTreeRefSplatRoute =
@@ -110,10 +138,14 @@ export interface FileRoutesByFullPath {
   '/$repoId/commits': typeof AuthenticatedRepoIdCommitsRoute
   '/$repoId/tags': typeof AuthenticatedRepoIdTagsRoute
   '/commit/$sha': typeof AuthenticatedCommitShaRoute
+  '/compare/$': typeof AuthenticatedCompareSplatRoute
   '/$repoId/commit/$sha': typeof AuthenticatedRepoIdCommitShaRoute
+  '/$repoId/compare/$': typeof AuthenticatedRepoIdCompareSplatRoute
   '/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
+  '/history/$ref/$': typeof AuthenticatedHistoryRefSplatRoute
   '/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
   '/$repoId/blob/$ref/$': typeof AuthenticatedRepoIdBlobRefSplatRoute
+  '/$repoId/history/$ref/$': typeof AuthenticatedRepoIdHistoryRefSplatRoute
   '/$repoId/tree/$ref/$': typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 export interface FileRoutesByTo {
@@ -125,10 +157,14 @@ export interface FileRoutesByTo {
   '/$repoId/commits': typeof AuthenticatedRepoIdCommitsRoute
   '/$repoId/tags': typeof AuthenticatedRepoIdTagsRoute
   '/commit/$sha': typeof AuthenticatedCommitShaRoute
+  '/compare/$': typeof AuthenticatedCompareSplatRoute
   '/$repoId/commit/$sha': typeof AuthenticatedRepoIdCommitShaRoute
+  '/$repoId/compare/$': typeof AuthenticatedRepoIdCompareSplatRoute
   '/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
+  '/history/$ref/$': typeof AuthenticatedHistoryRefSplatRoute
   '/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
   '/$repoId/blob/$ref/$': typeof AuthenticatedRepoIdBlobRefSplatRoute
+  '/$repoId/history/$ref/$': typeof AuthenticatedRepoIdHistoryRefSplatRoute
   '/$repoId/tree/$ref/$': typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 export interface FileRoutesById {
@@ -142,10 +178,14 @@ export interface FileRoutesById {
   '/_authenticated/$repoId_/commits': typeof AuthenticatedRepoIdCommitsRoute
   '/_authenticated/$repoId_/tags': typeof AuthenticatedRepoIdTagsRoute
   '/_authenticated/commit/$sha': typeof AuthenticatedCommitShaRoute
+  '/_authenticated/compare/$': typeof AuthenticatedCompareSplatRoute
   '/_authenticated/$repoId_/commit/$sha': typeof AuthenticatedRepoIdCommitShaRoute
+  '/_authenticated/$repoId_/compare/$': typeof AuthenticatedRepoIdCompareSplatRoute
   '/_authenticated/blob/$ref/$': typeof AuthenticatedBlobRefSplatRoute
+  '/_authenticated/history/$ref/$': typeof AuthenticatedHistoryRefSplatRoute
   '/_authenticated/tree/$ref/$': typeof AuthenticatedTreeRefSplatRoute
   '/_authenticated/$repoId_/blob/$ref/$': typeof AuthenticatedRepoIdBlobRefSplatRoute
+  '/_authenticated/$repoId_/history/$ref/$': typeof AuthenticatedRepoIdHistoryRefSplatRoute
   '/_authenticated/$repoId_/tree/$ref/$': typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 export interface FileRouteTypes {
@@ -159,10 +199,14 @@ export interface FileRouteTypes {
     | '/$repoId/commits'
     | '/$repoId/tags'
     | '/commit/$sha'
+    | '/compare/$'
     | '/$repoId/commit/$sha'
+    | '/$repoId/compare/$'
     | '/blob/$ref/$'
+    | '/history/$ref/$'
     | '/tree/$ref/$'
     | '/$repoId/blob/$ref/$'
+    | '/$repoId/history/$ref/$'
     | '/$repoId/tree/$ref/$'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -174,10 +218,14 @@ export interface FileRouteTypes {
     | '/$repoId/commits'
     | '/$repoId/tags'
     | '/commit/$sha'
+    | '/compare/$'
     | '/$repoId/commit/$sha'
+    | '/$repoId/compare/$'
     | '/blob/$ref/$'
+    | '/history/$ref/$'
     | '/tree/$ref/$'
     | '/$repoId/blob/$ref/$'
+    | '/$repoId/history/$ref/$'
     | '/$repoId/tree/$ref/$'
   id:
     | '__root__'
@@ -190,10 +238,14 @@ export interface FileRouteTypes {
     | '/_authenticated/$repoId_/commits'
     | '/_authenticated/$repoId_/tags'
     | '/_authenticated/commit/$sha'
+    | '/_authenticated/compare/$'
     | '/_authenticated/$repoId_/commit/$sha'
+    | '/_authenticated/$repoId_/compare/$'
     | '/_authenticated/blob/$ref/$'
+    | '/_authenticated/history/$ref/$'
     | '/_authenticated/tree/$ref/$'
     | '/_authenticated/$repoId_/blob/$ref/$'
+    | '/_authenticated/$repoId_/history/$ref/$'
     | '/_authenticated/$repoId_/tree/$ref/$'
   fileRoutesById: FileRoutesById
 }
@@ -267,6 +319,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCommitShaRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/compare/$': {
+      id: '/_authenticated/compare/$'
+      path: '/compare/$'
+      fullPath: '/compare/$'
+      preLoaderRoute: typeof AuthenticatedCompareSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/$repoId_/commit/$sha': {
       id: '/_authenticated/$repoId_/commit/$sha'
       path: '/$repoId/commit/$sha'
@@ -274,11 +333,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRepoIdCommitShaRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/$repoId_/compare/$': {
+      id: '/_authenticated/$repoId_/compare/$'
+      path: '/$repoId/compare/$'
+      fullPath: '/$repoId/compare/$'
+      preLoaderRoute: typeof AuthenticatedRepoIdCompareSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/blob/$ref/$': {
       id: '/_authenticated/blob/$ref/$'
       path: '/blob/$ref/$'
       fullPath: '/blob/$ref/$'
       preLoaderRoute: typeof AuthenticatedBlobRefSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/history/$ref/$': {
+      id: '/_authenticated/history/$ref/$'
+      path: '/history/$ref/$'
+      fullPath: '/history/$ref/$'
+      preLoaderRoute: typeof AuthenticatedHistoryRefSplatRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/tree/$ref/$': {
@@ -293,6 +366,13 @@ declare module '@tanstack/react-router' {
       path: '/$repoId/blob/$ref/$'
       fullPath: '/$repoId/blob/$ref/$'
       preLoaderRoute: typeof AuthenticatedRepoIdBlobRefSplatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/$repoId_/history/$ref/$': {
+      id: '/_authenticated/$repoId_/history/$ref/$'
+      path: '/$repoId/history/$ref/$'
+      fullPath: '/$repoId/history/$ref/$'
+      preLoaderRoute: typeof AuthenticatedRepoIdHistoryRefSplatRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/$repoId_/tree/$ref/$': {
@@ -313,10 +393,14 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedRepoIdCommitsRoute: typeof AuthenticatedRepoIdCommitsRoute
   AuthenticatedRepoIdTagsRoute: typeof AuthenticatedRepoIdTagsRoute
   AuthenticatedCommitShaRoute: typeof AuthenticatedCommitShaRoute
+  AuthenticatedCompareSplatRoute: typeof AuthenticatedCompareSplatRoute
   AuthenticatedRepoIdCommitShaRoute: typeof AuthenticatedRepoIdCommitShaRoute
+  AuthenticatedRepoIdCompareSplatRoute: typeof AuthenticatedRepoIdCompareSplatRoute
   AuthenticatedBlobRefSplatRoute: typeof AuthenticatedBlobRefSplatRoute
+  AuthenticatedHistoryRefSplatRoute: typeof AuthenticatedHistoryRefSplatRoute
   AuthenticatedTreeRefSplatRoute: typeof AuthenticatedTreeRefSplatRoute
   AuthenticatedRepoIdBlobRefSplatRoute: typeof AuthenticatedRepoIdBlobRefSplatRoute
+  AuthenticatedRepoIdHistoryRefSplatRoute: typeof AuthenticatedRepoIdHistoryRefSplatRoute
   AuthenticatedRepoIdTreeRefSplatRoute: typeof AuthenticatedRepoIdTreeRefSplatRoute
 }
 
@@ -328,10 +412,15 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedRepoIdCommitsRoute: AuthenticatedRepoIdCommitsRoute,
   AuthenticatedRepoIdTagsRoute: AuthenticatedRepoIdTagsRoute,
   AuthenticatedCommitShaRoute: AuthenticatedCommitShaRoute,
+  AuthenticatedCompareSplatRoute: AuthenticatedCompareSplatRoute,
   AuthenticatedRepoIdCommitShaRoute: AuthenticatedRepoIdCommitShaRoute,
+  AuthenticatedRepoIdCompareSplatRoute: AuthenticatedRepoIdCompareSplatRoute,
   AuthenticatedBlobRefSplatRoute: AuthenticatedBlobRefSplatRoute,
+  AuthenticatedHistoryRefSplatRoute: AuthenticatedHistoryRefSplatRoute,
   AuthenticatedTreeRefSplatRoute: AuthenticatedTreeRefSplatRoute,
   AuthenticatedRepoIdBlobRefSplatRoute: AuthenticatedRepoIdBlobRefSplatRoute,
+  AuthenticatedRepoIdHistoryRefSplatRoute:
+    AuthenticatedRepoIdHistoryRefSplatRoute,
   AuthenticatedRepoIdTreeRefSplatRoute: AuthenticatedRepoIdTreeRefSplatRoute,
 }
 

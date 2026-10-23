@@ -47,10 +47,13 @@ msgstr "(bạn)"
 msgid "[not set]"
 msgstr "[chưa đặt]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {# commit}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {# tệp đã thay đổi}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} đã đề nghị hòa"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} trên {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {# dòng ngữ cảnh}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Bạn có chắc muốn xin thua không? {opponentName} sẽ thắng vá
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Bạn có chắc muốn ngừng đăng ký kho lưu trữ này?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Như hiện tại"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Tăng dần"
@@ -503,6 +514,7 @@ msgstr "Tên nhánh"
 msgid "Branch name is required"
 msgstr "Bắt buộc nhập tên nhánh"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Nhánh"
@@ -595,9 +607,19 @@ msgstr "Đã thay đổi {field}"
 msgid "Changed occurrence"
 msgstr "Lần lặp đã thay đổi"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Thay đổi"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Thay đổi từ {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Thay đổi trong {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Chọn giờ"
 msgid "Choose language"
 msgstr "Chọn ngôn ngữ"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Chọn nội dung để so sánh"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Chọn ngôn ngữ"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Xóa"
 
@@ -684,6 +711,10 @@ msgstr "Đóng tìm kiếm"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Thu gọn"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Thu gọn tất cả"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit"
 msgid "Compact"
 msgstr "Gọn"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "So sánh"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "So sánh - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "So sánh từ"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "So sánh đến"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "So sánh với {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Cách so sánh"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Cấu hình tùy chọn"
@@ -775,6 +837,10 @@ msgstr "Không tìm thấy nội dung."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Nội dung không thay đổi"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Ngữ cảnh"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Từng phút"
 msgid "Expand"
 msgstr "Mở rộng"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Mở rộng tất cả"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Mở rộng thanh bên"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "tệp"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Tuỳ chọn tệp"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Nhóm: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Lịch sử"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Lịch sử của {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Danh tính"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Bỏ qua khoảng trắng"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Liên kết"
 msgid "List"
 msgstr "Danh sách"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Tải phần khác biệt"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Tải thêm"
 
@@ -1906,6 +2000,10 @@ msgstr "Chưa có hoạt động"
 msgid "No branches yet"
 msgstr "Chưa có nhánh"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Không có thay đổi nào ngoài khoảng trắng"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Không có thay đổi để hiển thị"
@@ -1913,6 +2011,10 @@ msgstr "Không có thay đổi để hiển thị"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Chưa có bình luận"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Không có commit nào thay đổi tệp này"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Chủ sở hữu"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Cha"
 
@@ -2166,6 +2269,11 @@ msgstr "Mọi người"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Xoá vĩnh viễn kho lưu trữ này và toàn bộ dữ liệu của nó"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Chọn {0} để so sánh"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Kho lưu trữ"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Đã lưu cài đặt"
 msgid "Share"
 msgstr "Chia sẻ"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Hiện tất cả tệp"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Hiển thị lớp"
@@ -2718,9 +2834,17 @@ msgstr "Hiển thị lớp"
 msgid "Show fields"
 msgstr "Hiển thị trường"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Hiện thêm dòng"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Hiển thị trợ giúp này"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Hiện toàn bộ tệp"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Đăng xuất"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Đang đăng xuất..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Từ điểm tách nhánh"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Đang đăng ký..."
 msgid "Sunday"
 msgstr "Chủ nhật"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Hoán đổi"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Chuyển nhánh"
@@ -2850,6 +2982,7 @@ msgstr "Thẻ phải có tối đa 50 ký tự"
 msgid "Tags"
 msgstr "Các thẻ"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Máy chủ đã trả về một trang web thay vì dữ liệu."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Ứng dụng này không được phép sử dụng mã khóa của bạn. Hãy cho phép trong Cài đặt, mục Quyền."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Không thể so sánh tệp này với các tuỳ chọn này."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Tệp này quá lớn để hiển thị ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Trang này yêu cầu ngữ cảnh kho lưu trữ."
@@ -3175,6 +3314,11 @@ msgstr "Xem và chỉnh sửa chi tiết mục"
 msgid "View controls"
 msgstr "Điều khiển xem"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Xem tệp"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Trình duyệt này không hỗ trợ ghi âm giọng nói"
@@ -3201,6 +3345,10 @@ msgstr "Chúng tôi đã gửi mã xác minh đến <0>{0}</0>. Nhập mã bên 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Thứ tư"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Toàn bộ tệp"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

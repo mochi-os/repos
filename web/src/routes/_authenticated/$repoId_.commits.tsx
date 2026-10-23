@@ -11,6 +11,7 @@ import type { InfoResponse } from '@/api/types'
 import { useBranches } from '@/hooks/use-repository'
 import { RefSelector } from '@/components/ref-selector'
 import { CommitsList } from '@/features/repository/commits-list'
+import { CompareButton } from '@/features/repository/compare-button'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
@@ -51,11 +52,18 @@ function CommitsPage() {
           showDownload={false}
         >
           {branches.length > 0 && (
-            <RefSelector
-              branches={branches}
-              value={currentRef}
-              onValueChange={setCurrentRef}
-            />
+            <div className='flex flex-wrap items-center gap-2'>
+              <RefSelector
+                branches={branches}
+                value={currentRef}
+                onValueChange={setCurrentRef}
+              />
+              <CompareButton
+                fingerprint={fingerprint}
+                base={branchesData?.default || data.default_branch || 'main'}
+                head={currentRef}
+              />
+            </div>
           )}
         </RepositoryHeader>
         <CommitsList
