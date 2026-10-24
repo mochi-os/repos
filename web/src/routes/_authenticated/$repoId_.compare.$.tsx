@@ -8,16 +8,35 @@ import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { compareRange, compareSearch } from '@/lib/diff-options'
-import { useBranches } from '@/hooks/use-repository'
+import {
+  compareDiffRequest,
+  getDiff,
+  primeQuery,
+  repoKeys,
+  startRequest,
+  useBranches,
+} from '@/hooks/use-repository'
 import { useCompare } from '@/features/repository/compare-view'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/compare/$')({
   validateSearch: compareSearch,
-  loader: async ({ params }) => {
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(params.repoId),
-    })
+  // An address naming both sides has its diff asked for alongside the
+  // repository's info, and handed to the page's query once the info names the
+  // repository. One naming only a base waits for the default branch.
+  loader: async ({ params, location, context }) => {
+    const baseURL = repoBasePath(params.repoId)
+    const { base, head } = compareRange(params._splat, '')
+    const request =
+      base && head
+        ? compareDiffRequest(base, head, compareSearch(location.search))
+        : undefined
+    const diff = request && startRequest(getDiff(request, baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    if (request && diff) {
+      const id = info.id || params.repoId
+      primeQuery(context.queryClient, repoKeys.diff(id, request), diff)
+    }
     return { ...info, repoId: params.repoId }
   },
   component: ComparePage,

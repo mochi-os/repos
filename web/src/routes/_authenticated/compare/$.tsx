@@ -7,14 +7,33 @@ import { Trans, useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, requestHelpers, GeneralError } from '@mochi/web'
 import type { InfoResponse } from '@/api/types'
 import { compareRange, compareSearch } from '@/lib/diff-options'
-import { useBranches } from '@/hooks/use-repository'
+import {
+  compareDiffRequest,
+  getDiff,
+  primeQuery,
+  repoKeys,
+  startRequest,
+  useBranches,
+} from '@/hooks/use-repository'
 import { useCompare } from '@/features/repository/compare-view'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/compare/$')({
   validateSearch: compareSearch,
-  loader: async () => {
+  // An address naming both sides has its diff asked for alongside the
+  // repository's info, and handed to the page's query once the info names the
+  // repository. One naming only a base waits for the default branch.
+  loader: async ({ params, location, context }) => {
+    const { base, head } = compareRange(params._splat, '')
+    const request =
+      base && head
+        ? compareDiffRequest(base, head, compareSearch(location.search))
+        : undefined
+    const diff = request && startRequest(getDiff(request))
     const info = await requestHelpers.get<InfoResponse>('info')
+    if (request && diff && info.entity && info.id) {
+      primeQuery(context.queryClient, repoKeys.diff(info.id, request), diff)
+    }
     return info
   },
   component: ComparePage,

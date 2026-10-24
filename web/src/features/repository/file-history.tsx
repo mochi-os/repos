@@ -8,13 +8,11 @@ import { Trans, useLingui } from '@lingui/react/macro'
 import { Button, EmptyState, GeneralError, Skeleton } from '@mochi/web'
 import { FileCode, History } from 'lucide-react'
 import { usePicked } from '@/hooks/use-picked'
-import { useHistory } from '@/hooks/use-repository'
+import { HISTORY_PAGE, useHistory } from '@/hooks/use-repository'
 import { PickedBar } from './commit-picker'
 import { CommitRows } from './commit-rows'
 
-// Commits shown at first, and how many more each Load more asks for. The
-// server lists at most 1,000.
-const HISTORY_PAGE = 100
+// The most commits Load more reaches: the server lists at most 1,000.
 const HISTORY_MAXIMUM = 1000
 
 // The commits that changed one file or folder, newest first. Each opens the

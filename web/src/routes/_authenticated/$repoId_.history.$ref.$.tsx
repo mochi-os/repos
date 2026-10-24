@@ -7,15 +7,32 @@ import { useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import {
+  getHistory,
+  HISTORY_PAGE,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { FileHistory } from '@/features/repository/file-history'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/history/$ref/$')(
   {
-    loader: async ({ params }) => {
-      const info = await reposRequest.get<InfoResponse>('info', {
-        baseURL: repoBasePath(params.repoId),
-      })
+    // The file's history is asked for alongside the repository's info, and
+    // handed to the page's query once the info names the repository.
+    loader: async ({ params, context }) => {
+      const baseURL = repoBasePath(params.repoId)
+      const path = params._splat || ''
+      const history =
+        path &&
+        startRequest(getHistory(params.ref, path, HISTORY_PAGE, baseURL))
+      const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+      if (history) {
+        const id = info.id || params.repoId
+        const key = repoKeys.history(id, params.ref, path, HISTORY_PAGE)
+        primeQuery(context.queryClient, key, history)
+      }
       return { ...info, repoId: params.repoId }
     },
     component: HistoryPage,

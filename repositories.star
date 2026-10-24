@@ -1067,11 +1067,16 @@ def action_commit(a):
 # The commit a ref names, or None when it names none. Core's diff and
 # merge-base calls abort the action on a ref they cannot resolve, so a ref is
 # checked here first and those calls are handed commit hashes.
-def commit_sha(repo_id, ref):
+# The commit a ref names, with its sha and parents, or None.
+def commit_at(repo_id, ref):
     commits = mochi.git.commit.list(repo_id, ref, 1, 0)
     if not commits:
         return None
-    return commits[0]["sha"]
+    return commits[0]
+
+def commit_sha(repo_id, ref):
+    commit = commit_at(repo_id, ref)
+    return commit["sha"] if commit else None
 
 diff_modes = ("direct", "diverged")
 
@@ -1079,9 +1084,10 @@ diff_modes = ("direct", "diverged")
 path_maximum = 4096
 
 # A diff request's inputs checked, as (parameters, error label) with one of the
-# two set. An empty base means nothing at all, for a repository's first commit,
-# which has no parent. commits asks for the commits head adds over base too,
-# which only the compare page shows.
+# two set. An empty base asks for head's own changes: from its first parent, or
+# from nothing for a repository's first commit. A page showing a commit can ask
+# without first reading the commit. commits asks for the commits head adds over
+# base too, which only the compare page shows.
 def diff_parameters(base, head, mode, path, commits):
     if base and not valid_ref(base):
         return (None, "errors.invalid_ref")
@@ -1095,14 +1101,17 @@ def diff_parameters(base, head, mode, path, commits):
 # so only what head adds shows, as a merge would bring it; "direct" compares the
 # two as they stand. Returns (answer, None) or (None, (status, label, ref)).
 def diff_answer(repo_id, parameters):
-    head = commit_sha(repo_id, parameters["head"])
-    if not head:
+    commit = commit_at(repo_id, parameters["head"])
+    if not commit:
         return (None, (404, "errors.ref_or_commit_not_found", parameters["head"]))
+    head = commit["sha"]
     base = None
     if parameters["base"]:
         base = commit_sha(repo_id, parameters["base"])
         if not base:
             return (None, (404, "errors.ref_or_commit_not_found", parameters["base"]))
+    elif commit.get("parents"):
+        base = commit["parents"][0]
     start = base
     if base and parameters["mode"] == "diverged":
         start = mochi.git.merge.base(repo_id, base, head)

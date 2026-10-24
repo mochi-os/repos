@@ -16,13 +16,31 @@ import { FolderGit2, ArrowLeft } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
 import { commitSearch } from '@/lib/diff-options'
+import {
+  commitDiffRequest,
+  getCommit,
+  getDiff,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { useCommitChanges } from '@/features/repository/commit-changes'
 import { CommitDetails } from '@/features/repository/commit-details'
 
 export const Route = createFileRoute('/_authenticated/commit/$sha')({
   validateSearch: commitSearch,
-  loader: async () => {
+  // The commit and its diff are asked for alongside the repository's info,
+  // not after it, and handed to the page's queries once the info names the
+  // repository.
+  loader: async ({ params, location, context }) => {
+    const request = commitDiffRequest(params.sha, commitSearch(location.search))
+    const commit = startRequest(getCommit(params.sha))
+    const diff = startRequest(getDiff(request))
     const info = await reposRequest.get<InfoResponse>('info')
+    if (info.entity && info.id) {
+      primeQuery(context.queryClient, repoKeys.commit(info.id, params.sha), commit)
+      primeQuery(context.queryClient, repoKeys.diff(info.id, request), diff)
+    }
     return info
   },
   component: CommitPage,

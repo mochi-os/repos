@@ -6,12 +6,28 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, requestHelpers, GeneralError } from '@mochi/web'
 import type { InfoResponse } from '@/api/types'
+import {
+  getHistory,
+  HISTORY_PAGE,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { FileHistory } from '@/features/repository/file-history'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/history/$ref/$')({
-  loader: async () => {
+  // The file's history is asked for alongside the repository's info, and
+  // handed to the page's query once the info names the repository.
+  loader: async ({ params, context }) => {
+    const path = params._splat || ''
+    const history =
+      path && startRequest(getHistory(params.ref, path, HISTORY_PAGE))
     const info = await requestHelpers.get<InfoResponse>('info')
+    if (history && info.entity && info.id) {
+      const key = repoKeys.history(info.id, params.ref, path, HISTORY_PAGE)
+      primeQuery(context.queryClient, key, history)
+    }
     return info
   },
   component: HistoryPage,

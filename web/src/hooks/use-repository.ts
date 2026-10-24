@@ -9,10 +9,12 @@ import {
   useQueries,
   useMutation,
   useQueryClient,
+  type QueryClient,
 } from '@tanstack/react-query'
 import { naturalCompare, type DiffViewStyle } from '@mochi/web'
 import endpoints from '@/api/endpoints'
 import { reposRequest, appBasePath } from '@/api/request'
+import type { CommitSearch, CompareSearch } from '@/lib/diff-options'
 import type {
   InfoResponse,
   BranchesResponse,
@@ -52,7 +54,8 @@ export const repoKeys = {
 }
 
 export interface DiffRequest {
-  // Empty for a first commit, which is compared with nothing.
+  // Empty asks for head's own changes: from its first parent, or from nothing
+  // for a first commit.
   base: string
   head: string
   mode: DiffMode
@@ -65,6 +68,101 @@ export interface DiffRequest {
 // A full commit hash names one unchanging commit, so a comparison of two of
 // them never goes stale.
 const isCommit = (ref: string) => /^[0-9a-f]{40}$/i.test(ref)
+
+// How long a comparison of branches or tags is taken as current: long enough
+// for a page to take up the one its route loader fetched rather than ask
+// again, short enough that a push shows on the next visit.
+const REF_DIFF_FRESH = 10_000
+
+// Commits a file's history shows at first, and how many more each Load more
+// asks for.
+export const HISTORY_PAGE = 100
+
+// The diff a commit page shows: the commit's own changes, from the parent its
+// address names, or else from its first, which the server picks so that the
+// page can ask before it has read the commit.
+export function commitDiffRequest(
+  sha: string,
+  search: CommitSearch
+): DiffRequest {
+  return {
+    base: search.parent ?? '',
+    head: sha,
+    mode: 'direct',
+    path: search.path,
+  }
+}
+
+// The diff a compare page shows, with the commits head adds. Comparing from
+// where the two split is the default.
+export function compareDiffRequest(
+  base: string,
+  head: string,
+  search: CompareSearch
+): DiffRequest {
+  return {
+    base,
+    head,
+    mode: search.mode ?? 'diverged',
+    path: search.path,
+    commits: true,
+  }
+}
+
+// The requests behind the hooks below. A route loader starts them too, before
+// the repository's info has arrived, and names the repository with baseURL,
+// since a loader runs before the page's address changes.
+export function getCommit(sha: string, baseURL?: string) {
+  return reposRequest.get<CommitResponse>(endpoints.repo.commit(sha), {
+    baseURL,
+  })
+}
+
+export function getDiff(request: DiffRequest, baseURL?: string) {
+  return reposRequest.get<DiffResponse>(endpoints.repo.diff, {
+    baseURL,
+    params: {
+      base: request.base,
+      head: request.head,
+      mode: request.mode,
+      path: request.path || undefined,
+      commits: request.commits ? 'true' : undefined,
+    },
+  })
+}
+
+export function getHistory(
+  ref: string,
+  path: string,
+  limit: number,
+  baseURL?: string
+) {
+  return reposRequest.get<HistoryResponse>(endpoints.repo.history(ref, path), {
+    baseURL,
+    params: { limit },
+  })
+}
+
+// A request a route loader started alongside the repository's info. A page
+// that never takes it up - the info failed - must not see it as an unhandled
+// rejection; a page that does gets any failure through the query.
+export function startRequest<T>(request: Promise<T>): Promise<T> {
+  request.catch(() => undefined)
+  return request
+}
+
+// Hands a request a route loader started to the query cache under the key the
+// page's hook uses, so the hook takes it up rather than asking again. It
+// silences query/exhaustive-deps: the key is the hook's, which already names
+// what the request asks for.
+export function primeQuery<T>(
+  queryClient: QueryClient,
+  queryKey: readonly unknown[],
+  request: Promise<T>
+) {
+  // eslint-disable-next-line @tanstack/query/exhaustive-deps
+  void queryClient.prefetchQuery({ queryKey, queryFn: () => request })
+}
 
 // Hooks
 
@@ -139,8 +237,10 @@ export function useCommits(repoId: string, ref?: string) {
 export function useCommit(repoId: string, sha: string) {
   return useQuery({
     queryKey: repoKeys.commit(repoId, sha),
-    queryFn: () => reposRequest.get<CommitResponse>(endpoints.repo.commit(sha)),
+    queryFn: () => getCommit(sha),
     enabled: !!repoId && !!sha,
+    // A commit named by its full hash never changes.
+    staleTime: isCommit(sha) ? Infinity : 0,
   })
 }
 
@@ -167,21 +267,12 @@ export function useBlob(repoId: string, ref: string, path: string) {
 export function useDiff(repoId: string, request: DiffRequest) {
   return useQuery({
     queryKey: repoKeys.diff(repoId, request),
-    queryFn: () =>
-      reposRequest.get<DiffResponse>(endpoints.repo.diff, {
-        params: {
-          base: request.base,
-          head: request.head,
-          mode: request.mode,
-          path: request.path || undefined,
-          commits: request.commits ? 'true' : undefined,
-        },
-      }),
+    queryFn: () => getDiff(request),
     enabled: !!repoId && !!request.head,
     staleTime:
       isCommit(request.head) && (!request.base || isCommit(request.base))
         ? Infinity
-        : 0,
+        : REF_DIFF_FRESH,
     retry: false,
   })
 }
@@ -194,10 +285,7 @@ export function useHistory(
 ) {
   return useQuery({
     queryKey: repoKeys.history(repoId, ref, path, limit),
-    queryFn: () =>
-      reposRequest.get<HistoryResponse>(endpoints.repo.history(ref, path), {
-        params: { limit },
-      }),
+    queryFn: () => getHistory(ref, path, limit),
     enabled: !!repoId && !!ref && !!path,
     placeholderData: (previous) => previous,
     retry: false,
