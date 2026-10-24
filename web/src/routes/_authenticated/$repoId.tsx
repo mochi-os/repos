@@ -15,6 +15,16 @@ import {
 import { FolderGit2 } from 'lucide-react'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import {
+  getBranches,
+  getCommits,
+  getTags,
+  getTree,
+  primeCommits,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { setLastRepo } from '@/hooks/use-repos-storage'
 import { useRepositoryWebsocket } from '@/hooks/use-repository-websocket'
 import { RepositoryActions } from '@/features/repository/repository-actions'
@@ -36,20 +46,44 @@ type RepoSearch = {
   tab?: RepositoryTabId
 }
 
+const repoSearch = (search: Record<string, unknown>): RepoSearch => ({
+  tab: validTabs.includes(search.tab as RepositoryTabId)
+    ? (search.tab as RepositoryTabId)
+    : undefined,
+})
+
 export const Route = createFileRoute('/_authenticated/$repoId')({
-  validateSearch: (search: Record<string, unknown>): RepoSearch => ({
-    tab: validTabs.includes(search.tab as RepositoryTabId)
-      ? (search.tab as RepositoryTabId)
-      : undefined,
-  }),
-  loader: async ({ params }) => {
+  validateSearch: repoSearch,
+  // The branches every tab shows, and the open tab's list, are asked for
+  // alongside the repository's info, not after it, and handed to the page's
+  // queries once the info names the repository. The files and commits tabs
+  // ask with no ref, which the server reads as the default branch the info
+  // names.
+  loader: async ({ params, location, context }) => {
     const repoId = params.repoId
     if (!repoId) {
       throw new Error(t`Repository ID is required`)
     }
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(repoId),
-    })
+    const baseURL = repoBasePath(repoId)
+    const tab = repoSearch(location.search).tab ?? 'files'
+    const branches = startRequest(getBranches(baseURL))
+    const tree = tab === 'files' && startRequest(getTree('', '', baseURL))
+    const commits =
+      tab === 'commits' && startRequest(getCommits(undefined, 0, baseURL))
+    const tags = tab === 'tags' && startRequest(getTags(baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || repoId
+    const ref = info.default_branch
+    primeQuery(context.queryClient, repoKeys.branches(id), branches)
+    if (tree && ref) {
+      primeQuery(context.queryClient, repoKeys.tree(id, ref, ''), tree)
+    }
+    if (commits && ref) {
+      primeCommits(context.queryClient, repoKeys.commits(id, ref), commits)
+    }
+    if (tags) {
+      primeQuery(context.queryClient, repoKeys.tags(id), tags)
+    }
     return { ...info, repoId }
   },
   component: RepositoryPage,

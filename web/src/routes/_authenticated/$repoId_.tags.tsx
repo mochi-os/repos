@@ -7,14 +7,24 @@ import { useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import {
+  getTags,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 import { TagsList } from '@/features/repository/tags-list'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/tags')({
-  loader: async ({ params }) => {
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(params.repoId),
-    })
+  // The tags are asked for alongside the repository's info, not after it, and
+  // handed to the page's query once the info names the repository.
+  loader: async ({ params, context }) => {
+    const baseURL = repoBasePath(params.repoId)
+    const tags = startRequest(getTags(baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || params.repoId
+    primeQuery(context.queryClient, repoKeys.tags(id), tags)
     return { ...info, repoId: params.repoId }
   },
   component: TagsPage,

@@ -40,10 +40,13 @@ const endpoints = {
     tags: 'tags',
     commits: (ref?: string) => (ref ? `commits/${encodeRef(ref)}` : 'commits'),
     commit: (sha: string) => `commit/${encodeURIComponent(sha)}`,
+    // No ref is the repository's default branch, as its info names it.
     tree: (ref: string, path?: string) =>
-      path
-        ? `tree/${encodeRef(ref)}/${encodeRef(path)}`
-        : `tree/${encodeRef(ref)}`,
+      !ref
+        ? 'tree'
+        : path
+          ? `tree/${encodeRef(ref)}/${encodeRef(path)}`
+          : `tree/${encodeRef(ref)}`,
     blob: (ref: string, path: string) =>
       `blob/${encodeRef(ref)}/${encodeRef(path)}`,
     diff: 'diff',

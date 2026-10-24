@@ -19,6 +19,7 @@ import type {
   InfoResponse,
   BranchesResponse,
   TagsResponse,
+  Commit,
   CommitsResponse,
   CommitResponse,
   TreeResponse,
@@ -69,10 +70,15 @@ export interface DiffRequest {
 // them never goes stale.
 const isCommit = (ref: string) => /^[0-9a-f]{40}$/i.test(ref)
 
-// How long a comparison of branches or tags is taken as current: long enough
-// for a page to take up the one its route loader fetched rather than ask
-// again, short enough that a push shows on the next visit.
-const REF_DIFF_FRESH = 10_000
+// How long an answer about a branch or tag - its files, its commits, a
+// comparison - is taken as current: long enough for a page to take up the one
+// its route loader fetched rather than ask again, short enough that a push
+// shows on the next visit.
+const REF_FRESH = 10_000
+
+// The same for an answer at a ref that may be a full commit hash, which never
+// changes.
+const refFresh = (ref: string) => (isCommit(ref) ? Infinity : REF_FRESH)
 
 // Commits a file's history shows at first, and how many more each Load more
 // asks for.
@@ -112,6 +118,45 @@ export function compareDiffRequest(
 // The requests behind the hooks below. A route loader starts them too, before
 // the repository's info has arrived, and names the repository with baseURL,
 // since a loader runs before the page's address changes.
+export function getBranches(baseURL?: string) {
+  return reposRequest.get<BranchesResponse>(endpoints.repo.branches, {
+    baseURL,
+  })
+}
+
+export function getTags(baseURL?: string) {
+  return reposRequest.get<TagsResponse>(endpoints.repo.tags, { baseURL })
+}
+
+// The server's default page. A shorter page is the last one.
+const COMMITS_PAGE_SIZE = 50
+
+// No ref, here and in getTree, is the default branch the repository's info
+// names, which a loader can ask for before the info arrives.
+export async function getCommits(
+  ref: string | undefined,
+  offset: number,
+  baseURL?: string
+): Promise<Commit[]> {
+  const response = await reposRequest.get<CommitsResponse>(
+    endpoints.repo.commits(ref),
+    { baseURL, params: { limit: COMMITS_PAGE_SIZE, offset } }
+  )
+  return response.commits ?? []
+}
+
+export function getTree(ref: string, path?: string, baseURL?: string) {
+  return reposRequest.get<TreeResponse>(endpoints.repo.tree(ref, path), {
+    baseURL,
+  })
+}
+
+export function getBlob(ref: string, path: string, baseURL?: string) {
+  return reposRequest.get<BlobResponse>(endpoints.repo.blob(ref, path), {
+    baseURL,
+  })
+}
+
 export function getCommit(sha: string, baseURL?: string) {
   return reposRequest.get<CommitResponse>(endpoints.repo.commit(sha), {
     baseURL,
@@ -164,6 +209,21 @@ export function primeQuery<T>(
   void queryClient.prefetchQuery({ queryKey, queryFn: () => request })
 }
 
+// primeQuery for the commit list, which comes in pages: the request is its
+// first.
+export function primeCommits(
+  queryClient: QueryClient,
+  queryKey: readonly unknown[],
+  request: Promise<Commit[]>
+) {
+  // eslint-disable-next-line @tanstack/query/exhaustive-deps
+  void queryClient.prefetchInfiniteQuery({
+    queryKey,
+    queryFn: () => request,
+    initialPageParam: 0,
+  })
+}
+
 // Hooks
 
 // useRepoInfo fetches class-level info (list of all repositories)
@@ -181,8 +241,9 @@ export function useRepoInfo() {
 export function useBranches(repoId: string) {
   return useQuery({
     queryKey: repoKeys.branches(repoId),
-    queryFn: () => reposRequest.get<BranchesResponse>(endpoints.repo.branches),
+    queryFn: () => getBranches(),
     enabled: !!repoId,
+    staleTime: REF_FRESH,
     select: (response) => ({
       ...response,
       branches: [...response.branches].sort((a, b) =>
@@ -195,8 +256,9 @@ export function useBranches(repoId: string) {
 export function useTags(repoId: string) {
   return useQuery({
     queryKey: repoKeys.tags(repoId),
-    queryFn: () => reposRequest.get<TagsResponse>(endpoints.repo.tags),
+    queryFn: () => getTags(),
     enabled: !!repoId,
+    staleTime: REF_FRESH,
     select: (response) => ({
       ...response,
       tags: [...response.tags].sort((a, b) => naturalCompare(a.name, b.name)),
@@ -204,8 +266,6 @@ export function useTags(repoId: string) {
   })
 }
 
-// The server's default page. A shorter page is the last one.
-const COMMITS_PAGE_SIZE = 50
 // The server reads any offset past this as 0 and sends the first page again,
 // so asking beyond it would load the same commits for ever.
 const COMMITS_OFFSET_MAXIMUM = 100000
@@ -213,14 +273,9 @@ const COMMITS_OFFSET_MAXIMUM = 100000
 export function useCommits(repoId: string, ref?: string) {
   return useInfiniteQuery({
     queryKey: repoKeys.commits(repoId, ref),
-    queryFn: async ({ pageParam }) => {
-      const response = await reposRequest.get<CommitsResponse>(
-        endpoints.repo.commits(ref),
-        { params: { limit: COMMITS_PAGE_SIZE, offset: pageParam } }
-      )
-      return response.commits ?? []
-    },
+    queryFn: ({ pageParam }) => getCommits(ref, pageParam),
     initialPageParam: 0,
+    staleTime: refFresh(ref ?? ''),
     // The offset counts what was asked for, not what the list kept after
     // dropping repeats, so it always lands on the server's next page.
     getNextPageParam: (lastPage, allPages) => {
@@ -247,9 +302,9 @@ export function useCommit(repoId: string, sha: string) {
 export function useTree(repoId: string, ref: string, path?: string) {
   return useQuery({
     queryKey: repoKeys.tree(repoId, ref, path),
-    queryFn: () =>
-      reposRequest.get<TreeResponse>(endpoints.repo.tree(ref, path)),
+    queryFn: () => getTree(ref, path),
     enabled: !!repoId && !!ref,
+    staleTime: refFresh(ref),
     retry: false,
   })
 }
@@ -257,9 +312,9 @@ export function useTree(repoId: string, ref: string, path?: string) {
 export function useBlob(repoId: string, ref: string, path: string) {
   return useQuery({
     queryKey: repoKeys.blob(repoId, ref, path),
-    queryFn: () =>
-      reposRequest.get<BlobResponse>(endpoints.repo.blob(ref, path)),
+    queryFn: () => getBlob(ref, path),
     enabled: !!repoId && !!ref && !!path,
+    staleTime: refFresh(ref),
     retry: false,
   })
 }
@@ -272,7 +327,7 @@ export function useDiff(repoId: string, request: DiffRequest) {
     staleTime:
       isCommit(request.head) && (!request.base || isCommit(request.base))
         ? Infinity
-        : REF_DIFF_FRESH,
+        : REF_FRESH,
     retry: false,
   })
 }
@@ -287,6 +342,7 @@ export function useHistory(
     queryKey: repoKeys.history(repoId, ref, path, limit),
     queryFn: () => getHistory(ref, path, limit),
     enabled: !!repoId && !!ref && !!path,
+    staleTime: refFresh(ref),
     placeholderData: (previous) => previous,
     retry: false,
   })
@@ -342,10 +398,7 @@ export function useFileSides(
   const results = useQueries({
     queries: sides.map((side) => ({
       queryKey: repoKeys.blob(repoId, side?.ref ?? '', side?.path ?? ''),
-      queryFn: () =>
-        reposRequest.get<BlobResponse>(
-          endpoints.repo.blob(side!.ref, side!.path)
-        ),
+      queryFn: () => getBlob(side!.ref, side!.path),
       enabled: enabled && !!side,
       staleTime: Infinity,
       retry: false,

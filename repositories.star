@@ -971,18 +971,21 @@ def action_tags(a):
     return {"data": {"tags": tags or []}}
 
 # Action: List commits
+# No ref is the default branch the repository's info names, so a page can ask
+# for its commits before the info has arrived. The owner answers a subscriber
+# or a browser asking with no ref the same way, from event_commits.
 def action_commits(a):
     repo = get_repo(a)
     if not repo:
-        return proxy_read(a, "commits", {"ref": a.input("ref", "HEAD"),
+        return proxy_read(a, "commits", {"ref": a.input("ref", ""),
                                           "limit": a.input("limit", "50"),
                                           "offset": a.input("offset", "0")})
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
 
-    ref = a.input("ref", "HEAD")
-    if not valid_ref(ref):
+    ref = a.input("ref", "")
+    if ref and not valid_ref(ref):
         return a.error.label(400, "errors.invalid_ref")
     limit_str = a.input("limit", "50")
     offset_str = a.input("offset", "0")
@@ -1016,6 +1019,8 @@ def action_commits(a):
         return remote_error(a, response)
 
     # Local repository
+    if not ref:
+        ref = repo_branch_default(repo)
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
     if commits == None:
         # A repository with no refs at all is empty, which is a normal state
@@ -1236,7 +1241,7 @@ def action_tree(a):
         combined = a.input("treepath", "")
         parts = combined.split("/", 1) if combined else []
         return proxy_read(a, "tree", {
-            "ref": (parts[0] if parts and parts[0] else a.input("ref", "HEAD")),
+            "ref": (parts[0] if parts and parts[0] else a.input("ref", "")),
             "path": (parts[1] if len(parts) > 1 else a.input("path", "")),
         })
 
@@ -1256,10 +1261,16 @@ def action_tree(a):
         else:
             ref, path = resolve_ref(repo["id"], treepath)
     else:
-        ref = a.input("ref", "HEAD")
+        # No ref is the default branch the repository's info names, so the
+        # files page can ask for it before the info has arrived. A subscribed
+        # copy leaves the choice to the owner, whose event_tree reads it the
+        # same way.
+        ref = a.input("ref", "")
         path = a.input("path", "")
+        if not ref and not is_remote:
+            ref = repo_branch_default(repo)
 
-    if not valid_ref(ref):
+    if ref and not valid_ref(ref):
         return a.error.label(400, "errors.invalid_ref")
 
     if is_remote:

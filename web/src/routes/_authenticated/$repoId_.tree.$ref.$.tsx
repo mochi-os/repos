@@ -7,17 +7,32 @@ import { t } from '@lingui/core/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import {
+  getBranches,
+  getTree,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { FileTree } from '@/features/repository/file-browser'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/tree/$ref/$')({
-  loader: async ({ params }) => {
+  // The folder and the branches are asked for alongside the repository's
+  // info, not after it, and handed to the page's queries once the info names
+  // the repository.
+  loader: async ({ params, context }) => {
     if (!params.repoId) {
       throw new Error(t`Repository ID is required`)
     }
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(params.repoId),
-    })
+    const baseURL = repoBasePath(params.repoId)
+    const path = params._splat || ''
+    const branches = startRequest(getBranches(baseURL))
+    const tree = startRequest(getTree(params.ref, path, baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || params.repoId
+    primeQuery(context.queryClient, repoKeys.branches(id), branches)
+    primeQuery(context.queryClient, repoKeys.tree(id, params.ref, path), tree)
     return { ...info, repoId: params.repoId }
   },
   component: TreePage,
