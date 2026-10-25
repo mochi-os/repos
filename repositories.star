@@ -958,6 +958,10 @@ def action_tags(a):
     tags = mochi.git.tags(repo["id"])
     return {"data": {"tags": tags or []}}
 
+# The deepest offset core lists commits from. A page past it answers no
+# commits, so a list of a longer history ends there rather than failing.
+COMMITS_OFFSET_MAXIMUM = 10000
+
 # Action: List commits
 # No ref is the default branch the repository's info names, so a page can ask
 # for its commits before the info has arrived. The owner answers a subscriber
@@ -986,8 +990,10 @@ def action_commits(a):
     offset = int(offset_str)
     if limit < 1 or limit > 1000:
         limit = 50
-    if offset < 0 or offset > 100000:
+    if offset < 0:
         offset = 0
+    if offset > COMMITS_OFFSET_MAXIMUM:
+        return {"data": {"commits": []}}
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -2348,11 +2354,12 @@ def event_commits(e):
             limit = 50
     if mochi.text.valid(offset_str, "integer"):
         offset = int(offset_str)
-        # Bounded like limit: an unbounded offset makes the owner walk that many
-        # commits on a peer's say-so. Matches the ceiling action_commits uses.
         # The lower bound matters now the check admits a leading sign.
-        if offset < 0 or offset > 100000:
+        if offset < 0:
             offset = 0
+    if offset > COMMITS_OFFSET_MAXIMUM:
+        e.stream.write({"ref": ref, "commits": []})
+        return
 
     # Get commits
     commits = mochi.git.commit.list(repo_id, ref, limit, offset)

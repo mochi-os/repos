@@ -453,3 +453,33 @@ describe('a page taking up what its loader fetched', () => {
     expect(get).not.toHaveBeenCalled()
   })
 })
+
+describe('the commits list', () => {
+  // A page as full as the server sends one.
+  const page = Array.from({ length: 50 }, (_, index) => ({
+    sha: `${index}`,
+    message: '',
+    author: '',
+    date: 0,
+  }))
+
+  // The server lists no deeper than offset 10,000, so the 201st page, at
+  // 10,000, is the last one asked for.
+  it.each([
+    [200, true],
+    [201, false],
+  ])('after %i full pages, asks for more: %s', async (count, more) => {
+    const queryClient = new QueryClient()
+    queryClient.setQueryData(repoKeys.commits('entity', sha), {
+      pages: Array.from({ length: count }, () => page),
+      pageParams: Array.from({ length: count }, (_, index) => index * 50),
+    })
+    const wrapper = ({ children }: { children: ReactNode }) =>
+      createElement(QueryClientProvider, { client: queryClient }, children)
+    const { result } = renderHook(() => useCommits('entity', sha), {
+      wrapper,
+    })
+    await waitFor(() => expect(result.current.data).toBeDefined())
+    expect(result.current.hasNextPage).toBe(more)
+  })
+})

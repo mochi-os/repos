@@ -266,9 +266,8 @@ export function useTags(repoId: string) {
   })
 }
 
-// The server reads any offset past this as 0 and sends the first page again,
-// so asking beyond it would load the same commits for ever.
-const COMMITS_OFFSET_MAXIMUM = 100000
+// The deepest offset the server lists commits from; past it the list ends.
+const COMMITS_OFFSET_MAXIMUM = 10000
 
 export function useCommits(repoId: string, ref?: string) {
   return useInfiniteQuery({
