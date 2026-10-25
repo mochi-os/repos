@@ -17,8 +17,6 @@ export interface Repository {
   server: string // Remote server URL (empty for local repos)
   created: string
   updated: string
-  branches?: number
-  tags?: number
 }
 
 export interface InfoResponse {
@@ -32,8 +30,6 @@ export interface InfoResponse {
   size?: number
   created?: string
   updated?: string
-  branches?: number
-  tags?: number
   allow_read?: boolean
   privacy?: string
   isAdmin?: boolean

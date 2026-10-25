@@ -363,8 +363,6 @@ def proxy_info(a):
         "size": 0,
         "created": "",
         "updated": "",
-        "branches": 0,
-        "tags": 0,
         "allow_read": True,
         "privacy": "public",
         "isAdmin": False,
@@ -421,8 +419,6 @@ def action_info_entity(a):
                 "size": repo["size"],
                 "created": repo["created"],
                 "updated": repo["updated"],
-                "branches": 0,
-                "tags": 0,
                 "allow_read": True,
                 "privacy": "public",
                 "isAdmin": False,
@@ -443,8 +439,6 @@ def action_info_entity(a):
             "size": repo["size"],
             "created": repo["created"],
             "updated": repo["updated"],
-            "branches": 0,
-            "tags": 0,
             "allow_read": True,
             "privacy": "public",
             "isAdmin": False,
@@ -452,10 +446,6 @@ def action_info_entity(a):
             "server": server,
             "remote": True,
         }}
-
-    # Local repository - get full stats
-    branches = mochi.git.branches(repo["id"])
-    tags = mochi.git.tags(repo["id"])
 
     # Get entity privacy setting
     entity_info = mochi.entity.info(repo["id"])
@@ -481,8 +471,6 @@ def action_info_entity(a):
         "size": repo["size"],
         "created": repo["created"],
         "updated": repo["updated"],
-        "branches": len(branches) if branches else 0,
-        "tags": len(tags) if tags else 0,
         "allow_read": allow_read,
         "privacy": privacy,
         "isAdmin": check_admin_access(a, repo["id"]),
