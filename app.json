@@ -5,14 +5,14 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 
 {
-	"version": "2.95",
+	"version": "2.97",
 	"label": "app.name",
 	"classes": ["repository"],
 	"paths": ["repositories"],
 	"services": ["repositories"],
 
 	"require": {
-		"version": {"minimum": "0.3"}
+		"version": {"minimum": "2.0.14"}
 	},
 
 	"architecture": {"engine": "starlark", "version": 4},
@@ -69,6 +69,10 @@
 		":repository/-/commits": {"function": "action_commits", "public": true},
 		":repository/-/commits/*ref": {"function": "action_commits", "public": true},
 		":repository/-/commit/:sha": {"function": "action_commit", "public": true},
+		":repository/-/diff": {"function": "action_diff", "public": true},
+		":repository/-/diff/preference": {"function": "action_diff_preference_get", "public": true},
+		":repository/-/diff/preference/set": {"function": "action_diff_preference_set"},
+		":repository/-/history/*historypath": {"function": "action_history", "public": true},
 		":repository/-/tree": {"function": "action_tree", "public": true},
 		":repository/-/tree/*treepath": {"function": "action_tree", "public": true},
 		":repository/-/blob/*blobpath": {"function": "action_blob", "public": true},
@@ -101,6 +105,8 @@
 		"tags": {"function": "event_tags"},
 		"commits": {"function": "event_commits"},
 		"commit": {"function": "event_commit"},
+		"diff": {"function": "event_diff"},
+		"history": {"function": "event_history"},
 		"tree": {"function": "event_tree"},
 		"blob": {"function": "event_blob"},
 		"archive": {"function": "event_archive"},

@@ -47,10 +47,13 @@ msgstr "(Anda)"
 msgid "[not set]"
 msgstr "[tidak diatur]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {# commit}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {# berkas diubah}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} menawarkan remis"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} dari {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {# baris konteks}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Apakah Anda yakin ingin menyerah? {opponentName} akan memenangkan permai
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Apakah Anda yakin ingin berhenti berlangganan repositori ini?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Seperti saat ini"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Naik"
@@ -503,6 +514,7 @@ msgstr "Nama branch"
 msgid "Branch name is required"
 msgstr "Nama branch diperlukan"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Branch"
@@ -595,9 +607,19 @@ msgstr "{field} diubah"
 msgid "Changed occurrence"
 msgstr "Kemunculan yang diubah"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Perubahan"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Perubahan dari {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Perubahan di {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Pilih waktu"
 msgid "Choose language"
 msgstr "Pilih bahasa"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Pilih yang akan dibandingkan"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Pilih bahasa"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Bersihkan"
 
@@ -684,6 +711,10 @@ msgstr "Tutup pencarian"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Ciutkan"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Ciutkan semua"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit"
 msgid "Compact"
 msgstr "Kompak"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Bandingkan"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Perbandingan - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Bandingkan dari"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Bandingkan dengan"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Bandingkan dengan {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Perbandingan"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Konfigurasi pengaturan opsi"
@@ -775,6 +837,10 @@ msgstr "Konten tidak ditemukan."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Konten tidak dimodifikasi"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Konteks"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Setiap menit"
 msgid "Expand"
 msgstr "Perluas"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Perluas semua"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Perluas sidebar"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "berkas"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Opsi berkas"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grup: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Riwayat"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Riwayat {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identitas"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Abaikan spasi"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Tautan"
 msgid "List"
 msgstr "Daftar"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Muat perbedaan"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Muat lebih banyak"
 
@@ -1906,6 +2000,10 @@ msgstr "Belum ada aktivitas"
 msgid "No branches yet"
 msgstr "Belum ada branch"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Tidak ada perubahan selain spasi"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Tidak ada perubahan untuk ditampilkan"
@@ -1913,6 +2011,10 @@ msgstr "Tidak ada perubahan untuk ditampilkan"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Belum ada komentar"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Tidak ada commit yang mengubah berkas ini"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Pemilik"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Induk"
 
@@ -2166,6 +2269,11 @@ msgstr "Orang"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Hapus permanen repositori ini dan semua datanya"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Pilih {0} untuk dibandingkan"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Repositori"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Pengaturan disimpan"
 msgid "Share"
 msgstr "Bagikan"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Tampilkan semua berkas"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Tampilkan kelas"
@@ -2718,9 +2834,17 @@ msgstr "Tampilkan kelas"
 msgid "Show fields"
 msgstr "Tampilkan bidang"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Tampilkan lebih banyak baris"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Tampilkan bantuan ini"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Tampilkan seluruh berkas"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Keluar"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Keluar..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Sejak titik percabangan"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Berlangganan..."
 msgid "Sunday"
 msgstr "Minggu"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Tukar"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Ganti cabang"
@@ -2850,6 +2982,7 @@ msgstr "Tag harus 50 karakter atau kurang"
 msgid "Tags"
 msgstr "Tag"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Server mengembalikan halaman web alih-alih data."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Aplikasi ini tidak diizinkan menggunakan kunci sandi Anda. Izinkan di Pengaturan, di bagian Izin."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Berkas ini tidak dapat dibandingkan dengan opsi ini."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "File ini terlalu besar untuk ditampilkan ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Halaman ini memerlukan konteks repositori."
@@ -3175,6 +3314,11 @@ msgstr "Lihat dan edit detail item"
 msgid "View controls"
 msgstr "Kontrol tampilan"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Lihat berkas"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Perekaman suara tidak didukung di browser ini"
@@ -3201,6 +3345,10 @@ msgstr "Kami mengirim kode verifikasi ke <0>{0}</0>. Masukkan kode di bawah untu
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Rabu"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Seluruh berkas"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

@@ -47,10 +47,13 @@ msgstr "(آپ)"
 msgid "[not set]"
 msgstr "[سیٹ نہیں]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# کمٹ} other {# کمٹس}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# فائل تبدیل ہوئی} other {# فائلیں تبدیل ہوئیں}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} نے ڈرا کی پیشکش کی"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel} میں سے {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {سیاق کی # سطر} other {سیاق کی # سطریں}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "کیا آپ واقعی ہار ماننا چاہتے ہیں؟ {opponentNa
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "کیا آپ واقعی اس ریپوزٹری سے ان سبسکرائب کرنا چاہتے ہیں؟"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "جیسے ابھی ہیں"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "صعودی"
@@ -503,6 +514,7 @@ msgstr "برانچ کا نام"
 msgid "Branch name is required"
 msgstr "برانچ کا نام ضروری ہے"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "برانچز"
@@ -595,9 +607,19 @@ msgstr "{field} تبدیل ہوا"
 msgid "Changed occurrence"
 msgstr "تبدیل شدہ تکرار"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "تبدیلیاں"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} سے تبدیلیاں"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} میں تبدیلیاں"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "وقت منتخب کریں"
 msgid "Choose language"
 msgstr "زبان منتخب کریں"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "منتخب کریں کہ کس کا موازنہ کرنا ہے"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "زبان منتخب کریں"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "صاف کریں"
 
@@ -684,6 +711,10 @@ msgstr "تلاش بند کریں"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "سمیٹیں"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "سب سمیٹیں"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "کمٹس"
 msgid "Compact"
 msgstr "کمپیکٹ"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "موازنہ کریں"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "موازنہ - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "موازنے کا آغاز"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "موازنے کا ہدف"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} سے موازنہ کریں"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "موازنے کا طریقہ"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "آپشن کی ترتیبات کنفیگر کریں"
@@ -775,6 +837,10 @@ msgstr "مواد نہیں ملا۔"
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "مواد میں ترمیم نہیں"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "سیاق"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "ہر منٹ"
 msgid "Expand"
 msgstr "پھیلائیں"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "سب پھیلائیں"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "سائڈبار پھیلائیں"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "فائل"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "فائل کے اختیارات"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "گروپ: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "تاریخ"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} کی تاریخ - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "آئی ڈی"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "شناخت"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "خالی جگہ نظر انداز کریں"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "لنکس"
 msgid "List"
 msgstr "فہرست"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "فرق لوڈ کریں"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "مزید لوڈ کریں"
 
@@ -1906,6 +2000,10 @@ msgstr "ابھی تک کوئی سرگرمی نہیں"
 msgid "No branches yet"
 msgstr "ابھی تک کوئی برانچز نہیں"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "خالی جگہ کے علاوہ کوئی تبدیلی نہیں"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "ظاہر کرنے کے لیے کوئی تبدیلیاں نہیں"
@@ -1913,6 +2011,10 @@ msgstr "ظاہر کرنے کے لیے کوئی تبدیلیاں نہیں"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "ابھی تک کوئی تبصرے نہیں"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "کسی کمٹ نے اس فائل کو تبدیل نہیں کیا"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "مالک"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "پیرنٹ"
 
@@ -2166,6 +2269,11 @@ msgstr "لوگ"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "اس ریپوزٹری اور اس کے تمام ڈیٹا کو مستقل طور پر حذف کریں"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "موازنے کے لیے {0} منتخب کریں"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "ریپوزٹریز"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "سیٹنگز محفوظ ہو گئیں"
 msgid "Share"
 msgstr "شیئر کریں"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "تمام فائلیں دکھائیں"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "کلاسز دکھائیں"
@@ -2718,9 +2834,17 @@ msgstr "کلاسز دکھائیں"
 msgid "Show fields"
 msgstr "فیلڈز دکھائیں"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "مزید سطریں دکھائیں"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "یہ مدد دکھائیں"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "پوری فائل دکھائیں"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "سائن آؤٹ کریں"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "سائن آؤٹ کیا جا رہا ہے..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "الگ ہونے کے بعد سے"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "سبسکرائب کیا جا رہا ہے..."
 msgid "Sunday"
 msgstr "اتوار"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "جگہ بدلیں"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "شاخ تبدیل کریں"
@@ -2850,6 +2982,7 @@ msgstr "ٹیگ 50 حروف یا اس سے کم ہونا چاہیے"
 msgid "Tags"
 msgstr "ٹیگز"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "سرور نے ڈیٹا کے بجائے ایک ویب صفحہ واپس �
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "اس ایپ کو آپ کی پاس کی استعمال کرنے کی اجازت نہیں ہے۔ ترتیبات میں، اجازتوں کے تحت اسے اجازت دیں۔"
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ان اختیارات کے ساتھ اس فائل کا موازنہ نہیں کیا جا سکتا۔"
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "یہ فائل دکھانے کے لیے بہت بڑی ہے ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "اس صفحے کو ریپازٹری سیاق و سباق درکار ہے۔"
@@ -3175,6 +3314,11 @@ msgstr "آئٹم کی تفصیلات دیکھیں اور ایڈٹ کریں"
 msgid "View controls"
 msgstr "کنٹرولز دیکھیں"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "فائل دیکھیں"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "اس براؤزر میں صوتی ریکارڈنگ کی سہولت نہیں"
@@ -3201,6 +3345,10 @@ msgstr "ہم نے <0>{0}</0> پر ایک تصدیقی کوڈ بھیجا ہے۔ �
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "بدھ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "مکمل فائلیں"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

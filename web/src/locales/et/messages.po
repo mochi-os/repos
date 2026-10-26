@@ -47,10 +47,13 @@ msgstr "(sina)"
 msgid "[not set]"
 msgstr "[määramata]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# sissekanne} other {# sissekannet}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# fail muudetud} other {# faili muudetud}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} pakkus viiki"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# kontekstirida} other {# kontekstirida}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Kas oled kindel, et soovid alla anda? {opponentName} võidab mängu."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Kas oled kindel, et soovid sellest repositooriumist lahti tellida?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Praegusel kujul"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Kasvav"
@@ -503,6 +514,7 @@ msgstr "Haru nimi"
 msgid "Branch name is required"
 msgstr "Haru nimi on kohustuslik"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Harud"
@@ -595,9 +607,19 @@ msgstr "{field} muudetud"
 msgid "Changed occurrence"
 msgstr "Muudetud kordus"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Muudatused"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Muudatused: {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Muudatused sissekandes {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Vali kellaaeg"
 msgid "Choose language"
 msgstr "Vali keel"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Vali, mida võrrelda"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Vali keel"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Tühjenda"
 
@@ -684,6 +711,10 @@ msgstr "Sulge otsing"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Ahenda"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Ahenda kõik"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Sissekanded"
 msgid "Compact"
 msgstr "Kompaktne"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Võrdle"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Võrdlus - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Võrdluse alus"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Võrreldav"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Võrdle sildiga {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Võrdlus"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Seadista valiku seaded"
@@ -775,6 +837,10 @@ msgstr "Sisu ei leitud."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Sisu pole muudetud"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Kontekst"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Iga minut"
 msgid "Expand"
 msgstr "Laienda"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Laienda kõik"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Laienda külgriba"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "fail"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Faili valikud"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Rühm: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Ajalugu"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Faili {fileName} ajalugu - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identiteet"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Eira tühimärke"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Lingid"
 msgid "List"
 msgstr "Loend"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Lae muudatused"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Lae rohkem"
 
@@ -1906,6 +2000,10 @@ msgstr "Tegevust veel pole"
 msgid "No branches yet"
 msgstr "Harusid veel pole"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Muudatusi peale tühimärkide pole"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Kuvatavaid muudatusi pole"
@@ -1913,6 +2011,10 @@ msgstr "Kuvatavaid muudatusi pole"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Kommentaare veel pole"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Ükski sissekanne pole seda faili muutnud"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Omanik"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Vanem"
 
@@ -2166,6 +2269,11 @@ msgstr "Inimesed"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Kustuta see repositoorium ja kõik selle andmed jäädavalt"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Vali {0} võrdlemiseks"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Hoidlad"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Seaded salvestatud"
 msgid "Share"
 msgstr "Jaga"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Näita kõiki faile"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Näita klasse"
@@ -2718,9 +2834,17 @@ msgstr "Näita klasse"
 msgid "Show fields"
 msgstr "Näita välju"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Näita rohkem ridu"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Näita seda abi"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Näita tervet faili"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Logi välja"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Login välja..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Lahknemisest alates"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Tellin..."
 msgid "Sunday"
 msgstr "Pühapäev"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Vaheta"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Vaheta haru"
@@ -2850,6 +2982,7 @@ msgstr "Silt tohib olla kuni 50 tähemärki"
 msgid "Tags"
 msgstr "Sildid"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Server tagastas andmete asemel veebilehe."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Sellel rakendusel pole luba sinu pääsuvõtit kasutada. Luba see Seadetes jaotises Õigused."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Seda faili ei saa nende valikutega võrrelda."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "See fail on kuvamiseks liiga suur ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "See leht vajab repositooriumi konteksti."
@@ -3175,6 +3314,11 @@ msgstr "Vaata ja muuda elemendi üksikasju"
 msgid "View controls"
 msgstr "Vaate juhtelemendid"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Vaata faili"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Häälsalvestust ei toetata selles brauseris"
@@ -3201,6 +3345,10 @@ msgstr "Saatsime kinnituskoodi aadressile <0>{0}</0>. Sisestage kood allpool, et
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Kolmapäev"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Terved failid"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

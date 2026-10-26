@@ -4,7 +4,6 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { plural } from '@lingui/core/macro'
 import { Trans, useLingui } from '@lingui/react/macro'
 import {
   Card,
@@ -97,14 +96,14 @@ export function CommitDetails({
           <div className='flex flex-wrap items-center gap-4 text-sm'>
             <div className='flex items-center gap-2'>
               <EntityAvatar
-                seed={commit.author_email || commit.author}
+                seed={commit.email || commit.author}
                 name={commit.author}
                 size='sm'
               />
               <span>{commit.author}</span>
-              {commit.author_email && (
+              {commit.email && (
                 <span className='text-muted-foreground'>
-                  &lt;{commit.author_email}&gt;
+                  &lt;{commit.email}&gt;
                 </span>
               )}
             </div>
@@ -116,7 +115,9 @@ export function CommitDetails({
 
           <div className='bg-muted mt-4 flex items-center gap-2 rounded-md p-2'>
             <GitCommit className='text-muted-foreground h-4 w-4' />
-            <code className='flex-1 font-mono text-sm'>{sha}</code>
+            <code className='min-w-0 flex-1 font-mono text-sm break-all'>
+              {sha}
+            </code>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button
@@ -158,53 +159,8 @@ export function CommitDetails({
               ))}
             </div>
           )}
-
-          {commit.stats && (
-            <div className='mt-4 flex items-center gap-4 text-sm'>
-              <span>
-                {plural(commit.stats.files, {
-                  one: '# file changed',
-                  other: '# files changed',
-                })}
-              </span>
-              <span className='text-success'>+{commit.stats.additions}</span>
-              <span className='text-destructive'>
-                -{commit.stats.deletions}
-              </span>
-            </div>
-          )}
         </CardContent>
       </Card>
-
-      {commit.diff && (
-        <Card>
-          <CardHeader>
-            <CardTitle className='text-lg'>
-              <Trans>Changes</Trans>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className='p-0'>
-            <pre className='overflow-x-auto p-4 font-mono text-sm'>
-              {commit.diff.split('\n').map((line, index) => (
-                <div
-                  key={index}
-                  className={
-                    line.startsWith('+') && !line.startsWith('+++')
-                      ? 'bg-success/10 text-success'
-                      : line.startsWith('-') && !line.startsWith('---')
-                        ? 'bg-destructive/10 text-destructive'
-                        : line.startsWith('@@')
-                          ? 'bg-primary/10 text-primary'
-                          : ''
-                  }
-                >
-                  {line}
-                </div>
-              ))}
-            </pre>
-          </CardContent>
-        </Card>
-      )}
     </div>
   )
 }

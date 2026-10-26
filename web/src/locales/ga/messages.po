@@ -47,10 +47,13 @@ msgstr "(tusa)"
 msgid "[not set]"
 msgstr "[gan socrú]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# tiomantas} two {# thiomantas} few {# thiomantas} many {# dtiomantas} other {# tiomantas}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {athraíodh # chomhad} two {athraíodh # chomhad} few {athraíodh # chomhad} many {athraíodh # gcomhad} other {athraíodh # comhad}}"
 
@@ -138,6 +141,10 @@ msgstr "Mhol {opponentName} comhscór"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} as {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# líne comhthéacs} two {# líne comhthéacs} few {# líne comhthéacs} many {# líne comhthéacs} other {# líne comhthéacs}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "An bhfuil tú cinnte gur mian leat éirí as? Buaillfidh {opponentName} 
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "An bhfuil tú cinnte gur mian leat díshíntiús a dhéanamh leis an stóras seo?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Mar atá siad anois"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Ardaitheach"
@@ -503,6 +514,7 @@ msgstr "Ainm an bhrainse"
 msgid "Branch name is required"
 msgstr "Tá ainm brainse riachtanach"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Brainsí"
@@ -595,9 +607,19 @@ msgstr "Athraíodh {field}"
 msgid "Changed occurrence"
 msgstr "Tarlú athraithe"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Athruithe"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Athruithe ó {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Athruithe in {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Roghnaigh am"
 msgid "Choose language"
 msgstr "Roghnaigh teanga"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Roghnaigh cad atá le cur i gcomparáid"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Roghnaigh teanga"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Glan"
 
@@ -684,6 +711,10 @@ msgstr "Dún cuardach"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Laghdaigh"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Laghdaigh gach ceann"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Tiomantais"
 msgid "Compact"
 msgstr "Dlúth"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Cuir i gcomparáid"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Comparáid - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Cuir i gcomparáid ó"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Cuir i gcomparáid le"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Cuir i gcomparáid le {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Comparáid"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Cumraigh socruithe na rogha"
@@ -775,6 +837,10 @@ msgstr "Níor aimsíodh an t-ábhar."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Níor athraíodh an t-ábhar"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Comhthéacs"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Gach nóiméad"
 msgid "Expand"
 msgstr "Leathnaigh"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Leathnaigh gach ceann"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Leathnaigh barra taoibh"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/mo-ghné"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "comhad"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Roghanna comhaid"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grúpa: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Stair"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Stair {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Aitheantas"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Déan neamhaird de spás bán"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Naisc"
 msgid "List"
 msgstr "Liosta"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Luchtaigh na hathruithe"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Luchtaigh tuilleadh"
 
@@ -1906,6 +2000,10 @@ msgstr "Níl aon ghníomhaíocht fós"
 msgid "No branches yet"
 msgstr "Níl aon bhrainse fós"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Níl aon athrú seachas spás bán"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Níl aon athrú le taispeáint"
@@ -1913,6 +2011,10 @@ msgstr "Níl aon athrú le taispeáint"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Níl aon trácht fós"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Níor athraigh aon tiomantas an comhad seo"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Úinéir"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Tuismitheoir"
 
@@ -2166,6 +2269,11 @@ msgstr "Daoine"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Scrios an stór seo agus a shonraí go léir go buan"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Roghnaigh {0} le cur i gcomparáid"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Stóir"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Socruithe sábháilte"
 msgid "Share"
 msgstr "Comhroinn"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Taispeáin gach comhad"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Taispeáin ranganna"
@@ -2718,9 +2834,17 @@ msgstr "Taispeáin ranganna"
 msgid "Show fields"
 msgstr "Taispeáin réimsí"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Taispeáin tuilleadh línte"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Taispeáin an chabhair seo"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Taispeáin an comhad iomlán"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Logáil amach"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Á shíniú amach..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Ó scar siad"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Á liostáil..."
 msgid "Sunday"
 msgstr "Domhnach"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Babhtáil"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Athraigh brainse"
@@ -2850,6 +2982,7 @@ msgstr "Ní mór don chlib a bheith 50 carachtar ar a mhéad"
 msgid "Tags"
 msgstr "Clibeanna"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Sheol an freastalaí leathanach gréasáin ar ais in ionad sonraí."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Níl cead ag an aip seo do phasluiche a úsáid. Ceadaigh é i Socruithe, faoi Ceadanna."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Ní féidir an comhad seo a chur i gcomparáid leis na roghanna seo."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Tá an comhad seo rómhór le taispeáint ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Tá comhthéacs stóras de dhíth ar an leathanach seo."
@@ -3175,6 +3314,11 @@ msgstr "Féach ar shonraí na míre agus cuir in eagar iad"
 msgid "View controls"
 msgstr "Rialuithe radhairc"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Féach ar an gcomhad"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Ní thacaítear le taifeadadh gutha sa bhrabhsálaí seo"
@@ -3201,6 +3345,10 @@ msgstr "Sheolamar cód fíoraithe chuig <0>{0}</0>. Cuir an cód isteach thíos 
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Céadaoin"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Comhaid iomlána"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

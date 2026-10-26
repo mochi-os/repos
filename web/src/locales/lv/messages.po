@@ -47,10 +47,13 @@ msgstr "(jūs)"
 msgid "[not set]"
 msgstr "[nav iestatīts]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, zero {# iesūtījumi} one {# iesūtījums} other {# iesūtījumi}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, zero {mainīti # faili} one {mainīts # fails} other {mainīti # faili}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} piedāvāja neizšķirtu"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} no {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, zero {# konteksta rindas} one {# konteksta rinda} other {# konteksta rindas}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Vai tiešām vēlies padoties? {opponentName} uzvarēs spēli."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Vai tiešām vēlies atteikties no šīs krātuves abonēšanas?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Pašreizējā stāvoklī"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Augošā secībā"
@@ -503,6 +514,7 @@ msgstr "Zara nosaukums"
 msgid "Branch name is required"
 msgstr "Zara nosaukums ir obligāts"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Zari"
@@ -595,9 +607,19 @@ msgstr "Mainīts {field}"
 msgid "Changed occurrence"
 msgstr "Mainīts atkārtojums"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Izmaiņas"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Izmaiņas no {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} izmaiņas"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Izvēlieties laiku"
 msgid "Choose language"
 msgstr "Izvēlies valodu"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Izvēlieties, ko salīdzināt"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Izvēlies valodu"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Notīrīt"
 
@@ -684,6 +711,10 @@ msgstr "Aizvērt meklēšanu"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Sakļaut"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Sakļaut visu"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Iesūtījumi"
 msgid "Compact"
 msgstr "Kompakts"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Salīdzināt"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Salīdzināšana - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Salīdzināt no"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Salīdzināt ar"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Salīdzināt ar {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Salīdzināšana"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Konfigurē opciju iestatījumus"
@@ -775,6 +837,10 @@ msgstr "Saturs nav atrasts."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Saturs nav mainīts"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Konteksts"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Katra minūte"
 msgid "Expand"
 msgstr "Izvērst"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Izvērst visu"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Izvērst sānjoslu"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "fails"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Faila opcijas"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grupa: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Vēsture"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} vēsture - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identitāte"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ignorēt atstarpes"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Saites"
 msgid "List"
 msgstr "Saraksts"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Ielādēt atšķirības"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Ielādēt vairāk"
 
@@ -1906,6 +2000,10 @@ msgstr "Vēl nav aktivitātes"
 msgid "No branches yet"
 msgstr "Vēl nav zaru"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Nav izmaiņu, izņemot atstarpes"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Nav izmaiņu, ko parādīt"
@@ -1913,6 +2011,10 @@ msgstr "Nav izmaiņu, ko parādīt"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Vēl nav komentāru"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Neviens iesūtījums nav mainījis šo failu"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Īpašnieks"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Vecāks"
 
@@ -2166,6 +2269,11 @@ msgstr "Cilvēki"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Neatgriezeniski izdzēst šo repozitoriju un visus tā datus"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Izvēlēties {0} salīdzināšanai"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Repozitoriji"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Iestatījumi saglabāti"
 msgid "Share"
 msgstr "Kopīgot"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Rādīt visus failus"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Rādīt klases"
@@ -2718,9 +2834,17 @@ msgstr "Rādīt klases"
 msgid "Show fields"
 msgstr "Rādīt laukus"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Rādīt vairāk rindu"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Rādīt šo palīdzību"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Rādīt visu failu"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Atteikties"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Notiek izrakstīšanās..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Kopš atzarošanās"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Notiek abonēšana..."
 msgid "Sunday"
 msgstr "Svētdiena"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Apmainīt"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Pārslēgt zaru"
@@ -2850,6 +2982,7 @@ msgstr "Birkā drīkst būt ne vairāk kā 50 rakstzīmes"
 msgid "Tags"
 msgstr "Tagi"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Serveris atgrieza tīmekļa lapu, nevis datus."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Šai lietotnei nav atļauts izmantot jūsu piekļuves atslēgu. Atļaujiet to Iestatījumos, sadaļā Atļaujas."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Šo failu nevar salīdzināt ar šīm opcijām."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Šis fails ir pārāk liels, lai to parādītu ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Šai lapai nepieciešams repozitorija konteksts."
@@ -3175,6 +3314,11 @@ msgstr "Skatīt un rediģēt vienuma detaļas"
 msgid "View controls"
 msgstr "Skata vadīklas"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Skatīt failu"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Balss ierakstīšana šajā pārlūkā netiek atbalstīta"
@@ -3201,6 +3345,10 @@ msgstr "Nosūtījām verifikācijas kodu uz <0>{0}</0>. Ievadiet kodu zemāk, la
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Trešdiena"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Pilni faili"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

@@ -47,10 +47,13 @@ msgstr "(qam)"
 msgid "[not set]"
 msgstr "[mana churasqa]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commitkuna}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# archivo tikrasqa} other {# archivokuna tikrasqa}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} empateta qorqan"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# muyuriq siqi} other {# muyuriq siqikuna}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "¿Saqirakapuyta munankichu? {opponentName} pukllayta atipanqa."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "¿Kay repositoriomanta suscripcionta qichuyta munankichu?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Kunan kasqanman hina"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Wicharispa"
@@ -503,6 +514,7 @@ msgstr "K'allma suti"
 msgid "Branch name is required"
 msgstr "K'allma suti necesitakun"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "K'allmakuna"
@@ -595,9 +607,19 @@ msgstr "{field} hukchasqa"
 msgid "Changed occurrence"
 msgstr "Hukchasqa evento"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Hukchaykuna"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} manta hukchasqakuna"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} nisqapi hukchasqakuna"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Huk horata akllay"
 msgid "Choose language"
 msgstr "Simi akllay"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Ima tupachinata akllay"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Simi akllay"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Pichay"
 
@@ -684,6 +711,10 @@ msgstr "Maskayta wichq'ay"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Pisichay"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Llapanta pisichay"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commitkuna"
 msgid "Compact"
 msgstr "Pisi"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Tupachiy"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Tupachiy - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Maymanta tupachiy"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Mayman tupachiy"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} wan tupachiy"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Tupachiy laya"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Akllana wakichiykunata allichay"
@@ -775,6 +837,10 @@ msgstr "Manam contenido tarikunchu."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Contenido mana hukchasqachu"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Muyuriq"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Sapa minuto"
 msgid "Expand"
 msgstr "Mast'ariy"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Llapanta mast'ariy"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Waqta barrata mast'ariy"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "archivo"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Archivo akllanakuna"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Huñu: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Historia"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} nisqapa historian - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identidad"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ch'usaq kitikunata mana qhawariy"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "T'inkikuna"
 msgid "List"
 msgstr "Lista"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Hukchasqakunata cargay"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Aswan cargay"
 
@@ -1906,6 +2000,10 @@ msgstr "Manaraq kuyuriy kanchu"
 msgid "No branches yet"
 msgstr "Manaraq k'allmakuna kanchu"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Ch'usaq kitikunallam hukchasqa"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Rikuchinapaq mana hukchaykuna kanchu"
@@ -1913,6 +2011,10 @@ msgstr "Rikuchinapaq mana hukchaykuna kanchu"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Manaraq comentariokuna kanchu"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Manam ni huk commitpas kay archivota hukchanchu"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Apuq"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Tayta"
 
@@ -2166,6 +2269,11 @@ msgstr "Runakuna"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Kay repositoriota llapan datonkunantinta wiñaypaq wischuy"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Tupachinapaq {0} akllay"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Repositoriokuna"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Wakichiykuna waqaychasqa"
 msgid "Share"
 msgstr "Rakiy"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Llapan archivokunata rikuchiy"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Clasekunata rikuchiy"
@@ -2718,9 +2834,17 @@ msgstr "Clasekunata rikuchiy"
 msgid "Show fields"
 msgstr "Campokunata rikuchiy"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Aswan siqikunata rikuchiy"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Kay yanapayta rikuchiy"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Hunt'a archivota rikuchiy"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Lluqsiy"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Lluqsichkan..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "T'aqanakusqankumanta"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Suscribichkan..."
 msgid "Sunday"
 msgstr "Intichaw"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Tikray"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "K'allmata tikray"
@@ -2850,6 +2982,7 @@ msgstr "Unanchaqa 50 sananchakuna utaq pisilla kanan"
 msgid "Tags"
 msgstr "Unanchakuna"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Servidorqa mana datokunatachu kutichirqan, huk web páginatam."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Kay appqa manam yaykuna llaveykita llamk'achiyta atinchu. Wakichiykunapi, Permisokuna ukhupi saqiy."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Kay archivoqa manam kay akllanakunawan tupachiyta atikunchu."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Kay archivoqa rikuchinapaq ancha hatunmi ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Kay páginaqa repositorio contextota necesitan."
@@ -3175,6 +3314,11 @@ msgstr "Itempa detallenkunata qhaway hinaspa hukchay"
 msgid "View controls"
 msgstr "Vista controlkuna"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Archivota qhaway"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Kay navegadorpiqa manam kunka grabay atikunchu"
@@ -3201,6 +3345,10 @@ msgstr "<0>{0}</0>-man huk takyachiy códigota apachirqayku. Email direccionniyk
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Quyllurchaw"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Hunt'a archivokuna"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

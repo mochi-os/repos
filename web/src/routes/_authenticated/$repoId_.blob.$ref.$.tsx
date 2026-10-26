@@ -7,14 +7,31 @@ import { useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import {
+  getBlob,
+  getBranches,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { BlobViewer } from '@/features/repository/blob-viewer'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/blob/$ref/$')({
-  loader: async ({ params }) => {
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(params.repoId),
-    })
+  // The file and the branches are asked for alongside the repository's info,
+  // not after it, and handed to the page's queries once the info names the
+  // repository.
+  loader: async ({ params, context }) => {
+    const baseURL = repoBasePath(params.repoId)
+    const path = params._splat || ''
+    const branches = startRequest(getBranches(baseURL))
+    const blob = path && startRequest(getBlob(params.ref, path, baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || params.repoId
+    primeQuery(context.queryClient, repoKeys.branches(id), branches)
+    if (blob) {
+      primeQuery(context.queryClient, repoKeys.blob(id, params.ref, path), blob)
+    }
     return { ...info, repoId: params.repoId }
   },
   component: BlobPage,

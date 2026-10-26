@@ -363,8 +363,6 @@ def proxy_info(a):
         "size": 0,
         "created": "",
         "updated": "",
-        "branches": 0,
-        "tags": 0,
         "allow_read": True,
         "privacy": "public",
         "isAdmin": False,
@@ -421,8 +419,6 @@ def action_info_entity(a):
                 "size": repo["size"],
                 "created": repo["created"],
                 "updated": repo["updated"],
-                "branches": 0,
-                "tags": 0,
                 "allow_read": True,
                 "privacy": "public",
                 "isAdmin": False,
@@ -443,8 +439,6 @@ def action_info_entity(a):
             "size": repo["size"],
             "created": repo["created"],
             "updated": repo["updated"],
-            "branches": 0,
-            "tags": 0,
             "allow_read": True,
             "privacy": "public",
             "isAdmin": False,
@@ -452,10 +446,6 @@ def action_info_entity(a):
             "server": server,
             "remote": True,
         }}
-
-    # Local repository - get full stats
-    branches = mochi.git.branches(repo["id"])
-    tags = mochi.git.tags(repo["id"])
 
     # Get entity privacy setting
     entity_info = mochi.entity.info(repo["id"])
@@ -481,8 +471,6 @@ def action_info_entity(a):
         "size": repo["size"],
         "created": repo["created"],
         "updated": repo["updated"],
-        "branches": len(branches) if branches else 0,
-        "tags": len(tags) if tags else 0,
         "allow_read": allow_read,
         "privacy": privacy,
         "isAdmin": check_admin_access(a, repo["id"]),
@@ -970,19 +958,26 @@ def action_tags(a):
     tags = mochi.git.tags(repo["id"])
     return {"data": {"tags": tags or []}}
 
+# The deepest offset core lists commits from. A page past it answers no
+# commits, so a list of a longer history ends there rather than failing.
+COMMITS_OFFSET_MAXIMUM = 10000
+
 # Action: List commits
+# No ref is the default branch the repository's info names, so a page can ask
+# for its commits before the info has arrived. The owner answers a subscriber
+# or a browser asking with no ref the same way, from event_commits.
 def action_commits(a):
     repo = get_repo(a)
     if not repo:
-        return proxy_read(a, "commits", {"ref": a.input("ref", "HEAD"),
+        return proxy_read(a, "commits", {"ref": a.input("ref", ""),
                                           "limit": a.input("limit", "50"),
                                           "offset": a.input("offset", "0")})
 
     if not check_read_access(a, repo["id"]):
         return a.error.label(403, "errors.access_denied")
 
-    ref = a.input("ref", "HEAD")
-    if not valid_ref(ref):
+    ref = a.input("ref", "")
+    if ref and not valid_ref(ref):
         return a.error.label(400, "errors.invalid_ref")
     limit_str = a.input("limit", "50")
     offset_str = a.input("offset", "0")
@@ -995,8 +990,10 @@ def action_commits(a):
     offset = int(offset_str)
     if limit < 1 or limit > 1000:
         limit = 50
-    if offset < 0 or offset > 100000:
+    if offset < 0:
         offset = 0
+    if offset > COMMITS_OFFSET_MAXIMUM:
+        return {"data": {"commits": []}}
 
     # Check if remote repository
     is_remote = repo.get("owner", 1) == 0
@@ -1016,6 +1013,8 @@ def action_commits(a):
         return remote_error(a, response)
 
     # Local repository
+    if not ref:
+        ref = repo_branch_default(repo)
     commits = mochi.git.commit.list(repo["id"], ref, limit, offset)
     if commits == None:
         # A repository with no refs at all is empty, which is a normal state
@@ -1064,6 +1063,171 @@ def action_commit(a):
 
     return {"data": {"commit": commit}}
 
+# The commit a ref names, or None when it names none. Core's diff and
+# merge-base calls abort the action on a ref they cannot resolve, so a ref is
+# checked here first and those calls are handed commit hashes.
+# The commit a ref names, with its sha and parents, or None.
+def commit_at(repo_id, ref):
+    commits = mochi.git.commit.list(repo_id, ref, 1, 0)
+    if not commits:
+        return None
+    return commits[0]
+
+def commit_sha(repo_id, ref):
+    commit = commit_at(repo_id, ref)
+    return commit["sha"] if commit else None
+
+diff_modes = ("direct", "diverged")
+
+# Longest file or folder a diff may be limited to.
+path_maximum = 4096
+
+# A diff request's inputs checked, as (parameters, error label) with one of the
+# two set. An empty base asks for head's own changes: from its first parent, or
+# from nothing for a repository's first commit. A page showing a commit can ask
+# without first reading the commit. commits asks for the commits head adds over
+# base too, which only the compare page shows.
+def diff_parameters(base, head, mode, path, commits):
+    if base and not valid_ref(base):
+        return (None, "errors.invalid_ref")
+    if not head or not valid_ref(head):
+        return (None, "errors.invalid_ref")
+    if mode not in diff_modes or len(path) > path_maximum:
+        return (None, "errors.invalid_data")
+    return ({"base": base, "head": head, "mode": mode, "path": path, "commits": "true" if commits == "true" else ""}, None)
+
+# Two commits compared: the diff and, when asked, the commits between them. "diverged" compares from where the two histories split,
+# so only what head adds shows, as a merge would bring it; "direct" compares the
+# two as they stand. Returns (answer, None) or (None, (status, label, ref)).
+def diff_answer(repo_id, parameters):
+    commit = commit_at(repo_id, parameters["head"])
+    if not commit:
+        return (None, (404, "errors.ref_or_commit_not_found", parameters["head"]))
+    head = commit["sha"]
+    base = None
+    if parameters["base"]:
+        base = commit_sha(repo_id, parameters["base"])
+        if not base:
+            return (None, (404, "errors.ref_or_commit_not_found", parameters["base"]))
+    elif commit.get("parents"):
+        base = commit["parents"][0]
+    start = base
+    if base and parameters["mode"] == "diverged":
+        start = mochi.git.merge.base(repo_id, base, head)
+        if not start:
+            return (None, (409, "errors.no_common_history", ""))
+    path = parameters["path"] or None
+    commits = []
+    if start and parameters["commits"]:
+        commits = mochi.git.commit.between(repo_id, start, head) or []
+    return ({
+        "base": base or "",
+        "head": head,
+        "start": start or "",
+        "diff": mochi.git.diff(repo_id, start, head, path),
+        "commits": commits,
+    }, None)
+
+# Action: Compare two commits, branches or tags
+def action_diff(a):
+    parameters, problem = diff_parameters(a.input("base", ""), a.input("head", ""), a.input("mode", "direct"), a.input("path", ""), a.input("commits", ""))
+    repo = get_repo(a)
+    if not repo:
+        if problem:
+            return a.error.label(400, problem)
+        return proxy_read(a, "diff", parameters)
+
+    if not check_read_access(a, repo["id"]):
+        return a.error.label(403, "errors.access_denied")
+    if problem:
+        return a.error.label(400, problem)
+
+    if repo.get("owner", 1) == 0:
+        server = repo.get("server", "")
+        peer = mochi.remote.peer(server) if server else None
+        body = {"repository": repo["id"]}
+        for key in parameters:
+            body[key] = parameters[key]
+        response = mochi.remote.request(repo["id"], "repositories", "diff", body, peer)
+        if not response.get("error"):
+            return {"data": response}
+        return remote_error(a, response, 404)
+
+    answer, failure = diff_answer(repo["id"], parameters)
+    if failure:
+        status, key, ref = failure
+        if ref:
+            return a.error.label(status, key, ref=ref)
+        return a.error.label(status, key)
+    return {"data": answer}
+
+# Most commits one history request lists. Core caps a listing at 1,000.
+history_maximum = 1000
+
+# Action: Commits that changed one file or folder, newest first
+def action_history(a):
+    combined = a.input("historypath", "")
+    limit_str = a.input("limit", "100")
+    if not mochi.text.valid(limit_str, "integer"):
+        return a.error.label(400, "errors.invalid_pagination_parameters")
+    limit = int(limit_str)
+    if limit < 1 or limit > history_maximum:
+        limit = 100
+
+    repo = get_repo(a)
+    if not repo:
+        parts = combined.split("/", 1) if combined else []
+        return proxy_read(a, "history", {
+            "ref": parts[0] if parts else "",
+            "path": parts[1] if len(parts) > 1 else "",
+            "limit": str(limit),
+        })
+
+    if not check_read_access(a, repo["id"]):
+        return a.error.label(403, "errors.access_denied")
+
+    if repo.get("owner", 1) == 0:
+        # The owner recombines a slash-containing branch, as for blobs.
+        parts = combined.split("/", 1) if combined else []
+        server = repo.get("server", "")
+        peer = mochi.remote.peer(server) if server else None
+        response = mochi.remote.request(repo["id"], "repositories", "history", {
+            "repository": repo["id"],
+            "ref": parts[0] if parts else "",
+            "path": parts[1] if len(parts) > 1 else "",
+            "limit": str(limit),
+        }, peer)
+        if not response.get("error"):
+            return {"data": response}
+        return remote_error(a, response, 404)
+
+    ref, path = resolve_ref(repo["id"], combined)
+    if not valid_ref(ref):
+        return a.error.label(400, "errors.invalid_ref")
+    if not path:
+        return a.error.label(400, "errors.path_is_required")
+    commits = mochi.git.commit.log(repo["id"], ref, path, limit)
+    if commits == None:
+        return a.error.label(404, "errors.ref_not_found", ref=ref)
+    return {"data": {"ref": ref, "path": path, "commits": commits}}
+
+# The one or two column choice for diffs, a preference of the person rather
+# than of a repository: projects and wikis read and write the same one.
+diff_styles = ("unified", "split")
+
+def action_diff_preference_get(a):
+    style = a.user.preference.get("diff_view") if a.user else None
+    return {"data": {"style": style if style in diff_styles else "unified"}}
+
+def action_diff_preference_set(a):
+    if not a.user:
+        return a.error.label(401, "errors.not_logged_in")
+    style = a.input("style", "")
+    if style not in diff_styles:
+        return a.error.label(400, "errors.invalid_style")
+    a.user.preference.set("diff_view", style)
+    return {"data": {"style": style}}
+
 # Action: Browse tree
 def action_tree(a):
     repo = get_repo(a)
@@ -1071,7 +1235,7 @@ def action_tree(a):
         combined = a.input("treepath", "")
         parts = combined.split("/", 1) if combined else []
         return proxy_read(a, "tree", {
-            "ref": (parts[0] if parts and parts[0] else a.input("ref", "HEAD")),
+            "ref": (parts[0] if parts and parts[0] else a.input("ref", "")),
             "path": (parts[1] if len(parts) > 1 else a.input("path", "")),
         })
 
@@ -1091,10 +1255,16 @@ def action_tree(a):
         else:
             ref, path = resolve_ref(repo["id"], treepath)
     else:
-        ref = a.input("ref", "HEAD")
+        # No ref is the default branch the repository's info names, so the
+        # files page can ask for it before the info has arrived. A subscribed
+        # copy leaves the choice to the owner, whose event_tree reads it the
+        # same way.
+        ref = a.input("ref", "")
         path = a.input("path", "")
+        if not ref and not is_remote:
+            ref = repo_branch_default(repo)
 
-    if not valid_ref(ref):
+    if ref and not valid_ref(ref):
         return a.error.label(400, "errors.invalid_ref")
 
     if is_remote:
@@ -1456,11 +1626,18 @@ def service_commits(s, params=None):
     return mochi.git.commit.list(repo_id, head or "HEAD", 50, 0)
 
 def service_diff(s, params=None):
-    """Get diff between refs (for PR display)"""
+    """Get diff between refs (for merge request display)"""
     p = params or s
     repo_id = p.get("repo", "")
     base = p.get("base", "")
     head = p.get("head", "")
+    # "diverged" compares from where head left base, so a merge request shows
+    # only its own changes and not, reversed, what landed on base since. A
+    # caller that names no mode gets the direct comparison it always had.
+    if p.get("mode", "") == "diverged":
+        start = mochi.git.merge.base(repo_id, base, head)
+        if start:
+            base = start
     return mochi.git.diff(repo_id, base, head)
 
 def service_can_merge(s, params=None):
@@ -2177,11 +2354,12 @@ def event_commits(e):
             limit = 50
     if mochi.text.valid(offset_str, "integer"):
         offset = int(offset_str)
-        # Bounded like limit: an unbounded offset makes the owner walk that many
-        # commits on a peer's say-so. Matches the ceiling action_commits uses.
         # The lower bound matters now the check admits a leading sign.
-        if offset < 0 or offset > 100000:
+        if offset < 0:
             offset = 0
+    if offset > COMMITS_OFFSET_MAXIMUM:
+        e.stream.write({"ref": ref, "commits": []})
+        return
 
     # Get commits
     commits = mochi.git.commit.list(repo_id, ref, limit, offset)
@@ -2311,6 +2489,76 @@ def event_commit(e):
         return
 
     e.stream.write({"commit": commit})
+
+# Handle P2P request comparing two commits, branches or tags
+def event_diff(e):
+    repo_id = e.header("to")
+    requester = e.header("from")
+
+    repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
+    if not repo:
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
+        return
+
+    if not allowed(requester, repo_id, "read"):
+        e.stream.write({"error": "errors.access_denied", "code": 403})
+        return
+
+    parameters, problem = diff_parameters(event_text(e, "base"), event_text(e, "head"), event_text(e, "mode", "direct"), event_text(e, "path"), event_text(e, "commits"))
+    if problem:
+        e.stream.write({"error": problem, "code": 400})
+        return
+
+    answer, failure = diff_answer(repo_id, parameters)
+    if failure:
+        status, key, ref = failure
+        # The subscriber localises a bare key; this one names no ref.
+        if ref:
+            key = "errors.ref_not_found_remote"
+        e.stream.write({"error": key, "code": status})
+        return
+    e.stream.write(answer)
+
+# Handle P2P request for the commits that changed one file or folder
+def event_history(e):
+    repo_id = e.header("to")
+    requester = e.header("from")
+
+    repo = mochi.db.row("select * from repositories where id = ? and owner = 1", repo_id)
+    if not repo:
+        e.stream.write({"error": "errors.repository_not_found", "code": 404})
+        return
+
+    if not allowed(requester, repo_id, "read"):
+        e.stream.write({"error": "errors.access_denied", "code": 403})
+        return
+
+    ref = event_text(e, "ref")
+    if not ref:
+        ref = repo_branch_default(repo)
+    path = event_text(e, "path")
+    # Same slash-containing-ref recombination as event_tree.
+    combined = ref + "/" + path if path else ref
+    ref, path = resolve_ref(repo_id, combined)
+    if not valid_ref(ref):
+        e.stream.write({"error": "errors.invalid_ref", "code": 400})
+        return
+    if not path:
+        e.stream.write({"error": "errors.path_is_required", "code": 400})
+        return
+
+    limit = 100
+    limit_str = event_text(e, "limit")
+    if mochi.text.valid(limit_str, "integer"):
+        limit = int(limit_str)
+        if limit < 1 or limit > history_maximum:
+            limit = 100
+
+    commits = mochi.git.commit.log(repo_id, ref, path, limit)
+    if commits == None:
+        e.stream.write({"error": "errors.ref_not_found_remote", "code": 404})
+        return
+    e.stream.write({"ref": ref, "path": path, "commits": commits})
 
 # Handle P2P request for repository archive
 def event_archive(e):

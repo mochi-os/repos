@@ -17,8 +17,6 @@ export interface Repository {
   server: string // Remote server URL (empty for local repos)
   created: string
   updated: string
-  branches?: number
-  tags?: number
 }
 
 export interface InfoResponse {
@@ -32,8 +30,6 @@ export interface InfoResponse {
   size?: number
   created?: string
   updated?: string
-  branches?: number
-  tags?: number
   allow_read?: boolean
   privacy?: string
   isAdmin?: boolean
@@ -93,11 +89,11 @@ export interface TagsResponse {
   tags: Tag[]
 }
 
-interface Commit {
+export interface Commit {
   sha: string
   message: string
   author: string
-  author_email?: string
+  email?: string
   date: number
   parents?: string[]
 }
@@ -107,14 +103,28 @@ export interface CommitsResponse {
 }
 
 export interface CommitResponse {
-  commit: Commit & {
-    diff?: string
-    stats?: {
-      files: number
-      additions: number
-      deletions: number
-    }
-  }
+  commit: Commit
+}
+
+// How two commits are compared: from where their histories split, so only
+// what head adds shows, or as the two stand.
+export type DiffMode = 'diverged' | 'direct'
+
+export interface DiffResponse {
+  // The commits the request's refs named. base is empty for a first commit,
+  // which is compared with nothing.
+  base: string
+  head: string
+  // Where the comparison starts: base, or where base and head split.
+  start: string
+  diff: string
+  commits: Commit[]
+}
+
+export interface HistoryResponse {
+  ref: string
+  path: string
+  commits: Commit[]
 }
 
 export interface TreeEntry {

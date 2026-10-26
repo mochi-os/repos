@@ -8,16 +8,36 @@ import { useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
-import { useBranches } from '@/hooks/use-repository'
+import {
+  getBranches,
+  getCommits,
+  primeCommits,
+  primeQuery,
+  repoKeys,
+  startRequest,
+  useBranches,
+} from '@/hooks/use-repository'
 import { RefSelector } from '@/components/ref-selector'
 import { CommitsList } from '@/features/repository/commits-list'
+import { CompareButton } from '@/features/repository/compare-button'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
-  loader: async ({ params }) => {
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(params.repoId),
-    })
+  // The first page of commits and the branches are asked for alongside the
+  // repository's info, not after it, and handed to the page's queries once
+  // the info names the repository. The commits are asked for with no ref,
+  // which the server reads as the default branch the info names.
+  loader: async ({ params, context }) => {
+    const baseURL = repoBasePath(params.repoId)
+    const branches = startRequest(getBranches(baseURL))
+    const commits = startRequest(getCommits(undefined, 0, baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || params.repoId
+    primeQuery(context.queryClient, repoKeys.branches(id), branches)
+    if (info.default_branch) {
+      const key = repoKeys.commits(id, info.default_branch)
+      primeCommits(context.queryClient, key, commits)
+    }
     return { ...info, repoId: params.repoId }
   },
   component: CommitsPage,
@@ -51,11 +71,18 @@ function CommitsPage() {
           showDownload={false}
         >
           {branches.length > 0 && (
-            <RefSelector
-              branches={branches}
-              value={currentRef}
-              onValueChange={setCurrentRef}
-            />
+            <div className='flex flex-wrap items-center gap-2'>
+              <RefSelector
+                branches={branches}
+                value={currentRef}
+                onValueChange={setCurrentRef}
+              />
+              <CompareButton
+                fingerprint={fingerprint}
+                base={branchesData?.default || data.default_branch || 'main'}
+                head={currentRef}
+              />
+            </div>
           )}
         </RepositoryHeader>
         <CommitsList

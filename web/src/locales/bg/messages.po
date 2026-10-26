@@ -47,10 +47,13 @@ msgstr "(вие)"
 msgid "[not set]"
 msgstr "[не е зададено]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# комит} other {# комита}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# променен файл} other {# променени файла}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} предложи равенство"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} от {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# ред контекст} other {# реда контекст}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Сигурни ли сте, че искате да се откажете
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Сигурни ли сте, че искате да се отпишете от това хранилище?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "В текущия им вид"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Възходящ"
@@ -503,6 +514,7 @@ msgstr "Име на клона"
 msgid "Branch name is required"
 msgstr "Името на клона е задължително"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Клонове"
@@ -595,9 +607,19 @@ msgstr "Променено {field}"
 msgid "Changed occurrence"
 msgstr "Променено повторение"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Промени"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Промени от {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Промени в {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Изберете час"
 msgid "Choose language"
 msgstr "Изберете език"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Изберете какво да сравните"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Изберете език"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Изчисти"
 
@@ -684,6 +711,10 @@ msgstr "Затвори търсенето"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Свиване"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Свиване на всички"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Комити"
 msgid "Compact"
 msgstr "Компактно"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Сравни"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Сравнение - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Сравняване от"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Сравняване с"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Сравни с {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Сравнение"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Конфигурирайте настройките на опцията"
@@ -775,6 +837,10 @@ msgstr "Съдържанието не е намерено."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Съдържанието не е променено"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Контекст"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Всяка минута"
 msgid "Expand"
 msgstr "Разгъване"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Разгъване на всички"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Разгъване на страничната лента"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "файл"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Опции на файла"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Група: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "История"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "История на {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Самоличност"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Игнориране на празните знаци"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Връзки"
 msgid "List"
 msgstr "Списък"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Зареди промените"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Зареди още"
 
@@ -1906,6 +2000,10 @@ msgstr "Все още няма активност"
 msgid "No branches yet"
 msgstr "Все още няма клонове"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Няма промени освен в празните знаци"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Няма промени за показване"
@@ -1913,6 +2011,10 @@ msgstr "Няма промени за показване"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Все още няма коментари"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Няма комити, променили този файл"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Собственик"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Родител"
 
@@ -2166,6 +2269,11 @@ msgstr "Хора"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Изтрий завинаги това хранилище и всичките му данни"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Избери {0} за сравнение"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Хранилища"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Настройките са запазени"
 msgid "Share"
 msgstr "Сподели"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Покажи всички файлове"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Покажи класовете"
@@ -2718,9 +2834,17 @@ msgstr "Покажи класовете"
 msgid "Show fields"
 msgstr "Покажи полетата"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Покажи още редове"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Покажи тази помощ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Покажи целия файл"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Изход"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Излизане..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "От разклоняването им"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Абониране..."
 msgid "Sunday"
 msgstr "Неделя"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Размяна"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Превключи клон"
@@ -2850,6 +2982,7 @@ msgstr "Етикетът трябва да е най-много 50 знака"
 msgid "Tags"
 msgstr "Етикети"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Сървърът върна уеб страница вместо дан�
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Това приложение няма разрешение да използва вашия ключ за достъп. Разрешете го в Настройки, под Разрешения."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Този файл не може да бъде сравнен с тези опции."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Този файл е твърде голям за показване ({0
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Тази страница изисква контекст на хранилище."
@@ -3175,6 +3314,11 @@ msgstr "Преглед и редакция на детайлите за елем
 msgid "View controls"
 msgstr "Контроли за изглед"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Преглед на файла"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Гласовият запис не се поддържа в този браузър"
@@ -3201,6 +3345,10 @@ msgstr "Изпратихме код за потвърждение на <0>{0}</0
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Сряда"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Цели файлове"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

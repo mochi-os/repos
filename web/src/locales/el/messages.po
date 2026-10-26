@@ -47,10 +47,13 @@ msgstr "(εσείς)"
 msgid "[not set]"
 msgstr "[χωρίς ορισμό]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} other {# commits}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# αρχείο άλλαξε} other {# αρχεία άλλαξαν}}"
 
@@ -138,6 +141,10 @@ msgstr "Ο/Η {opponentName} πρότεινε ισοπαλία"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} από {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# γραμμή πλαισίου} other {# γραμμές πλαισίου}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Είστε σίγουροι ότι θέλετε να παραιτηθε�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τη συνδρομή σας από αυτό το αποθετήριο;"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Όπως είναι τώρα"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Αύξουσα"
@@ -503,6 +514,7 @@ msgstr "Όνομα κλάδου"
 msgid "Branch name is required"
 msgstr "Το όνομα κλάδου είναι υποχρεωτικό"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Κλάδοι"
@@ -595,9 +607,19 @@ msgstr "Άλλαξε {field}"
 msgid "Changed occurrence"
 msgstr "Τροποποιημένη επανάληψη"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Αλλαγές"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Αλλαγές από {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Αλλαγές στο {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Επιλέξτε ώρα"
 msgid "Choose language"
 msgstr "Επιλογή γλώσσας"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Επιλέξτε τι θα συγκρίνετε"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Επιλογή γλώσσας"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Εκκαθάριση"
 
@@ -684,6 +711,10 @@ msgstr "Κλείσιμο αναζήτησης"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Σύμπτυξη"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Σύμπτυξη όλων"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commits"
 msgid "Compact"
 msgstr "Συμπαγές"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Σύγκριση"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Σύγκριση - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Σύγκριση από"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Σύγκριση με"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Σύγκριση με {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Σύγκριση"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Διαμόρφωση ρυθμίσεων επιλογής"
@@ -775,6 +837,10 @@ msgstr "Το περιεχόμενο δεν βρέθηκε."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Το περιεχόμενο δεν τροποποιήθηκε"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Πλαίσιο"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Κάθε λεπτό"
 msgid "Expand"
 msgstr "Ανάπτυξη"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Ανάπτυξη όλων"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Επέκταση πλευρικής μπάρας"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "αρχείο"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Επιλογές αρχείου"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Ομάδα: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Ιστορικό"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Ιστορικό του {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "Αναγνωριστικό"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Ταυτότητα"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Παράβλεψη κενών"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Σύνδεσμοι"
 msgid "List"
 msgstr "Λίστα"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Φόρτωση αλλαγών"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Φόρτωση περισσότερων"
 
@@ -1906,6 +2000,10 @@ msgstr "Δεν υπάρχει ακόμη δραστηριότητα"
 msgid "No branches yet"
 msgstr "Δεν υπάρχουν ακόμη κλάδοι"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Καμία αλλαγή πέρα από κενά"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Δεν υπάρχουν αλλαγές προς εμφάνιση"
@@ -1913,6 +2011,10 @@ msgstr "Δεν υπάρχουν αλλαγές προς εμφάνιση"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Δεν υπάρχουν ακόμη σχόλια"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Κανένα commit δεν άλλαξε αυτό το αρχείο"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Ιδιοκτήτης"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Γονικό"
 
@@ -2166,6 +2269,11 @@ msgstr "Άτομα"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Διαγράψτε οριστικά αυτό το αποθετήριο και όλα τα δεδομένα του"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Επιλογή του {0} για σύγκριση"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Αποθετήρια"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
 msgid "Share"
 msgstr "Κοινοποίηση"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Εμφάνιση όλων των αρχείων"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Εμφάνιση κλάσεων"
@@ -2718,9 +2834,17 @@ msgstr "Εμφάνιση κλάσεων"
 msgid "Show fields"
 msgstr "Εμφάνιση πεδίων"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Εμφάνιση περισσότερων γραμμών"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Εμφάνιση βοήθειας"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Εμφάνιση ολόκληρου του αρχείου"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Αποσύνδεση"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Αποσύνδεση..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Από τη διακλάδωσή τους"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Εγγραφή..."
 msgid "Sunday"
 msgstr "Κυριακή"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Αντιμετάθεση"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Αλλαγή κλάδου"
@@ -2850,6 +2982,7 @@ msgstr "Η ετικέτα πρέπει να έχει έως 50 χαρακτήρ�
 msgid "Tags"
 msgstr "Ετικέτες"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Ο διακομιστής επέστρεψε ιστοσελίδα αντ
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Αυτή η εφαρμογή δεν επιτρέπεται να χρησιμοποιήσει το κλειδί πρόσβασής σας. Επιτρέψτε το στις Ρυθμίσεις, στην ενότητα Δικαιώματα."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Αυτό το αρχείο δεν μπορεί να συγκριθεί με αυτές τις επιλογές."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Αυτό το αρχείο είναι πολύ μεγάλο για να 
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Αυτή η σελίδα απαιτεί πλαίσιο αποθετηρίου."
@@ -3175,6 +3314,11 @@ msgstr "Προβολή και επεξεργασία λεπτομερειών σ
 msgid "View controls"
 msgstr "Στοιχεία ελέγχου προβολής"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Προβολή αρχείου"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Η φωνητική εγγραφή δεν υποστηρίζεται σε αυτό το πρόγραμμα περιήγησης"
@@ -3201,6 +3345,10 @@ msgstr "Στείλαμε έναν κωδικό επαλήθευσης στο <0>
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Τετάρτη"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Ολόκληρα αρχεία"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

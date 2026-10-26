@@ -47,10 +47,13 @@ msgstr "(chi)"
 msgid "[not set]"
 msgstr "[heb ei osod]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, zero {# ymrwymiad} one {# ymrwymiad} two {# ymrwymiad} few {# ymrwymiad} many {# ymrwymiad} other {# ymrwymiad}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, zero {# ffeil wedi newid} one {# ffeil wedi newid} two {# ffeil wedi newid} few {# ffeil wedi newid} many {# ffeil wedi newid} other {# ffeil wedi newid}}"
 
@@ -138,6 +141,10 @@ msgstr "Cynigiodd {opponentName} gêm gyfartal"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} o {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, zero {# llinell o gyd-destun} one {# llinell o gyd-destun} two {# linell o gyd-destun} few {# llinell o gyd-destun} many {# llinell o gyd-destun} other {# llinell o gyd-destun}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Ydych chi'n siŵr eich bod am ymddiswyddo? Bydd {opponentName} yn ennill
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Ydych chi'n siŵr eich bod am ddad-danysgrifio o'r ystorfa hon?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Fel y maen nhw nawr"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Esgynnol"
@@ -503,6 +514,7 @@ msgstr "Enw'r gangen"
 msgid "Branch name is required"
 msgstr "Mae angen enw cangen"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Canghennau"
@@ -595,9 +607,19 @@ msgstr "Newidiwyd {field}"
 msgid "Changed occurrence"
 msgstr "Achlysur wedi'i newid"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Newidiadau"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Newidiadau o {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Newidiadau yn {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Dewiswch amser"
 msgid "Choose language"
 msgstr "Dewiswch iaith"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Dewis beth i'w gymharu"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Dewiswch iaith"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Clirio"
 
@@ -684,6 +711,10 @@ msgstr "Cau chwiliad"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Crebachu"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Crebachu'r cyfan"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Ymrwymiadau"
 msgid "Compact"
 msgstr "Cryno"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Cymharu"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Cymharu - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Cymharu o"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Cymharu â"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Cymharu â {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Cymhariaeth"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Ffurfweddu gosodiadau opsiwn"
@@ -775,6 +837,10 @@ msgstr "Ni chanfuwyd y cynnwys."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Cynnwys heb ei addasu"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Cyd-destun"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Pob munud"
 msgid "Expand"
 msgstr "Ehangu"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Ehangu'r cyfan"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Ehangu'r bar ochr"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/fy-nodwedd"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ffeil"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Opsiynau ffeil"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Grŵp: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Hanes"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Hanes {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Hunaniaeth"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Anwybyddu bylchau"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Dolenni"
 msgid "List"
 msgstr "Rhestr"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Llwytho'r newidiadau"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Llwytho mwy"
 
@@ -1906,6 +2000,10 @@ msgstr "Dim gweithgaredd eto"
 msgid "No branches yet"
 msgstr "Dim canghennau eto"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Dim newidiadau heblaw bylchau"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Dim newidiadau i'w dangos"
@@ -1913,6 +2011,10 @@ msgstr "Dim newidiadau i'w dangos"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Dim sylwadau eto"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Does dim ymrwymiad wedi newid y ffeil hon"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Perchennog"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Rhiant"
 
@@ -2166,6 +2269,11 @@ msgstr "Pobl"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Dileu'r ystorfa hon a'i holl ddata yn barhaol"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Dewis {0} i'w gymharu"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Ystorfeydd"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Gosodiadau wedi'u cadw"
 msgid "Share"
 msgstr "Rhannu"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Dangos pob ffeil"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Dangos dosbarthiadau"
@@ -2718,9 +2834,17 @@ msgstr "Dangos dosbarthiadau"
 msgid "Show fields"
 msgstr "Dangos meysydd"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Dangos rhagor o linellau"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Dangos y cymorth hwn"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Dangos y ffeil gyfan"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Allgofnodi"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Yn allgofnodi..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Ers iddyn nhw wahanu"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Yn tanysgrifio..."
 msgid "Sunday"
 msgstr "Dydd Sul"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Cyfnewid"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Newid cangen"
@@ -2850,6 +2982,7 @@ msgstr "Rhaid i'r tag fod yn 50 nod neu lai"
 msgid "Tags"
 msgstr "Tagiau"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Dychwelodd y gweinydd dudalen we yn lle data."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Nid yw'r ap hwn yn cael defnyddio eich pasallwedd. Caniatewch hynny yn Gosodiadau, o dan Caniatadau."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Does dim modd cymharu'r ffeil hon gyda'r opsiynau hyn."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Mae'r ffeil hon yn rhy fawr i'w dangos ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Mae angen cyd-destun ystorfa ar y dudalen hon."
@@ -3175,6 +3314,11 @@ msgstr "Gweld a golygu manylion eitem"
 msgid "View controls"
 msgstr "Rheolaethau golwg"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Gweld y ffeil"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Nid yw recordio llais yn cael ei gefnogi yn y porwr hwn"
@@ -3201,6 +3345,10 @@ msgstr "Rydym wedi anfon cod dilysu i <0>{0}</0>. Rhowch y cod isod i ddilysu ei
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Dydd Mercher"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Ffeiliau cyfan"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

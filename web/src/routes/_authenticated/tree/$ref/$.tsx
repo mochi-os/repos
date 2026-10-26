@@ -6,12 +6,33 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, requestHelpers, GeneralError } from '@mochi/web'
 import type { InfoResponse } from '@/api/types'
+import {
+  getBranches,
+  getTree,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { FileTree } from '@/features/repository/file-browser'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/tree/$ref/$')({
-  loader: async () => {
+  // The folder and the branches are asked for alongside the repository's
+  // info, not after it, and handed to the page's queries once the info names
+  // the repository.
+  loader: async ({ params, context }) => {
+    const path = params._splat || ''
+    const branches = startRequest(getBranches())
+    const tree = startRequest(getTree(params.ref, path))
     const info = await requestHelpers.get<InfoResponse>('info')
+    if (info.entity && info.id) {
+      primeQuery(context.queryClient, repoKeys.branches(info.id), branches)
+      primeQuery(
+        context.queryClient,
+        repoKeys.tree(info.id, params.ref, path),
+        tree
+      )
+    }
     return info
   },
   component: TreePage,

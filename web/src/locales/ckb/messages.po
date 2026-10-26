@@ -47,10 +47,13 @@ msgstr "(تۆ)"
 msgid "[not set]"
 msgstr "[دانەنراوە]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# کۆمیت} other {# کۆمیت}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# پەڕگە گۆڕدرا} other {# پەڕگە گۆڕدران}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} پێشنیاری یەکسانی کرد"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} لە {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# دێڕی دەوروبەر} other {# دێڕی دەوروبەر}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "ئایا دڵنیایت لە دەستلەکارکێشانەوە؟ {oppon
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ئایا دڵنیایت لە لابردنی بەشداری ئەم ئەمبارە؟"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "وەک ئێستا هەن"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "سەرکەوتوو"
@@ -503,6 +514,7 @@ msgstr "ناوی لق"
 msgid "Branch name is required"
 msgstr "ناوی لق پێویستە"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "لقەکان"
@@ -595,9 +607,19 @@ msgstr "{field} گۆڕدرا"
 msgid "Changed occurrence"
 msgstr "ڕوودانی گۆڕاو"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "گۆڕانکارییەکان"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "گۆڕانکارییەکان لە {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "گۆڕانکارییەکان لە {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "کاتێک هەڵبژێرە"
 msgid "Choose language"
 msgstr "زمان هەڵبژێرە"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "هەڵبژێرە چی بەراورد بکەیت"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "زمان هەڵبژێرە"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "پاککردنەوە"
 
@@ -684,6 +711,10 @@ msgstr "داخستنی گەڕان"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "داپۆشین"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "داپۆشینی هەموو"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commitـەکان"
 msgid "Compact"
 msgstr "بچووککراوە"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "بەراوردکردن"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "بەراوردکردن - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "بەراوردکردن لە"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "بەراوردکردن لەگەڵ"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "بەراوردکردن لەگەڵ {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "بەراوردکردن"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "ڕێکخستنی هەڵبژاردە ڕێک بخە"
@@ -775,6 +837,10 @@ msgstr "ناوەڕۆک نەدۆزرایەوە."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "ناوەڕۆک گۆڕانکاری تێدا نەکراوە"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "دەوروبەر"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "هەموو خولەکێک"
 msgid "Expand"
 msgstr "فراوانکردن"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "فراوانکردنی هەموو"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "فراوانکردنی لاتەنیشت"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "فایل"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "هەڵبژاردەکانی فایل"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "گروپ: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "مێژوو"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "مێژووی {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ناسنامە"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "ناسنامە"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "پشتگوێخستنی بۆشایی"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "بەستەرەکان"
 msgid "List"
 msgstr "لیست"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "بارکردنی گۆڕانکارییەکان"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "زیاتر باربکە"
 
@@ -1906,6 +2000,10 @@ msgstr "هێشتا هیچ چالاکییەک نییە"
 msgid "No branches yet"
 msgstr "هێشتا هیچ لقێک نییە"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "هیچ گۆڕانکارییەک نییە جگە لە بۆشایی"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "هیچ گۆڕانکارییەک نییە بۆ پیشاندان"
@@ -1913,6 +2011,10 @@ msgstr "هیچ گۆڕانکارییەک نییە بۆ پیشاندان"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "هێشتا هیچ بۆچوونێک نییە"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "هیچ کۆمیتێک ئەم فایلەی نەگۆڕیوە"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "خاوەن"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "باوان"
 
@@ -2166,6 +2269,11 @@ msgstr "خەڵک"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "ئەم کۆگایە و هەموو داتاکانی بە یەکجاری بسڕەوە"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "هەڵبژاردنی {0} بۆ بەراوردکردن"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "کۆگاکان"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "ڕێکخستنەکان پاشەکەوتکران"
 msgid "Share"
 msgstr "هاوبەش بکە"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "پیشاندانی هەموو فایلەکان"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "پۆلەکان پیشانبدە"
@@ -2718,9 +2834,17 @@ msgstr "پۆلەکان پیشانبدە"
 msgid "Show fields"
 msgstr "خانەکان پیشانبدە"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "پیشاندانی دێڕی زیاتر"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "ئەم یارمەتییە پیشانبدە"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "پیشاندانی تەواوی فایل"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "چوونەدەرەوە"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "چوونە دەرەوە..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "لەو کاتەوەی جیابوونەتەوە"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "بەشداربوون..."
 msgid "Sunday"
 msgstr "یەکشەممە"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "ئاڵوگۆڕکردن"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "گۆڕینی لق"
@@ -2850,6 +2982,7 @@ msgstr "تاگ دەبێت ٥٠ پیت یان کەمتر بێت"
 msgid "Tags"
 msgstr "تاگەکان"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "ڕاژەکار لە جیاتی داتا پەڕەیەکی وێبی گەڕ
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ئەم بەرنامەیە ڕێگەپێدراو نییە پاسکییەکەت بەکاربهێنێت. لە ڕێکخستنەکان، لەژێر ڕێگەپێدانەکان ڕێگەی پێبدە."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ئەم فایلە ناتوانرێت بەم هەڵبژاردانە بەراورد بکرێت."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ئەم پەڕگەیە زۆر گەورەیە بۆ پیشاندان ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "ئەم لاپەڕەیە پێویستی بە چوارچێوەی ڕیپۆزیتۆری هەیە."
@@ -3175,6 +3314,11 @@ msgstr "وردەکارییەکانی بابەت ببینە و دەستکاری �
 msgid "View controls"
 msgstr "کۆنترۆڵەکانی بینین"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "بینینی فایل"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "تۆمارکردنی دەنگ لەم وێبگەڕەدا پشتگیری ناکرێت"
@@ -3201,6 +3345,10 @@ msgstr "کۆدی پشتڕاستکردنەوەمان نارد بۆ <0>{0}</0>. ب
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "چوارشەممە"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "فایلە تەواوەکان"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

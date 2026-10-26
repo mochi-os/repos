@@ -4,15 +4,43 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
-import { Header, Main, Button, usePageTitle, GeneralError } from '@mochi/web'
+import {
+  Header,
+  Main,
+  Button,
+  StickyBar,
+  usePageTitle,
+  GeneralError,
+} from '@mochi/web'
 import { FolderGit2, ArrowLeft } from 'lucide-react'
 import { reposRequest } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import { commitSearch } from '@/lib/diff-options'
+import {
+  commitDiffRequest,
+  getCommit,
+  getDiff,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
+import { useCommitChanges } from '@/features/repository/commit-changes'
 import { CommitDetails } from '@/features/repository/commit-details'
 
 export const Route = createFileRoute('/_authenticated/commit/$sha')({
-  loader: async () => {
+  validateSearch: commitSearch,
+  // The commit and its diff are asked for alongside the repository's info,
+  // not after it, and handed to the page's queries once the info names the
+  // repository.
+  loader: async ({ params, location, context }) => {
+    const request = commitDiffRequest(params.sha, commitSearch(location.search))
+    const commit = startRequest(getCommit(params.sha))
+    const diff = startRequest(getDiff(request))
     const info = await reposRequest.get<InfoResponse>('info')
+    if (info.entity && info.id) {
+      primeQuery(context.queryClient, repoKeys.commit(info.id, params.sha), commit)
+      primeQuery(context.queryClient, repoKeys.diff(info.id, request), diff)
+    }
     return info
   },
   component: CommitPage,
@@ -23,6 +51,19 @@ function CommitPage() {
   const { t } = useLingui()
   const data = Route.useLoaderData()
   const { sha } = Route.useParams()
+  const search = Route.useSearch()
+  const navigate = Route.useNavigate()
+  const changes = useCommitChanges({
+    repoId: data.id ?? '',
+    fingerprint: data.fingerprint || data.id || '',
+    sha,
+    search,
+    onSearch: (next) =>
+      void navigate({
+        search: (previous) => ({ ...previous, ...next }),
+        replace: true,
+      }),
+  })
 
   usePageTitle(t`Commit ${sha.substring(0, 7)} - ${data.name}`)
 
@@ -73,6 +114,10 @@ function CommitPage() {
             fingerprint={data.fingerprint || data.id}
             sha={sha}
           />
+          {changes.bar && (
+            <StickyBar className='-mt-2 py-2'>{changes.bar}</StickyBar>
+          )}
+          {changes.body}
         </div>
       </Main>
     </>

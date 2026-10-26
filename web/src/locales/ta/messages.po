@@ -47,10 +47,13 @@ msgstr "(நீங்கள்)"
 msgid "[not set]"
 msgstr "[அமைக்கப்படவில்லை]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# கமிட்} other {# கமிட்கள்}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# கோப்பு மாற்றப்பட்டது} other {# கோப்புகள் மாற்றப்பட்டன}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} சமநிலை வழங்கினார்"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel}இல் {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# சூழல் வரி} other {# சூழல் வரிகள்}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "நீங்கள் சரணடைய விரும்புகி�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "இந்த களஞ்சியத்திலிருந்து சந்தா நீக்க விரும்புகிறீர்களா?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "தற்போதைய நிலையில்"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
@@ -503,6 +514,7 @@ msgstr "கிளை பெயர்"
 msgid "Branch name is required"
 msgstr "கிளை பெயர் தேவை"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "கிளைகள்"
@@ -595,9 +607,19 @@ msgstr "{field} மாற்றப்பட்டது"
 msgid "Changed occurrence"
 msgstr "மாற்றப்பட்ட நிகழ்வு"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "மாற்றங்கள்"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} மாற்றங்கள்"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0} இல் மாற்றங்கள்"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "நேரத்தைத் தேர்ந்தெடுக்கவ�
 msgid "Choose language"
 msgstr "மொழியைத் தேர்ந்தெடுக்கவும்"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "எதை ஒப்பிட வேண்டும் எனத் தேர்ந்தெடு"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "மொழியைத் தேர்ந்தெடுக்கவு�
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "அழி"
 
@@ -684,6 +711,10 @@ msgstr "தேடலை மூடு"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "சுருக்கு"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "அனைத்தையும் சுருக்கு"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "கமிட்கள்"
 msgid "Compact"
 msgstr "சுருக்கமான"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "ஒப்பிடு"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "ஒப்பீடு - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "ஒப்பீட்டின் தொடக்கம்"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "ஒப்பீட்டின் முடிவு"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0} உடன் ஒப்பிடு"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "ஒப்பீட்டு முறை"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "விருப்ப அமைப்புகளை உள்ளமைக்கவும்"
@@ -775,6 +837,10 @@ msgstr "உள்ளடக்கம் கிடைக்கவில்லை."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "உள்ளடக்கம் மாற்றப்படவில்லை"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "சூழல்"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "ஒவ்வொரு நிமிடமும்"
 msgid "Expand"
 msgstr "விரிவாக்கு"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "அனைத்தையும் விரிவாக்கு"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "பக்கப்பட்டியை விரிவாக்கு"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "கோப்பு"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "கோப்பு விருப்பங்கள்"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "குழு: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "வரலாறு"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} வரலாறு - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ஐடி"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "அடையாளம்"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "இடைவெளிகளைப் புறக்கணி"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "இணைப்புகள்"
 msgid "List"
 msgstr "பட்டியல்"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "வேறுபாடுகளை ஏற்று"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "மேலும் ஏற்று"
 
@@ -1906,6 +2000,10 @@ msgstr "செயல்பாடு இன்னும் இல்லை"
 msgid "No branches yet"
 msgstr "Branchகள் இன்னும் இல்லை"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "இடைவெளிகளைத் தவிர வேறு மாற்றங்கள் இல்லை"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "காட்ட மாற்றங்கள் எதுவும் இல்லை"
@@ -1913,6 +2011,10 @@ msgstr "காட்ட மாற்றங்கள் எதுவும் இ
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "கருத்துகள் இன்னும் இல்லை"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "எந்தக் கமிட்டும் இந்தக் கோப்பை மாற்றவில்லை"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "உரிமையாளர்"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "பெற்றோர்"
 
@@ -2166,6 +2269,11 @@ msgstr "மக்கள்"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "இந்த களஞ்சியம் மற்றும் அதன் அனைத்து தரவுகளையும் நிரந்தரமாக நீக்கவும்"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "ஒப்பிட {0} ஐத் தேர்ந்தெடு"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "ரெபாசிட்டரிகள்"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "அமைப்புகள் சேமிக்கப்பட்ட�
 msgid "Share"
 msgstr "பகிர்"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "அனைத்துக் கோப்புகளையும் காட்டு"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "வகுப்புகளை காட்டு"
@@ -2718,9 +2834,17 @@ msgstr "வகுப்புகளை காட்டு"
 msgid "Show fields"
 msgstr "புலங்களை காட்டு"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "மேலும் வரிகளைக் காட்டு"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "இந்த உதவியைக் காட்டு"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "முழுக் கோப்பைக் காட்டு"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "வெளியேறு"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "வெளியேறுகிறது..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "பிரிந்ததிலிருந்து"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "சந்தாதாராகிறது..."
 msgid "Sunday"
 msgstr "ஞாயிற்றுக்கிழமை"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "இடமாற்று"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "கிளையை மாற்று"
@@ -2850,6 +2982,7 @@ msgstr "குறிச்சொல் 50 எழுத்துகள் அல�
 msgid "Tags"
 msgstr "டேக்குகள்"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "சேவையகம் தரவுக்குப் பதிலா�
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "இந்த ஆப்ஸுக்கு உங்கள் கடவுக்குறியைப் பயன்படுத்த அனுமதி இல்லை. அமைப்புகளில், அனுமதிகள் பிரிவில் அதை அனுமதிக்கவும்."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "இந்த விருப்பங்களுடன் இந்தக் கோப்பை ஒப்பிட முடியாது."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "இந்தக் கோப்பு காட்ட முடியா
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "இந்த பக்கத்திற்கு ரெபாசிட்டரி சூழல் தேவை."
@@ -3175,6 +3314,11 @@ msgstr "உருப்படி விவரங்களை பார்த்�
 msgid "View controls"
 msgstr "காட்சி கட்டுப்பாடுகள்"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "கோப்பைக் காண்க"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "இந்த உலாவியில் குரல் பதிவு ஆதரிக்கப்படவில்லை"
@@ -3201,6 +3345,10 @@ msgstr "நாங்கள் <0>{0}</0> க்கு சரிபார்ப�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "புதன்கிழமை"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "முழுக் கோப்புகள்"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

@@ -47,10 +47,13 @@ msgstr "(vy)"
 msgid "[not set]"
 msgstr "[neuvedeno]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# commit} few {# commity} many {# commitu} other {# commitů}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# soubor změněn} few {# soubory změněny} many {# souboru změněno} other {# souborů změněno}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} nabídl remízu"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} z {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {# řádek kontextu} few {# řádky kontextu} many {# řádku kontextu} other {# řádků kontextu}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Opravdu se chcete vzdát? {opponentName} vyhraje hru."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Opravdu se chcete odhlásit z odběru tohoto repozitáře?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "V aktuálním stavu"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Vzestupně"
@@ -503,6 +514,7 @@ msgstr "Název větve"
 msgid "Branch name is required"
 msgstr "Název větve je povinný"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Větve"
@@ -595,9 +607,19 @@ msgstr "Změněno {field}"
 msgid "Changed occurrence"
 msgstr "Změněné opakování"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Změny"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Změny z {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Změny v {0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Vyberte čas"
 msgid "Choose language"
 msgstr "Vyberte jazyk"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Vyberte, co porovnat"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Vyberte jazyk"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Vymazat"
 
@@ -684,6 +711,10 @@ msgstr "Zavřít hledání"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Sbalit"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Sbalit vše"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commity"
 msgid "Compact"
 msgstr "Kompaktní"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Porovnat"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Porovnání - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Porovnat od"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Porovnat s"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Porovnat s {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Porovnání"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Nakonfigurovat nastavení možností"
@@ -775,6 +837,10 @@ msgstr "Obsah nebyl nalezen."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Obsah nebyl změněn"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Kontext"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Každá minuta"
 msgid "Expand"
 msgstr "Rozbalit"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Rozbalit vše"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Rozbalit postranní panel"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "soubor"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Možnosti souboru"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Skupina: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Historie"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Historie souboru {fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Identita"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ignorovat bílé znaky"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Odkazy"
 msgid "List"
 msgstr "Seznam"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Načíst změny"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Načíst další"
 
@@ -1906,6 +2000,10 @@ msgstr "Zatím žádná aktivita"
 msgid "No branches yet"
 msgstr "Zatím žádné větve"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Žádné změny kromě bílých znaků"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Žádné změny k zobrazení"
@@ -1913,6 +2011,10 @@ msgstr "Žádné změny k zobrazení"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Zatím žádné komentáře"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Tento soubor nezměnil žádný commit"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Vlastník"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Rodič"
 
@@ -2166,6 +2269,11 @@ msgstr "Lidé"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Trvale smazat toto repozitáře a všechna jeho data"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Vybrat {0} k porovnání"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Repozitáře"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Nastavení uloženo"
 msgid "Share"
 msgstr "Sdílet"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Zobrazit všechny soubory"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Zobrazit třídy"
@@ -2718,9 +2834,17 @@ msgstr "Zobrazit třídy"
 msgid "Show fields"
 msgstr "Zobrazit pole"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Zobrazit více řádků"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Zobrazit tuto nápovědu"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Zobrazit celý soubor"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Odhlásit se"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Odhlašování..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Od rozdělení"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Nastavuje se odběr..."
 msgid "Sunday"
 msgstr "Neděle"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Prohodit"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Přepnout větev"
@@ -2850,6 +2982,7 @@ msgstr "Štítek musí mít nejvýše 50 znaků"
 msgid "Tags"
 msgstr "Štítky"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Server vrátil webovou stránku místo dat."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Tato aplikace nemá povolení používat váš přístupový klíč. Povolte ji v Nastavení v části Oprávnění."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Tento soubor nelze s těmito možnostmi porovnat."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Tento soubor je pro zobrazení příliš velký ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Tato stránka vyžaduje kontext repozitáře."
@@ -3175,6 +3314,11 @@ msgstr "Zobrazit a upravit detaily položky"
 msgid "View controls"
 msgstr "Zobrazit ovládací prvky"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Zobrazit soubor"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Nahrávání hlasu není v tomto prohlížeči podporováno"
@@ -3201,6 +3345,10 @@ msgstr "Ověřovací kód jsme odeslali na <0>{0}</0>. Zadejte kód níže pro o
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "Středa"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Celé soubory"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

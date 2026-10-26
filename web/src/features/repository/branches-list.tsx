@@ -32,7 +32,7 @@ import {
   toastAction,
   getErrorMessage,
 } from '@mochi/web'
-import { GitBranch, Plus, Trash2 } from 'lucide-react'
+import { GitBranch, GitCompare, Plus, Trash2 } from 'lucide-react'
 import {
   useBranches,
   useCreateBranch,
@@ -175,6 +175,29 @@ export function BranchesList({
                     {branch.sha.substring(0, 7)}
                   </code>
                 </Link>
+                {branch.name !== actualDefault && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant='ghost'
+                        size='icon'
+                        asChild
+                        aria-label={t`Compare`}
+                      >
+                        <Link
+                          to='/$repoId/compare/$'
+                          params={{
+                            repoId: fingerprint,
+                            _splat: `${actualDefault}...${branch.name}`,
+                          }}
+                        >
+                          <GitCompare className='h-4 w-4' />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>{t`Compare`}</TooltipContent>
+                  </Tooltip>
+                )}
                 <DownloadDropdown gitRef={branch.name} variant='icon' />
                 {canManage && branch.name !== actualDefault && (
                   <Tooltip>

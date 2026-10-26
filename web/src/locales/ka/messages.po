@@ -47,10 +47,13 @@ msgstr "(თქვენ)"
 msgid "[not set]"
 msgstr "[არ არის მითითებული]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# კომიტი} other {# კომიტი}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {# ფაილი შეიცვალა}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName}-მა ფრე შემოგთავაზათ"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} / {totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {კონტექსტის # ხაზი} other {კონტექსტის # ხაზი}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "დარწმუნებული ხართ, რომ გსუ�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "დარწმუნებული ხართ, რომ გსურთ ამ რეპოზიტორიდან გამოწერის შეწყვეტა?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "როგორც ახლაა"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ზრდადობით"
@@ -503,6 +514,7 @@ msgstr "ბრენჩის სახელი"
 msgid "Branch name is required"
 msgstr "ბრენჩის სახელი აუცილებელია"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "ბრენჩები"
@@ -595,9 +607,19 @@ msgstr "შეიცვალა {field}"
 msgid "Changed occurrence"
 msgstr "შეცვლილი გამეორება"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "ცვლილებები"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "ცვლილებები {0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "ცვლილებები {0}-ში"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "აირჩიეთ დრო"
 msgid "Choose language"
 msgstr "აირჩიეთ ენა"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "აირჩიეთ, რა შევადაროთ"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "აირჩიეთ ენა"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "გასუფთავება"
 
@@ -684,6 +711,10 @@ msgstr "ძიების დახურვა"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "ჩაკეცვა"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "ყველას ჩაკეცვა"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Commit-ები"
 msgid "Compact"
 msgstr "კომპაქტური"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "შედარება"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "შედარება - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "შედარების საწყისი"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "შედარების სამიზნე"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "შედარება {0}-თან"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "შედარება"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "ვარიანტის პარამეტრების კონფიგურაცია"
@@ -775,6 +837,10 @@ msgstr "შიგთავსი ვერ მოიძებნა."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "შიგთავსი არ შეცვლილა"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "კონტექსტი"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "ყოველი წუთი"
 msgid "Expand"
 msgstr "გაშლა"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "ყველას გაშლა"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "გვერდითი პანელის გაშლა"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ფაილი"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "ფაილის პარამეტრები"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "ჯგუფი: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "ისტორია"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName}-ის ისტორია - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "ვინაობა"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "ჰარების იგნორირება"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "ბმულები"
 msgid "List"
 msgstr "სია"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "განსხვავებების ჩატვირთვა"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "მეტის ჩატვირთვა"
 
@@ -1906,6 +2000,10 @@ msgstr "აქტივობა ჯერ არ არის"
 msgid "No branches yet"
 msgstr "ბრანჩები ჯერ არ არის"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "ჰარების გარდა ცვლილებები არ არის"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "საჩვენებელი ცვლილებები არ არის"
@@ -1913,6 +2011,10 @@ msgstr "საჩვენებელი ცვლილებები არ 
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "კომენტარები ჯერ არ არის"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "ამ ფაილში ცვლილება არცერთ კომიტს არ შეუტანია"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "მფლობელი"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "მშობელი"
 
@@ -2166,6 +2269,11 @@ msgstr "ადამიანები"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "სამუდამოდ წაშალეთ ეს რეპოზიტორია და მთელი მისი მონაცემები"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "{0}-ის არჩევა შესადარებლად"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "საცავები"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "პარამეტრები შენახულია"
 msgid "Share"
 msgstr "გაზიარება"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "ყველა ფაილის ჩვენება"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "კლასების ჩვენება"
@@ -2718,9 +2834,17 @@ msgstr "კლასების ჩვენება"
 msgid "Show fields"
 msgstr "ველების ჩვენება"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "მეტი ხაზის ჩვენება"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "ამ დახმარების ჩვენება"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "მთლიანი ფაილის ჩვენება"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "გასვლა"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "გასვლა მიმდინარეობს..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "განშტოების მომენტიდან"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "გამოწერა მიმდინარეობს..."
 msgid "Sunday"
 msgstr "კვირა"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "გაცვლა"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "ბრენჩის გადართვა"
@@ -2850,6 +2982,7 @@ msgstr "ტეგი უნდა იყოს მაქსიმუმ 50 ს�
 msgid "Tags"
 msgstr "ტეგები"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "სერვერმა მონაცემების ნაცვ�
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ამ აპლიკაციას თქვენი წვდომის გასაღების გამოყენების უფლება არ აქვს. დაუშვით პარამეტრებში, უფლებების განყოფილებაში."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ამ ფაილის შედარება ამ პარამეტრებით შეუძლებელია."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ეს ფაილი ზედმეტად დიდია სა�
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "ამ გვერდს სჭირდება რეპოზიტორის კონტექსტი."
@@ -3175,6 +3314,11 @@ msgstr "ელემენტის დეტალების ნახვა 
 msgid "View controls"
 msgstr "ხედის მართვა"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ფაილის ნახვა"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "ხმის ჩაწერა ამ ბრაუზერში მხარდაჭერილი არ არის"
@@ -3201,6 +3345,10 @@ msgstr "გავაგზავნეთ დამადასტურებ�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "ოთხშაბათი"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "მთლიანი ფაილები"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

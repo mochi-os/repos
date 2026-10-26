@@ -47,10 +47,13 @@ msgstr "(나)"
 msgid "[not set]"
 msgstr "[설정 안 됨]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, other {커밋 #개}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, other {# 개 파일 변경됨}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName}이(가) 무승부를 제안했습니다"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel} 중 {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, other {컨텍스트 #줄}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "정말 기권하시겠습니까? {opponentName}이(가) 게임에서 이
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "이 저장소 구독을 해지할까요?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "현재 상태 그대로"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "오름차순"
@@ -503,6 +514,7 @@ msgstr "브랜치 이름"
 msgid "Branch name is required"
 msgstr "브랜치 이름이 필요해요"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "브랜치"
@@ -595,9 +607,19 @@ msgstr "{field} 변경됨"
 msgid "Changed occurrence"
 msgstr "변경된 일정"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "변경 사항"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1}의 변경 사항"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0}의 변경 사항"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "시간 선택"
 msgid "Choose language"
 msgstr "언어 선택"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "비교할 대상을 선택하세요"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "언어 선택"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "지우기"
 
@@ -684,6 +711,10 @@ msgstr "검색 닫기"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "접기"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "모두 접기"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "커밋"
 msgid "Compact"
 msgstr "컴팩트"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "비교"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "비교 - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "비교 기준"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "비교 대상"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0}와(과) 비교"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "비교 방식"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "옵션 설정 구성"
@@ -775,6 +837,10 @@ msgstr "콘텐츠를 찾을 수 없어요."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "콘텐츠가 수정되지 않았어요"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "컨텍스트"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "1분 단위"
 msgid "Expand"
 msgstr "펼치기"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "모두 펼치기"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "사이드바 펼치기"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "파일"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "파일 옵션"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "그룹: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "기록"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName} 기록 - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "신원"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "공백 무시"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "링크"
 msgid "List"
 msgstr "목록"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "차이점 불러오기"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "더 보기"
 
@@ -1906,6 +2000,10 @@ msgstr "아직 활동이 없어요"
 msgid "No branches yet"
 msgstr "아직 브랜치가 없어요"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "공백 외에는 변경 사항이 없어요"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "표시할 변경 사항이 없어요"
@@ -1913,6 +2011,10 @@ msgstr "표시할 변경 사항이 없어요"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "아직 댓글이 없어요"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "이 파일을 변경한 커밋이 없어요"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "소유자"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "상위"
 
@@ -2166,6 +2269,11 @@ msgstr "사람"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "이 리포지토리와 모든 데이터를 영구적으로 삭제해요"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "비교할 {0} 선택"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "저장소"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "설정이 저장되었어요"
 msgid "Share"
 msgstr "공유"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "모든 파일 보기"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "클래스 표시"
@@ -2718,9 +2834,17 @@ msgstr "클래스 표시"
 msgid "Show fields"
 msgstr "필드 표시"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "줄 더 보기"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "이 도움말 표시"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "파일 전체 보기"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "로그아웃"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "로그아웃 중..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "갈라진 시점부터"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "구독 중..."
 msgid "Sunday"
 msgstr "일요일"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "서로 바꾸기"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "브랜치 전환"
@@ -2850,6 +2982,7 @@ msgstr "태그는 50자 이하여야 해요"
 msgid "Tags"
 msgstr "태그"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "서버가 데이터 대신 웹 페이지를 반환했습니다."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "이 앱은 패스키를 사용할 수 없습니다. 설정의 권한에서 허용하세요."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "이 옵션으로는 이 파일을 비교할 수 없어요."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "이 파일은 너무 커서 표시할 수 없습니다 ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "이 페이지는 저장소 컨텍스트가 필요해요."
@@ -3175,6 +3314,11 @@ msgstr "항목 세부 정보 보기 및 수정"
 msgid "View controls"
 msgstr "보기 컨트롤"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "파일 보기"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "이 브라우저에서는 음성 녹음이 지원되지 않습니다"
@@ -3201,6 +3345,10 @@ msgstr "<0>{0}</0>(으)로 인증 코드를 보냈어요. 이메일 주소를 �
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "수요일"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "파일 전체"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

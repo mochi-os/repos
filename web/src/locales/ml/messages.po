@@ -47,10 +47,13 @@ msgstr "(നിങ്ങൾ)"
 msgid "[not set]"
 msgstr "[സജ്ജമാക്കിയിട്ടില്ല]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {# കമ്മിറ്റ്} other {# കമ്മിറ്റുകൾ}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {# ഫയൽ മാറി} other {# ഫയലുകൾ മാറി}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} സമനില വാഗ്ദാനം ചെയ്ത�
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{totalLabel}-ൽ {sentLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {സന്ദർഭത്തിന്റെ # വരി} other {സന്ദർഭത്തിന്റെ # വരികൾ}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "നിങ്ങൾ കീഴടങ്ങാൻ തീർച്ചയാ�
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "ഈ റിപ്പോസിറ്ററിയിൽ നിന്ന് അൺസബ്സ്ക്രൈബ് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "ഇപ്പോഴുള്ളതുപോലെ"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "ആരോഹണ ക്രമം"
@@ -503,6 +514,7 @@ msgstr "ബ്രാഞ്ച് നാമം"
 msgid "Branch name is required"
 msgstr "ബ്രാഞ്ച് നാമം ആവശ്യമാണ്"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "ബ്രാഞ്ചുകൾ"
@@ -595,9 +607,19 @@ msgstr "{field} മാറ്റി"
 msgid "Changed occurrence"
 msgstr "മാറ്റിയ ആവർത്തനം"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "മാറ്റങ്ങൾ"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "{0} → {1} മുതലുള്ള മാറ്റങ്ങൾ"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "{0}-ലെ മാറ്റങ്ങൾ"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "ഒരു സമയം തിരഞ്ഞെടുക്കുക"
 msgid "Choose language"
 msgstr "ഭാഷ തിരഞ്ഞെടുക്കുക"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "എന്ത് താരതമ്യം ചെയ്യണമെന്ന് തിരഞ്ഞെടുക്കുക"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "ഭാഷ തിരഞ്ഞെടുക്കുക"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "മായ്ക്കുക"
 
@@ -684,6 +711,10 @@ msgstr "തിരയൽ അടയ്ക്കുക"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "ചുരുക്കുക"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "എല്ലാം ചുരുക്കുക"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "കമ്മിറ്റുകൾ"
 msgid "Compact"
 msgstr "കോംപാക്റ്റ്"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "താരതമ്യം ചെയ്യുക"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "താരതമ്യം - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "ഇതിൽ നിന്ന് താരതമ്യം ചെയ്യുക"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "ഇതുമായി താരതമ്യം ചെയ്യുക"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "{0}-മായി താരതമ്യം ചെയ്യുക"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "താരതമ്യം"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "ഓപ്ഷൻ ക്രമീകരണങ്ങൾ കോൺഫിഗർ ചെയ്യുക"
@@ -775,6 +837,10 @@ msgstr "ഉള്ളടക്കം കണ്ടെത്തിയില്ല."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "ഉള്ളടക്കം പരിഷ്കരിച്ചിട്ടില്ല"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "സന്ദർഭം"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "ഓരോ മിനിറ്റും"
 msgid "Expand"
 msgstr "വികസിപ്പിക്കുക"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "എല്ലാം വികസിപ്പിക്കുക"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "സൈഡ്‌ബാർ വികസിപ്പിക്കുക"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ഫയൽ"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "ഫയൽ ഓപ്ഷനുകൾ"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "ഗ്രൂപ്പ്: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "ചരിത്രം"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "{fileName}-ന്റെ ചരിത്രം - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "ഐഡി"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "സ്വത്വം"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "ശൂന്യസ്ഥലങ്ങൾ അവഗണിക്കുക"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "ലിങ്കുകൾ"
 msgid "List"
 msgstr "ലിസ്റ്റ്"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "വ്യത്യാസങ്ങൾ ലോഡുചെയ്യുക"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "കൂടുതൽ ലോഡുചെയ്യുക"
 
@@ -1906,6 +2000,10 @@ msgstr "പ്രവർത്തനം ഇതുവരെയില്ല"
 msgid "No branches yet"
 msgstr "branch-കളൊന്നും ഇതുവരെ ഇല്ല"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "ശൂന്യസ്ഥലങ്ങളല്ലാതെ മറ്റ് മാറ്റങ്ങളൊന്നുമില്ല"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "പ്രദർശിപ്പിക്കാൻ മാറ്റങ്ങളൊന്നുമില്ല"
@@ -1913,6 +2011,10 @@ msgstr "പ്രദർശിപ്പിക്കാൻ മാറ്റങ്�
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "അഭിപ്രായങ്ങളൊന്നും ഇതുവരെ ഇല്ല"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "ഒരു കമ്മിറ്റും ഈ ഫയൽ മാറ്റിയിട്ടില്ല"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "ഉടമ"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "പാരന്റ്"
 
@@ -2166,6 +2269,11 @@ msgstr "ആളുകൾ"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "ഈ റിപ്പോസിറ്ററിയും അതിന്റെ എല്ലാ ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കുക"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "താരതമ്യം ചെയ്യാൻ {0} തിരഞ്ഞെടുക്കുക"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "റിപ്പോസിറ്ററികൾ"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "ക്രമീകരണങ്ങൾ സേവ് ചെയ്തു"
 msgid "Share"
 msgstr "പങ്കിടുക"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "എല്ലാ ഫയലുകളും കാണിക്കുക"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "ക്ലാസുകൾ കാണിക്കുക"
@@ -2718,9 +2834,17 @@ msgstr "ക്ലാസുകൾ കാണിക്കുക"
 msgid "Show fields"
 msgstr "ഫീൽഡുകൾ കാണിക്കുക"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "കൂടുതൽ വരികൾ കാണിക്കുക"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "ഈ സഹായം കാണിക്കുക"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "മുഴുവൻ ഫയലും കാണിക്കുക"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "സൈൻ ഔട്ട് ചെയ്യുക"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "സൈൻ ഔട്ട് ചെയ്യുന്നു..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "വേർപിരിഞ്ഞതുമുതൽ"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "സബ്സ്ക്രൈബ് ചെയ്യുന്നു..."
 msgid "Sunday"
 msgstr "ഞായറാഴ്ച"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "പരസ്പരം മാറ്റുക"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "ബ്രാഞ്ച് മാറുക"
@@ -2850,6 +2982,7 @@ msgstr "ടാഗ് 50 പ്രതീകങ്ങളോ അതിൽ കുറ
 msgid "Tags"
 msgstr "ടാഗുകൾ"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "സെർവർ ഡാറ്റയ്ക്ക് പകരം ഒരു
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "ഈ ആപ്പിന് നിങ്ങളുടെ പാസ്കീ ഉപയോഗിക്കാൻ അനുവാദമില്ല. ക്രമീകരണങ്ങളിൽ, അനുമതികൾക്ക് കീഴിൽ അത് അനുവദിക്കുക."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "ഈ ഓപ്ഷനുകൾ ഉപയോഗിച്ച് ഈ ഫയൽ താരതമ്യം ചെയ്യാൻ കഴിയില്ല."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "ഈ ഫയൽ പ്രദർശിപ്പിക്കാൻ കഴി
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "ഈ പേജിന് ഒരു റിപ്പോസിറ്ററി കോൺടെക്സ്റ്റ് ആവശ്യമാണ്."
@@ -3175,6 +3314,11 @@ msgstr "ഇനത്തിന്റെ വിശദാംശങ്ങൾ കാ�
 msgid "View controls"
 msgstr "നിയന്ത്രണങ്ങൾ കാണുക"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "ഫയൽ കാണുക"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "ഈ ബ്രൗസറിൽ വോയ്സ് റെക്കോർഡിംഗ് പിന്തുണയ്ക്കുന്നില്ല"
@@ -3201,6 +3345,10 @@ msgstr "ഞങ്ങൾ <0>{0}</0> എന്നതിലേക്ക് ഒര�
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "ബുധനാഴ്ച"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "പൂർണ്ണ ഫയലുകൾ"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"

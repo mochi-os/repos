@@ -7,14 +7,24 @@ import { useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, GeneralError } from '@mochi/web'
 import { reposRequest, repoBasePath } from '@/api/request'
 import type { InfoResponse } from '@/api/types'
+import {
+  getBranches,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { BranchesList } from '@/features/repository/branches-list'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/$repoId_/branches')({
-  loader: async ({ params }) => {
-    const info = await reposRequest.get<InfoResponse>('info', {
-      baseURL: repoBasePath(params.repoId),
-    })
+  // The branches are asked for alongside the repository's info, not after
+  // it, and handed to the page's query once the info names the repository.
+  loader: async ({ params, context }) => {
+    const baseURL = repoBasePath(params.repoId)
+    const branches = startRequest(getBranches(baseURL))
+    const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || params.repoId
+    primeQuery(context.queryClient, repoKeys.branches(id), branches)
     return { ...info, repoId: params.repoId }
   },
   component: BranchesPage,

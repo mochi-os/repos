@@ -6,12 +6,32 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Trans, useLingui } from '@lingui/react/macro'
 import { Main, usePageTitle, requestHelpers, GeneralError } from '@mochi/web'
 import type { InfoResponse } from '@/api/types'
+import {
+  getBlob,
+  getBranches,
+  primeQuery,
+  repoKeys,
+  startRequest,
+} from '@/hooks/use-repository'
 import { BlobViewer } from '@/features/repository/blob-viewer'
 import { RepositoryHeader } from '@/features/repository/repository-header'
 
 export const Route = createFileRoute('/_authenticated/blob/$ref/$')({
-  loader: async () => {
+  // The file and the branches are asked for alongside the repository's info,
+  // not after it, and handed to the page's queries once the info names the
+  // repository.
+  loader: async ({ params, context }) => {
+    const path = params._splat || ''
+    const branches = startRequest(getBranches())
+    const blob = path && startRequest(getBlob(params.ref, path))
     const info = await requestHelpers.get<InfoResponse>('info')
+    if (info.entity && info.id) {
+      primeQuery(context.queryClient, repoKeys.branches(info.id), branches)
+      if (blob) {
+        const key = repoKeys.blob(info.id, params.ref, path)
+        primeQuery(context.queryClient, key, blob)
+      }
+    }
     return info
   },
   component: BlobPage,

@@ -47,10 +47,13 @@ msgstr "(wena)"
 msgid "[not set]"
 msgstr "[akusethiwe]"
 
-#. placeholder {0}: commit.stats.files
+#. placeholder {0}: data.commits.length
+#: src/features/repository/compare-view.tsx
+msgid "{0, plural, one {# commit} other {# commits}}"
+msgstr "{0, plural, one {i-commit #} other {ama-commit #}}"
+
 #. placeholder {0}: files.length
 #: ../../../lib/web/src/components/diff-viewer.tsx
-#: src/features/repository/commit-details.tsx
 msgid "{0, plural, one {# file changed} other {# files changed}}"
 msgstr "{0, plural, one {ifayela # lishintshiwe} other {amafayela # ashintshiwe}}"
 
@@ -138,6 +141,10 @@ msgstr "{opponentName} unikeze idrowu"
 #: ../../../lib/web/src/components/ui/upload-progress.tsx
 msgid "{sentLabel} of {totalLabel}"
 msgstr "{sentLabel} kokungu-{totalLabel}"
+
+#: src/features/repository/repository-diff.tsx
+msgid "{step, plural, one {# line of context} other {# lines of context}}"
+msgstr "{step, plural, one {umugqa # womongo} other {imigqa # yomongo}}"
 
 #: ../../../lib/web/src/hooks/use-notification-category-picker.ts
 msgid "{topicLabel} moved to the {categoryLabel} category"
@@ -381,6 +388,10 @@ msgstr "Uqinisekile ukuthi ufuna ukushiya? {opponentName} uzowina umdlalo."
 msgid "Are you sure you want to unsubscribe from this repository?"
 msgstr "Uqinisekile ufuna ukukhansela ukubhalisa kule ngobo?"
 
+#: src/features/repository/compare-view.tsx
+msgid "As they stand"
+msgstr "Njengoba zinjalo manje"
+
 #: ../../../lib/web/src/components/ui/sort-direction-button.tsx
 msgid "Ascending"
 msgstr "Ukukhuphuka"
@@ -503,6 +514,7 @@ msgstr "Igama legatsha"
 msgid "Branch name is required"
 msgstr "Igama legatsha liyadingeka"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgid "Branches"
 msgstr "Amagatsha"
@@ -595,9 +607,19 @@ msgstr "Kushintshiwe {field}"
 msgid "Changed occurrence"
 msgstr "Isenzeko esishintshiwe"
 
-#: src/features/repository/commit-details.tsx
-msgid "Changes"
-msgstr "Izinguquko"
+#. placeholder {0}: shortRef(base)
+#. placeholder {0}: shortRef(parent)
+#. placeholder {1}: shortRef(head)
+#. placeholder {1}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+#: src/features/repository/compare-view.tsx
+msgid "Changes from {0} → {1}"
+msgstr "Izinguquko ezisuka ku-{0} → {1}"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-changes.tsx
+msgid "Changes in {0}"
+msgstr "Izinguquko ku-{0}"
 
 #: ../../../lib/web/src/hooks/use-field-type-labels.ts
 msgid "Checkbox"
@@ -624,6 +646,10 @@ msgstr "Khetha isikhathi"
 msgid "Choose language"
 msgstr "Khetha ulimi"
 
+#: src/features/repository/compare-view.tsx
+msgid "Choose what to compare"
+msgstr "Khetha okuzoqhathaniswa"
+
 #: ../../../lib/web/src/components/banner-section.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
 #: ../../../lib/web/src/components/colour-picker.tsx
@@ -632,6 +658,7 @@ msgstr "Khetha ulimi"
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
 #: ../../../lib/web/src/components/travelling-picker.tsx
+#: src/features/repository/commit-picker.tsx
 msgid "Clear"
 msgstr "Sula"
 
@@ -684,6 +711,10 @@ msgstr "Vala usesho"
 #: ../../../lib/web/src/components/tree-row.tsx
 msgid "Collapse"
 msgstr "Goqa"
+
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Collapse all"
+msgstr "Goqa konke"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Collapse sidebar"
@@ -747,6 +778,37 @@ msgstr "Ama-commit"
 msgid "Compact"
 msgstr "Okufishane"
 
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/branches-list.tsx
+#: src/features/repository/commit-picker.tsx
+#: src/features/repository/compare-button.tsx
+msgid "Compare"
+msgstr "Qhathanisa"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+msgid "Compare - {0}"
+msgstr "Ukuqhathanisa - {0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare from"
+msgstr "Isiqalo sokuqhathanisa"
+
+#: src/features/repository/compare-view.tsx
+msgid "Compare to"
+msgstr "Isiphetho sokuqhathanisa"
+
+#. placeholder {0}: tags[index + 1].name
+#: src/features/repository/tags-list.tsx
+#: src/features/repository/tags-list.tsx
+msgid "Compare with {0}"
+msgstr "Qhathanisa no-{0}"
+
+#: src/features/repository/compare-view.tsx
+msgid "Comparison"
+msgstr "Indlela yokuqhathanisa"
+
 #: ../../../lib/web/src/components/entity/entity-option-dialog.tsx
 msgid "Configure option settings"
 msgstr "Cushwa izilungiselelo zenketho"
@@ -775,6 +837,10 @@ msgstr "Okuqukethwe akutholakalanga."
 #: ../../../lib/web/src/lib/query-client.ts
 msgid "Content not modified"
 msgstr "Okuqukethwe akushintshiwe"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Context"
+msgstr "Umongo"
 
 #: ../../../lib/web/src/components/layout/right-panel.tsx
 msgid "Contextual information and details."
@@ -1264,6 +1330,10 @@ msgstr "Umzuzu ngamunye"
 msgid "Expand"
 msgstr "Nweba"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Expand all"
+msgstr "Nweba konke"
+
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 msgid "Expand sidebar"
 msgstr "Nweba ibha eseceleni"
@@ -1494,9 +1564,15 @@ msgid "feature/my-feature"
 msgstr "feature/my-feature"
 
 #: src/routes/_authenticated/$repoId_.blob.$ref.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 msgid "file"
 msgstr "ifayela"
+
+#: src/features/repository/repository-diff.tsx
+msgid "File options"
+msgstr "Izinketho zefayela"
 
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-attachments.tsx
@@ -1572,8 +1648,17 @@ msgid "Group: {0}"
 msgstr "Iqembu: {0}"
 
 #: ../../../lib/web/src/components/audit-timeline.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/blob-viewer.tsx
+#: src/features/repository/repository-diff.tsx
 msgid "History"
 msgstr "Umlando"
+
+#. placeholder {0}: data.name
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
+msgid "History of {fileName} - {0}"
+msgstr "Umlando we-{fileName} - {0}"
 
 #: ../../../lib/web/src/components/layout/app-sidebar.tsx
 #: ../../../lib/web/src/components/layout/mochi-menu.tsx
@@ -1593,6 +1678,10 @@ msgstr "I-ID"
 #: src/features/repository/repository-tabs.tsx
 msgid "Identity"
 msgstr "Ubunikazi"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Ignore whitespace"
+msgstr "Ziba izikhala"
 
 #. placeholder {0}: currentMedia.name
 #: ../../../lib/web/src/components/ui/image-lightbox.tsx
@@ -1678,7 +1767,12 @@ msgstr "Izixhumanisi"
 msgid "List"
 msgstr "Uhla"
 
+#: ../../../lib/web/src/components/diff-viewer.tsx
+msgid "Load diff"
+msgstr "Layisha umehluko"
+
 #: ../../../lib/web/src/components/ui/load-more.tsx
+#: src/features/repository/file-history.tsx
 msgid "Load more"
 msgstr "Layisha okuningi"
 
@@ -1906,6 +2000,10 @@ msgstr "Awukho umsebenzi okwamanje"
 msgid "No branches yet"
 msgstr "Awekho amagatsha okwamanje"
 
+#: src/features/repository/repository-diff.tsx
+msgid "No changes other than whitespace"
+msgstr "Azikho izinguquko ngaphandle kwezikhala"
+
 #: ../../../lib/web/src/components/diff-viewer.tsx
 msgid "No changes to display"
 msgstr "Akukho ukushintsha okuzoboniswa"
@@ -1913,6 +2011,10 @@ msgstr "Akukho ukushintsha okuzoboniswa"
 #: ../../../lib/web/src/components/entity/entity-comment-list.tsx
 msgid "No comments yet"
 msgstr "Awekho amazwana okwamanje"
+
+#: src/features/repository/file-history.tsx
+msgid "No commits changed this file"
+msgstr "Ayikho i-commit eshintshe leli fayela"
 
 #: src/features/repository/commits-list.tsx
 msgid "No commits yet"
@@ -2110,6 +2212,7 @@ msgstr "Umnikazi"
 #: ../../../lib/web/src/components/entity/entity-create-object-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
 #: ../../../lib/web/src/components/entity/entity-object-detail-panel.tsx
+#: src/features/repository/commit-changes.tsx
 msgid "Parent"
 msgstr "Umzali"
 
@@ -2166,6 +2269,11 @@ msgstr "Abantu"
 #: src/features/repository/repository-tabs.tsx
 msgid "Permanently delete this repository and all its data"
 msgstr "Susa unomphela le-repository nayo yonke idatha yayo"
+
+#. placeholder {0}: shortRef(sha)
+#: src/features/repository/commit-picker.tsx
+msgid "Pick {0} to compare"
+msgstr "Khetha i-{0} ukuze uqhathanise"
 
 #: ../../../lib/web/src/components/comment-composer.tsx
 #: ../../../lib/web/src/features/errors/general-error.tsx
@@ -2397,12 +2505,16 @@ msgstr "Izigcinakhalathi"
 #: src/routes/_authenticated/$repoId_.branches.tsx
 #: src/routes/_authenticated/$repoId_.commit.$sha.tsx
 #: src/routes/_authenticated/$repoId_.commits.tsx
+#: src/routes/_authenticated/$repoId_.compare.$.tsx
+#: src/routes/_authenticated/$repoId_.history.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tags.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId_.tree.$ref.$.tsx
 #: src/routes/_authenticated/$repoId.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/blob/$ref/$.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/index.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
@@ -2710,6 +2822,10 @@ msgstr "Izilungiselelo zilondoloziwe"
 msgid "Share"
 msgstr "Yabelana"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show all files"
+msgstr "Bonisa wonke amafayela"
+
 #: ../../../lib/web/src/components/entity/entity-view-sheet.tsx
 msgid "Show classes"
 msgstr "Bonisa amakilasi"
@@ -2718,9 +2834,17 @@ msgstr "Bonisa amakilasi"
 msgid "Show fields"
 msgstr "Bonisa izindawo"
 
+#: src/features/repository/repository-diff.tsx
+msgid "Show more lines"
+msgstr "Bonisa imigqa eminingi"
+
 #: ../../../lib/web/src/components/entity/keyboard-shortcuts-help.tsx
 msgid "Show this help"
 msgstr "Bonisa lolu sizo"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Show whole file"
+msgstr "Bonisa ifayela lonke"
 
 #: ../../../lib/web/src/components/ui/load-more.tsx
 msgid "Showing {totalShown} of {total}"
@@ -2742,6 +2866,10 @@ msgstr "Phuma"
 #: ../../../lib/web/src/components/layout/authenticated-layout.tsx
 msgid "Signing out..."
 msgstr "Kuyaphunywa..."
+
+#: src/features/repository/compare-view.tsx
+msgid "Since they diverged"
+msgstr "Kusukela zahlukana"
 
 #: ../../../lib/web/src/components/entity/add-field-dialog.tsx
 #: ../../../lib/web/src/components/entity/entity-field-dialog.tsx
@@ -2819,6 +2947,10 @@ msgstr "Kuyabhaliswa..."
 msgid "Sunday"
 msgstr "ISonto"
 
+#: src/features/repository/compare-view.tsx
+msgid "Swap"
+msgstr "Shintshanisa"
+
 #: src/components/ref-selector.tsx
 msgid "Switch branch"
 msgstr "Shintsha igatsha"
@@ -2850,6 +2982,7 @@ msgstr "Ithegi kumele ibe ngezinhlamvu ezingama-50 noma ngaphansi"
 msgid "Tags"
 msgstr "Amathegi"
 
+#: src/components/ref-selector.tsx
 #: src/features/repository/tabs.tsx
 msgctxt "git tags"
 msgid "Tags"
@@ -2914,6 +3047,10 @@ msgstr "Iseva ibuyise ikhasi lewebhu esikhundleni sedatha."
 msgid "This app is not allowed to use your passkey. Allow it in Settings, under Permissions."
 msgstr "Le app ayivunyelwe ukusebenzisa ukhiye wakho wokungena. Yivumele kuzilungiselelo, ngaphansi kwezimvume."
 
+#: src/features/repository/repository-diff.tsx
+msgid "This file cannot be compared with these options."
+msgstr "Leli fayela alikwazi ukuqhathaniswa ngalezi zinketho."
+
 #. placeholder {0}: formatFileSize(data.size)
 #: src/features/repository/blob-viewer.tsx
 msgid "This file is too large to display ({0})"
@@ -2921,6 +3058,8 @@ msgstr "Leli fayela likhulu kakhulu ukuba liboniswe ({0})"
 
 #: src/routes/_authenticated/blob/$ref/$.tsx
 #: src/routes/_authenticated/commit/$sha.tsx
+#: src/routes/_authenticated/compare/$.tsx
+#: src/routes/_authenticated/history/$ref/$.tsx
 #: src/routes/_authenticated/tree/$ref/$.tsx
 msgid "This page requires a repository context."
 msgstr "Leli khasi lidinga umongo wendawo yokugcina."
@@ -3175,6 +3314,11 @@ msgstr "Buka futhi uhlele imininingwane yento"
 msgid "View controls"
 msgstr "Buka izilawuli"
 
+#: src/features/repository/file-history.tsx
+#: src/features/repository/repository-diff.tsx
+msgid "View file"
+msgstr "Buka ifayela"
+
 #: ../../../lib/web/src/lib/shell-errors.ts
 msgid "Voice recording is not supported in this browser"
 msgstr "Ukuqopha izwi akusekelwe kulesi siphequluli"
@@ -3201,6 +3345,10 @@ msgstr "Sithumele ikhodi yokuqinisekisa ku-<0>{0}</0>. Faka ikhodi ngezansi ukuz
 #: ../../../lib/web/src/lib/preference-utils.ts
 msgid "Wednesday"
 msgstr "ULwesithathu"
+
+#: src/features/repository/repository-diff.tsx
+msgid "Whole files"
+msgstr "Amafayela aphelele"
 
 #: ../../../lib/web/src/components/calendar/date-header.tsx
 msgid "Year"
