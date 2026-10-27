@@ -673,7 +673,7 @@ function GeneralSettingsTab({
           id='settings-privacy'
           checked={privacy}
           onCheckedChange={(value) => void handlePrivacyChange(value)}
-          disabled={updateSetting.isPending}
+          loading={updateSetting.isPending}
         />
       </div>
 
@@ -685,7 +685,7 @@ function GeneralSettingsTab({
           id='settings-allow-read'
           checked={allowRead}
           onCheckedChange={(value) => void handleAllowReadChange(value)}
-          disabled={updateSetting.isPending}
+          loading={updateSetting.isPending}
         />
       </div>
 
