@@ -426,7 +426,8 @@ describe('a page taking up what its loader fetched', () => {
       (client) =>
         primeCommits(
           client,
-          repoKeys.commits('entity', 'main'),
+          'entity',
+          'main',
           Promise.resolve([{ sha: 'tip', message: '', author: '', date: 0 }])
         ),
       () => useCommits('entity', 'main'),
@@ -481,5 +482,53 @@ describe('the commits list', () => {
     })
     await waitFor(() => expect(result.current.data).toBeDefined())
     expect(result.current.hasNextPage).toBe(more)
+  })
+
+  // A route's loader primes the list each time the route is entered. A
+  // prefetch's options replace the query's, and priming with less than the
+  // hook's made the refetch of a list read past its first page throw: the old
+  // pages stayed on screen, the fresh first page was thrown away, and the
+  // query was left failed.
+  it('refreshes every page read when a loader primes it again', async () => {
+    get.mockReset()
+    get.mockImplementation(
+      async (_url: string, config: { params: { offset: number } }) => ({
+        commits: page.map((commit) => ({
+          ...commit,
+          sha: `${config.params.offset}:${commit.sha}`,
+        })),
+      })
+    )
+    const queryClient = new QueryClient()
+    const key = repoKeys.commits('entity', 'main')
+    const wrapper = ({ children }: { children: ReactNode }) =>
+      createElement(QueryClientProvider, { client: queryClient }, children)
+
+    // The reader reads two pages, then leaves the list.
+    const { result, unmount } = renderHook(() => useCommits('entity', 'main'), {
+      wrapper,
+    })
+    await waitFor(() => expect(result.current.data?.pages).toHaveLength(1))
+    await result.current.fetchNextPage()
+    await waitFor(() => expect(result.current.data?.pages).toHaveLength(2))
+    unmount()
+
+    // Back again once the list has gone stale: the loader's request is the
+    // first page, fresh, and the second is asked for again from its offset.
+    await queryClient.invalidateQueries({ queryKey: key, refetchType: 'none' })
+    const fresh = page.map((commit) => ({
+      ...commit,
+      sha: `fresh:${commit.sha}`,
+    }))
+    primeCommits(queryClient, 'entity', 'main', Promise.resolve(fresh))
+    await waitFor(() =>
+      expect(queryClient.getQueryState(key)?.fetchStatus).toBe('idle')
+    )
+
+    expect(queryClient.getQueryState(key)?.status).toBe('success')
+    const data = queryClient.getQueryData<{ pages: { sha: string }[][] }>(key)
+    expect(data?.pages).toHaveLength(2)
+    expect(data?.pages[0][0].sha).toBe('fresh:0')
+    expect(data?.pages[1][0].sha).toBe('50:0')
   })
 })

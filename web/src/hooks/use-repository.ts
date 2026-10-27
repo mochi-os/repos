@@ -4,6 +4,7 @@
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
 import { useState } from 'react'
 import {
+  infiniteQueryOptions,
   useInfiniteQuery,
   useQuery,
   useQueries,
@@ -210,17 +211,21 @@ export function primeQuery<T>(
 }
 
 // primeQuery for the commit list, which comes in pages: the request is its
-// first.
+// first. The rest are asked for as the page's own hook asks for them. A
+// prefetch's options replace the query's, so priming with less than the
+// hook's - no next page, every page the first - made the refetch of a list
+// read further than one page throw on returning to it.
 export function primeCommits(
   queryClient: QueryClient,
-  queryKey: readonly unknown[],
-  request: Promise<Commit[]>
+  repoId: string,
+  ref: string,
+  request: Promise<Commit[]>,
+  baseURL?: string
 ) {
-  // eslint-disable-next-line @tanstack/query/exhaustive-deps
   void queryClient.prefetchInfiniteQuery({
-    queryKey,
-    queryFn: () => request,
-    initialPageParam: 0,
+    ...commitsQuery(repoId, ref, baseURL),
+    queryFn: ({ pageParam }) =>
+      pageParam === 0 ? request : getCommits(ref, pageParam, baseURL),
   })
 }
 
@@ -269,21 +274,37 @@ export function useTags(repoId: string) {
 // The deepest offset the server lists commits from; past it the list ends.
 const COMMITS_OFFSET_MAXIMUM = 10000
 
-export function useCommits(repoId: string, ref?: string) {
-  return useInfiniteQuery({
+// The commit list's query, shared by the page's hook and the loaders that
+// prime it, so a list a loader refetches is asked for page by page as the hook
+// would ask.
+export function commitsQuery(
+  repoId: string,
+  ref: string | undefined,
+  baseURL?: string
+) {
+  // baseURL is where the list is asked for, not which list it is.
+  // eslint-disable-next-line @tanstack/query/exhaustive-deps
+  return infiniteQueryOptions({
     queryKey: repoKeys.commits(repoId, ref),
-    queryFn: ({ pageParam }) => getCommits(ref, pageParam),
+    queryFn: ({ pageParam }: { pageParam: number }) =>
+      getCommits(ref, pageParam, baseURL),
     initialPageParam: 0,
     staleTime: refFresh(ref ?? ''),
     // The offset counts what was asked for, not what the list kept after
     // dropping repeats, so it always lands on the server's next page.
-    getNextPageParam: (lastPage, allPages) => {
+    getNextPageParam: (lastPage: Commit[], allPages: Commit[][]) => {
       const next = allPages.length * COMMITS_PAGE_SIZE
       return lastPage.length < COMMITS_PAGE_SIZE ||
         next > COMMITS_OFFSET_MAXIMUM
         ? undefined
         : next
     },
+  })
+}
+
+export function useCommits(repoId: string, ref?: string) {
+  return useInfiniteQuery({
+    ...commitsQuery(repoId, ref),
     enabled: !!repoId,
   })
 }

@@ -35,8 +35,13 @@ export const Route = createFileRoute('/_authenticated/$repoId_/commits')({
     const id = info.id || params.repoId
     primeQuery(context.queryClient, repoKeys.branches(id), branches)
     if (info.default_branch) {
-      const key = repoKeys.commits(id, info.default_branch)
-      primeCommits(context.queryClient, key, commits)
+      primeCommits(
+        context.queryClient,
+        id,
+        info.default_branch,
+        commits,
+        baseURL
+      )
     }
     return { ...info, repoId: params.repoId }
   },

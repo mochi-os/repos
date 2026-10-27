@@ -79,7 +79,7 @@ export const Route = createFileRoute('/_authenticated/$repoId')({
       primeQuery(context.queryClient, repoKeys.tree(id, ref, ''), tree)
     }
     if (commits && ref) {
-      primeCommits(context.queryClient, repoKeys.commits(id, ref), commits)
+      primeCommits(context.queryClient, id, ref, commits, baseURL)
     }
     if (tags) {
       primeQuery(context.queryClient, repoKeys.tags(id), tags)
