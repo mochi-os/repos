@@ -12,9 +12,12 @@ import {
   commitDiffRequest,
   getCommit,
   getDiff,
+  commitFresh,
+  diffFresh,
   primeQuery,
+  rememberRepository,
   repoKeys,
-  startRequest,
+  startUnlessFresh,
 } from '@/hooks/use-repository'
 import { useCommitChanges } from '@/features/repository/commit-changes'
 import { CommitDetails } from '@/features/repository/commit-details'
@@ -28,12 +31,26 @@ export const Route = createFileRoute('/_authenticated/$repoId_/commit/$sha')({
   loader: async ({ params, location, context }) => {
     const baseURL = repoBasePath(params.repoId)
     const request = commitDiffRequest(params.sha, commitSearch(location.search))
-    const commit = startRequest(getCommit(params.sha, baseURL))
-    const diff = startRequest(getDiff(request, baseURL))
+    const queryClient = context.queryClient
+    const commit = startUnlessFresh(
+      queryClient,
+      params.repoId,
+      (id) => repoKeys.commit(id, params.sha),
+      commitFresh(params.sha),
+      () => getCommit(params.sha, baseURL)
+    )
+    const diff = startUnlessFresh(
+      queryClient,
+      params.repoId,
+      (id) => repoKeys.diff(id, request),
+      diffFresh(request),
+      () => getDiff(request, baseURL)
+    )
     const info = await reposRequest.get<InfoResponse>('info', { baseURL })
     const id = info.id || params.repoId
-    primeQuery(context.queryClient, repoKeys.commit(id, params.sha), commit)
-    primeQuery(context.queryClient, repoKeys.diff(id, request), diff)
+    rememberRepository(params.repoId, id)
+    primeQuery(queryClient, repoKeys.commit(id, params.sha), commit)
+    primeQuery(queryClient, repoKeys.diff(id, request), diff)
     return { ...info, repoId: params.repoId }
   },
   component: CommitPage,

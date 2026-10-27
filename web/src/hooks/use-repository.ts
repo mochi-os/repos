@@ -200,14 +200,48 @@ export function startRequest<T>(request: Promise<T>): Promise<T> {
 // Hands a request a route loader started to the query cache under the key the
 // page's hook uses, so the hook takes it up rather than asking again. It
 // silences query/exhaustive-deps: the key is the hook's, which already names
-// what the request asks for.
+// what the request asks for. With no request - startUnlessFresh found the
+// answer current - there is nothing to hand over.
 export function primeQuery<T>(
   queryClient: QueryClient,
   queryKey: readonly unknown[],
-  request: Promise<T>
+  request: Promise<T> | undefined
 ) {
+  if (!request) return
   // eslint-disable-next-line @tanstack/query/exhaustive-deps
   void queryClient.prefetchQuery({ queryKey, queryFn: () => request })
+}
+
+// The repository id each route parameter named when its info last answered:
+// the fingerprint or id in the address, or '' on a repository's own domain.
+// A loader on a later visit knows its cache keys before the info answers.
+const repositoryIds = new Map<string, string>()
+
+export function rememberRepository(parameter: string, id: string) {
+  if (id) repositoryIds.set(parameter, id)
+}
+
+// A loader's request, or none when the query it would prime already holds an
+// answer its page's hook counts as current. A route's loader runs on every
+// visit, and it used to ask again regardless: a commit page downloaded the
+// commit and its whole diff each time it was opened.
+export function startUnlessFresh<T>(
+  queryClient: QueryClient,
+  parameter: string,
+  key: (id: string) => readonly unknown[],
+  staleTime: number,
+  request: () => Promise<T>
+): Promise<T> | undefined {
+  const id = repositoryIds.get(parameter)
+  if (id) {
+    const query = queryClient
+      .getQueryCache()
+      .find({ queryKey: key(id), exact: true })
+    if (query?.state.data !== undefined && !query.isStaleByTime(staleTime)) {
+      return undefined
+    }
+  }
+  return startRequest(request())
 }
 
 // primeQuery for the commit list, which comes in pages: the request is its
@@ -309,13 +343,16 @@ export function useCommits(repoId: string, ref?: string) {
   })
 }
 
+// How long a commit's answer is current: for ever when its full hash names it,
+// which never changes. Shared by the page's hook and the loaders.
+export const commitFresh = (sha: string) => (isCommit(sha) ? Infinity : 0)
+
 export function useCommit(repoId: string, sha: string) {
   return useQuery({
     queryKey: repoKeys.commit(repoId, sha),
     queryFn: () => getCommit(sha),
     enabled: !!repoId && !!sha,
-    // A commit named by its full hash never changes.
-    staleTime: isCommit(sha) ? Infinity : 0,
+    staleTime: commitFresh(sha),
   })
 }
 
@@ -339,15 +376,20 @@ export function useBlob(repoId: string, ref: string, path: string) {
   })
 }
 
+// How long a diff's answer is current: for ever between commits named by their
+// full hashes, briefly where a branch or tag may move. Shared by the page's
+// hook and the loaders.
+export const diffFresh = (request: DiffRequest) =>
+  isCommit(request.head) && (!request.base || isCommit(request.base))
+    ? Infinity
+    : REF_FRESH
+
 export function useDiff(repoId: string, request: DiffRequest) {
   return useQuery({
     queryKey: repoKeys.diff(repoId, request),
     queryFn: () => getDiff(request),
     enabled: !!repoId && !!request.head,
-    staleTime:
-      isCommit(request.head) && (!request.base || isCommit(request.base))
-        ? Infinity
-        : REF_FRESH,
+    staleTime: diffFresh(request),
     retry: false,
   })
 }

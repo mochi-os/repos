@@ -11,9 +11,11 @@ import { compareRange, compareSearch } from '@/lib/diff-options'
 import {
   compareDiffRequest,
   getDiff,
+  diffFresh,
   primeQuery,
+  rememberRepository,
   repoKeys,
-  startRequest,
+  startUnlessFresh,
   useBranches,
 } from '@/hooks/use-repository'
 import { useCompare } from '@/features/repository/compare-view'
@@ -31,10 +33,19 @@ export const Route = createFileRoute('/_authenticated/$repoId_/compare/$')({
       base && head
         ? compareDiffRequest(base, head, compareSearch(location.search))
         : undefined
-    const diff = request && startRequest(getDiff(request, baseURL))
+    const diff =
+      request &&
+      startUnlessFresh(
+        context.queryClient,
+        params.repoId,
+        (id) => repoKeys.diff(id, request),
+        diffFresh(request),
+        () => getDiff(request, baseURL)
+      )
     const info = await reposRequest.get<InfoResponse>('info', { baseURL })
+    const id = info.id || params.repoId
+    rememberRepository(params.repoId, id)
     if (request && diff) {
-      const id = info.id || params.repoId
       primeQuery(context.queryClient, repoKeys.diff(id, request), diff)
     }
     return { ...info, repoId: params.repoId }

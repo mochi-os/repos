@@ -43,6 +43,8 @@ import { Route as HistoryRoute } from '@/routes/_authenticated/$repoId_.history.
 import { Route as TagsRoute } from '@/routes/_authenticated/$repoId_.tags'
 import { Route as TreeRoute } from '@/routes/_authenticated/$repoId_.tree.$ref.$'
 import { Route as DomainBlobRoute } from '@/routes/_authenticated/blob/$ref/$'
+import { Route as DomainCommitRoute } from '@/routes/_authenticated/commit/$sha'
+import { Route as DomainCompareRoute } from '@/routes/_authenticated/compare/$'
 import { Route as DomainTreeRoute } from '@/routes/_authenticated/tree/$ref/$'
 
 const sha = 'a'.repeat(40)
@@ -119,6 +121,80 @@ describe('route loaders', () => {
       taken(queryClient, repoKeys.diff('entity', commitDiffRequest(sha, {})))
     ).resolves.toEqual({ url: 'diff' })
   })
+
+  // A route's loader runs on every visit, and it used to ask again whatever the
+  // cache held: a commit page downloaded the commit and its whole diff each
+  // time it was opened. A full hash names something that never changes.
+  it.each([
+    ['under its address', () => CommitRoute, { repoId: 'fp', sha }],
+    ['on its own domain', () => DomainCommitRoute, { sha }],
+  ])(
+    'asks again for nothing a commit page holds, %s',
+    async (_name, route, params) => {
+      const answers = server()
+      const { queryClient, args } = loaderArgs(params)
+      let loading = load(route(), args)
+      answers.info()
+      await loading
+      await taken(queryClient, repoKeys.commit('entity', sha))
+      await taken(
+        queryClient,
+        repoKeys.diff('entity', commitDiffRequest(sha, {}))
+      )
+
+      get.mockClear()
+      loading = load(route(), args)
+      // THE POINT: only the info; the commit and its diff are held.
+      expect(answers.asked()).toEqual(['info'])
+      answers.info()
+      await loading
+    }
+  )
+
+  // A branch moves, so a comparison of branches is current only briefly: held
+  // while it is, asked for again once it is not.
+  it.each([
+    [
+      'under its address',
+      () => CompareRoute,
+      { repoId: 'fp', _splat: 'main...feature' },
+    ],
+    [
+      'on its own domain',
+      () => DomainCompareRoute,
+      { _splat: 'main...feature' },
+    ],
+  ])(
+    'asks again for a comparison of branches once stale, %s',
+    async (_name, route, params) => {
+      vi.useFakeTimers({ toFake: ['Date'] })
+      const answers = server()
+      const { queryClient, args } = loaderArgs(params)
+      let loading = load(route(), args)
+      answers.info()
+      await loading
+      const key = repoKeys.diff(
+        'entity',
+        compareDiffRequest('main', 'feature', {})
+      )
+      await taken(queryClient, key)
+
+      get.mockClear()
+      loading = load(route(), args)
+      expect(answers.asked()).toEqual(['info'])
+      answers.info()
+      await loading
+
+      // Past the ten seconds a branch's answer is current for.
+      vi.setSystemTime(Date.now() + 11_000)
+      get.mockClear()
+      loading = load(route(), args)
+      expect(answers.asked()).toEqual(['diff', 'info'])
+      answers.info()
+      await loading
+      vi.useRealTimers()
+    }
+  )
 
   it('asks for the diff from the parent the address names', async () => {
     const answers = server()
