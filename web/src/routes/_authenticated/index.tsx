@@ -38,7 +38,12 @@ import {
   UserMinus,
 } from 'lucide-react'
 import endpoints from '@/api/endpoints'
-import { reposRequest, appBasePath, anonymousRefusal } from '@/api/request'
+import {
+  reposRequest,
+  appBasePath,
+  anonymousRefusal,
+  infoRequest,
+} from '@/api/request'
 import type {
   InfoResponse,
   Repository,
@@ -85,9 +90,8 @@ export const Route = createFileRoute('/_authenticated/')({
   loader: async () => {
     let info: InfoResponse
     try {
-      info = await reposRequest.get<InfoResponse>(endpoints.repo.info, {
-        baseURL: appBasePath(),
-      })
+      const { url, baseURL } = infoRequest()
+      info = await reposRequest.get<InfoResponse>(url, { baseURL })
     } catch (error) {
       // A visitor with no account on the app's own path: send them where core
       // sends anonymous visitors of every other app, rather than rendering a

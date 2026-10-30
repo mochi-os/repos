@@ -5,11 +5,14 @@
 import type { AxiosRequestConfig } from 'axios'
 import {
   createAppClient,
+  getApiBasepath,
   getAppPath,
+  getEntityFingerprint,
   isDomainEntityRouting,
   requestHelpers,
   shellSaveBlob,
 } from '@mochi/web'
+import endpoints from './endpoints'
 
 const CLASS_ROUTES = ['new', 'settings']
 
@@ -20,8 +23,22 @@ function isEntityIdentifier(s: string): boolean {
   )
 }
 
+// The class-level action prefix. A domain serves the app at its root
+// (git.mochi-os.org/ is the repositories app), so the domain check comes first:
+// core publishes mochi:app on an entity domain route too, and that path may be
+// another route on the domain - on git.mochi-os.org /repositories is a
+// repository, whose info then stood in for every page's own.
 export function appBasePath(): string {
-  return `${getAppPath()}/`
+  return isDomainEntityRouting() ? '/' : `${getAppPath()}/`
+}
+
+// The info the index page shows: on a page routed to one repository - an entity
+// domain route such as git.mochi-os.org/chat, or a direct entity URL - that
+// repository's own, at the page's action prefix; on the app's page, the list.
+export function infoRequest(): { url: string; baseURL: string } {
+  return getEntityFingerprint()
+    ? { url: 'info', baseURL: getApiBasepath() }
+    : { url: endpoints.repo.info, baseURL: appBasePath() }
 }
 
 // anonymousRefusal reports whether a failed class-level request is the server
