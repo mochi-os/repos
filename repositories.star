@@ -1738,22 +1738,15 @@ def action_recommendations(a):
         for r in repos:
             existing_ids.add(r["id"])
 
-    # Request recommendations from the recommendations service
-    s = mochi.remote.stream("1JYmMpQU7fxvTrwHpNpiwKCgUg3odWqX7s9t1cLswSMAro5M2P", "recommendations", "list", {"type": "repository", "language": user_language(a)})
-    if not s:
-        return {"data": {"repositories": []}}
-
-    r = s.read()
-    if not r or r.get("status") != "200":
+    # Recommendations from the service, cached for an hour
+    items = recommendation_list("repository", user_language(a))
+    if items == None:
         return {"data": {"repositories": []}}
 
     recommendations = []
-    items = s.read()
-    if type(items) not in ["list", "tuple"]:
-        return {"data": {"repositories": []}}
 
     # Get the server location from the recommendations entity so subscribers can reach the repositories
-    rec_dir = mochi.directory.get("1JYmMpQU7fxvTrwHpNpiwKCgUg3odWqX7s9t1cLswSMAro5M2P")
+    rec_dir = mochi.directory.get(recommendation_entity)
     rec_server = ""
     if rec_dir:
         rec_server = rec_dir.get("location", "")
@@ -1768,7 +1761,6 @@ def action_recommendations(a):
                 "fingerprint": mochi.entity.fingerprint(entity_id),
                 "server": rec_server,
             })
-    s.close()
     return {"data": {"repositories": recommendations}}
 
 # Action: Search for repositories
