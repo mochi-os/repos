@@ -331,6 +331,105 @@ def proxy_entity(a):
         return entity["id"]
     return None
 
+# PARTS
+#
+# Core decodes at most 10,000 elements in one array and 100 MB on one stream,
+# each read within 30 seconds, so a repository's refs, branches or tags cannot
+# travel as one reply once there are enough of them. A request carrying `part`
+# (a cursor: the list, and the name of the last item already sent) is answered
+# with at most PART_ROWS items and about PART_BYTES bytes in name order, and
+# `next` naming the cursor of the part after it. The last part carries no
+# `next`. A request without `part` gets the whole list, as owners before parts
+# answered every one, and a requester takes a reply without the `part` echo as
+# whole.
+PART_ROWS = 1000
+PART_BYTES = 8388608
+# The most parts a requester follows: core allows an app 600 remote calls a
+# minute to one target.
+PART_PARTS = 500
+# The item each list is named and ordered by.
+PART_KEYS = {"refs": "full", "branches": "name", "tags": "name"}
+# The most bytes a cursor key holds: a ref's name, which git's protocol carries
+# in one pkt-line of at most 65,520 bytes, so no ref a repository can hold is
+# longer.
+PART_KEY = 65536
+# The seconds a requester spends gathering a list's parts, well under the time
+# limit of the action it runs in, and the most bytes it holds across them: what
+# one whole reply could carry before parts. Past either it refuses the list.
+PART_TIME = 60
+PART_GATHERED = 104857600
+
+# part_cursor(value, name) -> bool: whether value is a cursor into list name.
+def part_cursor(value, name):
+    if type(value) != "dict" or len(value) != 2 or value.get("list") != name:
+        return False
+    after = value.get("after")
+    if type(after) not in ["list", "tuple"] or len(after) > 1:
+        return False
+    for key in after:
+        if type(key) != "string" or len(key) > PART_KEY:
+            return False
+    return True
+
+# part_slice(items, name, part) -> (items, next): the part of a list from the
+# cursor on, and the cursor of the part after it, or None after the last.
+def part_slice(items, name, part):
+    key = PART_KEYS[name]
+    after = part["after"][0] if part["after"] else None
+    out = []
+    size = 0
+    for item in sorted(items or [], key=lambda i: i.get(key) or ""):
+        if after != None and (item.get(key) or "") <= after:
+            continue
+        cost = 64 + len(item.get(key) or "") + len(item.get("message") or "")
+        if out and (len(out) >= PART_ROWS or size + cost > PART_BYTES):
+            return out, {"list": name, "after": [out[-1].get(key) or ""]}
+        out.append(item)
+        size += cost
+    return out, None
+
+# part_gather(repo_id, event, content, peer, name) -> the owner's reply to event
+# with list name holding every item, asked for part by part; or an error reply.
+# A list that stopped short, ran past PART_TIME or held more than PART_GATHERED
+# bytes is an error, never a short list.
+def part_gather(repo_id, event, content, peer, name):
+    items = []
+    part = {"list": name, "after": []}
+    first = None
+    started = mochi.time.now()
+    held = 0
+    for _ in range(PART_PARTS):
+        if first != None and mochi.time.now() - started >= PART_TIME:
+            return {"error": "errors.remote", "code": 502}
+        reply = mochi.remote.request(repo_id, "repositories", event, dict(content, part=part), peer)
+        if type(reply) != "dict" or reply.get("error"):
+            if first == None and type(reply) == "dict":
+                return reply
+            return {"error": "errors.remote", "code": 502}
+        if reply.get("part") == None:
+            if first == None:
+                return reply
+            return {"error": "errors.remote", "code": 502}
+        value = reply.get(name)
+        if type(value) not in ["list", "tuple"] or len(value) > PART_ROWS:
+            return {"error": "errors.remote", "code": 502}
+        held += len(str(reply))
+        if held > PART_GATHERED:
+            return {"error": "errors.remote", "code": 502}
+        items.extend(value)
+        if first == None:
+            first = reply
+        part = reply.get("next")
+        if part == None:
+            whole = dict(first)
+            whole.pop("part", None)
+            whole.pop("next", None)
+            whole[name] = items
+            return whole
+        if not part_cursor(part, name):
+            return {"error": "errors.remote", "code": 502}
+    return {"error": "errors.remote", "code": 502}
+
 def proxy_read(a, event, payload={}):
     repo_id = proxy_entity(a)
     if not repo_id:
@@ -338,7 +437,10 @@ def proxy_read(a, event, payload={}):
     body = {"repository": repo_id}
     for key in payload:
         body[key] = payload[key]
-    response = mochi.remote.request(repo_id, "repositories", event, body)
+    if event in PART_KEYS:
+        response = part_gather(repo_id, event, body, None, event)
+    else:
+        response = mochi.remote.request(repo_id, "repositories", event, body)
     if not response or response.get("error"):
         return remote_error(a, response or {"code": 404, "error": "errors.repository_not_found"})
     return {"data": response}
@@ -843,7 +945,7 @@ def action_refs(a):
     if is_remote:
         # Fetch from remote server (peer=None uses directory lookup)
         peer = mochi.remote.peer(server) if server else None
-        response = mochi.remote.request(repo["id"], "repositories", "refs", {"repository": repo["id"]}, peer)
+        response = part_gather(repo["id"], "refs", {"repository": repo["id"]}, peer, "refs")
         if not response.get("error"):
             return {"data": response}
         return remote_error(a, response)
@@ -868,7 +970,7 @@ def action_branches(a):
     if is_remote:
         # Fetch from remote server (peer=None uses directory lookup)
         peer = mochi.remote.peer(server) if server else None
-        response = mochi.remote.request(repo["id"], "repositories", "branches", {"repository": repo["id"]}, peer)
+        response = part_gather(repo["id"], "branches", {"repository": repo["id"]}, peer, "branches")
         if not response.get("error"):
             return {"data": response}
         return remote_error(a, response)
@@ -949,7 +1051,7 @@ def action_tags(a):
     if is_remote:
         # Fetch from remote server (peer=None uses directory lookup)
         peer = mochi.remote.peer(server) if server else None
-        response = mochi.remote.request(repo["id"], "repositories", "tags", {"repository": repo["id"]}, peer)
+        response = part_gather(repo["id"], "tags", {"repository": repo["id"]}, peer, "tags")
         if not response.get("error"):
             return {"data": response}
         return remote_error(a, response)
@@ -2262,9 +2364,20 @@ def event_refs(e):
         e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
-    # Get refs
-    refs = mochi.git.refs(repo_id)
-    e.stream.write({"refs": refs or []})
+    # Get refs, the whole list or one part of it
+    refs = mochi.git.refs(repo_id) or []
+    part = e.content("part")
+    if part != None:
+        if not part_cursor(part, "refs"):
+            e.stream.write({"error": "errors.invalid_data", "code": 400})
+            return
+        refs, next = part_slice(refs, "refs", part)
+        reply = {"refs": refs, "part": part}
+        if next:
+            reply["next"] = next
+        e.stream.write(reply)
+        return
+    e.stream.write({"refs": refs})
 
 # Handle P2P request for repository branches
 def event_branches(e):
@@ -2282,10 +2395,21 @@ def event_branches(e):
         e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
-    # Get branches
-    branches = mochi.git.branches(repo_id)
+    # Get branches, the whole list or one part of it
+    branches = mochi.git.branches(repo_id) or []
     default = mochi.git.branch.default.get(repo_id)
-    e.stream.write({"branches": branches or [], "default": default})
+    part = e.content("part")
+    if part != None:
+        if not part_cursor(part, "branches"):
+            e.stream.write({"error": "errors.invalid_data", "code": 400})
+            return
+        branches, next = part_slice(branches, "branches", part)
+        reply = {"branches": branches, "default": default, "part": part}
+        if next:
+            reply["next"] = next
+        e.stream.write(reply)
+        return
+    e.stream.write({"branches": branches, "default": default})
 
 # Handle P2P request for repository tags
 def event_tags(e):
@@ -2303,9 +2427,20 @@ def event_tags(e):
         e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
-    # Get tags
-    tags = mochi.git.tags(repo_id)
-    e.stream.write({"tags": tags or []})
+    # Get tags, the whole list or one part of it
+    tags = mochi.git.tags(repo_id) or []
+    part = e.content("part")
+    if part != None:
+        if not part_cursor(part, "tags"):
+            e.stream.write({"error": "errors.invalid_data", "code": 400})
+            return
+        tags, next = part_slice(tags, "tags", part)
+        reply = {"tags": tags, "part": part}
+        if next:
+            reply["next"] = next
+        e.stream.write(reply)
+        return
+    e.stream.write({"tags": tags})
 
 # Handle P2P request for repository commits
 def event_commits(e):
