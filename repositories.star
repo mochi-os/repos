@@ -1165,16 +1165,17 @@ def action_commit(a):
 
     return {"data": {"commit": commit}}
 
-# The commit a ref names, or None when it names none. Core's diff and
-# merge-base calls abort the action on a ref they cannot resolve, so a ref is
-# checked here first and those calls are handed commit hashes.
-# The commit a ref names, with its sha and parents, or None.
+# The commit a ref names, with its sha and parents, or None when it names
+# none. Core's diff and merge-base calls abort the action on a ref they cannot
+# resolve, so a ref is checked here first and those calls are handed commit
+# hashes.
 def commit_at(repo_id, ref):
     commits = mochi.git.commit.list(repo_id, ref, 1, 0)
     if not commits:
         return None
     return commits[0]
 
+# The sha of the commit a ref names, or None when it names none.
 def commit_sha(repo_id, ref):
     commit = commit_at(repo_id, ref)
     return commit["sha"] if commit else None
@@ -2427,20 +2428,24 @@ def event_tags(e):
         e.stream.write({"error": "errors.access_denied", "code": 403})
         return
 
-    # Get tags, the whole list or one part of it
-    tags = mochi.git.tags(repo_id) or []
+    # Get tags, the whole list or one part of it. A part reads only its own
+    # tags, from the cursor on and one past a part's rows, so part_slice can
+    # tell whether another follows: each tag read opens its annotation, and a
+    # part reading them all made gathering the list cost the square of it.
     part = e.content("part")
     if part != None:
         if not part_cursor(part, "tags"):
             e.stream.write({"error": "errors.invalid_data", "code": 400})
             return
+        after = part["after"][0] if part["after"] else ""
+        tags = mochi.git.tags(repo_id, after=after, limit=PART_ROWS + 1) or []
         tags, next = part_slice(tags, "tags", part)
         reply = {"tags": tags, "part": part}
         if next:
             reply["next"] = next
         e.stream.write(reply)
         return
-    e.stream.write({"tags": tags})
+    e.stream.write({"tags": mochi.git.tags(repo_id) or []})
 
 # Handle P2P request for repository commits
 def event_commits(e):

@@ -33,6 +33,24 @@ import { RefSelector } from '@/components/ref-selector'
 import { CommitRows } from './commit-rows'
 import { DiffBar, RepositoryDiff } from './repository-diff'
 
+// How many commits a comparison lists at most: core's commit.between answers
+// the newest this many of a longer range, so a list this long may be cut.
+const commitsListed = 1000
+
+// The heading over a comparison's commits: a list at the most a comparison
+// lists says it is the newest of them, as older ones may be left out.
+export function commitsHeading(commits: readonly unknown[]): string {
+  return commits.length >= commitsListed
+    ? plural(commits.length, {
+        one: 'The newest # commit',
+        other: 'The newest # commits',
+      })
+    : plural(commits.length, {
+        one: '# commit',
+        other: '# commits',
+      })
+}
+
 // Two branches, tags or commits compared: the pickers and diff controls, which
 // the page places in its sticky header, and the commits and diff between them.
 export function useCompare({
@@ -149,10 +167,7 @@ export function useCompare({
       {data.commits.length > 0 && (
         <div className='space-y-2'>
           <h2 className='text-sm font-medium'>
-            {plural(data.commits.length, {
-              one: '# commit',
-              other: '# commits',
-            })}
+            {commitsHeading(data.commits)}
           </h2>
           <div className='max-h-80 overflow-y-auto rounded-lg'>
             <CommitRows commits={data.commits} fingerprint={fingerprint} />
