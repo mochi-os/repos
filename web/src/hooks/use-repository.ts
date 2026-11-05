@@ -12,7 +12,7 @@ import {
   useQueryClient,
   type QueryClient,
 } from '@tanstack/react-query'
-import { naturalCompare, type DiffViewStyle } from '@mochi/web'
+import { naturalCompare, useAuthStore, type DiffViewStyle } from '@mochi/web'
 import endpoints from '@/api/endpoints'
 import { reposRequest, appBasePath } from '@/api/request'
 import type { CommitSearch, CompareSearch } from '@/lib/diff-options'
@@ -420,6 +420,7 @@ export function useDiffStyle(): [
 ] {
   const queryClient = useQueryClient()
   const [local, setLocal] = useState<DiffViewStyle>()
+  const authenticated = useAuthStore((s) => s.isAuthenticated)
   const { data } = useQuery({
     queryKey: repoKeys.preference(),
     queryFn: () =>
@@ -441,7 +442,7 @@ export function useDiffStyle(): [
     style,
     (next) => {
       setLocal(next)
-      save.mutate(next)
+      if (authenticated) save.mutate(next)
     },
   ]
 }
