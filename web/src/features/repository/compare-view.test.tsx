@@ -15,6 +15,14 @@ describe("the heading over a comparison's commits", () => {
     expect(commitsHeading(Array(3).fill({}))).toBe('3 commits')
   })
 
+  it("takes the server's word for whether the list was cut", () => {
+    // Cut by the walk short of 1,000, and a whole range of exactly 1,000.
+    expect(commitsHeading(Array(40).fill({}), true)).toBe(
+      'The newest 40 commits'
+    )
+    expect(commitsHeading(Array(1000).fill({}), false)).toBe('1,000 commits')
+  })
+
   it('says a list at the most a comparison lists is the newest of them', () => {
     // The comparison stops at 1,000 commits, so a list that long may have
     // left older ones out: it must not read as the whole range.

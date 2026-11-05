@@ -119,12 +119,18 @@ export interface DiffResponse {
   start: string
   diff: string
   commits: Commit[]
+  // The commits are the newest of a longer range. Absent where the server
+  // cannot say.
+  partial?: boolean
 }
 
 export interface HistoryResponse {
   ref: string
   path: string
   commits: Commit[]
+  // The walk stopped before searching all of the history. Absent where the
+  // server cannot say.
+  partial?: boolean
 }
 
 export interface TreeEntry {

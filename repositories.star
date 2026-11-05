@@ -1220,16 +1220,52 @@ def diff_answer(repo_id, parameters):
         if not start:
             return (None, (409, "errors.no_common_history", ""))
     path = parameters["path"] or None
-    commits = []
+    commits, partial = [], False
     if start and parameters["commits"]:
-        commits = mochi.git.commit.between(repo_id, start, head) or []
-    return ({
+        commits, partial = commit_range(repo_id, start, head)
+    answer = {
         "base": base or "",
         "head": head,
         "start": start or "",
         "diff": mochi.git.diff(repo_id, start, head, path),
         "commits": commits,
-    }, None)
+    }
+    # Where the core can say the list was cut short; a client finding no
+    # partial judges by the list's length.
+    if partial != None:
+        answer["partial"] = partial
+    return (answer, None)
+
+# commit_range(repo_id, base, head) -> (list, bool or None): The commits head
+# reaches and base does not, oldest first, and whether the list holds only the
+# newest of them; None for that where the core cannot say.
+def commit_range(repo_id, base, head):
+    if hasattr(mochi.git.commit, "range"):
+        listed = mochi.git.commit.range(repo_id, base, head)
+        if not listed:
+            return ([], False)
+        return (listed["commits"], listed["partial"])
+    return (mochi.git.commit.between(repo_id, base, head) or [], None)
+
+# commit_history(repo_id, ref, path, limit) -> (list or None, bool or None):
+# The commits of ref affecting path, newest first, and whether the walk
+# stopped before searching all of the history; None for that where the core
+# cannot say. The list is None for a ref not found.
+def commit_history(repo_id, ref, path, limit):
+    if hasattr(mochi.git.commit, "history"):
+        listed = mochi.git.commit.history(repo_id, ref, path, limit)
+        if listed == None:
+            return (None, None)
+        return (listed["commits"], listed["partial"])
+    return (mochi.git.commit.log(repo_id, ref, path, limit), None)
+
+# history_answer(ref, path, commits, partial) -> dict: A file history's answer,
+# saying it was cut short where the core can say so.
+def history_answer(ref, path, commits, partial):
+    answer = {"ref": ref, "path": path, "commits": commits}
+    if partial != None:
+        answer["partial"] = partial
+    return answer
 
 # Action: Compare two commits, branches or tags
 def action_diff(a):
@@ -1309,10 +1345,10 @@ def action_history(a):
         return a.error.label(400, "errors.invalid_ref")
     if not path:
         return a.error.label(400, "errors.path_is_required")
-    commits = mochi.git.commit.log(repo["id"], ref, path, limit)
+    commits, partial = commit_history(repo["id"], ref, path, limit)
     if commits == None:
         return a.error.label(404, "errors.ref_not_found", ref=ref)
-    return {"data": {"ref": ref, "path": path, "commits": commits}}
+    return {"data": history_answer(ref, path, commits, partial)}
 
 # The one or two column choice for diffs, a preference of the person rather
 # than of a repository: projects and wikis read and write the same one.
@@ -2686,11 +2722,11 @@ def event_history(e):
         if limit < 1 or limit > history_maximum:
             limit = 100
 
-    commits = mochi.git.commit.log(repo_id, ref, path, limit)
+    commits, partial = commit_history(repo_id, ref, path, limit)
     if commits == None:
         e.stream.write({"error": "errors.ref_not_found_remote", "code": 404})
         return
-    e.stream.write({"ref": ref, "path": path, "commits": commits})
+    e.stream.write(history_answer(ref, path, commits, partial))
 
 # Handle P2P request for repository archive
 def event_archive(e):

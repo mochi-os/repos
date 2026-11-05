@@ -33,14 +33,18 @@ import { RefSelector } from '@/components/ref-selector'
 import { CommitRows } from './commit-rows'
 import { DiffBar, RepositoryDiff } from './repository-diff'
 
-// How many commits a comparison lists at most: core's commit.between answers
-// the newest this many of a longer range, so a list this long may be cut.
+// How many commits a comparison lists at most: core answers the newest this
+// many of a longer range, so a list this long may be cut.
 const commitsListed = 1000
 
-// The heading over a comparison's commits: a list at the most a comparison
-// lists says it is the newest of them, as older ones may be left out.
-export function commitsHeading(commits: readonly unknown[]): string {
-  return commits.length >= commitsListed
+// The heading over a comparison's commits: a list holding only the newest of
+// them says so. partial is the server's word for it; a server that cannot say
+// sends none, and a list at the most a comparison lists may then be cut.
+export function commitsHeading(
+  commits: readonly unknown[],
+  partial?: boolean
+): string {
+  return (partial ?? commits.length >= commitsListed)
     ? plural(commits.length, {
         one: 'The newest # commit',
         other: 'The newest # commits',
@@ -167,7 +171,7 @@ export function useCompare({
       {data.commits.length > 0 && (
         <div className='space-y-2'>
           <h2 className='text-sm font-medium'>
-            {commitsHeading(data.commits)}
+            {commitsHeading(data.commits, data.partial)}
           </h2>
           <div className='max-h-80 overflow-y-auto rounded-lg'>
             <CommitRows commits={data.commits} fingerprint={fingerprint} />

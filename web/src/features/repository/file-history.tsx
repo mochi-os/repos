@@ -15,6 +15,12 @@ import { CommitRows } from './commit-rows'
 // The most commits Load more reaches: the server lists at most 1,000.
 const HISTORY_MAXIMUM = 1000
 
+// Whether a file's history may go on past what is listed: the server's walk
+// stopped before the oldest commits, or the list holds the most it lists.
+export function historyCut(partial: boolean | undefined, listed: number) {
+  return Boolean(partial) || listed >= HISTORY_MAXIMUM
+}
+
 // The commits that changed one file or folder, newest first. Each opens the
 // commit with its changes limited to this path; any two can be picked and
 // compared, which shows how the file changed between them.
@@ -76,7 +82,16 @@ export function FileHistory({
           reset={() => void refetch()}
         />
       ) : commits.length === 0 ? (
-        <EmptyState icon={History} title={t`No commits changed this file`} />
+        // Of a walk cut short, only that the newest commits did not change it
+        // is known.
+        <EmptyState
+          icon={History}
+          title={
+            data?.partial
+              ? t`Older history was not searched`
+              : t`No commits changed this file`
+          }
+        />
       ) : (
         <>
           <PickedBar
@@ -106,8 +121,19 @@ export function FileHistory({
               </Button>
             </div>
           )}
+          {historyCut(data?.partial, commits.length) && <HistoryCut />}
         </>
       )}
     </div>
+  )
+}
+
+// Under a file history whose walk stopped before reaching the oldest commits:
+// the file may have changed further back.
+function HistoryCut() {
+  return (
+    <p className='text-muted-foreground text-center text-sm'>
+      <Trans>Older history was not searched</Trans>
+    </p>
   )
 }
