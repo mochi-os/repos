@@ -651,7 +651,7 @@ function GeneralSettingsTab({
               disabled={updateSetting.isPending}
             >
               <SelectTrigger>
-                <SelectValue placeholder={t`Select default branch`} />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 {branches.map((branch) => (

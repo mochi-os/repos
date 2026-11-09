@@ -87,7 +87,7 @@ export function InlineRepoSearch({
       probe={probe}
       onSubscribe={handleSubscribe}
       icon={FolderGit2}
-      placeholder={t`Search for repositories...`}
+      placeholder={t`Search for repositories`}
       emptyMessage={t`No repositories found`}
       searchErrorMessage={t`Failed to search repositories`}
       subscribeLabel={t`Subscribe`}

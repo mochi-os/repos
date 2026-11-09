@@ -115,7 +115,7 @@ function FindRepositoriesPage() {
       icon={FolderGit2}
       iconClassName='bg-primary/10 text-primary'
       title={t`Find repositories`}
-      placeholder={t`Search by name, ID, fingerprint, or URL...`}
+      placeholder={t`Search by name, ID, fingerprint, or URL`}
       emptyMessage={t`No repositories found`}
       recommendations={recommendations}
       isLoadingRecommendations={isLoadingRecommendations}

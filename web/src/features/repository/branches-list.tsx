@@ -256,7 +256,7 @@ export function BranchesList({
                 onValueChange={setSourceBranch}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder={t`Select source branch`} />
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   {branches.map((b) => (
