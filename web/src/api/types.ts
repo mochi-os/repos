@@ -72,7 +72,7 @@ interface Branch {
   behind?: number
 }
 
-interface Tag {
+export interface Tag {
   name: string
   sha: string
   message?: string
