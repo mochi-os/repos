@@ -36,7 +36,9 @@ describe('reposRequest.download', () => {
     await reposRequest.download('archive/zip', 'archive.zip')
     const [blob, name] = saved.mock.calls[0] as [Blob, string]
     expect(name).toBe('repo.zip')
-    expect(await blob.text()).toBe('zip bytes')
+    // Size, not .text(): jsdom's Blob has no .text(), and which Blob class
+    // arrives depends on the Response the test environment supplies.
+    expect(blob.size).toBe('zip bytes'.length)
     expect(fetched.mock.calls[0][1].method).toBe('GET')
   })
 

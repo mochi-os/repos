@@ -55,6 +55,19 @@ export function commitsHeading(
       })
 }
 
+// Whether a comparison was refused because the two histories run too long to
+// find where they split. The same two refs can still be compared as they
+// stand, which needs no such search.
+export function historiesTooLong(error: unknown): boolean {
+  const body = (error as { response?: { data?: unknown } } | null)?.response
+    ?.data
+  return (
+    typeof body === 'object' &&
+    body !== null &&
+    (body as { error?: unknown }).error === 'histories_too_long'
+  )
+}
+
 // Two branches, tags or commits compared: the pickers and diff controls, which
 // the page places in its sticky header, and the commits and diff between them.
 export function useCompare({
@@ -158,6 +171,19 @@ export function useCompare({
       {[1, 2, 3, 4].map((i) => (
         <Skeleton key={i} className='h-5 w-full' />
       ))}
+    </div>
+  ) : error && mode === 'diverged' && historiesTooLong(error) ? (
+    <div className='space-y-3'>
+      <GeneralError error={error} minimal mode='inline' />
+      <div className='mx-auto w-full max-w-lg'>
+        <Button
+          variant='outline'
+          size='sm'
+          onClick={() => onSearch({ mode: 'direct' })}
+        >
+          {t`Compare as they stand`}
+        </Button>
+      </div>
     </div>
   ) : error ? (
     <GeneralError
