@@ -31,12 +31,15 @@ interface DownloadDropdownProps {
   gitRef: string
   variant?: 'button' | 'icon'
   disabled?: boolean
+  // Opens the menu as it mounts, for a trigger mounted by being pressed.
+  defaultOpen?: boolean
 }
 
 export function DownloadDropdown({
   gitRef,
   variant = 'button',
   disabled,
+  defaultOpen,
 }: DownloadDropdownProps) {
   const { t } = useLingui()
   const [busy, setBusy] = useState<Format | null>(null)
@@ -81,7 +84,7 @@ export function DownloadDropdown({
     )
 
   return (
-    <DropdownMenu>
+    <DropdownMenu defaultOpen={defaultOpen}>
       {variant === 'icon' ? (
         <Tooltip>
           <TooltipTrigger asChild>
