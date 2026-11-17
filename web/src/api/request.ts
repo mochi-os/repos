@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
-import type { AxiosRequestConfig } from 'axios'
 import {
   createAppClient,
   getApiBasepath,
@@ -11,6 +10,8 @@ import {
   isDomainEntityRouting,
   requestHelpers,
   shellSaveBlob,
+  type HttpMethodConfig,
+  type HttpRequestConfig,
 } from '@mochi/web'
 import endpoints from './endpoints'
 
@@ -122,7 +123,7 @@ function unwrapData<T>(responseData: unknown): T {
 export const reposRequest = {
   get: async <TResponse>(
     url: string,
-    config?: Omit<AxiosRequestConfig, 'url' | 'method'>
+    config?: Omit<HttpRequestConfig, 'url' | 'method'>
   ): Promise<TResponse> => {
     return unwrapData<TResponse>(
       await client.get<unknown>(url, withBase(config))
@@ -132,7 +133,7 @@ export const reposRequest = {
   post: async <TResponse, TBody = unknown>(
     url: string,
     data?: TBody,
-    config?: Omit<AxiosRequestConfig<TBody>, 'url' | 'method' | 'data'>
+    config?: HttpMethodConfig<TBody>
   ): Promise<TResponse> => {
     return unwrapData<TResponse>(
       await client.post<unknown, TBody>(url, data, withBase(config))
@@ -144,11 +145,10 @@ export const reposRequest = {
   download: async (
     url: string,
     fallbackFilename: string,
-    config?: Omit<AxiosRequestConfig, 'url' | 'method' | 'responseType'>
+    config?: Omit<HttpRequestConfig, 'url' | 'method' | 'responseType'>
   ): Promise<void> => {
-    const response = await client.instance.get(
-      url,
-      withBase({ ...config, responseType: 'blob' as const })
+    const response = await client.request<Blob>(
+      withBase({ ...config, method: 'GET', url, responseType: 'blob' as const })
     )
     const cd = response.headers['content-disposition'] as string | undefined
     const match = cd?.match(/filename="?([^";]+)"?/)
@@ -157,7 +157,7 @@ export const reposRequest = {
     // iframe; shellSaveBlob hands the blob to the parent shell to save. The
     // empty Error message makes normalizeError fall through to the caller's
     // translated fallback.
-    if (!(await shellSaveBlob(response.data as Blob, filename))) {
+    if (!(await shellSaveBlob(response.data, filename))) {
       throw new Error('')
     }
   },
