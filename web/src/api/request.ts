@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // This file is part of Mochi, licensed under the GNU AGPL v3 with the
 // Mochi Application Interface Exception - see license.txt and license-exception.md.
+import { notFound } from '@tanstack/react-router'
 import {
   createAppClient,
   getApiBasepath,
@@ -52,7 +53,17 @@ export function anonymousRefusal(error: unknown): boolean {
   return requestHelpers.isAuthError(error) && !isDomainEntityRouting()
 }
 
+// What names a repository in a request path: its fingerprint, its entity id,
+// or the path a domain route gives it.
+const repository = /^(?!-$)[0-9A-Za-z_-]{1,100}$/
+
+// The action prefix of the routed repository. The id is the route parameter,
+// which the router has percent-decoded, so a link could make it hold a `/`,
+// `?` or `#` and aim the page's own requests, with its token, at another
+// action of the repository (`<fp>%2F-%2Fdelete%23`): anything that does not
+// name a repository is not found, and nothing is requested.
 export function repoBasePath(repoId: string): string {
+  if (!repository.test(repoId)) throw notFound()
   const firstSegment = window.location.pathname.match(/^\/([^/]+)/)?.[1] || ''
   const isEntityContext = /^[1-9A-HJ-NP-Za-km-z]{9}$/.test(firstSegment)
   return isEntityContext || isDomainEntityRouting()
@@ -126,7 +137,7 @@ export const reposRequest = {
     config?: Omit<HttpRequestConfig, 'url' | 'method'>
   ): Promise<TResponse> => {
     return unwrapData<TResponse>(
-      await client.get<unknown>(url, withBase(config))
+      await client.get<unknown>(url, withBase(config)) // method-ok: reposRequest.get itself; the gate scans its callers
     )
   },
 
@@ -147,7 +158,7 @@ export const reposRequest = {
     fallbackFilename: string,
     config?: Omit<HttpRequestConfig, 'url' | 'method' | 'responseType'>
   ): Promise<void> => {
-    const response = await client.request<Blob>(
+    const response = await client.request<Blob>( // method-ok: reposRequest.download itself; the gate scans its callers
       withBase({ ...config, method: 'GET', url, responseType: 'blob' as const })
     )
     const cd = response.headers['content-disposition'] as string | undefined

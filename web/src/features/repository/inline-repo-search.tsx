@@ -29,8 +29,8 @@ export function InlineRepoSearch({
   const search = async (query: string): Promise<SearchResult[]> => {
     try {
       const response = await reposRequest.get<SearchResponse>(
-        `${endpoints.repo.search}?search=${encodeURIComponent(query)}`,
-        { baseURL: appBasePath() }
+        endpoints.repo.search,
+        { baseURL: appBasePath(), params: { search: query } }
       )
       return response.results ?? []
     } catch (error) {
