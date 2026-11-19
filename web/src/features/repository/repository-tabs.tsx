@@ -737,8 +737,8 @@ function AccessSettingsTab({ repoId }: { repoId: string }) {
     queryKey: ['users', 'search', userSearchQuery],
     queryFn: () =>
       reposRequest.get<{ results: Array<{ id: string; name: string }> }>(
-        `${endpoints.users.search}?q=${encodeURIComponent(userSearchQuery)}`,
-        { baseURL: appBasePath() }
+        endpoints.users.search,
+        { baseURL: appBasePath(), params: { q: userSearchQuery } }
       ),
     enabled: userSearchQuery.length >= 1,
   })
