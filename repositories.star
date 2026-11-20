@@ -24,6 +24,10 @@ def remote_error(a, response, code=502):
     status = broadcast_integer(response.get("code"), code)
     if status < 400 or status > 599:
         status = code
+    # To every client of this server 401 means the caller's own session has
+    # ended, and a peer's answer says nothing about that session.
+    if status == 401:
+        status = 502
     key = response.get("error")
     if type(key) != "string" or not key:
         key = "errors.remote"
